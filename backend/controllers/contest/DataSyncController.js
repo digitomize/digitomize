@@ -18,12 +18,12 @@ async function syncContests() {
             // Fetches all from API
             const mappedContests = await codeforcesContests.codeforces_c();
             // Insert into DB
-            await Contest.insertMany(mappedContests); 
+            await Contest.insertMany(mappedContests, { ordered: false }); 
             console.log("Codeforces contests added:", mappedContests);
         } catch (err) {
             // If Contest already present
             if (err.code === 11000)
-                console.log("Duplicate");
+                console.log("Some Duplicate(s) in Codeforces");
             else console.log("Error:", err);
         }
 
@@ -32,12 +32,12 @@ async function syncContests() {
             // Fetches all from API
             const mappedContests = await codechefContests.codechef_c();
             // Insert into DB
-            await Contest.insertMany(mappedContests); 
+            await Contest.insertMany(mappedContests, { ordered: false }); 
             console.log("CodeChef contests added:", mappedContests);
         } catch (err) {
             // If Contest already present
             if (err.code === 11000)
-                console.log("Duplicate");
+                console.log("Some Duplicate(s) in CodeChef");
             else console.log("Error:", err);
         }
 
