@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const contestSchema = new mongoose.Schema({
     host: {
         type: String,
+        lowercase: true,
         required: [true, "Host is required."],
     },
     name: {

@@ -1,8 +1,11 @@
+//? APIs to MongoDB
+
 require('dotenv').config({ path: "../../.env" });
-const express = require('express');
 const mongoose = require("mongoose");
 const codechefContests = require('./platforms/codechefController');
 const codeforcesContests = require('./platforms/codeforcesController');
+const gfgContests = require('./platforms/gfgController');
+const leetcodeContests = require('./platforms/leetcodeController');
 const Contest = require('../../models/contest/Contest');
 
 console.log(process.env.TEST);
@@ -12,6 +15,35 @@ mongoose.connect(process.env.MONGODB_URL)
 
 async function syncContests() {
     try {
+
+
+        //* LeetCode Section
+        try {
+            // Fetches all from API
+            const mappedContests = await leetcodeContests.leetcode_c();
+            // Insert into DB
+            await Contest.insertMany(mappedContests, { ordered: false }); 
+            console.log("LeetCode contests added:", mappedContests);
+        } catch (err) {
+            // If Contest already present
+            if (err.code === 11000)
+                console.log("Some Duplicate(s) in LeetCode");
+            else console.log("Error:", err);
+        }
+
+        //* GeeksforGeeks Section
+        try {
+            // Fetches all from API
+            const mappedContests = await gfgContests.geeksforgeeks_c();
+            // Insert into DB
+            await Contest.insertMany(mappedContests, { ordered: false }); 
+            console.log("GFG contests added:", mappedContests);
+        } catch (err) {
+            // If Contest already present
+            if (err.code === 11000)
+                console.log("Some Duplicate(s) in GFG");
+            else console.log("Error:", err);
+        }
 
         //* Codeforces Section
         try {
