@@ -29,6 +29,13 @@ const contestSchema = new mongoose.Schema({
     },
 }, { timestamps: true });
 
-const Contest = mongoose.model('Contest', contestSchema);
+// const Contest = mongoose.model('Contest', contestSchema);
+const UpcomingContest = mongoose.model('UpcomingContest', contestSchema);
+const AllContest = mongoose.model('AllContest', contestSchema);
 
-module.exports = Contest;
+// module.exports = Contest;
+
+module.exports = {
+  UpcomingContest,
+  AllContest,
+};

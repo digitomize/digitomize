@@ -6,72 +6,67 @@ const codechefContests = require('./platforms/codechefController');
 const codeforcesContests = require('./platforms/codeforcesController');
 const gfgContests = require('./platforms/gfgController');
 const leetcodeContests = require('./platforms/leetcodeController');
-const Contest = require('../../models/contest/Contest');
+const { UpcomingContest, AllContest } = require('../../models/contest/Contest');
 
 console.log(process.env.TEST);
 mongoose.connect(process.env.MONGODB_URL)
     .then(() => console.log("MongoDB Connected."))
     .catch((err) => console.log("Error:", err));
 
+
+
+async function addToDB(mappedContests, platform) {
+    // Separate upcoming and all contests
+    const currentTime = Date.now();
+    const upcomingContestsData = [];
+    const allContestData = [];
+
+    mappedContests.forEach((contest) => {
+      if (contest.startTimeUnix > currentTime) {
+        // Upcoming contest
+        upcomingContestsData.push(contest);
+      } else {
+        // Ended contest
+        allContestData.push(contest);
+      }
+    });
+    // Update the UpcomingContest collection
+    try {
+        await UpcomingContest.deleteMany({});
+        await UpcomingContest.insertMany(upcomingContestsData, { ordered: false });
+        console.log(`Updated upcoming contests for ${platform}`);
+        
+        // Update all collection
+        await AllContest.insertMany(allContestData, { ordered: false });
+        console.log(`Updated all contests for ${platform}`);
+    }
+    catch (err) {
+        if (err.code === 11000) {
+            console.log(`Some duplicate(s) in ${platform}`);
+        }
+        else {
+            console.log(`Error adding contests to MongoDB for ${platform}`, err);
+        }
+    }
+}
+
 async function syncContests() {
     try {
-
-
         //* LeetCode Section
-        try {
-            // Fetches all from API
-            const mappedContests = await leetcodeContests.leetcode_c();
-            // Insert into DB
-            await Contest.insertMany(mappedContests, { ordered: false }); 
-            console.log("LeetCode contests added:", mappedContests);
-        } catch (err) {
-            // If Contest already present
-            if (err.code === 11000)
-                console.log("Some Duplicate(s) in LeetCode");
-            else console.log("Error:", err);
-        }
+        const leetcodeData = await leetcodeContests.leetcode_c();
+        await addToDB(leetcodeData, "LeetCode");
 
         //* GeeksforGeeks Section
-        try {
-            // Fetches all from API
-            const mappedContests = await gfgContests.geeksforgeeks_c();
-            // Insert into DB
-            await Contest.insertMany(mappedContests, { ordered: false }); 
-            console.log("GFG contests added:", mappedContests);
-        } catch (err) {
-            // If Contest already present
-            if (err.code === 11000)
-                console.log("Some Duplicate(s) in GFG");
-            else console.log("Error:", err);
-        }
+        const geeksforgeeksData = await gfgContests.geeksforgeeks_c();
+        await addToDB(geeksforgeeksData, "GeeksForGeeks");
 
         //* Codeforces Section
-        try {
-            // Fetches all from API
-            const mappedContests = await codeforcesContests.codeforces_c();
-            // Insert into DB
-            await Contest.insertMany(mappedContests, { ordered: false }); 
-            console.log("Codeforces contests added:", mappedContests);
-        } catch (err) {
-            // If Contest already present
-            if (err.code === 11000)
-                console.log("Some Duplicate(s) in Codeforces");
-            else console.log("Error:", err);
-        }
+        const codeforcesData = await codeforcesContests.codeforces_c();
+        await addToDB(codeforcesData, "Codeforces");
 
         //* CodeChef Section
-        try {
-            // Fetches all from API
-            const mappedContests = await codechefContests.codechef_c();
-            // Insert into DB
-            await Contest.insertMany(mappedContests, { ordered: false }); 
-            console.log("CodeChef contests added:", mappedContests);
-        } catch (err) {
-            // If Contest already present
-            if (err.code === 11000)
-                console.log("Some Duplicate(s) in CodeChef");
-            else console.log("Error:", err);
-        }
+        const codechefData = await codechefContests.codechef_c();
+        await addToDB(codechefData, "CodeChef");
 
         //* All Functions Synced.
         console.log("All Contests Synced.");
