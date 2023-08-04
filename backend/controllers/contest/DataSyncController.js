@@ -14,6 +14,15 @@ mongoose.connect(process.env.MONGODB_URL)
     .catch((err) => console.log("Error:", err));
 
 
+async function clearUpcoming() {
+    try {
+        await UpcomingContest.deleteMany({}); 
+    }
+    catch (err) {
+        console.log("Error while deleting upcoming contests:", err);
+    }
+}
+
 
 async function addToDB(mappedContests, platform) {
     // Separate upcoming and all contests
@@ -21,23 +30,24 @@ async function addToDB(mappedContests, platform) {
     const upcomingContestsData = [];
     const allContestData = [];
 
-    mappedContests.forEach((contest) => {
-      if (contest.startTimeUnix > currentTime) {
-        // Upcoming contest
-        upcomingContestsData.push(contest);
-      } else {
-        // Ended contest
-        allContestData.push(contest);
-      }
-    });
+    // mappedContests.forEach((contest) => {
+    //     if (contest.startTimeUnix > currentTime) {
+    //         console.log("ADDDEDDD");
+    //     // Upcoming contest
+    //     upcomingContestsData.push(contest);
+    //   } else {
+    //     // Ended contest
+    //     allContestData.push(contest);
+    //   }
+    // });
     // Update the UpcomingContest collection
     try {
-        await UpcomingContest.deleteMany({});
-        await UpcomingContest.insertMany(upcomingContestsData, { ordered: false });
+        // await UpcomingContest.deleteMany({});
+        await UpcomingContest.insertMany(mappedContests, { ordered: false });
         console.log(`Updated upcoming contests for ${platform}`);
         
         // Update all collection
-        await AllContest.insertMany(allContestData, { ordered: false });
+        await AllContest.insertMany(mappedContests, { ordered: false });
         console.log(`Updated all contests for ${platform}`);
     }
     catch (err) {
@@ -52,6 +62,7 @@ async function addToDB(mappedContests, platform) {
 
 async function syncContests() {
     try {
+        await clearUpcoming();
         //* LeetCode Section
         const leetcodeData = await leetcodeContests.leetcode_c();
         await addToDB(leetcodeData, "LeetCode");
@@ -76,7 +87,11 @@ async function syncContests() {
 }
 
 // Fetch and sync contests on startup
-syncContests();
+// syncContests();
 
 // Schedule periodic sync every 1 hour
 setInterval(syncContests, 60 * 60 * 1000);
+
+module.exports = {
+    syncContests,
+}

@@ -30,8 +30,8 @@ const contestSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 // const Contest = mongoose.model('Contest', contestSchema);
-const UpcomingContest = mongoose.model('UpcomingContest', contestSchema);
-const AllContest = mongoose.model('AllContest', contestSchema);
+const UpcomingContest = mongoose.model('UpcomingContest', contestSchema, 'upcomingcontests');
+const AllContest = mongoose.model('AllContest', contestSchema, 'allcontests');
 
 // module.exports = Contest;
 
