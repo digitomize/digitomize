@@ -27,7 +27,7 @@ const contestSchema = new mongoose.Schema({
         type: Number,
         required: [true, "Duration is required in min."],
     },
-});
+}, { timestamps: true });
 
 const Contest = mongoose.model('Contest', contestSchema);
 
