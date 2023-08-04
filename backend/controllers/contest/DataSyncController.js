@@ -8,10 +8,7 @@ const gfgContests = require('./platforms/gfgController');
 const leetcodeContests = require('./platforms/leetcodeController');
 const { UpcomingContest, AllContest } = require('../../models/contest/Contest');
 
-console.log(process.env.TEST);
-mongoose.connect(process.env.MONGODB_URL)
-    .then(() => console.log("MongoDB Connected."))
-    .catch((err) => console.log("Error:", err));
+
 
 
 async function clearUpcoming() {
@@ -90,7 +87,7 @@ async function syncContests() {
 // syncContests();
 
 // Schedule periodic sync every 1 hour
-setInterval(syncContests, 60 * 60 * 1000);
+// setInterval(syncContests, 60 * 60 * 1000);
 
 module.exports = {
     syncContests,

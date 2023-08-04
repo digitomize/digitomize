@@ -8,7 +8,7 @@ let contestlist = []; // Variable to store contests in memory
 async function updateContests() {
     try {
         // Fetch contests from MongoDB
-        const fetchedContests = await UpcomingContest.find({host:"leetcode.com"});
+        const fetchedContests = await UpcomingContest.find();
 
         // Update the contests variable
         contestlist = fetchedContests;
@@ -20,7 +20,7 @@ async function updateContests() {
     }
 }
 
-updateContests();
+// updateContests();
 // (async () => {
 //     await updateContests();
 //     console.log("1");
@@ -35,5 +35,6 @@ async function getContestList() {
 
 
 module.exports = {
-    getContestList, // Export the contests variable
+    getContestList,
+    updateContests, // Export the contests variable
 };
