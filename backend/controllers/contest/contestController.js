@@ -8,7 +8,7 @@ let contestlist = []; // Variable to store contests in memory
 async function updateContests() {
     try {
         // Fetch contests from MongoDB
-        const fetchedContests = await UpcomingContest.find();
+        const fetchedContests = await UpcomingContest.find().select(`-_id -createdAt -updatedAt -__v`);
 
         // Update the contests variable
         contestlist = fetchedContests;

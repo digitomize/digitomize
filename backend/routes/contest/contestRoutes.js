@@ -6,15 +6,21 @@ const contestController = require("../../controllers/contest/contestController")
 
 router.get("/", async (req, res) => {
     try {
-        // await contestController.getContestList();
         const contests = await contestController.getContestList();
-        console.log(contests);
-        res.json(contests);
-    }
-    catch (err) {
+        const totalContests = contests.length;
+
+        // Create the response object with total and results fields
+        const response = {
+            total: totalContests,
+            results: contests
+        };
+
+        res.json(response);
+    } catch (err) {
         console.log("Error:", err);
     }
 });
+
 
 module.exports = router;
 
