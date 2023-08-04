@@ -5,11 +5,19 @@ const contestController = require("../../controllers/contest/contestController")
 router.get("/", async (req, res) => {
     try {
         const host = req.query.host; // Get the host query parameter
-        const platformArray = host ? host.split(",") : []; // Convert to an array
+        const vanity = req.query.vanity; // Get the vanity query parameter
+
+        // Convert host and vanity to arrays
+        const platformArray = host ? host.split(",") : [];
+        const vanityArray = vanity ? vanity.split(",") : [];
 
         const contests = await contestController.getContestList();
         const filteredContests = contests.filter((contest) => {
-            return platformArray.length === 0 || platformArray.includes(contest.host);
+            // Check if the contest host or vanity matches the provided parameters
+            return (
+                platformArray.includes(contest.host) ||
+                vanityArray.includes(contest.vanity)
+            );
         });
 
         const totalContests = filteredContests.length;
