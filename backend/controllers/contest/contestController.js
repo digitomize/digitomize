@@ -4,15 +4,14 @@ const { UpcomingContest } = require('../../models/contest/Contest');
 
 let contestlist = []; // Variable to store contests in memory
 
-// Function to fetch contests from MongoDB and update the contests variable
+//* Function to fetch contests from MongoDB and update the contestlist variable
 async function updateContests() {
     try {
-        // Fetch contests from MongoDB
+        // Fetch contests from MongoDB (without id, createdAt and updatedAt)
         const fetchedContests = await UpcomingContest.find().select(`-_id -createdAt -updatedAt -__v`);
 
-        // Update the contests variable
+        // Update the contestlist variable
         contestlist = fetchedContests;
-        console.log("INSIDE FUNCTION:",fetchedContests);
 
         console.log('Contests variable updated successfully.');
     } catch (error) {
@@ -20,21 +19,12 @@ async function updateContests() {
     }
 }
 
-// updateContests();
-// (async () => {
-//     await updateContests();
-//     console.log("1");
-
-//     // Start the interval after the initial update
-//     setInterval(updateContests, 2 * 60 * 60 * 1000);
-// })();
-
+//* Function to return contestlist
 async function getContestList() {
     return await contestlist;
 }
 
-
 module.exports = {
     getContestList,
-    updateContests, // Export the contests variable
+    updateContests,
 };
