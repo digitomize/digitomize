@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from './Button';
 import './css/Card.css'
-import gfglogo from '../gfglogo.svg'
+import geeksforgeeks from '../assets/geeksforgeeks.svg'
+import leetcode from '../assets/leetcode.svg'
+import codechef from '../assets/codechef.svg'
+import codeforces from '../assets/codeforces.svg'
 
 function Card({ contest }) {
-  const { name, startTimeUnix, url, duration } = contest;
+  const { name, startTimeUnix, url, duration, host } = contest;
   const startDate = new Date(startTimeUnix*1000)
   const options = { 
     year: 'numeric', 
@@ -24,7 +27,7 @@ console.log("rendering");
     <div className="card">
       <div className='top'>
             <p>{startTimeIST}</p>
-            <img src={gfglogo} alt="gfglogo" />
+            <img src={host} alt={host} style={{maxHeight:'50px', maxWidth:'50px'}}/>
         </div>
       <h2>{name}</h2>
       <p>Duration : {duration}min</p>
@@ -55,3 +58,7 @@ function updateTimer(startTime) {
         return <p>Time Left : {hours}h {minutes}m {seconds}s</p>
   }
 }
+
+    // const startTime = timerElement.dataset.startTime;
+    // const timerElementId = timerElement.id;
+   
