@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Element, Link } from 'react-scroll';
 import Contests from './components/Contests';
+import BgEllipse from './components/BgEllipse';
 import './styles.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className="container">
       <div className="button-container">
+        <BgEllipse/>
         {/* Scroll to Contests button */}
         <Link to="contests" smooth={true} duration={500}>
           <button className="button">Scroll to Contests</button>
