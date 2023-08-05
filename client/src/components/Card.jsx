@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import Button from './Button';
 import './css/Card.css'
 import geeksforgeeks from '../assets/geeksforgeeks.svg'
@@ -46,7 +46,7 @@ console.log("rendering");
   );
 }
 
-export default Card;
+export default memo(Card);
 
 
 function updateTimer(startTime) {
