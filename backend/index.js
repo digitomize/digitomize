@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors');
 require('dotenv').config();
 const mongoose = require("mongoose");
 const dataSyncer = require("./controllers/contest/DataSyncController");
@@ -12,12 +13,14 @@ console.log(process.env.TEST);
 async function startServer() {
     try {
         const app = express();
-        
+
+        app.use(cors());
+
         //* Connects MongoDB
         await mongoose.connect(process.env.MONGODB_URL)
             .then(() => console.log("MongoDB Connected."))
             .catch((err) => console.log("Error:", err));
-        
+
         //* Fetches data from APIs to MongoDB
         await dataSyncer.syncContests();
         setInterval(dataSyncer.syncContests, 60 * 60 * 1000);
