@@ -48,7 +48,7 @@ async function leetcode_c() {
           const contests = json.data.allContests
             .filter(c => c.startTime > currentTimestamp) // Filter contests with start time in the future
             .map(c => ({
-                host: 'leetcode.com',
+                host: 'leetcode',
                 name: c.title,
                 vanity: c.titleSlug,
                 url: `https://leetcode.com/contest/${c.titleSlug}`,
