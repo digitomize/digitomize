@@ -28,7 +28,7 @@ async function geeksforgeeks_c() {
                     const contestList = JSON.parse(list.toString());
                     // console.log(contestList.results.upcoming);
                     const filteredContests = contestList.results.upcoming.map((contest) => ({
-                        host: "geeksforgeeks.com",
+                        host: "geeksforgeeks",
                         name: contest.name,
                         vanity: contest.slug,
                         url: "https://practice.geeksforgeeks.org/contest/" + contest.slug,

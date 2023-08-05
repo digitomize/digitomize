@@ -29,7 +29,7 @@ async function codechef_c() {
                     const futureContests = contestList.future_contests;
                     // console.log("Future Contests:", futureContests);
                     const formattedContests = futureContests.map((contest) => ({
-                        host: "codechef.com",
+                        host: "codechef",
                         name: contest.contest_name,
                         vanity: contest.contest_code,
                         url: "https://www.codechef.com/" + contest.contest_code,

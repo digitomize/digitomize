@@ -31,7 +31,7 @@ async function codeforces_c() {
           );
             // console.log("CF", filteredContests);
             const contestsWithHost = filteredContests.map((contest) => ({
-                host: "codeforces.com",
+                host: "codeforces",
                 name: contest.name,
                 vanity: contest.id,
                 url: "https://codeforces.com/contest/" + contest.id,
