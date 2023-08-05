@@ -6,6 +6,15 @@ import leetcode from '../assets/leetcode.svg'
 import codechef from '../assets/codechef.svg'
 import codeforces from '../assets/codeforces.svg'
 
+const hostToSVGMap = {
+  leetcode: leetcode,
+  codeforces: codeforces,
+  geeksforgeeks: geeksforgeeks,
+  codechef:codechef,
+  // Add other hosts and their corresponding SVG variables here
+};
+
+
 function Card({ contest }) {
   const { name, startTimeUnix, url, duration, host } = contest;
   const startDate = new Date(startTimeUnix*1000)
@@ -27,7 +36,7 @@ console.log("rendering");
     <div className="card">
       <div className='top'>
             <p>{startTimeIST}</p>
-            <img src={host} alt={host} style={{maxHeight:'50px', maxWidth:'50px'}}/>
+            <img src={hostToSVGMap[host]} alt={host} style={{maxHeight:'50px', maxWidth:'50px'}}/>
         </div>
       <h2>{name}</h2>
       <p>Duration : {duration}min</p>
