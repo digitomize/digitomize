@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Element, Link } from 'react-scroll';
 import Contests from './components/Contests';
+import './styles.css';
 
 function App() {
   const [contestsData, setContestsData] = useState([]);
@@ -13,9 +15,18 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <h1>Contests List</h1>
-      <Contests contests={contestsData} />
+    <div className="container">
+      <div className="button-container">
+        {/* Scroll to Contests button */}
+        <Link to="contests" smooth={true} duration={500}>
+          <button className="button">Scroll to Contests</button>
+        </Link>
+      </div>
+
+      {/* Add an Element with the name "contests" */}
+      <Element name="contests" className="contests-container">
+        <Contests contests={contestsData} />
+      </Element>
     </div>
   );
 }
