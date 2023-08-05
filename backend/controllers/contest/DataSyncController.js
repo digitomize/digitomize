@@ -20,6 +20,8 @@ async function clearUpcoming() {
 //* Add contest using API
 async function addToDB(mappedContests, platform) {
     try {
+        //Sorting contests
+        mappedContests.sort((a, b) => a.startTimeUnix - b.startTimeUnix);
         // Add to UpcomingContest collection
         await UpcomingContest.insertMany(mappedContests, { ordered: false });
         console.log(`Updated upcoming contests for ${platform}`);
