@@ -26,7 +26,7 @@ async function geeksforgeeks_c() {
             response.on("end", function () {
                 try {
                     const contestList = JSON.parse(list.toString());
-                    // console.log(contestList.results.upcoming);
+                    console.log(contestList.results.upcoming);
                     const filteredContests = contestList.results.upcoming.map((contest) => ({
                         host: "geeksforgeeks",
                         name: contest.name,
