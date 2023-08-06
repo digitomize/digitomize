@@ -25,15 +25,15 @@ body {
 }
 .button-container h1 {
     color: #FFF;
-    text-align:center;
+    /* text-align:center; */
     font-family: Outfit;
     font-size: 5.625rem;
     font-weight: 800;
     line-height: normal;
     letter-spacing: 0.188rem;
     text-transform: uppercase;
-    margin-left: 1.2em;
-    margin-right: 1.2em;
+    /* margin-left: 1.2em;
+    margin-right: 1.2em; */
     margin-bottom: 1.5%;
 }
 .button-container p {
@@ -71,10 +71,10 @@ svg {
 }
 
 .contests-container {
-  height: 100vh;
+  /* height: 100vh; */
   z-index: 1;
-  margin-right: 0;
-  padding-right: 0;
+  /* margin-right: 0;
+  padding-right: 0; */
 }
 
 /* @media (min-width: 640px) {
