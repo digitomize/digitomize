@@ -77,8 +77,8 @@ function App() {
             options={{loop:true, delay:100}}
                 onInit={(typewriter) => {
                     typewriter
-                        .typeString("Crack the Code, Claim the Crown - Your Gateway to Coding Supremacy!")
-                        .pauseFor(100)
+                        .typeString(`#include "contests/upcoming"`)
+                        .pauseFor(10000)
                         // .typeString("Welcomes You")
                         .start();
                 }}
