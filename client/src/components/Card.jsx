@@ -47,7 +47,7 @@ useEffect(() => {
       <div className='lower_button'>
         <div className='inner_lower'>
       <p>Duration : {duration}min</p>
-          <p>{remaningTime}</p>
+          <div>{remaningTime}</div>
           </div>
         <Button url={url} />
         </div>

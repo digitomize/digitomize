@@ -3,20 +3,48 @@ import { Element, Link } from "react-scroll";
 import Contests from "./components/Contests";
 import BgEllipse from "./components/BgEllipse";
 // import Container from '@mui/material/Container';
-import { Typography, Container } from "@mui/material";
+import { Typography, Container, Chip, Box, FormControl, InputLabel, OutlinedInput, Select,MenuItem } from "@mui/material";
 import "./App.css";
+import { pink } from "@mui/material/colors";
 
+const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+const platforms = [
+  "LeetCode",
+  "GeeksforGeeks",
+  "CodeChef",
+  "Codeforces"
+  // Add more platforms as needed
+];
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+  PaperProps: {
+    style: {
+      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      width: 250,
+      backgroundColor: '#252525',
+      color:'white',
+      borderRadius: '10px',
+    },
+  },
+};
 function App() {
-  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   const [contestsData, setContestsData] = useState([]);
+  const [selectedPlatforms, setSelectedPlatforms] = useState([]);
 
   useEffect(() => {
     // Fetch data from the backend API
-    fetch(backendUrl)
+    const selectedPlatformsParam = selectedPlatforms.join(",");
+    const url = selectedPlatformsParam
+      ? `${backendUrl}?host=${selectedPlatformsParam}`
+      : backendUrl;
+
+    fetch(url)
       .then((response) => response.json())
       .then((data) => setContestsData(data.results))
       .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+  }, [selectedPlatforms]);
 
   return (
     // <Container maxWidth="xl">
@@ -31,7 +59,7 @@ function App() {
             Crack the Code, Claim the Crown - Your Gateway to Coding Supremacy!
           </p>
           {/* Scroll to Contests button */}
-          <Link to="contests" smooth={true} duration={500}>
+          <Link to="newHead" smooth={true} duration={500}>
             <button className="button">
               go to contests
               <svg
@@ -45,7 +73,40 @@ function App() {
               </svg>
             </button>
           </Link>
+      </div>
+      
+      <Element name="newHead">
+        <h2>Contests</h2>
+        </Element>
+      {/* <------ Filter for Contest | STARTS------> */}
+      <div className="filter-div">
+        <FormControl variant="filled" sx={{ m: 1, width: 300 }} className="filter">
+        <InputLabel variant="filled" id="platform-select-label">Platform</InputLabel>
+          <Select
+          labelId="platform-select-label"
+          id="platform-select"
+          multiple
+          value={selectedPlatforms}
+          onChange={(e) => setSelectedPlatforms(e.target.value)}
+          input={<OutlinedInput placeholder="Please enter text" />}
+          renderValue={(selected) => (
+            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+              {selected.map((value) => (
+                <Chip key={value} label={value} />
+              ))}
+            </Box>
+          )}
+          MenuProps={MenuProps}
+        >
+          {platforms.map((platform) => (
+            <MenuItem key={platform} value={platform}>
+              {platform}
+            </MenuItem>
+          ))}
+        </Select>
+        </FormControl>
         </div>
+      {/* <------ Filter for Contest | ENDS ------> */}
 
         {/* Add an Element with the name "contests" */}
         <Element name="contests" className="contests-container">
