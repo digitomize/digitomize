@@ -31,7 +31,7 @@ body {
     font-weight: 800;
     line-height: normal;
     letter-spacing: 0.188rem;
-    text-transform: uppercase;
+    text-transform: lowercase;
     /* margin-left: 1.2em;
     margin-right: 1.2em; */
     margin-bottom: 1.5%;
@@ -62,7 +62,7 @@ body {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    text-transform: uppercase;
+    text-transform: lowercase;
 }
 svg {
     padding-left: 5%;
