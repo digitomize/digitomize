@@ -5,9 +5,16 @@ const contestController = require("../../controllers/contest/contestController")
 // GET route for contests
 router.get("/", async (req, res) => {
     try {
-        const host = req.query.host.toLocaleLowerCase(); // Get the 'host' query parameter
-        const vanity = req.query.vanity.toLocaleLowerCase(); // Get the 'vanity' query parameter
+        let host = req.query.host; // Get the 'host' query parameter
+        let vanity = req.query.vanity; // Get the 'vanity' query parameter
 
+        if (host) {
+            host = host.toLowerCase();
+        }
+
+        if (vanity) {
+            vanity = vanity.toLowerCase();
+        }
         // Convert 'host' and 'vanity' to arrays
         const platformArray = host ? host.split(",") : [];
         const vanityArray = vanity ? vanity.split(",") : [];
