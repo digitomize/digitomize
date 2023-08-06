@@ -31,11 +31,10 @@ const [remaningTime, setRemainingTime] = useState(null)
 setInterval(() => {
   setRemainingTime(updateTimer(startTimeUnix));
 }, 1000);
-console.log("rendering");
   return (
     <div className="card">
       <div className='top'>
-            <p>{startTimeIST}</p>
+            <p id='startTime'>{startTimeIST}</p>
             <img src={hostToSVGMap[host]} alt={host} style={{maxHeight:'50px', maxWidth:'50px'}}/>
         </div>
       <h2>{name}</h2>

@@ -1,0 +1,18 @@
+h2 {
+    color: #FFF;
+    font-family: Outfit;
+    font-size: 4.375rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-left: 3%;
+}
+.allContests{
+    margin: 2% auto;
+}
+@media (max-width: 640px) {
+    .allContests h2 {
+        text-align: center;
+    }
+}

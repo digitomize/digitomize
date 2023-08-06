@@ -1,14 +1,15 @@
 /* Card.css */
 .card {
-    width: 300px;
+    width: 340px;
     height: auto;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     padding:3%;
     border-radius: 10px;
     background: #191919;
     transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
     display: flex;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border: 10px linear-gradient(45deg, #8D41AA 0%, #BA356C 34.38%, #F22C30 60.94%, #F8573A 79.69%, #FCBB57 100%);
   }
   
@@ -30,7 +31,8 @@
   
   .card:hover {
     animation: gradientChange 0.15s ease-in-out forwards;
-    transform: scale(1.1);
+    transform: scale(1.05);
+
   }
   .top {
     display: flex;
@@ -40,3 +42,18 @@
     display: flex;
     justify-content: space-between;
   }
+.card h2 {
+  font-size: 30px;
+}
+#startTime {
+  font-size: 20px;
+}
+.card p {
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-transform: uppercase;
+}
