@@ -44,6 +44,9 @@ async function addToDB(mappedContests, platform) {
 
 async function syncContests() {
     try {
+        console.log("===============================================");
+        console.log("Syncing Data | API to MongoDB");
+        console.log("===============================================");
 
         //* Clearing the UpcomingContest collection
         await clearUpcoming();
@@ -65,7 +68,9 @@ async function syncContests() {
         await addToDB(codechefData, "CodeChef");
 
         //* All Functions Synced.
-        console.log("All Contests Synced.");
+        console.log("===============================================");
+        console.log("All Contests Synced. | API to MongoDB");
+        console.log("===============================================");
     } catch (error) {
         console.log("Error fetching or syncing contests:", error);
     }
