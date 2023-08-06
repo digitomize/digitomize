@@ -3,15 +3,8 @@ import { Element, Link } from "react-scroll";
 import Contests from "./components/Contests";
 import BgEllipse from "./components/BgEllipse";
 import "./App.css";
-import ReactGA from 'react-ga';
-const TRACKING_ID = "G-E2Z30GFGEB"; // OUR_TRACKING_ID
-
-ReactGA.initialize(TRACKING_ID);
 
 function App() {
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, []);
   const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   const [contestsData, setContestsData] = useState([]);
 
