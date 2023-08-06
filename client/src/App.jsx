@@ -5,11 +5,12 @@ import BgEllipse from "./components/BgEllipse";
 import "./App.css";
 
 function App() {
+  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   const [contestsData, setContestsData] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the backend API (assuming it's running on localhost:4001)
-    fetch("http://localhost:4001/api/contests")
+    // Fetch data from the backend API
+    fetch(backendUrl)
       .then((response) => response.json())
       .then((data) => setContestsData(data.results))
       .catch((error) => console.error("Error fetching data:", error));
