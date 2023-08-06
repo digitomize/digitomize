@@ -5,6 +5,7 @@ import BgEllipse from "./components/BgEllipse";
 // import Container from '@mui/material/Container';
 import { Typography, Container, Chip, Box, FormControl, InputLabel, OutlinedInput, Select,MenuItem } from "@mui/material";
 import "./App.css";
+import Typewriter from "typewriter-effect";
 import { pink } from "@mui/material/colors";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
@@ -50,13 +51,38 @@ function App() {
     // <Container maxWidth="xl">
       <div className="container">
         <BgEllipse />
-        <div className="button-container">
+      <div className="button-container">
+        {/* <div className="heading">
+        <Typography variant="h1" align="center">
+          <Typewriter
+            options={{loop:true}}
+                onInit={(typewriter) => {
+                    typewriter
+                        .typeString("Your Ultimate Contest List")
+                        .pauseFor(1000)
+                        .deleteAll()
+                        // .typeString("Welcomes You")
+                        .start();
+                }}
+            />
+            </Typography>
+        </div> */}
           <Typography variant="h1" align="center">
           Your Ultimate Contest List
           </Typography>
           {/* <h1 variant="h1">Your Ultimate Contest List</h1> */}
           <p>
-            Crack the Code, Claim the Crown - Your Gateway to Coding Supremacy!
+          
+          <Typewriter
+            options={{loop:true, delay:100}}
+                onInit={(typewriter) => {
+                    typewriter
+                        .typeString("Crack the Code, Claim the Crown - Your Gateway to Coding Supremacy!")
+                        .pauseFor(100)
+                        // .typeString("Welcomes You")
+                        .start();
+                }}
+            />
           </p>
           {/* Scroll to Contests button */}
           <Link to="newHead" smooth={true} duration={500}>
