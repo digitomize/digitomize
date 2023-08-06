@@ -77,6 +77,26 @@ svg {
   padding-right: 0; */
 }
 
+.filter-div {
+    align-self: center;
+    background-color: #1E1E1E;
+    width: 90%;
+    border-radius: 200px;
+    padding: 1%;
+    position: sticky;
+    top: 0;
+}
+
+.filter{
+    background-color: #D9D9D9;
+    border-radius: 200px;
+}
+
+/* For the Blue Outline on selection box in filter */
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: transparent !important;
+}
+
 /* @media (min-width: 640px) {
     .container {
         max-width: 640px;
