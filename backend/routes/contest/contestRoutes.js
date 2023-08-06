@@ -5,8 +5,8 @@ const contestController = require("../../controllers/contest/contestController")
 // GET route for contests
 router.get("/", async (req, res) => {
     try {
-        const host = req.query.host; // Get the 'host' query parameter
-        const vanity = req.query.vanity; // Get the 'vanity' query parameter
+        const host = req.query.host.toLocaleLowerCase(); // Get the 'host' query parameter
+        const vanity = req.query.vanity.toLocaleLowerCase(); // Get the 'vanity' query parameter
 
         // Convert 'host' and 'vanity' to arrays
         const platformArray = host ? host.split(",") : [];
