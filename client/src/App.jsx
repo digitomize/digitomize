@@ -19,7 +19,7 @@ function App() {
   }, []);
 
   return (
-    <Container maxWidth="xl">
+    // <Container maxWidth="xl">
       <div className="container">
         <BgEllipse />
         <div className="button-container">
@@ -52,7 +52,7 @@ function App() {
           <Contests contests={contestsData} />
         </Element>
       </div>
-    </Container>
+    // </Container>
   );
 }
 
