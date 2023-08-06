@@ -44,6 +44,8 @@
   }
 .card h2 {
   font-size: 30px;
+  margin-bottom: auto;
+  margin-left: 0;
 }
 #startTime {
   font-size: 20px;
