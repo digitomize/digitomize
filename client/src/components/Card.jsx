@@ -38,7 +38,8 @@ useEffect(() => {
   };
 }, [startTimeUnix]);
   return (
-    <div className="card">
+<a href={url} target="_blank" rel="noopener noreferrer" className="card" style={{ textDecoration: 'none' }}>
+    {/* <div className="card"> */}
       <div className='top'>
             <p id='startTime'>{startTimeIST}</p>
             <img src={hostToSVGMap[host]} alt={host} style={{maxHeight:'50px', maxWidth:'50px'}}/>
@@ -51,7 +52,8 @@ useEffect(() => {
           </div>
         <Button url={url} />
         </div>
-    </div>
+    {/* </div> */}
+    </a>
   );
 }
 

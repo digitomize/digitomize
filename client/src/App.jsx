@@ -112,6 +112,13 @@ function App() {
         <Element name="contests" className="contests-container">
           <Contests contests={contestsData} />
         </Element>
+        <div className="container containerBottom">
+          <div id="footer">
+            <h2>Hey, it’s open-source!</h2>
+            <h2>Loved our project ❤️ ?</h2>
+            <h2>Consider contributing on <a href="https://github.com/pranshugupta54/digitomize" target="_blank" rel="noopener noreferrer" style={{color:'#4DA9FF'}}>GitHub</a></h2>
+          </div>
+        </div>
       </div>
     // </Container>
   );

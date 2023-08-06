@@ -96,7 +96,35 @@ svg {
 .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: transparent !important;
 }
-
+.containerBottom {
+    background: linear-gradient(
+    270deg,
+    #8D41AA 0%,
+    #BA356C 17.71%,
+    #F22C30 42.19%,
+    #F8573A 71.88%,
+    #FCBB57 100%
+  );
+  background-position: bottom;
+  background-size: 100% 5px; /* Adjust the size of the gradient line as needed */
+  background-repeat: no-repeat;
+}
+#footer {
+    max-width: 80%;
+    margin-top: 10%;
+    padding-bottom: 5%;
+}
+#footer h2 {
+    color: rgba(255, 255, 255, 0.75);
+    font-family: Outfit;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: none;
+    margin-top: 3px;
+    margin-bottom: 0;
+}
 /* @media (min-width: 640px) {
     .container {
         max-width: 640px;

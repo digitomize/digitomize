@@ -1,0 +1,10 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+
+}
+.right {
+    display: flex;
+    align-self: flex-end;
+}
