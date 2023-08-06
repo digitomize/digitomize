@@ -22,6 +22,7 @@ async function addToDB(mappedContests, platform) {
     try {
         //Sorting contests
         mappedContests.sort((a, b) => a.startTimeUnix - b.startTimeUnix);
+        console.log(mappedContests);
         // Add to UpcomingContest collection
         await UpcomingContest.insertMany(mappedContests, { ordered: false });
         console.log(`Updated upcoming contests for ${platform}`);
