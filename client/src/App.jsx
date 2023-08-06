@@ -9,10 +9,10 @@ import { pink } from "@mui/material/colors";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 const platforms = [
-  "LeetCode",
-  "GeeksforGeeks",
-  "CodeChef",
-  "Codeforces"
+  "leetcode",
+  "geeksforgeeks",
+  "codechef",
+  "codeforces"
   // Add more platforms as needed
 ];
 
@@ -81,7 +81,7 @@ function App() {
       {/* <------ Filter for Contest | STARTS------> */}
       <div className="filter-div">
         <FormControl variant="filled" sx={{ m: 1, minWidth: 300 }} className="filter">
-        <InputLabel variant="filled" id="platform-select-label">Platform</InputLabel>
+        <InputLabel variant="filled" id="platform-select-label">platform</InputLabel>
           <Select
           labelId="platform-select-label"
           id="platform-select"

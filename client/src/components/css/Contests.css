@@ -3,9 +3,9 @@ h2 {
     font-family: Outfit;
     font-size: 4.375rem;
     font-style: normal;
-    font-weight: 800;
+    font-weight: 600;
     line-height: normal;
-    text-transform: uppercase;
+    text-transform: lowercase;
     margin-left: 3%;
 }
 .allContests{
