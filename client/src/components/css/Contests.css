@@ -11,7 +11,7 @@ h2 {
 .allContests{
     margin: 2% auto;
 }
-@media (max-width: 640px) {
+@media (max-width: 1067px) {
     .allContests h2 {
         text-align: center;
     }
