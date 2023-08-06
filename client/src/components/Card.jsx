@@ -1,4 +1,4 @@
-import { useState, memo } from 'react';
+import { useState, useEffect, memo } from 'react';
 import Button from './Button';
 import './css/Card.css'
 import geeksforgeeks from '../assets/geeksforgeeks.svg'
@@ -28,9 +28,15 @@ function Card({ contest }) {
 };
 const startTimeIST = startDate.toLocaleString('en-US', options)
 const [remaningTime, setRemainingTime] = useState("0")
-setInterval(() => {
-  setRemainingTime(updateTimer(startTimeUnix));
-}, 1000);
+useEffect(() => {
+  const intervalId = setInterval(() => {
+    setRemainingTime(updateTimer(startTimeUnix));
+  }, 1000);
+
+  return () => {
+    clearInterval(intervalId);
+  };
+}, [startTimeUnix]);
   return (
     <div className="card">
       <div className='top'>
