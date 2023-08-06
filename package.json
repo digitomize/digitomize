@@ -1,27 +1,27 @@
 {
-  "name": "digitomize",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "concurrently \"cd backend && npm run start\" \"cd frontend && npm build\"",
-    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pranshugupta54/digitomize.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/pranshugupta54/digitomize/issues"
-  },
-  "homepage": "https://github.com/pranshugupta54/digitomize#readme",
-  "devDependencies": {
-    "concurrently": "^8.2.0"
-  },
-  "dependencies": {
-    "dotenv": "^16.3.1"
+    "name": "digitomize",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "build": "concurrently \"cd backend && npm run start\" \"cd frontend && npm build\"",
+      "dev": "concurrently \"cd backend && npm run dev\" \"cd client && npm run dev\"",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/pranshugupta54/digitomize.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+      "url": "https://github.com/pranshugupta54/digitomize/issues"
+    },
+    "homepage": "https://github.com/pranshugupta54/digitomize#readme",
+    "devDependencies": {
+      "concurrently": "^8.2.0"
+    },
+    "dependencies": {
+      "dotenv": "^16.3.1"
+    }
   }
-}

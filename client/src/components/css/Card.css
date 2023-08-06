@@ -1,0 +1,42 @@
+/* Card.css */
+.card {
+    width: 300px;
+    height: auto;
+    margin-bottom: 5%;
+    padding:3%;
+    border-radius: 10px;
+    background: #191919;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    border: 10px linear-gradient(45deg, #8D41AA 0%, #BA356C 34.38%, #F22C30 60.94%, #F8573A 79.69%, #FCBB57 100%);
+  }
+  
+  @keyframes gradientChange {
+    0% {
+      background: #191919;
+    }
+    100% {
+      background: radial-gradient(
+        circle at top left,
+        #8d41aa 0%,
+        #ba356c 34.38%,
+        #f22c30 60.94%,
+        #f8573a 79.69%,
+        #fcbb57 100%
+      );
+    }
+  }
+  
+  .card:hover {
+    animation: gradientChange 0.15s ease-in-out forwards;
+    transform: scale(1.1);
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+  }
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+  }

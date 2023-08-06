@@ -1,0 +1,41 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  height: 100vh; /* Set the container height to 100% of viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container {
+  /* flex: 1; The button container will take the first half of the viewport height */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  background-color: white;
+  color: black;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #f1f1f1;
+}
+
+.contests-container {
+  height: 100vh;
+}
