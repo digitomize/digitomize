@@ -27,7 +27,7 @@ function Card({ contest }) {
     timeZone: 'Asia/Kolkata' 
 };
 const startTimeIST = startDate.toLocaleString('en-US', options)
-const [remaningTime, setRemainingTime] = useState(null)
+const [remaningTime, setRemainingTime] = useState("0")
 setInterval(() => {
   setRemainingTime(updateTimer(startTimeUnix));
 }, 1000);
@@ -38,9 +38,13 @@ setInterval(() => {
             <img src={hostToSVGMap[host]} alt={host} style={{maxHeight:'50px', maxWidth:'50px'}}/>
         </div>
       <h2>{name}</h2>
+      <div className='lower_button'>
+        <div className='inner_lower'>
       <p>Duration : {duration}min</p>
-      <p>{remaningTime}</p>
-      <Button url={url} />
+          <p>{remaningTime}</p>
+          </div>
+        <Button url={url} />
+        </div>
     </div>
   );
 }
@@ -54,7 +58,7 @@ function updateTimer(startTime) {
   const timeDiff = startTime - currentTime;
 
   if (timeDiff <= 0) {
-   return <p>0 seconds remaning</p>
+   return <p>Time Left: 0h 0m 0s</p>
   } else {
         const days = Math.floor(timeDiff / 86400);
         const hours = Math.floor((timeDiff % 86400) / 3600);
