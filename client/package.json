@@ -18,7 +18,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-responsive": "^9.0.2",
-    "react-scroll": "^1.8.9"
+    "react-scroll": "^1.8.9",
+    "typewriter-effect": "^2.20.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
