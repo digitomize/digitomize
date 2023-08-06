@@ -21,13 +21,14 @@ async function startServer() {
             .then(() => console.log("MongoDB Connected."))
             .catch((err) => console.log("Error:", err));
 
-        //* Fetches data from APIs to MongoDB
-        await dataSyncer.syncContests();
-        setInterval(dataSyncer.syncContests, 60 * 60 * 1000);
-
         //* Adds data from MongoDB to contestlist variable
         await contestSyncer.updateContests();
         setInterval(contestSyncer.updateContests, 60 * 60 * 1000);
+
+        //* Fetches data from APIs to MongoDB
+        await dataSyncer.syncContests();
+        setInterval(dataSyncer.syncContests, 90 * 60 * 1000);
+
 
         //* GET route for contests
         app.use("/api/contests", contestRouter);
@@ -35,7 +36,7 @@ async function startServer() {
         //* PORT for server
         const port = process.env.PORT || 3000;
         app.listen(port, () => {
-            console.log(`Server listening on port ${port}`);
+            console.log(`<--- Server listening on port ${port} --->`);
         });
 
     }
