@@ -80,7 +80,7 @@ function App() {
         </Element>
       {/* <------ Filter for Contest | STARTS------> */}
       <div className="filter-div">
-        <FormControl variant="filled" sx={{ m: 1, width: 300 }} className="filter">
+        <FormControl variant="filled" sx={{ m: 1, minWidth: 300 }} className="filter">
         <InputLabel variant="filled" id="platform-select-label">Platform</InputLabel>
           <Select
           labelId="platform-select-label"
