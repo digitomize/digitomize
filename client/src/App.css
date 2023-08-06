@@ -4,38 +4,102 @@ body {
   padding: 0;
   background-color: black;
   color: white;
-  height: 100%;
-  font-family: Arial, sans-serif;
-}
+  font-family: 'Outfit', sans-serif;}
 
 .container {
   height: 100vh; /* Set the container height to 100% of viewport height */
   display: flex;
   flex-direction: column;
+  margin: 0;
+  width: 100%;
 }
 
 .button-container {
   /* flex: 1; The button container will take the first half of the viewport height */
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 1;
+}
+.button-container h1 {
+    color: #FFF;
+    text-align:center;
+    font-family: Outfit;
+    font-size: 5.625rem;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: 0.188rem;
+    text-transform: uppercase;
+    margin-left: 1.2em;
+    margin-right: 1.2em;
+    margin-bottom: 1.5%;
+}
+.button-container p {
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    font-family: Outfit;
+    font-size: 1.563rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-transform: lowercase;
+    margin-bottom:5%;
 }
 
 .button {
-  background-color: white;
-  color: black;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
+    width: 31.25rem;
+    height: 6.25rem;
+    background: white;
+    color: black;
+    border-radius: 6.25rem;
+    padding: 12px 2px;
+    border: none;
+    cursor: pointer;
+    font-family: Outfit;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
 }
-
-.button:hover {
-  background-color: #f1f1f1;
+svg {
+    padding-left: 5%;
+    transform: rotate(-1.005deg);
+    fill: black;
 }
 
 .contests-container {
   height: 100vh;
+  z-index: 1;
+  margin-right: 0;
+  padding-right: 0;
 }
+
+/* @media (min-width: 640px) {
+    .container {
+        max-width: 640px;
+    }
+}
+@media (min-width: 768px) {
+    .container {
+        max-width: 768px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+    }
+}
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1280px;
+    }
+}
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1536px;
+    }
+} */
