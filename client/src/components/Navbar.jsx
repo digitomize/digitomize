@@ -7,7 +7,7 @@ function Navbar() {
             <p>Contest List</p>
         </div>
         <div className='right'>
-           <p>helo</p>
+           <p>HELLO</p>
         </div>
     </nav>
   )
