@@ -5,9 +5,21 @@ const mongoose = require("mongoose");
 const dataSyncer = require("./controllers/contest/DataSyncController");
 const contestSyncer = require("./controllers/contest/contestController");
 const contestRouter = require("./routes/contest/contestRoutes");
+const fetchContestsData = require('./fetchContests');
 
 //* Check for ENV file
 console.log(process.env.TEST);
+
+async function main() {
+  try {
+    console.log('Pinging...');
+    const contestsData = await fetchContestsData();
+    console.log('Pong!');
+  } catch (error) {
+    console.error('Error pinging the server:', error);
+  }
+}
+
 
 //* Function to start server with MongoDB and UpcomingContest list.
 async function startServer() {
@@ -28,6 +40,18 @@ async function startServer() {
         //* Fetches data from APIs to MongoDB
         await dataSyncer.syncContests();
         setInterval(dataSyncer.syncContests, 90 * 60 * 1000);
+
+        //Pinging the server every 14min
+        await main();
+        setInterval(async () => {
+            try {
+                main();
+                console.log('<=======Sent GET request to AWAKE');
+            } catch (error) {
+                console.error('Error Pinging', error);
+            }
+        }, 14 * 60 * 1000);
+        
 
 
         //* GET route for contests
