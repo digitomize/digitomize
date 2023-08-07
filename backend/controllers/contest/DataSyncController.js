@@ -10,12 +10,15 @@ const { UpcomingContest, AllContest } = require('../../models/contest/Contest');
 //* Clear the UpcomingContest collection in MongoDB
 async function clearUpcoming() {
     try {
-        await UpcomingContest.deleteMany({}); 
+        const currentTime = Math.floor(Date.now() / 1000);
+        await UpcomingContest.deleteMany({ startTimeUnix: { $lt: currentTime } }); 
+        console.log('Deleted upcoming contests with start time before now.');
     }
     catch (err) {
         console.log("Error while deleting upcoming contests:", err);
     }
 }
+
 
 //* Add contest using API
 async function addToDB(mappedContests, platform) {
