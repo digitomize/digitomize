@@ -1,9 +1,9 @@
 const https = require('https');
-
+require('dotenv').config();
 async function fetchContestsData() {
   return new Promise((resolve, reject) => {
     const options = {
-      hostname: 'digitomize-backend.onrender.com',
+      hostname: process.env.BACKEND_URL,
       path: '/api/contests',
       method: 'GET',
     };
