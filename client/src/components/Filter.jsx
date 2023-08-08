@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Chip, Box, FormControl, InputLabel, OutlinedInput, Select, MenuItem } from "@mui/material";
+import { Chip, Box, FormControl, InputLabel, OutlinedInput, Select, MenuItem, Checkbox, ListItemText } from "@mui/material";
 import Contests from './Contests';
 import { Element } from "react-scroll";
 import "./css/Filter.css"
@@ -10,11 +10,14 @@ const ITEM_PADDING_TOP = 8;
 const MenuProps = {
   PaperProps: {
     style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+      maxHeight:'none',
       width: 250,
       backgroundColor: '#252525',
       color: 'white',
-      borderRadius: '10px',
+      borderTopLeftRadius: '1px', // Add this line
+      borderTopRightRadius: '1px', // Add this line
+      borderBottomLeftRadius: '10px', // Add this line
+      borderBottomRightRadius: '10px', // Add this line
     },
   },
 };
@@ -59,13 +62,18 @@ function Filter() {
       .then((data) => setContestsData(data.results))
       .catch((error) => console.error("Error fetching data:", error));
   }, [selectedPlatforms]);
+
+
+
+ 
   return (
     <>
     {/* //checkmarks */}
       <div className={`filter-div ${isFixed ? 'fixed' : ''}`}>
-        <FormControl variant="filled" sx={{ m: 1, minWidth: 300 }} className="filter">
-          <InputLabel variant="filled" id="platform-select-label">platform</InputLabel>
+        <FormControl variant="filled" sx={{ m: 1, minWidth: 300 }} className={`filter platform-container${isFixed ? 'fixed' : ''}`}>
+          <InputLabel varianat="filled" id="platform-select-label">Platform</InputLabel>
           <Select
+          
             labelId="platform-select-label"
             id="platform-select"
             multiple
@@ -73,17 +81,15 @@ function Filter() {
             onChange={(e) => setSelectedPlatforms(e.target.value)}
             input={<OutlinedInput placeholder="Please enter text" />}
             renderValue={(selected) => (
-              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-                {selected.map((value) => (
-                  <Chip key={value} label={value} />
-                ))}
-              </Box>
+              selected.join(' ')
             )}
             MenuProps={MenuProps}
           >
+            {/* All the platforms list is fetched here */}
             {platforms.map((platform) => (
               <MenuItem key={platform} value={platform}>
-                {platform}
+                <Checkbox checked={selectedPlatforms.indexOf(platform)>-1} />
+                <ListItemText primary={platform}/>
               </MenuItem>
             ))}
           </Select>
