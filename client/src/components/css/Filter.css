@@ -18,7 +18,6 @@
     width: 21%; /* Ensure it spans the full width */
     /* background: rgba(27, 26, 26, 0.6); */
     border-color: rgba(32,33,35,.5);
-    
     transition: .29s ease-in;
 
   }
