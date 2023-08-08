@@ -61,6 +61,7 @@ function Filter() {
   }, [selectedPlatforms]);
   return (
     <>
+    {/* //checkmarks */}
       <div className={`filter-div ${isFixed ? 'fixed' : ''}`}>
         <FormControl variant="filled" sx={{ m: 1, minWidth: 300 }} className="filter">
           <InputLabel variant="filled" id="platform-select-label">platform</InputLabel>
