@@ -84,6 +84,9 @@ function IndividualCard() {
                 </div>
             </div>
         </div>
+        <div className='containerBottom'>
+          <br />
+        </div>
     </>
   );
 }
