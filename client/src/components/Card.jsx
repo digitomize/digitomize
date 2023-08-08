@@ -56,9 +56,7 @@ function Card({ contest }) {
           <div>{remaningTime}</div>
         </div>
         <CopyToClipboard vanity={vanity}/>
-        <Link to={`/contests/${vanity}`}>
-          <Button  />
-        </Link>
+          <Button  url={url}/>
         
       </div>
     </div>
