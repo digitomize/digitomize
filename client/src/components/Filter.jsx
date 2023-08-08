@@ -29,6 +29,23 @@ const platforms = [
 function Filter() {
   const [contestsData, setContestsData] = useState([]);
   const [selectedPlatforms, setSelectedPlatforms] = useState([]);
+  const [isFixed, setIsFixed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= 908) {
+        setIsFixed(true);
+      } else {
+        setIsFixed(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     // Fetch data from the backend API
@@ -44,7 +61,7 @@ function Filter() {
   }, [selectedPlatforms]);
   return (
     <>
-      <div className="filter-div">
+      <div className={`filter-div ${isFixed ? 'fixed' : ''}`}>
         <FormControl variant="filled" sx={{ m: 1, minWidth: 300 }} className="filter">
           <InputLabel variant="filled" id="platform-select-label">platform</InputLabel>
           <Select
@@ -70,8 +87,6 @@ function Filter() {
             ))}
           </Select>
         </FormControl>
-
-
       </div>
       <Element name="contests" className="contests-container">
         <Contests contests={contestsData} />
