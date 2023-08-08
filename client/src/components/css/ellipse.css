@@ -7,7 +7,7 @@
   flex-shrink: 0;
   border-radius: 438px;
   background: linear-gradient(180deg, #8d41aa 0%, #ba356c 25%);
-  filter: blur(5000px);
+  filter: blur(150px);
   animation-name: move3;
   animation-duration: 6s;
   animation-iteration-count: infinite;
