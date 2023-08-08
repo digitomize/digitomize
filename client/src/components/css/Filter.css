@@ -1,0 +1,43 @@
+.filter-div {
+    align-self: center;
+    background-color: #1E1E1E;
+    width: 90%;
+    border-radius: 200px;
+    padding: 1%;
+    position: relative;
+    top: 0;
+    transition: .4s ease-out;
+    
+}
+
+.filter-div.fixed {
+    position: fixed; /* Apply fixed position when scrolling */
+    top: 0; /* Position it at the top of the viewport */
+    background-color: #1E1E1E; 
+    z-index: 1000; /* Adjust z-index if needed */
+    width: 21%; /* Ensure it spans the full width */
+    /* background: rgba(27, 26, 26, 0.6); */
+    border-color: rgba(32,33,35,.5);
+    transition: .29s ease-in;
+
+  }
+
+.filter{
+    background-color: #D9D9D9;
+    border-radius: 200px;
+}
+
+
+.contests-container {
+    /* height: 100vh; */
+    z-index: 1;
+    /* margin-right: 0;
+    padding-right: 0; */
+  }
+
+
+  /* @media (max-width: 1067px) {
+    .filter {
+        text-align: center;
+    }
+} */

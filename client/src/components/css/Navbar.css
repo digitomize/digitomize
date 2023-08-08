@@ -1,10 +1,44 @@
-.navbar{
+*{
+    margin:0px;
+    padding:0px;
+}
+.navbar {
     display: flex;
-    flex-direction: row;
-    background-color: red;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
 
+  }
+.navbar a {
+  text-decoration: none;
 }
-.right {
+  
+  .brand {
+  
     display: flex;
-    align-self: flex-end;
-}
+    align-self: flex-start; /* Align to the top of the navbar */
+    margin-right:800px;
+    color: #FFF;
+    font-family: 'Outfit', sans-serif;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  
+  .contents {
+    display: flex;
+    align-self: flex-end; /* Align to the bottom of the navbar */
+    color: rgba(255, 255, 255, 0.50);
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+
+   
+  }
+  .contents:hover {
+    color: white;
+  }
+
