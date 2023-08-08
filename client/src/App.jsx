@@ -1,60 +1,25 @@
-import { useState, useEffect } from "react";
 import { Element, Link } from "react-scroll";
-import BgEllipse from "./components/BgEllipse";
-// import Container from '@mui/material/Container';
+
 import { Typography } from "@mui/material";
-import "./App.css";
 import Typewriter from "typewriter-effect";
-import { pink } from "@mui/material/colors";
+
 import Navbar from './components/Navbar'
 import Filter from "./components/Filter";
+import BgEllipse from "./components/BgEllipse";
 
-const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+import "./App.css";
 
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-      backgroundColor: '#252525',
-      color:'white',
-      borderRadius: '10px',
-    },
-  },
-};
 function App() {
-
-
   return (
-    // <Container maxWidth="xl">
     <div className="container">
       <Navbar/>
       <BgEllipse />
-        <div className="button-container">
-          {/* <div className="heading">
-        <Typography variant="h1" align="center">
-          <Typewriter
-            options={{loop:true}}
-                onInit={(typewriter) => {
-                    typewriter
-                        .typeString("Your Ultimate Contest List")
-                        .pauseFor(1000)
-                        .deleteAll()
-                        // .typeString("Welcomes You")
-                        .start();
-                }}
-            />
-            </Typography>
-        </div> */}
+      <div className="button-container">
           <Typography variant="h1" align="center">
             Your Ultimate Contest List
           </Typography>
-          {/* <h1 variant="h1">Your Ultimate Contest List</h1> */}
-          <p>
 
+          <p>
             <Typewriter
               options={{ loop: true, delay: 100 }}
               onInit={(typewriter) => {
@@ -66,6 +31,7 @@ function App() {
               }}
             />
           </p>
+
           {/* Scroll to Contests button */}
           <Link to="newHead" smooth={true} duration={500}>
             <button className="button">
@@ -81,16 +47,16 @@ function App() {
               </svg>
             </button>
           </Link>
-        </div>
+        </div>  
 
         <Element name="newHead">
-          <h2>Contests</h2>
+          <h2 style={{marginBottom:'2%', marginTop:'2%'}}>Contests</h2>
         </Element>
         
         {/* <------ Filter for Contest | STARTS------> */}
-          <Filter/>
+        <Filter/>
 
-        <div className="container containerBottom">
+        <div className="containerBottom">
           <div id="footer">
             <h2>Loved our project ❤️ ?</h2>
             <h2>Hey, it’s open-source!</h2>
@@ -98,7 +64,6 @@ function App() {
           </div>
         </div>
     </div>
-    // </Container>
   );
 }
 

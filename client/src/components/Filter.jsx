@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Chip, Box, FormControl, InputLabel, OutlinedInput, Select, MenuItem } from "@mui/material";
 import Contests from './Contests';
-import { Element, Link } from "react-scroll";
+import { Element } from "react-scroll";
 import "./css/Filter.css"
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
@@ -97,4 +97,4 @@ function Filter() {
   )
 }
 
-export default Filter
+export default Filter;

@@ -1,7 +1,7 @@
 /* Card.css */
 .card {
     width: 340px;
-    height: auto;
+    min-height: 215px;
     margin-bottom: 3%;
     padding:3%;
     border-radius: 10px;
@@ -10,7 +10,6 @@
     display: flex;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border: 10px linear-gradient(45deg, #8D41AA 0%, #BA356C 34.38%, #F22C30 60.94%, #F8573A 79.69%, #FCBB57 100%);
   }
   
   @keyframes gradientChange {
@@ -46,6 +45,7 @@
   font-size: 30px;
   margin-bottom: auto;
   margin-left: 0;
+  padding-bottom: 5%;
 }
 #startTime {
   font-size: 20px;
@@ -68,7 +68,7 @@
 
 .lower_button{
   display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items:flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:flex-end;  
 }

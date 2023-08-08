@@ -64,14 +64,12 @@ body {
     line-height: normal;
     text-transform: lowercase;
 }
+
 svg {
     padding-left: 5%;
     transform: rotate(-1.005deg);
     fill: black;
 }
-
-
-
 
 .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: transparent !important;
