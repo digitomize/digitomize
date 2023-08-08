@@ -11,7 +11,12 @@
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
-  
+  .card a {
+    text-decoration: none;
+    margin-bottom: auto;
+    margin-top: auto;
+  }
+
   @keyframes gradientChange {
     0% {
       background: #191919;
@@ -46,7 +51,7 @@
   font-size: 30px;
   margin-bottom: auto;
   margin-left: 0;
-  padding-bottom: 5%;
+  padding-bottom: 10%;
 }
 #startTime {
   font-size: 20px;

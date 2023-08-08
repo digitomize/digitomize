@@ -46,8 +46,10 @@ function Card({ contest }) {
       <div className='top'>
           <p id='startTime'>{startTimeIST}</p>
           <img src={hostToSVGMap[host]} alt={host} style={{maxHeight:'50px', maxWidth:'50px'}}/>  
-        </div>
+      </div>
+      <Link to={`/contests/${vanity}`}>
       <h2>{name}</h2>
+      </Link>
       <div className='lower_button'>
         <div className='inner_lower'>
           <p>Duration : {duration}min</p>
