@@ -1,9 +1,11 @@
 import React from 'react'
 import './css/CopyToClipboard.css'
 
+const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 function CopyToClipboard({ vanity }) {
+
     const copyToClipboard = () => {
-        const contestLink = `http://localhost:5173/contests/${vanity}`;
+        const contestLink = `${frontendUrl}/contests/${vanity}`;
       
         if (document.queryCommandSupported('copy')) {
           const textArea = document.createElement('textarea');
