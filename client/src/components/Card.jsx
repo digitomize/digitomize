@@ -7,6 +7,7 @@ import geeksforgeeks from '../assets/geeksforgeeks.svg'
 import leetcode from '../assets/leetcode.svg'
 import codechef from '../assets/codechef.svg'
 import codeforces from '../assets/codeforces.svg'
+import CopyToClipboard from './CopyToClipboard';
 
 const hostToSVGMap = {
   leetcode: leetcode,
@@ -52,7 +53,11 @@ function Card({ contest }) {
           <p>Duration : {duration}min</p>
           <div>{remaningTime}</div>
         </div>
-        <Button url={url} />
+        <CopyToClipboard vanity={vanity}/>
+        <Link to={`/contests/${vanity}`}>
+          <Button  />
+        </Link>
+        
       </div>
     </div>
   );

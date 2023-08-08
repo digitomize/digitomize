@@ -1,12 +1,15 @@
 .filter-div {
     align-self: center;
     background-color: #1E1E1E;
-    width: 90%;
-    border-radius: 200px;
+    width: 93%;
     padding: 1%;
     position: relative;
     top: 0;
     transition: .4s ease-out;
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     
 }
 
@@ -15,16 +18,24 @@
     top: 0; /* Position it at the top of the viewport */
     background-color: #1E1E1E; 
     z-index: 1000; /* Adjust z-index if needed */
-    width: 21%; /* Ensure it spans the full width */
-    /* background: rgba(27, 26, 26, 0.6); */
+    width: fit-content; /* Ensure it spans the full width */
+    background: rgba(27, 26, 26, 0.9);
     border-color: rgba(32,33,35,.5);
     transition: .29s ease-in;
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 
   }
 
 .filter{
     background-color: #D9D9D9;
-    border-radius: 200px;
+    /* border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px; */
+    border-radius:18px;
 }
 
 
@@ -33,6 +44,21 @@
     z-index: 1;
     /* margin-right: 0;
     padding-right: 0; */
+  }
+
+  .platform-container{
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  .platform-containerfixed{
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
   }
 
 
