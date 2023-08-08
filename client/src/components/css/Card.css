@@ -42,6 +42,7 @@
     justify-content: space-between;
   }
 .card h2 {
+  font-family: 'Outfit', sans-serif;
   font-size: 30px;
   margin-bottom: auto;
   margin-left: 0;
@@ -57,7 +58,7 @@
   font-style: normal;
   font-weight: 300;
   line-height: normal;
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
 @media (max-width: 900px) {

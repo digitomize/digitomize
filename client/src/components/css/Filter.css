@@ -18,11 +18,14 @@
     top: 0; /* Position it at the top of the viewport */
     background-color: #1E1E1E; 
     z-index: 1000; /* Adjust z-index if needed */
-    width: 21%; /* Ensure it spans the full width */
+    width: fit-content; /* Ensure it spans the full width */
     background: rgba(27, 26, 26, 0.9);
     border-color: rgba(32,33,35,.5);
     transition: .29s ease-in;
-    border-radius:80px;
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 
   }
 
