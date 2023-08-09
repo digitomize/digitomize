@@ -12,7 +12,7 @@ function Navbar() {
         <Link to="/contests">
           <li className='contents'>Contests</li>
         </Link>
-        <Link to="#">
+        <Link to="https://github.com/pranshugupta54/digitomize">
           <li className='contents'>Contribute</li>
         </Link>
         <Link to="#">
