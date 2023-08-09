@@ -104,28 +104,38 @@ svg {
     margin-top: 3px;
     margin-bottom: 0;
 }
-/* @media (min-width: 640px) {
+@media (max-width: 640px) {
     .container {
         max-width: 640px;
     }
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .container {
         max-width: 768px;
+        align-items: center;
+
+    }
+    .button {
+        width: 20.25rem;
+        height: 5.25rem;
+        font-size: 25px;
+    }
+    #footer h2 {
+        font-size: 38px;
     }
 }
 
-@media (min-width: 1024px) {
+/* @media (max-width: 1024px) {
     .container {
         max-width: 1024px;
     }
 }
-@media (min-width: 1280px) {
+@media (max-width: 1280px) {
     .container {
         max-width: 1280px;
     }
 }
-@media (min-width: 1536px) {
+@media (max-width: 1536px) {
     .container {
         max-width: 1536px;
     }

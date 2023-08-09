@@ -6,18 +6,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 3% 8% 0 8%;
 
   }
 .navbar a {
   text-decoration: none;
+  color: #FFF;
 }
-  
+  .nav-link {
+    display: flex;
+    margin-left: auto;
+  }
+  .link {
+    padding-right: 8%;
+  }
   .brand {
   
     display: flex;
     align-self: flex-start; /* Align to the top of the navbar */
-    margin-right:800px;
+    margin-right:20px;
     color: #FFF;
     font-family: 'Outfit', sans-serif;
     font-size: 35px;
@@ -42,3 +49,11 @@
     color: white;
   }
 
+@media (max-width:768px) {
+  .navbar{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+    ;
+  }
+}

@@ -1,3 +1,4 @@
+// Navbar.js
 import './css/Navbar.css';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png'
@@ -5,21 +6,25 @@ import logo from '../assets/logo.png'
 function Navbar() {
   return (
     <nav>
-      <ul className='navbar'>
-        <Link to="/">
-          <li className='brand'>Digitomize</li>
+      <div className='navbar'>
+        <div className="brand">
+        <Link to="/" className='nav-link'>
+          <p>Digitomize</p>
         </Link>
-        <Link to="/contests">
-          <li className='contents'>Contests</li>
-        </Link>
-        <Link to="#">
-          <li className='contents'>Contribute</li>
-        </Link>
-        <Link to="#">
-          <li className='contents'>Me</li>
-        </Link>
-     
-      </ul>
+        </div>
+        <div className='nav-link'>
+          <Link to="/contests" className='link'>
+            <li className='contents'>Contests</li>
+          </Link>
+          <Link to="#"className='link' >
+            <li className='contents'>Contribute</li>
+          </Link>
+          <Link to="#" className='link'>
+            <li className='contents'>Me</li>
+          </Link>
+        </div>
+        
+      </div>
     </nav>
   );
 }
