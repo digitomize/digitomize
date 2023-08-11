@@ -1,8 +1,8 @@
 /* Card.css */
 .card {
-    width: 340px;
-    height: auto;
-    margin-bottom: 3%;
+    width: 360px;
+    min-height: 215px;
+    margin-bottom: 2%;
     padding:3%;
     border-radius: 10px;
     background: #191919;
@@ -10,9 +10,13 @@
     display: flex;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border: 10px linear-gradient(45deg, #8D41AA 0%, #BA356C 34.38%, #F22C30 60.94%, #F8573A 79.69%, #FCBB57 100%);
   }
-  
+  .card a {
+    text-decoration: none;
+    margin-bottom: auto;
+    margin-top: auto;
+  }
+
   @keyframes gradientChange {
     0% {
       background: #191919;
@@ -43,9 +47,11 @@
     justify-content: space-between;
   }
 .card h2 {
+  font-family: 'Outfit', sans-serif;
   font-size: 30px;
   margin-bottom: auto;
   margin-left: 0;
+  padding-bottom: 10%;
 }
 #startTime {
   font-size: 20px;
@@ -57,18 +63,19 @@
   font-style: normal;
   font-weight: 300;
   line-height: normal;
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
 @media (max-width: 900px) {
   .card {
-      width: 400px;
+      /* width: 340px; */
+      margin-bottom: 5%;
   }
 }
 
 .lower_button{
   display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items:flex-end;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:flex-end;  
 }

@@ -2,6 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
   background-color: black;
   color: white;
   font-family: 'Outfit', sans-serif;}
@@ -64,35 +65,13 @@ body {
     line-height: normal;
     text-transform: lowercase;
 }
+
 svg {
     padding-left: 5%;
     transform: rotate(-1.005deg);
     fill: black;
 }
 
-.contests-container {
-  /* height: 100vh; */
-  z-index: 1;
-  /* margin-right: 0;
-  padding-right: 0; */
-}
-
-.filter-div {
-    align-self: center;
-    background-color: #1E1E1E;
-    width: 90%;
-    border-radius: 200px;
-    padding: 1%;
-    position: sticky;
-    top: 0;
-}
-
-.filter{
-    background-color: #D9D9D9;
-    border-radius: 200px;
-}
-
-/* For the Blue Outline on selection box in filter */
 .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: transparent !important;
 }
@@ -125,28 +104,38 @@ svg {
     margin-top: 3px;
     margin-bottom: 0;
 }
-/* @media (min-width: 640px) {
+@media (max-width: 640px) {
     .container {
         max-width: 640px;
     }
 }
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .container {
         max-width: 768px;
+        align-items: center;
+
+    }
+    .button {
+        width: 20.25rem;
+        height: 5.25rem;
+        font-size: 25px;
+    }
+    #footer h2 {
+        font-size: 38px;
     }
 }
 
-@media (min-width: 1024px) {
+/* @media (max-width: 1024px) {
     .container {
         max-width: 1024px;
     }
 }
-@media (min-width: 1280px) {
+@media (max-width: 1280px) {
     .container {
         max-width: 1280px;
     }
 }
-@media (min-width: 1536px) {
+@media (max-width: 1536px) {
     .container {
         max-width: 1536px;
     }

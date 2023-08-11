@@ -5,7 +5,7 @@ function Contests({ contests }) {
     <>
     <div className="allContests">
     {/* <h2>Contests</h2> */}
-      <div className="allContests" style={{display:'flex', flexWrap:'wrap', gap:'1%', justifyContent:'space-evenly', alignSelf:'center'}}>
+      <div className="allContests" style={{display:'flex', flexWrap:'wrap', gap:'0.5%', justifyContent:'space-evenly'}}>
         {contests.map((contest) => (
           <Card key={contest.vanity} contest={contest} />
         ))}

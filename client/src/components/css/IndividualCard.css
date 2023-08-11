@@ -1,0 +1,98 @@
+.ic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2% auto;
+    height: 33.5rem;
+    width: 56.5rem;
+    background: linear-gradient(45deg, #8D41AA 0%, #BA356C 34.38%, #F22C30 60.94%, #F8573A 79.69%, #FCBB57 100%);
+    border-radius: 10px;    
+}
+.ic-child {
+    display: flex;
+    flex-direction: column;
+    height: 30rem;
+    width: 53rem;
+    border-radius: 10px;
+    background: #1e1e1e;
+    padding:3%;
+}
+
+.ic-child h2 {
+    width: 38.39706rem;
+    height: 4.37663rem;
+    flex-shrink: 0;
+    color: #FFF;
+    font-family: Outfit;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    padding-bottom: 20%;
+    margin-left: 0;
+
+}
+.ic-top {
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+.ic-top p{
+    width: 17.30881rem;
+    height: 3.64719rem;
+    flex-shrink: 0;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: Outfit;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.ic-lower-button {
+    display: flex;
+    justify-content: space-between;
+    height: 30%;
+    margin-bottom: 0;
+}
+.ic-lower-button p {
+    color: rgba(255, 255, 255, 0.75);
+    font-family: Outfit;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.ic-lower-button button {
+    width: 24.375rem;
+    height: 4.375rem;
+    border-radius: 6.25rem;
+    background: #161616;
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    color: rgba(255, 255, 255, 0.75);
+    font-family: Outfit;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    cursor: pointer;
+
+}
+.btn-div {
+    display: flex;
+    flex-direction: column;
+    width: 25.010rem;
+    height: 4.675rem;
+    border-radius: 7.7rem;
+    background: linear-gradient(45deg, #8D41AA 0%, #BA356C 34.38%, #F22C30 60.94%, #F8573A 79.69%, #FCBB57 100%);
+    position: relative;
+
+}

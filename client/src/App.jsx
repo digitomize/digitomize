@@ -1,89 +1,37 @@
-import { useState, useEffect } from "react";
 import { Element, Link } from "react-scroll";
-import Contests from "./components/Contests";
-import BgEllipse from "./components/BgEllipse";
-// import Container from '@mui/material/Container';
-import { Typography, Container, Chip, Box, FormControl, InputLabel, OutlinedInput, Select,MenuItem } from "@mui/material";
-import "./App.css";
+
+import { Typography } from "@mui/material";
 import Typewriter from "typewriter-effect";
-import { pink } from "@mui/material/colors";
 
-const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
-const platforms = [
-  "leetcode",
-  "geeksforgeeks",
-  "codechef",
-  "codeforces"
-  // Add more platforms as needed
-];
+import Navbar from './components/Navbar'
+import Filter from "./components/Filter";
+import BgEllipse from "./components/BgEllipse";
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-      backgroundColor: '#252525',
-      color:'white',
-      borderRadius: '10px',
-    },
-  },
-};
+import "./App.css";
+
 function App() {
-  const [contestsData, setContestsData] = useState([]);
-  const [selectedPlatforms, setSelectedPlatforms] = useState([]);
-
-  useEffect(() => {
-    // Fetch data from the backend API
-    const selectedPlatformsParam = selectedPlatforms.join(",");
-    const url = selectedPlatformsParam
-      ? `${backendUrl}?host=${selectedPlatformsParam}`
-      : backendUrl;
-
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => setContestsData(data.results))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, [selectedPlatforms]);
-
   return (
-    // <Container maxWidth="xl">
-      <div className="container">
-        <BgEllipse />
+    <div className="container">
+      <Navbar/>
+      <BgEllipse />
       <div className="button-container">
-        {/* <div className="heading">
-        <Typography variant="h1" align="center">
-          <Typewriter
-            options={{loop:true}}
-                onInit={(typewriter) => {
-                    typewriter
-                        .typeString("Your Ultimate Contest List")
-                        .pauseFor(1000)
-                        .deleteAll()
-                        // .typeString("Welcomes You")
-                        .start();
-                }}
-            />
-            </Typography>
-        </div> */}
           <Typography variant="h1" align="center">
-          Your Ultimate Contest List
+            Your Ultimate Contest List
           </Typography>
-          {/* <h1 variant="h1">Your Ultimate Contest List</h1> */}
+
           <p>
-          
-          <Typewriter
-            options={{loop:true, delay:100}}
-                onInit={(typewriter) => {
-                    typewriter
-                        .typeString(`#include "contests/upcoming"`)
-                        .pauseFor(10000)
-                        // .typeString("Welcomes You")
-                        .start();
-                }}
+            <Typewriter
+              options={{ loop: true, delay: 100 }}
+              onInit={(typewriter) => {
+                typewriter
+                  .typeString(`#include "contests/upcoming"`)
+                  .pauseFor(10000)
+                  // .typeString("Welcomes You")
+                  .start();
+              }}
             />
           </p>
+
           {/* Scroll to Contests button */}
           <Link to="newHead" smooth={true} duration={500}>
             <button className="button">
@@ -99,54 +47,24 @@ function App() {
               </svg>
             </button>
           </Link>
-      </div>
-      
-      <Element name="newHead">
-        <h2>Contests</h2>
-        </Element>
-      {/* <------ Filter for Contest | STARTS------> */}
-      <div className="filter-div">
-        <FormControl variant="filled" sx={{ m: 1, minWidth: 300 }} className="filter">
-        <InputLabel variant="filled" id="platform-select-label">platform</InputLabel>
-          <Select
-          labelId="platform-select-label"
-          id="platform-select"
-          multiple
-          value={selectedPlatforms}
-          onChange={(e) => setSelectedPlatforms(e.target.value)}
-          input={<OutlinedInput placeholder="Please enter text" />}
-          renderValue={(selected) => (
-            <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-              {selected.map((value) => (
-                <Chip key={value} label={value} />
-              ))}
-            </Box>
-          )}
-          MenuProps={MenuProps}
-        >
-          {platforms.map((platform) => (
-            <MenuItem key={platform} value={platform}>
-              {platform}
-            </MenuItem>
-          ))}
-        </Select>
-        </FormControl>
-        </div>
-      {/* <------ Filter for Contest | ENDS ------> */}
+        </div>  
 
-        {/* Add an Element with the name "contests" */}
-        <Element name="contests" className="contests-container">
-          <Contests contests={contestsData} />
+        <Element name="newHead">
+          <h2 style={{marginBottom:'2%', marginTop:'2%'}}>Contests</h2>
         </Element>
-        <div className="container containerBottom">
+        
+        {/* <------ Filter for Contest | STARTS------> */}
+        <Filter/>
+
+        <div className="containerBottom">
           <div id="footer">
-            <h2>Loved our project ❤️ ?</h2>
-            <h2>Hey, it’s open-source!</h2>
-            <h2>Consider contributing on <a href="https://github.com/pranshugupta54/digitomize" target="_blank" rel="noopener noreferrer" style={{color:'#4DA9FF'}}>GitHub</a></h2>
+            <h2>Hey👋</h2>
+            <h2>Loved ❤️ our project  ?</h2>
+            <h2>It’s open-source!</h2>
+            <h2>Consider contributing on <a href="https://github.com/pranshugupta54/digitomize" target="_blank" rel="noopener noreferrer" style={{ color: '#4DA9FF' }}>GitHub</a></h2>
           </div>
         </div>
-      </div>
-    // </Container>
+    </div>
   );
 }
 
