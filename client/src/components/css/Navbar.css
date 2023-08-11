@@ -49,11 +49,81 @@
     color: white;
   }
 
+  
+.hamburger{
+  display:none;
+  cursor: pointer;
+}
+
+.bar{
+display:block;
+width:25px;
+height:3px;
+margin: 5px auto;
+-webkit-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+background-color:white;
+}
+
 @media (max-width:768px) {
-  .navbar{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
-    ;
+  *{
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
   }
+
+  .navbar{
+    display:flex;
+    justify-content:flex-start;
+  }
+  .nav-brand-link{
+    position:relative;
+    left:3px;
+
+  }
+  .nav-link{
+    
+    position:fixed;
+    left:-100%;
+    top:70px;
+    gap:0;
+    flex-direction:column;
+    width:100%;
+    transition:0.3s;
+    
+   
+  }
+  .hamburger{
+    display:inline;
+    margin-top:1px;
+   
+    
+  }
+
+  .hamburger.active .bar:nth-child(2){
+    opacity:0;
+  }
+
+  .hamburger.active .bar:nth-child(1){
+    transform: translateY(80px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3){
+    transform: translateY(-80px) rotate(-45deg);
+  }
+
+  /* nav-item */
+  .link{ 
+    margin:13px 0;
+
+
+  }
+
+  .nav-link.active{
+    left:0;
+  }
+
+  
+
+
 }
