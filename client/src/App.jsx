@@ -11,8 +11,9 @@ import "./App.css";
 
 function App() {
   return (
-    <div className="container">
+    <>
       <Navbar/>
+    <div className="container">
       <BgEllipse />
       <div className="button-container">
           <Typography variant="h1" align="center">
@@ -65,6 +66,7 @@ function App() {
           </div>
         </div>
     </div>
+    </>
   );
 }
 
