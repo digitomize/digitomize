@@ -74,7 +74,7 @@ background-color:white;
 
   .navbar{
     display:flex;
-    justify-content:flex-start;
+    justify-content:space-between;
   }
   .nav-brand-link{
     position:relative;
@@ -90,6 +90,7 @@ background-color:white;
     flex-direction:column;
     width:100%;
     transition:0.3s;
+    align-items: flex-end;
     
    
   }

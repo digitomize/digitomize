@@ -20,32 +20,30 @@ function Navbar() {
 
   return (
     <nav>
-      <div className='navbar'>
-      <div onClick={()=>toggleActive()} className="hamburger">
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
+        <div className='navbar'>
+          <div className="brand">
+            <Link to="/" className='nav-brand-link'>
+              <p>Digitomize</p>
+            </Link>
+          </div>
+ 
+          <div onClick={()=>toggleActive()} className="hamburger">
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </div>
+          <div className={`nav-link  ${isActive ? 'active' : ''}`}>
+            <Link to="/contests" className='link'>
+              <li onClick={()=>toggleActive()} className='contents'>Contests</li>
+            </Link>
+            <Link to="#"className='link' >
+              <li onClick={()=>toggleActive()} className='contents'>Contribute</li>
+            </Link>
+            <Link to="#" className='link'>
+              <li  onClick={()=>toggleActive()} className='contents'>Me</li>
+            </Link>
+          </div>
         </div>
-        <div className="brand">
-        <Link to="/" className='nav-brand-link'>
-          <p>Digitomize</p>
-        </Link>
-        </div>
-        <div className={`nav-link  ${isActive ? 'active' : ''}`}>
-          <Link to="/contests" className='link'>
-            <li onClick={()=>toggleActive()} className='contents'>Contests</li>
-          </Link>
-          <Link to="#"className='link' >
-            <li onClick={()=>toggleActive()} className='contents'>Contribute</li>
-          </Link>
-          <Link to="#" className='link'>
-            <li  onClick={()=>toggleActive()} className='contents'>Me</li>
-          </Link>
-        </div>
-
-
-        
-      </div>
     </nav>
   );
 }
