@@ -1,20 +1,39 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import App from './App.jsx'
-// import Home from './components/Home.jsx'
 import './index.css'
 import IndividualCard from './components/IndividualCard.jsx'
+import Login from './components/Login.jsx'
+import Signup from './components/Signup.jsx'
+
+const router = createBrowserRouter([
+  {
+    path : "/",
+    element : <App/>
+  },
+  {
+    path : "/login",
+    element : <Login />
+  },
+  {
+    path : "/signup",
+    element : <Signup />
+  },
+  {
+    path: "/contests",
+    element : <App />
+  },
+  {
+    path : "/contests/:vanity",
+    element : <IndividualCard />
+  }
+])
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter >
-      <Routes>
-        <Route path='/' element={<App />} />
-        <Route path='/contests' element={<App />} />
-        <Route path='/contests/:vanity' element={<IndividualCard />}/>
-      </Routes>
-    </BrowserRouter>
-  </React.StrictMode>,
+    <RouterProvider router={router}/>
+  </React.StrictMode>
 )
