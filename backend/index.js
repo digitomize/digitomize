@@ -42,7 +42,7 @@ async function startServer() {
         setInterval(dataSyncer.syncContests, 90 * 60 * 1000);
 
         //Pinging the server every 14min
-        await main();
+        // await main();
         setInterval(async () => {
             try {
                 main();
