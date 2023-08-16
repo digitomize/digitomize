@@ -2,7 +2,8 @@
 import { useState ,useEffect} from 'react';
 import './css/Navbar.css';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.png'
+import logo from '../assets/digitomizeLogo.png'
+
 
 function Navbar() {
   const[isMenuActive, setActive]=useState(false);
@@ -28,15 +29,12 @@ function Navbar() {
   return (
     <nav>
       <div className='navbar'>
-      <div onClick={()=>toggleActive()} className="hamburger">
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
-        </div>
+
 
         <div className="brand">
         <Link to="/" className='nav-brand-link'>
-          <p>Digitomize</p>
+          
+            <img src={logo} alt="Logo" /> 
         </Link>
         </div>
 
@@ -54,6 +52,11 @@ function Navbar() {
 
         <div onClick={()=>toggleActive()} className={`closeMenu ${isMenuActive ? 'active' : ''}`}>close</div>
 
+      <div onClick={()=>toggleActive()} className="hamburger">
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </div>
       </div>
     </nav>
   );
