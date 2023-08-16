@@ -16,7 +16,7 @@ function Navbar() {
           <Link to="/contests" className='link'>
             <li className='contents'>Contests</li>
           </Link>
-          <Link to="#"className='link' >
+          <Link to="https://github.com/pranshugupta54/digitomize"className='link' >
             <li className='contents'>Contribute</li>
           </Link>
           <Link to="#" className='link'>
