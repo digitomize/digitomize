@@ -37,6 +37,15 @@ color: #FFF;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  width:500px;
+  height:100px;
+
+}
+
+img {
+  width: 100%; /* or any custom size */
+  height: 100%; 
+  object-fit: contain;
 }
 
 .contents {
@@ -87,9 +96,18 @@ background-color:white;
 
 .navbar{
   margin:0px;
-  padding-left:13px;
+  padding:3%;
   justify-content:flex-start;
 
+}
+
+.brand{
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+
+
+  
 }
 .nav-link{
   background: #738276;
