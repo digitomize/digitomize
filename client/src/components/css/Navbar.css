@@ -43,8 +43,7 @@ color: #FFF;
 }
 
 img {
-  width: 100%; /* or any custom size */
-  height: 100%; 
+  width: 50%; /* or any custom size */
   object-fit: contain;
 }
 
@@ -145,8 +144,8 @@ background-color:white;
 
 
 .nav-link li{
-  font-size:15px;
-  text:bolder;
+  font-size:30px;
+  font-weight: 400;
 
 }
 

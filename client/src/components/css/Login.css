@@ -62,6 +62,7 @@
     color: white;
     font-family: 'Outfit', sans-serif;
     font-size: 1.3rem;
+    margin-bottom: 22px;
 }
 
 .login-form > button:disabled {

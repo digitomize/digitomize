@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, useNavigation } from "react-router-dom"
+import { Form, useNavigation, Link } from "react-router-dom"
 
 import './css/Login.css'
 
@@ -36,6 +36,8 @@ export default function Login() {
                         }
                     </button>
                 </Form>
+
+                <p> New user ? <Link to="/signup">Signup</Link></p>
             </div>
         </div>
     )
