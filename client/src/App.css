@@ -115,6 +115,11 @@ svg {
         align-items: center;
 
     }
+    .button-container{
+        justify-content: flex-start;
+        max-width:1000px;
+        height: calc(100vh - 100px);
+    }
     .button {
         width: 20.25rem;
         height: 5.25rem;
