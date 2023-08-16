@@ -145,9 +145,16 @@ z-index:100;
 
 }
 
+
 .hamburger{
     display:block;
 
+}
+
+
+
+.scrollOff{
+  overflow:hidden;
 }
 
 

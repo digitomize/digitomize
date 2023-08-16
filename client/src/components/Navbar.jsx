@@ -1,11 +1,12 @@
 // Navbar.js
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import './css/Navbar.css';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png'
 
 function Navbar() {
   const[isMenuActive, setActive]=useState(false);
+ 
 
   function toggleActive(){
     console.log("clicekd");
@@ -16,6 +17,12 @@ function Navbar() {
       setActive(true);
     }
   }
+
+  useEffect(() => {
+
+
+    document.body.className = isMenuActive ? "scrollOff": '';
+  }, [isMenuActive]);
   
 
   return (
