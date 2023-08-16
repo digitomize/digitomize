@@ -1,7 +1,8 @@
 .outer-login-div {
-    height: 100vh;
+    height: auto;
     display: flex;
     align-items: center;
+    margin-top: 10%;
 }
 
 .login-container {
