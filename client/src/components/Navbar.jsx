@@ -47,8 +47,6 @@ function Navbar() {
 
         <div onClick={()=>toggleActive()} className={`closeMenu ${isMenuActive ? 'active' : ''}`}>close</div>
 
-
-        
       </div>
     </nav>
   );

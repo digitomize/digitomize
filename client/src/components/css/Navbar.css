@@ -104,6 +104,8 @@ background-color:white;
   align-items:center;
   display:none;
   transition: top 1s ease;
+  overflow: hidden;
+
 }
 
 .nav-link.active{
@@ -113,12 +115,14 @@ background-color:white;
   top:0;
   right:0px;
   left:0;
-  z-index:10;
+  z-index:100;
   flex-direction:column;
   justify-content:center;
   align-items:center;
   display:flex;
   transition: top 1s ease;
+  overflow: hidden;
+    
 }
 
 
@@ -132,10 +136,10 @@ background-color:white;
 
 .closeMenu.active{
 display:block;
-position:absolute;
+position:fixed;
 top:20px;
 right:20px;
-z-index:10;
+z-index:100;
 
 
 
@@ -191,15 +195,7 @@ z-index:10;
 }
 
 /* nav-item */
-.link{ 
-  margin:13px 0;
 
-
-}
-
-.nav-link.active{
-  left:0;
-} */
 
 
 
