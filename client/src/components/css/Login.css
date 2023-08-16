@@ -69,3 +69,7 @@
     background-color: #aaaaaa;
     cursor: not-allowed;
 }
+
+.red {
+    color: #cc0000;
+}

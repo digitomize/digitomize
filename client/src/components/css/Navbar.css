@@ -19,6 +19,7 @@ color: #FFF;
 .nav-link {
   display: flex;
   margin-left: auto;
+
 }
 
 .link {
@@ -43,7 +44,7 @@ color: #FFF;
 }
 
 img {
-  width: 50%; /* or any custom size */
+  width: 40%; /* or any custom size */
   object-fit: contain;
 }
 
@@ -57,6 +58,7 @@ img {
   font-weight: 300;
   line-height: normal;
   padding:1rem;
+  text-transform: lowercase;
 
  
 }
@@ -96,6 +98,7 @@ background-color:white;
 .navbar{
   margin:0px;
   padding:3%;
+  padding-top: 0;
   justify-content:flex-start;
 
 }
@@ -146,6 +149,7 @@ background-color:white;
 .nav-link li{
   font-size:30px;
   font-weight: 400;
+  text-transform: lowercase;
 
 }
 

@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
 import IndividualCard from './components/IndividualCard.jsx'
-import Login from './components/Login.jsx'
+import Login, {loader as loginLoader} from './components/Login.jsx'
 import Signup from './components/Signup.jsx'
 import Layout from './components/Layout.jsx'
 
@@ -20,7 +20,8 @@ const router = createBrowserRouter([
       },
       {
         path : "login",
-        element : <Login />
+        element : <Login />,
+        loader : loginLoader
       },
       {
         path : "signup",

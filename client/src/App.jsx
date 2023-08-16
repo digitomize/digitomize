@@ -48,7 +48,7 @@ function App() {
         </div>  
 
         <Element name="newHead">
-          <h2 style={{marginBottom:'2%', marginTop:'2%'}}>Contests</h2>
+          <h2 style={{marginBottom:'5%'}}>Contests</h2>
         </Element>
         
         {/* <------ Filter for Contest | STARTS------> */}

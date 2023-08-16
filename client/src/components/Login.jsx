@@ -1,7 +1,11 @@
-import React from 'react'
 import { Form, useNavigation, Link } from "react-router-dom"
 
 import './css/Login.css'
+
+export function loader({ request }){
+    return (new URL(request.url).searchParams.get("messsage"))
+}
+
 
 export default function Login() {
     const navigation = useNavigation()
