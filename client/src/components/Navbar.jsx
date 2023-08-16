@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png'
 
 function Navbar() {
-  const[isActive, setActive]=useState(false);
+  const[isMenuActive, setActive]=useState(false);
 
   function toggleActive(){
     console.log("clicekd");
-    if(isActive){
+    if(isMenuActive){
       setActive(false);
     }
     else{
@@ -26,12 +26,14 @@ function Navbar() {
           <span className="bar"></span>
           <span className="bar"></span>
         </div>
+
         <div className="brand">
         <Link to="/" className='nav-brand-link'>
           <p>Digitomize</p>
         </Link>
         </div>
-        <div className={`nav-link  ${isActive ? 'active' : ''}`}>
+
+        <div className={`nav-link  ${isMenuActive ? 'active' : ''}`}>
           <Link to="/contests" className='link'>
             <li onClick={()=>toggleActive()} className='contents'>Contests</li>
           </Link>
@@ -42,6 +44,8 @@ function Navbar() {
             <li  onClick={()=>toggleActive()} className='contents'>Me</li>
           </Link>
         </div>
+
+        <div onClick={()=>toggleActive()} className={`closeMenu ${isMenuActive ? 'active' : ''}`}>close</div>
 
 
         
