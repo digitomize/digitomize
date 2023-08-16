@@ -45,8 +45,8 @@ function Navbar() {
           <Link to="#"className='link' >
             <li onClick={()=>toggleActive()} className='contents'>Contribute</li>
           </Link>
-          <Link to="#" className='link'>
-            <li  onClick={()=>toggleActive()} className='contents'>Me</li>
+          <Link to="/login" className='link'>
+            <li  onClick={()=>toggleActive()} className='contents'>Login</li>
           </Link>
         </div>
 
