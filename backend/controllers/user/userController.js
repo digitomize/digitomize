@@ -3,25 +3,47 @@
 const bcrypt = require('bcrypt');
 const User = require('../../models/user/User');
 const { generateToken, setUser, getUser } = require('../../services/auth');
-const { setJwtCookie } = require('../../middleware/authMiddleware');
+const { setJwtCookie } = require('../../middlewares/authMiddleware');
 
 const handleUserSignup = async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, firstName, lastName, email, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces } = req.body;
+  // Validate required fields
+  if (!username || !password || !firstName || !email) {
+    return res.status(400).json({ error: 'Missing required fields' });
+  }
+
   try {
     const userData = {
       username: username,
       password: password,
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      bio: bio,
+      dateOfBirth: dateOfBirth,
+      phoneNumber: phoneNumber,
+      github: github,
+      codechef: codechef,
+      leetcode: leetcode,
+      codeforces: codeforces
     };
+
     const newUser = await setUser(userData); // Create a new user using setUser
     const token = generateToken(newUser); // Generate JWT token
 
-    setJwtCookie(res, token); // Set the JWT token in a cookie using the middleware
+    setJwtCookie(req, res, token, () => {
+      res.status(201).json({ message: 'User created successfully' });
+    });
 
-    res.status(201).json({ message: 'User created successfully' });
   } catch (error) {
+    console.error("Error:", error);
+    if (error.status === 400) {
+      return res.status(400).json({ error: error.message });
+    }
     res.status(500).json({ error: 'Error creating user' });
   }
 };
+
 
 const handleUserLogin = async (req, res) => {
   const { username, password } = req.body;
@@ -30,21 +52,22 @@ const handleUserLogin = async (req, res) => {
     if (!user) {
       return res.status(401).json({ error: 'User not found' });
     }
-    
+
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
       return res.status(401).json({ error: 'Invalid password' });
     }
-    
+
     const token = generateToken(user);
-    setJwtCookie(res, token); // Set the JWT token in a cookie using the middleware
-    res.status(200).json({ message: 'Login successful', token });
+    setJwtCookie(req, res, token, () => {
+      res.status(200).json({ message: 'Login successful' });
+    });
   } catch (error) {
     res.status(500).json({ error: 'Error logging in' });
   }
 };
 
 module.exports = {
-    handleUserSignup,
-    handleUserLogin
+  handleUserSignup,
+  handleUserLogin
 };

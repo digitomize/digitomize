@@ -20,10 +20,8 @@ function checkAuth(request, response, next) {
     });
 }
 
-function setJwtCookie(req, res, next) {
-    const { user } = req;
-    if (user) {
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+function setJwtCookie(req, res, token, next) {
+    if (token) {
         res.cookie('jwt', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production', // Use 'secure' only in production
@@ -31,6 +29,7 @@ function setJwtCookie(req, res, next) {
     }
     next();
 }
+
 
 module.exports = {
     checkAuth,
