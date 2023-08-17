@@ -49,7 +49,7 @@ const getUser = async (username) => {
 };
 
 const generateToken = (user) => {
-    return jwt.sign({ username: user.username }, secretKey);
+    return jwt.sign({ userId: user._id }, secretKey);
 };
 
 module.exports = { setUser, getUser, generateToken };

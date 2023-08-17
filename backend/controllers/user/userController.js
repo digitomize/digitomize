@@ -2,72 +2,36 @@
 
 const bcrypt = require('bcrypt');
 const User = require('../../models/user/User');
-const { generateToken, setUser, getUser } = require('../../services/auth');
-const { setJwtCookie } = require('../../middlewares/authMiddleware');
 
-const handleUserSignup = async (req, res) => {
-  const { username, password, firstName, lastName, email, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces } = req.body;
-  // Validate required fields
-  if (!username || !password || !firstName || !email) {
-    return res.status(400).json({ error: 'Missing required fields' });
-  }
-
+const handleUserDashboard = async (req, res) => {
   try {
-    const userData = {
-      username: username,
-      password: password,
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      bio: bio,
-      dateOfBirth: dateOfBirth,
-      phoneNumber: phoneNumber,
-      github: github,
-      codechef: codechef,
-      leetcode: leetcode,
-      codeforces: codeforces
-    };
-
-    const newUser = await setUser(userData); // Create a new user using setUser
-    const token = generateToken(newUser); // Generate JWT token
-
-    setJwtCookie(req, res, token, () => {
-      res.status(201).json({ message: 'User created successfully' });
-    });
-
-  } catch (error) {
-    console.error("Error:", error);
-    if (error.status === 400) {
-      return res.status(400).json({ error: error.message });
+    console.log(req.userId);
+    // Check if user is logged in using the checkAuth middleware
+    if (!req.userId) {
+      // User is not logged in, redirect to the login page
+      return res.redirect('/login');
     }
-    res.status(500).json({ error: 'Error creating user' });
-  }
-};
 
+    // User is logged in, fetch user data from the database
+    const userId = req.userId; // Assuming you have the user's ID available in req.user
+    const user = await User.findById(userId);
 
-const handleUserLogin = async (req, res) => {
-  const { username, password } = req.body;
-  try {
-    const user = await getUser(username);
     if (!user) {
-      return res.status(401).json({ error: 'User not found' });
+      // User not found, redirect to the login page
+      return res.redirect('/login');
     }
 
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    if (!isPasswordValid) {
-      return res.status(401).json({ error: 'Invalid password' });
-    }
-
-    const token = generateToken(user);
-    setJwtCookie(req, res, token, () => {
-      res.status(200).json({ message: 'Login successful' });
-    });
+    // Send user data to the client
+    res.json(user);
   } catch (error) {
-    res.status(500).json({ error: 'Error logging in' });
+    console.error('Error:', error);
+    // Internal server error, send a 500 Internal Server Error status
+    res.status(500).json({ error: 'Internal server error' });
   }
 };
+
+
 
 module.exports = {
-  handleUserSignup,
-  handleUserLogin
+  handleUserDashboard
 };

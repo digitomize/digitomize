@@ -1,24 +1,26 @@
 const jwt = require('jsonwebtoken');
 
 function checkAuth(request, response, next) {
-    const authToken = request.cookies.authToken;
+    const authToken = request.cookies.jwt;
 
     if (!authToken) {
-        return response.status(401).json({ message: 'Authentication failed.' });
+        return response.redirect('/login'); // Redirect to the login page
     }
 
-    const secretKey = 'your_secret_key'; // Replace with your actual secret key
+    const secretKey = 'mykey'; // Replace with your actual secret key
 
     jwt.verify(authToken, secretKey, (err, decodedToken) => {
         if (err) {
-            return response.status(401).json({ message: 'Authentication failed.' });
+            return response.redirect('/login'); // Redirect to the login page
         }
 
         // Authentication successful, attach the user data to the request for later use
-        request.user = decodedToken;
+        // console.log("decodedtoken:", decodedToken);
+        request.userId = decodedToken.userId;
         next();
     });
 }
+
 
 function setJwtCookie(req, res, token, next) {
     if (token) {
