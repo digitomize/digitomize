@@ -1,0 +1,7 @@
+{
+    "rewrites": [
+      { "source": "/contests/:contestId", "destination": "/contests/:contestId" },
+      { "source": "/(.*)", "destination": "/index.html" }
+    ]
+  }
+  
