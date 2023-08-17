@@ -8,6 +8,7 @@ import IndividualCard from './components/IndividualCard.jsx'
 import Login, {loader as loginLoader} from './components/Login.jsx'
 import Signup from './components/Signup.jsx'
 import Layout from './components/Layout.jsx'
+import ErrorPage from './components/error-page'
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,8 @@ const router = createBrowserRouter([
         path : "/contests/:vanity",
         element : <IndividualCard />
       }
-    ]
+    ],
+    errorElement : <ErrorPage />
   }
 ])
 
