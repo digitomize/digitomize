@@ -36,12 +36,10 @@ const setUser = async (userData) => {
   }
 };
 
-
-
-
 const getUser = async (username) => {
     try {
-        const user = await User.findOne({ username });
+        const user = await User.findOne({ username })
+        .select('-password');
         return user;
     } catch (error) {
         throw new Error('User not found');

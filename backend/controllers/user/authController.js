@@ -1,7 +1,5 @@
 // controllers/user/userController.js
-
 const bcrypt = require('bcrypt');
-const User = require('../../models/user/User');
 const { generateToken, setUser, getUser } = require('../../services/auth');
 const { setJwtCookie } = require('../../middlewares/authMiddleware');
 
@@ -43,7 +41,6 @@ const handleUserSignup = async (req, res) => {
     res.status(500).json({ error: 'Error creating user' });
   }
 };
-
 
 const handleUserLogin = async (req, res) => {
   const { username, password } = req.body;

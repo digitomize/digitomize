@@ -1,7 +1,3 @@
-// controllers/user/userController.js
-
-const bcrypt = require('bcrypt');
-const User = require('../../models/user/User');
 const { getUser } = require('../../services/auth');
 
 const handleUserProfilePreview = async (req, res) => {

@@ -1,8 +1,4 @@
-// controllers/user/userController.js
-
-const bcrypt = require('bcrypt');
 const User = require('../../models/user/User');
-const { getUser } = require('../../services/auth');
 
 const handleUserDashboard = async (req, res) => {
   try {
@@ -15,7 +11,8 @@ const handleUserDashboard = async (req, res) => {
 
     // User is logged in, fetch user data from the database
     const userId = req.userId; // Assuming you have the user's ID available in req.user
-    const user = await User.findById(userId);
+    const user = await User.findById(userId)
+      .select('-_id -password -createdAt -updatedAt -__v');
 
     if (!user) {
       // User not found, redirect to the login page
