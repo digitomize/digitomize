@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const { getUser } = require('../services/auth');
 
 function checkAuth(request, response, next) {
     const authToken = request.cookies.jwt;
@@ -32,8 +33,30 @@ function setJwtCookie(req, res, token, next) {
     next();
 }
 
+// const { ObjectId } = require('mongoose').Types;
+
+async function checkUserOwnership(req, res, next) {
+    const userIdFromToken = req.userId;
+
+    const usernameFromRequest = req.params.username; // Make sure to adjust this based on your route
+
+    const userFromRequest = await getUser(usernameFromRequest);
+    const userIdFromRequest = userFromRequest._id.toString(); // Convert to string
+
+    console.log("From token:",userIdFromToken);
+    console.log("From req:",userIdFromRequest);
+    if (userIdFromToken !== userIdFromRequest) {
+        return res.status(403).json({ error: 'Forbidden' });
+    }
+
+    req.userId = userIdFromRequest;
+
+    next();
+}
+
 
 module.exports = {
     checkAuth,
-    setJwtCookie
+    setJwtCookie,
+    checkUserOwnership
 };

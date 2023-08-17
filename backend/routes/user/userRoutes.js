@@ -2,7 +2,8 @@ const express = require('express');
 const { handleUserSignup, handleUserLogin, handleUserSignout } = require('../../controllers/user/authController');
 const { handleUserDashboard } = require('../../controllers/user/userDashboardController');
 const { handleUserProfilePreview } = require('../../controllers/user/userProfileController');
-const { checkAuth } = require('../../middlewares/authMiddleware');
+const { handleUpdateUserProfile } = require('../../controllers/user/userUpdateController');
+const { checkAuth, checkUserOwnership } = require('../../middlewares/authMiddleware');
 
 const router = express.Router();
 
@@ -17,5 +18,8 @@ router.get('/signout', checkAuth, handleUserSignout);
 router.get('/dashboard', checkAuth, handleUserDashboard);
 
 router.get('/profile/:username', handleUserProfilePreview);
+
+router.post('/:username/profile', checkAuth, checkUserOwnership, handleUpdateUserProfile);
+
 
 module.exports = router;
