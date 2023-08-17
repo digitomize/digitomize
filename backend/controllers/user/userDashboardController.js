@@ -2,6 +2,7 @@
 
 const bcrypt = require('bcrypt');
 const User = require('../../models/user/User');
+const { getUser } = require('../../services/auth');
 
 const handleUserDashboard = async (req, res) => {
   try {
@@ -30,8 +31,6 @@ const handleUserDashboard = async (req, res) => {
   }
 };
 
-
-
 module.exports = {
-  handleUserDashboard
+  handleUserDashboard,
 };
