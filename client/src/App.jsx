@@ -3,7 +3,6 @@ import { Element, Link } from "react-scroll";
 import { Typography } from "@mui/material";
 import Typewriter from "typewriter-effect";
 
-import Navbar from './components/Navbar'
 import Filter from "./components/Filter";
 import BgEllipse from "./components/BgEllipse";
 
@@ -12,7 +11,6 @@ import "./App.css";
 function App() {
   return (
     <div className="container">
-      <Navbar/>
       <BgEllipse />
       <div className="button-container">
           <Typography variant="h1" align="center">
@@ -50,7 +48,7 @@ function App() {
         </div>  
 
         <Element name="newHead">
-          <h2 style={{marginBottom:'2%', marginTop:'2%'}}>Contests</h2>
+          <h2 style={{marginBottom:'5%'}}>Contests</h2>
         </Element>
         
         {/* <------ Filter for Contest | STARTS------> */}
