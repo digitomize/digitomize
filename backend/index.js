@@ -7,6 +7,9 @@ const contestSyncer = require("./controllers/contest/contestController");
 const contestRouter = require("./routes/contest/contestRoutes");
 const fetchContestsData = require('./fetchContests');
 
+const authRoutes = require('./routes/user/authRoutes');
+const userRoutes = require('./routes/user/userRoutes');
+
 //* Check for ENV file
 console.log(process.env.TEST);
 
@@ -53,7 +56,8 @@ async function startServer() {
         }, 14 * 60 * 1000);
         
 
-
+        app.use('/auth', authRoutes);
+        app.use('/user', userRoutes);
         //* GET route for contests
         app.use("/api/contests", contestRouter);
 
