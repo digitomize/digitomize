@@ -1,4 +1,3 @@
-// controllers/user/userController.js
 const bcrypt = require('bcrypt');
 const { generateToken, setUser, getUser } = require('../../services/auth');
 const { setJwtCookie } = require('../../middlewares/authMiddleware');
