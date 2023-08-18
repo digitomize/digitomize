@@ -11,7 +11,7 @@ export async function action({ request }){
     const password = formData.get("password")
     try {
         const data = await signupUser({ username,firstName, email, password })
-        return redirect('/contests')
+        return redirect('/login')
     }
     catch(err) {
         return err.message
@@ -35,21 +35,25 @@ export default function Signup() {
                         name="username"
                         type="text"
                         placeholder="Username"
+                        required
                     />
                     <input
                         name="firstName"
                         type="text"
                         placeholder="First Name"
+                        required
                     />
                     <input
                         name="email"
                         type="email"
                         placeholder="Email address"
+                        required
                     />
                     <input
                         name="password"
                         type="password"
                         placeholder="Password"
+                        required
                     />
                     <button
                         disabled={navigation.state === "submitting"}

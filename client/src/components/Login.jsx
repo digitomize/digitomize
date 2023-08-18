@@ -3,16 +3,16 @@ import { Form, useNavigation, Link, redirect, useActionData } from "react-router
 import './css/Login.css'
 import { loginUser } from "../../api"
 
-export function loader({ request }){
-    return (new URL(request.url).searchParams.get("messsage"))
-}
+// export function loader({ request }){
+//     return (new URL(request.url).searchParams.get("messsage"))
+// }`
 export async function action({ request }) {
     const formData = await request.formData()
     const username = formData.get("username")
     const password = formData.get("password")
     try {
         const data = await loginUser({ username, password })
-        return redirect('/')
+        return redirect('/user/dashboard')
     }
     catch(err) {
         return err.message

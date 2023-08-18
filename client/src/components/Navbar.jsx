@@ -3,9 +3,12 @@ import { useState ,useEffect} from 'react';
 import './css/Navbar.css';
 import { Link } from 'react-router-dom';
 import logo from '../assets/digitomizeLogo.png'
-
+import { getUserNameFromCookie } from '../../api';
 
 function Navbar() {
+  const [name, setName] = useState(getUserNameFromCookie())
+  const [path, setPath] = useState("/login")
+  const [btnMessage, setBtnMessage] = useState("Login")
   const[isMenuActive, setActive]=useState(false);
  
 
@@ -24,6 +27,13 @@ function Navbar() {
 
     document.body.className = isMenuActive ? "scrollOff": '';
   }, [isMenuActive]);
+
+  useEffect(() => {
+    if(name) {
+      setBtnMessage(name)
+      setPath("/user/dashboard")
+    }
+  }, [name])
   
 
   return (
@@ -45,8 +55,8 @@ function Navbar() {
           <Link to="https://github.com/pranshugupta54/digitomize"className='link' >
             <li onClick={()=>toggleActive()} className='contents'>Contribute</li>
           </Link>
-          <Link to="/login" className='link'>
-            <li  onClick={()=>toggleActive()} className='contents'>Login</li>
+          <Link to={path} className='link'>
+            <li  onClick={()=>toggleActive()} className='contents'>{btnMessage}</li>
           </Link>
         </div>
 

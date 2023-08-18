@@ -5,10 +5,11 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
 import IndividualCard from './components/IndividualCard.jsx'
-import Login, {loader as loginLoader, action as loginAction} from './components/Login.jsx'
+import Login, { action as loginAction } from './components/Login.jsx'
 import Signup, { action as signupAction } from './components/Signup.jsx'
 import Layout from './components/Layout.jsx'
 import ErrorPage from './components/error-page'
+import UserDashboard from './components/UserDashboard.jsx'
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
       {
         path : "login",
         element : <Login />,
-        loader : loginLoader,
+        // loader : loginLoader,
         action : loginAction
       },
       {
@@ -35,8 +36,12 @@ const router = createBrowserRouter([
         element : <App />
       },
       {
-        path : "/contests/:vanity",
+        path : "contests/:vanity",
         element : <IndividualCard />
+      },
+      {
+        path : "user/dashboard",
+        element : <UserDashboard />
       }
     ],
     errorElement : <ErrorPage />
