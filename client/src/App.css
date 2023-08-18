@@ -17,7 +17,7 @@ body {
 
 .button-container {
   /* flex: 1; The button container will take the first half of the viewport height */
-  min-height: 100vh;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -115,6 +115,11 @@ svg {
         align-items: center;
 
     }
+    .button-container{
+        justify-content: flex-start;
+        max-width:1000px;
+        height: calc(100vh - 100px);
+    }
     .button {
         width: 20.25rem;
         height: 5.25rem;
@@ -122,6 +127,12 @@ svg {
     }
     #footer h2 {
         font-size: 38px;
+    }
+    .button-container h1 {
+        font-size: 4.5rem;
+    }
+    .button {
+        margin-top: 20px;
     }
 }
 

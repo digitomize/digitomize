@@ -1,59 +1,231 @@
 *{
-    margin:0px;
-    padding:0px;
+  margin:0px;
+  padding:0px;
 }
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3% 8% 0 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3% 8% 0 8%;
 
-  }
-.navbar a {
-  text-decoration: none;
-  color: #FFF;
 }
-  .nav-link {
-    display: flex;
-    margin-left: auto;
-  }
-  .link {
-    padding-right: 8%;
-  }
-  .brand {
-  
-    display: flex;
-    align-self: flex-start; /* Align to the top of the navbar */
-    margin-right:20px;
-    color: #FFF;
-    font-family: 'Outfit', sans-serif;
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  
-  .contents {
-    display: flex;
-    align-self: flex-end; /* Align to the bottom of the navbar */
-    color: rgba(255, 255, 255, 0.50);
-    font-family: 'Outfit', sans-serif;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
 
-   
-  }
-  .contents:hover {
-    color: white;
-  }
+.navbar a {
+text-decoration: none;
+text-transform:uppercase;
+color: #FFF;
+}
+
+.nav-link {
+  display: flex;
+  margin-left: auto;
+
+}
+
+.link {
+  /* padding-right: 8%; */
+
+}
+
+.brand {
+
+  display: flex;
+  align-self: flex-start; /* Align to the top of the navbar */
+  margin-right:20px;
+  color: #FFF;
+  font-family: 'Outfit', sans-serif;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width:500px;
+  height:100px;
+
+}
+
+img {
+  width: 40%; /* or any custom size */
+  object-fit: contain;
+}
+
+.contents {
+  display: flex;
+  align-self: flex-end; /* Align to the bottom of the navbar */
+  color: rgba(255, 255, 255, 0.50);
+  font-family: 'Outfit', sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  padding:1rem;
+  text-transform: lowercase;
+
+ 
+}
+.contents:hover {
+  color: white;
+}
+
+
+.hamburger{
+display:none;
+cursor: pointer;
+
+}
+
+.closeMenu{
+display:none;
+
+}
+
+.bar{
+display:block;
+width:25px;
+height:3px;
+margin: 5px auto;
+-webkit-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+background-color:white;
+}
 
 @media (max-width:768px) {
-  .navbar{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center
-    ;
-  }
+*{
+  margin:0px;
+  padding:0px;
+  box-sizing:border-box;
+}
+
+.navbar{
+  margin:0px;
+  padding:3%;
+  padding-top: 0;
+  justify-content:flex-start;
+
+}
+
+.brand{
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+
+
+  
+}
+.nav-link{
+  background: #738276;
+  height:100vh;
+  position:fixed;
+  top:0;
+  right:0px;
+  left:0;
+  z-index:10;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  display:none;
+  transition: top 1s ease;
+  overflow: hidden;
+
+}
+
+.nav-link.active{
+  background: black;
+  height:100vh;
+  position:fixed;
+  top:0;
+  right:0px;
+  left:0;
+  z-index:100;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  display:flex;
+  transition: top 1s ease;
+  overflow: hidden;
+    
+}
+
+
+.nav-link li{
+  font-size:30px;
+  font-weight: 400;
+  text-transform: lowercase;
+
+}
+
+
+
+.closeMenu.active{
+display:block;
+position:fixed;
+top:20px;
+right:20px;
+z-index:100;
+
+
+
+}
+
+
+.hamburger{
+    display:block;
+
+}
+
+
+
+.scrollOff{
+  overflow:hidden;
+}
+
+
+/* .navbar{
+  display:flex;
+  justify-content:flex-start;
+  align-items:start;
+}
+.nav-brand-link{
+  position:relative;
+  left:3px;
+
+}
+.nav-link{
+  display:flex;
+  background-color:blue;
+
+  top:70px;
+  gap:0;
+  flex-direction:column;
+  width:100vw;
+  height:100vh;
+  transition:0.3s;
+  margin:9;
+
+  
+ 
+}
+.hamburger{
+  display:inline-block;
+ 
+  
+}
+
+.hamburger.active .bar:nth-child(2){
+  opacity:18;
+}
+
+.hamburger.active .bar:nth-child(1){
+  transform: translateY(8px) rotate(5deg);
+}
+
+.hamburger.active .bar:nth-child(3){
+  transform: translateY(-86px) rotate(-4deg);
+}
+
+/* nav-item */
+
+
+
+
+
 }

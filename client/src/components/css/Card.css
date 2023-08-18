@@ -63,7 +63,11 @@
   font-style: normal;
   font-weight: 300;
   line-height: normal;
-  text-transform: uppercase;
+  text-transform: lowercase;
+}
+
+.clip{
+  height:30px;
 }
 
 @media (max-width: 900px) {
@@ -78,4 +82,21 @@
   flex-direction: row;
   justify-content: space-between;
   align-items:flex-end;  
+}
+
+@media (max-width:768px){
+
+  .clip{
+    background:none;
+    width:10%;
+
+  }
+
+  .clip .share-button{
+    /* background:yellow; */
+    width:20%;
+  }
+  .clip .share-button svg{
+    width:27px;
+  }
 }
