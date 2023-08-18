@@ -68,7 +68,7 @@
     text-transform: uppercase;
 }
 
-.ic-lower-button button {
+.ic-lower-button button{
     width: 24.375rem;
     height: 4.375rem;
     border-radius: 6.25rem;
@@ -95,4 +95,67 @@
     background: linear-gradient(45deg, #8D41AA 0%, #BA356C 34.38%, #F22C30 60.94%, #F8573A 79.69%, #FCBB57 100%);
     position: relative;
 
+}
+
+.share-button{
+    width:100px;
+}
+
+@media (max-width:768px) {
+    *{
+        margin:0px;
+        padding:0px;
+    }
+
+    .ic{
+        max-width:100vw;
+    }
+
+    .ic-top{
+        /* height:24 */
+        padding-right:1rem;
+
+    }
+
+    #startTime{
+        margin-top:10px;
+        width:;
+
+        font-size:1.4rem;
+    }
+
+    .ic-child{
+        max-width:99vw;
+        height: 33.3rem;
+        font-size:1px;
+    }
+
+    #contest-title {
+        font-size: 1.75rem; /* Adjust this value as needed */
+        max-width: inherit;
+        margin-bottom: 4rem; /* Adjust this value as needed */
+      }
+    .btn-div{
+        max-width:70vw;
+        left:-1rem;
+        margin-bottom:10px;
+        
+
+    }
+    .ic-lower-button{
+        flex-direction:column-reverse;
+        /* max-width:inherit; */
+        margin-left:10px;
+        margin-bottom:10px;
+       
+
+    }
+
+    .ic-lower-button button {
+        width:99%;
+        position:relative;
+        left:1px;
+    }
+
+  
 }

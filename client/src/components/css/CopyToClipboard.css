@@ -2,6 +2,7 @@
 .share-button-container {
     position: relative;
     display: inline-block;
+    width:fit-content;
   }
   
   .share-button {
@@ -10,7 +11,12 @@
     cursor: pointer;
     padding: 0;
     outline: none;
+    width:100px;
   }
+  .share-button svg {
+    width: 224px; /* Set the desired width */
+    height: 24px; /* Set the desired height */
+}
   
   .tooltip {
     visibility: hidden;
@@ -28,4 +34,20 @@
   
   .share-button:hover .tooltip {
     visibility: visible;
+  }
+
+
+  @media (max-width:768px) {
+
+    .share-button-container {
+        max-width:fit-content;
+    }
+    .share-button{
+      max-width:100px;
+    }
+
+    #share{
+      width:100px;
+    }
+
   }
