@@ -8,6 +8,7 @@ function Contests({ contests }) {
       <div className="allContests" style={{display:'flex', flexWrap:'wrap', gap:'0.5%', justifyContent:'space-evenly'}}>
         {contests.map((contest) => (
           <Card key={contest.vanity} contest={contest} />
+         
         ))}
       </div>
       </div>

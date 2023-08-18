@@ -1,20 +1,43 @@
-import { Form, useNavigation, Link } from "react-router-dom"
+import { Form, useNavigation, Link, redirect, useActionData, useLoaderData } from "react-router-dom"
 
 import './css/Login.css'
+import { loginUser, isLoggedIn } from "../../api"
+
+
 
 export function loader({ request }){
-    return (new URL(request.url).searchParams.get("messsage"))
+    const message = new URL(request.url).searchParams.get("message")
+    if (isLoggedIn()) {
+        return redirect("/user/dashboard")
+    }
+    return message
+}
+
+export async function action({ request }) {
+    const formData = await request.formData()
+    const username = formData.get("username")
+    const password = formData.get("password")
+    try {
+        const data = await loginUser({ username, password })
+        return redirect('/user/dashboard')
+    }
+    catch(err) {
+        return err.message
+    } 
 }
 
 
 export default function Login() {
     const navigation = useNavigation()
+    const errorMessage = useActionData()
+    const message = useLoaderData()
+    console.log(message)
     return (
         <div className="outer-login-div">
             <div className="login-container">
                 <h1>Sign in to your account</h1>
-                {/* {message && <h3 className="red">{message}</h3>}
-                {errorMessage && <h3 className="red">{errorMessage}</h3>} */}
+                {message && <h3 className="red">{message}</h3>}
+                {errorMessage && <h3 className="red">{errorMessage}</h3>}
 
                 <Form 
                     method="post" 
@@ -22,9 +45,9 @@ export default function Login() {
                     replace
                 >
                     <input
-                        name="email"
-                        type="email"
-                        placeholder="Email address"
+                        name="username"
+                        type="text"
+                        placeholder="Username"
                     />
                     <input
                         name="password"

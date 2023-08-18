@@ -6,6 +6,11 @@ const dataSyncer = require("./controllers/contest/DataSyncController");
 const contestSyncer = require("./controllers/contest/contestController");
 const contestRouter = require("./routes/contest/contestRoutes");
 const fetchContestsData = require('./fetchContests');
+const bodyParser = require('body-parser');
+// const cookieParser = require('cookie-parser');
+
+// const authRoutes = require('./routes/user/authRoutes');
+const userRoutes = require('./routes/user/userRoutes');
 
 //* Check for ENV file
 console.log(process.env.TEST);
@@ -51,9 +56,12 @@ async function startServer() {
                 console.error('Error Pinging', error);
             }
         }, 14 * 60 * 1000);
-        
 
 
+        // app.use(cookieParser());
+        app.use(bodyParser.json());
+        // app.use('/auth', authRoutes);
+        app.use('/user', userRoutes);
         //* GET route for contests
         app.use("/api/contests", contestRouter);
 
