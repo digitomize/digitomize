@@ -83,3 +83,20 @@
   justify-content: space-between;
   align-items:flex-end;  
 }
+
+@media (max-width:768px){
+
+  .clip{
+    background:none;
+    width:10%;
+
+  }
+
+  .clip .share-button{
+    /* background:yellow; */
+    width:20%;
+  }
+  .clip .share-button svg{
+    width:27px;
+  }
+}
