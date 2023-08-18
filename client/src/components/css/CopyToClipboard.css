@@ -32,3 +32,23 @@
 .share-button:hover .tooltip {
   visibility: visible;
 }
+span p{
+  display:inline;
+  position:relative;
+  bottom:6px;
+}
+@media (max-width:768px) {
+    .share-button-container{
+      width: 17rem;
+
+    }
+    .share-button-container svg{
+        width:15%;
+    }
+    .ic-inner-lower {
+      align-self: flex-start;
+  }
+
+
+
+}
