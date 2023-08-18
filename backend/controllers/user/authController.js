@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const { generateToken, setUser, getUser } = require('../../services/auth');
-const { setJwtCookie } = require('../../middlewares/authMiddleware');
+// const { setJwtCookie } = require('../../middlewares/authMiddleware');
 
 
 //? returns JSON message with Status Code
@@ -31,9 +31,9 @@ const handleUserSignup = async (req, res) => {
     const newUser = await setUser(userData); // Create a new user using setUser
     const token = generateToken(newUser); // Generate JWT token
 
-    setJwtCookie(req, res, token, () => {
-      res.status(201).json({ message: 'User created successfully' });
-    });
+    // setJwtCookie(req, res, token, () => {
+      res.status(201).json({ message: 'User created successfully', token: token });
+    // });
 
   } catch (error) {
     console.error("Error:", error);
@@ -60,9 +60,9 @@ const handleUserLogin = async (req, res) => {
     }
 
     const token = generateToken(user);
-    setJwtCookie(req, res, token, () => {
-      res.status(200).json({ message: 'Login successful' });
-    });
+    // setJwtCookie(req, res, token, () => {
+      res.status(200).json({ message: 'Login successful', token: token });
+    // });
   } catch (error) {
     console.log("Error:", error);
     res.status(500).json({ error: 'Error logging in' });
@@ -71,19 +71,19 @@ const handleUserLogin = async (req, res) => {
 
 //? returns JSON message with Status Code
 // Removes JWT cookie from the client by setting it to expired.
-const handleUserSignout = async (req, res) => {
-  try {
-      res.cookie('jwt', '', { expires: new Date(0), httpOnly: true });
+// const handleUserSignout = async (req, res) => {
+//   try {
+//       res.cookie('jwt', '', { expires: new Date(0), httpOnly: true });
 
-      res.status(200).json({ message: 'Signout successful' });
-  } catch (error) {
-      console.error('Error:', error);
-      res.status(500).json({ error: 'Error signing out' });
-  }
-};
+//       res.status(200).json({ message: 'Signout successful' });
+//   } catch (error) {
+//       console.error('Error:', error);
+//       res.status(500).json({ error: 'Error signing out' });
+//   }
+// };
 
 module.exports = {
   handleUserSignup,
   handleUserLogin,
-  handleUserSignout
+  // handleUserSignout
 };

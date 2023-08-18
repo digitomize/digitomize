@@ -5,7 +5,7 @@ const User = require('../../models/user/User');
 // (All user data except _id, password, createdAt, updatedAt, __v)
 const handleUserDashboard = async (req, res) => {
   try {
-    console.log(req.userId);
+    // console.log(req.userId);
     // Check if user is logged in using the checkAuth middleware
     if (!req.userId) {
       // User is not logged in, redirect to the login page

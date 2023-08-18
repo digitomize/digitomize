@@ -1,5 +1,5 @@
 const express = require('express');
-const { handleUserSignup, handleUserLogin, handleUserSignout } = require('../../controllers/user/authController');
+const { handleUserSignup, handleUserLogin } = require('../../controllers/user/authController');
 const { handleUserDashboard } = require('../../controllers/user/userDashboardController');
 const { handleUserProfilePreview } = require('../../controllers/user/userProfileController');
 const { handleUpdateUserProfile } = require('../../controllers/user/userUpdateController');
@@ -13,13 +13,13 @@ router.post('/signup', handleUserSignup);
 // POST route for user login
 router.post('/login', handleUserLogin);
 
-router.get('/signout', checkAuth, handleUserSignout);
+// router.get('/signout', checkAuth, handleUserSignout);
 
 router.get('/dashboard', checkAuth, handleUserDashboard);
 
 router.get('/profile/:username', handleUserProfilePreview);
 
-router.post('/:username/profile', checkAuth, checkUserOwnership, handleUpdateUserProfile);
+router.post('profile/:username', checkAuth, checkUserOwnership, handleUpdateUserProfile);
 
 
 module.exports = router;
