@@ -8,7 +8,6 @@ import leetcode from '../assets/leetcode.svg'
 import codechef from '../assets/codechef.svg'
 import codeforces from '../assets/codeforces.svg'
 
-import Navbar from './Navbar';
 import CopyToClipboard from './CopyToClipboard';
 
 function IndividualCard() {
