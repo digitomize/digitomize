@@ -2,6 +2,9 @@ const bcrypt = require('bcrypt');
 const { generateToken, setUser, getUser } = require('../../services/auth');
 const { setJwtCookie } = require('../../middlewares/authMiddleware');
 
+
+//? returns JSON message with Status Code
+// Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
 const handleUserSignup = async (req, res) => {
   const { username, password, firstName, lastName, email, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces } = req.body;
   // Validate required fields
@@ -41,6 +44,8 @@ const handleUserSignup = async (req, res) => {
   }
 };
 
+//? returns JSON message with Status Code
+// Uses getUser to find the user, then checks the bcrypt password, then generates a token using generateToken, then sets the cookie using setJwtCookie.
 const handleUserLogin = async (req, res) => {
   const { username, password } = req.body;
   try {
@@ -59,13 +64,15 @@ const handleUserLogin = async (req, res) => {
       res.status(200).json({ message: 'Login successful' });
     });
   } catch (error) {
+    console.log("Error:", error);
     res.status(500).json({ error: 'Error logging in' });
   }
 };
 
+//? returns JSON message with Status Code
+// Removes JWT cookie from the client by setting it to expired.
 const handleUserSignout = async (req, res) => {
   try {
-      // Clear the JWT token from cookies by setting an expired cookie
       res.cookie('jwt', '', { expires: new Date(0), httpOnly: true });
 
       res.status(200).json({ message: 'Signout successful' });

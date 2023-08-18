@@ -1,5 +1,8 @@
 const User = require('../../models/user/User');
 
+
+// ?returns JSON
+// (All user data except _id, password, createdAt, updatedAt, __v)
 const handleUserDashboard = async (req, res) => {
   try {
     console.log(req.userId);

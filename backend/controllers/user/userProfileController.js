@@ -1,5 +1,7 @@
 const { getUser } = require('../../services/auth');
 
+// ?returns JSON
+// Sends only toggled ON info for any user
 const handleUserProfilePreview = async (req, res) => {
   try {
     const username = req.params.username;
