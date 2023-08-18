@@ -38,10 +38,6 @@ span p{
   bottom:6px;
 }
 @media (max-width:768px) {
-    .share-button-container{
-      width: 17rem;
-
-    }
     .share-button-container svg{
         width:15%;
     }
