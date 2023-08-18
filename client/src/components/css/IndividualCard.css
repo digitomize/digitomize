@@ -28,7 +28,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    text-transform: uppercase;
+    text-transform: lowercase;
     padding-bottom: 20%;
     margin-left: 0;
 
@@ -49,7 +49,7 @@
     font-style: normal;
     font-weight: 300;
     line-height: normal;
-    text-transform: uppercase;
+    text-transform: lowercase;
 }
 
 .ic-lower-button {
@@ -68,7 +68,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    text-transform: uppercase;
+    text-transform: lowercase;
 }
 
 .ic-lower-button button{
@@ -85,7 +85,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    text-transform: uppercase;
+    text-transform: lowercase;
     cursor: pointer;
 
 }
