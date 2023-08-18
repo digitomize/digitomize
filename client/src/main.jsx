@@ -5,8 +5,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
 import IndividualCard from './components/IndividualCard.jsx'
-import Login, {loader as loginLoader} from './components/Login.jsx'
-import Signup from './components/Signup.jsx'
+import Login, {loader as loginLoader, action as loginAction} from './components/Login.jsx'
+import Signup, { action as signupAction } from './components/Signup.jsx'
 import Layout from './components/Layout.jsx'
 import ErrorPage from './components/error-page'
 
@@ -22,11 +22,13 @@ const router = createBrowserRouter([
       {
         path : "login",
         element : <Login />,
-        loader : loginLoader
+        loader : loginLoader,
+        action : loginAction
       },
       {
         path : "signup",
-        element : <Signup />
+        element : <Signup />,
+        action : signupAction
       },
       {
         path: "contests",
