@@ -51,14 +51,13 @@ function IndividualCard() {
   }, 1000)
   return (
     <>
-     
       <div className="ic" key={vanity}>
         <div className="ic-child">
           <div className='ic-top'>
             <p id='startTime'>{startTimeIST}</p>
             <img src={hostToSVGMap[host]} alt={host} style={{ maxHeight: '50px', maxWidth: '50px' }} />
           </div>
-          
+
           <h2 id="contest-title">{name}</h2>
 
           <div className='ic-lower-button'>
@@ -67,30 +66,22 @@ function IndividualCard() {
               <div>{remaningTime}</div>
             </div>
 
-            
-
-                
-         
             <div className="outerbtn">
-                 
-
-                  <CopyToClipboard /> 
-                  
-          
-            <div className="btn-div">
-              <a href={url} target="_blank" rel="noopener noreferrer">
-                <button  >Participate
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="55"
-                    height="20"
-                    viewBox="0 0 45 23"
-                    fill="none">
-                    <path d="M44.5402 13.0967C45.1372 12.5204 45.1556 11.5708 44.5812 10.9758L35.2213 1.27994C34.6469 0.684948 33.6973 0.669852 33.1002 1.24622C32.5032 1.82258 32.4848 2.77215 33.0591 3.36714L41.3791 11.9857L32.7306 20.3345C32.1336 20.9109 32.1152 21.8605 32.6896 22.4554C33.264 23.0504 34.2136 23.0655 34.8106 22.4892L44.5402 13.0967ZM0.720964 12.8395L43.4711 13.5191L43.5292 10.5197L0.779036 9.84009L0.720964 12.8395Z" fill="white" />
-                  </svg>
-                </button>
-              </a>
-            </div>
+              <div className="btn-div">
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                  <button  >Participate
+                    {/* <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="55"
+                      height="20"
+                      viewBox="0 0 45 23"
+                      fill="none">
+                      <path d="M44.5402 13.0967C45.1372 12.5204 45.1556 11.5708 44.5812 10.9758L35.2213 1.27994C34.6469 0.684948 33.6973 0.669852 33.1002 1.24622C32.5032 1.82258 32.4848 2.77215 33.0591 3.36714L41.3791 11.9857L32.7306 20.3345C32.1336 20.9109 32.1152 21.8605 32.6896 22.4554C33.264 23.0504 34.2136 23.0655 34.8106 22.4892L44.5402 13.0967ZM0.720964 12.8395L43.4711 13.5191L43.5292 10.5197L0.779036 9.84009L0.720964 12.8395Z" fill="white" />
+                    </svg> */}
+                  </button>
+                </a>
+              </div>
+              <CopyToClipboard msg="share" />
             </div>
             {/* <Button  url={url}/> */}
           </div>
