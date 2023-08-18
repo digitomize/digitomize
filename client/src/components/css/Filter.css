@@ -17,7 +17,7 @@
     position: fixed; /* Apply fixed position when scrolling */
     top: 0; /* Position it at the top of the viewport */
     background-color: #1E1E1E; 
-    z-index: 1000; /* Adjust z-index if needed */
+    z-index: 10; /* Adjust z-index if needed */
     width: fit-content; /* Ensure it spans the full width */
     background: rgba(27, 26, 26, 0.9);
     border-color: rgba(32,33,35,.5);
