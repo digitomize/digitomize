@@ -67,12 +67,16 @@ function IndividualCard() {
               <div>{remaningTime}</div>
             </div>
 
-            <div className="clipboard">
+            
 
-                <CopyToClipboard /> 
                 
-            </div>
+         
+            <div className="outerbtn">
+                 
 
+                  <CopyToClipboard /> 
+                  
+          
             <div className="btn-div">
               <a href={url} target="_blank" rel="noopener noreferrer">
                 <button  >Participate
@@ -86,6 +90,7 @@ function IndividualCard() {
                   </svg>
                 </button>
               </a>
+            </div>
             </div>
             {/* <Button  url={url}/> */}
           </div>

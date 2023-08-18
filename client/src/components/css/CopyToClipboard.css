@@ -1,53 +1,34 @@
 
 .share-button-container {
-    position: relative;
-    display: inline-block;
-    width:fit-content;
-  }
-  
-  .share-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    outline: none;
-    width:100px;
-  }
-  .share-button svg {
-    width: 224px; /* Set the desired width */
-    height: 24px; /* Set the desired height */
+  position: relative;
+  display: inline-block;
+  height: 100px;
+
 }
+
+.share-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
   
-  .tooltip {
-    visibility: hidden;
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: #fff;
-    padding: 5px;
-    border-radius: 6px;
-    font-size: 13px;
-    white-space: nowrap;
-  }
-  
-  .share-button:hover .tooltip {
-    visibility: visible;
-  }
+}
 
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+}
 
-  @media (max-width:768px) {
-
-    .share-button-container {
-        max-width:fit-content;
-    }
-    .share-button{
-      max-width:100px;
-    }
-
-    #share{
-      width:100px;
-    }
-
-  }
+.share-button:hover .tooltip {
+  visibility: visible;
+}

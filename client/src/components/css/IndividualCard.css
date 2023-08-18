@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     margin: 2% auto;
-    height: 33.5rem;
+    height: 36.5rem;
     width: 56.5rem;
     background: linear-gradient(45deg, #8D41AA 0%, #BA356C 34.38%, #F22C30 60.94%, #F8573A 79.69%, #FCBB57 100%);
     border-radius: 10px;    
@@ -11,7 +11,7 @@
 .ic-child {
     display: flex;
     flex-direction: column;
-    height: 30rem;
+    height: 33rem;
     width: 53rem;
     border-radius: 10px;
     background: #1e1e1e;
@@ -55,8 +55,11 @@
 .ic-lower-button {
     display: flex;
     justify-content: space-between;
-    height: 30%;
+    height: 33%;
     margin-bottom: 0;
+}
+.ic-inner-lower{
+    align-self: center;
 }
 .ic-lower-button p {
     color: rgba(255, 255, 255, 0.75);
@@ -86,6 +89,8 @@
     cursor: pointer;
 
 }
+
+
 .btn-div {
     display: flex;
     flex-direction: column;
@@ -97,10 +102,22 @@
 
 }
 
-.share-button{
+
+
+/* .share-button{
     width:100px;
+} */
+
+
+.outerbtn{
+    display:flex;
+    flex-direction:column;
+
 }
 
+.outerClipboard{
+    height:100px;
+}
 @media (max-width:768px) {
     *{
         margin:0px;

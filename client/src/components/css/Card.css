@@ -66,6 +66,10 @@
   text-transform: lowercase;
 }
 
+.clip{
+  height:30px;
+}
+
 @media (max-width: 900px) {
   .card {
       /* width: 340px; */
