@@ -55,7 +55,10 @@ function Card({ contest }) {
           <p>Duration : {duration}min</p>
           <div>{remaningTime}</div>
         </div>
+        <div className="clip">
+
         <CopyToClipboard vanity={vanity}/>
+        </div>
           <Button  url={url}/>
         
       </div>
