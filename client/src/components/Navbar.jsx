@@ -6,7 +6,7 @@ import logo from '../assets/digitomizeLogo.png'
 import { getUserNameFromCookie } from '../../api';
 
 function Navbar() {
-  const [name, setName] = useState(getUserNameFromCookie())
+  const name = getUserNameFromCookie()
   const [path, setPath] = useState("/login")
   const [btnMessage, setBtnMessage] = useState("Login")
   const[isMenuActive, setActive]=useState(false);
@@ -23,17 +23,13 @@ function Navbar() {
   }
 
   useEffect(() => {
-
-
-    document.body.className = isMenuActive ? "scrollOff": '';
-  }, [isMenuActive]);
-
-  useEffect(() => {
     if(name) {
       setBtnMessage(name)
       setPath("/user/dashboard")
     }
-  }, [name])
+
+    document.body.className = isMenuActive ? "scrollOff": '';
+  }, [isMenuActive, name]);
   
 
   return (

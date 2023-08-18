@@ -1,6 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
+import { redirect } from "react-router-dom";
 
 export async function loginUser({ username, password }) {
   const res = await axios.post("http://localhost:4001/user/login", {
@@ -14,7 +15,6 @@ export async function loginUser({ username, password }) {
       message: res.data.message,
     };
   }
-  ``;
   const token = res.data.token;
   Cookies.set("jwt", token, { secure: true });
   return res;
@@ -48,5 +48,37 @@ export function getUserNameFromCookie() {
     return decodedToken.name;
   } else {
     console.log("JWT token not found in the cookie.");
+  }
+}
+
+export function isLoggedIn() {
+  const jwtToken = Cookies.get("jwt");
+  if (jwtToken) {
+    // Decode the JWT token
+    const decodedToken = jwt_decode(jwtToken);
+
+    // Now you can access the payload data from the decoded token
+    if (decodedToken.name) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+}
+
+export async function userDashboardDetails() {
+  const jwtToken = Cookies.get("jwt");
+
+  try {
+    const data = await axios.get("http://localhost:4001/user/dashboard", {
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    });
+    return data;
+  } catch (err) {
+    return err;
   }
 }

@@ -1,7 +1,14 @@
 import React from 'react'
 import { useNavigation, Form, redirect, useActionData } from 'react-router-dom'
 
-import { signupUser } from '../../api'
+import { signupUser, isLoggedIn } from '../../api'
+
+export function loader(){
+    if (isLoggedIn()) {
+        return redirect("/user/dashboard")
+    }
+    return null
+}
 
 export async function action({ request }){
     const formData = await request.formData()

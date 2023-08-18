@@ -5,11 +5,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
 import IndividualCard from './components/IndividualCard.jsx'
-import Login, { action as loginAction } from './components/Login.jsx'
-import Signup, { action as signupAction } from './components/Signup.jsx'
+import Login, { loader as loginLoader, action as loginAction } from './components/Login.jsx'
+import Signup, { loader as signupLoader, action as signupAction } from './components/Signup.jsx'
 import Layout from './components/Layout.jsx'
 import ErrorPage from './components/error-page'
-import UserDashboard from './components/UserDashboard.jsx'
+import UserDashboard, { loader as dashboardLoader } from './components/UserDashboard.jsx'
+// import { requireAuth } from '../utils.js'
 
 const router = createBrowserRouter([
   {
@@ -23,13 +24,14 @@ const router = createBrowserRouter([
       {
         path : "login",
         element : <Login />,
-        // loader : loginLoader,
+        loader : loginLoader,
         action : loginAction
       },
       {
         path : "signup",
         element : <Signup />,
-        action : signupAction
+        loader : signupLoader,
+        action : signupAction,
       },
       {
         path: "contests",
@@ -41,7 +43,8 @@ const router = createBrowserRouter([
       },
       {
         path : "user/dashboard",
-        element : <UserDashboard />
+        loader :  dashboardLoader,
+        element : <UserDashboard />,
       }
     ],
     errorElement : <ErrorPage />
