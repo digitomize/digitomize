@@ -7,7 +7,7 @@ const contestSyncer = require("./controllers/contest/contestController");
 const contestRouter = require("./routes/contest/contestRoutes");
 const fetchContestsData = require('./fetchContests');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 
 // const authRoutes = require('./routes/user/authRoutes');
 const userRoutes = require('./routes/user/userRoutes');
@@ -58,7 +58,7 @@ async function startServer() {
         }, 14 * 60 * 1000);
 
 
-        app.use(cookieParser());
+        // app.use(cookieParser());
         app.use(bodyParser.json());
         // app.use('/auth', authRoutes);
         app.use('/user', userRoutes);
