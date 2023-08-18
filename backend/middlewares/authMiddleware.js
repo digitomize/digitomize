@@ -2,8 +2,11 @@ const jwt = require('jsonwebtoken');
 const { getUser } = require('../services/auth');
 
 function checkAuth(request, response, next) {
-    const authToken = request.cookies.jwt;
+    // const authToken = request.cookies.jwt;
 
+    const authHeader = request.headers['authorization'];
+    const authToken = authHeader && authHeader.split(' ')[1]; // Get the token part after 'Bearer'
+  
     if (!authToken) {
         return response.redirect('/login'); // Redirect to the login page
     }
@@ -23,15 +26,15 @@ function checkAuth(request, response, next) {
 }
 
 
-function setJwtCookie(req, res, token, next) {
-    if (token) {
-        res.cookie('jwt', token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production', // Use 'secure' only in production
-        });
-    }
-    next();
-}
+// function setJwtCookie(req, res, token, next) {
+//     if (token) {
+//         res.cookie('jwt', token, {
+//             httpOnly: true,
+//             secure: process.env.NODE_ENV === 'production', // Use 'secure' only in production
+//         });
+//     }
+//     next();
+// }
 
 // const { ObjectId } = require('mongoose').Types;
 
@@ -57,6 +60,6 @@ async function checkUserOwnership(req, res, next) {
 
 module.exports = {
     checkAuth,
-    setJwtCookie,
+    // setJwtCookie,
     checkUserOwnership
 };
