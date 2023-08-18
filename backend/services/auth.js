@@ -47,7 +47,7 @@ const getUser = async (username) => {
 };
 
 const generateToken = (user) => {
-    return jwt.sign({ userId: user._id }, secretKey);
+    return jwt.sign({ userId: user._id, name: user.firstName }, secretKey);
 };
 
 module.exports = { setUser, getUser, generateToken };
