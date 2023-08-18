@@ -111,7 +111,7 @@
 
 .outerbtn{
     display:flex;
-    flex-direction:column;
+    flex-direction:column-reverse;
 
 }
 
@@ -125,7 +125,7 @@
     }
 
     .ic{
-        max-width:100vw;
+        max-width:91vw;
     }
 
     .ic-top{
@@ -142,8 +142,8 @@
     }
 
     .ic-child{
-        max-width:99vw;
-        height: 33.3rem;
+        max-width:90vw;
+        height: 36.2rem;
         font-size:1px;
     }
 
@@ -154,7 +154,7 @@
       }
     .btn-div{
         max-width:70vw;
-        left:-1rem;
+        /* left:-1rem; */
         margin-bottom:10px;
         
 
@@ -164,6 +164,7 @@
         /* max-width:inherit; */
         margin-left:10px;
         margin-bottom:10px;
+        align-self:center;
        
 
     }
