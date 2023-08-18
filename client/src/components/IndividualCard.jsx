@@ -51,7 +51,7 @@ function IndividualCard() {
   }, 1000)
   return (
     <>
-      <Navbar />
+     
       <div className="ic" key={vanity}>
         <div className="ic-child">
           <div className='ic-top'>
