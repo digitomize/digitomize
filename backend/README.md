@@ -50,6 +50,7 @@ Configure your environment variables in the `.env` file. This file should contai
 TEST=Env file connected.
 MONGODB_URL=mongodb://localhost:27017/example
 PORT=4001
+BACKEND_URL=mywebsite.onrender.com
 ```
 
 ### Running the Server
