@@ -81,7 +81,7 @@ function IndividualCard() {
                   </button>
                 </a>
               </div>
-              <CopyToClipboard msg="share" vanity={vanity}/>
+              <CopyToClipboard msg="share" vanity={vanity} gradient={"btn-div"}/>
             </div>
             {/* <Button  url={url}/> */}
           </div>
