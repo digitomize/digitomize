@@ -152,6 +152,7 @@
         font-size: 1.75rem; /* Adjust this value as needed */
         max-width: inherit;
         margin-bottom: 4rem; /* Adjust this value as needed */
+        text-align: center;
       }
     .btn-div{
         max-width:70vw;
