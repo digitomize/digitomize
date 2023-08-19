@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gradient-custom {
+    background: linear-gradient(
+      270deg,
+      #751c87 0%,
+      #8D41AA 10%,
+      #BA356C 20%,
+      #F22C30 35%,
+      #F8573A 60%,
+      #FCBB57 100%
+    );
+  }
+    
+  
+  

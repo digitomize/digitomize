@@ -1,6 +1,6 @@
 /* Card.css */
 .card {
-    width: 360px;
+    width: 430px;
     min-height: 215px;
     margin-bottom: 2%;
     padding:3%;
@@ -81,7 +81,7 @@
 
 @media (max-width:768px){
   .card {
-    width: 360px;
+    width: 370px;
     height: 270px;
     margin-bottom: 5%;
 }

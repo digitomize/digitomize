@@ -49,7 +49,7 @@ body {
     margin-bottom:5%;
 }
 
-.button {
+.btn {
     width: 31.25rem;
     height: 6.25rem;
     background: white;
@@ -120,7 +120,7 @@ svg {
         max-width:1000px;
         height: calc(100vh - 100px);
     }
-    .button {
+    .btn {
         width: 20.25rem;
         height: 5.25rem;
         font-size: 25px;
@@ -131,7 +131,7 @@ svg {
     .button-container h1 {
         font-size: 4.5rem;
     }
-    .button {
+    .btn {
         margin-top: 65px;
     }
 }

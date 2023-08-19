@@ -70,7 +70,7 @@ function Filter() {
   return (
     <>
     {/* //checkmarks */}
-      <div className={`filter-div ${isFixed ? 'fixed' : ''}`}>
+      <div className={`filter-div ${isFixed ? 'fixed scroll-smooth' : 'scroll-smooth'}`}>
         <FormControl variant="filled" sx={{ m: 1, minWidth: 300 }} className={`filter platform-container${isFixed ? 'fixed' : ''}`}>
           <InputLabel varianat="filled" id="platform-select-label">Platform</InputLabel>
           <Select

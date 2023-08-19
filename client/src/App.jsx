@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="container">
       <BgEllipse />
-      <div className="button-container">
+      <div className=" button-container scroll-smooth">
           <Typography variant="h1" align="center">
             Your Ultimate Contest List
           </Typography>
@@ -32,11 +32,11 @@ function App() {
 
           {/* Scroll to Contests button */}
           <Link to="newHead" smooth={true} duration={500}>
-            <button className="button">
+            <button className="btn">
               go to contests
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="60"
+                width="80"
                 height="23"
                 viewBox="0 0 60 23"
                 fill="none"
@@ -48,13 +48,13 @@ function App() {
         </div>  
 
         <Element name="newHead">
-          <h2 style={{marginBottom:'5%'}}>Contests</h2>
+          <p style={{marginBottom:'3%', fontSize: '3.5rem'}}>Contests</p>
         </Element>
         
         {/* <------ Filter for Contest | STARTS------> */}
         <Filter/>
 
-        <div className="containerBottom">
+        <div className="containerBottom scroll-smooth">
           <div id="footer">
             <h2>Hey👋</h2>
             <h2>Loved ❤️ our project  ?</h2>
