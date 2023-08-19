@@ -1,33 +1,31 @@
 .filter-div {
-    align-self: center;
-    background-color: #1E1E1E;
-    width: 93%;
-    padding: 1%;
-    position: relative;
-    top: 0;
-    transition: .4s ease-out;
-    border-top-left-radius:10px;
-    border-top-right-radius:10px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    
+  align-self: center;
+  background-color: #1E1E1E;
+  width: 93%;
+  padding: 1%;
+  position: relative;
+  top: 0;
+
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transition: 2s ease-in; /* Add this line for smooth transition */
 }
 
 .filter-div.fixed {
-    position: fixed; /* Apply fixed position when scrolling */
-    top: 0; /* Position it at the top of the viewport */
-    background-color: #1E1E1E; 
-    z-index: 10; /* Adjust z-index if needed */
-    width: fit-content; /* Ensure it spans the full width */
-    background: rgba(27, 26, 26, 0.9);
-    border-color: rgba(32,33,35,.5);
-    transition: .29s ease-in;
-    border-top-left-radius:0px;
-    border-top-right-radius:0px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-
-  }
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: fit-content;
+  background: rgba(27, 26, 26, 0.9);
+  border-color: rgba(32,33,35,.5);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: 2s ease-in; /* Add this line for smooth transition */
+}
 
 .filter{
     background-color: #D9D9D9;
@@ -36,6 +34,7 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px; */
     border-radius:18px;
+  
 }
 
 
@@ -51,13 +50,23 @@
     border-top-right-radius:10px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    transition: 2s ease-in; /* Add this line for smooth transition */
+
   }
 
-  .platform-containerfixed{
+  .platform-container.fixed{
     border-top-left-radius:10px;
     border-top-right-radius:10px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+  transition: 2s ease-in; /* Add this line for smooth transition */
+
     
   }
- 
+  @media (max-width:768px){
+      .filter-div{
+        display:flex;
+        justify-content:center;
+      }
+
+  }
