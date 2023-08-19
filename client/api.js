@@ -30,7 +30,7 @@ export async function signupUser({ username, firstName, email, password }) {
   if (res.status !== 200) {
     throw {
       statusCode: res.status,
-      message: res.data.message,
+      message: res.data.error,
     };
   }
 

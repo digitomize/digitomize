@@ -9,8 +9,8 @@ import Login, { loader as loginLoader, action as loginAction } from './component
 import Signup, { loader as signupLoader, action as signupAction } from './components/Signup.jsx'
 import Layout from './components/Layout.jsx'
 import ErrorPage from './components/error-page'
-import UserDashboard, { loader as dashboardLoader } from './components/UserDashboard.jsx'
-// import { requireAuth } from '../utils.js'
+import UserDashboard, { loader as dashboardLoader } from './user/dashboard/UserDashboard.jsx'
+import UserProfile from './user/Profile/UserProfile.jsx' 
 
 const router = createBrowserRouter([
   {
@@ -42,9 +42,19 @@ const router = createBrowserRouter([
         element : <IndividualCard />
       },
       {
-        path : "user/dashboard",
-        loader :  dashboardLoader,
-        element : <UserDashboard />,
+        path : "user",
+        children : [
+          {
+            path : "dashboard",
+            loader :  dashboardLoader,
+            element : <UserDashboard />,
+          },
+          {
+            path : "profile/:username",
+            element : <UserProfile />,
+          }
+        ]
+        
       }
     ],
     errorElement : <ErrorPage />

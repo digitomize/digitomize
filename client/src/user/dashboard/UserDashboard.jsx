@@ -1,7 +1,7 @@
-import { requireAuth } from "../../utils"
-import { userDashboardDetails } from "../../api";
+import { requireAuth } from '../../../utils'
+  import { userDashboardDetails } from "../../../api";
 import { useLoaderData } from "react-router-dom";
-import SignoutButton from "./SignoutButton";
+import SignoutButton from "../../components/SignoutButton";
 
 export async function loader ({ request }) {
     await requireAuth(request)

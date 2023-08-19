@@ -21,7 +21,8 @@ export async function action({ request }){
         return useNavigate('/login')
     }
     catch(err) {
-        return err.message
+        const errorMessage = err.response.data.error
+        return errorMessage
     } 
 }
 
