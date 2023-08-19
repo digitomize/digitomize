@@ -43,11 +43,6 @@ color: #FFF;
 
 }
 
-img {
-  width: 100%; /* or any custom size */
-  object-fit: contain;
-}
-
 .contents {
   display: flex;
   align-self: flex-end; /* Align to the bottom of the navbar */
@@ -171,8 +166,6 @@ z-index:100;
     display:block;
 
 }
-
-
 
 .scrollOff{
   overflow:hidden;

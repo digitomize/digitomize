@@ -40,7 +40,7 @@ function Navbar() {
         <div className="brand">
         <Link to="/" className='nav-brand-link'>
           
-            <img src={logo} alt="Logo" /> 
+            <img src={logo} alt="Logo" width="75%"/> 
         </Link>
         </div>
 

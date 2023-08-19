@@ -70,12 +70,7 @@
   height:30px;
 }
 
-@media (max-width: 900px) {
-  .card {
-      /* width: 340px; */
-      margin-bottom: 5%;
-  }
-}
+
 
 .lower_button{
   display: flex;
@@ -85,7 +80,11 @@
 }
 
 @media (max-width:768px){
-
+  .card {
+    width: 360px;
+    height: 270px;
+    margin-bottom: 5%;
+}
   .clip{
     background:none;
     width:10%;
@@ -98,5 +97,8 @@
   }
   .clip .share-button svg{
     width:27px;
+  }
+  #startTime {
+    font-size: 10px;
   }
 }

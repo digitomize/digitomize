@@ -45,7 +45,7 @@ function Card({ contest }) {
     <div className="card" key={vanity}>
       <div className='top'>
           <p id='startTime'>{startTimeIST}</p>
-          <img src={hostToSVGMap[host]} alt={host} style={{maxHeight:'50px', maxWidth:'50px'}}/>  
+          <img src={hostToSVGMap[host]} alt={host} width="13%"/>  
       </div>
       <Link to={`/contests/${vanity}`}>
       <h2>{name}</h2>
