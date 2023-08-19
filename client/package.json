@@ -15,6 +15,7 @@
     "@fontsource/roboto": "^5.0.6",
     "@mui/icons-material": "^5.14.3",
     "@mui/material": "^5.14.3",
+    "@vercel/analytics": "^1.0.2",
     "axios": "^1.4.0",
     "js-cookie": "^3.0.5",
     "jwt-decode": "^3.1.2",
