@@ -30,21 +30,21 @@ color: #FFF;
 .brand {
 
   display: flex;
-  align-self: flex-start; /* Align to the top of the navbar */
-  margin-right:20px;
+  align-self: flex-end; /* Align to the top of the navbar */
   color: #FFF;
   font-family: 'Outfit', sans-serif;
   font-size: 35px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  width:500px;
-  height:100px;
+  width:12rem;
+  height:4rem;
+
 
 }
 
 img {
-  width: 40%; /* or any custom size */
+  width: 100%; /* or any custom size */
   object-fit: contain;
 }
 
