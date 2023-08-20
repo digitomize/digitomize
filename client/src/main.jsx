@@ -11,6 +11,7 @@ import Layout from './components/Layout.jsx'
 import ErrorPage from './components/error-page'
 import UserDashboard, { loader as dashboardLoader } from './user/dashboard/UserDashboard.jsx'
 import UserProfile from './user/Profile/UserProfile.jsx' 
+import UserLayout from './user/UserLayout.jsx'
 
 const router = createBrowserRouter([
   {
@@ -41,23 +42,25 @@ const router = createBrowserRouter([
         path : "contests/:vanity",
         element : <IndividualCard />
       },
-      {
-        path : "user",
-        children : [
-          {
-            path : "dashboard",
-            loader :  dashboardLoader,
-            element : <UserDashboard />,
-          },
-          {
-            path : "profile/:username",
-            element : <UserProfile />,
-          }
-        ]
-        
-      }
+      
     ],
     errorElement : <ErrorPage />
+  },
+  {
+    path : "user",
+    element : <UserLayout />,
+    children : [
+      {
+        path : "dashboard",
+        loader :  dashboardLoader,
+        element : <UserDashboard />,
+      },
+      {
+        path : "profile/:username",
+        element : <UserProfile />,
+      }
+    ]
+    
   }
 ])
 

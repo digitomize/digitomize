@@ -44,24 +44,30 @@ export default function Login() {
                     className="login-form" 
                     replace
                 >
-                    <input
-                        name="username"
-                        type="text"
-                        placeholder="Username"
-                    />
-                    <input
-                        name="password"
-                        type="password"
-                        placeholder="Password"
-                    />
-                    <button
-                        disabled={navigation.state === "submitting"}
-                    >
-                        {navigation.state === "submitting"
-                            ? "Logging in..."
-                            : "Log in"
-                        }
-                    </button>
+                    <div className="flex flex-wrap -mx-3 mb-6">
+                        <div className="w-full px-3">
+                            <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-email">
+                                Username
+                            </label>
+                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-email" type="text" placeholder="Username" name='username' required/>
+                        </div>
+                        <div className="w-full px-3">
+                            <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-password">
+                                Password
+                            </label>
+                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" name='password' placeholder="******************" required/>
+                        </div>
+                    </div>
+                    <div className="md:flex md:items-center items-center">
+                        <div className="md:w-2/3 ">
+                            <button disabled={navigation.state === "submitting"} className="shadow gradient-custom drop-shadow-2xl focus:shadow-outline focus:outline-none font-light text-white py-2 px-12 rounded">
+                                {navigation.state === "submitting"
+                                    ? "Logging in..."
+                                    : "Log in"
+                                }
+                            </button>    
+                        </div>        
+                    </div>
                 </Form>
 
                 <p> New user ? <Link to="/signup">Signup</Link></p>

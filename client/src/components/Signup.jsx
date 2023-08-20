@@ -57,7 +57,7 @@ export default function Signup() {
                     <div className="flex flex-wrap -mx-3 mb-6">
                         <div className="w-full px-3">
                             <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-email">
-                                Password
+                                Email
                             </label>
                             <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-email" type="email" placeholder="Email" name='email' required/>
                         </div>
@@ -81,36 +81,3 @@ export default function Signup() {
         </div>
     )
 }
-
-{/* <input
-                        name="username"
-                        type="text"
-                        placeholder="Username"
-                        required
-                    />
-                    <input
-                        name="firstName"
-                        type="text"
-                        placeholder="First Name"
-                        required
-                    />
-                    <input
-                        name="email"
-                        type="email"
-                        placeholder="Email address"
-                        required
-                    />
-                    <input
-                        name="password"
-                        type="password"
-                        placeholder="Password"
-                        required
-                    />
-                    <button
-                        disabled={navigation.state === "submitting"}
-                    >
-                        {navigation.state === "submitting"
-                            ? "Signing up..."
-                            : "Sign up"
-                        }
-                    </button> */}
