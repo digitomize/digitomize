@@ -23,27 +23,37 @@ async function clearUpcoming() {
 //* Add contest using API
 async function addToDB(mappedContests, platform) {
     try {
-        //Sorting contests
+        // Sorting contests
         mappedContests.sort((a, b) => a.startTimeUnix - b.startTimeUnix);
-        // console.log(mappedContests);
-        // Add to UpcomingContest collection
-        await UpcomingContest.insertMany(mappedContests, { ordered: false });
-        console.log(`Updated upcoming contests for ${platform}`);
         
-        // Update AllContest collection
-        await AllContest.insertMany(mappedContests, { ordered: false });
-        console.log(`Updated all contests for ${platform}`);
-    }
-    catch (err) {
-        //* 11000 is error code for duplicate item.
-        if (err.code === 11000) {
-            console.log(`Some duplicate(s) in ${platform}`);
+        try {
+            // Add to UpcomingContest collection
+            await UpcomingContest.insertMany(mappedContests, { ordered: false });
+            console.log(`Updated upcoming contests for ${platform}`);
+        } catch (upcomingErr) {
+            if (upcomingErr.code === 11000) {
+                console.log(`Some duplicate(s) in UpcomingContest for ${platform}`);
+            } else {
+                throw upcomingErr;
+            }
         }
-        else {
-            console.log(`Error adding contests to MongoDB for ${platform}`, err);
+        
+        try {
+            // Update AllContest collection
+            await AllContest.insertMany(mappedContests, { ordered: false });
+            console.log(`Updated AllContests for ${platform}`);
+        } catch (allErr) {
+            if (allErr.code === 11000) {
+                console.log(`Some duplicate(s) in AllContest for ${platform}`);
+            } else {
+                throw allErr;
+            }
         }
+    } catch (err) {
+        console.log(`Error adding contests to MongoDB for ${platform}`, err);
     }
 }
+
 
 async function syncContests() {
     try {
@@ -55,18 +65,22 @@ async function syncContests() {
         await clearUpcoming();
         
         //* LeetCode Section
+        console.log("<======= LeetCode =====>");
         const leetcodeData = await leetcodeContests.leetcode_c();
         await addToDB(leetcodeData, "LeetCode");
 
         //* GeeksforGeeks Section
+        console.log("<======= GeeksForGeeks =======>");
         const geeksforgeeksData = await gfgContests.geeksforgeeks_c();
         await addToDB(geeksforgeeksData, "GeeksForGeeks");
 
         //* Codeforces Section
+        console.log("<======= CodeForces =======>");
         const codeforcesData = await codeforcesContests.codeforces_c();
         await addToDB(codeforcesData, "Codeforces");
 
         //* CodeChef Section
+        console.log("<======= CodeChef =======>");
         const codechefData = await codechefContests.codechef_c();
         await addToDB(codechefData, "CodeChef");
 
