@@ -1,5 +1,4 @@
-import React from 'react'
-import { useNavigation, Form, redirect, useActionData, useNavigate } from 'react-router-dom'
+import { useNavigation, Form, redirect, useActionData } from 'react-router-dom'
 
 import { signupUser, isLoggedIn } from '../../api'
 
@@ -18,7 +17,7 @@ export async function action({ request }){
     const password = formData.get("password")
     try {
         const data = await signupUser({ username,firstName, email, password })
-        return useNavigate('/login')
+        return null
     }
     catch(err) {
         const errorMessage = err.response.data.error
@@ -28,6 +27,7 @@ export async function action({ request }){
 
 export default function Signup() {
     const errorMessage = useActionData()
+    console.log(errorMessage)
     const navigation = useNavigation()
     return (
         <div className="outer-login-div">

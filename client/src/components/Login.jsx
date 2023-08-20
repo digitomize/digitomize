@@ -8,7 +8,7 @@ import { loginUser, isLoggedIn } from "../../api"
 export function loader({ request }){
     const message = new URL(request.url).searchParams.get("message")
     if (isLoggedIn()) {
-        return redirect("/user/dashboard")
+        return redirect("/user/dashboard/personal")
     }
     return message
 }
@@ -19,10 +19,11 @@ export async function action({ request }) {
     const password = formData.get("password")
     try {
         const data = await loginUser({ username, password })
-        return redirect('/user/dashboard')
+        return redirect('/user/dashboard/personal')
     }
     catch(err) {
-        return err.message
+        const errorMessage = err.response.data.error
+        return errorMessage
     } 
 }
 

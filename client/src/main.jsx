@@ -13,6 +13,10 @@ import UserDashboard, { loader as dashboardLoader } from './user/dashboard/UserD
 import UserProfile from './user/Profile/UserProfile.jsx' 
 import UserLayout from './user/UserLayout.jsx'
 
+import UserDashPersonal from './user/dashboard/UserDashPersonal.jsx'
+import UserDashRatings from './user/dashboard/UserDashRatings.jsx'
+import UserDashGithub from './user/dashboard/UserDashGithub.jsx'
+
 const router = createBrowserRouter([
   {
     path : "/",
@@ -54,13 +58,27 @@ const router = createBrowserRouter([
         path : "dashboard",
         loader :  dashboardLoader,
         element : <UserDashboard />,
+        children : [
+          {
+            path: "personal",
+            element :<UserDashPersonal />,
+          },
+          {
+            path : "ratings",
+            element : <UserDashRatings />,
+          },
+          {
+            path : "github",
+            element : <UserDashGithub />
+          }
+        ]
       },
       {
         path : "profile/:username",
         element : <UserProfile />,
       }
-    ]
-    
+    ],
+    errorElement : <ErrorPage />
   }
 ])
 
