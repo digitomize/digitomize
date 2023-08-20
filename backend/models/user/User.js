@@ -35,8 +35,12 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: [true, "Email is required."],
-        unique: true,
+        unique: { value: true, caseInsensitive: true },
         lowercase: true
+    },
+    email_show: {
+        type: Boolean,
+        default: false,
     },
     password: {
         type: String,
@@ -44,31 +48,31 @@ const userSchema = new mongoose.Schema({
     },
     bio: {
         type: stringToggleSchema,
-        default: { data: "", showOnWebsite: false }
+        default: { data: null, showOnWebsite: false }
     },
     dateOfBirth: {
         type: stringToggleSchema,
-        default: { data: "", showOnWebsite: false }
+        default: { data: null, showOnWebsite: false }
     },
     phoneNumber: {
         type: numberToggleSchema,
-        default: { data: "", showOnWebsite: false }
+        default: { data: null, showOnWebsite: false }
     },
     github: {
         type: stringToggleSchema,
-        default: { data: "", showOnWebsite: false }
+        default: { data: null, showOnWebsite: false }
     },
     codechef: {
         type: contestToggleSchema,
-        default: undefined
+        default: { data: null, showOnWebsite: false }
     },
     leetcode: {
         type: contestToggleSchema,
-        default: undefined
+        default: { data: null, showOnWebsite: false }
     },
     codeforces: {
         type: contestToggleSchema,
-        default: undefined
+        default: { data: null, showOnWebsite: false }
     }
 }, { timestamps: true });
 
