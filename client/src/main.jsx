@@ -16,6 +16,7 @@ import UserLayout from './user/UserLayout.jsx'
 import UserDashPersonal from './user/dashboard/UserDashPersonal.jsx'
 import UserDashRatings from './user/dashboard/UserDashRatings.jsx'
 import UserDashGithub from './user/dashboard/UserDashGithub.jsx'
+import { userDashboardDetails } from '../api.js'
 
 const router = createBrowserRouter([
   {

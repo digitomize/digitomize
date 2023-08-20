@@ -4,7 +4,7 @@ import { signupUser, isLoggedIn } from '../../api'
 
 export function loader(){
     if (isLoggedIn()) {
-        return redirect("/user/dashboard")
+        return redirect("/user/dashboard/personal")
     }
     return null
 }

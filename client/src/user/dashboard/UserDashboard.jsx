@@ -43,7 +43,7 @@ export default function UserDashboard() {
         </nav>
       </div>
       <div className="container flex  items-center">
-      <div className="container w-[80%] h-full bg-stone-900 rounded-[10px] border border-fuchsia-700 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+      <div className="container w-[80%] h-full bg-custom-bg rounded-[10px] border border-custom-border shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
         <Outlet context={data}/>
       </div>
     </div>

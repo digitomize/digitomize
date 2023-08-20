@@ -27,13 +27,15 @@ export async function signupUser({ username, firstName, email, password }) {
     password,
   });
   console.log(res.status);
-  if (res.status !== 200) {
+  if (res.status !== 201) {
     throw {
       statusCode: res.status,
       message: res.data.error,
     };
   }
 
+  const token = res.data.token;
+  Cookies.set("jwt", token, { secure: true });
   return res;
 }
 
