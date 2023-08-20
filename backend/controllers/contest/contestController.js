@@ -1,10 +1,10 @@
 // ? MongoDB to our API
 
-const { UpcomingContest } = require('../../models/contest/Contest');
+const { UpcomingContest, AllContest } = require('../../models/contest/Contest');
 
-let contestlist = []; // Variable to store contests in memory
+let upcomingContestList = []; // Variable to store contests in memory
 
-//* Function to fetch contests from MongoDB and update the contestlist variable
+//* Function to fetch contests from MongoDB and update the upcomingContestList variable
 async function updateContests() {
     try {
         console.log("===============================================");
@@ -16,8 +16,8 @@ async function updateContests() {
         // Sorting contests
         fetchedContests.sort((a, b) => a.startTimeUnix - b.startTimeUnix);
 
-        // Update the contestlist variable
-        contestlist = fetchedContests;
+        // Update the upcomingContestList variable
+        upcomingContestList = fetchedContests;
 
         console.log("===============================================");
         console.log('Contests variable updated successfully. | MongoDb to App');
@@ -27,12 +27,35 @@ async function updateContests() {
     }
 }
 
-//* Function to return contestlist
+//* Function to return upcomingContestList
 async function getContestList() {
-    return await contestlist;
+    return await upcomingContestList;
 }
+
+const getContestByVanity = async (vanity) => {
+    try {
+        // First, check the upcomingContestList in memory
+        const contestInMemory = upcomingContestList.find(contest => contest.vanity === vanity);
+        if (contestInMemory) {
+            return contestInMemory;
+        }
+
+        // If not found in memory, query MongoDB
+        const contestFromDB = await AllContest.findOne({ vanity: vanity });
+        if (contestFromDB) {
+            // Add the contest to memory for future access
+            // upcomingContestList.push(contestFromDB);
+            return contestFromDB;
+        }
+        
+        return null; // Contest not found
+    } catch (error) {
+        throw error;
+    }
+};
 
 module.exports = {
     getContestList,
     updateContests,
+    getContestByVanity
 };

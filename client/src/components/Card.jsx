@@ -33,7 +33,7 @@ function Card({ contest }) {
   const [remaningTime, setRemainingTime] = useState("0")
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setRemainingTime(updateTimer(startTimeUnix));
+      setRemainingTime(updateTimer(startTimeUnix,duration));
     }, 1000);
 
     return () => {
@@ -69,13 +69,16 @@ function Card({ contest }) {
 export default memo(Card);
 
 
-function updateTimer(startTime) {
+function updateTimer(startTime,duration) {
   const currentTime = Math.floor(Date.now() / 1000);
   // const currentTime = getCurrentTimeIST();
   const timeDiff = startTime - currentTime;
 
-  if (timeDiff <= 0) {
-   return <p>Time Left: 0h 0m 0s</p>
+  if ((duration + startTime) < currentTime) {
+    return <p>the contest has ended</p> 
+  }
+  else if (startTime <= currentTime) {
+    return <p>the contest has started!</p>
   } else {
         const days = Math.floor(timeDiff / 86400);
         const hours = Math.floor((timeDiff % 86400) / 3600);
