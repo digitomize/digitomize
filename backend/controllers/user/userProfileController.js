@@ -15,46 +15,25 @@ const handleUserProfilePreview = async (req, res) => {
 
     // Prepare the public user data object
     const publicUserData = {
-      username: user.username,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      email: user.email
+      personal_data: {
+        username: user.username,
+        firstName: user.firstName,
+        lastName: user.lastName || null,
+        email: user.email,
+        bio: user.bio.showOnWebsite ? user.bio.data : null,
+        dateOfBirth: user.dateOfBirth.showOnWebsite ? user.dateOfBirth.data : null,
+        phoneNumber: user.phoneNumber.showOnWebsite ? user.phoneNumber.data : null
+      },
+      github: {
+        data: user.github.showOnWebsite ? user.github.data : null
+      },
+      ratings: {}
     };
 
-    // Add fields with showOnWebsite set to true
-    if (user.bio.showOnWebsite) {
-      publicUserData.bio = user.bio.data;
-    }
-    if (user.dateOfBirth.showOnWebsite) {
-      publicUserData.dateOfBirth = user.dateOfBirth.data;
-    }
-    if (user.phoneNumber.showOnWebsite) {
-      publicUserData.phoneNumber = user.phoneNumber.data;
-    }
-    if (user.github.showOnWebsite) {
-      publicUserData.github = user.github.data;
-    }
-    if (user.codechef.showOnWebsite) {
-      publicUserData.codechef = {
-        username: user.codechef.username,
-        rating: user.codechef.rating,
-        badge: user.codechef.badge
-      };
-    }
-    if (user.leetcode.showOnWebsite) {
-      publicUserData.leetcode = {
-        username: user.leetcode.username,
-        rating: user.leetcode.rating,
-        badge: user.leetcode.badge
-      };
-    }
-    if (user.codeforces.showOnWebsite) {
-      publicUserData.codeforces = {
-        username: user.codeforces.username,
-        rating: user.codeforces.rating,
-        badge: user.codeforces.badge
-      };
-    }
+    // Handle coding platforms
+    handleCodingPlatform(publicUserData.ratings, user.codechef, 'codechef');
+    handleCodingPlatform(publicUserData.ratings, user.leetcode, 'leetcode');
+    handleCodingPlatform(publicUserData.ratings, user.codeforces, 'codeforces');
 
     res.json(publicUserData);
   } catch (error) {
@@ -62,6 +41,23 @@ const handleUserProfilePreview = async (req, res) => {
     res.status(500).json({ error: 'Error fetching user profile' });
   }
 };
+
+function handleCodingPlatform(targetObject, platform, platformKey) {
+  if (platform.showOnWebsite) {
+    targetObject[platformKey] = {
+      username: platform.username || null,
+      rating: platform.rating || null,
+      badge: platform.badge || null
+    };
+  } else {
+    targetObject[platformKey] = {
+      username: null,
+      rating: null,
+      badge: null
+    };
+  }
+}
+
 
 module.exports = {
   handleUserProfilePreview
