@@ -1,5 +1,5 @@
 // Navbar.js
-import { useState ,useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import './css/Navbar.css';
 import { Link } from 'react-router-dom';
 import logo from '../assets/digitomizeLogo.png'
@@ -9,28 +9,28 @@ function Navbar() {
   const name = getUserNameFromCookie()
   const [path, setPath] = useState("/login")
   const [btnMessage, setBtnMessage] = useState("Login")
-  const[isMenuActive, setActive]=useState(false);
- 
+  const [isMenuActive, setActive] = useState(false);
 
-  function toggleActive(){
+
+  function toggleActive() {
     console.log("clicekd");
-    if(isMenuActive){
+    if (isMenuActive) {
       setActive(false);
     }
-    else{
+    else {
       setActive(true);
     }
   }
 
   useEffect(() => {
-    if(name) {
+    if (name) {
       setBtnMessage(name)
-      setPath("/user/dashboard")
+      setPath("/user/dashboard/personal")
     }
 
-    document.body.className = isMenuActive ? "scrollOff": '';
+    document.body.className = isMenuActive ? "scrollOff" : '';
   }, [isMenuActive, name]);
-  
+
 
   return (
     <nav>
@@ -38,27 +38,27 @@ function Navbar() {
 
 
         <div className="brand">
-        <Link to="/" className='nav-brand-link'>
-          
-            <img src={logo} alt="Logo" width="75%"/> 
-        </Link>
+          <Link to="/" className='nav-brand-link'>
+
+            <img src={logo} alt="Logo" width="75%" />
+          </Link>
         </div>
 
         <div className={`nav-link  ${isMenuActive ? 'active' : ''}`}>
           <Link to="/contests" className='link'>
-            <li onClick={()=>toggleActive()} className='contents'>Contests</li>
+            <li onClick={() => toggleActive()} className='contents'>Contests</li>
           </Link>
-          <Link to="https://github.com/pranshugupta54/digitomize"className='link' >
-            <li onClick={()=>toggleActive()} className='contents'>Contribute</li>
+          <Link to="https://github.com/pranshugupta54/digitomize" className='link' >
+            <li onClick={() => toggleActive()} className='contents'>Contribute</li>
           </Link>
           <Link to={path} className='link'>
-            <li  onClick={()=>toggleActive()} className='contents'>{btnMessage}</li>
+            <li onClick={() => toggleActive()} className='contents'>{btnMessage}</li>
           </Link>
         </div>
 
-        <div onClick={()=>toggleActive()} className={`closeMenu ${isMenuActive ? 'active' : ''}`}>close</div>
+        <div onClick={() => toggleActive()} className={`closeMenu ${isMenuActive ? 'active' : ''}`}>close</div>
 
-      <div onClick={()=>toggleActive()} className="hamburger">
+        <div onClick={() => toggleActive()} className="hamburger">
           <span className="bar"></span>
           <span className="bar"></span>
           <span className="bar"></span>
