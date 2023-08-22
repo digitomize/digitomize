@@ -1,7 +1,5 @@
 const User = require("../../models/user/User");
 
-//? returns JSON message with Status Code
-// Finds user by Id and updates it with given data.
 // Helper function to update platform-specific data
 const updatePlatformData = (platform, userData, existingData) => {
   const platformData = userData[platform];
@@ -12,12 +10,43 @@ const updatePlatformData = (platform, userData, existingData) => {
 
     // If username is provided in userData, set ratings, badge, and fetchTime to null
     if (platformData.username) {
-      existingData.ratings = "";
-      existingData.badge = "";
+      existingData.ratings = null;
+      existingData.badge = null;
       existingData.fetchTime = 0;
     }
     // You can similarly update other properties specific to each platform
   }
+};
+
+// Helper function to update a specific data field
+const updateDataField = (field, userData, existingData) => {
+  existingData[field] = {
+    data: userData[field]?.data || existingData[field]?.data,
+    showOnWebsite: userData[field]?.showOnWebsite || existingData[field]?.showOnWebsite,
+  };
+};
+
+// Helper function to update user data, including platform-specific data
+const updateUserData = (userData, existingData) => {
+  // Update general user data (firstName, lastName, etc.)
+  const generalFields = ["firstName", "lastName", "email", "email_show"];
+  generalFields.forEach(field => {
+    existingData[field] = userData[field] || existingData[field];
+  });
+
+  // Update fields with common structure
+  const commonFields = ["bio", "dateOfBirth", "phoneNumber", "github"];
+  commonFields.forEach(field => {
+    updateDataField(field, userData, existingData);
+  });
+
+  // Update platform-specific data for CodeChef, LeetCode, and CodeForces
+  const platforms = ["codechef", "leetcode", "codeforces"];
+  platforms.forEach(platform => {
+    updatePlatformData(platform, userData, existingData[platform]);
+  });
+
+  // You can similarly update other general properties as needed
 };
 
 const handleUpdateUserProfile = async (req, res) => {
@@ -30,14 +59,15 @@ const handleUpdateUserProfile = async (req, res) => {
       return res.status(400).json({ error: "No data provided for update" });
     }
 
-    // Update platform-specific data for CodeChef
-    updatePlatformData("codechef", updatedData, user.codechef);
+    // Get the existing user profile
+    const user = await User.findById(userId);
 
-    // Update platform-specific data for LeetCode
-    updatePlatformData("leetcode", updatedData, user.leetcode);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
 
-    // Update platform-specific data for CodeForces
-    updatePlatformData("codeforces", updatedData, user.codeforces);
+    // Update user data, including platform-specific data
+    updateUserData(updatedData, user);
 
     // Save the updated user profile
     await user.save();
