@@ -11,7 +11,7 @@ const { UpcomingContest, AllContest } = require('../../models/contest/Contest');
 async function clearUpcoming() {
     try {
         const currentTime = Math.floor(Date.now() / 1000);
-        await UpcomingContest.deleteMany({ startTimeUnix: { $lt: currentTime } }); 
+        await UpcomingContest.deleteMany({ startTimeUnix: { $lt: currentTime } });
         console.log('Deleted upcoming contests with start time before now.');
     }
     catch (err) {
@@ -25,10 +25,10 @@ async function addToDB(mappedContests, platform) {
     try {
         // Sorting contests
         mappedContests.sort((a, b) => a.startTimeUnix - b.startTimeUnix);
-        
+
         try {
             // Add to UpcomingContest collection
-            await UpcomingContest.insertMany(mappedContests, { ordered: false });
+            await UpcomingContest.insertMany(mappedContests, { ordered: false, upsert: true });
             console.log(`Updated upcoming contests for ${platform}`);
         } catch (upcomingErr) {
             if (upcomingErr.code === 11000) {
@@ -37,7 +37,7 @@ async function addToDB(mappedContests, platform) {
                 throw upcomingErr;
             }
         }
-        
+
         try {
             // Update AllContest collection
             await AllContest.insertMany(mappedContests, { ordered: false });
@@ -63,7 +63,7 @@ async function syncContests() {
 
         //* Clearing the UpcomingContest collection
         await clearUpcoming();
-        
+
         //* LeetCode Section
         console.log("<======= LeetCode =====>");
         const leetcodeData = await leetcodeContests.leetcode_c();
