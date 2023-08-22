@@ -19,7 +19,7 @@ router.get('/dashboard', checkAuth, handleUserDashboard);
 
 router.get('/profile/:username', handleUserProfilePreview);
 
-router.post('profile/:username', checkAuth, checkUserOwnership, handleUpdateUserProfile);
+router.post('/profile/:username', checkAuth, checkUserOwnership, handleUpdateUserProfile);
 
 
 module.exports = router;

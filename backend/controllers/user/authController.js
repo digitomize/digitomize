@@ -6,7 +6,7 @@ const { generateToken, setUser, getUser } = require('../../services/auth');
 //? returns JSON message with Status Code
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
 const handleUserSignup = async (req, res) => {
-  const { username, password, firstName, lastName, email, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces } = req.body;
+  const { username, password, firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces } = req.body;
   // Validate required fields
   if (!username || !password || !firstName || !email) {
     return res.status(400).json({ error: 'Missing required fields' });
@@ -19,20 +19,21 @@ const handleUserSignup = async (req, res) => {
       firstName: firstName,
       lastName: lastName,
       email: email,
-      bio: bio,
-      dateOfBirth: dateOfBirth,
-      phoneNumber: phoneNumber,
-      github: github,
-      codechef: codechef,
-      leetcode: leetcode,
-      codeforces: codeforces
+      email_show: email_show,
+      bio: { data: bio, showOnWebsite:false },
+      dateOfBirth: { data: dateOfBirth, showOnWebsite:false },
+      phoneNumber: { data: phoneNumber, showOnWebsite:false },
+      github: { data: github, showOnWebsite:false },
+      codechef: { data: codechef, showOnWebsite:false },
+      leetcode: { data: leetcode, showOnWebsite:false },
+      codeforces: { data: codeforces, showOnWebsite:false }
     };
 
     const newUser = await setUser(userData); // Create a new user using setUser
     const token = generateToken(newUser); // Generate JWT token
 
     // setJwtCookie(req, res, token, () => {
-      res.status(201).json({ message: 'User created successfully', token: token });
+    res.status(201).json({ message: 'User created successfully', token: token });
     // });
 
   } catch (error) {
@@ -61,7 +62,7 @@ const handleUserLogin = async (req, res) => {
 
     const token = generateToken(user);
     // setJwtCookie(req, res, token, () => {
-      res.status(200).json({ message: 'Login successful', token: token });
+    res.status(200).json({ message: 'Login successful', token: token });
     // });
   } catch (error) {
     console.log("Error:", error);

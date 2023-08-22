@@ -5,8 +5,8 @@ const contestController = require("../../controllers/contest/contestController")
 // GET route for contests
 router.get("/", async (req, res) => {
     try {
-        let host = req.query.host; // Get the 'host' query parameter
-        let vanity = req.query.vanity; // Get the 'vanity' query parameter
+        let host = req.query.host;
+        let vanity = req.query.vanity;
 
         if (host) {
             host = host.toLowerCase();
@@ -15,33 +15,35 @@ router.get("/", async (req, res) => {
         if (vanity) {
             vanity = vanity.toLowerCase();
         }
-        // Convert 'host' and 'vanity' to arrays
+
         const platformArray = host ? host.split(",") : [];
         const vanityArray = vanity ? vanity.split(",") : [];
 
         const contests = await contestController.getContestList();
 
-        // Check if there are any query parameters
-        if (host || vanity) {
-            // If there are query parameters, filter the contests
+        if (vanity) {
+            const contestByVanity = await contestController.getContestByVanity(vanity);
+            if (contestByVanity) {
+                res.json({
+                    total: 1,
+                    results: [contestByVanity]
+                });
+            } else {
+                res.json({
+                    total: 0,
+                    results: []
+                });
+            }
+        } else if (host) {
             const filteredContests = contests.filter((contest) => {
-                // Check if the contest 'host' OR 'vanity' matches the provided parameters
-                return (
-                    platformArray.includes(contest.host) ||
-                    vanityArray.includes(contest.vanity)
-                );
+                return platformArray.includes(contest.host);
             });
 
-            const totalContests = filteredContests.length;
-
-            // Create the response object with total and results fields
-            const response = {
-                total: totalContests,
+            res.json({
+                total: filteredContests.length,
                 results: filteredContests
-            };
-            res.json(response);
+            });
         } else {
-            // If no query parameters are provided, return all contests
             res.json({
                 total: contests.length,
                 results: contests
@@ -49,6 +51,7 @@ router.get("/", async (req, res) => {
         }
     } catch (err) {
         console.log("Error:", err);
+        res.status(500).json({ error: "Internal server error" });
     }
 });
 

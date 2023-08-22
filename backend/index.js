@@ -38,7 +38,7 @@ async function startServer() {
             .then(() => console.log("MongoDB Connected."))
             .catch((err) => console.log("Error:", err));
 
-        //* Adds data from MongoDB to contestlist variable
+        //* Adds data from MongoDB to upcomingcontestlist variable
         await contestSyncer.updateContests();
         setInterval(contestSyncer.updateContests, 60 * 60 * 1000);
 
