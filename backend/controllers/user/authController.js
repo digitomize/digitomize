@@ -1,12 +1,16 @@
 const bcrypt = require('bcrypt');
-const { generateToken, setUser, getUser } = require('../../services/auth');
+const { generateToken } = require('../../services/generateToken');
+const { setUser } = require('../../services/setUser');
+const { getUser } = require('../../services/getUser');
 // const { setJwtCookie } = require('../../middlewares/authMiddleware');
 
 
 //? returns JSON message with Status Code
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
 const handleUserSignup = async (req, res) => {
-  const { username, password, firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces } = req.body;
+  const {
+    username, password, firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
+  } = req.body;
   // Validate required fields
   if (!username || !password || !firstName || !email) {
     return res.status(400).json({ error: 'Missing required fields' });
@@ -14,19 +18,7 @@ const handleUserSignup = async (req, res) => {
 
   try {
     const userData = {
-      username: username,
-      password: password,
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      email_show: email_show,
-      bio: { data: bio, showOnWebsite:false },
-      dateOfBirth: { data: dateOfBirth, showOnWebsite:false },
-      phoneNumber: { data: phoneNumber, showOnWebsite:false },
-      github: { data: github, showOnWebsite:false },
-      codechef: { data: codechef, showOnWebsite:false },
-      leetcode: { data: leetcode, showOnWebsite:false },
-      codeforces: { data: codeforces, showOnWebsite:false }
+      username, password, firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
     };
 
     const newUser = await setUser(userData); // Create a new user using setUser
