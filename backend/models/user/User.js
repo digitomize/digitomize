@@ -64,15 +64,15 @@ const userSchema = new mongoose.Schema({
     },
     codechef: {
         type: contestToggleSchema,
-        default: { data: null, showOnWebsite: false }
+        default: { username: null, rating: null, badge: null, showOnWebsite: false }
     },
     leetcode: {
         type: contestToggleSchema,
-        default: { data: null, showOnWebsite: false }
+        default: { username: null, rating: null, badge: null, showOnWebsite: false }
     },
     codeforces: {
         type: contestToggleSchema,
-        default: { data: null, showOnWebsite: false }
+        default: { username: null, rating: null, badge: null, showOnWebsite: false }
     }
 }, { timestamps: true });
 
