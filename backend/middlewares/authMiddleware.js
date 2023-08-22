@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { getUser } = require('../services/auth');
+const { getUser } = require('../services/getUser');
 
 function checkAuth(request, response, next) {
     // const authToken = request.cookies.jwt;
