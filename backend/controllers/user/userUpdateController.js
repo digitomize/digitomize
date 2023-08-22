@@ -4,9 +4,9 @@ const User = require("../../models/user/User");
 const updatePlatformData = (platform, userData, existingData) => {
   const platformData = userData[platform];
   if (platformData) {
-    existingData.username = platformData.username || null;
+    existingData.username = platformData?.username || null;
     existingData.showOnWebsite =
-      platformData.showOnWebsite || null;
+      platformData?.showOnWebsite || null;
 
     // If username is provided in userData, set ratings, badge, and fetchTime to null
     if (platformData.username) {
