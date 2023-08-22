@@ -4,6 +4,7 @@ const { handleUserDashboard } = require('../../controllers/user/userDashboardCon
 const { handleUserProfilePreview } = require('../../controllers/user/userProfileController');
 const { handleUpdateUserProfile } = require('../../controllers/user/userUpdateController');
 const { checkAuth, checkUserOwnership } = require('../../middlewares/authMiddleware');
+const { checkLoggedIn } = require('../../services/checkLoggedIn');
 
 const router = express.Router();
 
@@ -21,5 +22,6 @@ router.get('/profile/:username', handleUserProfilePreview);
 
 router.post('/profile/:username', checkAuth, checkUserOwnership, handleUpdateUserProfile);
 
+router.post('/isLoggedin', checkLoggedIn);
 
 module.exports = router;
