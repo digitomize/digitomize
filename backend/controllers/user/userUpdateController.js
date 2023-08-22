@@ -4,9 +4,9 @@ const User = require("../../models/user/User");
 const updatePlatformData = (platform, userData, existingData) => {
   const platformData = userData[platform];
   if (platformData) {
-    existingData.username = platformData.username || existingData.username;
+    existingData.username = platformData.username || null;
     existingData.showOnWebsite =
-      platformData.showOnWebsite || existingData.showOnWebsite;
+      platformData.showOnWebsite || null;
 
     // If username is provided in userData, set ratings, badge, and fetchTime to null
     if (platformData.username) {
@@ -21,8 +21,8 @@ const updatePlatformData = (platform, userData, existingData) => {
 // Helper function to update a specific data field
 const updateDataField = (field, userData, existingData) => {
   existingData[field] = {
-    data: userData[field]?.data || existingData[field]?.data,
-    showOnWebsite: userData[field]?.showOnWebsite || existingData[field]?.showOnWebsite,
+    data: userData[field]?.data || null,
+    showOnWebsite: userData[field]?.showOnWebsite || null,
   };
 };
 
