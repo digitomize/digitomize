@@ -16,33 +16,34 @@ export async function loader({ request }) {
 }
 
 export default function UserDashboard() {
-  const data = useLoaderData().data.personal_data
+  const data = useLoaderData().data
+  const username = data.personal_data.username
   console.log(data)
   return (
-    <div className='flex '>
+    <div className='flex mt-8 md:mt-0'>
       <div className='flex w-full h-screen flex-col items-center md:pt-12 gap-12 '>
         <div className="flex items-center gap-3  justify-center">
           <div className=" Ellipse3 w-[60px] h-[60px] bg-pink-700 rounded-full" >
             <img src="https://www.svgrepo.com/show/446517/avatar.svg" alt="avatar" />
           </div>
           <div className="">
-            <h2 className='text-2xl'>anurag.com's Dashboard</h2>
+            <h2 className='text-2xl'>{`${username}'s Dashboard`}</h2>
           </div>
         </div>
 
-        <div className="container flex  items-center px-[5%]">
-          <div  className='flex items-start '>
+        <div className="container flex  items-center px-[5%] ">
+          <div className='flex items-start '>
             <nav className=''>
-              <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
-                <li className="mr-2">
-                  <NavLink to='personal' className="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300 " >
+              <ul className="flex flex-nowrap text-md font-medium text-center text-gray-400 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+                <li className="mr-4">
+                  <NavLink to='personal' className={({ isActive }) => isActive ? "inline-block p-4 rounded-t-lg text-gray-600 bg-gray-50 dark:bg-gray-800 dark:text-gray-300 " : "inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300 "}>
                     Personal Info</NavLink>
                 </li>
-                <li className="mr-2">
-                  <NavLink to='ratings' className="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">Ratings</NavLink>
+                <li className="mr-4">
+                  <NavLink to='ratings' className={({ isActive }) => isActive ? "inline-block p-4 rounded-t-lg text-gray-600 bg-gray-50 dark:bg-gray-800 dark:text-gray-300 " : "inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300 "}>Ratings</NavLink>
                 </li>
-                <li className="mr-2">
-                  <NavLink to='github' className="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">Github</NavLink>
+                <li className="">
+                  <NavLink to='github' className={({ isActive }) => isActive ? "inline-block p-4 rounded-t-lg text-gray-600 bg-gray-50 dark:bg-gray-800 dark:text-gray-300 " : "inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300 "}>Github</NavLink>
                 </li>
               </ul>
             </nav>
