@@ -30,13 +30,6 @@ const handleUpdateUserProfile = async (req, res) => {
       return res.status(400).json({ error: "No data provided for update" });
     }
 
-    // Get the existing user profile
-    const user = await User.findById(userId);
-
-    if (!user) {
-      return res.status(404).json({ error: "User not found" });
-    }
-
     // Update platform-specific data for CodeChef
     updatePlatformData("codechef", updatedData, user.codechef);
 

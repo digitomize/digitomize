@@ -42,7 +42,7 @@ export async function signupUser({ username, firstName, email, password }) {
 export function getUserNameFromCookie() {
   const jwtToken = Cookies.get("jwt");
 
-  if (jwtToken) {
+  if (isLoggedIn()) {
     // Decode the JWT token
     const decodedToken = jwt_decode(jwtToken);
 
@@ -55,10 +55,11 @@ export function getUserNameFromCookie() {
 
 export function isLoggedIn() {
   const jwtToken = Cookies.get("jwt");
+
   if (jwtToken) {
     // Decode the JWT token
     const decodedToken = jwt_decode(jwtToken);
-
+    console.log("IS LOG IN FUNCTION CALLED NEED TO BE CHANGED");
     // Now you can access the payload data from the decoded token
     if (decodedToken.name) {
       return true;
@@ -83,4 +84,19 @@ export async function userDashboardDetails() {
   } catch (err) {
     return err;
   }
+}
+
+export async function submitUserFormData(formData) {
+  const jwtToken = Cookies.get("jwt");
+  console.log(jwtToken);
+  const res = await axios.post(
+    `http://localhost:4001/user/profile/${formData.username}`,
+    formData,
+    {
+      headers: {
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    }
+  );
+  console.log(res.status);
 }
