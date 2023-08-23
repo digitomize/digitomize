@@ -19,11 +19,10 @@ const contestToggleSchema = new mongoose.Schema({
 });
 
 const userSchema = new mongoose.Schema({
-    username: {
+    uid: {
         type: String,
-        required: [true, "Username is required."],
-        unique: true,
-        lowercase: true
+        required: [true, "uid is required."],
+        unique: true
     },
     firstName: {
         type: String,
@@ -41,10 +40,6 @@ const userSchema = new mongoose.Schema({
     email_show: {
         type: Boolean,
         default: false,
-    },
-    password: {
-        type: String,
-        required: [true, "Password is required."]
     },
     bio: {
         type: stringToggleSchema,
