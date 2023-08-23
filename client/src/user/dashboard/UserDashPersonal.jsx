@@ -1,10 +1,21 @@
-import { Form, useOutletContext } from "react-router-dom"
+import { Form, useLoaderData } from "react-router-dom"
 import { useState } from "react"
 import Checkbox from "../components/Checkbox"
-import { submitUserFormData } from "../../../api"
+import { submitUserFormData, userDashboardDetails } from "../../../api"
+
+export async function loader() {
+    try {
+        const data = await userDashboardDetails()
+        return data
+    } catch (err) {
+        console.error(err)
+        return null
+    }
+}
 
 export default function UserDashPersonal() {
-    const contextData = useOutletContext().personal_data
+    const loaderData = useLoaderData().data
+    const contextData = loaderData.personal_data
 
     const [formData, setFormData] = useState({
         username: contextData.username,
@@ -44,7 +55,7 @@ export default function UserDashPersonal() {
     };
     async function handleSubmit(event) {
         event.preventDefault();
-        console.log(formData)
+        // console.log(formData)
         const res = await submitUserFormData(formData);
         console.log(res);
     }
@@ -59,7 +70,7 @@ export default function UserDashPersonal() {
             <Form onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 md:gap-2">
                     <div className="relative z-0 w-full md:w-3/4 mb-12 group">
-                        <input type="text" name="firstName" id="firstName" className="block py-2.5 px-0 w-full text-md md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer" placeholder=" " value={contextData.firstName} required disabled />
+                        <input type="text" name="firstName" id="firstName" className="block py-2.5 px-0 w-full text-md md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer" placeholder=" " value={formData.firstName} onChange={handleInputChange} required />
                         <label htmlFor="firstName" className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First name</label>
                     </div>
                     <div className="relative z-0 w-full md:w-3/4 mb-12 group">

@@ -34,7 +34,7 @@ export async function action({ request }) {
 
 export default function Signup() {
     const errorMessage = useActionData()
-    console.log(errorMessage)
+    // console.log(errorMessage)
     const navigation = useNavigation()
     return (
         <div className="outer-login-div">

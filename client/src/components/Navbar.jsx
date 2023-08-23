@@ -22,7 +22,7 @@ function Navbar({ username }) {
   }
 
   function toggleActive() {
-    console.log("clicekd");
+    // console.log("clicekd");
     if (isMenuActive) {
       setActive(false);
     }

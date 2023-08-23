@@ -43,7 +43,6 @@ export default function Login() {
     const navigation = useNavigation()
     const errorMessage = useActionData()
     const message = useLoaderData()
-    console.log(message)
     return (
         <div className="outer-login-div">
             <div className="login-container">
