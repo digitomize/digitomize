@@ -52,7 +52,12 @@ const handleUserDashboard = async (req, res) => {
         leetcode: {
           data: user.leetcode.username || null,
           showOnWebsite: user.leetcode.showOnWebsite,
+        },
+        codestudio:{
+          data:user.codestudio.username||null,
+          showOnWebsite:user.codestudio.showOnWebsite,
         }
+
       }
     };
     // console.log(jsonResponse);
