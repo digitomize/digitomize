@@ -4,13 +4,22 @@ import './css/Navbar.css';
 import { Link } from 'react-router-dom';
 import logo from '../assets/digitomizeLogo.png'
 import { getUserNameFromCookie } from '../../api';
+import { auth } from '../../firebase';
+import { signOut } from "firebase/auth";
 
-function Navbar() {
-  const name = getUserNameFromCookie()
+function Navbar({ username }) {
+  // const name = getUserNameFromCookie()
   const [path, setPath] = useState("/login")
   const [btnMessage, setBtnMessage] = useState("Login")
   const [isMenuActive, setActive] = useState(false);
 
+  async function handleSignout() {
+    await signOut(auth).then(() => {
+      console.log("signout successfull")
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
 
   function toggleActive() {
     console.log("clicekd");
@@ -23,13 +32,13 @@ function Navbar() {
   }
 
   useEffect(() => {
-    if (name) {
-      setBtnMessage(name)
+    if (username) {
+      setBtnMessage(username)
       setPath("/user/dashboard/personal")
     }
 
     document.body.className = isMenuActive ? "scrollOff" : '';
-  }, [isMenuActive, name]);
+  }, [isMenuActive, username]);
 
 
   return (
@@ -54,6 +63,7 @@ function Navbar() {
           <Link to={path} className='link'>
             <li onClick={() => toggleActive()} className='contents'>{btnMessage}</li>
           </Link>
+          {username && <button onClick={handleSignout}>Signout</button>}
         </div>
 
         <div onClick={() => toggleActive()} className={`closeMenu ${isMenuActive ? 'active' : ''}`}>close</div>
