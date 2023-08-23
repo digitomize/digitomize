@@ -1,5 +1,5 @@
 import { requireAuth } from '../../../utils'
-import { userDashboardDetails } from "../../../api";
+import { getUserNameFromCookie } from "../../../api";
 import { useLoaderData, NavLink, Outlet } from "react-router-dom";
 import SignoutButton from "../../components/SignoutButton";
 
@@ -7,7 +7,7 @@ import SignoutButton from "../../components/SignoutButton";
 export async function loader({ request }) {
   await requireAuth(request)
   try {
-    const data = await userDashboardDetails()
+    const data = await getUserNameFromCookie()
     return data
   } catch (err) {
     console.error(err)
@@ -16,9 +16,8 @@ export async function loader({ request }) {
 }
 
 export default function UserDashboard() {
-  const data = useLoaderData().data
-  const username = data.personal_data.username
-  console.log(data)
+  const username = useLoaderData()
+  // const username = data.personal_data.username
   return (
     <div className='flex mt-8 md:mt-0'>
       <div className='flex w-full h-screen flex-col items-center md:pt-12 gap-12 '>
@@ -49,7 +48,7 @@ export default function UserDashboard() {
             </nav>
           </div>
           <div className="container w-[100%]  h-fit bg-custom-bg rounded-[10px] border border-custom-border shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-            <Outlet context={data} />
+            <Outlet />
           </div>
         </div>
         {/* <SignoutButton /> */}

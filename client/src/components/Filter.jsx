@@ -53,7 +53,7 @@ function Filter() {
   useEffect(() => {
     // Fetch data from the backend API
     const selectedPlatformsParam = selectedPlatforms.join(",");
-    console.log(selectedPlatforms);
+    // console.log(selectedPlatforms);
     const url = selectedPlatformsParam
       ? `${backendUrl}?host=${selectedPlatformsParam}`
       : backendUrl;

@@ -1,10 +1,21 @@
-import { Form, useOutletContext } from "react-router-dom"
+import { Form, useLoaderData } from "react-router-dom"
 import { useState } from "react"
 import Checkbox from "../components/Checkbox"
-import { submitUserFormData } from "../../../api"
+import { submitUserFormData, userDashboardDetails } from "../../../api"
+
+export async function loader() {
+    try {
+        const data = await userDashboardDetails()
+        return data
+    } catch (err) {
+        console.error(err)
+        return null
+    }
+}
 
 export default function UserDashPersonal() {
-    const contextData = useOutletContext().personal_data
+    const loaderData = useLoaderData().data
+    const contextData = loaderData.personal_data
 
     const [formData, setFormData] = useState({
         username: contextData.username,
@@ -44,7 +55,7 @@ export default function UserDashPersonal() {
     };
     async function handleSubmit(event) {
         event.preventDefault();
-        console.log(formData)
+        // console.log(formData)
         const res = await submitUserFormData(formData);
         console.log(res);
     }

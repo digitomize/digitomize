@@ -88,7 +88,7 @@ export async function userDashboardDetails() {
 
 export async function submitUserFormData(formData) {
   const jwtToken = Cookies.get("jwt");
-  console.log(jwtToken);
+  // console.log(jwtToken);
   const res = await axios.post(
     `http://localhost:4001/user/profile/${formData.username}`,
     formData,

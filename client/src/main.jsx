@@ -10,82 +10,84 @@ import Signup, { loader as signupLoader, action as signupAction } from './compon
 import Layout from './components/Layout.jsx'
 import ErrorPage from './components/error-page'
 import UserDashboard, { loader as dashboardLoader } from './user/dashboard/UserDashboard.jsx'
-import UserProfile from './user/Profile/UserProfile.jsx' 
+import UserProfile from './user/Profile/UserProfile.jsx'
 import UserLayout from './user/UserLayout.jsx'
 
-import UserDashPersonal from './user/dashboard/UserDashPersonal.jsx'
-import UserDashRatings from './user/dashboard/UserDashRatings.jsx'
+import UserDashPersonal, { loader as userDashPersonalLoader } from './user/dashboard/UserDashPersonal.jsx'
+import UserDashRatings, { loader as userDashRatingsLoader } from './user/dashboard/UserDashRatings.jsx'
 import UserDashGithub from './user/dashboard/UserDashGithub.jsx'
 import { userDashboardDetails } from '../api.js'
 
 const router = createBrowserRouter([
   {
-    path : "/",
-    element : <Layout />,
-    children : [
+    path: "/",
+    element: <Layout />,
+    children: [
       {
-        path : "/",
-        element : <App />
+        path: "/",
+        element: <App />
       },
       {
-        path : "login",
-        element : <Login />,
-        loader : loginLoader,
-        action : loginAction
+        path: "login",
+        element: <Login />,
+        loader: loginLoader,
+        action: loginAction
       },
       {
-        path : "signup",
-        element : <Signup />,
-        loader : signupLoader,
-        action : signupAction,
+        path: "signup",
+        element: <Signup />,
+        loader: signupLoader,
+        action: signupAction,
       },
       {
         path: "contests",
-        element : <App />
+        element: <App />
       },
       {
-        path : "contests/:vanity",
-        element : <IndividualCard />
+        path: "contests/:vanity",
+        element: <IndividualCard />
       },
-      
+
     ],
-    errorElement : <ErrorPage />
+    errorElement: <ErrorPage />
   },
   {
-    path : "user",
-    element : <UserLayout />,
-    children : [
+    path: "user",
+    element: <UserLayout />,
+    children: [
       {
-        path : "dashboard",
-        loader :  dashboardLoader,
-        element : <UserDashboard />,
-        children : [
+        path: "dashboard",
+        loader: dashboardLoader,
+        element: <UserDashboard />,
+        children: [
           {
             path: "personal",
-            element :<UserDashPersonal />,
+            element: <UserDashPersonal />,
+            loader: userDashPersonalLoader,
           },
           {
-            path : "ratings",
-            element : <UserDashRatings />,
+            path: "ratings",
+            element: <UserDashRatings />,
+            loader: userDashRatingsLoader,
           },
           {
-            path : "github",
-            element : <UserDashGithub />
+            path: "github",
+            element: <UserDashGithub />
           }
         ]
       },
       {
-        path : "profile/:username",
-        element : <UserProfile />,
+        path: "profile/:username",
+        element: <UserProfile />,
       }
     ],
-    errorElement : <ErrorPage />
+    errorElement: <ErrorPage />
   }
 ])
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 )

@@ -1,12 +1,22 @@
 import React, { useState } from 'react'
-import { Form, useOutletContext } from 'react-router-dom'
+import { Form, useLoaderData } from 'react-router-dom'
 import Checkbox from '../components/Checkbox'
-import { submitUserFormData } from '../../../api'
+import { submitUserFormData, userDashboardDetails } from '../../../api'
+
+export async function loader() {
+  try {
+    const data = await userDashboardDetails()
+    return data
+  } catch (err) {
+    console.error(err)
+    return null
+  }
+}
 
 export default function UserDashRatings() {
-  const ratingsData = useOutletContext().ratings
-  const username = useOutletContext().personal_data.username
-  console.log(ratingsData)
+  const ratingsData = useLoaderData().data.ratings
+  const username = useLoaderData().data.personal_data.username
+  // console.log(ratingsData)
   const [formData, setFormData] = useState({
     username,
     codeforces: {
