@@ -76,6 +76,12 @@ const handleUpdateUserProfile = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
+    const maxUpdatesPerDay = 50;
+    const today = new Date().toDateString();
+    const updateIndex = user.updatesToday.findIndex(update => update.timestamp.toDateString() === today);
+    if (updateIndex !== -1 && user.updatesToday[updateIndex].count >= maxUpdatesPerDay) {
+      return res.status(400).json({ error: "Maximum number of updates reached for today" });
+    }
 
     try {
       // Clone the user's data before updating
@@ -98,6 +104,8 @@ const handleUpdateUserProfile = async (req, res) => {
       if (Object.keys(updatedFields).length === 0) {
         return res.status(200).json({ message: "No changes were applied to the user profile" });
       } else {
+        user.updateCount();
+        user.save();
         res.status(200).json({ message: "User updated successfully", updatedFields });
       }
 
