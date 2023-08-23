@@ -6,7 +6,7 @@ const { generateToken, setUser, getUser } = require('../../services/auth');
 //? returns JSON message with Status Code
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
 const handleUserSignup = async (req, res) => {
-  const { username, password, firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces,codestudio} = req.body;
+  const { username, password, firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces, codingninjas } = req.body;
   // Validate required fields
   if (!username || !password || !firstName || !email) {
     return res.status(400).json({ error: 'Missing required fields' });
@@ -20,14 +20,14 @@ const handleUserSignup = async (req, res) => {
       lastName: lastName,
       email: email,
       email_show: email_show,
-      bio: { data: bio, showOnWebsite:false },
-      dateOfBirth: { data: dateOfBirth, showOnWebsite:false },
-      phoneNumber: { data: phoneNumber, showOnWebsite:false },
-      github: { data: github, showOnWebsite:false },
-      codechef: { data: codechef, showOnWebsite:false },
-      leetcode: { data: leetcode, showOnWebsite:false },
-      codestudio:{data:codestudio,showOnWebsite:false},
-      codeforces: { data: codeforces, showOnWebsite:false }
+      bio: { data: bio, showOnWebsite: false },
+      dateOfBirth: { data: dateOfBirth, showOnWebsite: false },
+      phoneNumber: { data: phoneNumber, showOnWebsite: false },
+      github: { data: github, showOnWebsite: false },
+      codechef: { data: codechef, showOnWebsite: false },
+      leetcode: { data: leetcode, showOnWebsite: false },
+      codingninjas: { data: codingninjas, showOnWebsite: false },
+      codeforces: { data: codeforces, showOnWebsite: false }
     };
 
     const newUser = await setUser(userData); // Create a new user using setUser
