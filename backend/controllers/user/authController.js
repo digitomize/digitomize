@@ -6,25 +6,22 @@ const { getUser } = require('../../services/getUser');
 //? returns JSON message with Status Code
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
 const handleUserSignup = async (req, res) => {
+  const uid = req.uid;
   const {
-    username, password, firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
+    firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
   } = req.body;
   // Validate required fields
-  if (!username || !password || !firstName || !email) {
+  if (!uid) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
   try {
     const userData = {
-      username, password, firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
+      uid, firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
     };
 
     const newUser = await setUser(userData); // Create a new user using setUser
-    const token = generateToken(newUser); // Generate JWT token
-
-    // setJwtCookie(req, res, token, () => {
-    res.status(201).json({ message: 'User created successfully', token: token });
-    // });
+    res.status(201).json({ message: 'User created successfully'});
 
   } catch (error) {
     console.error("Error:", error);

@@ -3,13 +3,14 @@ const { handleUserSignup, handleUserLogin } = require('../../controllers/user/au
 const { handleUserDashboard } = require('../../controllers/user/userDashboardController');
 const { handleUserProfilePreview } = require('../../controllers/user/userProfileController');
 const { handleUpdateUserProfile } = require('../../controllers/user/userUpdateController');
-const { checkAuth, checkUserOwnership } = require('../../middlewares/authMiddleware');
+const { checkAuth, addUID, checkUserOwnership } = require('../../middlewares/authMiddleware');
 const { checkLoggedIn } = require('../../services/checkLoggedIn');
+
 
 const router = express.Router();
 
 // POST route for user signup
-router.post('/signup', handleUserSignup);
+router.post('/signup', addUID, handleUserSignup);
 
 // POST route for user login
 router.post('/login', handleUserLogin);

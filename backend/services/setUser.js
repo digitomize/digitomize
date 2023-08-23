@@ -1,4 +1,3 @@
-const bcrypt = require('bcrypt');
 const User = require('../models/user/User');
 
 // Utility function to create default contest object
@@ -20,14 +19,9 @@ function createDefaultContestObject(platformData) {
 const setUser = async (userData) => {
     console.log(userData);
     try {
-        const { username, password, firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces } = userData;
-
-        const hashedPassword = await bcrypt.hash(password, 10);
-        // Common default values for rating, badge, and fetchTime
-
+        const { uid, firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces } = userData;
         const newUser = new User({
-            username,
-            password: hashedPassword,
+            uid,
             firstName,
             email,
             lastName: lastName || null,

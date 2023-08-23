@@ -11,6 +11,9 @@ const bodyParser = require('body-parser');
 
 // const authRoutes = require('./routes/user/authRoutes');
 const userRoutes = require('./routes/user/userRoutes');
+const admin = require('firebase-admin');
+
+const serviceAccount = require('./firebase-config.json'); 
 
 //* Check for ENV file
 console.log(process.env.TEST);
@@ -32,6 +35,10 @@ async function startServer() {
         const app = express();
 
         app.use(cors());
+        
+        admin.initializeApp({
+            credential: admin.credential.cert(serviceAccount)
+          });
 
         //* Connects MongoDB
         await mongoose.connect(process.env.MONGODB_URL)
