@@ -33,6 +33,7 @@ const handleUserProfilePreview = async (req, res) => {
     // Handle coding platforms
     handleCodingPlatform(publicUserData.ratings, user.codechef, 'codechef');
     handleCodingPlatform(publicUserData.ratings, user.leetcode, 'leetcode');
+    handleCodingPlatform(publicUserData.ratings, user.codestudio, 'codestudio');
     handleCodingPlatform(publicUserData.ratings, user.codeforces, 'codeforces');
 
     res.json(publicUserData);

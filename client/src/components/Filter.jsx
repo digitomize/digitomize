@@ -24,6 +24,7 @@ const MenuProps = {
 
 const platforms = [
   "leetcode",
+  "codestudio",
   "geeksforgeeks",
   "codechef",
   "codeforces"
