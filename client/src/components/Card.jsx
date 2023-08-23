@@ -5,12 +5,14 @@ import Button from './Button';
 import './css/Card.css'
 import geeksforgeeks from '../assets/geeksforgeeks.svg'
 import leetcode from '../assets/leetcode.svg'
+import codestudio from '../assets/codestudio.png'
 import codechef from '../assets/codechef.svg'
 import codeforces from '../assets/codeforces.svg'
 import CopyToClipboard from './CopyToClipboard';
 
 const hostToSVGMap = {
   leetcode: leetcode,
+  codestudio:codestudio,
   codeforces: codeforces,
   geeksforgeeks: geeksforgeeks,
   codechef:codechef,

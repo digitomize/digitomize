@@ -70,6 +70,10 @@ const userSchema = new mongoose.Schema({
         type: contestToggleSchema,
         default: { data: null, showOnWebsite: false }
     },
+    codestudio:{
+        type: contestToggleSchema,
+        default: { data: null, showOnWebsite: false }
+    },
     codeforces: {
         type: contestToggleSchema,
         default: { data: null, showOnWebsite: false }

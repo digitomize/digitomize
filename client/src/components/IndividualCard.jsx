@@ -5,6 +5,7 @@ import './css/IndividualCard.css'
 
 import geeksforgeeks from '../assets/geeksforgeeks.svg'
 import leetcode from '../assets/leetcode.svg'
+import codestudio from '../assets/codestudio.svg'
 import codechef from '../assets/codechef.svg'
 import codeforces from '../assets/codeforces.svg'
 import Navbar from './Navbar'
@@ -13,6 +14,7 @@ import CopyToClipboard from './CopyToClipboard';
 function IndividualCard() {
   const hostToSVGMap = {
     leetcode: leetcode,
+    codestudio:codestudio,
     codeforces: codeforces,
     geeksforgeeks: geeksforgeeks,
     codechef: codechef,
