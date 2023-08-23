@@ -1,6 +1,7 @@
 import { Form, useNavigation, Link, redirect, useActionData, useLoaderData } from "react-router-dom"
 import { auth } from "../../firebase"
 import { signInWithEmailAndPassword } from "firebase/auth"
+import axios from "axios"
 
 import './css/Login.css'
 import { loginUser, isLoggedIn } from "../../api"
@@ -22,6 +23,15 @@ export async function action({ request }) {
 
     try {
         const data = await signInWithEmailAndPassword(auth, email, password)
+        auth.currentUser.getIdToken(true).then(async (idToken) => {
+            console.log(idToken);
+            const response = await axios.post("http://localhost:4001/user/dashboard", {
+                headers: {
+                    Authorization: `Bearer ${idToken}`,
+                    },
+            });
+        });
+        
         return redirect('/contests')
     } catch (err) {
         const errorMessage = err.message

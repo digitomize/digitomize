@@ -1,5 +1,5 @@
 import { useNavigation, Form, redirect, useActionData } from 'react-router-dom'
-
+import axios from 'axios'
 import { signupUser, isLoggedIn } from '../../api'
 import { auth } from '../../firebase'
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
@@ -24,6 +24,14 @@ export async function action({ request }) {
         updateProfile(user, {
             displayName: username
         })
+        auth.currentUser.getIdToken(true).then((idToken) => {
+            console.log(idToken);
+            const response = axios.post("http://localhost:4001/user/signup", {
+                headers: {
+                    Authorization: `Bearer ${idToken}`,
+                },
+            });
+        });
         return redirect('/contests')
     } catch (err) {
         const errorMessage = err.message

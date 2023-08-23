@@ -26,14 +26,14 @@ const userSchema = new mongoose.Schema({
     },
     firstName: {
         type: String,
-        required: [true, "First name is required."]
+        // required: [true, "First name is required."]
     },
     lastName: {
         type: String
     },
     email: {
         type: String,
-        required: [true, "Email is required."],
+        // required: [true, "Email is required."]
         unique: { value: true, caseInsensitive: true },
         lowercase: true
     },

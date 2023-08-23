@@ -6,10 +6,12 @@ const { getUser } = require('../../services/getUser');
 //? returns JSON message with Status Code
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
 const handleUserSignup = async (req, res) => {
+  console.log(req)
   const uid = req.uid;
   const {
     firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
   } = req.body;
+
   // Validate required fields
   if (!uid) {
     return res.status(400).json({ error: 'Missing required fields' });

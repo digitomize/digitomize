@@ -44,6 +44,9 @@ export async function loginUser({ username, password }) {
 export async function signupUser({ username, firstName, email, password }) {
   await createUserWithEmailAndPassword(auth, email, password)
     .then((res) => {
+      auth.currentUser.getIdToken(true).then((idToken) => {
+        console.log(idToken);
+      });
       return res;
     })
     .catch((err) => {
