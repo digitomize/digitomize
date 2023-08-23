@@ -1,57 +1,80 @@
 import React from 'react'
 import logo from '../../../assets/profilelogo.png'
+import DownloadIcon from '@mui/icons-material/Download';
 
 export default function UserInfo() {
-    const user={
-      name:"SAURAV GUPTA",
-      bio: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis ratione quae vel, delectus omnis similique.",
-      skills:["Flutter",
+  const user = {
+    name: "SAURAV GUPTA",
+    username: "srv444",
+    bio: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis ratione quae vel, delectus omnis similique. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis ratione quae vel, delectus omnis similique.  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis ratione quae vel, delectus omnis similique. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis ratione quae vel, delectus omnis similique.",
+    skills: ["Flutter",
       "Dart",
       "java",
       "python",
-      "nodejs"]
-    }
+      "nodejs"],
+    phoneNo: "XXXXXXXXX",
+    email: "sauravgpt123@gmail.com",
+    links: [{ githubLink: "https://www.gitHub.com/in/srv444/" }, { linkedinLink: "https://www.linkedin.com/in/srv-gupta/" }, { portFolioLink: "https://www.portfolio.com/in/srv-gupta/" }]
+  }
 
   return (
-<div className='border-2 border-red-500 flex flex-col '>
+    <div className='border-2 border-blue-500 flex flex-col px-20 py-8 w-[50%]'>
 
 
-  <div className="heading flex flex-row h-full items-center">
-    <div className="profilePic w-24 h-24">
-      <img src={logo} alt="Logo" className="w-full h-full object-contain" />
+      <div className="flex flex-row-reverse p-4 items-start justify-between">
+        <div className="profilePic w-32 h-32 bg-stone-400 ">
+          <img src={logo} alt="Logo" className="w-full h-full object-contain" />
+        </div>
+
+        <h1 className="text-4xl font-bold self-end">{user.name}</h1>
+      </div>
+
+
+
+      <div className="bio  mt-6  p-4 w-full">
+        {/* Your bio content */}
+
+        <div className="ContactInfo mb-7 flex  flex-col space-y-4">
+          <span>Username: {user.username}</span>
+          <span>Phone no: {user.phoneNo}</span>
+          <span>Email: {user.email}</span>
+
+
+        </div>
+
+
+        <h1 className='text-3xl font-bold'>BIO</h1>
+        <p className='w-full '>
+          {user.bio}
+        </p>
+      </div>
+
+
+      <div className="ContactInfo mt-7  p-4 flex  flex-col space-y-4">
+        <h1 className='text-3xl font-bold'>SOCIAL LINKS</h1>
+
+        {user?.links?.map((element, index) => (
+          <span key={index} className='bg-slate-700 w-max px-1 rounded-lg'>
+            {Object.keys(element)[0]}:{" "}
+            <a href={Object.values(element)[0]} target="_blank" >{Object.values(element)[0]}</a>
+          </span>
+        ))}
+
+      </div>
+
+      <div className="download flex justify-start p-3  ">
+          <button className='rounded-lg bg-stone-100 text-black p-1 hover:bg-slate-300'>
+            Download Resume
+            <DownloadIcon/>
+            
+            </button>
+      </div>
+
     </div>
 
-    <h1 className='ml-7 text-3xl font-bold'>{user.name}</h1>
-  </div>
-
-
-  <div className="bio mt-7 ">
-    {/* Your bio content */}
-    <h1 className='text-3xl font-bold'>BIO</h1>
-    <p className='w-60 h-full'>
-      {user.bio}
-    </p>
-
-    <button className='rounded-full bg-black  text-white px-4 py-2 w-28 mt-6'>edit</button>
-
-
-  </div>
 
 
 
-  <div className="skills mt-7">
-      <h1 className='text-3xl font-bold'>SKILLS</h1>
-          <ul className='list-disc ml-4'>
-            
-              {user.skills?.map((element)=>{
-                 return <li className='my-3'>{element}</li>
-              })}
-            
-          </ul>
-      <button className='rounded-full bg-black  text-white px-4 py-2 w-28 mt-6'>Add More+</button>
-
-  </div>
-</div>
 
   )
 }
