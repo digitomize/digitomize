@@ -68,8 +68,8 @@ async function syncContests() {
         // * Codingninjas_studio Section
         console.log("<======= Codingninjas_studio =====>");
         const codingninjasData = await codingninjas_studioContests.codingninjas_studio_c();
-        console.log(codingninjasData);
         await addToDB(codingninjasData, "Codingninjas_studio");
+        
         //* LeetCode Section
         console.log("<======= LeetCode =====>");
         const leetcodeData = await leetcodeContests.leetcode_c();
