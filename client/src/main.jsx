@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
 import IndividualCard from './components/IndividualCard.jsx'
-import Login, { loader as loginLoader, action as loginAction } from './components/Login.jsx'
+import Login, { loader as loginLoader, action as loginAction, loader } from './components/Login.jsx'
 import Signup, { loader as signupLoader, action as signupAction } from './components/Signup.jsx'
 import Layout from './components/Layout.jsx'
 import ErrorPage from './components/error-page'
@@ -15,7 +15,7 @@ import UserLayout from './user/UserLayout.jsx'
 
 import UserDashPersonal, { loader as userDashPersonalLoader } from './user/dashboard/UserDashPersonal.jsx'
 import UserDashRatings, { loader as userDashRatingsLoader } from './user/dashboard/UserDashRatings.jsx'
-import UserDashGithub from './user/dashboard/UserDashGithub.jsx'
+import UserDashGithub, { loader as userDashGithubLoader } from './user/dashboard/UserDashGithub.jsx'
 import { userDashboardDetails } from '../api.js'
 
 const router = createBrowserRouter([
@@ -72,7 +72,8 @@ const router = createBrowserRouter([
           },
           {
             path: "github",
-            element: <UserDashGithub />
+            element: <UserDashGithub />,
+            loader: userDashGithubLoader,
           }
         ]
       },
