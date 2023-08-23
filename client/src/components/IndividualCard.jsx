@@ -1,60 +1,62 @@
-import { useState, useEffect, memo } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useState, useEffect, memo } from "react";
+import { Link, useParams } from "react-router-dom";
 
-import './css/IndividualCard.css'
+import "./css/IndividualCard.css";
 
-import geeksforgeeks from '../assets/geeksforgeeks.svg'
-import leetcode from '../assets/leetcode.svg'
-import codestudio from '../assets/codestudio.png'
-import codechef from '../assets/codechef.svg'
-import codeforces from '../assets/codeforces.svg'
-import Navbar from './Navbar'
-import CopyToClipboard from './CopyToClipboard';
+import geeksforgeeks from "../assets/geeksforgeeks.svg";
+import leetcode from "../assets/leetcode.svg";
+import codingninjas from "../assets/codingninjas.png";
+import codechef from "../assets/codechef.svg";
+import codeforces from "../assets/codeforces.svg";
+import Navbar from "./Navbar";
+import CopyToClipboard from "./CopyToClipboard";
+
+const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 function IndividualCard() {
   const hostToSVGMap = {
     leetcode: leetcode,
-    codestudio:codestudio,
+    codingninjas: codingninjas,
     codeforces: codeforces,
     geeksforgeeks: geeksforgeeks,
     codechef: codechef,
     // Add other hosts and their corresponding SVG variables here
   };
 
-  const params = useParams()
-  const [contest, setContest] = useState(null)
-  const vanity = params.vanity
+  const params = useParams();
+  const [contest, setContest] = useState(null);
+  const vanity = params.vanity;
 
   useEffect(() => {
-    fetch(`https://digitomize-backend.onrender.com/api/contests?vanity=${vanity}`)
-      .then(res => res.json())
-      .then(data => setContest(data.results[0]))
-      .catch(error => console.error('Error fetching contest:', error));
+    fetch(`${backendUrl}?vanity=${vanity}`)
+      .then((res) => res.json())
+      .then((data) => setContest(data.results[0]))
+      .catch((error) => console.error("Error fetching contest:", error));
   }, [vanity]);
-  const [remaningTime, setRemainingTime] = useState("0")
+  const [remaningTime, setRemainingTime] = useState("0");
   if (contest === null) {
     return <div>Loading...</div>;
   }
 
   const { host, name, url, startTimeUnix, duration } = contest;
-  const startDate = new Date(startTimeUnix * 1000)
+  const startDate = new Date(startTimeUnix * 1000);
   const options = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-    timeZone: 'Asia/Kolkata'
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    timeZone: "Asia/Kolkata",
   };
-  const startTimeIST = startDate.toLocaleString('en-US', options)
+  const startTimeIST = startDate.toLocaleString("en-US", options);
 
   setInterval(() => {
-    setRemainingTime(updateTimer(startTimeUnix, duration))
-  }, 1000)
+    setRemainingTime(updateTimer(startTimeUnix, duration));
+  }, 1000);
   return (
     <>
-      <div className='individualContestOuter'>
-        <div style={{ width: '75%' }}>
+      <div className="individualContestOuter">
+        <div style={{ width: "75%" }}>
           <Link to="/contests">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -65,20 +67,25 @@ function IndividualCard() {
             >
               <path d="M59.0419 13.0791C59.6379 12.5037 59.6545 11.5541 59.0791 10.9581L49.7021 1.24619C49.1267 0.650216 48.177 0.633556 47.5811 1.20898C46.9851 1.7844 46.9684 2.734 47.5439 3.32997L55.879 11.9628L47.2462 20.2979C46.6502 20.8733 46.6336 21.8229 47.209 22.4189C47.7844 23.0149 48.734 23.0315 49.33 22.4561L59.0419 13.0791ZM0.973688 12.4998L57.9737 13.4998L58.0263 10.5002L1.02631 9.50023L0.973688 12.4998Z" />
             </svg>
-            Go to all contests</Link>
+            Go to all contests
+          </Link>
         </div>
 
         <div className="ic" key={vanity}>
           <div className="ic-child">
-            <div className='ic-top'>
-              <p id='startTime'>{startTimeIST}</p>
-              <img src={hostToSVGMap[host]} alt={host} style={{ maxHeight: '50px', maxWidth: '50px' }} />
+            <div className="ic-top">
+              <p id="startTime">{startTimeIST}</p>
+              <img
+                src={hostToSVGMap[host]}
+                alt={host}
+                style={{ maxHeight: "50px", maxWidth: "50px" }}
+              />
             </div>
 
             <h2 id="contest-title">{name}</h2>
 
-            <div className='ic-lower-button'>
-              <div className='ic-inner-lower'>
+            <div className="ic-lower-button">
+              <div className="ic-inner-lower">
                 <p>Duration : {duration}min</p>
                 <div>{remaningTime}</div>
               </div>
@@ -86,7 +93,8 @@ function IndividualCard() {
               <div className="outerbtn">
                 <div className="btn-div">
                   <a href={url} target="_blank" rel="noopener noreferrer">
-                    <button  >Participate
+                    <button>
+                      Participate
                       {/* <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="55"
@@ -98,13 +106,17 @@ function IndividualCard() {
                     </button>
                   </a>
                 </div>
-                <CopyToClipboard msg="share" vanity={vanity} gradient={"btn-div"} />
+                <CopyToClipboard
+                  msg="share"
+                  vanity={vanity}
+                  gradient={"btn-div"}
+                />
               </div>
               {/* <Button  url={url}/> */}
             </div>
           </div>
         </div>
-        <div className='containerBottom'>
+        <div className="containerBottom">
           <br />
         </div>
       </div>
@@ -112,26 +124,32 @@ function IndividualCard() {
   );
 }
 
-export default IndividualCard
-
+export default IndividualCard;
 
 function updateTimer(startTime, duration) {
   const currentTime = Math.floor(Date.now() / 1000);
   // const currentTime = getCurrentTimeIST();
   const timeDiff = startTime - currentTime;
-  if ((duration + startTime) < currentTime) {
-    return <p>the contest has ended</p> 
-  }
-  else if (startTime <= currentTime) {
-    return <p>the contest has started!</p>
+  if (duration + startTime < currentTime) {
+    return <p>the contest has ended</p>;
+  } else if (startTime <= currentTime) {
+    return <p>the contest has started!</p>;
   } else {
     const days = Math.floor(timeDiff / 86400);
     const hours = Math.floor((timeDiff % 86400) / 3600);
     const minutes = Math.floor((timeDiff % 3600) / 60);
     const seconds = timeDiff % 60;
     if (days > 0) {
-      return <p>Time Left : {days}d {hours}h {minutes}m {seconds}s</p>
+      return (
+        <p>
+          Time Left : {days}d {hours}h {minutes}m {seconds}s
+        </p>
+      );
     }
-    return <p>Time Left : {hours}h {minutes}m {seconds}s</p>
+    return (
+      <p>
+        Time Left : {hours}h {minutes}m {seconds}s
+      </p>
+    );
   }
 }

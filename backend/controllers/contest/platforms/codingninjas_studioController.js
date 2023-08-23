@@ -25,9 +25,9 @@ async function codingninjas_studio_c() {
                         (contest) => contest.event_start_time > Math.floor(Date.now() / 1000)
                     );
                     const contestsWithHost = filteredContests.map((contest) => ({
-                        host: "CodingNinjas",
+                        host: "codingninjas",
                         name: contest.name,
-                        vanity: contest.id,
+                        vanity: contest.slug,
                         url: `https://codingninjas.com/studio/contests/${contest.slug}`,
                         startTimeUnix: contest.event_start_time,
                         // duration: 0
