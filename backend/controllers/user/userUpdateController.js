@@ -1,4 +1,5 @@
 const User = require("../../models/user/User");
+const maxUpdatesPerDay = 50;
 
 // Helper function to update platform-specific data
 const updatePlatformData = (platform, userData, existingData) => {
@@ -76,7 +77,6 @@ const handleUpdateUserProfile = async (req, res) => {
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
-    const maxUpdatesPerDay = 50;
     const today = new Date().toDateString();
     const updateIndex = user.updatesToday.findIndex(update => update.timestamp.toDateString() === today);
     if (updateIndex !== -1 && user.updatesToday[updateIndex].count >= maxUpdatesPerDay) {

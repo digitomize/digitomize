@@ -58,7 +58,6 @@ function handleCodingPlatform(targetObject, platform, platformKey) {
   }
 }
 
-
 module.exports = {
   handleUserProfilePreview
 };

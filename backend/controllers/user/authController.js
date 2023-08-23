@@ -2,8 +2,6 @@ const bcrypt = require('bcrypt');
 const { generateToken } = require('../../services/generateToken');
 const { setUser } = require('../../services/setUser');
 const { getUser } = require('../../services/getUser');
-// const { setJwtCookie } = require('../../middlewares/authMiddleware');
-
 
 //? returns JSON message with Status Code
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
@@ -61,19 +59,6 @@ const handleUserLogin = async (req, res) => {
     res.status(500).json({ error: 'Error logging in' });
   }
 };
-
-//? returns JSON message with Status Code
-// Removes JWT cookie from the client by setting it to expired.
-// const handleUserSignout = async (req, res) => {
-//   try {
-//       res.cookie('jwt', '', { expires: new Date(0), httpOnly: true });
-
-//       res.status(200).json({ message: 'Signout successful' });
-//   } catch (error) {
-//       console.error('Error:', error);
-//       res.status(500).json({ error: 'Error signing out' });
-//   }
-// };
 
 module.exports = {
   handleUserSignup,
