@@ -30,8 +30,9 @@ async function codingninjas_studio_c() {
                         vanity: contest.id,
                         url: `https://codingninjas.com/studio/contests/${contest.slug}`,
                         startTimeUnix: contest.event_start_time,
-                        duration: Math.floor(contest.event_duration / 60)
-                        // duration: Math.floor(new Date(contest.end_time).getTime() / (60 * 1000)) - Math.floor(new Date(contest.start_time).getTime() / (60 * 1000)),
+                        // duration: 0
+                        // duration: Math.floor(contest.event_duration / 60)
+                        duration: Math.floor((contest.event_end_time - contest.event_start_time) / 60),
                     }));
                     // console.log(contestsWithHost);
                     resolve(contestsWithHost);
