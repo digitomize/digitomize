@@ -1,32 +1,23 @@
 import React from 'react';
-import { Accordion } from 'flowbite-react';
+import Cards from './Cards';
 
 export default function UserRepo() {
   const user = [
     { RepoName: "Safar", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex corporis accusamus nulla sequi dolorum doloribus!", githubLink: "Link_to_github" },
     { RepoName: "LearnQuest", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex corporis accusamus nulla sequi dolorum doloribus!", githubLink: "Link_to_github" },
     { RepoName: "Unibuddy", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex corporis accusamus nulla sequi dolorum doloribus!", githubLink: "Link_to_github" },
+    { RepoName: "Unibuddy", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex corporis accusamus nulla sequi dolorum doloribus!", githubLink: "Link_to_github" },
   ];
 
   return (
     <div>
-          <h1>Github Repositories</h1>
-      <Accordion collapseAll className='border-4 gradient-custom-border' >
+      <h1 className="text-3xl font-bold mb-4">Github Repositories</h1>
+
+      <div className=" p-8 flex flex-row flex-wrap justify-between ">
         {user.map((repo, index) => (
-          
-          <Accordion.Panel key={index} className='border-4 gradient-custom-border'  >
-            <Accordion.Title className='text-lg  hover:bg-green-700 '>
-              {repo.RepoName}
-            </Accordion.Title>
-            <Accordion.Content className='hover:bg-yellow-400'>
-              <p className="mb-2 text-white">
-                {repo.description}
-              </p>
-            <button className='rounded-full border-2 gradient-custom w-[40%] h-9'>View On Github</button>
-            </Accordion.Content>
-          </Accordion.Panel>
+          <Cards key={index} user={repo} />
         ))}
-      </Accordion>
+      </div>
     </div>
   );
 }

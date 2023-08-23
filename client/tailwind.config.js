@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-   
+          cardsColor:'#191919',
      
     },
   },

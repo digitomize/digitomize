@@ -16,7 +16,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
   
-  const lineLength = outerRadius + 45; // Increased line length
+  const lineLength = outerRadius + 50; // Increased line length
   
   const startX = cx + (outerRadius + 10) * Math.cos(-midAngle * RADIAN);
   const startY = cy + (outerRadius + 10) * Math.sin(-midAngle * RADIAN);
@@ -47,7 +47,7 @@ export default function Piechart() {
           cy="50%"
           labelLine={false}
           label={renderCustomizedLabel}
-          outerRadius={80}
+          outerRadius={140}
           fill="#8884d8"
           dataKey="percentage"
         >

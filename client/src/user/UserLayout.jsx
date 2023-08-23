@@ -4,7 +4,7 @@ export default function UserLayout() {
   return (
     <>
     <p>userLayout</p>
-    <Outlet />
+       <Outlet />
     </>
   )
 }

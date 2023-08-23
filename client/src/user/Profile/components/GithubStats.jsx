@@ -47,7 +47,7 @@ export default function GithubStats() {
       </div>
 
 
-      <div className='h-60 relative right-72'>
+      <div className='h-96 relative w-full'>
 
 
         <Piechart />
