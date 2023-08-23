@@ -5,7 +5,7 @@ import './css/IndividualCard.css'
 
 import geeksforgeeks from '../assets/geeksforgeeks.svg'
 import leetcode from '../assets/leetcode.svg'
-import codestudio from '../assets/codestudio.svg'
+import codestudio from '../assets/codestudio.png'
 import codechef from '../assets/codechef.svg'
 import codeforces from '../assets/codeforces.svg'
 import Navbar from './Navbar'
