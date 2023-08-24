@@ -64,6 +64,7 @@ Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for de
   <summary>Contributors</summary>
     <div>
       <a href="https://github.com/pranshugupta54/digitomize/graphs/contributors">
+        <br>
         <img src="https://contrib.rocks/image?repo=pranshugupta54/digitomize" />
       </a>
     </div>
