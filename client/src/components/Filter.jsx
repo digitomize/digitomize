@@ -77,6 +77,9 @@ function Filter() {
 
   return (
     <>
+      <Element name="newHead">
+          <h2 style={{marginBottom:'5%'}}>Contests</h2>
+      </Element>
       {/* //checkmarks */}
       <div className={`filter-div ${isFixed ? "fixed" : ""}`}>
         <FormControl
