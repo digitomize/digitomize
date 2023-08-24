@@ -60,6 +60,14 @@
 ## Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
+<details>
+  <summary>Contributors</summary>
+    <div>
+      <a href="https://github.com/pranshugupta54/digitomize/graphs/contributors">
+        <img src="https://contrib.rocks/image?repo=pranshugupta54/digitomize" />
+      </a>
+    </div>
+</details>
 
 ## License
 
