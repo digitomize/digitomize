@@ -1,8 +1,8 @@
-import { useNavigation, Form, redirect, useActionData } from 'react-router-dom'
+import { useNavigation, Form, redirect, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { signupUser, isLoggedIn } from '../../api'
-import { auth } from '../../firebase'
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { useState } from 'react';
+import { useUserAuth } from '../context/UserAuthContext';
 
 export function loader() {
     if (isLoggedIn()) {
@@ -11,46 +11,63 @@ export function loader() {
     return null
 }
 
-export async function action({ request }) {
-    const formData = await request.formData()
-    const username = formData.get("username")
-    const firstName = formData.get("firstName")
-    const email = formData.get("email")
-    const password = formData.get("password")
-    console.log({ username, firstName, email, password })
-    try {
-        const data = await createUserWithEmailAndPassword(auth, email, password)
-        const user = data.user
-        updateProfile(user, {
-            displayName: username
-        })
-        auth.currentUser.getIdToken(true).then((idToken) => {
-            console.log(idToken);
-            const response = axios.post("http://localhost:4001/user/signup", {
-                headers: {
-                    Authorization: `Bearer ${idToken}`,
-                },
-            });
-        });
-        return redirect('/contests')
-    } catch (err) {
-        const errorMessage = err.message
-        return errorMessage
-    }
+// export async function action({ request }) {
+//     const formData = await request.formData()
+//     const username = formData.get("username")
+//     const firstName = formData.get("firstName")
+//     const email = formData.get("email")
+//     const password = formData.get("password")
+//     console.log({ username, firstName, email, password })
+//     try {
+//         const data = await createUserWithEmailAndPassword(auth, email, password)
+//         const user = data.user
+//         updateProfile(user, {
+//             displayName: username
+//         })
+//         auth.currentUser.getIdToken(true).then((idToken) => {
+//             console.log(idToken);
+//             const response = axios.post("http://localhost:4001/user/signup", {
+//                 headers: {
+//                     Authorization: `Bearer ${idToken}`,
+//                 },
+//             });
+//         });
+//         return redirect('/contests')
+//     } catch (err) {
+//         const errorMessage = err.message
+//         return errorMessage
+//     }
 
-}
 
 export default function Signup() {
-    const errorMessage = useActionData()
-    // console.log(errorMessage)
+
     const navigation = useNavigation()
+    const [firstName, setFirstName] = useState("")
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [error, setError] = useState("")
+    const { signUp } = useUserAuth();
+    const navigate = useNavigate()
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError("");
+        try {
+            await signUp(email, password);
+            navigate('/login')
+        } catch (err) {
+            setError(err.message);
+        }
+    }
+
     return (
         <div className="outer-login-div">
             <div className="login-container">
                 <h1 className='text-4xl'>Sign up your account</h1>
-                {errorMessage && <h3 className="red">{errorMessage}</h3>}
+                {error && <h3 className="red">{error}</h3>}
                 <Form
-                    method="post"
+                    onSubmit={handleSubmit}
                     className="w-full h-full max-w-lg mt-8"
                     replace
                 >
@@ -60,13 +77,13 @@ export default function Signup() {
                             <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-first-name">
                                 First Name
                             </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane" name='firstName' required />
+                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane" onChange={(e) => setFirstName(e.target.value)} />
                         </div>
                         <div className="w-full md:w-1/2 px-3">
                             <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-last-name">
                                 Username
                             </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" name='username' type="text" placeholder="Doe" required />
+                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" onChange={(e) => setUsername(e.target.value)} type="text" placeholder="Doe" />
                         </div>
                     </div>
                     <div className="flex flex-wrap -mx-3 mb-6">
@@ -74,18 +91,18 @@ export default function Signup() {
                             <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-email">
                                 Email
                             </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-email" type="email" placeholder="Email" name='email' required />
+                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-email" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div className="w-full px-3">
                             <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-password">
                                 Password
                             </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" name='password' placeholder="******************" required />
+                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" onChange={(e) => setPassword(e.target.value)} placeholder="******************" />
                         </div>
                     </div>
                     <div className="md:flex md:items-center items-center">
-                        <div className="md:w-2/3 ">
-                            <button disabled={navigation.state === "submitting"} className="shadow gradient-custom drop-shadow-2xl focus:shadow-outline focus:outline-none font-light text-white py-2 px-12 rounded">
+                        <div className="md:w-2/3  ">
+                            <button disabled={navigation.state === "submitting"} className="shadow bg-zinc-100 drop-shadow-2xl focus:shadow-outline focus:outline-none font-dark  py-2 px-12 text-slate-900 rounded">
                                 {navigation.state === "submitting" ? "Signing up..." : "Sign up"}
                             </button>
                         </div>

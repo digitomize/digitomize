@@ -3,22 +3,20 @@ import { useState, useEffect } from 'react';
 import './css/Navbar.css';
 import { Link } from 'react-router-dom';
 import logo from '../assets/digitomizeLogo.png'
-import { getUserNameFromCookie } from '../../api';
-import { auth } from '../../firebase';
-import { signOut } from "firebase/auth";
+import { useUserAuth } from '../context/UserAuthContext';
 
-function Navbar({ username }) {
+function Navbar() {
   // const name = getUserNameFromCookie()
-  const [path, setPath] = useState("/login")
-  const [btnMessage, setBtnMessage] = useState("Login")
   const [isMenuActive, setActive] = useState(false);
+  const { user, logOut } = useUserAuth()
+  console.log(user)
 
-  async function handleSignout() {
-    await signOut(auth).then(() => {
-      console.log("signout successfull")
-    }).catch((error) => {
-      console.log(error)
-    })
+  const handleSignout = async () => {
+    try {
+      await logOut()
+    } catch (err) {
+      console.log(err.message)
+    }
   }
 
   function toggleActive() {
@@ -32,13 +30,9 @@ function Navbar({ username }) {
   }
 
   useEffect(() => {
-    if (username) {
-      setBtnMessage(username)
-      setPath("/user/dashboard/personal")
-    }
 
     document.body.className = isMenuActive ? "scrollOff" : '';
-  }, [isMenuActive, username]);
+  }, [isMenuActive]);
 
 
   return (
@@ -60,10 +54,10 @@ function Navbar({ username }) {
           <Link to="https://github.com/pranshugupta54/digitomize" className='link' >
             <li onClick={() => toggleActive()} className='contents'>Contribute</li>
           </Link>
-          <Link to={path} className='link'>
-            <li onClick={() => toggleActive()} className='contents'>{btnMessage}</li>
+          <Link to='/login' className='link'>
+            <li onClick={() => toggleActive()} className='contents'>Login</li>
           </Link>
-          {username && <button onClick={handleSignout}>Signout</button>}
+          {user && <li onClick={handleSignout} className='contents'>Signout</li>}
         </div>
 
         <div onClick={() => toggleActive()} className={`closeMenu ${isMenuActive ? 'active' : ''}`}>close</div>
