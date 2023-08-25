@@ -3,6 +3,7 @@ import axios from 'axios'
 import { signupUser, isLoggedIn } from '../../api'
 import { useState } from 'react';
 import { useUserAuth } from '../context/UserAuthContext';
+import { auth } from '../../firebase';
 
 export function loader() {
     if (isLoggedIn()) {
@@ -55,6 +56,15 @@ export default function Signup() {
         setError("");
         try {
             await signUp(email, password);
+            auth.currentUser.getIdToken(true).then((idToken) => {
+                console.log(idToken);
+                axios.post("http://localhost:4001/user/signup", {
+                    headers: {
+                        Authorization: `Bearer ${idToken}`,
+                    },
+                }).then(res => console.log(res))
+                    .catch(err => console.log(err));
+            });
             navigate('/login')
         } catch (err) {
             setError(err.message);

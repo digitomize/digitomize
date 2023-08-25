@@ -8,12 +8,12 @@ const firebaseConfig = {
   projectId: "digitomize-9d71d",
   storageBucket: "digitomize-9d71d.appspot.com",
   messagingSenderId: "600437320812",
-  appId: "1:600437320812:web:2e10530e0818b595b73c49"
+  appId: "1:600437320812:web:2e10530e0818b595b73c49",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-const auth = getAuth();
+export const auth = getAuth(app);
 
-export { auth, app };
+export default app;

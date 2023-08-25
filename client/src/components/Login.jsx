@@ -1,8 +1,8 @@
-import { Form, useNavigation, Link, redirect, useLoaderData, useNavigate } from "react-router-dom"
+import { Form, useNavigation, Link, useNavigate } from "react-router-dom"
 import GoogleButton from 'react-google-button'
-
+import { auth } from "../../firebase"
+import axios from 'axios'
 import './css/Login.css'
-import { loginUser, isLoggedIn } from "../../api"
 import { useState } from "react"
 import { useUserAuth } from "../context/UserAuthContext"
 
@@ -64,6 +64,16 @@ export default function Login() {
         e.preventDefault
         try {
             await googleSignIn()
+
+            auth.currentUser.getIdToken(true).then((idToken) => {
+                // console.log(idToken);
+                axios.post("http://localhost:4001/user/signup", {
+                    headers: {
+                        Authorization: `Bearer ${idToken}`,
+                    },
+                }).then(res => console.log(res))
+                    .catch(err => console.log(err));
+            });
             navigate('/user/dashboard/personal')
         } catch (err) {
             setError(err.message)

@@ -1,4 +1,4 @@
-import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route, Routes } from "react-router-dom"
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom"
 
 import Layout from "./components/Layout"
 import UserLayout from "./user/UserLayout"
@@ -12,7 +12,6 @@ import UserDashPersonal, { loader as userDashPersonalLoader } from "./user/dashb
 import UserDashRatings, { loader as userDashRatingsLoader } from "./user/dashboard/UserDashRatings"
 import UserDashGithub, { loader as userDashGithubLoader } from "./user/dashboard/UserDashGithub"
 import UserProfile from "./user/Profile/UserProfile"
-import { UserAuthContextProvider } from "./context/UserAuthContext"
 import ProtectedRoute from "./ProtectedRoute"
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -37,10 +36,7 @@ const router = createBrowserRouter(createRoutesFromElements(
 
 function App() {
     return (
-        <UserAuthContextProvider>
-            <RouterProvider router={router} />
-        </UserAuthContextProvider>
-
+        <RouterProvider router={router} />
     )
 }
 

@@ -9,7 +9,7 @@ function Navbar() {
   // const name = getUserNameFromCookie()
   const [isMenuActive, setActive] = useState(false);
   const { user, logOut } = useUserAuth()
-  console.log(user)
+  // console.log(user)
 
   const handleSignout = async () => {
     try {
