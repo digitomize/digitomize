@@ -24,12 +24,17 @@ const userSchema = new mongoose.Schema({
         required: [true, "uid is required."],
         unique: true
     },
-    firstName: {
+    name: {
         type: String,
         // required: [true, "First name is required."]
     },
-    lastName: {
-        type: String
+    picture: {
+        type: String,
+    },
+    email_verified: {
+        type: Boolean,
+        required: true,
+        default: false,
     },
     email: {
         type: String,

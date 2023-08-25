@@ -19,12 +19,13 @@ function createDefaultContestObject(platformData) {
 const setUser = async (userData) => {
     console.log(userData);
     try {
-        const { uid, firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces } = userData;
+        const { uid, name, picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces } = userData;
         const newUser = new User({
             uid,
-            firstName,
+            name,
+            picture: picture || null,
             email,
-            lastName: lastName || null,
+            email_verified,
             email_show: email_show || undefined,
             bio: bio
                 ? {

@@ -6,11 +6,9 @@ const { getUser } = require('../../services/getUser');
 //? returns JSON message with Status Code
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
 const handleUserSignup = async (req, res) => {
-  console.log(req)
-  const uid = req.uid;
   const {
-    firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
-  } = req.body;
+    uid, name, picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
+  } = req.decodedToken;
 
   // Validate required fields
   if (!uid) {
@@ -19,7 +17,7 @@ const handleUserSignup = async (req, res) => {
 
   try {
     const userData = {
-      uid, firstName, lastName, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
+      uid, name, picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
     };
 
     const newUser = await setUser(userData); // Create a new user using setUser

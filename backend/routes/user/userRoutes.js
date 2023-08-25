@@ -12,12 +12,9 @@ const router = express.Router();
 // POST route for user signup
 router.post('/signup', addUID, handleUserSignup);
 
-// POST route for user login
-router.post('/login', handleUserLogin);
-
 // router.get('/signout', checkAuth, handleUserSignout);
 
-router.get('/dashboard', checkAuth, handleUserDashboard);
+// router.get('/dashboard', addUID, handleUserDashboard);
 
 router.get('/profile/:username', handleUserProfilePreview);
 
