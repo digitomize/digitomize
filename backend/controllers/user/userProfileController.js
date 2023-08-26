@@ -16,10 +16,13 @@ const handleUserProfilePreview = async (req, res) => {
     // Prepare the public user data object
     const publicUserData = {
       personal_data: {
+        uid: user.uid,
         username: user.username,
-        firstName: user.firstName,
-        lastName: user.lastName || null,
-        email: user.email,
+        name: user.name,
+        picture: user.picture,
+        email_verified: user.email_verified,
+        email: user.email_show ? user.email : null,
+        // email_show: user.email_show,
         bio: user.bio.showOnWebsite ? user.bio.data : null,
         dateOfBirth: user.dateOfBirth.showOnWebsite ? user.dateOfBirth.data : null,
         phoneNumber: user.phoneNumber.showOnWebsite ? user.phoneNumber.data : null

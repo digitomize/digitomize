@@ -22,13 +22,13 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="contests" element={<Home />} />
         <Route path="contest/:vanity" element={<IndividualCard />} />
         <Route path="user" element={<UserLayout />} >
-            <Route element={<ProtectedRoute />} >
+            {/* <Route element={<ProtectedRoute />} > */}
                 <Route path="dashboard" element={<UserDashboard />} >
                     <Route path="personal" element={<UserDashPersonal />} loader={userDashPersonalLoader} />
                     <Route path="ratings" element={<UserDashRatings loader={userDashRatingsLoader} />} />
                     <Route path="github" element={<UserDashGithub loader={userDashGithubLoader} />} />
                 </Route>
-            </Route>
+            {/* </Route> */}
             <Route path="profile/:username" element={<UserProfile />} />
         </Route>
     </Route>

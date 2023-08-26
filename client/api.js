@@ -86,6 +86,7 @@ export function isLoggedIn() {
 export async function userDashboardDetails() {
   // const jwtToken = Cookies.get("jwt");
   const currentUserToken = auth.currentUser.accessToken;
+  console.log("THIS CALLED");
 
   try {
     const data = await axios.get("http://localhost:4001/user/dashboard", {

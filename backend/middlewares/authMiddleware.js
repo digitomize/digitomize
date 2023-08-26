@@ -7,7 +7,7 @@ async function addUID(request, response, next) {
   // console.log("HERE");
   // console.log(request.body.headers);
   // console.log(request);
-  const authHeader = request?.body?.headers?.Authorization || request?.headers?.authorization;
+  const authHeader = request?.body?.headers?.Authorization || request?.body?.headers?.authorization || request?.headers?.authorization || request?.headers?.Authorization || request?.Authorization || request?.authorization;
   // console.log("authHeader:", authHeader);
   // console.log("HEADERS:", request.headers);
   // console.log(authHeader);
@@ -25,7 +25,7 @@ async function addUID(request, response, next) {
       .verifyIdToken(authToken)
       .then((decTok) => {
         request.decodedToken = decTok;
-        console.log("calling next");
+        // console.log("calling next");
         next();
       })
       .catch((err) => {
@@ -67,15 +67,15 @@ async function checkAuth(request, response, next) {
 }
 
 async function checkUserOwnership(req, res, next) {
-  const userIdFromToken = req.userId;
+  const userIdFromToken = req.decodedToken.uid;;
 
   const usernameFromRequest = req.params.username; // Make sure to adjust this based on your route
 
   const userFromRequest = await getUser(usernameFromRequest);
   const userIdFromRequest = userFromRequest._id.toString(); // Convert to string
 
-  console.log("From token:", userIdFromToken);
-  console.log("From req:", userIdFromRequest);
+  // console.log("From token:", userIdFromToken);
+  // console.log("From req:", userIdFromRequest);
   if (userIdFromToken !== userIdFromRequest) {
     return res.status(403).json({ error: "Forbidden" });
   }

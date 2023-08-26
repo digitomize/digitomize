@@ -63,7 +63,8 @@ const updateUserData = (userData, existingData) => {
 
 const handleUpdateUserProfile = async (req, res) => {
   try {
-    const { userId } = req;
+    // const { userId } = req;
+    const userId = req.decodedToken.uid;
     const updatedData = req.body;
 
     // Check if updatedData is empty

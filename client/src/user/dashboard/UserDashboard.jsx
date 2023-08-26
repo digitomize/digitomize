@@ -6,7 +6,7 @@ import { useUserAuth } from '../../context/UserAuthContext';
 
 export default function UserDashboard() {
   const { user } = useUserAuth()
-  const username = user.email
+  const username = 'test'
   // const username = data.personal_data.username
   return (
     <div className='flex mt-8 md:mt-0'>

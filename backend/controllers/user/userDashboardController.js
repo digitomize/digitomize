@@ -22,6 +22,7 @@ const handleUserDashboard = async (req, res) => {
     const jsonResponse = {
       personal_data: {
         uid: user.uid,
+        username: user.username,
         name: user.name,
         picture: user.picture,
         email_verified: user.email_verified,

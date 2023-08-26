@@ -1,10 +1,10 @@
 const express = require('express');
-const { handleUserSignup, handleUserLogin } = require('../../controllers/user/authController');
+const { handleUserSignup} = require('../../controllers/user/authController');
 const { handleUserDashboard } = require('../../controllers/user/userDashboardController');
 const { handleUserProfilePreview } = require('../../controllers/user/userProfileController');
 const { handleUpdateUserProfile } = require('../../controllers/user/userUpdateController');
-const { checkAuth, addUID, checkUserOwnership } = require('../../middlewares/authMiddleware');
-const { checkLoggedIn } = require('../../services/checkLoggedIn');
+const { addUID, checkUserOwnership } = require('../../middlewares/authMiddleware');
+// const { checkLoggedIn } = require('../../services/checkLoggedIn');
 
 
 const router = express.Router();
