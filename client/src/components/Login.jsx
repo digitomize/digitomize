@@ -64,7 +64,8 @@ export default function Login() {
         e.preventDefault
         try {
             await googleSignIn()
-
+            const userEmail = auth.currentUser.email;
+            console.log(userEmail)
             auth.currentUser.getIdToken(true).then((idToken) => {
                 // console.log(idToken);
                 axios.post("http://localhost:4001/user/signup", {

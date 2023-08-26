@@ -1,16 +1,8 @@
-import { useNavigation, Form, redirect, useNavigate } from 'react-router-dom'
+import { useNavigation, Form, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import { signupUser, isLoggedIn } from '../../api'
 import { useState } from 'react';
 import { useUserAuth } from '../context/UserAuthContext';
 import { auth } from '../../firebase';
-
-export function loader() {
-    if (isLoggedIn()) {
-        return redirect("/user/dashboard/personal")
-    }
-    return null
-}
 
 // export async function action({ request }) {
 //     const formData = await request.formData()

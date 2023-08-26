@@ -27,6 +27,7 @@
     "react-responsive": "^9.0.2",
     "react-router-dom": "^6.14.2",
     "react-scroll": "^1.8.9",
+    "tw-elements-react": "^1.0.0-alpha1",
     "typewriter-effect": "^2.20.1"
   },
   "devDependencies": {

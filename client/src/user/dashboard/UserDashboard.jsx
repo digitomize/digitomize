@@ -2,21 +2,11 @@ import { requireAuth } from '../../../utils'
 import { getUserNameFromCookie } from "../../../api";
 import { useLoaderData, NavLink, Outlet } from "react-router-dom";
 import SignoutButton from "../../components/SignoutButton";
-
-
-export async function loader({ request }) {
-  await requireAuth(request)
-  try {
-    const data = await getUserNameFromCookie()
-    return data
-  } catch (err) {
-    console.error(err)
-    return null
-  }
-}
+import { useUserAuth } from '../../context/UserAuthContext';
 
 export default function UserDashboard() {
-  const username = useLoaderData()
+  const { user } = useUserAuth()
+  const username = user.email
   // const username = data.personal_data.username
   return (
     <div className='flex mt-8 md:mt-0'>

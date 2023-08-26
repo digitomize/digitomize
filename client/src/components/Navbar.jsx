@@ -9,8 +9,6 @@ function Navbar() {
   // const name = getUserNameFromCookie()
   const [isMenuActive, setActive] = useState(false);
   const { user, logOut } = useUserAuth()
-  // console.log(user)
-
   const handleSignout = async () => {
     try {
       await logOut()
@@ -55,7 +53,7 @@ function Navbar() {
             <li onClick={() => toggleActive()} className='contents'>Contribute</li>
           </Link>
           <Link to='/login' className='link'>
-            <li onClick={() => toggleActive()} className='contents'>Login</li>
+            <li onClick={() => toggleActive()} className='contents'>"Login</li>
           </Link>
           {user && <li onClick={handleSignout} className='contents'>Signout</li>}
         </div>
