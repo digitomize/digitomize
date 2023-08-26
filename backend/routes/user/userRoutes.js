@@ -14,7 +14,7 @@ router.post('/signup', addUID, handleUserSignup);
 
 // router.get('/signout', checkAuth, handleUserSignout);
 
-// router.get('/dashboard', addUID, handleUserDashboard);
+router.get('/dashboard', addUID, handleUserDashboard);
 
 router.get('/profile/:username', handleUserProfilePreview);
 
