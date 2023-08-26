@@ -61,25 +61,26 @@ export default function Login() {
     }
 
     const handleGoogleSignIn = async (e) => {
-        e.preventDefault
+        e.preventDefault(); // Don't forget the parentheses here
         try {
-            await googleSignIn()
+            await googleSignIn();
             const userEmail = auth.currentUser.email;
-            console.log(userEmail)
-            auth.currentUser.getIdToken(true).then((idToken) => {
-                // console.log(idToken);
-                axios.post("http://localhost:4001/user/signup", {
-                    headers: {
-                        Authorization: `Bearer ${idToken}`,
-                    },
-                }).then(res => console.log(res))
-                    .catch(err => console.log(err));
+            console.log(userEmail);
+    
+            const idToken = await auth.currentUser.getIdToken(true);
+    
+            const response = await axios.post("http://localhost:4001/user/signup", {
+                headers: {
+                    Authorization: `Bearer ${idToken}`,
+                },
             });
-            navigate('/user/dashboard/personal')
+            console.log(response);
+            navigate('/user/dashboard/personal');
         } catch (err) {
-            setError(err.message)
+            setError(err.message);
         }
     }
+    
     // const message = useLoaderData()
     return (
         <div className="outer-login-div">

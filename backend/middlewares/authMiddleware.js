@@ -4,11 +4,13 @@ const { getAuth } = require("firebase-admin/auth");
 const { admin } = require("../firebase-config.json"); // Update the path accordingly
 
 async function addUID(request, response, next) {
+  console.log("HERE");
+  console.log(request.body.headers);
   // console.log(request.headers);
-  const authHeader = request?.headers?.authorization;
-  // console.log(authHeader);
+  const authHeader = request?.body?.headers?.Authorization;
+  console.log("authHeader:",authHeader);
   const authToken = authHeader && authHeader.split(" ")[1]; // Get the token part after 'Bearer'
-
+  console.log(authToken);
   if (!authToken) {
     return response
       .status(401)
@@ -21,6 +23,7 @@ async function addUID(request, response, next) {
       .verifyIdToken(authToken)
       .then((decTok) => {
         request.decodedToken = decTok;
+        console.log("calling next");
         next();
       })
       .catch((err) => {

@@ -18,8 +18,8 @@ router.get('/dashboard', addUID, handleUserDashboard);
 
 router.get('/profile/:username', handleUserProfilePreview);
 
-router.post('/profile/:username', checkAuth, checkUserOwnership, handleUpdateUserProfile);
+router.post('/profile/:username', addUID, checkUserOwnership, handleUpdateUserProfile);
 
-router.post('/isLoggedin', checkLoggedIn);
+// router.post('/isLoggedin', checkLoggedIn);
 
 module.exports = router;
