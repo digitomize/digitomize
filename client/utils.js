@@ -1,19 +1,19 @@
 import { redirect } from "react-router-dom";
 import { auth } from "./firebase";
+// import { useUserAuth } from "./src/context/UserAuthContext";
+import { isLoggedIn } from "./api";
 
-export async function requireAuth(request) {
+export function requireAuth(request) {
   const pathname = new URL(request.url).pathname;
-  // const isLog = isLoggedIn();
-  const isLoggedIn = auth.onAuthStateChanged((user) => {
-    if (user) {
-      console.log("user logged in");
+  const isLoggedIn = auth.onAuthStateChanged((currentUser) => {
+    if (currentUser) {
+      console.log(currentUser);
       return true;
     } else {
-      console.log("user not logged in");
+      console.log("no user found");
       return false;
     }
   });
-
   if (!isLoggedIn) {
     throw redirect(
       `/login?message=You must log in first.&redirectTo=${pathname}`

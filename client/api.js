@@ -2,7 +2,10 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
 import { redirect } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 import { auth } from "./firebase";
 
 export async function loginUser({ username, password }) {
@@ -66,37 +69,29 @@ export async function loginUser({ username, password }) {
 // }
 
 export function isLoggedIn() {
-  const jwtToken = Cookies.get("jwt");
-
-  if (jwtToken) {
-    // Decode the JWT token
-    const decodedToken = jwt_decode(jwtToken);
-    console.log("IS LOG IN FUNCTION CALLED NEED TO BE CHANGED");
-    // Now you can access the payload data from the decoded token
-    if (decodedToken.name) {
+  const data = auth.onAuthStateChanged((currentUser) => {
+    if (currentUser) {
+      console.log(currentUser);
       return true;
     } else {
       return false;
     }
-  } else {
-    return false;
-  }
+  });
+  return data;
 }
 
-export async function userDashboardDetails() {
+export async function userDashboardDetails(accessToken) {
   // const jwtToken = Cookies.get("jwt");
-  const currentUserToken = auth.currentUser.accessToken;
-  console.log("THIS CALLED");
-
+  console.log(" user dashboard details is CALLED");
   try {
     const data = await axios.get("http://localhost:4001/user/dashboard", {
       headers: {
-        Authorization: `Bearer ${currentUserToken}`,
+        Authorization: `Bearer ${accessToken}`,
       },
     });
     return data;
   } catch (err) {
-    return err;
+    console.log(err);
   }
 }
 

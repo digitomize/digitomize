@@ -1,12 +1,12 @@
+import { useState, useEffect } from 'react';
 import { requireAuth } from '../../../utils'
-// import { getUserNameFromCookie } from "../../../api";
+import { auth } from '../../../firebase';
 import { useLoaderData, NavLink, Outlet } from "react-router-dom";
 import SignoutButton from "../../components/SignoutButton";
-import { useUserAuth } from '../../context/UserAuthContext';
+// import { useUserAuth } from '../../context/UserAuthContext';
 
 export default function UserDashboard() {
-  const { user } = useUserAuth()
-  const username = 'test'
+
   // const username = data.personal_data.username
   return (
     <div className='flex mt-8 md:mt-0'>
@@ -16,7 +16,7 @@ export default function UserDashboard() {
             <img src="https://www.svgrepo.com/show/446517/avatar.svg" alt="avatar" />
           </div>
           <div className="">
-            <h2 className='text-2xl'>{`${username}'s Dashboard`}</h2>
+            <h2 className='text-2xl'>{`tests's Dashboard`}</h2>
           </div>
         </div>
 

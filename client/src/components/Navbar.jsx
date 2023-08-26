@@ -3,15 +3,17 @@ import { useState, useEffect } from 'react';
 import './css/Navbar.css';
 import { Link } from 'react-router-dom';
 import logo from '../assets/digitomizeLogo.png'
-import { useUserAuth } from '../context/UserAuthContext';
+// import { useUserAuth } from '../context/UserAuthContext';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase';
 
 function Navbar() {
   // const name = getUserNameFromCookie()
   const [isMenuActive, setActive] = useState(false);
-  const { user, logOut } = useUserAuth()
+  // const { user, logOut } = useUserAuth()
   const handleSignout = async () => {
     try {
-      await logOut()
+      await signOut(auth)
     } catch (err) {
       console.log(err.message)
     }
@@ -53,9 +55,9 @@ function Navbar() {
             <li onClick={() => toggleActive()} className='contents'>Contribute</li>
           </Link>
           <Link to='/login' className='link'>
-            <li onClick={() => toggleActive()} className='contents'>"Login</li>
+            <li onClick={() => toggleActive()} className='contents'>Login</li>
           </Link>
-          {user && <li onClick={handleSignout} className='contents'>Signout</li>}
+          <li onClick={handleSignout} className='contents'>Signout</li>
         </div>
 
         <div onClick={() => toggleActive()} className={`closeMenu ${isMenuActive ? 'active' : ''}`}>close</div>

@@ -1,8 +1,12 @@
 import { useNavigation, Form, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useState } from 'react';
-import { useUserAuth } from '../context/UserAuthContext';
+// import { useUserAuth } from '../context/UserAuthContext';
 import { auth } from '../../firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { useUserAuth } from '../context/UserAuthContext';
+
+
 
 // export async function action({ request }) {
 //     const formData = await request.formData()
@@ -40,24 +44,24 @@ export default function Signup() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
-    const { signUp } = useUserAuth();
     const navigate = useNavigate()
+    const { signUp } = useUserAuth()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
         try {
-            await signUp(email, password);
-            auth.currentUser.getIdToken(true).then((idToken) => {
-                console.log(idToken);
+            await signUp(email, password)
+            const token = auth.currentUser.accessToken
+            if (token) {
                 axios.post("http://localhost:4001/user/signup", {
                     headers: {
-                        Authorization: `Bearer ${idToken}`,
-                    },
+                        Authorization: `Bearer ${token}`,
+                    }
                 }).then(res => console.log(res))
-                    .catch(err => console.log(err));
-            });
-            navigate('/login')
+                    .catch(err => setError(err.message))
+            }
+            navigate("/login")
         } catch (err) {
             setError(err.message);
         }

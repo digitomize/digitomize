@@ -1,20 +1,22 @@
-import { Form, useNavigation, Link, useNavigate } from "react-router-dom"
+import { Form, useNavigation, redirect, Link, useNavigate } from "react-router-dom"
 import GoogleButton from 'react-google-button'
 import { auth } from "../../firebase"
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
 import axios from 'axios'
 import './css/Login.css'
 import { useState } from "react"
 import { useUserAuth } from "../context/UserAuthContext"
+import { isLoggedIn } from "../../api"
 
 
 
-// export function loader({ request }) {
-//     const message = new URL(request.url).searchParams.get("message")
-//     if (isLoggedIn()) {
-//         return redirect("/user/dashboard/personal")
-//     }
-//     return message
-// }
+export function loader({ request }) {
+    const message = new URL(request.url).searchParams.get("message")
+    // if (isLoggedIn()) {
+    //     return redirect("/user/dashboard/personal")
+    // }
+    return message
+}
 
 // export async function action({ request }) {
 //     const formData = await request.formData()
@@ -46,15 +48,16 @@ export default function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
-    const { logIn, googleSignIn } = useUserAuth()
+    const { logIn } = useUserAuth()
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
         try {
-            await logIn(email, password);
-            navigate('/user/dashboard/personal')
+            await logIn(email, password)
+            console.log(auth.currentUser.accessToken)
+            navigate('/user/dashboard')
         } catch (err) {
             setError(err.message);
         }
@@ -63,24 +66,25 @@ export default function Login() {
     const handleGoogleSignIn = async (e) => {
         e.preventDefault(); // Don't forget the parentheses here
         try {
-            await googleSignIn();
-            const userEmail = auth.currentUser.email;
-            console.log(userEmail);
-    
-            const idToken = await auth.currentUser.getIdToken(true);
-    
-            const response = await axios.post("http://localhost:4001/user/signup", {
-                headers: {
-                    Authorization: `Bearer ${idToken}`,
-                },
-            });
-            console.log(response);
-            navigate('/user/dashboard/personal');
+            const googleAuthProvider = new GoogleAuthProvider();
+            await signInWithPopup(auth, googleAuthProvider)
+                .then(() => {
+                    auth.currentUser.getIdToken(true).then((idToken) => {
+                        // console.log(idToken);
+                        axios.post("http://localhost:4001/user/signup", {
+                            headers: {
+                                Authorization: `Bearer ${idToken}`,
+                            },
+                        }).then(res => console.log(res))
+                            .catch(err => console.log(err));
+                    });
+                    navigate('/user/dashboard/personal')
+                }).catch(err => console.log(err))
         } catch (err) {
             setError(err.message);
         }
     }
-    
+
     // const message = useLoaderData()
     return (
         <div className="outer-login-div">

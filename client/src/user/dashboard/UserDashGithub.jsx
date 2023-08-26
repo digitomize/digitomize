@@ -1,26 +1,19 @@
 import React, { useState } from 'react'
 import { Form, useLoaderData } from "react-router-dom"
 import { userDashboardDetails, submitUserFormData } from '../../../api'
+import { requireAuth } from '../../../utils'
 
-export async function loader() {
-  try {
-    const data = await userDashboardDetails()
-    return data
-  } catch (err) {
-    console.error(err)
-    return null
-  }
+export async function loader({ request }) {
+  return null
 }
 
 export default function UserDashGithub() {
-  const githubData = useLoaderData().data.github
-  const username = useLoaderData().data.personal_data.username
+
 
   const [formData, setFormData] = useState({
-    username,
     github: {
-      data: githubData.data || "anur4ag",
-      showOnWebsite: githubData.showOnWebsite || true,
+      data: "anur4ag",
+      showOnWebsite: true,
     }
   });
 
@@ -38,8 +31,8 @@ export default function UserDashGithub() {
   function svgImage() {
     return (
 
-      <a href={`https://github.com/${githubData.data}`}>
-        <img height="200" align="center" src={`https://github-readme-stats.vercel.app/api?username=${githubData.data}&theme=blue-green&show_icons=true`} />
+      <a href={`https://github.com/${formData.github.data}`}>
+        <img height="200" align="center" src={`https://github-readme-stats.vercel.app/api?username=${formData.github.data}&theme=blue-green&show_icons=true`} />
       </a>
 
     )

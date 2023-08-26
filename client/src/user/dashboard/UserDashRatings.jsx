@@ -1,41 +1,51 @@
-import React, { useState } from "react";
-import { Form, useLoaderData } from "react-router-dom";
-import Checkbox from "../components/Checkbox";
-import { submitUserFormData, userDashboardDetails } from "../../../api";
+import React, { useState, useEffect } from 'react'
+import { Form, useLoaderData } from 'react-router-dom'
+import Checkbox from '../components/Checkbox'
+import { submitUserFormData, userDashboardDetails } from '../../../api'
+// import { useUserAuth } from '../../context/UserAuthContext'
+import { requireAuth } from '../../../utils'
+import axios from "axios"
+import { useUserAuth } from '../../context/UserAuthContext'
 
-export async function loader() {
-  try {
-    console.log("Ratings loader");
-    const data = await userDashboardDetails();
-    console.log(data);
-    return data;
-  } catch (err) {
-    console.error(err);
-    return null;
-  }
-}
 
 export default function UserDashRatings() {
-  const loaderData = useLoaderData();
-  console.log(loaderData);
-  const ratingsData = useLoaderData().data.ratings;
-  const username = useLoaderData().data.personal_data.username;
   // console.log(ratingsData)
+  const { user } = useUserAuth();
+  const [ratingsData, setRatingsData] = useState({})
+  useEffect(() => {
+    const url = "http://localhost:4001/user/dashboard"
+    const fetchData = async () => {
+      try {
+        console.log("Fetching data...");
+        const response = await axios.get(url, {
+          headers: {
+            Authorization: `Bearer ${user.accessToken}`,
+          },
+        });
+
+        console.log("Data fetched:", response.data.ratings);
+        setRatingsData(response.data.ratings);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData()
+  }, [user.accessToken]);
+  console.log(ratingsData)
   const [formData, setFormData] = useState({
-    username,
     codeforces: {
-      username: ratingsData.codeforces.data || "",
-      showOnWebsite: ratingsData.codeforces.showOnWebsite || false,
+      username: "",
+      showOnWebsite: false,
     },
     codechef: {
-      username: ratingsData.codechef.data || "",
-      showOnWebsite: ratingsData.codechef.showOnWebsite || false,
+      username: "",
+      showOnWebsite: false,
     },
 
     leetcode: {
-      username: ratingsData.leetcode.data || "",
-      showOnWebsite: ratingsData.leetcode.showOnWebsite || false,
-    },
+      username: "",
+      showOnWebsite: false,
+    }
   });
 
   const handleInputChangeObjData = (event) => {
