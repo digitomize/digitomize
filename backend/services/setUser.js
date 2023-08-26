@@ -60,6 +60,7 @@ const setUser = async (userData) => {
         return newUser;
     } catch (error) {
         if (error.code === 11000) {
+            console.log(error);
             const key = Object.keys(error.keyValue)[0];
             const message = `User with this ${key} already exists`;
             throw { status: 400, message }; // Throw custom error object

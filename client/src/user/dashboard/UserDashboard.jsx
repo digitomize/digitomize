@@ -1,5 +1,5 @@
 import { requireAuth } from '../../../utils'
-import { getUserNameFromCookie } from "../../../api";
+// import { getUserNameFromCookie } from "../../../api";
 import { useLoaderData, NavLink, Outlet } from "react-router-dom";
 import SignoutButton from "../../components/SignoutButton";
 import { useUserAuth } from '../../context/UserAuthContext';

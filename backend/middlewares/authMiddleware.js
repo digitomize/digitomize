@@ -4,7 +4,9 @@ const { getAuth } = require("firebase-admin/auth");
 const { admin } = require("../firebase-config.json"); // Update the path accordingly
 
 async function addUID(request, response, next) {
-  const authHeader = request.body?.headers?.Authorization;
+  // console.log(request.headers);
+  const authHeader = request?.headers?.authorization;
+  // console.log(authHeader);
   const authToken = authHeader && authHeader.split(" ")[1]; // Get the token part after 'Bearer'
 
   if (!authToken) {
@@ -12,7 +14,7 @@ async function addUID(request, response, next) {
       .status(401)
       .json({ message: "User Not Authorised", error: "User Not Authorised" }); // Redirect to the login page
   }
-  console.log(authToken);
+  // console.log(authToken);
 
   try {
     getAuth()
