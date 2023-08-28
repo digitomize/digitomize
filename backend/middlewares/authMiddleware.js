@@ -67,20 +67,20 @@ async function checkAuth(request, response, next) {
 }
 
 async function checkUserOwnership(req, res, next) {
-  const userIdFromToken = req.decodedToken.uid;;
+  const userUIDFromToken = req.decodedToken.uid;;
 
   const usernameFromRequest = req.params.username; // Make sure to adjust this based on your route
 
   const userFromRequest = await getUser(usernameFromRequest);
-  const userIdFromRequest = userFromRequest._id.toString(); // Convert to string
+  const userUIDFromRequest = userFromRequest.uid.toString(); // Convert to string
 
   // console.log("From token:", userIdFromToken);
   // console.log("From req:", userIdFromRequest);
-  if (userIdFromToken !== userIdFromRequest) {
+  if (userUIDFromToken !== userUIDFromRequest) {
     return res.status(403).json({ error: "Forbidden" });
   }
 
-  req.userId = userIdFromRequest;
+  req.userId = userUIDFromRequest;
 
   next();
 }
