@@ -5,7 +5,7 @@ import { useUserAuth } from './context/UserAuthContext';
 function ProtectedRoute() {
     const { user } = useUserAuth();
     return (
-        user ? <Outlet /> : <Navigate to="/login" />
+        user ? <Outlet /> : <Navigate to="/login?message=Please login first!" />
     )
 }
 

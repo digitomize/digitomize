@@ -3,6 +3,7 @@ import { Form, useLoaderData } from 'react-router-dom'
 import Checkbox from '../components/Checkbox'
 import { submitUserFormData, userDashboardDetails } from '../../../api'
 // import { useUserAuth } from '../../context/UserAuthContext'
+import { toast } from 'react-toastify'
 
 export async function loader() {
   try {
@@ -59,7 +60,31 @@ export default function UserDashRatings() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const res = await submitUserFormData(formData);
+    const res = await submitUserFormData(formData)
+      .then(() => {
+        toast.success('updated successfully!', {
+          position: "top-left",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }).catch(err => {
+        toast.error('error updating', {
+          position: "top-left",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        console.log(err)
+      })
     console.log(res);
   }
 

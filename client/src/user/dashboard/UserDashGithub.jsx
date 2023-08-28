@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Form, useLoaderData } from "react-router-dom"
 import { userDashboardDetails, submitUserFormData } from '../../../api'
-import { requireAuth } from '../../../utils'
+import { toast } from "react-toastify"
 import Checkbox from '../components/Checkbox'
 
 export async function loader() {
@@ -59,7 +59,31 @@ export default function UserDashGithub() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const res = await submitUserFormData(formData);
+    const res = await submitUserFormData(formData)
+      .then(() => {
+        toast.success('updated successfully!', {
+          position: "top-left",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }).catch(err => {
+        toast.error('error updating', {
+          position: "top-left",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        console.log(err)
+      })
     console.log(res);
     svgImage()
   }

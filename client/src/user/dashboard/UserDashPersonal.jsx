@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { submitUserFormData, userDashboardDetails } from "../../../api"
 import { useUserAuth } from "../../context/UserAuthContext"
 import axios from "axios"
+import { toast } from "react-toastify"
 import Checkbox from "../components/Checkbox"
 
 export async function loader() {
@@ -51,7 +52,6 @@ export default function UserDashPersonal() {
             [name]: {
                 ...prevData[name],
                 data: value,
-                showOnWebsite: value,
             },
         }));
     };
@@ -67,7 +67,32 @@ export default function UserDashPersonal() {
     async function handleSubmit(event) {
         event.preventDefault();
         // console.log(formData)
-        const res = await submitUserFormData(formData);
+        const res = await submitUserFormData(formData)
+            .then(() => {
+                toast.success('updated successfully!', {
+                    position: "top-left",
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            }).catch(err => {
+                toast.error('error updating', {
+                    position: "top-left",
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+                console.log(err)
+            })
+
         console.log(res);
     }
 

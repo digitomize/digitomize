@@ -1,4 +1,4 @@
-import { Form, useNavigation, redirect, Link, useNavigate } from "react-router-dom"
+import { Form, useNavigation, redirect, Link, useNavigate, useLoaderData } from "react-router-dom"
 import GoogleButton from 'react-google-button'
 import { auth } from "../../firebase"
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
@@ -7,7 +7,7 @@ import './css/Login.css'
 import { useState } from "react"
 import { useUserAuth } from "../context/UserAuthContext"
 import { isLoggedIn } from "../../api"
-
+import { toast, ToastContainer } from "react-toastify"
 
 
 export function loader({ request }) {
@@ -44,6 +44,7 @@ export function loader({ request }) {
 
 
 export default function Login() {
+    const message = useLoaderData()
     const navigation = useNavigation()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -88,10 +89,11 @@ export default function Login() {
     // const message = useLoaderData()
     return (
         <div className="outer-login-div">
+            <ToastContainer />
             <div className="login-container">
                 <h1>Sign in to your account</h1>
-                {/* {message && <h3 className="red">{message}</h3>} */}
-                {error && <h3 className="red">{error}</h3>}
+                {/* {message && toast.success(message)} */}
+                {/* {error && <h3 className="red">{error}</h3>} */}
 
                 <Form
                     onSubmit={handleSubmit}
