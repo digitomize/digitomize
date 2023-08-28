@@ -5,14 +5,14 @@ import { useLoaderData, NavLink, Outlet } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 // import { useUserAuth } from '../../context/UserAuthContext';
 import 'react-toastify/dist/ReactToastify.css';
-import SignoutButton from '../../components/SignoutButton';
+import SignoutButton from "../components/SignoutButton"
 
 export default function UserDashboard() {
   // const username = data.personal_data.username
   return (
     <>
       <ToastContainer />
-      <SignoutButton />
+      <SignoutButton isDisabled={false} btnName="sign out" />
       <div className='flex mt-8 md:mt-0'>
         <div className='flex w-full h-screen flex-col items-center md:pt-12 gap-12 '>
           <div className="flex items-center gap-3  justify-center">

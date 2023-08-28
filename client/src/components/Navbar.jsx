@@ -57,7 +57,7 @@ function Navbar() {
           <Link to='/login' className='link'>
             <li onClick={() => toggleActive()} className='contents'>Login</li>
           </Link>
-          <li onClick={handleSignout} className='contents'>Signout</li>
+          {/* <li onClick={handleSignout} className='contents'>Signout</li> */}
         </div>
 
         <div onClick={() => toggleActive()} className={`closeMenu ${isMenuActive ? 'active' : ''}`}>close</div>

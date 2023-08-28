@@ -55,6 +55,8 @@ export default function Signup() {
             const token = auth.currentUser.accessToken
             if (token) {
                 axios.post("http://localhost:4001/user/signup", {
+                    name : firstName,
+                    username : username,
                     headers: {
                         Authorization: `Bearer ${token}`,
                     }

@@ -8,13 +8,15 @@ import { useState } from "react"
 import { useUserAuth } from "../context/UserAuthContext"
 import { isLoggedIn } from "../../api"
 import { toast, ToastContainer } from "react-toastify"
+import SignoutButton from "../user/components/SignoutButton"
 
-
-export function loader({ request }) {
+export async function loader({ request }) {
     const message = new URL(request.url).searchParams.get("message")
-    // if (isLoggedIn()) {
-    //     return redirect("/user/dashboard/personal")
-    // }
+    const loggedIn = await isLoggedIn();
+    if (loggedIn) {
+        return redirect("/user/dashboard/personal")
+    }
+
     return message
 }
 
@@ -116,19 +118,19 @@ export default function Login() {
                     </div>
                     <div className="md:flex md:items-center items-center">
                         <div className="md:w-2/3 ">
-                            <button disabled={navigation.state === "submitting"} className="shadow gradient-custom drop-shadow-2xl focus:shadow-outline focus:outline-none font-light text-white py-2 px-12 rounded" type="submit">
+                            {/* <button disabled={navigation.state === "submitting"} className="shadow bg-white  drop-shadow-2xl focus:shadow-outline focus:outline-none font-light text-black  py-2 px-12 rounded" type="submit">
                                 {navigation.state === "submitting"
                                     ? "Logging in..."
                                     : "Log in"
                                 }
-                            </button>
+                            </button> */}
+                            <SignoutButton isDisabled={navigation.state === "submitting"} btnName={navigation.state === "submitting"
+                                ? "Logging in..."
+                                : "Log in"} />
                         </div>
                     </div>
                 </Form>
-                <GoogleButton label={navigation.state === "submitting"
-                    ? "Signing in..."
-                    : "Sign in with Google"
-                } disabled={navigation.state === "submitting"} type="dark" className="g-btn" onClick={handleGoogleSignIn} />
+                <GoogleButton type="dark" className="g-btn" onClick={handleGoogleSignIn} />
                 <p> New user ? <Link to="/signup">Signup</Link></p>
             </div>
         </div>
