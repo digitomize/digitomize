@@ -11,7 +11,7 @@ import IndividualCard from "./components/IndividualCard"
 import ErrorPage from "./components/error-page"
 import UserDashboard from "./user/dashboard/UserDashboard"
 import UserDashPersonal, { loader as userDashPersonalLoader } from "./user/dashboard/UserDashPersonal"
-import UserDashRatings from "./user/dashboard/UserDashRatings"
+import UserDashRatings, { loader as userDashRatingsLoader } from "./user/dashboard/UserDashRatings"
 import UserDashGithub, { loader as userDashGithubLoader } from "./user/dashboard/UserDashGithub"
 import UserProfile from "./user/Profile/UserProfile"
 import ProtectedRoute from "./ProtectedRoute"
@@ -29,7 +29,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="/user" element={<ProtectedRoute />}>
             <Route path="dashboard" element={<UserDashboard />} >
                 <Route path="personal" element={<UserDashPersonal />} loader={userDashPersonalLoader} />
-                <Route path="ratings" element={<UserDashRatings />} />
+                <Route path="ratings" element={<UserDashRatings />} loader={userDashRatingsLoader} />
                 <Route path="github" element={<UserDashGithub />} loader={userDashGithubLoader} />
             </Route>
             <Route path="profile/:username" element={<UserProfile />} />

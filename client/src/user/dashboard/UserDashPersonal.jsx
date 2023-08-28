@@ -3,57 +3,40 @@ import { useState, useEffect } from "react"
 import { submitUserFormData, userDashboardDetails } from "../../../api"
 import { useUserAuth } from "../../context/UserAuthContext"
 import axios from "axios"
+import Checkbox from "../components/Checkbox"
 
-export function loader() {
+export async function loader() {
+    try {
+        const res = await userDashboardDetails()
+        return res.data
+    } catch (err) {
+        console.log(err)
+        return null
+    }
 
-    return null
 }
 
 export default function UserDashPersonal() {
-    const { user } = useUserAuth()
-    const [fetchData, setFetchData] = useState()
+    const personalData = useLoaderData().personal_data
+    console.log(personalData)
 
-    useEffect(() => {
-        const url = "http://localhost:4001/user/dashboard"
-        const fetchData = async () => {
-            try {
-                console.log("Fetching data...");
-                const response = await axios.get(url, {
-                    headers: {
-                        Authorization: `Bearer ${user.accessToken}`,
-                    },
-                });
-
-                console.log("Data fetched:", response.data.personal_data);
-                setFetchData(response.data.personal_data);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
-        if (user.accessToken) {
-            fetchData()
-
-        }
-    }, [user.accessToken]);
-
-
-    // console.log(data)
     const [formData, setFormData] = useState({
-        name: "",
+        username: personalData.username,
+        name: personalData.name || "",
         phoneNumber: {
-            data: "",
-            showOnWebsite: true,
+            data: personalData.phoneNumber.data || "",
+            showOnWebsite: personalData.phoneNumber.showOnWebsite || false,
         },
         dateOfBirth: {
-            data: "",
-            showOnWebsite: true,
+            data: personalData.dateOfBirth.data || "",
+            showOnWebsite: personalData.dateOfBirth.showOnWebsite || false,
         },
         bio: {
-            data: "",
-            showOnWebsite: true,
+            data: personalData.bio.data || "",
+            showOnWebsite: personalData.bio.showOnWebsite || false,
         }
     });
-
+    console.log(formData)
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData((prevData) => ({
@@ -68,6 +51,16 @@ export default function UserDashPersonal() {
             [name]: {
                 ...prevData[name],
                 data: value,
+                showOnWebsite: value,
+            },
+        }));
+    };
+    const updateShowOnWebsite = (field) => (value) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            [field]: {
+                ...prevData[field],
+                showOnWebsite: value,
             },
         }));
     };
@@ -104,23 +97,24 @@ export default function UserDashPersonal() {
                             First name
                         </label>
                     </div>
-                    {/* <div className="relative z-0 w-full md:w-3/4 mb-12 group">
+                    <div className="relative z-0 w-full md:w-3/4 mb-12 group">
                         <input
                             type="text"
-                            name="lastName"
-                            id="lastName"
+                            name="username"
+                            id="username"
                             className="block py-2.5 px-0 w-full text-md md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
                             placeholder=" "
-                            value={formData.lastName}
+                            value={formData.username}
                             onChange={handleInputChange}
+                            required
                         />
                         <label
-                            htmlFor="lastName"
+                            htmlFor="username"
                             className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                         >
-                            Last name
+                            Username
                         </label>
-                    </div> */}
+                    </div>
                 </div>
                 <div className="grid md:grid-cols-2 md:gap-2">
                     <div className="relative z-0 w-full md:w-3/4 mb-12 group">
@@ -132,7 +126,6 @@ export default function UserDashPersonal() {
                             placeholder=" "
                             value={formData.phoneNumber.data}
                             onChange={handleInputChangeObjData}
-                            required
                         />
                         <label
                             htmlFor="phoneNumber"
@@ -140,6 +133,7 @@ export default function UserDashPersonal() {
                         >
                             Phone number
                         </label>
+                        <Checkbox isCheckedState={formData.phoneNumber.showOnWebsite} setState={updateShowOnWebsite('phoneNumber')} />
                     </div>
                     <div className="relative z-0 w-full md:w-3/4 mb-12 group">
                         <input
@@ -149,7 +143,6 @@ export default function UserDashPersonal() {
                             className="block py-2.5 px-0 w-full md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
                             value={formData.dateOfBirth.data}
                             onChange={handleInputChangeObjData}
-                            required
                         />
                         <label
                             htmlFor="dateOfBirth"
@@ -157,6 +150,7 @@ export default function UserDashPersonal() {
                         >
                             Date of birth
                         </label>
+                        <Checkbox isCheckedState={formData.dateOfBirth.showOnWebsite} setState={updateShowOnWebsite('dateOfBirth')} />
                     </div>
                 </div>
                 <div className="relative z-0 w-full md:w-3/4 mb-12 group">
@@ -168,7 +162,6 @@ export default function UserDashPersonal() {
                         placeholder=""
                         value={formData.bio.data}
                         onChange={handleInputChangeObjData}
-                        required
                     />
                     <label
                         htmlFor="bio"
@@ -176,6 +169,7 @@ export default function UserDashPersonal() {
                     >
                         Bio
                     </label>
+                    <Checkbox isCheckedState={formData.bio.showOnWebsite} setState={updateShowOnWebsite('bio')} />
                 </div>
 
                 <button

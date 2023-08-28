@@ -3,51 +3,37 @@ import { Form, useLoaderData } from 'react-router-dom'
 import Checkbox from '../components/Checkbox'
 import { submitUserFormData, userDashboardDetails } from '../../../api'
 // import { useUserAuth } from '../../context/UserAuthContext'
-import { requireAuth } from '../../../utils'
-import axios from "axios"
-import { useUserAuth } from '../../context/UserAuthContext'
 
+export async function loader() {
+  try {
+    const res = await userDashboardDetails()
+    return res.data
+  } catch (err) {
+    console.log(err)
+    return null
+  }
+
+}
 
 export default function UserDashRatings() {
   // console.log(ratingsData)
-  const { user } = useUserAuth();
-  const [ratingsData, setRatingsData] = useState({})
-  useEffect(() => {
-    const url = "http://localhost:4001/user/dashboard"
-    const fetchData = async () => {
-      try {
-        console.log("Fetching data...");
-        const response = await axios.get(url, {
-          headers: {
-            Authorization: `Bearer ${user.accessToken}`,
-          },
-        });
-
-        console.log("Data fetched:", response.data.ratings);
-        setRatingsData(response.data.ratings);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    if (user.accessToken) {
-      fetchData()
-
-    }
-  }, [user.accessToken]);
-  console.log(ratingsData)
+  const ratingsData = useLoaderData().ratings
+  const username = useLoaderData().personal_data.username
+  console.log(ratingsData);
   const [formData, setFormData] = useState({
+    username: username,
     codeforces: {
-      username: "",
-      showOnWebsite: false,
+      username: ratingsData.codeforces.data || "",
+      showOnWebsite: ratingsData?.codeforces?.showOnWebsite || false,
     },
     codechef: {
-      username: "",
-      showOnWebsite: false,
+      username: ratingsData.codechef.data || "",
+      showOnWebsite: ratingsData?.codechef?.showOnWebsite || false,
     },
 
     leetcode: {
-      username: "",
-      showOnWebsite: false,
+      username: ratingsData.leetcode.data || "",
+      showOnWebsite: ratingsData?.leetcode?.showOnWebsite || false,
     }
   });
 
@@ -61,6 +47,15 @@ export default function UserDashRatings() {
       },
     }));
   };
+  const updateShowOnWebsite = (field) => (value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [field]: {
+        ...prevData[field],
+        showOnWebsite: value,
+      },
+    }));
+  };
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -70,9 +65,9 @@ export default function UserDashRatings() {
 
   return (
     <div className="px-8 py-12 ">
-      <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
+      {/* <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
         <Checkbox />
-      </div>
+      </div> */}
       <Form className="flex flex-col items-center" onSubmit={handleSubmit}>
         <div className="relative z-0 w-full md:w-3/4 mb-12 group">
           <input
@@ -90,8 +85,9 @@ export default function UserDashRatings() {
           >
             Codeforces
           </label>
+          <Checkbox isCheckedState={formData.codeforces.showOnWebsite} setState={updateShowOnWebsite('codeforces')} />
         </div>
-        <div className="relative z-0 w-full md:w-3/4 mb-12 group">
+        {/* <div className="relative z-0 w-full md:w-3/4 mb-12 group">
           <input
             type="text"
             name="geeksForGeeks"
@@ -105,7 +101,7 @@ export default function UserDashRatings() {
           >
             Geeks For Geeks
           </label>
-        </div>
+        </div> */}
         <div className="relative z-0 w-full md:w-3/4 mb-12 group">
           <input
             type="text"
@@ -122,6 +118,7 @@ export default function UserDashRatings() {
           >
             Leetcode
           </label>
+          <Checkbox isCheckedState={formData.leetcode.showOnWebsite} setState={updateShowOnWebsite('leetcode')} />
         </div>
         <div className="relative z-0 w-full md:w-3/4 mb-6 group">
           <input
@@ -139,6 +136,7 @@ export default function UserDashRatings() {
           >
             Codechef
           </label>
+          <Checkbox isCheckedState={formData.codechef.showOnWebsite} setState={updateShowOnWebsite('codechef')} />
         </div>
         <button
           type="submit"

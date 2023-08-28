@@ -68,10 +68,10 @@ export default function Login() {
         try {
             const googleAuthProvider = new GoogleAuthProvider();
             await signInWithPopup(auth, googleAuthProvider)
-                .then(() => {
-                    auth.currentUser.getIdToken(true).then((idToken) => {
+                .then(async () => {
+                    await auth.currentUser.getIdToken(true).then(async (idToken) => {
                         // console.log(idToken);
-                        axios.post("http://localhost:4001/user/signup", {
+                        await axios.post("http://localhost:4001/user/signup", {
                             headers: {
                                 Authorization: `Bearer ${idToken}`,
                             },
@@ -79,7 +79,7 @@ export default function Login() {
                             .catch(err => console.log(err));
                     });
                     navigate('/user/dashboard/personal')
-                }).catch(err => console.log(err))
+                }).catch(err => setError("internal server error"))
         } catch (err) {
             setError(err.message);
         }
@@ -114,7 +114,7 @@ export default function Login() {
                     </div>
                     <div className="md:flex md:items-center items-center">
                         <div className="md:w-2/3 ">
-                            <button disabled={navigation.state === "submitting"} className="shadow gradient-custom drop-shadow-2xl focus:shadow-outline focus:outline-none font-light text-white py-2 px-12 rounded">
+                            <button disabled={navigation.state === "submitting"} className="shadow gradient-custom drop-shadow-2xl focus:shadow-outline focus:outline-none font-light text-white py-2 px-12 rounded" type="submit">
                                 {navigation.state === "submitting"
                                     ? "Logging in..."
                                     : "Log in"
@@ -123,7 +123,10 @@ export default function Login() {
                         </div>
                     </div>
                 </Form>
-                <GoogleButton type="dark" className="g-btn" onClick={handleGoogleSignIn} />
+                <GoogleButton label={navigation.state === "submitting"
+                    ? "Signing in..."
+                    : "Sign in with Google"
+                } disabled={navigation.state === "submitting"} type="dark" className="g-btn" onClick={handleGoogleSignIn} />
                 <p> New user ? <Link to="/signup">Signup</Link></p>
             </div>
         </div>
