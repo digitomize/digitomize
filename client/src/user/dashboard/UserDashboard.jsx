@@ -6,7 +6,6 @@ import SignoutButton from "../../components/SignoutButton";
 // import { useUserAuth } from '../../context/UserAuthContext';
 
 export default function UserDashboard() {
-
   // const username = data.personal_data.username
   return (
     <div className='flex mt-8 md:mt-0'>

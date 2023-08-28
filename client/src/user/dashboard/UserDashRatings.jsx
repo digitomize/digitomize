@@ -29,7 +29,10 @@ export default function UserDashRatings() {
         console.error("Error fetching data:", error);
       }
     };
-    fetchData()
+    if (user.accessToken) {
+      fetchData()
+
+    }
   }, [user.accessToken]);
   console.log(ratingsData)
   const [formData, setFormData] = useState({

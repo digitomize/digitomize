@@ -11,7 +11,7 @@ export function loader() {
 
 export default function UserDashPersonal() {
     const { user } = useUserAuth()
-    const [fetchData, setFetchData] = useState({})
+    const [fetchData, setFetchData] = useState()
 
     useEffect(() => {
         const url = "http://localhost:4001/user/dashboard"
@@ -30,12 +30,16 @@ export default function UserDashPersonal() {
                 console.error("Error fetching data:", error);
             }
         };
-        fetchData()
+        if (user.accessToken) {
+            fetchData()
+
+        }
     }, [user.accessToken]);
+
 
     // console.log(data)
     const [formData, setFormData] = useState({
-        name: fetchData.name || "",
+        name: "",
         phoneNumber: {
             data: "",
             showOnWebsite: true,
