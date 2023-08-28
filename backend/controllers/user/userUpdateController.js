@@ -39,7 +39,7 @@ const updateDataField = (field, userData, existingData) => {
 // Helper function to update user data, including platform-specific data
 const updateUserData = (userData, existingData) => {
   // Update general user data (firstName, lastName, etc.)
-  const generalFields = ["username", "picture","name", "email", "email_show"];
+  const generalFields = ["username", "picture","name", "email_show"];
   generalFields.forEach(field => {
     if (userData[field] !== undefined) {
       existingData[field] = userData[field];
