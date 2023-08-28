@@ -1,11 +1,5 @@
 import axios from "axios";
-import Cookies from "js-cookie";
-import jwt_decode from "jwt-decode";
 import { redirect } from "react-router-dom";
-import {
-  createUserWithEmailAndPassword,
-  onAuthStateChanged,
-} from "firebase/auth";
 import { auth } from "./firebase";
 
 export async function loginUser({ username, password }) {
@@ -21,7 +15,6 @@ export async function loginUser({ username, password }) {
     };
   }
 }
-
 
 export function isLoggedIn() {
   return new Promise((resolve, reject) => {
@@ -65,37 +58,6 @@ export async function userDashboardDetails() {
   }
 }
 
-// export function isLoggedIn() {
-//   const data = auth.onAuthStateChanged((currentUser) => {
-//     if (currentUser) {
-//       console.log(currentUser);
-//       return true;
-//     } else {
-//       return false;
-//     }
-//   });
-//   return data;
-// }
-
-// export async function userDashboardDetails() {
-//   await isLoggedIn();
-//   const accessToken = await auth.currentUser.accessToken;
-//   console.log("befor access t");
-//   console.log(accessToken);
-//   if (accessToken) {
-//     try {
-//       const data = await axios.get("http://localhost:4001/user/dashboard", {
-//         headers: {
-//           Authorization: `Bearer ${accessToken}`,
-//         },
-//       });
-//       return data;
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   }
-// }
-
 export async function submitUserFormData(formData) {
   // const jwtToken = Cookies.get("jwt");
   const loggedIn = await isLoggedIn();
@@ -114,5 +76,6 @@ export async function submitUserFormData(formData) {
       },
     }
   );
+  console.log("RESPONSE ----> ", res);
   console.log(res.status);
 }

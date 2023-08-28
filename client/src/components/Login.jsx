@@ -95,7 +95,7 @@ export default function Login() {
             <div className="login-container">
                 <h1>Sign in to your account</h1>
                 {/* {message && toast.success(message)} */}
-                {/* {error && <h3 className="red">{error}</h3>} */}
+                {error && <h3 className="red">{error}</h3>}
 
                 <Form
                     onSubmit={handleSubmit}
@@ -124,7 +124,7 @@ export default function Login() {
                                     : "Log in"
                                 }
                             </button> */}
-                            <SignoutButton isDisabled={navigation.state === "submitting"} btnName={navigation.state === "submitting"
+                            <SignoutButton onClickFunction={(e) => handleSubmit} isDisabled={navigation.state === "submitting"} btnName={navigation.state === "submitting"
                                 ? "Logging in..."
                                 : "Log in"} />
                         </div>

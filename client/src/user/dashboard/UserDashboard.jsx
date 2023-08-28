@@ -1,18 +1,25 @@
 import { useState, useEffect } from 'react';
 import { requireAuth } from '../../../utils'
 import { auth } from '../../../firebase';
-import { useLoaderData, NavLink, Outlet } from "react-router-dom";
-import { ToastContainer } from 'react-toastify';
+import { useLoaderData, NavLink, Outlet, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
 // import { useUserAuth } from '../../context/UserAuthContext';
 import 'react-toastify/dist/ReactToastify.css';
 import SignoutButton from "../components/SignoutButton"
 
 export default function UserDashboard() {
   // const username = data.personal_data.username
+  const navigate = useNavigate()
+  async function handleLogout() {
+    await auth.signOut()
+    toast.success("Logged out successfully")
+    console.log("before");
+    navigate('/login?message=Logged out successfully')
+  }
   return (
     <>
       <ToastContainer />
-      <SignoutButton isDisabled={false} btnName="sign out" />
+      <SignoutButton isDisabled={false} btnName="sign out" onClickFunction={handleLogout} />
       <div className='flex mt-8 md:mt-0'>
         <div className='flex w-full h-screen flex-col items-center md:pt-12 gap-12 '>
           <div className="flex items-center gap-3  justify-center">

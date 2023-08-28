@@ -6,8 +6,13 @@ const updatePlatformData = (platform, userData, existingData) => {
   const platformData = userData[platform];
   // console.log(platformData);
   if (platformData) {
-    if (platformData.username === undefined || platformData.showOnWebsite === undefined) {
-      throw new Error(`Both 'username' and 'showOnWebsite' properties are required for the '${platform}' platform.`);
+    if (
+      platformData.username === undefined ||
+      platformData.showOnWebsite === undefined
+    ) {
+      throw new Error(
+        `Both 'username' and 'showOnWebsite' properties are required for the '${platform}' platform.`
+      );
     }
 
     existingData.username = platformData.username || "";
@@ -23,24 +28,28 @@ const updatePlatformData = (platform, userData, existingData) => {
   }
 };
 
-
 // Helper function to update a specific data field
 const updateDataField = (field, userData, existingData) => {
-  if (userData[field]?.data !== undefined && userData[field]?.showOnWebsite !== undefined) {
+  if (
+    userData[field]?.data !== undefined &&
+    userData[field]?.showOnWebsite !== undefined
+  ) {
     existingData[field] = {
       data: userData[field]?.data,
-      showOnWebsite: userData[field]?.showOnWebsite
+      showOnWebsite: userData[field]?.showOnWebsite,
     };
   } else if (userData[field] !== undefined) {
-    throw new Error(`Both 'data' and 'showOnWebsite' properties are required for the '${field}' field.`);
+    throw new Error(
+      `Both 'data' and 'showOnWebsite' properties are required for the '${field}' field.`
+    );
   }
 };
 
 // Helper function to update user data, including platform-specific data
 const updateUserData = (userData, existingData) => {
   // Update general user data (firstName, lastName, etc.)
-  const generalFields = ["username", "picture","name", "email_show"];
-  generalFields.forEach(field => {
+  const generalFields = ["username", "picture", "name", "email_show"];
+  generalFields.forEach((field) => {
     if (userData[field] !== undefined) {
       existingData[field] = userData[field];
     }
@@ -48,13 +57,13 @@ const updateUserData = (userData, existingData) => {
 
   // Update fields with common structure
   const commonFields = ["bio", "dateOfBirth", "phoneNumber", "github"];
-  commonFields.forEach(field => {
+  commonFields.forEach((field) => {
     updateDataField(field, userData, existingData);
   });
 
   // Update platform-specific data for CodeChef, LeetCode, and CodeForces
   const platforms = ["codechef", "leetcode", "codeforces"];
-  platforms.forEach(platform => {
+  platforms.forEach((platform) => {
     updatePlatformData(platform, userData, existingData[platform]);
   });
 
@@ -79,9 +88,16 @@ const handleUpdateUserProfile = async (req, res) => {
       return res.status(404).json({ error: "User not found" });
     }
     const today = new Date().toDateString();
-    const updateIndex = user.updatesToday.findIndex(update => update.timestamp.toDateString() === today);
-    if (updateIndex !== -1 && user.updatesToday[updateIndex].count >= maxUpdatesPerDay) {
-      return res.status(400).json({ error: "Maximum number of updates reached for today" });
+    const updateIndex = user.updatesToday.findIndex(
+      (update) => update.timestamp.toDateString() === today
+    );
+    if (
+      updateIndex !== -1 &&
+      user.updatesToday[updateIndex].count >= maxUpdatesPerDay
+    ) {
+      return res
+        .status(400)
+        .json({ error: "Maximum number of updates reached for today" });
     }
 
     try {
@@ -96,20 +112,26 @@ const handleUpdateUserProfile = async (req, res) => {
 
       // Compare the updated user data with the data before update
       const updatedFields = {};
-      Object.keys(updatedData).forEach(field => {
-        if (JSON.stringify(userDataBeforeUpdate[field]) !== JSON.stringify(user[field])) {
+      Object.keys(updatedData).forEach((field) => {
+        if (
+          JSON.stringify(userDataBeforeUpdate[field]) !==
+          JSON.stringify(user[field])
+        ) {
           updatedFields[field] = user[field];
         }
       });
 
       if (Object.keys(updatedFields).length === 0) {
-        return res.status(200).json({ message: "No changes were applied to the user profile" });
+        return res
+          .status(200)
+          .json({ message: "No changes were applied to the user profile" });
       } else {
         user.updateCount();
         user.save();
-        res.status(200).json({ message: "User updated successfully", updatedFields });
+        res
+          .status(200)
+          .json({ message: "User updated successfully", updatedFields });
       }
-
     } catch (error) {
       // Handle the error thrown by updateUserData
       res.status(400).json({ error: error.message }); // Send the error message to the client

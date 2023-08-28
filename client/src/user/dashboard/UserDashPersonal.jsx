@@ -107,8 +107,8 @@ export default function UserDashPersonal() {
                     <div className="relative z-0 w-full md:w-3/4 mb-12 group">
                         <input
                             type="text"
-                            name="firstName"
-                            id="firstName"
+                            name="name"
+                            id="name"
                             className="block py-2.5 px-0 w-full text-md md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
                             placeholder=" "
                             value={formData.name}
