@@ -39,7 +39,7 @@ const updateDataField = (field, userData, existingData) => {
 // Helper function to update user data, including platform-specific data
 const updateUserData = (userData, existingData) => {
   // Update general user data (firstName, lastName, etc.)
-  const generalFields = ["firstName", "lastName", "email", "email_show"];
+  const generalFields = ["username","name", "email", "email_show"];
   generalFields.forEach(field => {
     if (userData[field] !== undefined) {
       existingData[field] = userData[field];
@@ -73,7 +73,7 @@ const handleUpdateUserProfile = async (req, res) => {
     }
 
     // Get the existing user profile
-    const user = await User.findById(userId);
+    const user = await User.findOne({ uid: userId });
 
     if (!user) {
       return res.status(404).json({ error: "User not found" });
