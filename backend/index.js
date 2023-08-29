@@ -7,9 +7,6 @@ const contestSyncer = require("./contest/controllers/contestController");
 const contestRouter = require("./contest/routes/contestRoutes");
 const fetchContestsData = require('./fetchContests');
 const bodyParser = require('body-parser');
-// const cookieParser = require('cookie-parser');
-
-// const authRoutes = require('./routes/user/authRoutes');
 const userRoutes = require('./users/routes/userRoutes');
 const admin = require('firebase-admin');
 
