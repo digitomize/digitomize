@@ -14,7 +14,7 @@ Please delete options that are not relevant.
 - [ ] This change requires a documentation update
 
 # Responsive Testing?
-(Only applicable for Frontend changes)
+(Only applicable for Front-end changes)
 Checked for: (width in px)
 - [ ] Laptop L - 1440px
 - [ ] Laptop - 1024px
