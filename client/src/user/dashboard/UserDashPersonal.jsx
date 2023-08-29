@@ -119,7 +119,7 @@ export default function UserDashPersonal() {
                             htmlFor="firstName"
                             className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                         >
-                            First name
+                            Name
                         </label>
                     </div>
                     <div className="relative z-0 w-full md:w-3/4 mb-12 group">
