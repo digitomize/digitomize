@@ -1,5 +1,6 @@
 import { useState, useEffect, memo } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import "./css/IndividualCard.css";
 
@@ -53,8 +54,15 @@ function IndividualCard() {
   setInterval(() => {
     setRemainingTime(updateTimer(startTimeUnix, duration));
   }, 1000);
+
+  const contentDescription = `${name} | ${startTimeIST} (IST)`;
   return (
     <>
+      <Helmet>
+        <title>{name} | Digitomize</title>
+        <meta property="og:description" content={contentDescription} />
+        <meta property="description" content={contentDescription} />
+      </Helmet>
       <div className="individualContestOuter">
         <div style={{ width: "75%" }}>
           <Link to="/contests">
