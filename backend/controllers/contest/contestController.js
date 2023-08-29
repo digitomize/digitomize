@@ -47,13 +47,13 @@ const getContestByVanity = async (vanity) => {
             // upcomingContestList.push(contestFromDB);
             return contestFromDB;
         }
-        
+
         return null; // Contest not found
     } catch (error) {
         throw error;
     }
 };
-const getRoute = async (req, res) => {
+const handleContestRoute = async (req, res) => {
     try {
         let host = req.query.host;
         let vanity = req.query.vanity;
@@ -109,5 +109,5 @@ module.exports = {
     getContestList,
     updateContests,
     getContestByVanity,
-    getRoute
+    handleContestRoute
 };
