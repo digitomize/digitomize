@@ -29,13 +29,13 @@ async function setupUserServer() {
 
 async function setupContestServer() {
 
+    //* Fetches data from API and stores it in mongoDB
     await dataSyncer.syncContests();
-    setInterval(dataSyncer.syncContests, 90 * 60 * 1000);
+    setInterval(dataSyncer.syncContests, 12 * 60 * 60 * 1000);  // 12 hours
 
-
-    // Update contests data and sync contests data at regular intervals
+    //* Adds data from mongoDB to upcomingcontestslist variable
     await contestSyncer.updateContests();
-    setInterval(contestSyncer.updateContests, 60 * 60 * 1000);
+    setInterval(contestSyncer.updateContests, 30 * 60 * 1000); // 30 minutes
 
     // Pinging the server every 14 minutes
     setInterval(async () => {
@@ -91,7 +91,7 @@ async function startServersDev() {
 
         const port = process.env.PORT || 3000;
         app.listen(port, () => {
-            console.log(`<--- User server listening on port ${port} --->`);
+            console.log(`<--- Server listening on port ${port} --->`);
         });
     } catch (err) {
         console.log("Error starting servers:", err);
