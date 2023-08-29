@@ -53,7 +53,7 @@ const getContestByVanity = async (vanity) => {
         throw error;
     }
 };
-const getRoute=async(req,res)=>{
+const getRoute = async (req, res) => {
     try {
         let host = req.query.host;
         let vanity = req.query.vanity;
