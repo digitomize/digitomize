@@ -9,7 +9,15 @@ import {
   MenuItem,
   Checkbox,
   ListItemText,
+  ListItemIcon,
+  Stack,
 } from "@mui/material";
+
+import leetcode from "../assets/leetcode.svg";
+import codechef from "../assets/codechef.svg";
+import codeforces from "../assets/codeforces.svg";
+import geeksforgeeks from "../assets/geeksforgeeks.svg";
+import codingninjas from "../assets/codingninjas.png";
 import Contests from "./Contests";
 import { Element } from "react-scroll";
 import "./css/Filter.css";
@@ -32,6 +40,13 @@ const MenuProps = {
   },
 };
 
+const platformsIcon = [
+  leetcode,
+  codingninjas,
+  geeksforgeeks,
+  codechef,
+  codeforces,
+];
 const platforms = [
   "leetcode",
   "codingninjas",
@@ -43,9 +58,10 @@ const platforms = [
 function Filter() {
   const [contestsData, setContestsData] = useState([]);
   const [selectedPlatforms, setSelectedPlatforms] = useState([]);
-  const [isFixed, setIsFixed] = useState(false);
+  // const [isFixed, setIsFixed] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  // useEffect(() => {
+  // useEffect(() => { // to make it fixed while scroll
   //   const handleScroll = () => {
   //     if (window.scrollY >= 908) {
   //       setIsFixed(true);
@@ -64,7 +80,7 @@ function Filter() {
   useEffect(() => {
     // Fetch data from the backend API
     const selectedPlatformsParam = selectedPlatforms.join(",");
-    console.log(selectedPlatforms);
+    // console.log(selectedPlatforms);
     const url = selectedPlatformsParam
       ? `${backendUrl}?host=${selectedPlatformsParam}`
       : backendUrl;
@@ -75,35 +91,65 @@ function Filter() {
       .catch((error) => console.error("Error fetching data:", error));
   }, [selectedPlatforms]);
 
+  const handleDelete = (value) => {
+    let newSelectedParams = selectedPlatforms.filter(
+      (platform) => platform != value
+    );
+    setSelectedPlatforms(newSelectedParams);
+  };
+  const handleChange = (e) => {
+    setSelectedPlatforms(e.target.value);
+    setOpen(!open);
+  };
   return (
     <>
       <Element name="newHead">
-          <h2 style={{marginBottom:'5%'}}>Contests</h2>
+        <h2 style={{ marginBottom: "5%" }}>Contests</h2>
       </Element>
       {/* //checkmarks */}
-      <div className={`filter-div ${isFixed ? "fixed" : ""}`}>
+      <div className={`filter-div`}>
         <FormControl
           variant="filled"
           sx={{ m: 1, minWidth: 300 }}
-          className={`filter platform-container${isFixed ? "fixed" : ""}`}
+          className={`filter platform-container`} // to make it fixed while scroll add class "fixed" on condition "isFixed"
         >
-          <InputLabel varianat="filled" id="platform-select-label">
-            Platform
+          <InputLabel variant="filled" id="platform-select-label">
+            {selectedPlatforms.length == 0 ? "Platform" : ""}
           </InputLabel>
           <Select
             labelId="platform-select-label"
             id="platform-select"
+            open={open}
             multiple
             value={selectedPlatforms}
-            onChange={(e) => setSelectedPlatforms(e.target.value)}
-            input={<OutlinedInput placeholder="Please enter text" />}
-            renderValue={(selected) => selected.join(" ")}
+            onClick={!open ? () => setOpen(true) : () => setOpen(false)}
+            onChange={handleChange}
+            input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+            // renderValue={(selected) => selected.join(" ")}
+            renderValue={(selected) => (
+              <Stack direction="row" spacing={1}>
+                {selected?.map((value) => (
+                  <Chip
+                    key={value}
+                    label={value}
+                    onDelete={() => handleDelete(value)}
+                  />
+                ))}
+              </Stack>
+            )}
             MenuProps={MenuProps}
           >
             {/* All the platforms list is fetched here */}
-            {platforms.map((platform) => (
+            {platforms.map((platform, idx) => (
               <MenuItem key={platform} value={platform}>
-                <Checkbox checked={selectedPlatforms.indexOf(platform) > -1} />
+                {/* <Checkbox checked={selectedPlatforms.indexOf(platform) > -1} /> */}
+                <ListItemIcon>
+                  <img
+                    src={platformsIcon[idx]}
+                    alt="a"
+                    style={{ width: "20px", height: "20px", marginRight: "5%" }}
+                  />
+                </ListItemIcon>
                 <ListItemText primary={platform} />
               </MenuItem>
             ))}
