@@ -1,4 +1,4 @@
-const User = require("../../models/user/User");
+const User = require("../models/User");
 const maxUpdatesPerDay = 50;
 
 // Helper function to update platform-specific data

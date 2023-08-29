@@ -5,13 +5,13 @@ const codechefContests = require('./platforms/codechefController');
 const codeforcesContests = require('./platforms/codeforcesController');
 const gfgContests = require('./platforms/gfgController');
 const leetcodeContests = require('./platforms/leetcodeController');
-const { UpcomingContest, AllContest } = require('../../models/contest/Contest');
+const { UpcomingContest, AllContest } = require('../models/Contest');
 
 //* Clear the UpcomingContest collection in MongoDB
 async function clearUpcoming() {
     try {
         const currentTime = Math.floor(Date.now() / 1000);
-        await UpcomingContest.deleteMany({ startTimeUnix: { $lt: currentTime } }); 
+        await UpcomingContest.deleteMany({ startTimeUnix: { $lt: currentTime } });
         console.log('Deleted upcoming contests with start time before now.');
     }
     catch (err) {
@@ -25,7 +25,7 @@ async function addToDB(mappedContests, platform) {
     try {
         // Sorting contests
         mappedContests.sort((a, b) => a.startTimeUnix - b.startTimeUnix);
-        
+
         try {
             // Add to UpcomingContest collection
             await UpcomingContest.insertMany(mappedContests, { ordered: false });
@@ -37,7 +37,7 @@ async function addToDB(mappedContests, platform) {
                 throw upcomingErr;
             }
         }
-        
+
         try {
             // Update AllContest collection
             await AllContest.insertMany(mappedContests, { ordered: false });
@@ -63,7 +63,7 @@ async function syncContests() {
 
         //* Clearing the UpcomingContest collection
         await clearUpcoming();
-        
+
         //* LeetCode Section
         console.log("<======= LeetCode =====>");
         const leetcodeData = await leetcodeContests.leetcode_c();

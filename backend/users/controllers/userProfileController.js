@@ -1,4 +1,4 @@
-const { getUser } = require('../../services/getUser');
+const { getUser } = require('../services/getUser');
 
 // ?returns JSON
 // Sends only toggled ON info for any user

@@ -1,4 +1,4 @@
-const User = require('../models/user/User');
+const User = require('../models/User');
 
 // Utility function to create default contest object
 function createDefaultContestObject(platformData) {

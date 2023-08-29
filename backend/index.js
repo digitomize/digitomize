@@ -2,30 +2,30 @@ const express = require("express");
 const cors = require('cors');
 require('dotenv').config();
 const mongoose = require("mongoose");
-const dataSyncer = require("./controllers/contest/DataSyncController");
-const contestSyncer = require("./controllers/contest/contestController");
-const contestRouter = require("./routes/contest/contestRoutes");
+const dataSyncer = require("./contest/controllers/DataSyncController");
+const contestSyncer = require("./contest/controllers/contestController");
+const contestRouter = require("./contest/routes/contestRoutes");
 const fetchContestsData = require('./fetchContests');
 const bodyParser = require('body-parser');
 // const cookieParser = require('cookie-parser');
 
 // const authRoutes = require('./routes/user/authRoutes');
-const userRoutes = require('./routes/user/userRoutes');
+const userRoutes = require('./users/routes/userRoutes');
 const admin = require('firebase-admin');
 
-const serviceAccount = require('./firebase-config.json'); 
+const serviceAccount = require('./firebase-config.json');
 
 //* Check for ENV file
 console.log(process.env.TEST);
 
 async function main() {
-  try {
-    console.log('Pinging...');
-    const contestsData = await fetchContestsData();
-    console.log('Pong!');
-  } catch (error) {
-    console.error('Error pinging the server:', error);
-  }
+    try {
+        console.log('Pinging...');
+        const contestsData = await fetchContestsData();
+        console.log('Pong!');
+    } catch (error) {
+        console.error('Error pinging the server:', error);
+    }
 }
 
 
@@ -35,10 +35,10 @@ async function startServer() {
         const app = express();
 
         app.use(cors());
-        
+
         admin.initializeApp({
             credential: admin.credential.cert(serviceAccount)
-          });
+        });
 
         //* Connects MongoDB
         await mongoose.connect(process.env.MONGODB_URL)

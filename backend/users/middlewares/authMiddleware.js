@@ -1,7 +1,6 @@
-const jwt = require("jsonwebtoken");
 const { getUser } = require("../services/getUser");
 const { getAuth } = require("firebase-admin/auth");
-const { admin } = require("../firebase-config.json"); // Update the path accordingly
+const { admin } = require("../../firebase-config.json"); // Update the path accordingly
 
 async function addUID(request, response, next) {
   // console.log("HERE");

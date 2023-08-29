@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const contestController = require("../../controllers/contest/contestController");
+const contestController = require("../controllers/contestController");
 
 // GET route for contests
 router.get("/", async (req, res) => {

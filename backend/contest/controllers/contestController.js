@@ -1,6 +1,6 @@
 // ? MongoDB to our API
 
-const { UpcomingContest, AllContest } = require('../../models/contest/Contest');
+const { UpcomingContest, AllContest } = require('../models/Contest');
 
 let upcomingContestList = []; // Variable to store contests in memory
 
@@ -47,7 +47,7 @@ const getContestByVanity = async (vanity) => {
             // upcomingContestList.push(contestFromDB);
             return contestFromDB;
         }
-        
+
         return null; // Contest not found
     } catch (error) {
         throw error;

@@ -1,9 +1,9 @@
 const express = require('express');
-const { handleUserSignup} = require('../../controllers/user/authController');
-const { handleUserDashboard } = require('../../controllers/user/userDashboardController');
-const { handleUserProfilePreview } = require('../../controllers/user/userProfileController');
-const { handleUpdateUserProfile } = require('../../controllers/user/userUpdateController');
-const { addUID, checkUserOwnership } = require('../../middlewares/authMiddleware');
+const { handleUserSignup } = require('../controllers/authController');
+const { handleUserDashboard } = require('../controllers/userDashboardController');
+const { handleUserProfilePreview } = require('../controllers/userProfileController');
+const { handleUpdateUserProfile } = require('../controllers/userUpdateController');
+const { addUID } = require('../middlewares/authMiddleware');
 // const { checkLoggedIn } = require('../../services/checkLoggedIn');
 
 
@@ -20,7 +20,7 @@ router.post('/dashboard', addUID, handleUpdateUserProfile);
 
 router.get('/profile/:username', handleUserProfilePreview);
 
-router.post('/profile/:username', addUID, checkUserOwnership, handleUpdateUserProfile);
+// router.post('/profile/:username', addUID, checkUserOwnership, handleUpdateUserProfile);
 
 // router.post('/isLoggedin', checkLoggedIn);
 
