@@ -51,6 +51,9 @@ function Navbar() {
           <Link to="https://github.com/pranshugupta54/digitomize"className='link' >
             <li onClick={()=>toggleActive()} className='contents'>Contribute</li>
           </Link>
+          <Link to="https://github.com/pranshugupta54/digitomize/issues/new/choose"className='link' >
+            <li onClick={()=>toggleActive()} className='contents'>support</li>
+          </Link>
           {/* <Link to={path} className='link'>
             <li  onClick={()=>toggleActive()} className='contents'>{btnMessage}</li>
           </Link> */}
