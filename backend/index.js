@@ -5,76 +5,106 @@ const mongoose = require("mongoose");
 const dataSyncer = require("./controllers/contest/DataSyncController");
 const contestSyncer = require("./controllers/contest/contestController");
 const contestRouter = require("./routes/contest/contestRoutes");
-const fetchContestsData = require('./fetchContests');
-const bodyParser = require('body-parser');
-// const cookieParser = require('cookie-parser');
-
-// const authRoutes = require('./routes/user/authRoutes');
 const userRoutes = require('./routes/user/userRoutes');
+const bodyParser = require('body-parser');
+const fetchContestsData = require('./fetchContests');
 
-//* Check for ENV file
+const app = express();
+
 console.log(process.env.TEST);
-
 async function main() {
-  try {
-    console.log('Pinging...');
-    const contestsData = await fetchContestsData();
-    console.log('Pong!');
-  } catch (error) {
-    console.error('Error pinging the server:', error);
-  }
+    try {
+        console.log('Pinging...');
+        const contestsData = await fetchContestsData();
+        console.log('Pong!');
+    } catch (error) {
+        console.error('Error pinging the server:', error);
+    }
 }
 
+async function setupUserServer() {
+    // Set up user routes
+    app.use('/user', userRoutes);
 
-//* Function to start server with MongoDB and UpcomingContest list.
-async function startServer() {
+}
+
+async function setupContestServer() {
+
+    //* Fetches data from API and stores it in mongoDB
+    await dataSyncer.syncContests();
+    setInterval(dataSyncer.syncContests, 12 * 60 * 60 * 1000);  // 12 hours
+
+    //* Adds data from mongoDB to upcomingcontestslist variable
+    await contestSyncer.updateContests();
+    setInterval(contestSyncer.updateContests, 30 * 60 * 1000); // 30 minutes
+
+    // Pinging the server every 14 minutes
+    setInterval(async () => {
+        try {
+            await main();
+            console.log('<=======Sent GET request to AWAKE');
+        } catch (error) {
+            console.error('Error Pinging', error);
+        }
+    }, 14 * 60 * 1000);
+
+    // Set up contest routes
+    app.use("/api/contests", contestRouter);
+
+}
+
+async function startServersProduction() {
+
     try {
-        const app = express();
 
         app.use(cors());
-
-        //* Connects MongoDB
-        await mongoose.connect(process.env.MONGODB_URL)
-            .then(() => console.log("MongoDB Connected."))
-            .catch((err) => console.log("Error:", err));
-
-        //* Adds data from MongoDB to upcomingcontestlist variable
-        await contestSyncer.updateContests();
-        setInterval(contestSyncer.updateContests, 60 * 60 * 1000);
-
-        //* Fetches data from APIs to MongoDB
-        await dataSyncer.syncContests();
-        setInterval(dataSyncer.syncContests, 90 * 60 * 1000);
-
-        //Pinging the server every 14min
-        // await main();
-        setInterval(async () => {
-            try {
-                main();
-                console.log('<=======Sent GET request to AWAKE');
-            } catch (error) {
-                console.error('Error Pinging', error);
-            }
-        }, 14 * 60 * 1000);
-
-
-        // app.use(cookieParser());
         app.use(bodyParser.json());
-        // app.use('/auth', authRoutes);
-        app.use('/user', userRoutes);
-        //* GET route for contests
-        app.use("/api/contests", contestRouter);
 
-        //* PORT for server
+        await mongoose.connect(process.env.MONGODB_URL);
+        console.log("MongoDB Connected.");
+
+        await setupUserServer();
+        await setupContestServer();
+        const port = process.env.PORT || 3000;
+        app.listen(port, () => {
+            console.log(`<--- User server listening on port ${port} --->`);
+        });
+    } catch (err) {
+        console.log("Error starting servers:", err);
+    }
+
+}
+async function startServersDev() {
+    try {
+        app.use(cors());
+        app.use(bodyParser.json());
+
+        await mongoose.connect(process.env.MONGODB_URL);
+        console.log("MongoDB Connected.");
+        
+
+        if (process.env.USER === 'true') {
+            await setupUserServer();
+        }
+        if (process.env.CONTEST === 'true') {
+            await setupContestServer();
+        }
+
         const port = process.env.PORT || 3000;
         app.listen(port, () => {
             console.log(`<--- Server listening on port ${port} --->`);
         });
-
-    }
-    catch (err) {
-        console.log("Error starting server:", err);
+    } catch (err) {
+        console.log("Error starting servers:", err);
     }
 }
 
-startServer();
+if (process.env.NODE_ENV === 'development') {
+    startServersDev();
+}
+else if (process.env.NODE_ENV === 'production') {
+    startServersProduction();
+}
+else {
+    console.log("Error: NODE_ENV not set.");
+}

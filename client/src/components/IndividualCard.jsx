@@ -1,5 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import Typewriter from "typewriter-effect";
 
 import "./css/IndividualCard.css";
 
@@ -35,7 +37,37 @@ function IndividualCard() {
   }, [vanity]);
   const [remaningTime, setRemainingTime] = useState("0");
   if (contest === null) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <p>
+          <Typewriter
+            options={{ loop: false, delay: 100, autoStart:true }}
+            onInit={(typewriter) => {
+              typewriter
+                .start()
+                .typeString(`Loading ...`)
+                .pauseFor(1000)
+                .deleteChars(3)
+                .pauseFor(1000)
+                .typeString('...')
+                .pauseFor(1000)
+                .deleteChars(3)
+                .pauseFor(1000)
+                .typeString('...')
+                .pauseFor(1000)
+                .deleteAll()
+                .changeDelay(1)
+                .typeString(`Looks like there's an error fetching the page, please contact admin.`)
+              
+                // .typeString("Welcomes You")
+                // .start();
+                // .stop();
+            }}
+          />
+        </p>
+        {/* Loading... */}
+      </div>
+    );
   }
 
   const { host, name, url, startTimeUnix, duration } = contest;
@@ -53,8 +85,17 @@ function IndividualCard() {
   setInterval(() => {
     setRemainingTime(updateTimer(startTimeUnix, duration));
   }, 1000);
+
+  const contentDescription = `${name} | ${startTimeIST} (IST)`;
+  const contentTitle = `${host} | Digitomize`;
   return (
     <>
+      <Helmet>
+        <title>{name} | Digitomize</title>
+        <meta property="og:title" content={contentTitle} />
+        <meta property="og:description" content={contentDescription} />
+        <meta property="description" content={contentDescription} />
+      </Helmet>
       <div className="individualContestOuter">
         <div style={{ width: "75%" }}>
           <Link to="/contests">
