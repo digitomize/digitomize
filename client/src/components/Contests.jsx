@@ -8,7 +8,7 @@ function Contests({ contests }) {
     <>
       <Helmet>
         <title>Contests | Digitomize</title>
-        <meta property="og:title" content="Contests | Digitomize"></meta>
+        <meta property="og:title" content="Contests | Digitomize"/>
         <meta property="og:description" content={contentDescription} />
         <meta property="description" content={contentDescription} />
       </Helmet>

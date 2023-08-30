@@ -11,6 +11,7 @@ export default function ErrorPage() {
     <>
       <Helmet>
         <title>Error | Digitomize</title>
+        <meta property="og:title" content="Error | Digitomize"/>
         <meta property="og:description" content={contentDescription} />
         <meta property="description" content={contentDescription} />
       </Helmet>
