@@ -83,10 +83,10 @@ async function startServersDev() {
         console.log("MongoDB Connected.");
         
 
-        if (process.env.USER === 'true') {
+        if (process.env.USERS === 'true') {
             await setupUserServer();
         }
-        if (process.env.CONTEST === 'true') {
+        if (process.env.CONTESTS === 'true') {
             await setupContestServer();
         }
 
