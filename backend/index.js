@@ -67,7 +67,7 @@ async function startServersProduction() {
         await setupContestServer();
         const port = process.env.PORT || 3000;
         app.listen(port, () => {
-            console.log(`<--- User server listening on port ${port} --->`);
+            console.log(`<--- Server listening on port ${port} --->`);
         });
     } catch (err) {
         console.log("Error starting servers:", err);
