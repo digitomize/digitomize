@@ -2,7 +2,7 @@ const User = require('../models/User');
 
 // Utility function to create default contest object
 function createDefaultContestObject(platformData) {
-    const commonDefaults = { rating: null, badge: null, fetchTime: 0 };
+    const commonDefaults = { rating: null, badge: null, fetchTime: 0, attendedContestsCount: null };
 
     if (platformData) {
         return {

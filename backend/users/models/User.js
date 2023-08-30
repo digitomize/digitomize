@@ -15,6 +15,7 @@ const contestToggleSchema = new mongoose.Schema({
     rating: Number,
     badge: String,
     fetchTime: Number,
+    attendedContestsCount: Number,
     showOnWebsite: Boolean
 });
 
@@ -69,15 +70,15 @@ const userSchema = new mongoose.Schema({
     },
     codechef: {
         type: contestToggleSchema,
-        default: { username: null, rating: null, badge: null, showOnWebsite: false, fetchTime: 0 }
+        default: { username: null, rating: null, badge: null, showOnWebsite: false, fetchTime: 0, attendedContestsCount: null }
     },
     leetcode: {
         type: contestToggleSchema,
-        default: { username: null, rating: null, badge: null, showOnWebsite: false, fetchTime: 0 }
+        default: { username: null, rating: null, badge: null, showOnWebsite: false, fetchTime: 0, attendedContestsCount: null }
     },
     codeforces: {
         type: contestToggleSchema,
-        default: { username: null, rating: null, badge: null, showOnWebsite: false, fetchTime: 0 }
+        default: { username: null, rating: null, badge: null, showOnWebsite: false, fetchTime: 0, attendedContestsCount: null }
     },
     updatesToday: [
         {
