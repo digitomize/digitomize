@@ -73,7 +73,10 @@
         width: 2em !important;
       }
   }
-
+  .css-bpeome-MuiSvgIcon-root-MuiSelect-icon{
+    padding-left: 0% !important;
+    padding-right: 5%;
+  }
   .MuiChip-label{
     overflow: visible !important;
   }
