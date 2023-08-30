@@ -10,7 +10,6 @@ import {
   Checkbox,
   ListItemText,
   ListItemIcon,
-  Stack,
 } from "@mui/material";
 
 import leetcode from "../assets/leetcode.svg";
@@ -127,7 +126,7 @@ function Filter() {
             input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
             // renderValue={(selected) => selected.join(" ")}
             renderValue={(selected) => (
-              <Stack direction="row" spacing={1}>
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                 {selected?.map((value) => (
                   <Chip
                     key={value}
@@ -135,7 +134,7 @@ function Filter() {
                     onDelete={() => handleDelete(value)}
                   />
                 ))}
-              </Stack>
+              </Box>
             )}
             MenuProps={MenuProps}
           >
