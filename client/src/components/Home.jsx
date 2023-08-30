@@ -7,6 +7,7 @@ function Home() {
     <>
       <Helmet>
         <title>Home | Digitomize</title>
+        <meta property="og:title" content="Home | Digitomize"></meta>
         <meta property="og:description" content={contentDescription} />
         <meta property="description" content={contentDescription} />
       </Helmet>
