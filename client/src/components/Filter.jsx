@@ -51,7 +51,6 @@ const platforms = [
   "geeksforgeeks",
   "codechef",
   "codeforces",
-  // Add more platforms as needed
 ];
 function Filter() {
   const [contestsData, setContestsData] = useState([]);
