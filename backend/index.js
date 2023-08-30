@@ -22,6 +22,12 @@ async function main() {
 }
 
 async function setupUserServer() {
+    const admin = require('firebase-admin');
+
+    const serviceAccount = require('./firebase-config.json');
+    admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount)
+      });
     // Set up user routes
     app.use('/user', userRoutes);
 
@@ -80,12 +86,11 @@ async function startServersDev() {
 
         await mongoose.connect(process.env.MONGODB_URL);
         console.log("MongoDB Connected.");
-        
 
-        if (process.env.USER === 'true') {
+        if (process.env.USERS === 'true') {
             await setupUserServer();
         }
-        if (process.env.CONTEST === 'true') {
+        if (process.env.CONTESTS === 'true') {
             await setupContestServer();
         }
 
