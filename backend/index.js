@@ -42,7 +42,7 @@ async function setupContestServer() {
     setInterval(async () => {
         try {
             await main();
-            console.log('<=======Sent GET request to AWAKE');
+            console.log('<======= Sent GET request to AWAKE');
         } catch (error) {
             console.error('Error Pinging', error);
         }
