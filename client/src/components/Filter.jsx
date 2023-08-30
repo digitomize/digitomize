@@ -7,7 +7,6 @@ import {
   OutlinedInput,
   Select,
   MenuItem,
-  Checkbox,
   ListItemText,
   ListItemIcon,
 } from "@mui/material";
@@ -52,29 +51,11 @@ const platforms = [
   "geeksforgeeks",
   "codechef",
   "codeforces",
-  // Add more platforms as needed
 ];
 function Filter() {
   const [contestsData, setContestsData] = useState([]);
   const [selectedPlatforms, setSelectedPlatforms] = useState([]);
-  // const [isFixed, setIsFixed] = useState(false);
   const [open, setOpen] = useState(false);
-
-  // useEffect(() => { // to make it fixed while scroll
-  //   const handleScroll = () => {
-  //     if (window.scrollY >= 908) {
-  //       setIsFixed(true);
-  //     } else {
-  //       setIsFixed(false);
-  //     }
-  //   };
-
-  //   window.addEventListener("scroll", handleScroll);
-
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
 
   useEffect(() => {
     // Fetch data from the backend API
