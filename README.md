@@ -62,8 +62,7 @@
 ## Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
-<details>
-  <summary>Contributors</summary>
+- Contributors
     <div>
       <a href="https://github.com/pranshugupta54/digitomize/graphs/contributors">
         <br>
