@@ -7,7 +7,6 @@ import {
   OutlinedInput,
   Select,
   MenuItem,
-  Checkbox,
   ListItemText,
   ListItemIcon,
 } from "@mui/material";
