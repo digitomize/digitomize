@@ -8,6 +8,7 @@ const TRACKING_ID = import.meta.env.VITE_REACT_APP_GA_ID;; // TRACKING_ID
 ReactGA.initialize(TRACKING_ID);
 
 function App() {
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <div className="container">
       <BgEllipse />
