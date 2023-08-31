@@ -1,9 +1,10 @@
 import axios from "axios";
 import { redirect } from "react-router-dom";
 import { auth } from "./firebase";
+const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export async function loginUser({ username, password }) {
-  const res = await axios.post("http://localhost:4001/user/login", {
+  const res = await axios.post(`${backendUrl}/user/login`, {
     username,
     password,
   });
@@ -43,7 +44,7 @@ export async function userDashboardDetails() {
     if (accessToken) {
       try {
         const response = await axios.get(
-          "http://localhost:4001/user/dashboard",
+          `${backendUrl}/user/dashboard`,
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
@@ -68,7 +69,7 @@ export async function submitUserFormData(formData) {
   const accessToken = await currentUser.getIdToken();
   // console.log(jwtToken);
   const res = await axios.post(
-    `http://localhost:4001/user/dashboard`,
+    `${backendUrl}/user/dashboard`,
     formData,
     {
       headers: {

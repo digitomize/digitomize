@@ -9,6 +9,7 @@ import { useUserAuth } from "../context/UserAuthContext"
 import { isLoggedIn } from "../../api"
 import { toast, ToastContainer } from "react-toastify"
 import SignoutButton from "../user/components/SignoutButton"
+const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export async function loader({ request }) {
     const message = new URL(request.url).searchParams.get("message")
@@ -74,7 +75,7 @@ export default function Login() {
                 .then(async () => {
                     await auth.currentUser.getIdToken(true).then(async (idToken) => {
                         // console.log(idToken);
-                        await axios.post("http://localhost:4001/user/signup", {
+                        await axios.post(`${backendUrl}/user/signup`, {
                             headers: {
                                 Authorization: `Bearer ${idToken}`,
                             },
