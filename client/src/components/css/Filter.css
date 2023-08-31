@@ -63,8 +63,7 @@
     display: flex;
     justify-content: center;
   }
-  .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon,
-  .css-bpeome-MuiSvgIcon-root-MuiSelect-icon {
+  .MuiSelect-icon {
     width: 2em !important;
   }
 }
