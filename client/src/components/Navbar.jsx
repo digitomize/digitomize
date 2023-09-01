@@ -20,11 +20,13 @@ function Navbar() {
   };
 
   function toggleActive() {
-    // console.log("clicekd");
-    if (isMenuActive) {
-      setActive(false);
-    } else {
-      setActive(true);
+
+    if (window.innerWidth < 768) {
+      if (isMenuActive) {
+        setActive(false);
+      } else {
+        setActive(true);
+      }
     }
   }
 
@@ -53,7 +55,7 @@ function Navbar() {
             </li>
           </Link>
           <Link to="/login">
-            <li onClick={() => toggleActive()} className="text-nav-text  flex text-3xl font-light p-4 lowercase hover:white">
+            <li onClick={() => toggleActive()}  className="text-nav-text  flex text-3xl font-light p-4 lowercase hover:white">
               Login
             </li>
           </Link>
@@ -67,7 +69,7 @@ function Navbar() {
           close
         </div>
 
-        <div onClick={() => toggleActive()} className="sm:hidden max-sm:block cursor-pointer">
+        <div onClick={() => toggleActive()} className="md:hidden max-sm:block cursor-pointer">
           <span className="block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
           <span className="block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
           <span className="block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
