@@ -1,11 +1,12 @@
 html,
 body {
-  margin: 0;
+  /* margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100%; */
   background-color: black;
-  color: white;
-  font-family: 'Outfit', sans-serif;}
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Outfit', sans-serif;
+}
 
 /* .container {
   height: 100vh; 
@@ -17,27 +18,27 @@ body {
 
 .button-container {
   /* flex: 1; The button container will take the first half of the viewport height */
-  min-height: 85vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
+  /* min-height: 85vh; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* z-index: 1; */
 }
 .button-container h1 {
-    color: #FFF;
+    /* color: #FFF; */
     /* text-align:center; */
-    font-family: Outfit;
-    font-size: 5.625rem;
-    font-weight: 800;
-    line-height: normal;
-    letter-spacing: 0.188rem;
-    text-transform: lowercase;
+    /* font-family: Outfit; */
+    /* font-size: 5.625rem; */
+    /* font-weight: 800; */
+    /* line-height: normal; */
+    /* letter-spacing: 0.188rem; */
+    /* text-transform: lowercase; */
     /* margin-left: 1.2em;
     margin-right: 1.2em; */
-    margin-bottom: 1.5%;
+    /* margin-bottom: 1.5%; */
 }
-.button-container p {
+/* .button-container p {
     color: rgba(255, 255, 255, 0.75);
     text-align: center;
     font-family: Outfit;
@@ -47,9 +48,9 @@ body {
     line-height: normal;
     text-transform: lowercase;
     margin-bottom:5%;
-}
+} */
 
-.btn {
+/* .btn {
     width: 31.25rem;
     height: 6.25rem;
     background: white;
@@ -64,18 +65,18 @@ body {
     font-weight: 600;
     line-height: normal;
     text-transform: lowercase;
-}
+} */
 
-svg {
+/* svg {
     padding-left: 5%;
     transform: rotate(-1.005deg);
     fill: black;
-}
+} */
 
 .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-  border-color: transparent !important;
+  /* border-color: transparent !important; */
 }
-.containerBottom {
+/* .containerBottom {
     background: linear-gradient(
     270deg,
     #8D41AA 0%,
@@ -85,15 +86,15 @@ svg {
     #FCBB57 100%
   );
   background-position: bottom;
-  background-size: 100% 5px; /* Adjust the size of the gradient line as needed */
+  background-size: 100% 5px; 
   background-repeat: no-repeat;
-}
-#footer {
+} */
+/* #footer {
     max-width: 80%;
     margin-top: 10%;
     padding-bottom: 5%;
-}
-#footer h2 {
+} */
+/* #footer h2 {
     color: rgba(255, 255, 255, 0.75);
     font-family: Outfit;
     font-size: 60px;
@@ -103,37 +104,37 @@ svg {
     text-transform: none;
     margin-top: 3px;
     margin-bottom: 0;
-}
-@media (max-width: 640px) {
+} */
+/* @media (max-width: 640px) {
     .container {
         max-width: 640px;
     }
-}
+} */
 @media (max-width: 768px) {
-    .container {
+    /* .container {
         max-width: 768px;
         align-items: center;
 
-    }
-    .button-container{
+    } */
+    /* .button-container{
         justify-content: flex-start;
         max-width:1000px;
         height: calc(100vh - 100px);
-    }
-    .btn {
+    } */
+    /* .btn {
         width: 20.25rem;
         height: 5.25rem;
         font-size: 25px;
-    }
-    #footer h2 {
+    } */
+    /* #footer h2 {
         font-size: 38px;
-    }
-    .button-container h1 {
+    } */
+    /* .button-container h1 {
         font-size: 4.5rem;
-    }
-    .btn {
+    } */
+    /* .btn {
         margin-top: 65px;
-    }
+    } */
 }
 
 /* @media (max-width: 1024px) {

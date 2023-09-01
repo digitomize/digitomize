@@ -2,7 +2,7 @@ import { useState, useEffect, memo } from "react";
 import { Link } from "react-router-dom";
 
 import Button from "./Button";
-import "./css/Card.css";
+// import "./css/Card.css";
 import geeksforgeeks from "../assets/geeksforgeeks.svg";
 import leetcode from "../assets/leetcode.svg";
 import codechef from "../assets/codechef.svg";
@@ -41,23 +41,23 @@ function Card({ contest }) {
   }, [startTimeUnix]);
 
   return (
-    <div className="card" key={vanity}>
-      <div className="top">
-        <p id="startTime">{startTimeIST}</p>
+    <div className="my-4 md:w-96 min-h-[250px] p-6 rounded-xl bg-cardsColor flex flex-col max-md:w-80 hover:animate-bg-gradient hover:scale-105" key={vanity}>
+      <div className="flex justify-between">
+        <p id="startTime" className="text-card-text font-light leading-tight lowercase text-lg max-md:text-sm">{startTimeIST}</p>
         <img src={hostToSVGMap[host]} alt={host} width="13%" />
       </div>
-      <Link to={`/contests/${vanity}`}>
-        <h2>{name}</h2>
+      <Link to={`/contests/${vanity}`} className="my-auto">
+        <h2 className="text-3xl pb-8">{name}</h2>
       </Link>
-      <div className="lower_button">
-        <div className="inner_lower">
-          <p>Duration : {duration}min</p>
-          <div>{remaningTime}</div>
+      <div className="flex justify-between items-end">
+        <div>
+          <p className="text-card-text text-xs font-light leading-tight lowercase">Duration : {duration}min</p>
+          <div className="text-card-text text-sm font-light leading-tight lowercase">{remaningTime}</div>
         </div>
-        <div className="clip">
+        <div className="h-8 max-md:w-12 clip">
           <CopyToClipboard vanity={vanity} />
         </div>
-        <Button url={url} />
+        <Button url={url}/>
       </div>
     </div>
   );

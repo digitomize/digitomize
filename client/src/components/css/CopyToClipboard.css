@@ -38,9 +38,9 @@ span p{
   bottom:6px;
 }
 @media (max-width:768px) {
-    .share-button-container svg{
+    /* .share-button-container svg{
         width:15%;
-    }
+    } */
     .ic-inner-lower {
       align-self: flex-start;
   }
