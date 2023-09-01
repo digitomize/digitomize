@@ -1,3 +1,7 @@
+backend/firebase-config.json
+/backend/firebase-config.json
+/firebase-config.json
+firebase-config.json
 .DS_Store
 # Logs
 logs
@@ -122,7 +126,7 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
-
+.idea
 # yarn v2
 .yarn/cache
 .yarn/unplugged

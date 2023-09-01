@@ -1,10 +1,10 @@
 import axios from "axios";
-import Cookies from "js-cookie";
-import jwt_decode from "jwt-decode";
 import { redirect } from "react-router-dom";
+import { auth } from "./firebase";
+const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export async function loginUser({ username, password }) {
-  const res = await axios.post("http://localhost:4001/user/login", {
+  const res = await axios.post(`${backendUrl}/user/login`, {
     username,
     password,
   });
@@ -15,70 +15,68 @@ export async function loginUser({ username, password }) {
       message: res.data.message,
     };
   }
-  const token = res.data.token;
-  Cookies.set("jwt", token, { secure: true });
-  return res;
-}
-export async function signupUser({ username, firstName, email, password }) {
-  const res = await axios.post("http://localhost:4001/user/signup", {
-    firstName,
-    username,
-    email,
-    password,
-  });
-  console.log(res.status);
-  if (res.status !== 200) {
-    throw {
-      statusCode: res.status,
-      message: res.data.error,
-    };
-  }
-
-  return res;
-}
-
-export function getUserNameFromCookie() {
-  const jwtToken = Cookies.get("jwt");
-
-  if (jwtToken) {
-    // Decode the JWT token
-    const decodedToken = jwt_decode(jwtToken);
-
-    // Now you can access the payload data from the decoded token
-    return decodedToken.name;
-  } else {
-    console.log("JWT token not found in the cookie.");
-  }
 }
 
 export function isLoggedIn() {
-  const jwtToken = Cookies.get("jwt");
-  if (jwtToken) {
-    // Decode the JWT token
-    const decodedToken = jwt_decode(jwtToken);
-
-    // Now you can access the payload data from the decoded token
-    if (decodedToken.name) {
-      return true;
-    } else {
-      return false;
-    }
-  } else {
-    return false;
-  }
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      unsubscribe(); // Unsubscribe the listener once it's called
+      if (currentUser) {
+        console.log(currentUser);
+        resolve(true);
+      } else {
+        resolve(false);
+      }
+    });
+  });
 }
 
 export async function userDashboardDetails() {
-  const jwtToken = Cookies.get("jwt");
+  const loggedIn = await isLoggedIn();
 
-  try {
-    const data = await axios.get("http://localhost:4001/user/dashboard", {
-      headers: {
-        Authorization: `Bearer ${jwtToken}`,
-      },
-    });
-    return data;
-  } catch (err) {
-    return err;
+  if (loggedIn) {
+    const currentUser = auth.currentUser;
+    const accessToken = await currentUser.getIdToken();
+
+    console.log("before access token");
+    console.log(accessToken);
+
+    if (accessToken) {
+      try {
+        const response = await axios.get(
+          `${backendUrl}/user/dashboard`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        );
+        return response;
+      } catch (err) {
+        console.log(err);
+      }
+    }
   }
+}
+
+export async function submitUserFormData(formData) {
+  // const jwtToken = Cookies.get("jwt");
+  const loggedIn = await isLoggedIn();
+  if (!loggedIn) {
+    throw redirect("/login");
+  }
+  const currentUser = auth.currentUser;
+  const accessToken = await currentUser.getIdToken();
+  // console.log(jwtToken);
+  const res = await axios.post(
+    `${backendUrl}/user/dashboard`,
+    formData,
+    {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    }
+  );
+  console.log("RESPONSE ----> ", res);
+  console.log(res.status);
 }
