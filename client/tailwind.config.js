@@ -10,6 +10,7 @@ export default {
         "custom-border": "#30363d",
         "custom-bg": "#0a0a0a",
         "light-font": "#888888",
+        "nav-text":"rgba(255, 255, 255, 0.50)",
       },
     },
   },

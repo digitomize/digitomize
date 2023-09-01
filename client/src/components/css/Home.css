@@ -7,13 +7,13 @@ body {
   color: white;
   font-family: 'Outfit', sans-serif;}
 
-.container {
-  height: 100vh; /* Set the container height to 100% of viewport height */
+/* .container {
+  height: 100vh; 
   display: flex;
   flex-direction: column;
   margin: 0;
   width: 100%;
-}
+} */
 
 .button-container {
   /* flex: 1; The button container will take the first half of the viewport height */

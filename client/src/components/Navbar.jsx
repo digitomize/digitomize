@@ -1,11 +1,11 @@
 // Navbar.js
-import { useState, useEffect } from 'react';
-import './css/Navbar.css';
-import { Link } from 'react-router-dom';
-import logo from '../assets/digitomizeLogo.png'
+import { useState, useEffect } from "react";
+// import "./css/Navbar.css";
+import { Link } from "react-router-dom";
+import logo from "../assets/digitomizeLogo.png";
 // import { useUserAuth } from '../context/UserAuthContext';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../firebase';
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
 function Navbar() {
   // const name = getUserNameFromCookie()
@@ -13,59 +13,64 @@ function Navbar() {
   // const { user, logOut } = useUserAuth()
   const handleSignout = async () => {
     try {
-      await signOut(auth)
+      await signOut(auth);
     } catch (err) {
-      console.log(err.message)
+      console.log(err.message);
     }
-  }
+  };
 
   function toggleActive() {
     // console.log("clicekd");
     if (isMenuActive) {
       setActive(false);
-    }
-    else {
+    } else {
       setActive(true);
     }
   }
 
   useEffect(() => {
-
-    document.body.className = isMenuActive ? "scrollOff" : '';
+    document.body.className = isMenuActive ? "overflow-hidden" : "";
   }, [isMenuActive]);
-
 
   return (
     <nav>
-      <div className='navbar'>
-
-
-        <div className="brand">
-          <Link to="/" className='nav-brand-link'>
-
+      <div className="flex justify-between md:px-16 px-12 md:pt-12 items-center">
+        <div className="w-56 max-sm:mt-8">
+          <Link to="/">
             <img src={logo} alt="Logo" width="75%" />
           </Link>
         </div>
 
-        <div className={`nav-link  ${isMenuActive ? 'active' : ''}`}>
-          <Link to="/contests" className='link'>
-            <li onClick={() => toggleActive()} className='contents'>Contests</li>
+        <div className={`${isMenuActive ? "bg-black h-full flex justify-center inset-x-0 inset-y-0 z-50 fixed flex-col items-center" : "hidden"} md:flex`}>
+          <Link to="/contests">
+            <li onClick={() => toggleActive()} className="flex text-nav-text text-3xl font-light p-4 lowercase hover:white">
+              Contests
+            </li>
           </Link>
-          <Link to="https://github.com/pranshugupta54/digitomize" className='link' >
-            <li onClick={() => toggleActive()} className='contents'>Contribute</li>
+          <Link to="https://github.com/pranshugupta54/digitomize">
+            <li onClick={() => toggleActive()} className="text-nav-text flex text-3xl font-light p-4 lowercase hover:white">
+              Contribute
+            </li>
           </Link>
-          <Link to='/login' className='link'>
-            <li onClick={() => toggleActive()} className='contents'>Login</li>
+          <Link to="/login">
+            <li onClick={() => toggleActive()} className="text-nav-text  flex text-3xl font-light p-4 lowercase hover:white">
+              Login
+            </li>
           </Link>
           {/* <li onClick={handleSignout} className='contents'>Signout</li> */}
         </div>
 
-        <div onClick={() => toggleActive()} className={`closeMenu ${isMenuActive ? 'active' : ''}`}>close</div>
+        <div
+          onClick={() => toggleActive()}
+          className={`${isMenuActive ? "mx-6 my-2 block fixed right-5 z-50" : "hidden"}`}
+        >
+          close
+        </div>
 
-        <div onClick={() => toggleActive()} className="hamburger">
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
+        <div onClick={() => toggleActive()} className="sm:hidden max-sm:block cursor-pointer">
+          <span className="block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
+          <span className="block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
+          <span className="block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
         </div>
       </div>
     </nav>

@@ -11,9 +11,9 @@ import "./css/Home.css"
 function Home() {
 
   return (
-    <div className="container">
+    <div className="container flex flex-col mx-auto">
       <BgEllipse />
-      <div className=" button-container scroll-smooth">
+      <div className="button-container scroll-smooth">
         <Typography variant="h1" align="center">
           Your Ultimate Contest List
         </Typography>
