@@ -98,7 +98,7 @@ function IndividualCard() {
       </Helmet>
       <div className="individualContestOuter">
         <div style={{ width: "75%" }}>
-          <Link to="/contests">
+          <Link to="newHead" smooth={true} duration={500}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="45"
