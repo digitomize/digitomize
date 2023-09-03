@@ -27,7 +27,7 @@
     align-items: center;
     justify-content: center;
     margin: 2% auto;
-    height: 36.5rem;
+    min-height: 36.5rem;
     width: 56.5rem;
     background: linear-gradient(45deg, #8D41AA 0%, #BA356C 34.38%, #F22C30 60.94%, #F8573A 79.69%, #FCBB57 100%);
     border-radius: 10px;    
@@ -35,16 +35,17 @@
 .ic-child {
     display: flex;
     flex-direction: column;
-    height: 33rem;
+    min-height: 33rem;
     width: 53rem;
     border-radius: 10px;
     background: #1e1e1e;
     padding:3%;
+    justify-content: space-around;
 }
 
 .ic-child h2 {
-    width: 38.39706rem;
-    height: 4.37663rem;
+    /* width: 38.39706rem; */
+    min-height: 4.37663rem;
     flex-shrink: 0;
     color: #FFF;
     font-family: Outfit;
@@ -53,19 +54,19 @@
     font-weight: 700;
     line-height: normal;
     text-transform: lowercase;
-    padding-bottom: 20%;
+    padding-bottom: 5%;
     margin-left: 0;
-
+    text-align: center;
 }
 .ic-top {
-    height: 30%;
+    min-height: 30%;
     display: flex;
     justify-content: space-between;
     margin-top: 5%;
 }
 .ic-top p{
     width: 17.30881rem;
-    height: 3.64719rem;
+    min-height: 3.64719rem;
     flex-shrink: 0;
     color: rgba(255, 255, 255, 0.75);
     font-family: Outfit;
@@ -79,7 +80,7 @@
 .ic-lower-button {
     display: flex;
     justify-content: space-between;
-    height: 33%;
+    min-height: 33%;
     margin-bottom: 0;
 }
 .ic-inner-lower{
@@ -97,7 +98,7 @@
 
 .ic-lower-button button{
     width: 24.375rem;
-    height: 4.375rem;
+    min-height: 4.375rem;
     border-radius: 6.25rem;
     background: #161616;
     position: absolute;
@@ -168,15 +169,14 @@
 
     .ic-child{
         max-width:90vw;
-        height: 36.2rem;
+        min-height: 36.2rem;
         font-size:1px;
     }
 
     #contest-title {
         font-size: 1.75rem; /* Adjust this value as needed */
         max-width: inherit;
-        margin-bottom: 4rem; /* Adjust this value as needed */
-        text-align: center;
+        /* margin-bottom: 4rem; Adjust this value as needed */
       }
     .btn-div{
         max-width:70vw;
