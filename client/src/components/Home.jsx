@@ -48,9 +48,9 @@ function Home() {
         </Link>
       </div>
 
-      <Element name="newHead">
+      {/* <Element name="newHead">
         <p style={{ marginBottom: '3%', fontSize: '3.5rem' }} className="text-white z-10 relative">Contests</p>
-      </Element>
+      </Element> */}
 
       {/* <------ Filter for Contest | STARTS------> */}
       <Filter />

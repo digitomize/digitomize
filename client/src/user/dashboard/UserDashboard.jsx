@@ -31,7 +31,7 @@ export default function UserDashboard() {
             </div>
           </div>
 
-          <div className="container flex  items-center px-[5%] ">
+          <div className="container flex  items-center px-[5%] flex-col">
             <div className='flex items-start '>
               <nav className=''>
                 <ul className="flex flex-nowrap text-md font-medium text-center text-gray-400 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">

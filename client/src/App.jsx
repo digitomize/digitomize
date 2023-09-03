@@ -15,6 +15,7 @@ import UserDashRatings, { loader as userDashRatingsLoader } from "./user/dashboa
 import UserDashGithub, { loader as userDashGithubLoader } from "./user/dashboard/UserDashGithub"
 import UserProfile from "./user/Profile/UserProfile"
 import ProtectedRoute from "./ProtectedRoute"
+import Updates from "./components/Updates"
 // import ProtectedRoute from "./ProtectedRoute"
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path="login" element={<Login />} loader={loginLoader} />
             <Route path="signup" element={<Signup />} />
             <Route path="contests" element={<Home />} />
+            <Route path="updates" element={<Updates />} />
             <Route path="contest/:vanity" element={<IndividualCard />} />
         </Route>
         <Route path="/user" element={<ProtectedRoute />}>
