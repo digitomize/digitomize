@@ -59,7 +59,7 @@ function Navbar() {
               Login
             </li>
           </Link>
-          {/* <li onClick={handleSignout} className='contents'>Signout</li> */}
+          <li onClick={handleSignout} className='contents'>Signout</li>
         </div>
 
         <div

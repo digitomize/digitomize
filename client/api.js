@@ -58,6 +58,20 @@ export async function userDashboardDetails() {
     }
   }
 }
+export async function userProfileDetails(username) {
+
+  try {
+    const response = await axios.get(
+      `${backendUrl}/user/profile/${username}`
+
+    );
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+
 
 export async function submitUserFormData(formData) {
   // const jwtToken = Cookies.get("jwt");

@@ -13,7 +13,7 @@ import UserDashboard from "./user/dashboard/UserDashboard"
 import UserDashPersonal, { loader as userDashPersonalLoader } from "./user/dashboard/UserDashPersonal"
 import UserDashRatings, { loader as userDashRatingsLoader } from "./user/dashboard/UserDashRatings"
 import UserDashGithub, { loader as userDashGithubLoader } from "./user/dashboard/UserDashGithub"
-import UserProfile from "./user/Profile/UserProfile"
+import UserProfile, { loader as userProfileLoader } from "./user/Profile/UserProfile"
 import ProtectedRoute from "./ProtectedRoute"
 import Updates from "./components/Updates"
 // import ProtectedRoute from "./ProtectedRoute"
@@ -34,7 +34,7 @@ const router = createBrowserRouter(createRoutesFromElements(
                 <Route path="ratings" element={<UserDashRatings />} loader={userDashRatingsLoader} />
                 <Route path="github" element={<UserDashGithub />} loader={userDashGithubLoader} />
             </Route>
-            <Route path="profile/:username" element={<UserProfile />} />
+            <Route path="profile/:username" element={<UserProfile />} loader={userProfileLoader} />
         </Route>
     </Route>
 ))
