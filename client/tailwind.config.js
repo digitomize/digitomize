@@ -12,9 +12,10 @@ export default {
         "light-font": "#888888",
         "nav-text": "rgba(255, 255, 255, 0.50)",
         "card-text": "rgba(255, 255, 255, 0.75)",
-        "cardsColor": "#191919",
+        "cardsColor": "#171A1A",
         "gradient-bg": "linear-gradient(270deg,#8D41AA 0%,#BA356C 17.71%,#F22C30 42.19%,#F8573A 71.88%,#FCBB57 100%)",
-        "filter":"#d9d9d9"
+        "filter": "#d9d9d9",
+        "cardsHover": "#252928"
       },
 
       fontFamily: {
