@@ -44,6 +44,11 @@ function Navbar() {
         </div>
 
         <div className={`${isMenuActive ? "bg-black h-full flex justify-center inset-x-0 inset-y-0 z-50 fixed flex-col items-center" : "hidden"} md:flex`}>
+          <Link to="/home">
+            <li onClick={() => toggleActive()} className="flex text-nav-text text-3xl font-light p-4 lowercase hover:white">
+              Home
+            </li>
+          </Link>
           <Link to="/contests">
             <li onClick={() => toggleActive()} className="flex text-nav-text text-3xl font-light p-4 lowercase hover:white">
               Contests

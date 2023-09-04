@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
+    'node_modules/daisyui/dist/**/*.js',
     "./src/**/*.{js,ts,jsx,tsx}",
     "./src/user/**/*.{js,ts,jsx,tsx}, ./node_modules/tw-elements-react/dist/js/**/*.js",
   ],
@@ -37,10 +38,11 @@ export default {
     },
     darkMode: "class",
     plugins: [
-
+      require("daisyui"),
       require('flowbite/plugin')({
         charts: true,
       }),
-      require("tw-elements-react/dist/plugin.cjs")],
+      require("tw-elements-react/dist/plugin.cjs")
+    ],
   }
 };
