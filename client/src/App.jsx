@@ -22,7 +22,7 @@ import NewHome from "./components/NewHome"
 const router = createBrowserRouter(createRoutesFromElements(
     <Route >
         <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
-            <Route index element={<Home />} />
+            <Route index element={<NewHome />} />
             <Route path="login" element={<Login />} loader={loginLoader} />
             <Route path="signup" element={<Signup />} />
             <Route path="contests" element={<Home />} />
