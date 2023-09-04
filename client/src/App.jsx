@@ -1,7 +1,7 @@
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom"
 import { UserAuthContextProvider } from "./context/UserAuthContext"
 
-
+import './App.css'
 import Layout from "./components/Layout"
 import UserLayout, { loader as userLayoutLoader } from "./user/UserLayout"
 import Home from "./components/Home"
@@ -16,6 +16,7 @@ import UserDashGithub, { loader as userDashGithubLoader } from "./user/dashboard
 import UserProfile, { loader as userProfileLoader } from "./user/Profile/UserProfile"
 import ProtectedRoute from "./ProtectedRoute"
 import Updates from "./components/Updates"
+import NewHome from "./components/NewHome"
 // import ProtectedRoute from "./ProtectedRoute"
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path="signup" element={<Signup />} />
             <Route path="contests" element={<Home />} />
             <Route path="updates" element={<Updates />} />
+            <Route path="home" element={<NewHome />} />
             <Route path="contests/:vanity" element={<IndividualCard />} />
         </Route>
         <Route path="/user" element={<ProtectedRoute />}>
