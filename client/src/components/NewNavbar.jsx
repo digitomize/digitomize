@@ -40,7 +40,7 @@ export default function NewNavbar() {
               <img
                 src="/src/assets/logo.png"
                 alt="logo"
-                className="bg-black rounded-full"
+                className="bg-black hover:bg-blue-700 rounded-full"
               />
             </div>
           </Link>
@@ -87,7 +87,7 @@ export default function NewNavbar() {
           <div className="flex justify-end">
             <Link
               to="/login"
-              className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 py-2 rounded-full hover:bg-blue-600 hover:text-blue-250 disabled:bg-white/5 disabled:text-zinc-50 bg-blue-500 text-blue-950"
+              className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 py-2 rounded-full hover:bg-blue-600 hover:text-black-300 disabled:bg-white/5 disabled:text-zinc-50 bg-custom-blue text-blue-950"
             >
               <span>Login</span>
             </Link>

@@ -9,18 +9,13 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
         <div className="flex items-center justify-between">
           <div className="flex">
             <a href="/" className="group">
-              <svg
-                height="30"
-                viewBox="0 0 1631 472"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="inline-flex-shrink-0 text-3xl"
-              >
-                <path
-                  d="M0.421875 412.975C78.5269 491.079 205.16 491.079 283.265 412.975C361.369 334.87 361.369 208.237 283.265 130.132L247.909 165.487C306.488 224.066 306.488 319.041 247.909 377.619C189.331 436.198 94.3559 436.198 35.7769 377.619L0.421875 412.975Z"
-                  fill="#00E9A3"
-                ></path>
-              </svg>
+            <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-zinc-100">
+              <img
+                src="/src/assets/logo.png"
+                alt="logo"
+                className="rounded-full"
+              />
+            </div>
             </a>
           </div>
           <button
@@ -64,7 +59,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
           >
             <a
               target="_self"
-              className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 rounded-full hover:bg-emerald-400 hover:text-emerald-950 disabled:bg-white/5 disabled:text-zinc-50 justify-center py-3 text-lg font-medium bg-emerald-400 font-display text-zinc-950"
+              className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 rounded-full hover:bg-emerald-400 hover:text-emerald-950 disabled:bg-white/5 disabled:text-zinc-50 justify-center py-3 text-lg font-medium bg-blue-700 font-display text-zinc-950"
               href="/login"
             >
               <span>Login</span>
@@ -86,10 +81,10 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
               </a>
               <a
                 className="flex items-center gap-2 py-4 font-display text-lg font-medium"
-                href="/blog"
+                href="/updates"
                 onClick={toggleActive}
               >
-                Blog
+                Updates
               </a>
               <a
                 className="flex items-center gap-2 py-4 font-display text-lg font-medium"

@@ -17,7 +17,8 @@ export default {
         "gradient-bg": "linear-gradient(270deg,#8D41AA 0%,#BA356C 17.71%,#F22C30 42.19%,#F8573A 71.88%,#FCBB57 100%)",
         "filter": "#d9d9d9",
         "cardsHover": "#252928",
-        "custom-blue":"rgb(21, 132, 255)"
+        "custom-blue": "rgb(21, 132, 255)",
+        "tagColor": "rgb(136, 136, 136)",
       },
 
       fontFamily: {
