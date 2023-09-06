@@ -6,7 +6,7 @@ import Layout from "./components/Layout"
 import UserLayout, { loader as userLayoutLoader } from "./user/UserLayout"
 import Home from "./components/Home"
 import Login, { loader as loginLoader } from "./components/Login"
-import Signup from "./components/Signup"
+import Signup, { loader as signupLoader } from "./components/Signup"
 import IndividualCard from "./components/IndividualCard"
 import ErrorPage from "./components/error-page"
 import UserDashboard from "./user/dashboard/UserDashboard"
@@ -24,7 +24,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
             <Route index element={<Home />} />
             <Route path="login" element={<Login />} loader={loginLoader} />
-            <Route path="signup" element={<Signup />} />
+            <Route path="signup" element={<Signup />} loader={signupLoader} />
             <Route path="contests" element={<Home />} />
             <Route path="updates" element={<Updates />} />
             <Route path="home" element={<NewHome />} />

@@ -127,7 +127,9 @@ export default function Login() {
                             </button> */}
                             <SignoutButton onClickFunction={(e) => handleSubmit} isDisabled={navigation.state === "submitting"} btnName={navigation.state === "submitting"
                                 ? "Logging in..."
-                                : "Log in"} />
+                                : "Log in"} 
+                                backgroundColor="bg-[#4285f4]"
+                                />
                         </div>
                     </div>
                 </Form>

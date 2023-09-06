@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
-import { requireAuth } from '../../../utils'
 import { auth } from '../../../firebase';
 import { useLoaderData, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 // import { useUserAuth } from '../../context/UserAuthContext';
 import 'react-toastify/dist/ReactToastify.css';
 import SignoutButton from "../components/SignoutButton"
+import { useUserAuth } from '../../context/UserAuthContext';
 
 export default function UserDashboard() {
   // const username = data.personal_data.username
+  const { user } = useUserAuth()
   const navigate = useNavigate()
   async function handleLogout() {
     await auth.signOut()
@@ -19,15 +20,15 @@ export default function UserDashboard() {
   return (
     <>
       <ToastContainer />
-      <SignoutButton isDisabled={false} btnName="sign out" onClickFunction={handleLogout} />
       <div className='flex mt-8 md:mt-0'>
         <div className='flex w-full h-screen flex-col items-center md:pt-12 gap-12 '>
-          <div className="flex items-center gap-3  justify-center">
-            <div className=" Ellipse3 w-[60px] h-[60px] bg-pink-700 rounded-full" >
+          <div className="w-[100%] md:w-3/4 flex items-center  justify-between  ">
+            <div className=" Ellipse3 w-[60px] h-[60px] bg-pink-700 rounded-full flex gap-3" >
               <img src="https://www.svgrepo.com/show/446517/avatar.svg" alt="avatar" />
+              <h2 className='text-2xl'>{`${user.displayName}'s Dashboard`}</h2>
             </div>
             <div className="">
-              <h2 className='text-2xl'>{`tests's Dashboard`}</h2>
+              <SignoutButton isDisabled={false} btnName="sign out" backgroundColor="bg-red-600" onClickFunction={handleLogout} />
             </div>
           </div>
 
