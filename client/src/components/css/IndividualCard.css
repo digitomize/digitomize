@@ -22,6 +22,20 @@
     padding-left: 1%;
 }
 
+.card_Navigation{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    width: 59%;
+}
+.card_Navigation a,
+.card_Navigation h3 {
+    text-decoration: none;
+    color: #FFF;
+    font-size: 25px;
+    fill: #fff;
+    font-weight: normal;
+}
 .ic {
     display: flex;
     align-items: center;
@@ -144,6 +158,42 @@
 .outerClipboard{
     height:100px;
 }
+
+@media (max-width: 376px) {
+    .card_Navigation{
+        width: 90%;
+    }
+    .card_Navigation a,
+    .card_Navigation h3 {
+        font-size: 15px;
+    }
+}
+@media (min-width: 376px) and (max-width: 426px) {
+    .card_Navigation{
+        width: 90%;
+    }
+    .card_Navigation a,
+    .card_Navigation h3 {
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+    .card_Navigation{
+        width: 90%;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    .card_Navigation{
+        width: 89%;
+    }
+}
+@media (min-width: 1025px) {
+    .card_Navigation{
+        width: 63%;
+    }
+}
+
 @media (max-width:768px) {
     *{
         margin:0px;
@@ -162,7 +212,7 @@
 
     #startTime{
         margin-top:10px;
-        width:;
+        /* width:; */
 
         font-size:1.4rem;
     }

@@ -98,7 +98,7 @@ function IndividualCard() {
         <meta property="description" content={contentDescription} />
       </Helmet>
       <div className="individualContestOuter">
-        <div style={{ width: "75%" }}>
+        {/* <div style={{ width: "75%" }}>
           <Link to="/contests">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -111,6 +111,14 @@ function IndividualCard() {
             </svg>
             Go to all contests
           </Link>
+        </div> */}
+
+        <div className="card_Navigation">
+          <Link to="/">Home</Link>
+          <h3>&gt;</h3>
+          <Link to="/contests">Contests</Link>
+          <h3>&gt;</h3>
+          <h3>{name}</h3>
         </div>
 
         <div className="ic" key={vanity}>
