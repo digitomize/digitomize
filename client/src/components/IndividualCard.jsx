@@ -2,6 +2,7 @@ import { useState, useEffect, memo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Typewriter from "typewriter-effect";
+import { Alert } from "@mui/material";
 
 import "./css/IndividualCard.css";
 
@@ -157,10 +158,13 @@ function IndividualCard() {
             </div>
           </div>
         </div>
-        <div className="containerBottom">
+        {/* <div className="containerBottom">
           <br />
-        </div>
+        </div> */}
       </div>
+      <div className="feedback">
+        <Alert severity="info">We value your input! Share feedback or report issues at <a href="/feedback" style={{color:"rgb(21, 132, 255)"}}>/feedback</a>.</Alert>
+        </div>
     </>
   );
 }

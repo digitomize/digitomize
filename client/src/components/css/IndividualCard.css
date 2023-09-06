@@ -26,7 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 2% auto;
+    margin: 1% auto;
     min-height: 36.5rem;
     width: 56.5rem;
     background: linear-gradient(45deg, #8D41AA 0%, #BA356C 34.38%, #F22C30 60.94%, #F8573A 79.69%, #FCBB57 100%);
@@ -200,6 +200,15 @@
         position:relative;
         left:1px;
     }
-
+    .feedback{
+        margin: 4% !important;
+    }
   
+}
+
+.feedback{
+    margin: auto;
+    width: fit-content;
+    text-align: center;
+    text-transform: lowercase;
 }
