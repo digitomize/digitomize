@@ -45,7 +45,7 @@ function Navbar() {
         </div>
 
         <div className={`nav-link  ${isMenuActive ? 'active' : ''}`}>
-          <Link to="/contests" className='link'>
+          <Link to="newHead" smooth={true} duration={500} className='link'>
             <li onClick={()=>toggleActive()} className='contents'>Contests</li>
           </Link>
           <Link to="https://github.com/pranshugupta54/digitomize"className='link' >
