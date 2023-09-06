@@ -210,4 +210,5 @@
     margin: auto;
     width: fit-content;
     text-align: center;
+    text-transform: lowercase;
 }
