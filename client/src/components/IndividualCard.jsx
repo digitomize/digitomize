@@ -3,6 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Typewriter from "typewriter-effect";
 import { Alert } from "@mui/material";
+import HomeIcon from "@mui/icons-material/Home";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import GrainIcon from "@mui/icons-material/Grain";
 
 import "./css/IndividualCard.css";
 
@@ -114,11 +117,26 @@ function IndividualCard() {
         </div> */}
 
         <div className="card_Navigation">
-          <Link to="/">Home</Link>
+          <div className="card_nav_path">
+            <Link to="/">
+              <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+              Home
+            </Link>
+          </div>
           <h3>&gt;</h3>
-          <Link to="/contests">Contests</Link>
+          <div className="card_nav_path">
+            <Link to="/contests">
+              <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+              Contests
+            </Link>
+          </div>
           <h3>&gt;</h3>
-          <h3>{name}</h3>
+          <div className="card_nav_path">
+            <h3>
+              <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+              {name}
+            </h3>
+          </div>
         </div>
 
         <div className="ic" key={vanity}>
