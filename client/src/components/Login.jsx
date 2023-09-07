@@ -1,7 +1,8 @@
 import { Form, useNavigation, redirect, Link, useNavigate, useLoaderData } from "react-router-dom"
 import GoogleButton from 'react-google-button'
+import GithubButton from 'react-github-login-button'
 import { auth } from "../../firebase"
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth"
+import { GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "firebase/auth"
 import axios from 'axios'
 import './css/Login.css'
 import { useState } from "react"
@@ -52,7 +53,7 @@ export default function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
-    const { logIn } = useUserAuth()
+    const { logIn, githubSignIn } = useUserAuth()
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
@@ -66,7 +67,30 @@ export default function Login() {
             setError(err.message);
         }
     }
+    const handleGithubSignIn = async (e) => {
+        e.preventDefault();
+        const provider = new GithubAuthProvider();
+        provider.addScope('repo');
+        return signInWithPopup(auth, provider)
+            .then(async (result) => {
+                const credential = GithubAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                console.log("token --> ", token);
+                // The signed-in user info.
+                const user = result.user;
+                console.log("user -->", user.accessToken);
+                await axios.post(`${backendUrl}/user/signup`, {
+                    headers: {
+                        Authorization: `Bearer ${user.accessToken}`,
+                    },
+                }).then(res => console.log(res))
+                    .catch(err => console.log(err));
+                navigate('/user/dashboard/personal')
 
+            }).catch((error) => {
+                setError(`${error.code} - ${error.message}`)
+            });
+    }
     const handleGoogleSignIn = async (e) => {
         e.preventDefault(); // Don't forget the parentheses here
         try {
@@ -127,13 +151,14 @@ export default function Login() {
                             </button> */}
                             <SignoutButton onClickFunction={(e) => handleSubmit} isDisabled={navigation.state === "submitting"} btnName={navigation.state === "submitting"
                                 ? "Logging in..."
-                                : "Log in"} 
+                                : "Log in"}
                                 backgroundColor="bg-[#4285f4]"
-                                />
+                            />
                         </div>
                     </div>
                 </Form>
                 <GoogleButton type="dark" className="g-btn" onClick={handleGoogleSignIn} />
+                <GithubButton type="dark" onClick={handleGithubSignIn}>Github</GithubButton>
                 <p> New user ? <Link to="/signup">Signup</Link></p>
             </div>
         </div>
