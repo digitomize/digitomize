@@ -95,7 +95,7 @@ function IndividualCard() {
         <title>{name} | Digitomize</title>
         <meta property="og:title" content={contentTitle} />
         <meta property="og:description" content={contentDescription} />
-        <meta property="description" content={contentDescription} />
+        <meta name="description" content={contentDescription} />
       </Helmet>
       <div className="individualContestOuter">
         <div style={{ width: "75%" }}>

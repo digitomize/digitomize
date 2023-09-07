@@ -13,7 +13,7 @@ export default function ErrorPage() {
         <title>Error | Digitomize</title>
         <meta property="og:title" content="Error | Digitomize"/>
         <meta property="og:description" content={contentDescription} />
-        <meta property="description" content={contentDescription} />
+        <meta name="description" content={contentDescription} />
       </Helmet>
       <Navbar />
       <div className="error-container">
