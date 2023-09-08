@@ -78,6 +78,7 @@ export default function Login() {
                 console.log("token --> ", token);
                 // The signed-in user info.
                 const user = result.user;
+                console.log("user --> ", user);
                 console.log("user -->", user.accessToken);
                 await axios.post(`${backendUrl}/user/signup`, {
                     headers: {

@@ -11,7 +11,7 @@ const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 export async function loader() {
     const loggedIn = await isLoggedIn();
     if (loggedIn) {
-        return redirect("/user/dashboard/personal")
+        return redirect("/login")
     }
     return null;
 }
