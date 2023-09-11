@@ -37,8 +37,8 @@ const router = createBrowserRouter(createRoutesFromElements(
                 <Route path="ratings" element={<UserDashRatings />} loader={userDashRatingsLoader} />
                 <Route path="github" element={<UserDashGithub />} loader={userDashGithubLoader} />
             </Route>
-            <Route path="profile/:username" element={<NewUserProfile />} loader={userProfileLoader} />
         </Route>
+        <Route path="/user/profile/:username" element={<NewUserProfile />} loader={userProfileLoader} />
     </Route>
 ))
 

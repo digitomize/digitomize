@@ -49,11 +49,12 @@ export async function loader({ request }) {
 
 export default function Login() {
     const message = useLoaderData()
+    console.log(message)
     const navigation = useNavigation()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
-    const { logIn, githubSignIn } = useUserAuth()
+    const { logIn } = useUserAuth()
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
