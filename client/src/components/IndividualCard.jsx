@@ -45,7 +45,7 @@ function IndividualCard() {
       <div>
         <p>
           <Typewriter
-            options={{ loop: false, delay: 100, autoStart:true }}
+            options={{ loop: false, delay: 100, autoStart: true }}
             onInit={(typewriter) => {
               typewriter
                 .start()
@@ -62,10 +62,10 @@ function IndividualCard() {
                 .deleteAll()
                 .changeDelay(1)
                 .typeString(`Looks like there's an error fetching the page, please contact admin.`)
-              
-                // .typeString("Welcomes You")
-                // .start();
-                // .stop();
+
+              // .typeString("Welcomes You")
+              // .start();
+              // .stop();
             }}
           />
         </p>
@@ -155,7 +155,7 @@ function IndividualCard() {
             <div className="ic-lower-button">
               <div className="ic-inner-lower">
                 <p>Duration : {duration}min</p>
-                <div>{remaningTime}</div>
+                {remaningTime != 0 ? <div>{remaningTime}</div> : <p>loading...</p>}
               </div>
 
               <div className="outerbtn">
@@ -189,8 +189,8 @@ function IndividualCard() {
         </div> */}
       </div>
       <div className="feedback">
-        <Alert severity="info">We value your input! Share feedback or report issues at <a href="/feedback" style={{color:"rgb(21, 132, 255)"}}>/feedback</a>.</Alert>
-        </div>
+        <Alert severity="info">We value your input! Share feedback or report issues at <a href="/feedback" style={{ color: "rgb(21, 132, 255)" }}>/feedback</a>.</Alert>
+      </div>
     </>
   );
 }
