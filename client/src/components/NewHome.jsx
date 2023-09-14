@@ -1,36 +1,104 @@
 import "./css/NewHome.css";
 import React from "react";
-import { useState } from 'react';
+import { useState } from "react";
+import "daisyui";
+import Filter from "./Filter";
+import NewNavbar from "./NewNavbar";
+import Test from "./MobNav";
+import HomePage1 from "./HomePage1";
 
-export default function Updates() {
+// import { useLocation } from "react-router-dom";
+import { Element, Link } from "react-scroll";
+
+export default function NewHome() {
+  // const location = useLocation();
   return (
     <div>
-      <div className="container m-auto flex flex-row">
-        <div className="container select-none flex flex-col items-center text-center w-50 text-[70px]  sm:text-[75px] lg:text-[110px] font-extrabold justify-center">
-          <span className="develop w-fit">
-            <span className="animated-develop">Compete.</span>
-            <div className="develop-shadow"></div>
-          </span>
-          <span className="preview w-fit">
-            <span className="animated-preview">Develop.</span>
-            <div className="preview-shadow"></div>
-          </span>
-          <span className="ship w-fit">
-            <span className="animated-ship">Showcase.</span>
-            <div className="ship-shadow"></div>
-          </span>
-        </div>
-        <div className="container right-section w-50">
-          <div className="mockup-window border bg-base-300">
-            <div className="flex justify-center px-4 py-16 bg-base-200">
-              Hello!
+      <div>
+        <HomePage1/>
+
+        <Link to="second">
+          <div className="lower text-center pt-4">
+            {/* <Test/> */}
+            <div className="indicator pt-4">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
           </div>
-          <button className="btn btn-outline btn-info">Info</button>
-<button className="btn btn-outline btn-success">Success</button>
-<button className="btn btn-outline btn-warning">Warning</button>
-<button className="btn btn-outline btn-error">Error</button>
-        </div>
+        </Link>
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <Element name="second" style={{ textAlign: "center" }}>
+          <div className="mx-auto text-center px-6 md:px-8">
+            <h1 className="inline-flex flex-col transition font-display md:text-[8rem] bg-gradient-to-r from-60% bg-clip-text text-transparent from-blue-600">
+              <span>Page2.</span>
+              {/* <span>Showcase.</span> */}
+            </h1>
+            <h1 className="mt-2 inline-flex flex-col transition font-display md:text-[8rem] bg-gradient-to-r from-60% bg-clip-text text-transparent from-blue-600">
+              {/* <span>Compete. Develop.</span> */}
+              <span>Showcase.</span>
+            </h1>
+          </div>
+          <div className="mockup-phone">
+            <div className="camera"></div>
+            <div className="display">
+              <div className="artboard artboard-demo phone-1 overflow-y-auto">
+                <Filter />
+              </div>
+            </div>
+          </div>
+        </Element>
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
     </div>
   );

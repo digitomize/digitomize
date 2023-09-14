@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#root{
+    min-height: 100vh;
+    text-transform: lowercase;
+}
+html{
+    scroll-behavior: smooth;
+}

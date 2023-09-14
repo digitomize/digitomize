@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import NewNavbar from "./NewNavbar"
 import Navbar from "./Navbar"
 import { auth } from "../../firebase"
 
@@ -9,8 +10,11 @@ export default function Layout() {
 
   return (
     <>
-      <Navbar />
+      <NewNavbar />
+      {/* <Navbar/> */}
+      {/* <div className="divider"></div> */}
       <Outlet />
+      
       <Analytics />
     </>
   )
