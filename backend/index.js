@@ -68,10 +68,21 @@ async function startServersProduction() {
 
         await setupUserServer();
         await setupContestServer();
+        const servers = [];
+        servers.push("User");
+        servers.push("Contest");
+
+        console.log("┌──────────────────────────────────┐");
+        if (servers.length > 0) {
+            for (const server of servers) {
+                console.log("│ Server active:", server.padEnd(18) + "│");
+            }
+            console.log("├──────────────────────────────────┤");
+        }
         const port = process.env.PORT || 3000;
-        console.log("Users and Contests section active.");
         app.listen(port, () => {
-            console.log(`<--- Server listening on port ${port} --->`);
+            console.log(`│ Server listening on port ${port}`.padEnd(35) + "│");
+            console.log("└──────────────────────────────────┘");
         });
     } catch (err) {
         console.log("Error starting servers:", err);
