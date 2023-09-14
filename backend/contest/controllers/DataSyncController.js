@@ -5,6 +5,7 @@ const codechefContests = require('./platforms/codechefController');
 const codeforcesContests = require('./platforms/codeforcesController');
 const gfgContests = require('./platforms/gfgController');
 const leetcodeContests = require('./platforms/leetcodeController');
+const codingninjas_studioContests = require('./platforms/codingninjas_studioController');
 const { UpcomingContest, AllContest } = require('../models/Contest');
 
 //* Clear the UpcomingContest collection in MongoDB
@@ -64,8 +65,12 @@ async function syncContests() {
         //* Clearing the UpcomingContest collection
         await clearUpcoming();
 
+        console.log("┌────────────────────CodingNinjas────────────────────┐");
+        const codingninjasData = await codingninjas_studioContests.codingninjas_studio_c();
+        await addToDB(codingninjasData, "CodeStudio");
+
         //* LeetCode Section
-        console.log("┌──────────────────────Leetcode──────────────────────┐");
+        console.log("├──────────────────────Leetcode──────────────────────┤");
         const leetcodeData = await leetcodeContests.leetcode_c();
         await addToDB(leetcodeData, "LeetCode");
 
