@@ -29,10 +29,10 @@ async function addToDB(mappedContests, platform) {
         try {
             // Add to UpcomingContest collection
             await UpcomingContest.insertMany(mappedContests, { ordered: false });
-            console.log(`Updated upcoming contests for ${platform}`);
+            console.log(`│ Updated upcoming contests for ${platform}`.padEnd(53) + "│");
         } catch (upcomingErr) {
             if (upcomingErr.code === 11000) {
-                console.log(`Some duplicate(s) in UpcomingContest for ${platform}`);
+                console.log(`│ Some duplicate(s) in UpcomingContest for ${platform}`.padEnd(53) + "│");
             } else {
                 throw upcomingErr;
             }
@@ -41,10 +41,10 @@ async function addToDB(mappedContests, platform) {
         try {
             // Update AllContest collection
             await AllContest.insertMany(mappedContests, { ordered: false });
-            console.log(`Updated AllContests for ${platform}`);
+            console.log(`│ Updated AllContests for ${platform}`.padEnd(53) + "│");
         } catch (allErr) {
             if (allErr.code === 11000) {
-                console.log(`Some duplicate(s) in AllContest for ${platform}`);
+                console.log(`│ Some duplicate(s) in AllContest for ${platform}`.padEnd(53) + "│");
             } else {
                 throw allErr;
             }
@@ -65,24 +65,28 @@ async function syncContests() {
         await clearUpcoming();
 
         //* LeetCode Section
-        console.log("<======= LeetCode =====>");
+        console.log("┌──────────────────────Leetcode──────────────────────┐");
         const leetcodeData = await leetcodeContests.leetcode_c();
         await addToDB(leetcodeData, "LeetCode");
 
         //* GeeksforGeeks Section
-        console.log("<======= GeeksForGeeks =======>");
+        console.log("├────────────────────GeeksForGeeks───────────────────┤");
+        // console.log("<======= GeeksForGeeks =======>");
         const geeksforgeeksData = await gfgContests.geeksforgeeks_c();
-        await addToDB(geeksforgeeksData, "GeeksForGeeks");
+        await addToDB(geeksforgeeksData, "GFG");
 
         //* Codeforces Section
-        console.log("<======= CodeForces =======>");
+        console.log("├──────────────────────CodeForces────────────────────┤");
+        // console.log("<======= CodeForces =======>");
         const codeforcesData = await codeforcesContests.codeforces_c();
         await addToDB(codeforcesData, "Codeforces");
 
         //* CodeChef Section
-        console.log("<======= CodeChef =======>");
+        console.log("├───────────────────────CodeChef─────────────────────┤");
+        // console.log("<======= CodeChef =======>");
         const codechefData = await codechefContests.codechef_c();
         await addToDB(codechefData, "CodeChef");
+        console.log("└────────────────────────────────────────────────────┘");
 
         //* All Functions Synced.
         console.log("===============================================");

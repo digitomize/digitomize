@@ -7,9 +7,10 @@ let upcomingContestList = []; // Variable to store contests in memory
 //* Function to fetch contests from MongoDB and update the upcomingContestList variable
 async function updateContests() {
     try {
-        console.log("===============================================");
-        console.log("Retrieving Data | MongoDB to App");
-        console.log("===============================================");
+        console.log("┌──────────────────────────────────┐");
+        console.log("│ Retrieving Data | MongoDB to App".padEnd(35) + "│");
+        console.log("└──────────────────────────────────┘");
+
         // Fetch contests from MongoDB (without id, createdAt and updatedAt)
         const fetchedContests = await UpcomingContest.find().select(`-_id -createdAt -updatedAt -__v`);
 

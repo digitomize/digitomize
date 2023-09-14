@@ -27,10 +27,9 @@ async function setupUserServer() {
     const serviceAccount = require('./firebase-config.json');
     admin.initializeApp({
         credential: admin.credential.cert(serviceAccount)
-      });
+    });
     // Set up user routes
     app.use('/user', userRoutes);
-
 }
 
 async function setupContestServer() {
@@ -55,7 +54,6 @@ async function setupContestServer() {
 
     // Set up contest routes
     app.use("/api/contests", contestRouter);
-
 }
 
 async function startServersProduction() {
@@ -71,8 +69,9 @@ async function startServersProduction() {
         await setupUserServer();
         await setupContestServer();
         const port = process.env.PORT || 3000;
+        console.log("Users and Contests section active.");
         app.listen(port, () => {
-            console.log(`<--- User server listening on port ${port} --->`);
+            console.log(`<--- Server listening on port ${port} --->`);
         });
     } catch (err) {
         console.log("Error starting servers:", err);
@@ -86,18 +85,30 @@ async function startServersDev() {
 
         await mongoose.connect(process.env.MONGODB_URL);
         console.log("MongoDB Connected.");
-
+        const servers = [];
         if (process.env.USERS === 'true') {
             await setupUserServer();
+            servers.push("User");
         }
         if (process.env.CONTESTS === 'true') {
             await setupContestServer();
+            servers.push("Contest");
         }
 
+        console.log("┌──────────────────────────────────┐");
+        if (servers.length > 0) {
+            for (const server of servers) {
+                console.log("│ Server active:", server.padEnd(18) + "│");
+            }
+            console.log("├──────────────────────────────────┤");
+        }
         const port = process.env.PORT || 3000;
         app.listen(port, () => {
-            console.log(`<--- User server listening on port ${port} --->`);
+            console.log(`│ Server listening on port ${port}`.padEnd(35) + "│");
+            console.log("└──────────────────────────────────┘");
         });
+
+
     } catch (err) {
         console.log("Error starting servers:", err);
     }
