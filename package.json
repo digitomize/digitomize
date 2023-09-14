@@ -23,8 +23,6 @@
         "concurrently": "^8.2.0"
     },
     "dependencies": {
-        "dotenv": "^16.3.1",
-        "recharts": "^2.7.3",
         "vercel": "^32.2.2"
     }
 }
