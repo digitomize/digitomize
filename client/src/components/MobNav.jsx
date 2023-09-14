@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../assets/logo.png";
 
 const MobNav = ({ isMenuActive, toggleActive }) => {
   return (
@@ -11,7 +12,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
             <a href="/" className="group">
             <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-zinc-100">
               <img
-                src="/src/assets/logo.png"
+                src={logo}
                 alt="logo"
                 className="rounded-full"
               />

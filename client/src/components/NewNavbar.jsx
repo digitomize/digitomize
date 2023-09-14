@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import MobNav from "./MobNav";
+import logo from "../assets/logo.png";
 
 export default function NewNavbar() {
   const location = useLocation();
@@ -38,7 +39,7 @@ export default function NewNavbar() {
           <Link to="/">
             <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-zinc-100">
               <img
-                src="/src/assets/logo.png"
+                src={logo}
                 alt="logo"
                 className="bg-black hover:bg-blue-700 rounded-full"
               />
