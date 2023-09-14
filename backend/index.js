@@ -43,7 +43,7 @@ async function setupContestServer() {
     await contestSyncer.updateContests();
     setInterval(contestSyncer.updateContests, 60 * 60 * 1000);
 
-    // Pinging the server every 14 minutes
+    // Pinging the server every 13 minutes
     setInterval(async () => {
         try {
             await main();
@@ -51,7 +51,7 @@ async function setupContestServer() {
         } catch (error) {
             console.error('Error Pinging', error);
         }
-    }, 14 * 60 * 1000);
+    }, 13 * 60 * 1000);
 
     // Set up contest routes
     app.use("/api/contests", contestRouter);
