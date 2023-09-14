@@ -7,6 +7,7 @@ const contestSyncer = require("./contest/controllers/contestController");
 const contestRouter = require("./contest/routes/contestRoutes");
 const userRoutes = require('./users/routes/userRoutes');
 const bodyParser = require('body-parser');
+const fetchContestsData = require('./fetchContests');
 
 const app = express();
 
@@ -14,7 +15,7 @@ console.log(process.env.TEST);
 async function main() {
     try {
         console.log('Pinging...');
-        // Your pinging logic here
+        const contestsData = await fetchContestsData();
         console.log('Pong!');
     } catch (error) {
         console.error('Error pinging the server:', error);
