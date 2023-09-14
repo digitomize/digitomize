@@ -66,7 +66,7 @@ function IndividualCard() {
               <div>{remaningTime}</div>
             </div>
 
-            <div className="outerbtn">
+            <div className="flex flex-col-reverse">
               <div className="btn-div">
                 <a href={url} target="_blank" rel="noopener noreferrer">
                   <button  >Participate
@@ -102,7 +102,7 @@ function updateTimer(startTime, duration) {
   // const currentTime = getCurrentTimeIST();
   const timeDiff = startTime - currentTime;
   if ((duration * 60 + startTime) < currentTime) {
-    return <p>the contest has ended</p> 
+    return <p>the contest has ended</p>
   }
   else if (startTime <= currentTime) {
     return <p>the contest has started!</p>

@@ -6,7 +6,7 @@ import Layout from "./components/Layout"
 import UserLayout, { loader as userLayoutLoader } from "./user/UserLayout"
 import Home from "./components/Home"
 import Login, { loader as loginLoader } from "./components/Login"
-import Signup from "./components/Signup"
+import Signup, { loader as signupLoader } from "./components/Signup"
 import IndividualCard from "./components/IndividualCard"
 import ErrorPage from "./components/error-page"
 import UserDashboard from "./user/dashboard/UserDashboard"
@@ -17,6 +17,7 @@ import UserProfile, { loader as userProfileLoader } from "./user/Profile/UserPro
 import ProtectedRoute from "./ProtectedRoute"
 import Updates from "./components/Updates"
 import NewHome from "./components/NewHome"
+import NewUserProfile from "./user/Profile/NewUserProfile"
 // import ProtectedRoute from "./ProtectedRoute"
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -24,7 +25,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
             <Route index element={<NewHome />} />
             <Route path="login" element={<Login />} loader={loginLoader} />
-            <Route path="signup" element={<Signup />} />
+            <Route path="signup" element={<Signup />} loader={signupLoader} />
             <Route path="contests" element={<Home />} />
             <Route path="updates" element={<Updates />} />
             <Route path="home" element={<NewHome />} />
@@ -36,8 +37,8 @@ const router = createBrowserRouter(createRoutesFromElements(
                 <Route path="ratings" element={<UserDashRatings />} loader={userDashRatingsLoader} />
                 <Route path="github" element={<UserDashGithub />} loader={userDashGithubLoader} />
             </Route>
-            <Route path="profile/:username" element={<UserProfile />} loader={userProfileLoader} />
         </Route>
+        <Route path="/user/profile/:username" element={<NewUserProfile />} loader={userProfileLoader} />
     </Route>
 ))
 

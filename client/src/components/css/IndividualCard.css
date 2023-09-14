@@ -110,11 +110,11 @@
 } */
 
 
-.outerbtn{
+/* .outerbtn{
     display:flex;
     flex-direction:column-reverse;
 
-}
+} */
 
 .outerClipboard{
     height:100px;

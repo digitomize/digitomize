@@ -1,12 +1,20 @@
-import { useNavigation, Form, useNavigate } from 'react-router-dom'
+import { useNavigation, Form, useNavigate, redirect } from 'react-router-dom'
 import axios from 'axios'
 import { useState } from 'react';
 // import { useUserAuth } from '../context/UserAuthContext';
+import { isLoggedIn } from '../../api';
 import { auth } from '../../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useUserAuth } from '../context/UserAuthContext';
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
+export async function loader() {
+    const loggedIn = await isLoggedIn();
+    if (loggedIn) {
+        return redirect("/login")
+    }
+    return null;
+}
 
 // export async function action({ request }) {
 //     const formData = await request.formData()
@@ -55,8 +63,8 @@ export default function Signup() {
             const token = auth.currentUser.accessToken
             if (token) {
                 axios.post(`${backendUrl}/user/signup`, {
-                    name : firstName,
-                    username : username,
+                    name: firstName,
+                    username: username,
                     headers: {
                         Authorization: `Bearer ${token}`,
                     }

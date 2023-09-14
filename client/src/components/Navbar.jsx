@@ -60,11 +60,11 @@ function Navbar() {
             </li>
           </Link>
           <Link to="/login">
-            <li onClick={() => toggleActive()}  className="text-nav-text  flex text-3xl font-light p-4 lowercase hover:white">
+            <li onClick={() => toggleActive()} className="text-nav-text  flex text-3xl font-light p-4 lowercase hover:white">
               Login
             </li>
           </Link>
-          <li onClick={handleSignout} className='contents'>Signout</li>
+          {/* <li onClick={handleSignout} className='contents'>Signout</li> */}
         </div>
 
         <div
