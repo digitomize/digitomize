@@ -33,7 +33,7 @@ function Home() {
 
         {/* Scroll to Contests button */}
         <Link to="newHead" smooth={true} duration={500}>
-          <button className="btn md:min-w-96 h-24 bg-white text-black rounded-full cursor-pointer md:text-4xl font-semibold flex flex-row items-center justify-center mt-8 max-md:w-80 max-md:text-2xl">
+          <button className="btn md:min-w-96 h-24 bg-white text-black rounded-full cursor-pointer md:text-4xl font-semibold flex flex-row items-center justify-center mt-8 max-md:w-80 max-md:text-2xl lowercase">
             go to contests
             <svg
               xmlns="http://www.w3.org/2000/svg"
