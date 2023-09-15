@@ -11,6 +11,8 @@ import codeforces from '../assets/codeforces.svg'
 import Navbar from './Navbar'
 import CopyToClipboard from './CopyToClipboard';
 
+const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+
 function IndividualCard() {
   const hostToSVGMap = {
     leetcode: leetcode,
@@ -26,7 +28,7 @@ function IndividualCard() {
   const vanity = params.vanity
 
   useEffect(() => {
-    fetch(`https://digitomize-backend.onrender.com/api/contests?vanity=${vanity}`)
+    fetch(`${backendUrl}/contests?vanity=${vanity}`)
       .then(res => res.json())
       .then(data => setContest(data.results[0]))
       .catch(error => console.error('Error fetching contest:', error));

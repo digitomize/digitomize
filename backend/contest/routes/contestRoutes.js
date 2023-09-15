@@ -24,12 +24,12 @@ router.get("/", async (req, res) => {
         if (vanity) {
             const contestByVanity = await contestController.getContestByVanity(vanity);
             if (contestByVanity) {
-                res.json({
+                res.status(200).json({
                     total: 1,
                     results: [contestByVanity]
                 });
             } else {
-                res.json({
+                res.status(200).json({
                     total: 0,
                     results: []
                 });
@@ -39,19 +39,19 @@ router.get("/", async (req, res) => {
                 return platformArray.includes(contest.host);
             });
 
-            res.json({
+            res.status(200).json({
                 total: filteredContests.length,
                 results: filteredContests
             });
         } else {
-            res.json({
+            res.status(200).json({
                 total: contests.length,
                 results: contests
             });
         }
     } catch (err) {
         console.log("Error:", err);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(500).json({ error: "Internal server error", message:"Internal server error" });
     }
 });
 

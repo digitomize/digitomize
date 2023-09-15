@@ -54,7 +54,7 @@ async function setupContestServer() {
     }, 13 * 60 * 1000);
 
     // Set up contest routes
-    app.use("/api/contests", contestRouter);
+    app.use("/contests", contestRouter);
 }
 
 async function startServersProduction() {

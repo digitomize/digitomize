@@ -61,8 +61,8 @@ Start the server: `npm start`
 
 ### Contest Routes
 
-- `/api/contests` - Get a list of all upcoming contests.
-- `/api/contests/:contestId` - Get detailed information about a specific contest.
+- `/contests` - Get a list of all upcoming contests.
+- `/contests/:contestId` - Get detailed information about a specific contest.
 
 ### User Routes
 
