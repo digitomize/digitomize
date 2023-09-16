@@ -57,9 +57,9 @@ const handleUserDashboard = async (req, res) => {
         }
       }
     };
-    // console.log(jsonResponse);
+    console.log(jsonResponse);
     // Send the JSON response to the client
-    res.json(jsonResponse);
+    res.status(200).json(jsonResponse);
   } catch (error) {
     console.error('Error:', error);
     // Internal server error, send a 500 Internal Server Error status

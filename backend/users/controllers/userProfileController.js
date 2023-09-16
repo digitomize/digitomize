@@ -56,7 +56,7 @@ const handleUserProfilePreview = async (req, res) => {
     const user = await getUser(username);
 
     if (!user) {
-      return res.status(404).json({ error: 'User not found' });
+      return res.status(404).json({ message:"User not found", error: 'User not found' });
     }
 
     await handleUserDataUpdate(user);
@@ -64,7 +64,7 @@ const handleUserProfilePreview = async (req, res) => {
     // Prepare the public user data object
     const publicUserData = {
       personal_data: {
-        uid: user.uid,
+        // uid: user.uid,
         username: user.username,
         name: user.name,
         picture: user.picture,
@@ -86,10 +86,10 @@ const handleUserProfilePreview = async (req, res) => {
     handleCodingPlatform(publicUserData.ratings, user.leetcode, 'leetcode');
     handleCodingPlatform(publicUserData.ratings, user.codeforces, 'codeforces');
 
-    res.json(publicUserData);
+    res.status(200).json(publicUserData);
   } catch (error) {
     console.error('Error:', error);
-    res.status(500).json({ error: 'Error fetching user profile' });
+    res.status(500).json({ message:"Error fetching user profile", error: 'Error fetching user profile' });
   }
 };
 
