@@ -19,6 +19,10 @@ import Updates from "./components/Updates"
 import NewHome from "./components/NewHome"
 import NewUserProfile from "./user/Profile/NewUserProfile"
 // import ProtectedRoute from "./ProtectedRoute"
+function DiscordRedirect() {
+    window.location.href = 'https://discord.gg/bsbBytBqBc';
+    return null;
+  }
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route >
@@ -29,6 +33,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path="contests" element={<Home />} />
             <Route path="updates" element={<Updates />} />
             <Route path="home" element={<NewHome />} />
+            <Route path="discord" element={ <DiscordRedirect/> } />
             <Route path="contests/:vanity" element={<IndividualCard />} />
         </Route>
         <Route path="/user" element={<ProtectedRoute />}>

@@ -89,7 +89,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
               </a>
               <a
                 className="flex items-center gap-2 py-4 font-display text-lg font-medium"
-                href="https://upstash.com/discord"
+                href="/discord"
                 onClick={toggleActive}
               >
                 Discord
