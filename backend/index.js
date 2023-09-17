@@ -24,14 +24,19 @@ async function main() {
 
 async function setupUserServer() {
     const admin = require('firebase-admin');
+    // console.log(process.env.FIREBASE_CREDENTIALS);
+    console.log("ok");
+    // Get the Firebase service account JSON from the environment variable
+    const firebaseCredentials = JSON.parse(process.env.FIREBASE_CREDENTIALS);
+    // console.log(firebaseCredentials);
 
-    const serviceAccount = require('./firebase-config.json');
     admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount)
+        credential: admin.credential.cert(firebaseCredentials),
     });
     // Set up user routes
     app.use('/user', userRoutes);
 }
+
 
 async function setupContestServer() {
 

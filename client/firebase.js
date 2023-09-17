@@ -1,17 +1,20 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getAnalytics } from "firebase/analytics";
 
-// firebase configurations
+// Firebase configurations
 const firebaseConfig = {
-  apiKey: "AIzaSyAbjT7WV8XlDaKv_Ge-nI7sk9DIiduh3N4",
-  authDomain: "digitomize-9d71d.firebaseapp.com",
-  projectId: "digitomize-9d71d",
-  storageBucket: "digitomize-9d71d.appspot.com",
-  messagingSenderId: "600437320812",
-  appId: "1:600437320812:web:2e10530e0818b595b73c49",
+  apiKey: import.meta.env.VITE_REACT_APP_API_KEY,
+  authDomain: import.meta.env.VITE_REACT_APP_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_REACT_APP_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_REACT_APP_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_REACT_APP_APP_ID,
+  measurementId: import.meta.env.VITE_REACT_APP_MEASUREMENT_ID
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 export const auth = getAuth(app);
 export default app;

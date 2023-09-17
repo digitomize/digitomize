@@ -1,6 +1,6 @@
 const { getUser } = require("../services/getUser");
 const { getAuth } = require("firebase-admin/auth");
-const { admin } = require("../../firebase-config.json"); // Update the path accordingly
+// const { admin } = require("../../firebase-config.json"); // Update the path accordingly
 
 async function addUID(request, response, next) {
   const authHeader = request?.body?.headers?.Authorization || request?.body?.headers?.authorization || request?.headers?.authorization || request?.headers?.Authorization || request?.Authorization || request?.authorization;
