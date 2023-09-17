@@ -18,7 +18,7 @@ export default function NewHome() {
         <HomePage1/>
 
         <Link to="second">
-          <div className="lower text-center pt-4">
+          <div className="lower text-center pt-8 animate-bounce">
             {/* <Test/> */}
             <div className="indicator pt-4">
               <span></span>

@@ -83,11 +83,12 @@ function Filter() {
   };
   return (
     <>
-      <Element name="newHead">
-        <h2 style={{ marginBottom: '3%', fontSize: '3.5rem' }} className="text-white z-10 relative"> Contests</h2>
-      </Element>
+      <div className="divider sticky" id="okk"></div>
+      <Element name="allContests" className="pt-24 flex md:flex-row flex-col justify-between">
+        <h2 style={{ marginBottom: '3%', fontSize: '3.5rem' }} className="text-white z-10 text-center lg:text-left"> Contests</h2>
+      
       {/* //checkmarks */}
-      <div className={`filter-div md:w-11/12 self-center bg-cardsColor p-1 relative rounded-xl`}>
+      <div className={`filter-div w-fit self-center bg-cardsColor p-1 relative rounded-xl`}>
         <FormControl
           variant="filled"
           sx={{ m: 1, minWidth: 300 }}
@@ -135,7 +136,8 @@ function Filter() {
             ))}
           </Select>
         </FormControl>
-      </div>
+        </div>
+        </Element>
       <Element name="contests" className="contests-container z-[1]">
         <Contests contests={contestsData} />
       </Element>

@@ -10,7 +10,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
         <div className="flex items-center justify-between">
           <div className="flex">
             <a href="/" className="group">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-zinc-100">
+            <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-blue-700">
               <img
                 src={logo}
                 alt="logo"
@@ -68,7 +68,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
             <div className="flex flex-col mt-6 divide-y divide-white/5 border-y border-y-white/5">
               <a
                 className="flex items-center gap-2 py-4 font-display text-lg font-medium"
-                href="/contests"
+                href="/contests#list"
                 onClick={toggleActive}
               >
                 Contests

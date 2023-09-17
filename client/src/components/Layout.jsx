@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import NewNavbar from "./NewNavbar"
 import Navbar from "./Navbar"
 import { auth } from "../../firebase"
+import NewFooter from "./NewFooter"
 
 import { Analytics } from '@vercel/analytics/react';
 import { Outlet } from "react-router-dom"
@@ -14,7 +15,7 @@ export default function Layout() {
       {/* <Navbar/> */}
       {/* <div className="divider"></div> */}
       <Outlet />
-      
+      <NewFooter/>
       <Analytics />
     </>
   )

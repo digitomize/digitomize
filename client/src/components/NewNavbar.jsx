@@ -55,7 +55,7 @@ export default function NewNavbar() {
               Home
             </Link>
             <Link
-              to="/contests#newHead"
+              to="/contests#list"
               className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
                 location.pathname === "/contests"
                   ? "bg-zinc-400 text-zinc-950"
@@ -95,7 +95,7 @@ export default function NewNavbar() {
           </div>
         </div>
       </div>
-      <div className="divider sticky"></div>
+      <div className="max-md:hidden divider sticky"></div>
     </>
   );
 }

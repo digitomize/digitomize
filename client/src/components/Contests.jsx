@@ -5,7 +5,7 @@ function Contests({ contests }) {
     <>
     <div className="allContests scroll-smooth">
     {/* <h2>Contests</h2> */}
-      <div className="allContests" style={{display:'flex', flexWrap:'wrap', gap:'1.8%', justifyContent:'center'}}>
+        <div className="allContests lg:justify-evenly md:justify-evenly sm:justify-center" style={{ display: 'flex', flexWrap: 'wrap' }}>
         {contests.map((contest) => (
           <Card key={contest.vanity} contest={contest} />
          
