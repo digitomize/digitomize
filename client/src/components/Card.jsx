@@ -54,7 +54,7 @@ function Card({ contest }) {
       <div className="flex justify-between items-end">
         <div>
           <p className="text-card-text text-xs font-light leading-tight lowercase">Duration : {duration}min</p>
-          <div className="text-card-text text-sm font-light leading-tight lowercase">{remaningTime}</div>
+          <div className="text-card-text text-xs font-light leading-tight lowercase">{remaningTime}</div>
         </div>
         <div className="h-8 max-md:w-12 clip">
           <CopyToClipboard vanity={vanity} />
@@ -84,13 +84,13 @@ function updateTimer(startTime, duration) {
     if (days > 0) {
       return (
         <p>
-          Time Left : {days}d {hours}h {minutes}m {seconds}s
+          starts in {days}d {hours}h {minutes}m
         </p>
       );
     }
     return (
       <p>
-        Time Left : {hours}h {minutes}m {seconds}s
+        starts in {hours}h {minutes}m {seconds}s
       </p>
     );
   }

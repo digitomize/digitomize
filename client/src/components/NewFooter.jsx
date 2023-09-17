@@ -1,7 +1,7 @@
 import logo from "../assets/logo.png";
 export default function Footer() {
   return (
-    <footer className="footer p-10 text-base-content md:items-center max-md:grid-flow-col">
+    <footer className="footer p-10 text-base-content md:items-center max-md:grid-flow-col lowercase">
       <div className="footer justify-around">
               <aside>
                   <img
@@ -27,7 +27,7 @@ export default function Footer() {
             <h2 className="text-base-content">Loved ❤️ digitomize ?</h2>
             <h2 className="text-base-content">It’s open-source!</h2>
             <h2 className="text-base-content">
-              Consider contributing on{" "}
+              Consider contributing <br/> on{" "}
               <a
                 href="https://github.com/pranshugupta54/digitomize"
                 target="_blank"
@@ -40,25 +40,23 @@ export default function Footer() {
           </p>
         </aside>
         <nav>
-          <header className="footer-title">Services</header>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <header className="footer-title lowercase">social</header>
+          <a href="https://www.linkedin.com/company/digitomize" className="link link-hover">linkedin</a>
+          <a href="/discord" className="link link-hover">discord</a>
         </nav>
       </div>
       <div className="footer max-md:place-items-end justify-around md:self-start self-end">
         <nav className="place-items-end">
-          <header className="footer-title">Company</header>
-          <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
+          <header className="footer-title lowercase">Company</header>
+          <a href="/updates" className="link link-hover">Updates</a>
+          <a href="/contact" className="link link-hover">Contact</a>
           <a className="link link-hover">Jobs</a>
           <a className="link link-hover">Press kit</a>
         </nav>
         <nav className="place-items-end">
-          <header className="footer-title">Legal</header>
+          <header className="footer-title lowercase">Legal</header>
           <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
+          <a href="https://github.com/digitomize/digitomize/blob/main/LICENSE" className="link link-hover">License</a>
           <a className="link link-hover">Cookie policy</a>
         </nav>
       </div>
