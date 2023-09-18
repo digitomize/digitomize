@@ -32,7 +32,6 @@ import Updates from "./components/Updates";
 import NewHome from "./components/NewHome";
 import NewUserProfile from "./user/Profile/NewUserProfile";
 import Feedback from "./components/Feedback";
-import Error from "./components/error-page";
 
 // import ProtectedRoute from "./ProtectedRoute"
 function DiscordRedirect() {
@@ -46,8 +45,8 @@ function ContributeRedirect() {
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
-      <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
+    <Route errorElement={<ErrorPage />}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<NewHome />} />
         <Route path="login" element={<Login />} loader={loginLoader} />
         <Route path="signup" element={<Signup />} loader={signupLoader} />
@@ -58,7 +57,7 @@ const router = createBrowserRouter(
         <Route path="contribute" element={<ContributeRedirect />} />
         <Route path="discord" element={<DiscordRedirect />} />
         <Route path="contests/:vanity" element={<IndividualCard />} />
-        <Route path="404" element={<Error />} />
+        <Route path="404" element={<ErrorPage />} />
       </Route>
       <Route path="/user" element={<ProtectedRoute />}>
         <Route path="dashboard" element={<UserDashboard />}>
