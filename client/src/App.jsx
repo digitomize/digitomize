@@ -32,6 +32,8 @@ import Updates from "./components/Updates";
 import NewHome from "./components/NewHome";
 import NewUserProfile from "./user/Profile/NewUserProfile";
 import Feedback from "./components/Feedback";
+import Error from "./components/error-page";
+
 // import ProtectedRoute from "./ProtectedRoute"
 function DiscordRedirect() {
   window.location.href = "https://discord.gg/bsbBytBqBc";
@@ -56,6 +58,7 @@ const router = createBrowserRouter(
         <Route path="contribute" element={<ContributeRedirect />} />
         <Route path="discord" element={<DiscordRedirect />} />
         <Route path="contests/:vanity" element={<IndividualCard />} />
+        <Route path="404" element={<Error />} />
       </Route>
       <Route path="/user" element={<ProtectedRoute />}>
         <Route path="dashboard" element={<UserDashboard />}>
