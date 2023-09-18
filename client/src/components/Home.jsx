@@ -2,12 +2,12 @@ import Navbar from "./Navbar";
 import { Helmet } from "react-helmet";
 
 function Home() {
-  const contentDescription = `Empowering Coders and Developers Worldwide`;
+  const contentDescription = `Empowering Coders and Developers Worldwide`.toLowerCase();
   return (
     <>
       <Helmet>
-        <title>Home | Digitomize</title>
-        <meta property="og:title" content="Home | Digitomize"/>
+        <title>home | digitomize</title>
+        <meta property="og:title" content="home | digitomize"/>
         <meta property="og:description" content={contentDescription} />
         <meta name="description" content={contentDescription} />
       </Helmet>

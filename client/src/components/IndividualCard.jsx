@@ -90,12 +90,13 @@ function IndividualCard() {
     setRemainingTime(updateTimer(startTimeUnix, duration));
   }, 1000);
 
-  const contentDescription = `${name} | ${startTimeIST} (IST)`;
-  const contentTitle = `${host} | Digitomize`;
+  const contentDescription = `${name} | ${startTimeIST} (IST)`.toLowerCase();
+  const contentTitle = `${host} | Digitomize`.toLowerCase();
+  const pageTitle = `${name} | Digitomize`.toLowerCase();
   return (
     <>
       <Helmet>
-        <title>{name} | Digitomize</title>
+        <title> {pageTitle} </title>
         <meta property="og:title" content={contentTitle} />
         <meta property="og:description" content={contentDescription} />
         <meta name="description" content={contentDescription} />

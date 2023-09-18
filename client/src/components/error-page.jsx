@@ -6,12 +6,12 @@ import { Helmet } from "react-helmet";
 export default function ErrorPage() {
   const error = useRouteError();
   console.error(error);
-  const contentDescription = `ERROR 404`;
+  const contentDescription = `ERROR 404`.toLowerCase();
   return (
     <>
       <Helmet>
-        <title>Error | Digitomize</title>
-        <meta property="og:title" content="Error | Digitomize"/>
+        <title>error | digitomize</title>
+        <meta property="og:title" content="error | digitomize"/>
         <meta property="og:description" content={contentDescription} />
         <meta name="description" content={contentDescription} />
       </Helmet>
