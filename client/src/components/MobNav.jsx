@@ -60,7 +60,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
           >
             <a
               target="_self"
-              className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 rounded-full hover:bg-emerald-400 hover:text-emerald-950 disabled:bg-white/5 disabled:text-zinc-50 justify-center py-3 text-lg font-medium bg-blue-700 font-display text-zinc-950"
+              className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 rounded-full hover:bg-emerald-400 hover:text-emerald-950 disabled:bg-white/5 disabled:text-zinc-50 justify-center py-3 text-lg font-medium bg-custom-blue font-display text-zinc-950"
               href="/login"
             >
               <span>Login</span>

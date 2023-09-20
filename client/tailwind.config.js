@@ -50,5 +50,14 @@ export default {
       }),
       require("tw-elements-react/dist/plugin.cjs")
     ],
+    daisyui: {
+      themes: [
+        {
+          mytheme: {
+            "primary": "#1582ff",
+          }
+        }
+      ]
+    }
   }
 };

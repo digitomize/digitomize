@@ -6,6 +6,7 @@ import Filter from "./Filter";
 import NewNavbar from "./NewNavbar";
 import Test from "./MobNav";
 import HomePage1 from "./HomePage1";
+import HomePage2 from "./HomePage2";
 
 // import { useLocation } from "react-router-dom";
 import { Element, Link } from "react-scroll";
@@ -16,19 +17,7 @@ export default function NewHome() {
     <div>
       <div>
         <HomePage1/>
-
-        <Link to="second">
-          <div className="lower text-center pt-8 animate-bounce">
-            {/* <Test/> */}
-            <div className="indicator pt-4">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-        </Link>
+        <HomePage2/>
 
         <br />
         <br />
@@ -54,7 +43,7 @@ export default function NewHome() {
         <br />
         <br />
         <br />
-        <Element name="second" style={{ textAlign: "center" }}>
+        <Element style={{ textAlign: "center" }}>
           <div className="mx-auto text-center px-6 md:px-8">
             <h1 className="inline-flex flex-col transition font-display md:text-[8rem] bg-gradient-to-r from-60% bg-clip-text text-transparent from-blue-600">
               <span>Page2.</span>
