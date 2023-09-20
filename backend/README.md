@@ -9,8 +9,6 @@ Welcome to the backend documentation for our open-source project. This document 
   - [Environment Variables](#environment-variables)
   - [Running the Server](#running-the-server)
 - [API Routes](#api-routes)
-  - [Contest Routes](#contest-routes)
-  - [User Routes](#user-routes)
 - [Contributing](../CONTRIBUTING.md)
 - [Code of Conduct](../CODE_OF_CONDUCT.md)
 - [License](../LICENSE)
