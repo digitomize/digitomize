@@ -95,7 +95,6 @@ export default function NewNavbar() {
           </div>
         </div>
       </div>
-      <div className="max-md:hidden divider sticky"></div>
     </>
   );
 }

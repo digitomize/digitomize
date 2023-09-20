@@ -109,7 +109,7 @@ export default function Home2() {
                 repudiandae et a id nisi.
               </p>
             </div>
-            <div className="sm:hidden card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-2">
+            <div className="lg:hidden card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-2">
               <div className="">
                 <div className="mockup-browser border bg-base-300">
                   <div className="mockup-browser-toolbar">
@@ -169,12 +169,12 @@ export default function Home2() {
             </div>
             <button
               data-theme="mytheme"
-              className="btn btn-outline text-custom-blue lowercase hover:bg-custom-blue hover:border-custom-blue animate-bounce mt-4 hover:animate-none hover:scale-110"
+              className="btn btn-outline text-custom-blue lowercase hover:bg-custom-blue hover:border-custom-blue animate-bounce mt-12 hover:animate-none hover:scale-110"
             >
               Create now
             </button>
           </div>
-          <div className="max-sm:hidden w-[60%] right items-end sm:flex flex-col relative min-h-[65vh]">
+          <div className="max-lg:hidden w-[60%] right items-end max-lg:flex flex-col relative min-h-[65vh]">
             <div className="mockup-browser border bg-base-300 w-full absolute h-fit duration-500 hover:scale-125">
               <div className="mockup-browser-toolbar">
                 <div style={{ marginLeft: "0px" }} className="ml-0 input ml-0">
@@ -279,7 +279,7 @@ export default function Home2() {
                 </div>
               </div>
             </div>
-            <div className="mockup-phone border-custom-blue me-0 absolute top-20 -right-24 skew-y-3 border-y-8 border-e-8 border-s-2">
+            <div className="mockup-phone border-custom-blue me-0 absolute top-16 -right-24 skew-y-3 border-y-8 border-e-8 border-s-2">
               <div className="camera"></div>
               <div className="display">
                 <div className="w-fit mockup-browser">
@@ -294,7 +294,7 @@ export default function Home2() {
                       https://digitomize.com
                     </div>
                   </div>
-                  <div className="justify-start h-fit max-h-[450px] max-w-[260px] artboard artboard-demo phone-1 overflow-y-auto">
+                  <div className="justify-start h-fit max-h-[55vh] max-w-[250px] artboard artboard-demo phone-1 overflow-y-auto">
                     <div className="my-12 text-center flex flex-col justify-center items-center">
                       <Avatar
                         src="/src/assets/hacker.png"
