@@ -64,17 +64,4 @@ Start the server: `npm start`
 
 ## API Routes
 
-### Contest Routes
-
-- `/contests` - Get a list of all upcoming contests.
-- `/contests/:contestId` - Get detailed information about a specific contest.
-
-### User Routes
-
-- `/api/user/signup` - Sign up a new user.
-- `/api/user/login` - Log in an existing user.
-- `/api/user/dashboard` - Retrieve user data for the dashboard.
-- `/api/user/profile/:username` - View the profile of a specific user.
-- `/api/user/update` - Update user profile data.
-
-For more detailed information on each route and its functionality, refer to the respective route files in the `/routes` directory.
+- https://digitomize.stoplight.io/docs/digitomize-api
