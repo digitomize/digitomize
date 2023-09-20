@@ -95,7 +95,7 @@ export default function Home2() {
                       .pauseFor(100)
                       .deleteChars(7)
                       .typeString(
-                        `<span class="text-custom-blue font-bold">dynamic </span> portfolio`
+                        `<span class="text-custom-blue font-bold">dynamic </span> portfolio.`
                       )
                       .pauseFor(8000)
                       // .typeString("Welcomes You")
