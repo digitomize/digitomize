@@ -6,6 +6,37 @@ import { green, pink } from "@mui/material/colors";
 import Avatar from "@mui/material/Avatar";
 import { useState } from "react";
 import Switch from "@mui/material/Switch";
+import CallIcon from "@mui/icons-material/Call";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import GitHubIcon from "@mui/icons-material/GitHub";
+
+import leetcode from "../assets/leetcode.svg";
+import codechef from "../assets/codechef.svg";
+import codeforces from "../assets/codeforces.svg";
+import geeksforgeeks from "../assets/geeksforgeeks.svg";
+import codingninjas from "../assets/codingninjas.png";
+
+const gradientStyles = {
+  background:
+    "radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);",
+  color: "black",
+};
+
+const platformsIcon = [
+  leetcode,
+  codingninjas,
+  geeksforgeeks,
+  codechef,
+  codeforces,
+];
+const platforms = [
+  "leetcode",
+  "codingninjas",
+  "geeksforgeeks",
+  "codechef",
+  "codeforces",
+];
 
 export default function Home2() {
   const [formData, setFormData] = useState({
@@ -15,11 +46,10 @@ export default function Home2() {
       showOnWebsite: true,
     },
     bio: {
-      data: "",
+      data: "heyy im pranshu",
       showOnWebsite: true,
     },
   });
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
@@ -58,7 +88,7 @@ export default function Home2() {
             <div className="sm:text-left max-sm:text-center">
               <h1 className="sm:text-8xl max-smtext-5xl my-0 font-medium max-sm:min-h-[100px] sm:min-h-[300px]">
                 <Typewriter
-                  options={{ delay: 100 }}
+                  options={{ loop: true, delay: 100 }}
                   onInit={(typewriter) => {
                     typewriter
                       .typeString(`User Portfol`)
@@ -67,6 +97,7 @@ export default function Home2() {
                       .typeString(
                         `<span class="text-custom-blue font-bold">dynamic </span> portfolio`
                       )
+                      .pauseFor(8000)
                       // .typeString("Welcomes You")
                       .start();
                   }}
@@ -158,7 +189,9 @@ export default function Home2() {
                     sx={{ padding: "2%", width: 60, height: 60 }}
                   />
                   <label className="label">
-                    <span className="label-text">What is your name?</span>
+                    <span className="label-text">
+                      What is your <span class="text-custom-blue">name</span>?
+                    </span>
                   </label>
                   <input
                     name="name"
@@ -207,25 +240,40 @@ export default function Home2() {
                   ></textarea>
                 </div>
                 <div className="flex flex-col w-2/4">
+                  <label className="label mx-2">
+                    <span className="label-text">
+                      <span class="text-custom-blue">socials</span>
+                    </span>
+                  </label>
                   <Skeleton
                     variant="rounded"
                     sx={{ bgcolor: "grey.600" }}
                     width={"90%"}
-                    height={"33%"}
+                    height={"30%"}
                     className="mt-2 mx-2"
                   />
+                  <label className="label mx-2">
+                    <span className="label-text">
+                      <span class="text-custom-blue">ratings</span>
+                    </span>
+                  </label>
                   <Skeleton
                     variant="rounded"
                     sx={{ bgcolor: "grey.600" }}
                     width={"90%"}
-                    height={"33%"}
+                    height={"30%"}
                     className="mt-2 mx-2"
                   />
+                  <label className="label mx-2">
+                    <span className="label-text">
+                      <span class="text-custom-blue">github</span>
+                    </span>
+                  </label>
                   <Skeleton
                     variant="rounded"
                     sx={{ bgcolor: "grey.600" }}
                     width={"90%"}
-                    height={"33%"}
+                    height={"30%"}
                     className="mt-2 mx-2"
                   />
                 </div>
@@ -234,18 +282,122 @@ export default function Home2() {
             <div className="mockup-phone border-custom-blue me-0 absolute top-20 -right-24 skew-y-3 border-y-8 border-e-8 border-s-2">
               <div className="camera"></div>
               <div className="display">
-                <div className="h-fit max-h-[500px] max-w-[260px] artboard artboard-demo phone-1">
-                  <div className="text-center flex flex-col justify-center items-center">
-                    <Avatar
-                      src="/src/assets/hacker.png"
-                      className="bg-custom-blue mb-2"
-                      sx={{ padding: "2%", width: 60, height: 60 }}
-                    />
-                    {formData.name}
-                    <br />
-                    {formData.phoneNumber.showOnWebsite
-                      ? formData.phoneNumber.data
-                      : " "}
+                <div className="w-fit mockup-browser">
+                  <div
+                    className="mt-12 mockup-browser-toolbar max-w-[250px]"
+                    style={{ marginTop: "10%" }}
+                  >
+                    <div
+                      style={{ marginLeft: "0px" }}
+                      className="ml-0 input ml-0 w-fit overflow-x-auto"
+                    >
+                      https://digitomize.com
+                    </div>
+                  </div>
+                  <div className="justify-start h-fit max-h-[450px] max-w-[260px] artboard artboard-demo phone-1 overflow-y-auto">
+                    <div className="my-12 text-center flex flex-col justify-center items-center">
+                      <Avatar
+                        src="/src/assets/hacker.png"
+                        className="bg-custom-blue mb-2"
+                        sx={{ padding: "2%", width: 60, height: 60 }}
+                      />
+                      <p className="text-4xl font-semibold p-2">
+                        {formData.name ? formData.name : "name"}{" "}
+                      </p>
+                      <p className="font-thin">
+                        {formData.phoneNumber.showOnWebsite ? (
+                          <>
+                            <CallIcon fontSize="small" />{" "}
+                            {formData.phoneNumber.data}
+                          </>
+                        ) : (
+                          " "
+                        )}
+                      </p>
+
+                      <p>
+                        {formData.bio.showOnWebsite ? formData.bio.data : " "}
+                      </p>
+                      {/* <div className="my-2 divider text-custom-blue">
+                        socials
+                      </div> */}
+                      <div className="socials">
+                        <LinkedInIcon sx={{ color: "#0077b5" }} />
+                        <InstagramIcon sx={gradientStyles} fontSize="small" />
+                        <GitHubIcon />
+                      </div>
+                      <div className="my-2 divider text-custom-blue">
+                        ratings
+                      </div>
+                      <div className="ratings">
+                        <div className="flex flex-row items-center">
+                          <div className="avatar">
+                            <div className="w-4 mx-2">
+                              <img src={platformsIcon[4]} />
+                            </div>
+                          </div>
+                          <p>
+                            15XX |{" "}
+                            <span style={{ color: "cyan" }}>specialist</span>
+                          </p>
+                        </div>
+                        <div className="flex flex-row items-center">
+                          <div className="avatar">
+                            <div className="w-5 mx-2">
+                              <img src={platformsIcon[3]} />
+                            </div>
+                          </div>
+                          <p>
+                            16XX |{" "}
+                            <span style={{ color: "cyan" }}>
+                              <span className="bg-green-600 text-white px-1 py-0 mr-1">
+                                ★
+                              </span>
+                              <span className="bg-green-600 text-white px-1 py-0 mr-1">
+                                ★
+                              </span>
+                              <span className="bg-green-600 text-white px-1 py-0 mr-1">
+                                ★
+                              </span>
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div className="my-2 divider text-custom-blue">
+                        github
+                      </div>
+                      <div className="github">
+                        <p>Pull-req: 70</p>
+                        <p>issues: 15</p>
+                        <p>commits: 100</p>
+                      </div>
+                      <div className="my-2 divider text-custom-blue">
+                        projects
+                      </div>
+                      <div className="projects flex-wrap justify-center flex">
+                        <Skeleton
+                          variant="rounded"
+                          sx={{ bgcolor: "grey.600" }}
+                          width={"80px"}
+                          height={"40px"}
+                          className="mt-2 mx-2"
+                        />
+                        <Skeleton
+                          variant="rounded"
+                          sx={{ bgcolor: "grey.600" }}
+                          width={"80px"}
+                          height={"40px"}
+                          className="mt-2 mx-2"
+                        />
+                        <Skeleton
+                          variant="rounded"
+                          sx={{ bgcolor: "grey.600" }}
+                          width={"80px"}
+                          height={"40px"}
+                          className="mt-2 mx-2"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
