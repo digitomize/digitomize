@@ -1,3 +1,5 @@
+# [Version2 LIVE](https://v2.digitomize.com)
+
 # Digitomize
 
 **Digitomize** is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios.
