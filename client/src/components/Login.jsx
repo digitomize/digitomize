@@ -56,6 +56,7 @@ export default function Login() {
     const [error, setError] = useState("")
     const { logIn } = useUserAuth()
     const navigate = useNavigate()
+    const [btnState, setbtnState] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -69,6 +70,7 @@ export default function Login() {
         }
     }
     const handleGithubSignIn = async (e) => {
+        setbtnState(true);
         e.preventDefault();
         const provider = new GithubAuthProvider();
         provider.addScope('repo');
@@ -91,9 +93,12 @@ export default function Login() {
 
             }).catch((error) => {
                 setError(`${error.code} - ${error.message}`)
+                setbtnState(false);
             });
     }
     const handleGoogleSignIn = async (e) => {
+        // console.log("Signing in");
+        setbtnState(true);
         e.preventDefault(); // Don't forget the parentheses here
         try {
             const googleAuthProvider = new GoogleAuthProvider();
@@ -113,6 +118,7 @@ export default function Login() {
         } catch (err) {
             setError(err.message);
         }
+        setbtnState(false);
     }
 
     // const message = useLoaderData()
@@ -159,8 +165,10 @@ export default function Login() {
                         </div>
                     </div>
                 </Form>
-                <GoogleButton type="dark" className="g-btn" onClick={handleGoogleSignIn} />
-                <GithubButton type="dark" onClick={handleGithubSignIn}>Github</GithubButton>
+                <GoogleButton type="light" className={`g-btn`} onClick={handleGoogleSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with google'}`} style={{backgroundColor:"white"}}/>
+                <div className="bg-black">
+                    <GithubButton type="light" onClick={handleGithubSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with github'}`} style={{backgroundColor:"white"}}>Github</GithubButton>
+                    </div>
                 <p> New user ? <Link to="/signup">Signup</Link></p>
             </div>
         </div>
