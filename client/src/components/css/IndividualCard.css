@@ -264,7 +264,9 @@
         left:1px;
     }
     .feedback{
-        margin: 4% !important;
+        max-width: 90%;
+        margin-top: 3% !important;
+        margin-bottom: 3% !important;
     }
   
 }
