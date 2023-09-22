@@ -1,5 +1,6 @@
 /* Card.css */
 .card {
+  max-width: 90%;
     width: 360px;
     min-height: 215px;
     margin-bottom: 2%;
