@@ -33,7 +33,7 @@ function IndividualCard() {
       .then(data => setContest(data.results[0]))
       .catch(error => console.error('Error fetching contest:', error));
   }, [vanity]);
-  const [remaningTime, setRemainingTime] = useState("0")
+  const [remaningTime, setRemainingTime] = useState("loading...")
   if (contest === null) {
     return <div>Loading...</div>;
   }
