@@ -31,7 +31,7 @@ function Card({ contest }) {
     timeZone: "Asia/Kolkata",
   };
   const startTimeIST = startDate.toLocaleString("en-US", options);
-  const [remaningTime, setRemainingTime] = useState("0");
+  const [remaningTime, setRemainingTime] = useState("loading...");
   useEffect(() => {
     const intervalId = setInterval(() => {
       setRemainingTime(updateTimer(startTimeUnix, duration));
