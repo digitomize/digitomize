@@ -237,9 +237,9 @@ function updateTimer(startTime, duration) {
   const currentTime = Math.floor(Date.now() / 1000);
   // const currentTime = getCurrentTimeIST();
   const timeDiff = startTime - currentTime;
-  if (duration + startTime < currentTime) {
+  if ((duration + startTime) < currentTime) {
     return <p>the contest has ended</p>;
-  } else if (startTime <= currentTime) {
+  } else if (startTime <= currentTime && currentTime <= (duration + startTime)) {
     return <p>the contest has started!</p>;
   } else {
     const days = Math.floor(timeDiff / 86400);

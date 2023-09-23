@@ -12,7 +12,7 @@ const { UpcomingContest, AllContest } = require('../../models/contest/Contest');
 async function clearUpcoming() {
     try {
         const currentTime = Math.floor(Date.now() / 1000);
-        await UpcomingContest.deleteMany({ startTimeUnix: { $lt: currentTime } });
+        await UpcomingContest.deleteMany({ startTimeUnix: { $lt: currentTime - (3 * 60 * 60) } });
         console.log('Deleted upcoming contests with start time before now.');
     }
     catch (err) {
