@@ -15,6 +15,7 @@ Welcome to the client-side documentation for Digitomize, an open-source platform
 
 ## Project Structure
 
+
 The client directory is organized into several main directories and components:
 
 ```bash
