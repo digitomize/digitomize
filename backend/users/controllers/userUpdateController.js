@@ -69,6 +69,15 @@ const updateUserData = (userData, existingData) => {
     updatePlatformData(platform, userData, existingData[platform]);
   });
 
+  const skills = userData.skills;
+  if (skills) {
+    existingData.skills = skills;
+  }
+  const education = userData.education;
+  if (education) {
+    existingData.education = education;
+  }
+
   // You can similarly update other general properties as needed
 };
 

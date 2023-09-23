@@ -21,7 +21,7 @@ export default function UserDashboard() {
     <>
       <ToastContainer />
       <div className='flex mt-8 md:mt-0'>
-        <div className='flex w-full h-screen flex-col items-center md:pt-12 gap-12 '>
+        <div className='flex w-full min-h-screen flex-col items-center md:pt-12 gap-12 '>
           <div className="w-[100%] md:w-3/4 flex items-center  justify-between  ">
             <div className=" Ellipse3 w-[60px] h-[60px] bg-pink-700 rounded-full flex gap-3" >
               <img src="https://www.svgrepo.com/show/446517/avatar.svg" alt="avatar" />

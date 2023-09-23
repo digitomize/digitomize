@@ -64,6 +64,24 @@ const userSchema = new mongoose.Schema({
         type: numberToggleSchema,
         default: { data: null, showOnWebsite: false }
     },
+    skills: [{
+        type: String,
+        default: []
+    }],
+    education: [{
+        institute: {
+            type: String,
+            default: null
+        },
+        degree: {
+            type: String,
+            default: null
+        },
+        year: {
+            type: Number,
+            default: null
+        },
+    }],
     github: {
         type: stringToggleSchema,
         default: { data: null, showOnWebsite: false }

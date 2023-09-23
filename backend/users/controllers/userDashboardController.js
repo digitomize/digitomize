@@ -28,6 +28,8 @@ const handleUserDashboard = async (req, res) => {
         email_verified: user.email_verified,
         email: user.email,
         email_show: user.email_show,
+        skills: user.skills,
+        education: user.education,
         bio: {
           data: user.bio.data || null, showOnWebsite: user.bio.showOnWebsite
         },
@@ -58,6 +60,7 @@ const handleUserDashboard = async (req, res) => {
       }
     };
     console.log(jsonResponse);
+    // console.log(jsonResponse.education);
     // Send the JSON response to the client
     res.status(200).json(jsonResponse);
   } catch (error) {
