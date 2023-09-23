@@ -164,65 +164,12 @@ export default function UserDashPersonal() {
       {/* <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
             <Checkbox />
         </div> */}
-          {/* skills */}
-        <div className="skills relative z-0 w-full md:w-3/4 mb-12 group">
-          <Form onSubmit={handleAdd} name="skills">
-            <div className="z-0 w-full md:w-3/4 mb-12 group">
-              <input
-                type="text"
-                name="skills"
-                id="skills"
-                className="block py-2.5 px-0 w-full md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
-                placeholder=""
-                value={newSkill}
-                onChange={(e) => setNewSkill(e.target.value)}
-              />
-              <label
-                htmlFor="skills"
-                className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-              >
-                Skills
-              </label>
-            </div>
-            <button
-                          type="submit"
-                        
-              className="text-black bg-white font-medium rounded-lg md:text-xl sm:w-auto px-5 py-2.5 text-center "
-            >
-              Add skill
-            </button>
-          </Form>
-
-          {skillData.length > 0 ? (
-            skillData.map((data) => {
-              let icon;
-
-              if (data.label === "React") {
-                icon = <TagFacesIcon />;
-              }
-
-              return (
-                //   <ListItem key={data.key}>
-                <Chip
-                  key={data.key}
-                  variant="outlined"
-                  color="primary"
-                  icon={icon}
-                  label={data.label}
-                  onDelete={handleDelete(data)}
-                />
-                //   </ListItem>
-              );
-            })
-          ) : (
-            <p>No skills added.</p>
-          )}
-        </div>
+          
 
 
 
 
-      <Form onSubmit={handleSubmit}>
+      
         <div className="grid md:grid-cols-2 md:gap-2">
           <div className="relative z-0 w-full md:w-3/4 mb-12 group">
             <input
@@ -324,10 +271,68 @@ export default function UserDashPersonal() {
             isCheckedState={formData.bio.showOnWebsite}
             setState={updateShowOnWebsite("bio")}
           />
+          </div>
+          
+          {/* skills */}
+        <div className="skills relative z-0 w-full md:w-3/4 mb-12 group">
+          
+            <div className="z-0 w-full md:w-3/4 mb-2 group flex flex-row">
+              <input
+                type="text"
+                name="skills"
+                id="skills"
+                className="block py-2.5 px-0 w-3/4 md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
+                placeholder=""
+                value={newSkill}
+                onChange={(e) => setNewSkill(e.target.value)}
+              />
+              <label
+                htmlFor="skills"
+                className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Skills
+              </label>
+            <Form onSubmit={handleAdd}>
+            <button
+                          type="submit"
+                        
+              className="text-black bg-white font-medium rounded-lg md:text-xl sm:w-auto px-5 py-2.5 text-center "
+            >
+              Add skill
+            </button>
+          </Form>
+            </div>
+
+              <div className="skillchips">
+          {skillData.length > 0 ? (
+            skillData.map((data) => {
+              let icon;
+
+              if (data.label === "React") {
+                icon = <TagFacesIcon />;
+              }
+
+              return (
+                //   <ListItem key={data.key}>
+                <Chip
+                  key={data.key}
+                  variant="outlined"
+                  color="primary"
+                  icon={icon}
+                  label={data.label}
+                  onDelete={handleDelete(data)}
+                />
+                //   </ListItem>
+              );
+            })
+          ) : (
+            <p>No skills added.</p>
+                  )}
+                  </div>
         </div>
 
         
-
+        <Form onSubmit={handleSubmit}>
         <button
           type="submit"
           className="text-black bg-white font-medium rounded-lg md:text-xl w-full sm:w-auto px-5 py-2.5 text-center "
