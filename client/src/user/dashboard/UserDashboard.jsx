@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SignoutButton from "../components/SignoutButton"
 import { useUserAuth } from '../../context/UserAuthContext';
+import NewNavbar from "../../components/NewNavbar";
 
 export default function UserDashboard() {
   // const username = data.personal_data.username
@@ -20,6 +21,7 @@ export default function UserDashboard() {
   return (
     <>
       <ToastContainer />
+      <NewNavbar />
       <div className='flex mt-8 md:mt-0'>
         <div className='flex w-full min-h-screen flex-col items-center md:pt-12 gap-12 '>
           <div className="w-[100%] md:w-3/4 flex items-center  justify-between  ">

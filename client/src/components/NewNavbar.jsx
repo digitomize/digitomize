@@ -2,8 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import MobNav from "./MobNav";
 import logo from "../assets/logo.png";
+import { useUserAuth } from "../context/UserAuthContext";
 
 export default function NewNavbar() {
+  const { user } = useUserAuth();
+  console.log("user is", user);
+  if (user) {
+    console.log("user is", user.displayName);
+  }
   const location = useLocation();
 
   const navbarStyle = {
@@ -86,12 +92,54 @@ export default function NewNavbar() {
             </Link>
           </div>
           <div className="flex justify-end">
-            <Link
-              to="/login"
-              className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 py-2 rounded-full hover:bg-blue-600 hover:text-black-300 disabled:bg-white/5 disabled:text-zinc-50 bg-custom-blue text-blue-950"
-            >
-              <span>Login</span>
-            </Link>
+            {user ? (
+              <div className="dropdown dropdown-hover dropdown-bottom">
+                <a href="/user/dashboard">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-zinc-100">
+                    <img
+                      src={user.photoURL || logo}
+                      alt="logo"
+                      className="bg-black hover:bg-blue-700 rounded-full"
+                    />
+                  </div>
+                  {/* <label tabIndex={0} className="btn">
+                    Hover
+                  </label>{" "} */}
+                </a>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <Link to={"/user/dashboard/personal"}>
+                      <span>{"Personal"}</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={"/user/dashboard/ratings"}>
+                      <span>{"Ratings"}</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={"/user/dashboard/github"}>
+                      <span>{"github"}</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to={"/logout"} className="text-custom-blue">
+                      <span>{"logout"}</span>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link
+                to={"/login"}
+                className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 py-2 rounded-full hover:bg-blue-600 hover:text-black-300 disabled:bg-white/5 disabled:text-zinc-50 bg-custom-blue text-blue-950"
+              >
+                Login
+              </Link>
+            )}
           </div>
         </div>
       </div>

@@ -3,9 +3,13 @@ import {
   createRoutesFromElements,
   RouterProvider,
   Route,
+  useNavigate,
 } from "react-router-dom";
-import { UserAuthContextProvider } from "./context/UserAuthContext";
-import { useEffect } from "react";
+import {
+  UserAuthContextProvider,
+  useUserAuth,
+} from "./context/UserAuthContext";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Layout from "./components/Layout";
 import UserLayout, { loader as userLayoutLoader } from "./user/UserLayout";
@@ -43,12 +47,66 @@ function ContributeRedirect() {
   return null;
 }
 
+import { auth } from "../firebase";
+import { toast } from "react-toastify";
+
+
+function Logout() {
+  const navigate = useNavigate();
+  const user = useUserAuth();
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
+
+  // Implement your logout logic here
+  async function handleLogout() {
+    try {
+      // Assuming you have an `auth` object for authentication
+      await auth.signOut();
+      // Show a success message using toast
+      toast.success("Logged out successfully");
+      // Redirect the user to the login page with a message
+      navigate("/login?message=Logged out successfully");
+    } catch (error) {
+      // Handle any errors that occur during logout
+      console.error("Logout error:", error);
+      // Optionally show an error message using toast or other means
+      toast.error("Logout failed");
+      // Redirect to an appropriate page or handle the error as needed
+      navigate("/error"); // Example: Redirect to an error page
+    } finally {
+      setIsLoggingOut(false);
+    }
+  }
+
+  useEffect(() => {
+    if (user) {
+      handleLogout();
+      setIsLoggingOut(true);
+    } else {
+      navigate("/login?message=You are not logged in");
+    }
+  }, isLoggingOut);
+
+  // Conditionally render content based on the isLoggingOut state
+  return (
+    <div>
+      {isLoggingOut ? (
+        <div>Logging out...</div>
+      ) : (
+        <div>Logout completed.</div>
+      )}
+    </div>
+  );
+}
+
+
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route errorElement={<ErrorPage />}>
       <Route path="/" element={<Layout />}>
         <Route index element={<NewHome />} />
         <Route path="login" element={<Login />} loader={loginLoader} />
+        <Route path="/logout" element={<Logout />} />;
         <Route path="signup" element={<Signup />} loader={signupLoader} />
         <Route path="contests" element={<Home />} />
         <Route path="updates" element={<Updates />} />
@@ -69,7 +127,6 @@ const router = createBrowserRouter(
           <Route
             path="ratings"
             element={<UserDashRatings />}
-            loader={userDashRatingsLoader}
           />
           <Route
             path="github"
