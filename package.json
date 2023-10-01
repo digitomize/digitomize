@@ -20,7 +20,7 @@
     },
     "homepage": "https://github.com/pranshugupta54/digitomize#readme",
     "devDependencies": {
-        "concurrently": "^8.2.0"
+        "concurrently": "^8.2.1"
     },
     "dependencies": {
         "vercel": "^32.2.2"
