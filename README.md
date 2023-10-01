@@ -1,8 +1,8 @@
-# [Version2 LIVE](https://v2.digitomize.com)
+# [Digitomize Version 2 LIVE](https://v2.digitomize.com)
 
 # Digitomize
 
-**Digitomize** is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios.
+**Digitomize**, where Talents and Opportunities Collide! Discover a ground-breaking open-source platform that smoothly blends User Profiles and Contests, providing you with the tools to succeed in coding competitions and highlight your professional expertise.
 
 ## Table of Contents
 
@@ -11,19 +11,20 @@
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
+- [Sections](#sections)
   - [Contests Section](#contests-section)
   - [User Profiles](#user-profiles)
 - [Contributing](#contributing)
 - [License](#license)
+- [Discord](#discord)
 
 ## Introduction
 
-**Digitomize** is designed to provide developers with a comprehensive platform for exploring coding contests and creating dynamic portfolios that showcase their coding skills and achievements.
+**Digitomize** gives developers a thorough platform for exploring coding competitions and building dynamic portfolios that highlight their coding abilities and accomplishments.
 
 ## Features
 
-- **Contests Section:** Explore upcoming coding contests from platforms like LeetCode, Codeforces, CodeChef, and more. Filter contests based on various criteria and view contest details such as remaining time, duration, and more.
+- **Contests Section:** Explore what coding challenges are coming up on websites like LeetCode, Geek for Geeks, Codeforces, CodeChef, and more. View contest details, including remaining time, duration, and other information, and filter contests based on  parameters such as contest date, duration of the contest, remaining time and more.
 
 - **User Profiles:** Create your developer portfolio by providing user handles for different coding platforms. The platform dynamically fetches and displays your updated ratings, achievements, and coding history.
 
@@ -31,7 +32,15 @@
 
 ### Prerequisites
 
-- Node.js and npm
+  ### Frontend
+  - React.js
+  - Vite
+  - Tailwind (Daisyui, Material UI, Flowbite)
+    
+### Backend
+- Node.js
+- Express
+- NPM
 - MongoDB
 
 ### Installation
@@ -41,10 +50,10 @@
    a. In the root directory of the project (where package.json is located), run `npm install`. <br>
    b. Install backend and client dependencies together by `npm run installer`. <br>
 3. Configure environment variables: Create a .env file in the backend and client directories respectively, and set up the required environment variables such as database connection details, API keys, and other configurations.
-- Check [Backend README](/backend/README.md) and [Cliend README](/client/README.md) for more info.
-4. Start the development environment: `npm run dev` (This command, defined in your project's package.json, starts both the backend server and the client using the concurrently library. It's a convenient way to run both parts of your application concurrently during development.)
+- For more information check  [Backend README](/backend/README.md) and [Cliend README](/client/README.md).
+4. Start the development environment: `npm run dev` (This command, defined in your project's package.json, starts both the backend server and the client using the concurrent library. It's a convenient way to run both parts of your application concurrently during development.)
 
-## Usage
+## Sections
 
 ### Contests Section
 
@@ -65,3 +74,7 @@ Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for de
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
+### Discord
+
+Join Our [Discord Community](https://discord.gg/PYFA9Hwp) for any help and troubleshooting.
