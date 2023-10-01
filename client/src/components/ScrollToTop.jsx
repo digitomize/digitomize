@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import scroll from '../assets/scroll.png'
+import ArrowCircleUpOutlinedIcon from '@mui/icons-material/ArrowCircleUpOutlined';
+
 
 const ScrollToTop = () => {
     const [scrollToTop, setScrollToTop] = useState(false);
@@ -26,21 +27,20 @@ const ScrollToTop = () => {
   return (
     <div>
       {scrollToTop && (
-        <button
+        <ArrowCircleUpOutlinedIcon
           style={{
             position: "fixed",
             bottom: "50px",
             right: "50px",
-            height: "50px",
-            width: "50px",
+            height: "55px",
+            width: "60px",
             fontSize: "50px", 
             cursor: "pointer", 
             borderRadius:"30px",
+            zIndex:"10000",
           }}
           onClick={scrollup} 
-        >
-          <img src={scroll} alt="scroll" />
-        </button>
+        />
       )}
     </div>
   )
