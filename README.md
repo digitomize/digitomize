@@ -35,6 +35,7 @@
 
 - Node.js and npm
 - MongoDB
+- ⭐ (hehe star the repo)
 
 ### Installation
 
