@@ -9,7 +9,7 @@
 - [Introduction](#introduction)
 - [Features](#features)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
+  - [TeckStack](#teckstack)
   - [Installation](#installation)
 - [Sections](#sections)
   - [Contests Section](#contests-section)
@@ -30,7 +30,7 @@
 
 ## Getting Started
 
-### Prerequisites
+### TeckStack
 
   ### Frontend
   - React.js
@@ -51,7 +51,7 @@
    b. Install backend and client dependencies together by `npm run installer`. <br>
 3. Configure environment variables: Create a .env file in the backend and client directories respectively, and set up the required environment variables such as database connection details, API keys, and other configurations.
 - For more information check  [Backend README](/backend/README.md) and [Cliend README](/client/README.md).
-4. Start the development environment: `npm run dev` (This command, defined in your project's package.json, starts both the backend server and the client using the concurrent library. It's a convenient way to run both parts of your application concurrently during development.)
+4. Start the development environment: `npm run dev` (This command, defined in your project's package.json, starts both the backend server and the client using the concurrently library. It's a convenient way to run both parts of your application concurrently during development.)
 
 ## Sections
 
@@ -77,4 +77,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ### Discord
 
-Join Our [Discord Community](https://discord.gg/PYFA9Hwp) for any help and troubleshooting.
+Join Our [Discord Community](https://v2.digitomize.com/discord) for any help and troubleshooting.
