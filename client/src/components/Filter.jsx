@@ -19,6 +19,7 @@ import codingninjas from "../assets/codingninjas.png";
 import Contests from "./Contests";
 import { Element } from "react-scroll";
 import "./css/Filter.css";
+import ScrollToTop from "./ScrollToTop";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 const ITEM_HEIGHT = 48;
@@ -139,6 +140,7 @@ function Filter() {
       <Element name="contests" className="contests-container">
         <Contests contests={contestsData} />
       </Element>
+      <ScrollToTop/>
     </>
   );
 }
