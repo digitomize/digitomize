@@ -14,31 +14,21 @@ export default function UserDashboard() {
   // const { user } = useUserAuth()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true);
+  const { user } = useUserAuth();
   async function handleLogout() {
     await auth.signOut()
     toast.success("Logged out successfully")
     console.log("before");
     navigate('/login?message=Logged out successfully')
   }
-  let user = false;
   useEffect(() => {
-    // Assuming useUserAuth fetches user data asynchronously
-    async function fetchUserData() {
-      try {
-        user  = await useUserAuth();
-        console.log("HERRREE:", user);
-        // Assuming there's a condition to check if user data is available
-        if (user) {
-          setLoading(false);
-        }
-      } catch (err) {
-        console.log(err);
-        setLoading(false); // Handle errors by setting loading to false
-      }
+    if (user) {
+      setLoading(false);
+    } else {
+      setLoading(false); // Handle cases where user data is not available
     }
+  }, [user]);
 
-    fetchUserData();
-  }, []);
   if (loading) {
     return (
       <div className="m-auto flex flex-col items-cente r w-4/5 my-12">
