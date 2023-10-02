@@ -9,6 +9,7 @@ import {
   MenuItem,
   ListItemText,
   ListItemIcon,
+  Skeleton,
 } from "@mui/material";
 
 import leetcode from "../assets/leetcode.svg";
@@ -175,7 +176,27 @@ function Filter() {
         <CustomSlider setRange={setRange} maxValue={maxValue} />
       </Element>
       <Element name="contests" className="contests-container z-[1]">
-        <Contests contests={contestsData} range={range} />
+        {contestsData.length ? (
+          <Contests contests={contestsData} range={range} />
+        ) : (
+          <div className="m-auto flex sm:flex-row flex-col items-center w-4/5 my-12 ">
+            <Skeleton
+              variant="text"
+              sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
+              className="mx-4 sm:w-80 w-full"
+            />
+            <Skeleton
+              variant="text"
+              sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
+              className="mx-4 sm:w-80 w-full"
+            />
+            <Skeleton
+              variant="text"
+              sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
+              className="mx-4 sm:w-80 w-full"
+            />
+          </div>
+        )}
       </Element>
     </>
   );
