@@ -21,7 +21,7 @@ const ScrollToTop = () => {
     const containerStyle = {
         position: "fixed",
         bottom: "50px",
-        right: "50px",
+        right: "30px",
         height: "60px",
         width: "60px",
         fontSize: "50px",
