@@ -42,6 +42,10 @@ const ScrollToTop = () => {
         padding:"0",
     };
 
+
+
+
+    const scrollOffset = window.innerHeight; 
     useEffect(()=>{
         window.addEventListener("scroll", () => {
             if(window.scrollY > scrollOffset){
