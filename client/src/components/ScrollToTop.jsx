@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import KeyboardDoubleArrowUpOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowUpOutlined';
+import {Link} from "react-scroll";
 
 
 const ScrollToTop = () => {
@@ -14,13 +15,9 @@ const ScrollToTop = () => {
         setIsHovered(false);
     };
 
-    const handleTouchStart = () => {
-        setIsHovered(!isHovered);
-      };
-
     const containerStyle = {
         position: "fixed",
-        bottom: "50px",
+        bottom: "30px",
         right: "30px",
         height: "60px",
         width: "60px",
@@ -45,10 +42,6 @@ const ScrollToTop = () => {
         padding:"0",
     };
 
-
-
-
-    const scrollOffset = window.innerHeight; 
     useEffect(()=>{
         window.addEventListener("scroll", () => {
             if(window.scrollY > scrollOffset){
@@ -60,33 +53,28 @@ const ScrollToTop = () => {
             }
         })
     }, [])
-    
-    
+
+
     const scrollup = async () => {
-        const scrollOffset = window.innerHeight; 
-      
-        window.scrollTo({
-          top: scrollOffset,
-          behavior: "smooth",
-        });
-      
         setTimeout(() => {
           setIsHovered(false);
         }, 500); 
       };
     
+
     return (
         <div>
           {scrollToTop && (
+            <Link to="newHead" smooth={true} duration={500}>
             <div
                 style={containerStyle}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                onTouchStart={handleTouchStart}
                 onClick={scrollup}
             >
                 <KeyboardDoubleArrowUpOutlinedIcon style={iconStyle}/>
             </div>
+            </Link>
           )}
         </div>
       );
