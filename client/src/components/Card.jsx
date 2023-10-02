@@ -43,7 +43,7 @@ function Card({ contest }) {
   }, [startTimeUnix]);
 
   return (
-    <div className="my-4 sm:w-96 min-h-[250px] p-6 rounded-xl bg-cardsColor flex flex-col hover:scale-[1.02] transition hover:bg-cardsHover m-1" key={vanity}>
+    <div className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] my-4 sm:w-96 min-h-[250px] p-6 rounded-xl bg-cardsColor flex flex-col hover:scale-[1.02] hover:bg-cardsHover m-1" key={vanity}>
       <div className="flex justify-between">
         <p id="startTime" className="text-card-text font-light leading-tight lowercase text-lg max-md:text-sm">{startTimeIST}</p>
         <img src={hostToSVGMap[host]} alt={host} width="13%" />

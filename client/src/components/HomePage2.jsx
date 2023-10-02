@@ -2,6 +2,7 @@ import { Element, Link } from "react-scroll";
 import Typewriter from "typewriter-effect";
 import { Skeleton } from "@mui/material";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
+import Tooltip from "@mui/material/Tooltip";
 import { green, pink } from "@mui/material/colors";
 import Avatar from "@mui/material/Avatar";
 import { useState } from "react";
@@ -16,6 +17,7 @@ import codechef from "../assets/codechef.svg";
 import codeforces from "../assets/codeforces.svg";
 import geeksforgeeks from "../assets/geeksforgeeks.svg";
 import codingninjas from "../assets/codingninjas.png";
+
 
 const gradientStyles = {
   background:
@@ -87,7 +89,9 @@ export default function Home2() {
           <div className="left sm:w-[40%] text-center">
             <div className="sm:text-left max-sm:text-center">
               <h1 className="sm:text-8xl max-smtext-5xl my-0 font-medium max-sm:min-h-[100px] sm:min-h-[300px]">
-                <Typewriter
+                User <span class="text-custom-blue font-bold">Dynamic</span>{" "}
+                Portfolio
+                {/* <Typewriter
                   options={{ loop: true, delay: 100 }}
                   onInit={(typewriter) => {
                     typewriter
@@ -101,12 +105,12 @@ export default function Home2() {
                       // .typeString("Welcomes You")
                       .start();
                   }}
-                />
+                /> */}
               </h1>
-              <p className="py-6">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
+              <p className="py-6 font-['Source Code Pro']">
+                Showcase your ratings, GitHub stats, personal info, skills,
+                education, and more. Climb the leaderboard while enjoying
+                friendly competition with friends in the coding community.
               </p>
             </div>
             <div className="lg:hidden card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-2">
@@ -167,12 +171,14 @@ export default function Home2() {
                 </div>
               </div>
             </div>
+            <a href="/signup">
             <button
               data-theme="mytheme"
-              className="btn btn-outline text-custom-blue lowercase hover:bg-custom-blue hover:border-custom-blue animate-bounce mt-12 hover:animate-none hover:scale-110"
+              className="btn btn-outline text-custom-blue lowercase hover:bg-custom-blue hover:border-custom-blue mt-12 hover:animate-none hover:scale-110"
             >
               Create now
-            </button>
+              </button>
+              </a>
           </div>
           <div className="max-lg:hidden w-[60%] right items-end max-lg:flex flex-col relative min-h-[65vh]">
             <div className="mockup-browser border bg-base-300 w-full absolute h-fit duration-500 hover:scale-125">
@@ -188,53 +194,72 @@ export default function Home2() {
                     className="bg-custom-blue mb-2"
                     sx={{ padding: "2%", width: 60, height: 60 }}
                   />
-                  <label className="label">
-                    <span className="label-text">
-                      What is your <span class="text-custom-blue">name</span>?
+                  <label className="cursor-text select-text label">
+                    <span className="select-text cursor-text label-text">
+                      #include {"<"}
+                      <span class="text-custom-blue">name</span>
+                      {">"}
                     </span>
                   </label>
                   <input
                     name="name"
                     type="text"
-                    placeholder="Type here"
+                    placeholder="your name"
                     className="input input-bordered w-full max-w-xs"
                     onChange={handleInputChange}
                     value={formData.name}
                   />
-                  <label className="label">
-                    <span className="label-text">
+                  <label className="select-text cursor-text label">
+                    <span className="select-text cursor-text label-text">
                       phone number
-                      <Switch
-                        size="small"
-                        inputProps={{ "aria-label": "controlled" }}
-                        checked={formData.phoneNumber.showOnWebsite}
-                        onChange={updateShowOnWebsite("phoneNumber")}
-                      />
+                      <Tooltip
+                        title={
+                          formData.phoneNumber.showOnWebsite ? "showing on portfolio" : "not showing on portfolio"
+                        }
+                        arrow
+                        placement="top"
+                      >
+                        <Switch
+                          size="small"
+                          inputProps={{ "aria-label": "controlled" }}
+                          checked={formData.phoneNumber.showOnWebsite}
+                          onChange={updateShowOnWebsite("phoneNumber")}
+                        />
+                      </Tooltip>
                     </span>
                   </label>
                   <input
                     name="phoneNumber"
                     type="Number"
-                    placeholder="Type here"
-                    className="input input-bordered w-full max-w-xs"
+                    placeholder="your number"
+                    className="input input-bordered w-full max-w-xs [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" // classes to remove arrows from number input
                     onChange={handleInputChangeObjData}
                     value={formData.phoneNumber.data}
                   />
-                  <label className="label">
-                    <span className="label-text">
+                  <label className="select-text cursor-text label">
+                    <span className="select-text cursor-text label-text">
                       bio
+                      <Tooltip
+                        title={
+                          formData.bio.showOnWebsite ? "showing on portfolio" : "not showing on portfolio"
+                        }
+                        arrow
+                        placement="top"
+                      >
+
                       <Switch
                         size="small"
                         inputProps={{ "aria-label": "controlled" }}
                         checked={formData.bio.showOnWebsite}
                         onChange={updateShowOnWebsite("bio")}
-                      />
+                        />
+                        </Tooltip>
                     </span>
                   </label>
                   <textarea
                     name="bio"
-                    className="textarea textarea-bordered h-24"
-                    placeholder="Bio"
+                    className="textarea textarea-bordered h-24 max-h-60"
+                    placeholder="about you"
                     onChange={handleInputChangeObjData}
                     value={formData.bio.data}
                   ></textarea>
@@ -242,7 +267,7 @@ export default function Home2() {
                 <div className="flex flex-col w-2/4">
                   <label className="label mx-2">
                     <span className="label-text">
-                      <span class="text-custom-blue">socials</span>
+                      import "<span class="text-custom-blue">socials</span>";
                     </span>
                   </label>
                   <Skeleton
@@ -254,7 +279,7 @@ export default function Home2() {
                   />
                   <label className="label mx-2">
                     <span className="label-text">
-                      <span class="text-custom-blue">ratings</span>
+                      fetch{`("` }<span class="text-custom-blue">ratings</span>{`");`}
                     </span>
                   </label>
                   <Skeleton
