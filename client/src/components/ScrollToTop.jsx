@@ -45,10 +45,12 @@ const ScrollToTop = () => {
 
 
 
-    const scrollOffset = window.innerHeight; 
     useEffect(()=>{
         window.addEventListener("scroll", () => {
-            if(window.scrollY > scrollOffset){
+
+            const scrollOffset = window.innerHeight;
+
+            if(window.scrollY > 100 + scrollOffset){
                 setScrollToTop(true)
             }
             else 
