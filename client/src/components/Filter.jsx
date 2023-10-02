@@ -111,7 +111,7 @@ function Filter() {
       </Element>
       <Element
         name="allContests"
-        className=" flex md:flex-row flex-col justify-start items-center"
+        className=" flex md:flex-row flex-col justify-center items-center"
       >
         {/* //checkmarks */}
         <div

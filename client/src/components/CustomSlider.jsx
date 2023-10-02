@@ -18,17 +18,20 @@ export default function CustomSlider({ setRange, maxValue }) {
   };
 
   return (
-    <Box sx={{ width: 300 }}>
-      {maxValue > 0 && (
-        <Slider
-          max={maxValue}
-          getAriaLabel={() => "Duration range"}
-          value={value}
-          onChange={handleChange}
-          valueLabelDisplay="auto"
-          getAriaValueText={valuetext}
-        />
-      )}
-    </Box>
+    maxValue > 0 && (
+      <div className="flex flex-col justify-start items-center ml-5 ">
+        <h2 className="text-1xl mr-4">Duration (min):</h2>
+        <Box sx={{ width: 300 }}>
+          <Slider
+            max={maxValue}
+            getAriaLabel={() => "Duration range"}
+            value={value}
+            onChange={handleChange}
+            valueLabelDisplay="auto"
+            getAriaValueText={valuetext}
+          />
+        </Box>
+      </div>
+    )
   );
 }
