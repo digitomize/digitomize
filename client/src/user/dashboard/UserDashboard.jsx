@@ -5,15 +5,32 @@ import { ToastContainer, toast } from 'react-toastify';
 // import { useUserAuth } from '../../context/UserAuthContext';
 import 'react-toastify/dist/ReactToastify.css';
 import SignoutButton from "../components/SignoutButton"
+import NewLogOut from "../components/NewLogOut"
 import { useUserAuth } from '../../context/UserAuthContext';
 import NewNavbar from "../../components/NewNavbar";
 import { Skeleton } from "@mui/material";
+import EditIcon from '@mui/icons-material/Edit';
+import Chip from "@mui/material/Chip";
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import { userDashboardDetails } from '../../../api';
+import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
+import SettingsIcon from '@mui/icons-material/Settings';
+import logo from "../../assets/logo.png";
+import Badge from '@mui/material/Badge';
+import MoodIcon from '@mui/icons-material/Mood';
+// import logo from "../assets/logo.png";
 
 export default function UserDashboard() {
   // const username = data.personal_data.username
   // const { user } = useUserAuth()
+  // const userData = userDashboardDetails().then(
+  //   console.log("DAYAYAYAYAYAATATATATTA",userData)
+  // );
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true);
+  const [userData, setUserData] = useState();
   const { user } = useUserAuth();
   async function handleLogout() {
     await auth.signOut()
@@ -22,6 +39,20 @@ export default function UserDashboard() {
     navigate('/login?message=Logged out successfully')
   }
   useEffect(() => {
+    async function fetchData() {
+      try {
+        const temp = await userDashboardDetails();
+        await setUserData(temp);
+        console.log("DAYAYAYAYAYAATATATATTA", userData);
+        // Now you can use userData in your component
+        setLoading(false);
+      } catch (error) {
+        // Handle any errors that may occur during the data fetching
+        console.error("Error fetching user data:", error);
+        setLoading(false);
+      }
+    }
+    fetchData();
     if (user) {
       setLoading(false);
     } else {
@@ -32,21 +63,105 @@ export default function UserDashboard() {
   if (loading) {
     return (
       <div className="m-auto flex flex-col items-cente r w-4/5 my-12">
-        <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width:"30%"}}/>
-        <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600"}}/>
-        <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width:"30%"}}/>
-        <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600"}}/>
-        <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width:"30%" }}/>
-        <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600"}}/>
-        </div>
+        <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
+        <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
+        <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
+        <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
+        <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
+        <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
+      </div>
     )
   }
+  const platforms = "codeforces, codechef, leetcode, geeksforgeeks";
+  const trimmedPlatforms = platforms.slice(0, 15) + "...";
   if (!loading) {
     return (
       <>
         <ToastContainer />
         <NewNavbar />
-        <div className='flex mt-8 md:mt-0'>
+        <div className='flex max-phone:flex-col pt-24 md:mt-0 w-11/12 mx-auto'>
+
+
+          <div className="personal m-auto flex flex-row">
+            <div className="Ellipse3 w-[50px] h-[50px] m-2" >
+              <Badge anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }} badgeContent={<MoodIcon fontSize="small" sx={{ maxWidth: '20px', bgcolor: "red", borderRadius: "100%" }} />}>
+                <div className="avatar rounded-full ring ring-blue ">
+                  <div className="rounded-full">
+                  <img src={logo} alt="avatar" /> {/*// TODO: FIX THIS*/}
+                  </div>
+                </div>
+                
+              </Badge>
+            </div>
+            <div className="username my-auto w-fit">
+              <h2 className='text-2xl'>{`${user.displayName}`}</h2>
+            </div>
+            <div className="edit my-auto mx-2">
+
+              <EditIcon fontSize="small" />
+            </div>
+          </div>
+          <div className="divider"></div>
+          <div className="status">
+            <label className="label">
+              <span className="label-text">my status</span>
+            </label>
+            <Chip label="Busy" color="primary" />
+            <Chip label="Working" variant="outlined" color="primary" />
+          </div>
+
+          <div className="divider"></div>
+
+          <div className="dashboard">
+            <label className="label">
+              <span className="label-text">dashboard</span>
+            </label>
+            <div className="ratings">
+              <ul className="menu bg-base-200 w-full rounded-box">
+                <li>
+                  {/* <a> */}
+                    <NavLink to='ratings' className="p-0 mt-2">
+                    <TrendingUpIcon fontSize="large" />
+                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> ratings</span>  <KeyboardDoubleArrowRightIcon /></h2>
+                      </NavLink>
+                  {/* </a> */}
+                </li>
+                <div className="divider w-4/5 self-center m-0 p-0"></div>
+                <li>
+                <NavLink to='github' className="p-0">
+                    <GitHubIcon fontSize="large" />
+                    <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> github</span>  <KeyboardDoubleArrowRightIcon /></h2>
+                  </NavLink>
+                </li>
+                <div className="divider w-4/5 self-center m-0 p-0"></div>
+                <li>
+                <NavLink to='account' className="p-0 mb-2">
+
+                    <SettingsIcon fontSize="large" />
+                    <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> account</span>   <KeyboardDoubleArrowRightIcon /></h2>
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div className="logout py-8 self-center">
+
+            <NewLogOut isDisabled={false} btnName="sign out" onClickFunction={handleLogout} />
+
+          </div>
+<Outlet/>
+
+
+
+
+
+          {/*
+
           <div className='flex w-full min-h-screen flex-col items-center md:pt-12 gap-12 '>
             <div className="w-[100%] md:w-3/4 flex items-center  justify-between  ">
               <div className=" Ellipse3 w-[60px] h-[60px] bg-pink-700 rounded-full flex gap-3" >
@@ -79,8 +194,8 @@ export default function UserDashboard() {
                 <Outlet />
               </div>
             </div>
-            {/* <SignoutButton /> */}
-          </div>
+             
+          </div>*/}
         </div>
       </>
     )
