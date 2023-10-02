@@ -14,6 +14,10 @@ const ScrollToTop = () => {
         setIsHovered(false);
     };
 
+    const handleTouchStart = () => {
+        setIsHovered(!isHovered);
+      };
+
     const containerStyle = {
         position: "fixed",
         bottom: "50px",
@@ -57,13 +61,18 @@ const ScrollToTop = () => {
         })
     }, [])
     
-    const scrollup = () => {
+    
+    const scrollup = async () => {
         const scrollOffset = window.innerHeight; 
-        
+      
         window.scrollTo({
           top: scrollOffset,
           behavior: "smooth",
         });
+      
+        setTimeout(() => {
+          setIsHovered(false);
+        }, 500); 
       };
     
     return (
@@ -73,6 +82,7 @@ const ScrollToTop = () => {
                 style={containerStyle}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
+                onTouchStart={handleTouchStart}
                 onClick={scrollup}
             >
                 <KeyboardDoubleArrowUpOutlinedIcon style={iconStyle}/>
