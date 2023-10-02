@@ -26,7 +26,7 @@ export default function UserDashboard() {
     async function fetchUserData() {
       try {
         user  = await useUserAuth();
-        console.log("HERRREE:",user);
+        console.log("HERRREE:", user);
         // Assuming there's a condition to check if user data is available
         if (user) {
           setLoading(false);
