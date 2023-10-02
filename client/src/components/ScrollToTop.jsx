@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import ArrowCircleUpOutlinedIcon from '@mui/icons-material/ArrowCircleUpOutlined';
+import KeyboardDoubleArrowUpOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowUpOutlined';
+
 
 const ScrollToTop = () => {
     const [scrollToTop, setScrollToTop] = useState(false);
@@ -22,16 +23,22 @@ const ScrollToTop = () => {
         fontSize: "50px",
         cursor: "pointer",
         zIndex: "10000",
+        display:"flex",
+        alignItems : "center",
+        justifyContent : "center",
         backgroundColor: isHovered ? "white" : "black",
-        borderRadius: "30px",
-        transition: "background-color 0.3s ease", // Add a transition for smooth effect
+        borderRadius: "50px",
+        transition: "background-color 0.3s ease", 
+        border : isHovered ? "3px solid black" : "3px solid white",
     };
 
     const iconStyle = {
         height: "100%",
         width: "100%",
-        marginLeft: "-3px",
+        // marginLeft: "-3px",
         color: isHovered ? "black" : "white",
+        margin:"0",
+        padding:"0",
     };
 
 
@@ -68,7 +75,7 @@ const ScrollToTop = () => {
                 onMouseLeave={handleMouseLeave}
                 onClick={scrollup}
             >
-                <ArrowCircleUpOutlinedIcon style={iconStyle}/>
+                <KeyboardDoubleArrowUpOutlinedIcon style={iconStyle}/>
             </div>
           )}
         </div>
