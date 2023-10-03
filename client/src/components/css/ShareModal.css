@@ -3,7 +3,6 @@
     /* height: 100svh;
     width: 100svw;  */
     background-color: rgba(189, 189, 189, 0.5);
-
 }
 
 .modalContainer {
@@ -12,11 +11,11 @@
     left: 50%;
     transform: translate(-50%, -50%);
     height: 25rem;
-    width: 35rem;
+    width: 28rem;
     margin: auto;
     filter: blur(none);
     border-radius: 3rem;
-    z-index: 11000000 ; /* Higher z-index than the blurred background */
+    z-index: 100 ; /* Higher z-index than the blurred background */
     background-color: rgba(255, 255, 255, 1); /* Set the background color with full opacity */
     /* Add a backdrop-filter for the blur effect on the backdrop */
     backdrop-filter: blur(8px); /* Adjust the blur amount as needed */

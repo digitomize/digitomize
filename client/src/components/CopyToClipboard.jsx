@@ -17,7 +17,7 @@ function CopyToClipboard({ vanity, msg, gradient }) {
   );
 
   const copyToClipboard = () => {
-    const contestLink = `${frontendUrl}/contests/${vanity}`;
+    const contestLink = `${frontendUrl}/contests/${vanity}`; // link to copy 
     if (document.queryCommandSupported('copy')) {
       const textArea = document.createElement('textarea');
       textArea.value = contestLink;
@@ -40,9 +40,9 @@ function CopyToClipboard({ vanity, msg, gradient }) {
   const mainModal = (
     <ShareModal 
       showModal={showModal}
-      closeModal={closeModal} 
-      handleCloseButton={handleCloseButton} 
+      setShowModal={setShowModal}
       copyToClipboard={copyToClipboard}
+      contestLink ={`${frontendUrl}/contests/${vanity}`}
     >
       <h2>STAY TUNED</h2>
       <p>
@@ -53,12 +53,16 @@ function CopyToClipboard({ vanity, msg, gradient }) {
   );
   useEffect(() => {
     if (showModal) {
-      document.body.classList.add('blur-background');
+      // document.body.classList.add('blur-background');
+      document.body.classList.add('disable-pointer-events');
+
     } else {
-      document.body.classList.remove('blur-background');
+      // document.body.classList.remove('blur-background');
+      document.body.classList.remove('disable-pointer-events');
+
     }
     return () => {
-      document.body.classList.remove('blur-background');
+      // document.body.classList.remove('blur-background');
     };
   }, [showModal]);
   useEffect(() => {

@@ -42,7 +42,9 @@ span p{
   filter: blur(5px);
   pointer-events: none; 
 }
-
+.disabled-pointer-events {
+  pointer-events: none;
+}
 @media (max-width:768px) {
     /* .share-button-container svg{
         width:15%;
