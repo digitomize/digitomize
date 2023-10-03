@@ -15,6 +15,7 @@
   - [Contests Section](#contests-section)
   - [User Profiles](#user-profiles)
 - [Contributing](#contributing)
+- [Contact us](#contact-us)
 - [License](#license)
 
 ## Introduction
@@ -61,6 +62,10 @@
 ## Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
+
+## Contact us
+
+For any query [Contact us](CONTACT.md)
 
 ## License
 

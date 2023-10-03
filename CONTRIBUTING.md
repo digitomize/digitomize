@@ -11,6 +11,7 @@ Welcome to the **Digitomize** project! We're excited to have you contribute. Bef
   - [Suggesting Enhancements](#suggesting-enhancements)
   - [Pull Requests](#pull-requests)
 - [Coding Guidelines](#coding-guidelines)
+- [Contact us](#contact-us)
 - [License](#license)
 
 ## Getting Started
@@ -47,6 +48,10 @@ Please ensure your code adheres to the [Coding Guidelines](#coding-guidelines).
 - Write clear and concise code with meaningful comments when necessary.
 - Test your changes thoroughly before submitting a pull request.
 - Document new features, changes, or important concepts as needed.
+
+## Contact us
+
+For any query [Contact us](CONTACT.md)
 
 ## License
 
