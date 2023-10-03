@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import { submitUserFormData, userDashboardDetails } from "../../../api";
 import { useUserAuth } from "../../context/UserAuthContext";
 import axios from "axios";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import Checkbox from "../components/Checkbox";
+import NewNavbar from "../../components/NewNavbar";
+import { ToastContainer, toast } from 'react-toastify';
 
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
@@ -160,7 +162,10 @@ export default function UserDashPersonal() {
   }
 
   return (
-    <div className=" px-8 md:ps-12 py-12">
+    <>
+    <ToastContainer />
+    <NewNavbar />
+    <div className="px-8 md:ps-12 py-12 pt-24">
       {/* <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
             <Checkbox />
         </div> */}
@@ -352,5 +357,6 @@ export default function UserDashPersonal() {
         </button>
       </Form>
     </div>
+    </>
   );
 }

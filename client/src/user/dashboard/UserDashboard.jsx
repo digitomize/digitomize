@@ -32,6 +32,11 @@ export default function UserDashboard() {
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState();
   const { user } = useUserAuth();
+  const [selectedStatus, setSelectedStatus] = useState('Busy'); // Initialize with a default status
+
+  const handleStatusClick = (status) => {
+    setSelectedStatus(status);
+  };
   async function handleLogout() {
     await auth.signOut()
     toast.success("Logged out successfully")
@@ -90,10 +95,10 @@ export default function UserDashboard() {
               }} badgeContent={<MoodIcon fontSize="small" sx={{ maxWidth: '20px', bgcolor: "red", borderRadius: "100%" }} />}>
                 <div className="avatar rounded-full ring ring-blue ">
                   <div className="rounded-full">
-                  <img src={logo} alt="avatar" /> {/*// TODO: FIX THIS*/}
+                    <img src={logo} alt="avatar" /> {/*// TODO: FIX THIS*/}
                   </div>
                 </div>
-                
+
               </Badge>
             </div>
             <div className="username my-auto w-fit">
@@ -109,8 +114,32 @@ export default function UserDashboard() {
             <label className="label">
               <span className="label-text">my status</span>
             </label>
-            <Chip label="Busy" color="primary" />
-            <Chip label="Working" variant="outlined" color="primary" />
+            <div>
+              <Chip
+                label="Busy"
+                color='primary'
+                variant={selectedStatus === 'Busy' ? 'filled' : 'outlined'}
+                onClick={() => handleStatusClick('Busy')}
+              />
+              <Chip
+                label="Working"
+                color='primary'
+                variant={selectedStatus === 'Working' ? 'filled' : 'outlined'}
+                onClick={() => handleStatusClick('Working')}
+              />
+              <Chip
+                label="Available"
+                color='primary'
+                variant={selectedStatus === 'Available' ? 'filled' : 'outlined'}
+                onClick={() => handleStatusClick('Available')}
+              />
+              <Chip
+                label="Offline"
+                color='primary'
+                variant={selectedStatus === 'Offline' ? 'filled' : 'outlined'}
+                onClick={() => handleStatusClick('Offline')}
+              />
+            </div>
           </div>
 
           <div className="divider"></div>
@@ -123,22 +152,22 @@ export default function UserDashboard() {
               <ul className="menu bg-base-200 w-full rounded-box">
                 <li>
                   {/* <a> */}
-                    <NavLink to='ratings' className="p-0 mt-2">
+                  <NavLink to='ratings' className="p-0 mt-2">
                     <TrendingUpIcon fontSize="large" />
-                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> ratings</span>  <KeyboardDoubleArrowRightIcon /></h2>
-                      </NavLink>
+                    <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> ratings</span>  <KeyboardDoubleArrowRightIcon /></h2>
+                  </NavLink>
                   {/* </a> */}
                 </li>
                 <div className="divider w-4/5 self-center m-0 p-0"></div>
                 <li>
-                <NavLink to='github' className="p-0">
+                  <NavLink to='github' className="p-0">
                     <GitHubIcon fontSize="large" />
                     <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> github</span>  <KeyboardDoubleArrowRightIcon /></h2>
                   </NavLink>
                 </li>
                 <div className="divider w-4/5 self-center m-0 p-0"></div>
                 <li>
-                <NavLink to='account' className="p-0 mb-2">
+                  <NavLink to='account' className="p-0 mb-2">
 
                     <SettingsIcon fontSize="large" />
                     <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> account</span>   <KeyboardDoubleArrowRightIcon /></h2>
@@ -154,7 +183,7 @@ export default function UserDashboard() {
             <NewLogOut isDisabled={false} btnName="sign out" onClickFunction={handleLogout} />
 
           </div>
-<Outlet/>
+          <Outlet />
 
 
 
