@@ -52,13 +52,19 @@ async function resolveUserInfo(userInfo, resolve, reject) {
             response2.on('end', () => {
                 try {
                     const userRatingInfo = JSON.parse(data2);
-                    const attendedContestsCount = userRatingInfo.result.length;
-
+                    const attendedContests = userRatingInfo.result.map(item => {
+                        return {
+                            contestId: item.contestId,
+                            contestName: item.contestName,
+                            rating: item.rating
+                        };
+                    });
+                    console.log('attendedContests:', attendedContests);
                     resolve({
                         handle,
                         rating,
                         rank,
-                        attendedContestsCount  // Add attendedContestsCount here
+                        attendedContests  // Added attendedContests here
                     });
                 } catch (error) {
                     console.log('Error parsing JSON from url2:', error);
@@ -66,7 +72,7 @@ async function resolveUserInfo(userInfo, resolve, reject) {
                         handle,
                         rating,
                         rank,
-                        attendedContestsCount: 0
+                        attendedContests: []
                     });
                 }
             });
@@ -78,14 +84,13 @@ async function resolveUserInfo(userInfo, resolve, reject) {
                 handle,
                 rating,
                 rank,
-                attendedContestsCount: 0
+                attendedContests: [] 
             });
         });
     } else {
         resolve({});
     }
 }
-
 module.exports = {
     codeforces_u,
 };

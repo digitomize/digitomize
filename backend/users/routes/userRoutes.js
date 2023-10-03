@@ -12,7 +12,7 @@ const router = express.Router();
 // POST route for user signup
 router.post('/signup', addUID, handleUserSignup);
 
-// router.get('/signout', checkAuth, handleUserSignout);
+// router.get('/signout', checkAutsh, handleUserSignout);
 
 router.get('/dashboard', addUID, handleUserDashboard);
 
