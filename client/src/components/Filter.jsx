@@ -109,10 +109,7 @@ function Filter() {
           Contests
         </h2>
       </Element>
-      <Element
-        name="allContests"
-        className=" flex md:flex-row flex-col justify-between mx-auto md:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center"
-      >
+      <Element className=" flex md:flex-row flex-col justify-between mx-auto md:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
         {/* //checkmarks */}
         <div
           className={`filter-div w-fit self-center bg-cardsColor p-1 relative rounded-xl`}
