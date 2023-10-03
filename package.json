@@ -23,6 +23,7 @@
         "concurrently": "^8.2.1"
     },
     "dependencies": {
-        "vercel": "^32.2.2"
+        "vercel": "^32.2.2",
+        "vite": "^4.4.9"
     }
 }

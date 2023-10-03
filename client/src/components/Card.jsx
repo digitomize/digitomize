@@ -1,6 +1,5 @@
 import { useState, useEffect, memo } from "react";
 import { Link } from "react-router-dom";
-
 import Button from "./Button";
 // import "./css/Card.css";
 import geeksforgeeks from "../assets/geeksforgeeks.svg";
@@ -32,6 +31,8 @@ function Card({ contest }) {
   };
   const startTimeIST = startDate.toLocaleString("en-US", options);
   const [remaningTime, setRemainingTime] = useState("loading...");
+
+ 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setRemainingTime(updateTimer(startTimeUnix, duration));

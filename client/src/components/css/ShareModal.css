@@ -1,0 +1,26 @@
+.modal-wrapper{
+    position: fixed;
+    /* height: 100svh;
+    width: 100svw;  */
+    background-color: rgba(189, 189, 189, 0.5);
+
+}
+
+.modalContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 25rem;
+    width: 35rem;
+    margin: auto;
+    filter: blur(none);
+    border-radius: 3rem;
+    z-index: 11000000 ; /* Higher z-index than the blurred background */
+    background-color: rgba(255, 255, 255, 1); /* Set the background color with full opacity */
+    /* Add a backdrop-filter for the blur effect on the backdrop */
+    backdrop-filter: blur(8px); /* Adjust the blur amount as needed */
+    /* Additional styling properties */
+    border: 1px solid grey;
+    /* Other styles */
+}

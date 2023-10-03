@@ -37,6 +37,12 @@ span p{
   position:relative;
   bottom:6px;
 }
+
+.blur-background {
+  filter: blur(5px);
+  pointer-events: none; 
+}
+
 @media (max-width:768px) {
     /* .share-button-container svg{
         width:15%;
@@ -44,7 +50,5 @@ span p{
     .ic-inner-lower {
       align-self: flex-start;
   }
-
-
-
 }
+
