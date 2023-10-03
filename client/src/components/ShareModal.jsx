@@ -125,7 +125,7 @@ export const ShareModal = ({showModal , setShowModal , contestLink}) => {
       <div className='modalContainer' onClick={handleContainerClick}>
         <div className='modalContent'>
         <div className="modalClose flex flex-row mt-[1rem] justify-around">
-            <h1 className='text-[3rem]'>Share Link Via</h1>
+            <h1 className='text-[3rem] text-black '>Share Link Via</h1>
             <ImCross className='text-[1rem] text-right text-black' onClick={handleCloseButton}/>
         </div>
           
@@ -163,8 +163,6 @@ export const ShareModal = ({showModal , setShowModal , contestLink}) => {
                   s8.33-18.57,18.57-18.57s18.57,8.33,18.57,18.57S319.11,165.61,308.87,165.61z"/>
               </svg>
 
-
-
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 455.731 455.731" style={LinkedinvgStyle} onClick={handleLinkedinClick}>
               <rect x="0" y="0" fill="#0084B1" width="455.731" height="455.731" />
               <g>
@@ -179,10 +177,19 @@ export const ShareModal = ({showModal , setShowModal , contestLink}) => {
             </svg>
 
           </div>
-          <div className='link-share-icon flex flex-row mb-[2rem] mt-[5rem] ml-[4rem]'>
+          <div className='link-share-icon flex flex-row mb-[2rem] mt-[5rem] ml-[2rem]'>
+            <span className='mssg-copied hidden'>Copied</span>
           <LuLink
-              className='inline-block text-[2rem] text-black '
-              onClick={handleCopyToClipboard}
+              className='inline-block text-[2.5rem] text-black'
+              // onClick={handleCopyToClipboard}
+              onClick={() =>{
+                navigator.clipboard.writeText(contestLink)
+                setInterval(()=>{
+                  document.querySelector('.mssg-copied').classList.add('share-active');
+                },1500);
+                document.querySelector('.mssg-copied').classList.remove('share-active');
+              }
+            }
             />
             <input className=" h-[2rem] w-[28rem] ml-[1rem] mr-[3rem] flex flex-wrap bg-white text-black" value={contestLink}></input>
             
