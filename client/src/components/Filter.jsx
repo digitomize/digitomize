@@ -111,7 +111,7 @@ function Filter() {
       </Element>
       <Element
         name="allContests"
-        className=" flex md:flex-row flex-col justify-around items-center"
+        className=" flex md:flex-row flex-col justify-between mx-auto bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center"
       >
         {/* //checkmarks */}
         <div

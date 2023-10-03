@@ -19,8 +19,8 @@ export default function CustomSlider({ setRange, maxValue }) {
 
   return (
     maxValue > 0 && (
-      <div className="flex  justify-start items-center ml-5 ">
-        <h2 className="text-1xl mr-4">Duration (min):</h2>
+      <div className="flex  justify-ceenter items-center mr-5 ">
+        <h2 className="text-1xl mr-4 mb-2">Duration (min):</h2>
         <Box sx={{ width: 300 }}>
           <Slider
             max={maxValue}
