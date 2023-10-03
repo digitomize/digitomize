@@ -118,7 +118,12 @@ const router = createBrowserRouter(
         <Route path="404" element={<ErrorPage />} />
       </Route>
       <Route path="/user" element={<ProtectedRoute />}>
-        <Route path="dashboard" element={<UserDashboard />}>
+        <Route path="dashboard">
+          <Route
+            index
+            element={<UserDashboard />}
+            // loader={userDashPersonalLoader}
+          />
           <Route
             path="personal"
             element={<UserDashPersonal />}

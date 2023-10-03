@@ -6,6 +6,14 @@ export default {
     "./src/user/**/*.{js,ts,jsx,tsx}, ./node_modules/tw-elements-react/dist/js/**/*.js",
   ],
   theme: {
+    screens: {
+      'phone': '430px', // Custom screen size for 'phone' below 400px
+      'sm': '640px',    // Default 'sm' screen size
+      'md': '768px',    // Default 'md' screen size
+      'lg': '1024px',   // Default 'lg' screen size
+      'xl': '1280px',   // Default 'xl' screen size
+      '2xl': '1536px',  // Default '2xl' screen size
+    },
     extend: {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
