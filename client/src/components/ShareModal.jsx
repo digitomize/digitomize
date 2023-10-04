@@ -2,18 +2,20 @@ import React , {useRef} from 'react';
 import './css/ShareModal.css';
 import {ImCross} from 'react-icons/im'
 import {LuLink} from 'react-icons/lu'
-export const ShareModal = ({showModal , setShowModal , contestLink}) => {
+export const ShareModal = ({show, setshow, exit, contestLink}) => {
   const handleContainerClick = (e) => {
     e.stopPropagation();
   };
   
-  const closeModal = () => setShowModal(false);
-
-  const handleCloseButton = () => (
-    <button className="model-btn" onClick={closeModal}>
-      Exit
-    </button>
-  );
+  // const exit = () => {
+  //   console.log(showModal);
+  //   setShowModal(!showModal);
+  // }
+  // const handleCloseButton = () => (
+  //   <button className="model-btn" onClick={exit}>
+  //     Exit
+  //   </button>
+  // );
 
   const inputRef = useRef(null);
 
@@ -120,13 +122,13 @@ export const ShareModal = ({showModal , setShowModal , contestLink}) => {
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', 
   };
 
-  return (
-    <div className='modal-wrapper' onClick={closeModal}>
+  return show ? (
+    <div className='modal-wrapper' onClick={() => setshow(!show)}>
       <div className='modalContainer' onClick={handleContainerClick}>
         <div className='modalContent'>
         <div className="modalClose flex flex-row mt-[1rem] justify-around">
             <h1 className='text-[3rem] text-black '>Share Link Via</h1>
-            <ImCross className='text-[1rem] text-right text-black' onClick={handleCloseButton}/>
+            <ImCross className='text-[1rem] text-right text-black' onClick={exit}/>
         </div>
           
           <div className='line h-[1px] bg-black opacity-30'></div>
@@ -197,5 +199,5 @@ export const ShareModal = ({showModal , setShowModal , contestLink}) => {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 };

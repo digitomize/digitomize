@@ -39,8 +39,9 @@ function CopyToClipboard({ vanity, msg, gradient }) {
 
   const mainModal = (
     <ShareModal 
-      showModal={showModal}
-      setShowModal={setShowModal}
+      show={showModal}
+      setShow={setShowModal}
+      exit={closeModal}
       copyToClipboard={copyToClipboard}
       contestLink ={`${frontendUrl}/contests/${vanity}`}
     >
@@ -51,20 +52,20 @@ function CopyToClipboard({ vanity, msg, gradient }) {
       </p>
     </ShareModal>
   );
-  useEffect(() => {
-    if (showModal) {
-      document.body.classList.add('blur-background');
-      document.body.classList.add('disable-pointer-events');
+  // useEffect(() => {
+  //   if (showModal) {
+  //     document.body.classList.add('blur-background');
+  //     document.body.classList.add('disable-pointer-events');
 
-    } else {
-      document.body.classList.remove('blur-background');
-      document.body.classList.remove('disable-pointer-events');
+  //   } else {
+  //     document.body.classList.remove('blur-background');
+  //     document.body.classList.remove('disable-pointer-events');
 
-    }
-    return () => {
-      document.body.classList.remove('blur-background');
-    };
-  }, [showModal]);
+  //   }
+  //   return () => {
+  //     document.body.classList.remove('blur-background');
+  //   };
+  // }, [showModal]);
   useEffect(() => {
     const timer = message === "Link Copied" && setTimeout(() => setMessage("share"), 1300);
     return () => clearTimeout(timer);
