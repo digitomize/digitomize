@@ -23,6 +23,10 @@
         "concurrently": "^8.2.1"
     },
     "dependencies": {
+        "jstz": "^2.1.1",
+        "luxon": "^3.4.3",
+        "moment": "^2.29.4",
+        "moment-timezone": "^0.5.43",
         "vercel": "^32.2.2"
     }
 }
