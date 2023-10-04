@@ -1,31 +1,31 @@
 .modal-wrapper{
     position: fixed;
-    /* height: 100svh;
-    width: 100svw;  */
-    background-color: rgba(189, 189, 189, 0.5);
+    z-index: 10;
+    top: 0;
+    left: 0;
+    height: 100svh;
+    width: 100svw; 
+    backdrop-filter: blur(5px);
+    background-color: rgba(189, 189, 189, 0.34);
+    cursor: default;
 }
 
-.modalContainer {
-    position: fixed;
+.modal-wrapper>.modalContainer {
+    cursor: pointer;
+    position: absolute ;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     height: 25rem;
-    width: 28rem;
+    height: fit-content;
+    min-width: 28rem;
     margin: auto;
-    filter: blur(none);
+    background-color: rgb(255, 255, 255);
     border-radius: 3rem;
-    z-index: 1000 ; /* Higher z-index than the blurred background */
-    background-color: rgba(255, 255, 255, 1); /* Set the background color with full opacity */
-    /* Add a backdrop-filter for the blur effect on the backdrop */
-    backdrop-filter: blur(8px); /* Adjust the blur amount as needed */
-    /* Additional styling properties */
-    border: 1px solid grey;
-    /* Other styles */
 }
 .share-active{
     display: flex;
     top: 5rem;
     left: 5rem;
-    position: absolute;
+    /* position: absolute; */
 }
