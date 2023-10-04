@@ -1,12 +1,13 @@
-import React , {useRef} from 'react';
+import React, { useRef } from 'react';
 import './css/ShareModal.css';
-import {ImCross} from 'react-icons/im'
-import {LuLink} from 'react-icons/lu'
-export const ShareModal = ({show, setshow, exit, contestLink}) => {
+import { ImCross } from 'react-icons/im'
+import { LuLink } from 'react-icons/lu'
+import { FaInstagramSquare } from 'react-icons/fa'
+export const ShareModal = ({ show, setshow, exit, contestLink }) => {
   const handleContainerClick = (e) => {
     e.stopPropagation();
   };
-  
+
   // const exit = () => {
   //   console.log(showModal);
   //   setShowModal(!showModal);
@@ -17,7 +18,7 @@ export const ShareModal = ({show, setshow, exit, contestLink}) => {
   //   </button>
   // );
 
-  const inputRef = useRef(null);
+  // const inputRef = useRef(null);
 
   // const handleCopyToClipboard = () => {
   //   if (inputRef.current) {
@@ -34,103 +35,99 @@ export const ShareModal = ({show, setshow, exit, contestLink}) => {
   };
 
   const handleLinkedinClick = () => {
-    const linkedinLink = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
-      contestLink)}`;
-    try{
+    const linkedinLink = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(contestLink)}`;
+    try {
       window.open(linkedinLink);
     }
-    catch(e){
+    catch (e) {
       console.log(e);
     }
   };
 
   const handleInstagramClick = () => {
     const Message = `Check out this link: ${contestLink}`;
-    const instagramLink = `https://www.instagram.com/?url=${encodeURIComponent(Message)}`;
-    try{
+    const instagramLink = `https://www.instagram.com/?url=${encodeURIComponent(contestLink)}`;
+    try {
       window.open(instagramLink);
-    }
-    catch(e){
+    } catch (e) {
       console.log(e);
     }
   };
 
   const handleFacebookClick = () => {
-    const facebookLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-      contestLink
-    )}`;
-    try{
+    const facebookLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(contestLink)}`;
+    try {
       window.open(facebookLink);
     }
-    catch(e){
+    catch (e) {
       console.log(e);
     }
   };
   const WhatsappsvgStyle = {
-    fill: '#1BD741', 
+    fill: '#1BD741',
     height: '3.5rem',
-    borderRadius: '100%', 
+    borderRadius: '100%',
     border: '1px solid green',
-    transition: 'fill 0.2s, box-shadow 0.2s', 
+    transition: 'fill 0.2s, box-shadow 0.2s',
   };
 
   WhatsappsvgStyle[':hover'] = {
-    fill: 'grey', 
+    fill: 'grey',
     cursor: 'pointer',
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
   };
 
   const InstagramsvgStyle = {
-    fill: '#C536A4', 
-    height: '3.5rem',
-    borderRadius: '100%', 
-    border: '1px solid pink', 
+    fill: '#C536A4',
+    // height: '3.5rem',
+    borderRadius: '100%',
+    border: '1px solid pink',
     transition: 'fill 0.2s, box-shadow 0.2s',
   };
 
   InstagramsvgStyle[':hover'] = {
     fill: 'blue',
-    cursor: 'pointer', 
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', 
+    cursor: 'pointer',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
   };
 
   const LinkedinvgStyle = {
-    fill: '#C536A4', 
-    height: '3.5rem', 
-    borderRadius: '100%', 
+    fill: '#C536A4',
+    height: '3.5rem',
+    borderRadius: '100%',
     border: '1px solid blue',
-    transition: 'fill 0.2s, box-shadow 0.2s', 
+    transition: 'fill 0.2s, box-shadow 0.2s',
   };
 
   LinkedinvgStyle[':hover'] = {
-    fill: 'blue', 
-    cursor: 'pointer', 
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', 
+    fill: 'blue',
+    cursor: 'pointer',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
   };
 
   const FacebookvgStyle = {
-    fill: '#C536A4', 
-    height: '3.5rem', 
-    borderRadius: '100%', 
-    border: '1px solid blue', 
-    transition: 'fill 0.2s, box-shadow 0.2s', 
+    fill: '#C536A4',
+    height: '3.5rem',
+    borderRadius: '100%',
+    border: '1px solid blue',
+    transition: 'fill 0.2s, box-shadow 0.2s',
   };
 
   FacebookvgStyle[':hover'] = {
-    fill: 'blue', 
-    cursor: 'pointer', 
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', 
+    fill: 'blue',
+    cursor: 'pointer',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
   };
 
   return show ? (
     <div className='modal-wrapper' onClick={() => setshow(!show)}>
       <div className='modalContainer' onClick={handleContainerClick}>
         <div className='modalContent'>
-        <div className="modalClose flex flex-row mt-[1rem] justify-around">
-            <h1 className='text-[3rem] text-black '>Share Link Via</h1>
-            <ImCross className='text-[1rem] text-right text-black' onClick={exit}/>
-        </div>
-          
+          <div className="modalClose flex flex-row mt-[1rem] justify-around">
+            <h1 className='text-[3rem] text-black font-normal'>Share Link Via</h1>
+            <ImCross className='mt-[2rem] text-[1.5rem] text-right text-black' onClick={exit} />
+          </div>
+
           <div className='line h-[1px] bg-black opacity-30'></div>
           <div className='icons-share flex flex-row flex-wrap justify-between mx-[4rem] mt-[4rem]'>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 455.731 455.731" style={WhatsappsvgStyle} onClick={handleWhatsAppClick}>
@@ -152,7 +149,11 @@ export const ShareModal = ({show, setshow, exit, contestLink}) => {
               </g>
             </svg>
 
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 455.73 455.73" style={InstagramsvgStyle} onClick={handleInstagramClick}>
+
+            <div className='InstaContainer h-[3.2rem] rounded-full' onClick={handleInstagramClick}>
+              <FaInstagramSquare className=' text-[3.6rem]' style={InstagramsvgStyle} onClick={handleInstagramClick} />
+            </div>
+            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 455.73 455.73" style={InstagramsvgStyle} onClick={handleInstagramClick}>
                 <path style={{ fill: '#C536A4' }} d="M227.86,182.55c-24.98,0-45.32,20.33-45.32,45.31c0,24.99,20.34,45.33,45.32,45.33
                   c24.99,0,45.32-20.34,45.32-45.33C273.18,202.88,252.85,182.55,227.86,182.55z M303.36,108.66H152.37c-24.1,0-43.71,19.61-43.71,43.71v150.99c0,24.1,19.61,43.71,43.71,43.71h150.99c24.1,0,43.71-19.61,43.71-43.71V152.37
                   C347.07,128.27,327.46,108.66,303.36,108.66z M227.86,306.35c-43.27,0-78.48-35.21-78.48-78.49c0-43.27,35.21-78.48,78.48-78.48
@@ -163,7 +164,7 @@ export const ShareModal = ({show, setshow, exit, contestLink}) => {
                   C347.07,128.27,327.46,108.66,303.36,108.66z M227.86,306.35c-43.27,0-78.48-35.21-78.48-78.49c0-43.27,35.21-78.48,78.48-78.48
                   c43.28,0,78.49,35.21,78.49,78.48C306.35,271.14,271.14,306.35,227.86,306.35z M308.87,165.61c-10.24,0-18.57-8.33-18.57-18.57
                   s8.33-18.57,18.57-18.57s18.57,8.33,18.57,18.57S319.11,165.61,308.87,165.61z"/>
-              </svg>
+            </svg> */}
 
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 455.731 455.731" style={LinkedinvgStyle} onClick={handleLinkedinClick}>
               <rect x="0" y="0" fill="#0084B1" width="455.731" height="455.731" />
@@ -179,22 +180,22 @@ export const ShareModal = ({show, setshow, exit, contestLink}) => {
             </svg>
 
           </div>
-          <div className='link-share-icon flex flex-row mb-[2rem] mt-[5rem] ml-[2rem]'>
+          <div className='link-share-icon flex flex-row mb-[2rem] mt-[5rem] ml-[3rem]'>
             <span className='mssg-copied hidden'>Copied</span>
-          <LuLink
-              className='inline-block text-[2.5rem] text-black'
+            <LuLink
+              className='inline-block text-[2.0rem]  text-black'
               // onClick={handleCopyToClipboard}
-              onClick={() =>{
+              onClick={() => {
                 navigator.clipboard.writeText(contestLink)
-                setInterval(()=>{
+                setInterval(() => {
                   document.querySelector('.mssg-copied').classList.add('share-active');
-                },1500);
+                }, 1500);
                 document.querySelector('.mssg-copied').classList.remove('share-active');
               }
-            }
+              }
             />
-            <input className=" h-[2rem] w-[28rem] ml-[1rem] mr-[3rem] flex flex-wrap bg-white text-black" value={contestLink}></input>
-            
+            <input className=" h-[2rem] w-[28rem] ml-[1rem] mr-[3rem] flex flex-wrap bg-white text-black font-light" value={contestLink}></input>
+
           </div>
         </div>
       </div>

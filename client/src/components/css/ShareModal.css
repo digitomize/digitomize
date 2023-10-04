@@ -16,9 +16,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 25rem;
+    height: 22rem;
     height: fit-content;
-    min-width: 28rem;
+    width: 30rem;
     margin: auto;
     background-color: rgb(255, 255, 255);
     border-radius: 3rem;
