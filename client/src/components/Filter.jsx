@@ -85,60 +85,81 @@ function Filter() {
   return (
     <>
       <div className="divider sticky" id="okk"></div>
-      <Element name="allContests" className="pt-24 flex md:flex-row flex-col justify-between">
-        <h2 style={{ marginBottom: '3%', fontSize: '3.5rem' }} className="text-white z-10 text-center lg:text-left"> Contests</h2>
-      
-      {/* //checkmarks */}
-      <div className={`filter-div w-fit self-center bg-cardsColor p-1 relative rounded-xl`}>
-        <FormControl
-          variant="filled"
-          sx={{ m: 1, minWidth: 300 }}
-          className={`filter bg-filter rounded-lg platform-container max-sm:justify-center`} // to make it fixed while scroll add class "fixed" on condition "isFixed"
+      <Element
+        name="allContests"
+        className="pt-24 flex md:flex-row flex-col justify-between"
+      >
+        <h2
+          style={{ marginBottom: "3%", fontSize: "3.5rem" }}
+          className="text-white z-10 text-center lg:text-left"
         >
-          <InputLabel variant="filled" id="platform-select-label" className="">
-            {selectedPlatforms.length == 0 ? "Platform" : ""}
-          </InputLabel>
-          <Select
-            labelId="platform-select-label"
-            id="platform-select"
-            open={open}
-            multiple
-            value={selectedPlatforms}
-            onClick={!open ? () => setOpen(true) : () => setOpen(false)}
-            onChange={handleChange}
-            input={<OutlinedInput id="select-multiple-chip" label=""/>}
-            // renderValue={(selected) => selected.join(" ")}
-            renderValue={(selected) => (
-              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-                {selected?.map((value) => (
-                  <Chip
-                    key={value}
-                    label={value}
-                    onDelete={() => handleDelete(value)}
-                  />
-                ))}
-              </Box>
-            )}
-            MenuProps={MenuProps}
+          {" "}
+          Contests
+        </h2>
+
+        {/* //checkmarks */}
+        <div
+          className={`filter-div w-fit self-center bg-cardsColor p-1 relative rounded-xl ${
+            window.innerWidth < 390 ? "max-sm:mx-auto" : ""
+          }`}
+        >
+          <FormControl
+            variant="filled"
+            sx={{ m: 1, minWidth: 300, maxWidth: "100%" }}
+            className={`filter bg-filter rounded-lg platform-container max-sm:justify-center`} // to make it fixed while scroll add class "fixed" on condition "isFixed"
           >
-            {/* All the platforms list is fetched here */}
-            {platforms.map((platform, idx) => (
-              <MenuItem key={platform} value={platform}>
-                {/* <Checkbox checked={selectedPlatforms.indexOf(platform) > -1} /> */}
-                <ListItemIcon>
-                  <img
-                    src={platformsIcon[idx]}
-                    alt="a"
-                    style={{ width: "20px", height: "20px", marginRight: "5%" }}
-                  />
-                </ListItemIcon>
-                <ListItemText primary={platform} />
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+            <InputLabel
+              variant="filled"
+              id="platform-select-label"
+              className=""
+            >
+              {selectedPlatforms.length == 0 ? "Platform" : ""}
+            </InputLabel>
+            <Select
+              labelId="platform-select-label"
+              id="platform-select"
+              open={open}
+              multiple
+              value={selectedPlatforms}
+              onClick={!open ? () => setOpen(true) : () => setOpen(false)}
+              onChange={handleChange}
+              input={<OutlinedInput id="select-multiple-chip" label="" />}
+              // renderValue={(selected) => selected.join(" ")}
+              renderValue={(selected) => (
+                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                  {selected?.map((value) => (
+                    <Chip
+                      key={value}
+                      label={value}
+                      onDelete={() => handleDelete(value)}
+                    />
+                  ))}
+                </Box>
+              )}
+              MenuProps={MenuProps}
+            >
+              {/* All the platforms list is fetched here */}
+              {platforms.map((platform, idx) => (
+                <MenuItem key={platform} value={platform}>
+                  {/* <Checkbox checked={selectedPlatforms.indexOf(platform) > -1} /> */}
+                  <ListItemIcon>
+                    <img
+                      src={platformsIcon[idx]}
+                      alt="a"
+                      style={{
+                        width: "20px",
+                        height: "20px",
+                        marginRight: "5%",
+                      }}
+                    />
+                  </ListItemIcon>
+                  <ListItemText primary={platform} />
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </div>
-        </Element>
+      </Element>
       <Element name="contests" className="contests-container z-[1]">
         {contestsData.length ? (
           <Contests contests={contestsData} />
