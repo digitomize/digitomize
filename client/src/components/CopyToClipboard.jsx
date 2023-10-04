@@ -53,16 +53,16 @@ function CopyToClipboard({ vanity, msg, gradient }) {
   );
   useEffect(() => {
     if (showModal) {
-      // document.body.classList.add('blur-background');
+      document.body.classList.add('blur-background');
       document.body.classList.add('disable-pointer-events');
 
     } else {
-      // document.body.classList.remove('blur-background');
+      document.body.classList.remove('blur-background');
       document.body.classList.remove('disable-pointer-events');
 
     }
     return () => {
-      // document.body.classList.remove('blur-background');
+      document.body.classList.remove('blur-background');
     };
   }, [showModal]);
   useEffect(() => {

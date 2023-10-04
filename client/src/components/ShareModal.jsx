@@ -17,13 +17,13 @@ export const ShareModal = ({showModal , setShowModal , contestLink}) => {
 
   const inputRef = useRef(null);
 
-  const handleCopyToClipboard = () => {
-    if (inputRef.current) {
-      inputRef.current.select();
-      document.execCommand('copy');
-      copyToClipboard();
-    }
-  };
+  // const handleCopyToClipboard = () => {
+  //   if (inputRef.current) {
+  //     inputRef.current.select();
+  //     document.execCommand('copy');
+  //     copyToClipboard();
+  //   }
+  // };
 
   const handleWhatsAppClick = () => {
     const Message = `Check out this link: ${contestLink}`;
