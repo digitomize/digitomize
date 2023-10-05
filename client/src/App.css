@@ -121,18 +121,21 @@ svg {
         height: calc(100vh - 100px);
     }
     .button {
-        width: 20.25rem;
-        height: 5.25rem;
+        width: 18.25rem;
+        height: 3.65rem;
         font-size: 25px;
     }
     #footer h2 {
         font-size: 38px;
     }
     .button-container h1 {
-        font-size: 4.5rem;
+        font-size: 3.5rem;
     }
     .button {
-        margin-top: 65px;
+        margin-top: 5px;
+    }
+    .button-container{
+        min-height:45vh;
     }
 }
 
