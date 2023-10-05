@@ -2,15 +2,16 @@
 
 # Digitomize
 
-**Digitomize**, where Talents and Opportunities Collide! Discover a ground-breaking open-source platform that smoothly blends User Profiles and Contests, providing you with the tools to succeed in coding competitions and highlight your professional expertise.
+**Digitomize** is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios.
 
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
-- [Teck Stack](#teck-stack)
-- [Installation Guide](#installation-guide)
-- [Sections](#sections)
+- [Getting Started](#getting-started)
+  - [Teck Stack](#teck-stack)
+  - [Installation Guide](#installation-guide)
+- [Usage](#usage)
   - [Contests Section](#contests-section)
   - [User Profiles](#user-profiles)
 - [Contributing](#contributing)
@@ -19,7 +20,7 @@
 
 ## Introduction
 
-**Digitomize** gives developers a thorough platform for exploring coding competitions and building dynamic portfolios that highlight their coding abilities and accomplishments.
+**Digitomize** is designed to provide developers with a comprehensive platform for exploring coding contests and creating dynamic portfolios that showcase their coding skills and achievements.
 
 ## Features
 
@@ -27,6 +28,7 @@
 
 - **User Profiles:** Create your developer portfolio by providing user handles for different coding platforms. The platform dynamically fetches and displays your updated ratings, achievements, and coding history.
 
+## Getting Started
 ### Teck Stack
 
   ### Frontend
@@ -50,7 +52,7 @@
 - For more information check  [Backend Documentation](/backend/README.md) and [Frontend Documentation](/client/README.md).
 4. Start the development environment: `npm run dev` (This command, defined in your project's package.json, starts both the backend server and the client using the concurrently library. It's a convenient way to run both parts of your application concurrently during development.)
 
-## Sections
+## Usage
 
 ### Contests Section
 
