@@ -2,6 +2,10 @@ import { useState, useEffect, memo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Typewriter from "typewriter-effect";
+import { Alert } from "@mui/material";
+import HomeIcon from "@mui/icons-material/Home";
+import WhatshotIcon from "@mui/icons-material/Whatshot";
+import GrainIcon from "@mui/icons-material/Grain";
 
 import "./css/IndividualCard.css";
 
@@ -27,6 +31,7 @@ function IndividualCard() {
 
   const params = useParams();
   const [contest, setContest] = useState(null);
+  const [msg, setMsg] = useState("");
   const vanity = params.vanity;
 
   useEffect(() => {
@@ -34,14 +39,21 @@ function IndividualCard() {
       .then((res) => res.json())
       .then((data) => setContest(data.results[0]))
       .catch((error) => console.error("Error fetching contest:", error));
+    
+      fetch(`${backendUrl}/random-message`)
+      .then((res) => res.json())
+      .then((data) => setMsg(data.message))
+      .catch((error) => console.error("Error fetching contest:", error));
   }, [vanity]);
+
+
   const [remaningTime, setRemainingTime] = useState("0");
   if (contest === null) {
     return (
       <div>
         <p>
           <Typewriter
-            options={{ loop: false, delay: 100, autoStart:true }}
+            options={{ loop: false, delay: 100, autoStart: true }}
             onInit={(typewriter) => {
               typewriter
                 .start()
@@ -49,19 +61,21 @@ function IndividualCard() {
                 .pauseFor(1000)
                 .deleteChars(3)
                 .pauseFor(1000)
-                .typeString('...')
+                .typeString("...")
                 .pauseFor(1000)
                 .deleteChars(3)
                 .pauseFor(1000)
-                .typeString('...')
+                .typeString("...")
                 .pauseFor(1000)
                 .deleteAll()
                 .changeDelay(1)
-                .typeString(`Looks like there's an error fetching the page, please contact admin.`)
-              
-                // .typeString("Welcomes You")
-                // .start();
-                // .stop();
+                .typeString(
+                  `Looks like there's an error fetching the page, please contact admin.`
+                );
+
+              // .typeString("Welcomes You")
+              // .start();
+              // .stop();
             }}
           />
         </p>
@@ -94,10 +108,10 @@ function IndividualCard() {
         <title>{name} | Digitomize</title>
         <meta property="og:title" content={contentTitle} />
         <meta property="og:description" content={contentDescription} />
-        <meta property="description" content={contentDescription} />
+        <meta name="description" content={contentDescription} />
       </Helmet>
       <div className="individualContestOuter">
-        <div style={{ width: "75%" }}>
+        {/* <div style={{ width: "75%" }}>
           <Link to="/contests">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -110,12 +124,50 @@ function IndividualCard() {
             </svg>
             Go to all contests
           </Link>
+        </div> */}
+
+<div className="feedback">
+          <Alert
+            severity="info"
+            sx={{
+              backgroundColor: "#1e1e1e",
+              color: "rgba(255, 255, 255, 0.75)",
+            }}
+          >
+            {msg}
+          </Alert>
         </div>
+
+        <div className="card_Navigation">
+          <div className="card_nav_path">
+            <Link to="/">
+              <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+              Home
+            </Link>
+          </div>
+          <h3>&gt;</h3>
+          <div className="card_nav_path">
+            <Link to="/contests">
+              <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+              Contests
+            </Link>
+          </div>
+          <h3>&gt;</h3>
+          <div className="card_nav_path">
+            <h3>
+              <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+              {name}
+            </h3>
+          </div>
+        </div>
+
 
         <div className="ic" key={vanity}>
           <div className="ic-child">
             <div className="ic-top">
-              <p id="startTime">{startTimeIST}</p>
+              <p id="startTime" style={{ maxWidth: "75%" }}>
+                {startTimeIST}
+              </p>
               <img
                 src={hostToSVGMap[host]}
                 alt={host}
@@ -128,7 +180,11 @@ function IndividualCard() {
             <div className="ic-lower-button">
               <div className="ic-inner-lower">
                 <p>Duration : {duration}min</p>
-                <div>{remaningTime}</div>
+                {remaningTime != 0 ? (
+                  <div>{remaningTime}</div>
+                ) : (
+                  <p>loading...</p>
+                )}
               </div>
 
               <div className="outerbtn">
@@ -157,9 +213,18 @@ function IndividualCard() {
             </div>
           </div>
         </div>
-        <div className="containerBottom">
+        {/* <div className="containerBottom">
           <br />
-        </div>
+        </div> */}
+      </div>
+      <div className="feedback" style={{ paddingBottom: "3%" }}>
+        <Alert severity="info">
+          We value your input! Share feedback or report issues at{" "}
+          <a href="/feedback" style={{ color: "rgb(21, 132, 255)" }}>
+            /feedback
+          </a>
+          .
+        </Alert>
       </div>
     </>
   );

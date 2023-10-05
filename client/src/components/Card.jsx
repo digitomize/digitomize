@@ -58,7 +58,7 @@ function Card({ contest }) {
       <div className="lower_button">
         <div className="inner_lower">
           <p>Duration : {duration}min</p>
-          <div>{remaningTime}</div>
+          {remaningTime != 0 ? <div>{remaningTime}</div> : <p>loading...</p>}
         </div>
         <div className="clip">
           <CopyToClipboard vanity={vanity} />

@@ -122,6 +122,7 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+.idea
 
 # yarn v2
 .yarn/cache
@@ -130,3 +131,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 .vercel
+
+# bun 1.0
+bun.lockb

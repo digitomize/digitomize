@@ -10,7 +10,7 @@ function Contests({ contests }) {
         <title>Contests | Digitomize</title>
         <meta property="og:title" content="Contests | Digitomize"/>
         <meta property="og:description" content={contentDescription} />
-        <meta property="description" content={contentDescription} />
+        <meta name="description" content={contentDescription} />
       </Helmet>
       <div className="allContests">
         {/* <h2>Contests</h2> */}
