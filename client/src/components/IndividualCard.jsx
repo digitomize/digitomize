@@ -46,11 +46,11 @@ function IndividualCard() {
 	const userTimezone = jstz.determine().name();
 
 	// Convert the Unix timestamp to a datetime in the specified timezone
-	const datetimeInTimezone = moment.unix(startTimeUnix).tz(userTimezone);
+	const dateTimeInTimezone = moment.unix(startTimeUnix).tz(userTimezone);
 
 	// Format the datetime as a string
-	const startDate = datetimeInTimezone.format('MMMM DD');
-	const startTime = datetimeInTimezone.format('h:mm A');
+	const startDate = dateTimeInTimezone.format('MMMM DD');
+	const startTime = dateTimeInTimezone.format('h:mm A');
 
 	setInterval(() => {
 		setRemainingTime(updateTimer(startTimeUnix, duration));
