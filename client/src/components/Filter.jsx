@@ -85,7 +85,7 @@ function Filter() {
   return (
     <>
       <Element name="newHead">
-        <h2 style={{ marginBottom: "5%" }}>Contests</h2>
+        <h2 style={{ marginBottom: "5%", marginLeft:"1%", marginRight:"1%" }}>Contests</h2>
       </Element>
       {/* //checkmarks */}
       <div className={`filter-div`}>

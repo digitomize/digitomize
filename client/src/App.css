@@ -136,6 +136,27 @@ svg {
     }
 }
 
+@media (max-width: 375px) {
+    .button-container{
+        justify-content: flex-start;
+        max-width:1000px;
+        height: calc(100vh - 100px);
+        padding: 0 2rem;
+    }
+    .button {
+        width: 16rem;
+        height: 5rem;
+        font-size: 22px;
+    }
+
+    .button-container h1 {
+        font-size: 3.5rem;
+    }
+    #footer h2 {
+        font-size: 28px;
+    }
+
+}
 /* @media (max-width: 1024px) {
     .container {
         max-width: 1024px;
