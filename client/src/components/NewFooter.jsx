@@ -40,40 +40,40 @@ export default function Footer() {
           </p>
         </aside>
         <nav className='flex justify-center items-center flex-col'>
-          <header className="footer-title lowercase text-3xl border-b-4 border-blue-500 p-1">Social</header>
+          <header className="text-light-font font-semibold lowercase text-3xl border-b-4 border-custom-blue p-1">Social</header>
           <a
             href="https://www.linkedin.com/company/digitomize"
-            className="link link-hover hover:text-custom-blue hover:scale-110 transition-all text-xl"
+            className="link link-hover hover:no-underline hover:text-custom-blue hover:scale-110 transition-all text-xl"
           >
             linkedin
           </a>
-          <a href="/discord" className="link link-hover hover:text-custom-blue hover:scale-110 transition-all text-xl">
+          <a href="/discord" className="link link-hover hover:no-underline hover:text-custom-blue hover:scale-110 transition-all text-xl">
             discord
           </a>
         </nav>
       </div>
       <div className="footer max-md:place-items-end justify-around md:self-start self-end">
         <nav className="flex justify-center items-center flex-col">
-          <header className="footer-title lowercase text-3xl border-b-4 border-blue-500 p-1">Company</header>
-          <a href="/updates" className="link link-hover hover:text-custom-blue hover:scale-110 transition-all text-xl">
+          <header className="text-light-font font-semibold lowercase text-3xl border-b-4 border-blue-500 p-1">Company</header>
+          <a href="/updates" className="link hover:no-underline link-hover hover:text-custom-blue hover:scale-110 transition-all text-xl">
             Updates
           </a>
-          <a href="/contact" className="link link-hover hover:text-custom-blue hover:scale-110 transition-all text-xl">
+          <a href="/contact" className="link hover:no-underline link-hover hover:text-custom-blue hover:scale-110 transition-all text-xl">
             Contact
           </a>
-          <a className="link link-hover hover:text-custom-blue hover:scale-110 transition-all text-xl">Jobs</a>
-          <a className="link link-hover hover:text-custom-blue hover:scale-110 transition-all text-xl">Press kit</a>
+          <a className="link link-hover hover:text-custom-blue hover:no-underline hover:scale-110 transition-all text-xl">Jobs</a>
+          <a className="link link-hover hover:text-custom-blue hover:no-underline hover:scale-110 transition-all text-xl">Press kit</a>
         </nav>
-        <nav className="flex justify-center items-center flex-col">
-          <header className="footer-title lowercase text-3xl border-b-4 border-blue-500 p-1">Legal</header>
-          <a className="link link-hover hover:text-custom-blue hover:scale-110 transition-all text-xl">Terms of use</a>
+        <nav className="flex justify-center items-center flex-col mr-2">
+          <header className="text-light-font font-semibold lowercase text-3xl border-b-4 border-blue-500 p-1 ">Legal</header>
+          <a className="link link-hover hover:no-underline hover:text-custom-blue hover:scale-110 transition-all text-xl">Terms of use</a>
           <a
             href="https://github.com/digitomize/digitomize/blob/main/LICENSE" 
-            className="link link-hover hover:text-custom-blue hover:scale-110 transition-all text-xl"
+            className="link link-hover hover:no-underline hover:text-custom-blue hover:scale-110 transition-all text-xl"
           >
             License
           </a>
-          <a className="link link-hover hover:text-custom-blue hover:scale-110 transition-all text-xl">Cookie policy</a>
+          <a className="link link-hover hover:hover:no-underline hover:text-custom-blue hover:scale-110 transition-all text-xl">Cookie policy</a>
         </nav>
       </div>
     </footer>
