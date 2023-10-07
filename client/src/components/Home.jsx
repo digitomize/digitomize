@@ -5,6 +5,7 @@ import Typewriter from "typewriter-effect";
 
 import Filter from "../components/Filter";
 import BgEllipse from "../components/BgEllipse";
+import ScrollToTop from "./ScrollToTop";
 
 // import "./css/Home.css"
 
@@ -65,6 +66,7 @@ function Home() {
         </div>
       </div> */}
       <div className="divider"></div>
+      <ScrollToTop toid={"allContests"} h={1} />
     </div>
   );
 }
