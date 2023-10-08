@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow: hidden;
   }
   .card a {
     text-decoration: none;
@@ -18,27 +19,33 @@
     margin-top: auto;
   }
 
-  @keyframes gradientChange {
-    0% {
-      background: #191919;
-    }
-    100% {
-      background: radial-gradient(
-        circle at top left,
-        #8d41aa 0%,
-        #ba356c 34.38%,
-        #f22c30 60.94%,
-        #f8573a 79.69%,
-        #fcbb57 100%
-      );
-    }
-  }
-  
-  .card:hover {
-    animation: gradientChange 0.15s ease-in-out forwards;
-    transform: scale(1.05);
+.card:hover {
+  transform: scale(1.05);
+}
 
-  }
+.card::before {
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: 0.15s ease-in-out;
+  background: radial-gradient(circle at top left,
+    #8d41aa 0%,
+    #ba356c 34.38%,
+    #f22c30 60.94%,
+    #f8573a 79.69%,
+    #fcbb57 100%);
+}
+
+.card:hover::before {
+  transition: 0.15s ease-in-out;
+  opacity: 1;
+}
+
   .top {
     display: flex;
     justify-content: space-between;
