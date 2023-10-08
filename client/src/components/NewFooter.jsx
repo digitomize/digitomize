@@ -1,7 +1,7 @@
 import logo from "../assets/logo.png";
 export default function Footer() {
   return (
-    <footer className="footer p-10 text-base-content md:items-center max-md:grid-flow-col lowercase">
+    <footer className="bg-base-200 footer p-10 text-base-content md:items-center max-md:grid-flow-col lowercase">
       <div className="footer justify-around">
         <aside>
           <img
