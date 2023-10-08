@@ -94,7 +94,11 @@ function Filter() {
           sx={{ m: 1, minWidth: 300 }}
           className={`filter platform-container`} // to make it fixed while scroll add class "fixed" on condition "isFixed"
         >
-          <InputLabel variant="filled" id="platform-select-label">
+          <InputLabel
+            variant="filled"
+            id="platform-select-label"
+            shrink={selectedPlatforms.length == 0 ? false : true}
+          >
             {selectedPlatforms.length == 0 ? "Platform" : ""}
           </InputLabel>
           <Select
