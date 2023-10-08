@@ -2,10 +2,6 @@
 
 ## Join us on [Discord](https://discord.gg/bsbBytBqBc)!
 
-## Version1
-![Alt](https://repobeats.axiom.co/api/embed/bba9aa3a153116dc2613339b8d7aedea568c0256.svg "Repobeats analytics image")
-
-## Version2
 ![Alt](https://repobeats.axiom.co/api/embed/19a7b2c475997b5acca4478b510a3fe7d43c9d07.svg "Repobeats analytics image")
 
 **Digitomize** is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios.
