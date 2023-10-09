@@ -9,7 +9,7 @@
 - [Introduction](#introduction)
 - [Features](#features)
 - [Getting Started](#getting-started)
-  - [Teck Stack](#teck-stack)
+  - [Tech Stack](#tech-stack)
   - [Installation Guide](#installation-guide)
 - [Usage](#usage)
   - [Contests Section](#contests-section)
@@ -29,7 +29,7 @@
 - **User Profiles:** Create your developer portfolio by providing user handles for different coding platforms. The platform dynamically fetches and displays your updated ratings, achievements, and coding history.
 
 ## Getting Started
-### Teck Stack
+### Tech Stack
 
   ### Frontend
   - React.js
