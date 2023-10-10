@@ -10,12 +10,13 @@ import HomePage2 from "./HomePage2";
 
 // import { useLocation } from "react-router-dom";
 import { Element, Link } from "react-scroll";
+import ScrollToTop from "./ScrollToTop";
 
 export default function NewHome() {
   // const location = useLocation();
   return (
     <div>
-      <div>
+      <div id="home" >
         <HomePage1/>
         <HomePage2/>
 
@@ -39,7 +40,7 @@ export default function NewHome() {
             </div>
           </div>
         </Element>
-
+        <ScrollToTop toid={"home"} h={2} />
       </div>
     </div>
   );
