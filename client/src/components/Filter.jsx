@@ -62,8 +62,8 @@ function Filter() {
     const selectedPlatformsParam = selectedPlatforms.join(",");
     // console.log(selectedPlatforms);
     const url = selectedPlatformsParam
-      ? `${backendUrl}/api/contests?host=${selectedPlatformsParam}`
-      : `${backendUrl}/api/contests`;
+      ? `${backendUrl}/contests?host=${selectedPlatformsParam}`
+      : `${backendUrl}/contests`;
 
     fetch(url)
       .then((response) => response.json())

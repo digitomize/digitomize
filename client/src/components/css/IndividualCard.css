@@ -5,176 +5,258 @@
     margin: 2% auto;
     height: 36.5rem;
     width: 56.5rem;
-    background: linear-gradient(45deg, #8D41AA 0%, #BA356C 34.38%, #F22C30 60.94%, #F8573A 79.69%, #FCBB57 100%);
-    border-radius: 10px;    
+    border-radius: 10px;
 }
+
 .ic-child {
     display: flex;
-    flex-direction: column;
-    height: 33rem;
-    width: 53rem;
+    flex-direction: row;
+    height: 36rem;
+    width: 56rem;
     border-radius: 10px;
     background: #1e1e1e;
-    padding:3%;
+    padding: 3%;
+    position: relative;
+    overflow: hidden;
 }
 
-.ic-child h2 {
-    width: 38.39706rem;
-    height: 4.37663rem;
-    flex-shrink: 0;
-    color: #FFF;
-    font-family: Outfit;
-    font-size: 2.5rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    text-transform: lowercase;
-    padding-bottom: 20%;
-    margin-left: 0;
-
-}
-.ic-top {
-    height: 30%;
+.ic-child-left {
     display: flex;
-    justify-content: space-between;
-    margin-top: 5%;
-}
-.ic-top p{
-    width: 17.30881rem;
-    height: 3.64719rem;
-    flex-shrink: 0;
-    color: rgba(255, 255, 255, 0.75);
-    font-family: Outfit;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    text-transform: lowercase;
+    flex: 0.7;
+    flex-direction: column;
+
 }
 
-.ic-lower-button {
+.ic-child-center {
+    flex: 0.05;
+}
+
+.ic-child-right {
     display: flex;
-    justify-content: space-between;
-    height: 33%;
-    margin-bottom: 0;
-}
-.ic-inner-lower{
-    align-self: center;
-}
-.ic-lower-button p {
-    color: rgba(255, 255, 255, 0.75);
-    font-family: Outfit;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-transform: lowercase;
+    flex-direction: column;
+    flex: 1;
 }
 
-.ic-lower-button button{
-    width: 24.375rem;
-    height: 4.375rem;
-    border-radius: 6.25rem;
-    background: #161616;
-    position: absolute;
-    top: 2%;
-    right: 1%;
-    color: rgba(255, 255, 255, 0.75);
-    font-family: Outfit;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-transform: lowercase;
-    cursor: pointer;
+.ic-child-right-first {
+    flex: 0.7;
+    text-align: center;
+}
+
+.ic-child-right-second {
+    display: flex;
+    flex: 0.5;
+    text-align: center;
+    vertical-align: center;
+    margin-bottom: 10px;
+}
+
+.ic-child-right-third {
+    height: max-content;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.ic-child-right-fourth {
+    text-align: center; 
+    flex: 1;
+    margin-top: 10px;
+}
+
+.bi-alarm {
+    margin-bottom: 2px;
 
 }
 
+.contest-name {
+    display: inline-block;
+    font-size: 30px;
+}
 
 .btn-div {
     display: flex;
     flex-direction: column;
-    width: 25.010rem;
-    height: 4.675rem;
-    border-radius: 7.7rem;
-    background: linear-gradient(45deg, #8D41AA 0%, #BA356C 34.38%, #F22C30 60.94%, #F8573A 79.69%, #FCBB57 100%);
+    width: 17.079rem;
+    height: 4rem;
+    border-radius: 0.444rem;
+    background: #E5E7EB;
     position: relative;
-    margin-top:10px;
+    margin-top: 12px;
+    margin-left: 105px;
+    transition: box-shadow 0.4s ease;
+}
+
+.btn-div:hover {
+    box-shadow: 0 0 0 !important;
+}
+
+.share-button {
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 17px;
+}
+
+.share-button-container {
+    margin-top: 20px;
+}
+
+.outerClipboard {
+    height: 100px;
+}
+
+.siteName {
+    font-size: 30px;
 
 }
 
-
-
-/* .share-button{
-    width:100px;
-} */
-
-
-/* .outerbtn{
-    display:flex;
-    flex-direction:column-reverse;
-
-} */
-
-.outerClipboard{
-    height:100px;
+.center-filled-box {
+    margin-top: 18px;
 }
+
+.first-filled-box {
+    margin-top: 29px;
+}
+
+.left-filled-box {
+    margin-left: 160px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.ic-child-left-zeroth {
+    flex: 1.5;
+}
+
+.ic-child-left-first {
+    flex: 1;
+}
+
+.ic-child-left-first-inner {
+    background-color: #FFCC00;
+    width: 8.133rem;
+    height: 2.588rem;
+    border-radius: 0.444rem;
+    margin-left: 100px;
+    margin-top: 5px;
+}
+
+.ic-child-left-second {
+    flex: 1;
+}
+
+.ic-child-left-third {
+    flex: 0.05;
+    background-color: white;
+    width: 100px;
+    height: 1px;
+    margin-left: 110px;
+}
+
+.ic-child-left-fourth {
+    flex: 1;
+}
+
+.ic-child-left-fifth {
+    flex: 0.05;
+    background-color: white;
+    width: 100px;
+    height: 1px;
+    margin-left: 110px;
+}
+
+.ic-child-left-sixth {
+    flex: 1;
+}
+
+.ic-child-left-seventh {
+    flex: 1;
+}
+
+.ic-child-left-seventh-inner {
+    width: 8.133rem;
+    height: 2.588rem;
+    border-radius: 0.444rem;
+    margin-left: 100px;
+    margin-top: 5px;
+}
+
+.ic-child-left-eight {
+    flex: 1.5;
+}
+
+.date {
+  display: block;
+  width: 400px;
+  height: 50px;
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  text-align: center;
+  line-height: 50px;
+  left: -150px;
+  top: 30px;  
+  font-family: arial;
+  font-size: 21px;
+}
+
+
 @media (max-width:768px) {
-    *{
-        margin:0px;
-        padding:0px;
+    * {
+        margin: 0px;
+        padding: 0px;
     }
 
-    .ic{
-        max-width:91vw;
+    .ic {
+        max-width: 91vw;
     }
 
-    .ic-top{
-        /* height:24 */
-        padding-right:1rem;
+    .ic-top {
+        padding-right: 1rem;
 
     }
 
-    #startTime{
-        margin-top:10px;
+    #startTime {
+        margin-top: 10px;
 
-        font-size:1.3rem;
+        font-size: 1.3rem;
     }
 
-    .ic-child{
-        max-width:90vw;
+    .ic-child {
+        max-width: 90vw;
         height: 36.2rem;
-        font-size:1px;
+        font-size: 1px;
     }
 
     #contest-title {
-        font-size: 1.75rem; /* Adjust this value as needed */
+        font-size: 1.75rem;
+        /* Adjust this value as needed */
         max-width: inherit;
-        margin-bottom: 4rem; /* Adjust this value as needed */
+        margin-bottom: 4rem;
+        /* Adjust this value as needed */
         text-align: center;
-      }
-    .btn-div{
-        max-width:70vw;
-        /* left:-1rem; */
-        margin-bottom:10px;
-        
+    }
+
+    .btn-div {
+        max-width: 70vw;
+        margin-bottom: 10px;
+
 
     }
-    .ic-lower-button{
-        flex-direction:column-reverse;
-        /* max-width:inherit; */
-        margin-left:10px;
-        margin-bottom:10px;
-        align-self:center;
-       
+
+    .ic-lower-button {
+        flex-direction: column-reverse;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        align-self: center;
+
 
     }
 
     .ic-lower-button button {
-        width:99%;
-        position:relative;
-        left:1px;
+        width: 99%;
+        position: relative;
+        left: 1px;
     }
 
-  
 }
