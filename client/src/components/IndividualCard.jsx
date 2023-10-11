@@ -3,9 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Typewriter from "typewriter-effect";
 import { Alert } from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
-import WhatshotIcon from "@mui/icons-material/Whatshot";
-import GrainIcon from "@mui/icons-material/Grain";
+import {HomeIcon, WhatshotIcon, GrainIcon} from "@mui/icons-material";
 
 import "./css/IndividualCard.css";
 
