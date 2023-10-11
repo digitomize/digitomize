@@ -6,6 +6,7 @@ const dataSyncer = require("./contest/controllers/DataSyncController");
 const contestSyncer = require("./contest/controllers/contestController");
 const contestRouter = require("./contest/routes/contestRoutes");
 const userRoutes = require('./users/routes/userRoutes');
+const communityRoutes = require('./community/routes/communityRoutes');
 const bodyParser = require('body-parser');
 const fetchContestsData = require('./fetchContests');
 
@@ -62,6 +63,10 @@ async function setupContestServer() {
     app.use("/contests", contestRouter);
 }
 
+async function setupCommunityServer() {
+    app.use("/community", communityRoutes);
+}
+
 async function startServersProduction() {
 
     try {
@@ -110,6 +115,10 @@ async function startServersDev() {
         if (process.env.CONTESTS === 'true') {
             await setupContestServer();
             servers.push("Contest");
+        }
+        if (process.env.COMMUNITY === 'true') {
+            await setupCommunityServer();
+            servers.push("Community");
         }
 
         console.log("┌──────────────────────────────────┐");
