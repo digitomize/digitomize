@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const validator=require("validator")
 const stringToggleSchema = new mongoose.Schema({
     data: String,
     showOnWebsite: Boolean
@@ -36,7 +36,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, "Email is required."],
         unique: { value: true, caseInsensitive: true },
-        lowercase: true
+        lowercase: true,
+        validate: {
+            validator: (value) => validator.isEmail(value),
+            message: 'Invalid email format'
+        }
     },
     email_show: {
         type: Boolean,

@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const secretKey = 'mykey'; // Change this to a secure secret key
 const User = require('../models/user/User');
-
+const validator=require("validator")
 // Takes the data and creates a new User in MongoDB
 const setUser = async (userData) => {
   try {
@@ -39,7 +39,10 @@ const setUser = async (userData) => {
 
 const getUser = async (username) => {
     try {
-        const user = await User.findOne({ username });
+        if(!validator.isAlphanumeric(username)){
+          throw new Error("Please provide valid username");//sanitize the input value from the user
+        }
+        const user = await User.findOne({ username }).exec();// use mongodb query builder to prevent nosql injection
         return user;
     } catch (error) {
         throw new Error('User not found');
