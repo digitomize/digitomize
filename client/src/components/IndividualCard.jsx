@@ -10,7 +10,6 @@ import codechef from '../assets/codechef.svg';
 import codeforces from '../assets/codeforces.svg';
 import Navbar from './Navbar';
 import CopyToClipboard from './CopyToClipboard';
-import jstz from 'jstz';
 import moment from 'moment-timezone';
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
@@ -43,7 +42,7 @@ function IndividualCard() {
 	const { host, name, url, startTimeUnix, duration } = contest;
 
 	// get user timezone from the browser
-	const userTimezone = jstz.determine().name();
+	const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 	// Convert the Unix timestamp to a datetime in the specified timezone
 	const dateTimeInTimezone = moment.unix(startTimeUnix).tz(userTimezone);
@@ -64,7 +63,7 @@ function IndividualCard() {
 					<div className="ic-top">
 						<p
 							id="startTime"
-							className="normal-case">
+							className="lowercase">
 							{startDate} at
 							<span>
 								<Link

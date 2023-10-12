@@ -22,7 +22,6 @@
     "flowbite": "^1.8.1",
     "flowbite-react": "^0.5.0",
     "js-cookie": "^3.0.5",
-    "jstz": "^2.1.1",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.4",
     "moment-timezone": "^0.5.43",

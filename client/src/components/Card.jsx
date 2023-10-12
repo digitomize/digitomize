@@ -1,6 +1,5 @@
 import { useState, useEffect, memo } from 'react';
 import { Link } from 'react-router-dom';
-import jstz from 'jstz';
 import moment from 'moment-timezone';
 import Button from './Button';
 // import "./css/Card.css";
@@ -21,7 +20,7 @@ const hostToSVGMap = {
 };
 
 // get user timezone from the browser
-const userTimezone = jstz.determine().name();
+const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 function Card({ contest }) {
 	const { name, startTimeUnix, url, duration, host, vanity } = contest;
@@ -51,7 +50,7 @@ function Card({ contest }) {
 			<div className="flex justify-between">
 				<p
 					id="startTime"
-					className="text-card-text font-light leading-tight text-lg max-md:text-sm normal-case">
+					className="text-card-text font-light leading-tight text-lg max-md:text-sm lowercase">
 					{startDate} at
 					<span className="ml-1 ">
 						<Link
