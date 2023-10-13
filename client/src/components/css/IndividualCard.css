@@ -71,7 +71,6 @@
 }
 
 .ic-child h2 {
-    /* width: 38.39706rem; */
     min-height: 4.37663rem;
     flex-shrink: 0;
     color: #FFF;
@@ -155,13 +154,6 @@
 
 }
 
-
-
-/* .share-button{
-    width:100px;
-} */
-
-
 .outerbtn{
     display:flex;
     flex-direction:column-reverse;
@@ -237,9 +229,8 @@
     }
 
     #contest-title {
-        font-size: 1.75rem; /* Adjust this value as needed */
+        font-size: 1.75rem; 
         max-width: inherit;
-        /* margin-bottom: 4rem; Adjust this value as needed */
       }
     .btn-div{
         max-width:70vw;
@@ -250,7 +241,6 @@
     }
     .ic-lower-button{
         flex-direction:column-reverse;
-        /* max-width:inherit; */
         margin-left:10px;
         margin-bottom:10px;
         align-self:center;
