@@ -21,6 +21,7 @@ const HeroSection = () => {
               }}
             />
           </p>
+          {/* Scroll to Contests button */}
           <Link to="newHead" smooth={true} duration={500}>
             <button className="button">
               go to contests

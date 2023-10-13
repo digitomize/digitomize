@@ -59,6 +59,7 @@ function Filter() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
+     // Fetch data from the backend API
     const selectedPlatformsParam = selectedPlatforms.join(",");
     const url = selectedPlatformsParam
       ? `${backendUrl}?host=${selectedPlatformsParam}`
@@ -89,7 +90,8 @@ function Filter() {
         <FormControl
           variant="filled"
           sx={{ m: 1, minWidth: 300 }}
-          className={`filter platform-container`} 
+          className={`filter platform-container`} // to make it fixed while scroll add class "fixed" on condition "isFixed"
+
         >
           <InputLabel
             variant="filled"
@@ -120,6 +122,7 @@ function Filter() {
             )}
             MenuProps={MenuProps}
           >
+             {/* All the platforms list is fetched here */}
             {platforms.map((platform, idx) => (
               <MenuItem key={platform} value={platform}>
                 <ListItemIcon>
