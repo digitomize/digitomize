@@ -165,7 +165,7 @@ export default function UserDashPersonal() {
     <>
     <ToastContainer />
     <NewNavbar />
-    <div className="px-8 md:ps-12 py-12 pt-24">
+    <div className="px-8 md:ps-12 py-12 pt-24 w-11/12 mx-auto">
       {/* <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
             <Checkbox />
         </div> */}
@@ -173,7 +173,7 @@ export default function UserDashPersonal() {
 
 
 
-      <div className=" w-full">
+      {/* <div className=" w-full">
         <label className="label">
           <span className="label-text">What is your name?</span>
         </label>
@@ -183,7 +183,7 @@ export default function UserDashPersonal() {
         </label>
         <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
 
-      </div>
+      </div> */}
 
 
       <div className="grid md:grid-cols-2 md:gap-2">
@@ -243,8 +243,13 @@ export default function UserDashPersonal() {
           </label>
           <Checkbox
             isCheckedState={formData.phoneNumber.showOnWebsite}
-            setState={updateShowOnWebsite("phoneNumber")}
-          />
+              setState={updateShowOnWebsite("phoneNumber")}
+              className="checkbox checkbox-success"
+            />
+            {/* <input type="checkbox" checked={formData.phoneNumber.showOnWebsite} onChange={(e) => {
+    updateShowOnWebsite("phoneNumber")(e.target.checked);
+            }} className="checkbox checkbox-success" /> */}
+
         </div>
         <div className="relative z-0 w-full md:w-3/4 mb-12 group">
           <input

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Form, useLoaderData } from 'react-router-dom'
 import Checkbox from '../components/Checkbox'
+import UserDashboard from "./UserDashboard"
 import { submitUserFormData, userDashboardDetails } from '../../../api'
 // import { useUserAuth } from '../../context/UserAuthContext'
 import { toast } from 'react-toastify'
@@ -133,6 +134,11 @@ export default function UserDashRatings() {
 
   if (data) {
     return (
+      <>
+        {/* <div className="max-phone:hidden">
+
+      <UserDashboard/>
+        </div> */}
       <div className="px-8 py-12 ">
         {/* <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
         <Checkbox />
@@ -214,7 +220,8 @@ export default function UserDashRatings() {
             Update
           </button>
         </Form>
-      </div>
+        </div>
+        </>
     );
   }
 }
