@@ -4,7 +4,6 @@ function Button({ url }) {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
       <button style={{background:'transparent',border:'none', cursor:'pointer'}}>
-        {/* go to contests */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="60"

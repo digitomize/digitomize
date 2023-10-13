@@ -17,12 +17,10 @@ const HeroSection = () => {
                 typewriter
                   .typeString(`#include "contests/upcoming"`)
                   .pauseFor(10000)
-                  // .typeString("Welcomes You")
                   .start();
               }}
             />
           </p>
-
           {/* Scroll to Contests button */}
           <Link to="newHead" smooth={true} duration={500}>
             <button className="button">
