@@ -89,8 +89,11 @@ function Logout() {
   // Conditionally render content based on the isLoggingOut state
   return (
     <div>
-      {isLoggingOut ? (
-        <div>Logging out...</div>
+      {isLoggingOut ? (<>
+        <div className="mt-24 min-h-[50vh] flex items-center justify-center"><h2 className="text-3xl px-4">Logging out</h2>
+          <span className="loading loading-dots loading-lg"></span>
+        </div>
+      </>
       ) : (
         <div>Logout completed.</div>
       )}
@@ -123,7 +126,7 @@ const router = createBrowserRouter(
           <Route
             index
             element={<UserDashboard />}
-            // loader={userDashPersonalLoader}
+          // loader={userDashPersonalLoader}
           />
           <Route
             path="personal"

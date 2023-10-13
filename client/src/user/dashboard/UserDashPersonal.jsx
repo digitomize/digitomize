@@ -4,6 +4,7 @@ import { submitUserFormData, userDashboardDetails } from "../../../api";
 import { useUserAuth } from "../../context/UserAuthContext";
 import axios from "axios";
 // import { toast } from "react-toastify";
+import DashboardNavbar from "../components/DashboardNavbar"
 import Checkbox from "../components/Checkbox";
 import NewNavbar from "../../components/NewNavbar";
 import { ToastContainer, toast } from 'react-toastify';
@@ -12,6 +13,7 @@ import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import { styled } from "@mui/material/styles";
+import NewFooter from "../../components/NewFooter";
 
 const ListItem = styled("li")(({ theme }) => ({
   margin: theme.spacing(0.5),
@@ -73,15 +75,15 @@ export default function UserDashPersonal() {
     name: personalData.name || "",
     phoneNumber: {
       data: personalData.phoneNumber.data || "",
-      showOnWebsite: personalData.phoneNumber.showOnWebsite || false,
+      showOnWebsite: personalData.phoneNumber.showOnWebsite || true,
     },
     dateOfBirth: {
       data: personalData.dateOfBirth.data || "",
-      showOnWebsite: personalData.dateOfBirth.showOnWebsite || false,
+      showOnWebsite: personalData.dateOfBirth.showOnWebsite || true,
     },
     bio: {
       data: personalData.bio.data || "",
-      showOnWebsite: personalData.bio.showOnWebsite || false,
+      showOnWebsite: personalData.bio.showOnWebsite || true,
     },
     skills: skillData.map((data) => data.label) || [],
     education: personalData.education || [],
@@ -164,8 +166,9 @@ export default function UserDashPersonal() {
   return (
     <>
     <ToastContainer />
-    <NewNavbar />
-    <div className="px-8 md:ps-12 py-12 pt-24 w-11/12 mx-auto">
+    <DashboardNavbar />
+    {/* <div className="px-8 md:ps-12 py-12 pt-24 w-11/12 mx-auto"> */}
+    <div className="px-8 mt-24 py-4 w-11/12 mx-auto">
       {/* <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
             <Checkbox />
         </div> */}
@@ -273,8 +276,7 @@ export default function UserDashPersonal() {
         </div>
       </div>
       <div className="relative z-0 w-full md:w-3/4 mb-12 group">
-        <input
-          type="text"
+        <textarea
           name="bio"
           id="bio"
           className="block py-2.5 px-0 w-full md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
@@ -361,7 +363,9 @@ export default function UserDashPersonal() {
           Update
         </button>
       </Form>
-    </div>
+      </div>
+      
+      <NewFooter/>
     </>
   );
 }

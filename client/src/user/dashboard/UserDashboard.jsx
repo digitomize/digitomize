@@ -21,6 +21,7 @@ import logo from "../../assets/logo.png";
 import Badge from '@mui/material/Badge';
 import MoodIcon from '@mui/icons-material/Mood';
 import Tooltip from "@mui/material/Tooltip";
+import NewFooter from "../../components/NewFooter"
 // import logo from "../assets/logo.png";
 
 export default function UserDashboard() {
@@ -105,6 +106,11 @@ export default function UserDashboard() {
                   {`${userData.personal_data.name}`}
                   {/* <div className="badge badge-secondary"></div> */}
                 </h2>
+                <div className="contact">
+
+                <p>{userData.personal_data.phoneNumber.data}</p>
+                <p>{userData.personal_data.email}</p>
+                </div>
                 <p>{userData.personal_data.bio.data}</p>
 
                 <div className="card-actions justify-end">
@@ -115,7 +121,7 @@ export default function UserDashboard() {
             <div className="cards flex flex-row flex-wrap items-center justify-evenly">
 
 
-              <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl">
+              <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl my-4">
                 <div className="card-body">
                   <h2 className="card-title">
                     <SettingsIcon fontSize="medium" />
@@ -124,16 +130,16 @@ export default function UserDashboard() {
                   </h2>
                   <p>If a dog chews shoes whose shoes does he choose?</p>
                   <div className="card-actions justify-end">
-                  <a href="/user/dashboard/personal">
-                    <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]">
-                      <SettingsIcon fontSize="large" />
+                    <a href="/user/dashboard/personal">
+                      <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]">
+                        <SettingsIcon fontSize="large" />
                       </button>
-                      </a>
+                    </a>
                   </div>
                 </div>
               </div>
 
-              <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl">
+              <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl my-4">
                 <div className="card-body">
                   <h2 className="card-title">
                     <TrendingUpIcon fontSize="medium" />
@@ -150,7 +156,7 @@ export default function UserDashboard() {
                 </div>
               </div>
 
-              <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl">
+              <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl my-4">
                 <div className="card-body">
                   <h2 className="card-title">
                     <GitHubIcon fontSize="medium" />
@@ -162,7 +168,7 @@ export default function UserDashboard() {
                     <Tooltip title="coming soon" placement="top">
                       <span>
 
-                      <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]"><GitHubIcon fontSize="large" /></button>
+                        <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]"><GitHubIcon fontSize="large" /></button>
                       </span>
                     </Tooltip>
                   </div>
@@ -172,6 +178,9 @@ export default function UserDashboard() {
 
             </div>
           </div>
+          <div className="w-full flex justify-center my-16">
+            <div className="divider w-3/5"></div>
+          </div>
         </div>
 
 
@@ -179,7 +188,7 @@ export default function UserDashboard() {
 
         {/* FOR PHONE */}
         <div className="phone:hidden">
-          <div className='flex flex-col max-phone:pt-24 md:mt-0 w-11/12 mx-auto'>
+          <div className='flex flex-col max-phone:pt-32 md:mt-0 w-11/12 mx-auto'>
 
             <div className="personal m-auto flex flex-row">
               <div className="Ellipse3 w-[50px] h-[50px] m-2" >
@@ -259,7 +268,7 @@ export default function UserDashboard() {
                   </li>
                   <div className="divider w-4/5 self-center m-0 p-0"></div>
                   <li>
-                    <NavLink to='account' className="p-0 mb-2">
+                    <NavLink to='personal' className="p-0 mb-2">
 
                       <SettingsIcon fontSize="large" />
                       <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> account</span>   <KeyboardDoubleArrowRightIcon /></h2>
@@ -269,7 +278,7 @@ export default function UserDashboard() {
               </div>
 
             </div>
-            <div className="logout py-8 self-center">
+            <div className="logout py-16 self-center">
 
               <NewLogOut isDisabled={false} btnName="sign out" onClickFunction={handleLogout} />
 
@@ -318,6 +327,7 @@ export default function UserDashboard() {
           </div>*/}
           </div>
         </div>
+        <NewFooter />
       </>
     )
   }
