@@ -7,7 +7,7 @@ export default function SignoutButton() {
 
     function handleClick() {
         Cookies.remove("jwt");
-        history("/login"); // Use history.push to redirect
+        history("/login"); 
     }
 
     return (

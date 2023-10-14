@@ -31,10 +31,10 @@ const MenuProps = {
       width: 250,
       backgroundColor: "#252525",
       color: "white",
-      borderTopLeftRadius: "1px", // Add this line
-      borderTopRightRadius: "1px", // Add this line
-      borderBottomLeftRadius: "10px", // Add this line
-      borderBottomRightRadius: "10px", // Add this line
+      borderTopLeftRadius: "1px", 
+      borderTopRightRadius: "1px", 
+      borderBottomLeftRadius: "10px", 
+      borderBottomRightRadius: "10px", 
     },
   },
 };
@@ -59,9 +59,8 @@ function Filter() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    // Fetch data from the backend API
+     // Fetch data from the backend API
     const selectedPlatformsParam = selectedPlatforms.join(",");
-    // console.log(selectedPlatforms);
     const url = selectedPlatformsParam
       ? `${backendUrl}?host=${selectedPlatformsParam}`
       : backendUrl;
@@ -87,14 +86,18 @@ function Filter() {
       <Element name="newHead">
         <h2 style={{ marginBottom: "5%" }}>Contests</h2>
       </Element>
-      {/* //checkmarks */}
       <div className={`filter-div`}>
         <FormControl
           variant="filled"
           sx={{ m: 1, minWidth: 300 }}
           className={`filter platform-container`} // to make it fixed while scroll add class "fixed" on condition "isFixed"
+
         >
-          <InputLabel variant="filled" id="platform-select-label">
+          <InputLabel
+            variant="filled"
+            id="platform-select-label"
+            shrink={selectedPlatforms.length == 0 ? false : true}
+          >
             {selectedPlatforms.length == 0 ? "Platform" : ""}
           </InputLabel>
           <Select
@@ -106,7 +109,6 @@ function Filter() {
             onClick={!open ? () => setOpen(true) : () => setOpen(false)}
             onChange={handleChange}
             input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-            // renderValue={(selected) => selected.join(" ")}
             renderValue={(selected) => (
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                 {selected?.map((value) => (
@@ -120,10 +122,9 @@ function Filter() {
             )}
             MenuProps={MenuProps}
           >
-            {/* All the platforms list is fetched here */}
+             {/* All the platforms list is fetched here */}
             {platforms.map((platform, idx) => (
               <MenuItem key={platform} value={platform}>
-                {/* <Checkbox checked={selectedPlatforms.indexOf(platform) > -1} /> */}
                 <ListItemIcon>
                   <img
                     src={platformsIcon[idx]}

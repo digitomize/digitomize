@@ -19,7 +19,7 @@ import UserDashboard, {
   loader as dashboardLoader,
 } from "./components/UserDashboard.jsx";
 import Feedback from "./components/Feedback.jsx";
-// import { requireAuth } from '../utils.js'
+import Hacktoberfest from "./components/Hacktoberfest.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,10 +39,14 @@ const router = createBrowserRouter([
         element: <Feedback />,
       },
       {
-        path: "login",
-        element: <Login />,
-        loader: loginLoader,
-        action: loginAction,
+        path:"/hacktoberfest",
+        element: <Hacktoberfest/>
+      },
+      {
+        path : "login",
+        element : <Login />,
+        loader : loginLoader,
+        action : loginAction
       },
       {
         path: "signup",

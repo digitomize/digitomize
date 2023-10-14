@@ -13,7 +13,6 @@ function Contests({ contests }) {
         <meta name="description" content={contentDescription} />
       </Helmet>
       <div className="allContests">
-        {/* <h2>Contests</h2> */}
         <div
           className="allContests"
           style={{

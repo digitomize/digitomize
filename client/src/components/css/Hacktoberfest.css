@@ -1,0 +1,251 @@
+/* JetBrains Mono,monospace */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+.hacktoberfest-container{
+    display: flex;
+    width: 100%;
+    margin: auto;
+
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+img{
+    border-radius: 10px;
+}
+.hacktoberfest-info{
+    display: flex;
+    width: 100%;
+    margin: auto;
+
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.para{
+    font-family: 'Source Code Pro';
+    font-size: 120%;
+    width: 90%;
+    margin: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align:left;
+    flex-direction: column;
+    line-height: 1.6;
+}
+@media (max-width: 670px) {
+    .head1,.head3 {
+        text-align:center;
+
+    }
+  }    
+.opensource{
+    color: #D2B863;
+}
+.hcktober{
+    color: #D2B863;
+}
+
+h1{
+    margin: 3%;
+    font-family: 'JetBrains Mono',monospace;
+    font-size: 400%;
+}
+@media (max-width: 670px) {
+    h1 {
+      font-size: 320%;
+    }
+  }    
+  @media (max-width: 513px) {
+    h1 {
+      font-size: 210%;
+    }
+  }    
+  
+.octoberfest{
+    text-decoration: none;
+    color:#D2B863;
+    text-shadow:0 0 27px #D2B863 ;
+    transition: text-shadow 0.5s ease-in-out;
+    animation: shadowAnimationtext 1.6s infinite alternate; 
+}
+@keyframes shadowAnimationtext {
+    0% {
+        text-shadow:0 0 7px #D2B863 ;
+    }
+    100% {
+        text-shadow:0 0 17px #D2B863 ;
+    }
+}
+.segment{
+    border: 1px #D2B863;
+    border-style: dashed;
+    border-left-color: black;
+    border-right-color: black;
+    height:2vh;
+}
+.head2{
+color: #D2B863;
+}
+.head1{
+    font-family: 'JetBrains Mono',monospace;
+    font-size: 150%;
+    font-weight: 800;
+    color: white;
+    margin: auto;
+
+}
+.hacktoberfest-image {
+    margin: 5%;
+    border-radius: 10px;
+    width: 80%;
+    height: 80%;
+    align-items: center;
+    border: 2px solid #D2B863;
+    box-shadow: 0 0 10px #D2B863; /* Initial shadow style */
+    transition: box-shadow 0.5s ease-in-out;
+    animation: shadowAnimation 1.4s infinite alternate; /* 2s duration, infinite, alternate direction */
+}
+@keyframes shadowAnimation {
+    0% {
+        box-shadow: 0 0 3px #D2B863; /* Initial shadow style */
+    }
+    100% {
+        box-shadow: 0 0 40px #D2B863; /* New shadow style */
+    }
+}
+
+.hacktoberFestWebsite{
+    text-decoration: none;
+    color:#D2B863;
+}
+.repolink{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+
+}
+.github{
+    margin: 1%;
+}
+.fork{
+    width:100%;
+    height: 25%;
+}
+.getstarted{
+        width:100%;
+}
+.btn-github{
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left:18px ;
+    padding-right:18px ;
+    font-size: 20px;
+    font-family: 'JetBrains Mono';
+    border: 2px solid #000000;
+    transition: 0.5s;
+    margin: 2%;
+    /* width: 150%; */
+    cursor: pointer;
+}
+.btn-github:hover{
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+/* .links{
+    display:flex;
+    justify-content:space-around;
+    width: 50%;
+    align-items:center;
+    flex-direction: row;
+    margin: 2%;
+} */
+.links{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.dclinkedin{
+    display: flex;
+    justify-content:space-evenly;
+    width: 80%;
+    align-items: center;
+    flex-direction: row;
+    margin: 2%;
+}
+@media (max-width: 500px) {
+    .dclinkedin {
+        flex-direction: column;
+    }
+  }    
+  
+.social-links{
+    margin: 2%;
+    width: fit-content;
+}
+
+.discordlink{
+    display: flex;
+    justify-content: space-around;
+}
+.headline{
+    font-family: 'JetBrains Mono',monospace;
+    font-weight: 800;
+    color: white;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+.btn-discord{
+    background-color: #7289DA;
+    color: white;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left:18px ;
+    padding-right:18px ;
+    font-size: 20px;
+    font-family: 'JetBrains Mono';
+    border: 2px solid #7289DA;
+    transition: 0.5s;
+    margin: 2%;
+    /* width: 150%; */
+    cursor: pointer;
+}
+.btn-discord:hover{
+    background-color:white;
+    color: #7289DA;
+}
+.btn-linkedin{
+    background-color:#0a66c2;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'JetBrains Mono';
+    border: 2px solid #0a66c2;
+    transition: 0.5s;
+    /* width: 150%; */
+    margin: 2%;
+    cursor: pointer;
+}
+.btn-linkedin:hover{
+    background-color:white;
+    color: #0a66c2;
+    
+}

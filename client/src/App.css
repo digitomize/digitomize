@@ -8,7 +8,7 @@ body {
   font-family: 'Outfit', sans-serif;}
 
 .container {
-  height: 100vh; /* Set the container height to 100% of viewport height */
+  height: 100vh; 
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -16,7 +16,7 @@ body {
 }
 
 .button-container {
-  /* flex: 1; The button container will take the first half of the viewport height */
+
   min-height: 85vh;
   display: flex;
   flex-direction: column;
@@ -85,7 +85,7 @@ svg {
     #FCBB57 100%
   );
   background-position: bottom;
-  background-size: 100% 5px; /* Adjust the size of the gradient line as needed */
+  background-size: 100% 5px; 
   background-repeat: no-repeat;
 }
 #footer {
@@ -135,19 +135,3 @@ svg {
         margin-top: 65px;
     }
 }
-
-/* @media (max-width: 1024px) {
-    .container {
-        max-width: 1024px;
-    }
-}
-@media (max-width: 1280px) {
-    .container {
-        max-width: 1280px;
-    }
-}
-@media (max-width: 1536px) {
-    .container {
-        max-width: 1536px;
-    }
-} */
