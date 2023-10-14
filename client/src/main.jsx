@@ -19,7 +19,7 @@ import UserDashboard, {
   loader as dashboardLoader,
 } from "./components/UserDashboard.jsx";
 import Feedback from "./components/Feedback.jsx";
-// import { requireAuth } from '../utils.js'
+import Hacktoberfest from "./components/Hacktoberfest.jsx";
 
 const router = createBrowserRouter([
   {
