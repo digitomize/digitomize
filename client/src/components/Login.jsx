@@ -123,10 +123,10 @@ export default function Login() {
 
     // const message = useLoaderData()
     return (
-        <div className="outer-login-div">
+        <div className="flex items-center justify-center mt-24 md:mt-0">
             <ToastContainer />
             <div className="login-container">
-                <h1>Sign in to your account</h1>
+                <h1 className="text-center">Sign in to your account</h1>
                 {/* {message && toast.success(message)} */}
                 {error && <h3 className="red">{error}</h3>}
 
@@ -150,7 +150,7 @@ export default function Login() {
                         </div>
                     </div>
                     <div className="md:flex md:items-center items-center">
-                        <div className="md:w-2/3 ">
+                        <div className="w-full">
                             {/* <button disabled={navigation.state === "submitting"} className="shadow bg-white  drop-shadow-2xl focus:shadow-outline focus:outline-none font-light text-black  py-2 px-12 rounded" type="submit">
                                 {navigation.state === "submitting"
                                     ? "Logging in..."
@@ -169,7 +169,7 @@ export default function Login() {
                     <GoogleButton type="light" className={`g-btn`} onClick={handleGoogleSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with google'}`} style={{backgroundColor:"white"}}/>
                     <GithubButton type="light" onClick={handleGithubSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with github'}`} style={{backgroundColor:"white"}}>Github</GithubButton>
                     </div>
-                <p> New user ? <Link to="/signup">Signup</Link></p>
+                <p className="w-full text-center pb-5"> New user ? <Link to="/signup" className="text-[#4285f4]">Signup</Link></p>
             </div>
         </div>
     )
