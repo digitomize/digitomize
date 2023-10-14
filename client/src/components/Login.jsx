@@ -124,46 +124,47 @@ export default function Login() {
     return (
         <div className="flex items-center justify-center mt-24 md:mt-0">
             <ToastContainer />
-            <div className="flex flex-col overflow-auto px-[27px] my-0 mx-auto font-outfit text-[1.5rem]">
-                <h1 className="text-center">Sign in to your account</h1>
+            <div className="flex flex-col overflow-auto px-[27px] my-0 mx-auto font-outfit text-[1.5rem] justify-center items-center">
+                <h1 className="text-4xl text-center">Sign in to your account</h1>
                 {/* {message && toast.success(message)} */}
-                {error && <h3 className="text-[#cc0000]">{error}</h3>}
-
-                <Form
-                    onSubmit={handleSubmit}
-                    className="flex flex-col w-full max-w-lg mt-5"
-                    replace
-                >
-                    <div className="flex flex-wrap -mx-3 mb-6">
-                        <div className="w-full px-3">
-                            <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-email">
-                                Email
-                            </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-email" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                {error && <h3 className="text-[#cc0000] text-center">{error}</h3>}
+                <div className="flex w-full justify-center">
+                    <Form
+                        onSubmit={handleSubmit}
+                        className="flex flex-col w-full max-w-lg mt-5"
+                        replace
+                    >
+                        <div className="flex flex-wrap -mx-3 mb-6">
+                            <div className="w-full px-3">
+                                <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-email">
+                                    Email
+                                </label>
+                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-email" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                            </div>
+                            <div className="w-full px-3">
+                                <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-password">
+                                    Password
+                                </label>
+                                <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" onChange={(e) => setPassword(e.target.value)} placeholder="******************" />
+                            </div>
                         </div>
-                        <div className="w-full px-3">
-                            <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-password">
-                                Password
-                            </label>
-                            <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" onChange={(e) => setPassword(e.target.value)} placeholder="******************" />
-                        </div>
-                    </div>
-                    <div className="md:flex md:items-center items-center">
-                        <div className="w-full">
-                            {/* <button disabled={navigation.state === "submitting"} className="shadow bg-white  drop-shadow-2xl focus:shadow-outline focus:outline-none font-light text-black  py-2 px-12 rounded" type="submit">
-                                {navigation.state === "submitting"
+                        <div className="md:flex md:items-center items-center">
+                            <div className="w-full">
+                                {/* <button disabled={navigation.state === "submitting"} className="shadow bg-white  drop-shadow-2xl focus:shadow-outline focus:outline-none font-light text-black  py-2 px-12 rounded" type="submit">
+                                    {navigation.state === "submitting"
+                                        ? "Logging in..."
+                                        : "Log in"
+                                    }
+                                </button> */}
+                                <SignoutButton onClickFunction={(e) => handleSubmit} isDisabled={navigation.state === "submitting"} btnName={navigation.state === "submitting"
                                     ? "Logging in..."
-                                    : "Log in"
-                                }
-                            </button> */}
-                            <SignoutButton onClickFunction={(e) => handleSubmit} isDisabled={navigation.state === "submitting"} btnName={navigation.state === "submitting"
-                                ? "Logging in..."
-                                : "Log in"}
-                                backgroundColor="bg-[#4285f4]"
-                            />
+                                    : "Log in"}
+                                    backgroundColor="bg-[#4285f4]"
+                                />
+                            </div>
                         </div>
-                    </div>
-                </Form>
+                    </Form>
+                </div>
                 <div className="flex flex-col items-center p-5 gap-2">
                     <GoogleButton type="light" className={`g-btn`} onClick={handleGoogleSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with google'}`} style={{backgroundColor:"white"}}/>
                     <GithubButton type="light" onClick={handleGithubSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with github'}`} style={{backgroundColor:"white"}}>Github</GithubButton>
