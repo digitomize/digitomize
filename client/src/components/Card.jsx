@@ -1,6 +1,5 @@
 import { useState, useEffect, memo } from "react";
 import { Link } from "react-router-dom";
-
 import Button from "./Button";
 import "./css/Card.css";
 import geeksforgeeks from "../assets/geeksforgeeks.svg";

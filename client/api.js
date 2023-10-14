@@ -1,7 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
-import { redirect } from "react-router-dom";
 
 export async function loginUser({ username, password }) {
   const res = await axios.post("http://localhost:4001/user/login", {
