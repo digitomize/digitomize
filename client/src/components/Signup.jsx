@@ -7,6 +7,8 @@ import { auth } from '../../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useUserAuth } from '../context/UserAuthContext';
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+import SignoutButton from "../user/components/SignoutButton"
+
 
 export async function loader() {
     const loggedIn = await isLoggedIn();
@@ -118,12 +120,13 @@ export default function Signup() {
                     </div>
                     <div className="md:flex md:items-center items-center">
                         <div className="flex w-full justify-center">
-                            <button disabled={navigation.state === "submitting"} className="shadow bg-zinc-100 drop-shadow-2xl focus:shadow-outline focus:outline-none font-dark  py-2 px-12 text-slate-900 rounded">
-                                {navigation.state === "submitting" ? "Signing up..." : "Sign up"}
-                            </button>
+                            <SignoutButton isDisabled={navigation.state === "submitting"} btnName={navigation.state === "submitting"
+                                ? "Signing up..."
+                                : "Sign up"}
+                                backgroundColor="bg-[#4285f4]"
+                            />
                         </div>
                     </div>
-
                 </Form>
             </div>
         </div>
