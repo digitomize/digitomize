@@ -3,9 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Typewriter from "typewriter-effect";
 import { Alert } from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
-import WhatshotIcon from "@mui/icons-material/Whatshot";
-import GrainIcon from "@mui/icons-material/Grain";
+import {Home as HomeIcon, Whatshot as WhatshotIcon, Grain as GrainIcon} from "@mui/icons-material";
 
 import "./css/IndividualCard.css";
 
@@ -26,7 +24,6 @@ function IndividualCard() {
     codeforces: codeforces,
     geeksforgeeks: geeksforgeeks,
     codechef: codechef,
-    // Add other hosts and their corresponding SVG variables here
   };
 
   const params = useParams();
@@ -72,14 +69,9 @@ function IndividualCard() {
                 .typeString(
                   `Looks like there's an error fetching the page, please contact admin.`
                 );
-
-              // .typeString("Welcomes You")
-              // .start();
-              // .stop();
             }}
           />
         </p>
-        {/* Loading... */}
       </div>
     );
   }
@@ -111,20 +103,6 @@ function IndividualCard() {
         <meta name="description" content={contentDescription} />
       </Helmet>
       <div className="individualContestOuter">
-        {/* <div style={{ width: "75%" }}>
-          <Link to="/contests">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="45"
-              height="23"
-              viewBox="0 0 60 23"
-              fill="none"
-            >
-              <path d="M59.0419 13.0791C59.6379 12.5037 59.6545 11.5541 59.0791 10.9581L49.7021 1.24619C49.1267 0.650216 48.177 0.633556 47.5811 1.20898C46.9851 1.7844 46.9684 2.734 47.5439 3.32997L55.879 11.9628L47.2462 20.2979C46.6502 20.8733 46.6336 21.8229 47.209 22.4189C47.7844 23.0149 48.734 23.0315 49.33 22.4561L59.0419 13.0791ZM0.973688 12.4998L57.9737 13.4998L58.0263 10.5002L1.02631 9.50023L0.973688 12.4998Z" />
-            </svg>
-            Go to all contests
-          </Link>
-        </div> */}
 
 <div className="feedback">
           <Alert
@@ -192,14 +170,6 @@ function IndividualCard() {
                   <a href={url} target="_blank" rel="noopener noreferrer">
                     <button>
                       Participate
-                      {/* <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="55"
-                      height="20"
-                      viewBox="0 0 45 23"
-                      fill="none">
-                      <path d="M44.5402 13.0967C45.1372 12.5204 45.1556 11.5708 44.5812 10.9758L35.2213 1.27994C34.6469 0.684948 33.6973 0.669852 33.1002 1.24622C32.5032 1.82258 32.4848 2.77215 33.0591 3.36714L41.3791 11.9857L32.7306 20.3345C32.1336 20.9109 32.1152 21.8605 32.6896 22.4554C33.264 23.0504 34.2136 23.0655 34.8106 22.4892L44.5402 13.0967ZM0.720964 12.8395L43.4711 13.5191L43.5292 10.5197L0.779036 9.84009L0.720964 12.8395Z" fill="white" />
-                    </svg> */}
                     </button>
                   </a>
                 </div>
@@ -209,13 +179,9 @@ function IndividualCard() {
                   gradient={"btn-div"}
                 />
               </div>
-              {/* <Button  url={url}/> */}
             </div>
           </div>
         </div>
-        {/* <div className="containerBottom">
-          <br />
-        </div> */}
       </div>
       <div className="feedback" style={{ paddingBottom: "3%" }}>
         <Alert severity="info">
@@ -234,7 +200,6 @@ export default IndividualCard;
 
 function updateTimer(startTime, duration) {
   const currentTime = Math.floor(Date.now() / 1000);
-  // const currentTime = getCurrentTimeIST();
   const timeDiff = startTime - currentTime;
   if (duration + startTime < currentTime) {
     return <p>the contest has ended</p>;

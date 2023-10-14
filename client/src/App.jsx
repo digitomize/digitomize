@@ -13,7 +13,7 @@ function App() {
     <div className="container">
       <BgEllipse />
         <HeroSection />
-        {/* <------ Filter for Contest | STARTS------> */}
+         {/* <------ Filter for Contest | STARTS------> */}
         <Filter/>
         <BottomContainer />
     </div>

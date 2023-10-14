@@ -54,9 +54,6 @@ function Navbar() {
           <Link to="/feedback"className='link' >
             <li onClick={()=>toggleActive()} className='contents'>Feedback</li>
           </Link>
-          {/* <Link to={path} className='link'>
-            <li  onClick={()=>toggleActive()} className='contents'>{btnMessage}</li>
-          </Link> */}
         </div>
 
         <div onClick={()=>toggleActive()} className={`closeMenu ${isMenuActive ? 'active' : ''}`}>close</div>
