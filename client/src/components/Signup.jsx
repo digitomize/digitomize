@@ -1,6 +1,5 @@
 import React from 'react'
 import { useNavigation, Form, redirect, useActionData } from 'react-router-dom'
-
 import { signupUser, isLoggedIn } from '../../api'
 
 export function loader(){
