@@ -149,8 +149,8 @@ export default function Login() {
                             <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" onChange={(e) => setPassword(e.target.value)} placeholder="******************" />
                         </div>
                     </div>
-                    <div className="md:flex md:items-center items-center">
-                        <div className="md:w-2/3 ">
+                    <div className="flex items-center justify-center">
+                        <div className="">
                             {/* <button disabled={navigation.state === "submitting"} className="shadow bg-white  drop-shadow-2xl focus:shadow-outline focus:outline-none font-light text-black  py-2 px-12 rounded" type="submit">
                                 {navigation.state === "submitting"
                                     ? "Logging in..."
