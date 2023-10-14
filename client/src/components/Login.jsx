@@ -165,8 +165,8 @@ export default function Login() {
                         </div>
                     </div>
                 </Form>
-                <GoogleButton type="light" className={`g-btn`} onClick={handleGoogleSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with google'}`} style={{backgroundColor:"white"}}/>
-                <div className="bg-black">
+                <div className="flex flex-col items-center p-5 gap-2">
+                    <GoogleButton type="light" className={`g-btn`} onClick={handleGoogleSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with google'}`} style={{backgroundColor:"white"}}/>
                     <GithubButton type="light" onClick={handleGithubSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with github'}`} style={{backgroundColor:"white"}}>Github</GithubButton>
                     </div>
                 <p> New user ? <Link to="/signup">Signup</Link></p>
