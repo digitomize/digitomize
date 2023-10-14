@@ -81,7 +81,7 @@ export default function Signup() {
 
     return (
         <div className="flex items-center justify-center mt-24 mb-10 md:mt-0">
-            <div className="flex flex-col px-[27px] my-0 mx-auto font-outfit text-[1.5rem] justify-center items-center">
+            <div className="flex flex-col overflow-hidden px-[27px] my-0 mx-auto font-outfit text-[1.5rem] justify-center items-center">
                 <h1 className='text-4xl text-center'>Sign up your account</h1>
                 {error && <h3 className="text-[#cc0000] text-center">{error}</h3>}
                 <div className="flex w-full justify-center">

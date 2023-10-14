@@ -124,7 +124,7 @@ export default function Login() {
     return (
         <div className="flex items-center justify-center mt-24 md:mt-0">
             <ToastContainer />
-            <div className="flex flex-col overflow-auto px-[27px] my-0 mx-auto font-outfit text-[1.5rem] justify-center items-center">
+            <div className="flex flex-col overflow-hidden px-[27px] my-0 mx-auto font-outfit text-[1.5rem] justify-center items-center">
                 <h1 className="text-4xl text-center">Sign in to your account</h1>
                 {/* {message && toast.success(message)} */}
                 {error && <h3 className="text-[#cc0000] text-center">{error}</h3>}
