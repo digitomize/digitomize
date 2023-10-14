@@ -40,7 +40,11 @@ import Feedback from "./components/Feedback";
 // import ProtectedRoute from "./ProtectedRoute"
 function DiscordRedirect() {
   window.location.href = "https://discord.gg/bsbBytBqBc";
-  return null;
+  return( 
+  <div className="flex flex-col justify-center items-center h-[60vh]">
+    <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
+    <h1 className="text-2xl ml-4">Redirecting to Discord</h1>
+  </div>)
 }
 function ContributeRedirect() {
   window.location.href = "https://github.com/pranshugupta54/digitomize";
