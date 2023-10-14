@@ -135,7 +135,7 @@ export default function Login() {
                     className="login-form"
                     replace
                 >
-                    <div className="flex flex-wrap -mx-3 mb-6">
+                    <div className="flex flex-wrap -mx-3 mb-4">
                         <div className="w-full px-3">
                             <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-email">
                                 Email
@@ -165,11 +165,14 @@ export default function Login() {
                         </div>
                     </div>
                 </Form>
+                <div className="flex flex-col items-center justify-center gap-2">
+
                 <GoogleButton type="light" className={`g-btn`} onClick={handleGoogleSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with google'}`} style={{backgroundColor:"white"}}/>
-                <div className="bg-black">
+              
                     <GithubButton type="light" onClick={handleGithubSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with github'}`} style={{backgroundColor:"white"}}>Github</GithubButton>
-                    </div>
-                <p> New user ? <Link to="/signup">Signup</Link></p>
+                
+                <p className="text-white"> New user? <Link to="/signup" className="text-blue-500">Signup</Link></p>
+                </div>
             </div>
         </div>
     )
