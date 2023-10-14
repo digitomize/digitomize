@@ -12,7 +12,6 @@ import ErrorPage from './components/error-page'
 import UserDashboard, { loader as dashboardLoader } from './components/UserDashboard.jsx'
 import Feedback from './components/Feedback.jsx'
 import Hacktoberfest from './components/Hacktoberfest.jsx'
-// import { requireAuth } from '../utils.js'
 
 const router = createBrowserRouter([
   {
