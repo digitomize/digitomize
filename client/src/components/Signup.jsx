@@ -78,38 +78,38 @@ export default function Signup() {
     }
 
     return (
-        <div className="outer-login-div">
-            <div className="login-container">
-                <h1 className='text-4xl'>Sign up your account</h1>
-                {error && <h3 className="red">{error}</h3>}
+        <div className="flex items-center justify-center mt-24 mb-10 md:mt-0">
+            <div className="flex flex-col px-[27px] my-0 mx-auto font-outfit text-[1.5rem]">
+                <h1 className='text-4xl text-center'>Sign up your account</h1>
+                {error && <h3 className="text-[#cc0000]">{error}</h3>}
                 <Form
                     onSubmit={handleSubmit}
                     className="w-full h-full max-w-lg mt-8"
                     replace
                 >
                     {/* new form  */}
-                    <div className="flex flex-wrap -mx-3 mb-6">
-                        <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <div className="flex flex-wrap -mx-3 mb-4">
+                        <div className="w-full md:w-1/2 px-3 mb-4 md:mb-2">
                             <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-first-name">
                                 Name
                             </label>
                             <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane" onChange={(e) => setFirstName(e.target.value)} />
                         </div>
-                        <div className="w-full md:w-1/2 px-3">
+                        <div className="w-full md:w-1/2 px-3 mb-4 md:mb-2">
                             <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-last-name">
                                 Username
                             </label>
                             <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" onChange={(e) => setUsername(e.target.value)} type="text" placeholder="Doe" />
                         </div>
                     </div>
-                    <div className="flex flex-wrap -mx-3 mb-6">
-                        <div className="w-full px-3">
+                    <div className="flex flex-wrap -mx-3">
+                        <div className="w-full md:w-1/2 px-3 mb-4 md:mb-2">
                             <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-email">
                                 Email
                             </label>
                             <input className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-email" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                         </div>
-                        <div className="w-full px-3">
+                        <div className="w-full md:w-1/2 px-3 mb-4 md:mb-2">
                             <label className="block uppercase tracking-wide text-white text-xs font-bold mb-2" htmlFor="grid-password">
                                 Password
                             </label>
@@ -117,7 +117,7 @@ export default function Signup() {
                         </div>
                     </div>
                     <div className="md:flex md:items-center items-center">
-                        <div className="md:w-2/3  ">
+                        <div className="flex w-full justify-center">
                             <button disabled={navigation.state === "submitting"} className="shadow bg-zinc-100 drop-shadow-2xl focus:shadow-outline focus:outline-none font-dark  py-2 px-12 text-slate-900 rounded">
                                 {navigation.state === "submitting" ? "Signing up..." : "Sign up"}
                             </button>

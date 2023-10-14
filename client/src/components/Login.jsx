@@ -4,7 +4,6 @@ import GithubButton from 'react-github-login-button'
 import { auth } from "../../firebase"
 import { GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "firebase/auth"
 import axios from 'axios'
-import './css/Login.css'
 import { useState } from "react"
 import { useUserAuth } from "../context/UserAuthContext"
 import { isLoggedIn } from "../../api"
@@ -125,14 +124,14 @@ export default function Login() {
     return (
         <div className="flex items-center justify-center mt-24 md:mt-0">
             <ToastContainer />
-            <div className="login-container">
+            <div className="flex flex-col px-[27px] my-0 mx-auto font-outfit text-[1.5rem]">
                 <h1 className="text-center">Sign in to your account</h1>
                 {/* {message && toast.success(message)} */}
-                {error && <h3 className="red">{error}</h3>}
+                {error && <h3 className="text-[#cc0000]">{error}</h3>}
 
                 <Form
                     onSubmit={handleSubmit}
-                    className="login-form"
+                    className="flex flex-col w-full max-w-lg mt-5"
                     replace
                 >
                     <div className="flex flex-wrap -mx-3 mb-6">
