@@ -185,11 +185,15 @@ function IndividualCard() {
       </div>
       <div className="feedback" style={{ paddingBottom: "3%" }}>
         <Alert severity="info">
-          We value your input! Share feedback or report issues at{" "}
+          {/* We value your input! Share feedback or report issues at{" "}
           <a href="/feedback" style={{ color: "rgb(21, 132, 255)" }}>
             /feedback
           </a>
-          .
+                . */
+                } 
+          <a href="/hacktoberfest" style={{ color: "rgb(21, 132, 255)" }}>
+          Hacktoberfest 2023 X Digitomize 
+          </a>
         </Alert>
       </div>
     </>
