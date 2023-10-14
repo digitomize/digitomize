@@ -1,4 +1,4 @@
-import { useNavigation, Form, useNavigate, redirect } from 'react-router-dom'
+import { useNavigation, Form, useNavigate, redirect, Link } from 'react-router-dom'
 import axios from 'axios'
 import { useState } from 'react';
 // import { useUserAuth } from '../context/UserAuthContext';
@@ -130,6 +130,7 @@ export default function Signup() {
                         </div>
                     </Form>
                 </div>
+                <p className="w-full text-center"> Already registered ? <Link to="/login" className="text-[#4285f4]">Login</Link></p>
             </div>
         </div>
     )
