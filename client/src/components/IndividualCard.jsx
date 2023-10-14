@@ -92,12 +92,13 @@ function IndividualCard() {
     setRemainingTime(updateTimer(startTimeUnix, duration));
   }, 1000);
 
-  const contentDescription = `${name} | ${startTimeIST} (IST)`;
-  const contentTitle = `${host} | Digitomize`;
+  const contentDescription = `${name} | ${startTimeIST} (IST)`.toLowerCase();
+  const contentTitle = `${host} | Digitomize`.toLowerCase();
+  const pageTitle = `${name} | Digitomize`.toLowerCase();
   return (
     <>
       <Helmet>
-        <title>{name} | Digitomize</title>
+        <title> {pageTitle} </title>
         <meta property="og:title" content={contentTitle} />
         <meta property="og:description" content={contentDescription} />
         <meta name="description" content={contentDescription} />
@@ -205,9 +206,9 @@ export default IndividualCard;
 function updateTimer(startTime, duration) {
   const currentTime = Math.floor(Date.now() / 1000);
   const timeDiff = startTime - currentTime;
-  if (duration + startTime < currentTime) {
+  if ((duration*60 + startTime) < currentTime) {
     return <p>the contest has ended</p>;
-  } else if (startTime <= currentTime) {
+  } else if (startTime <= currentTime && currentTime <= (duration*60 + startTime)) {
     return <p>the contest has started!</p>;
   } else {
     const days = Math.floor(timeDiff / 86400);

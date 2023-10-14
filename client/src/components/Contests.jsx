@@ -3,12 +3,12 @@ import "./css/Contests.css";
 import { Helmet } from "react-helmet";
 
 function Contests({ contests }) {
-  const contentDescription = `Discover upcoming coding contests on Digitomize and stay in the loop with the latest challenges. Join us, take part, and put your coding skills to the test!`;
+  const contentDescription = `Discover upcoming coding contests on Digitomize and stay in the loop with the latest challenges. Join us, take part, and put your coding skills to the test!`.toLowerCase();
   return (
     <>
       <Helmet>
-        <title>Contests | Digitomize</title>
-        <meta property="og:title" content="Contests | Digitomize"/>
+        <title>contests | digitomize</title>
+        <meta property="og:title" content="contests | digitomize"/>
         <meta property="og:description" content={contentDescription} />
         <meta name="description" content={contentDescription} />
       </Helmet>
