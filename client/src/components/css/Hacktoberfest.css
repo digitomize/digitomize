@@ -1,0 +1,99 @@
+/* JetBrains Mono,monospace */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+.hacktoberfest-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.hacktoberfest-info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.para{
+    font-family: 'Source Code Pro';
+    font-size: 140%;
+    width: 80%;
+    line-height: 1.6;
+}
+h1{
+    margin: 3%;
+    font-family: 'JetBrains Mono';
+    font-size: 400%;
+}
+.hacktoberfest-image {
+    margin: 5%;
+    width: 80%;
+    height: 80%;
+    align-items: center;
+    border: 2px solid #D2B863;
+    box-shadow: 0 0 10px #D2B863; /* Initial shadow style */
+    transition: box-shadow 0.5s ease-in-out;
+    animation: shadowAnimation 1.4s infinite alternate; /* 2s duration, infinite, alternate direction */
+}
+@keyframes shadowAnimation {
+    0% {
+        box-shadow: 0 0 3px #D2B863; /* Initial shadow style */
+    }
+    100% {
+        box-shadow: 0 0 40px #D2B863; /* New shadow style */
+    }
+}
+
+.hacktoberFestWebsite{
+    text-decoration: none;
+    color:#D2B863;
+}
+.links{
+    display:flex;
+    justify-content:space-around;
+    width: 50%;
+    align-items:center;
+    flex-direction: row;
+    margin: 2%;
+}
+.discordlink{
+    display: flex;
+    justify-content: space-around;
+}
+.btn-discord{
+    background-color: #7289DA;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'JetBrains Mono';
+    border: 2px solid #7289DA;
+    transition: 0.5s;
+    margin: 2%;
+    width: 150%;
+    cursor: pointer;
+}
+.btn-discord:hover{
+    background-color:white;
+    color: #7289DA;
+}
+.btn-linkedin{
+    width: 150%;
+    background-color:#0a66c2;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: 'JetBrains Mono';
+    border: 2px solid #0a66c2;
+    transition: 0.5s;
+    margin: 2%;
+    cursor: pointer;
+}
+.btn-linkedin:hover{
+    background-color:white;
+    color: #0a66c2;
+    
+}
