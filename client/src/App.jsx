@@ -94,7 +94,10 @@ function Logout() {
   return (
     <div>
       {isLoggingOut ? (
-        <div>Logging out...</div>
+        <div className="flex flex-col justify-center items-center h-[60vh]">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
+          <h1 className="text-2xl ml-4">Logging out..</h1>
+        </div>
       ) : (
         <div>Logout completed.</div>
       )}
