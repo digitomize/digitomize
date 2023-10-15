@@ -95,6 +95,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/govardhan-26"><img src="https://avatars.githubusercontent.com/u/89705565?v=4?s=100" width="100px;" alt="GOVARDHAN RAO NAIDU BABBADI"/><br /><sub><b>GOVARDHAN RAO NAIDU BABBADI</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=govardhan-26" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/PushpakRaut"><img src="https://avatars.githubusercontent.com/u/85230759?v=4?s=100" width="100px;" alt="Pushpak Raut"/><br /><sub><b>Pushpak Raut</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=PushpakRaut" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/MeenuyD"><img src="https://avatars.githubusercontent.com/u/116630390?v=4?s=100" width="100px;" alt="Meenu Yadav"/><br /><sub><b>Meenu Yadav</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=MeenuyD" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/christianfds"><img src="https://avatars.githubusercontent.com/u/16166854?v=4?s=100" width="100px;" alt="Christian Franchin"/><br /><sub><b>Christian Franchin</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=christianfds" title="Code">💻</a></td>
     </tr>
   </tbody>
   <tfoot>
