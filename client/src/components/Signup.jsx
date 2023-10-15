@@ -1,11 +1,29 @@
-import { useNavigation, Form, useNavigate, redirect, Link } from 'react-router-dom'
+import {
+    useNavigation,
+    Form,
+    useNavigate,
+    redirect,
+    Link
+} from 'react-router-dom'
+
 import axios from 'axios'
-import { useState } from 'react';
-// import { useUserAuth } from '../context/UserAuthContext';
-import { isLoggedIn } from '../../api';
-import { auth } from '../../firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { useUserAuth } from '../context/UserAuthContext';
+
+import {
+    useState
+} from 'react';
+
+import {
+    isLoggedIn
+} from '../../api';
+
+import {
+    auth
+} from '../../firebase';
+
+import {
+    useUserAuth
+} from '../context/UserAuthContext';
+
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 import SignoutButton from "../user/components/SignoutButton"
 
@@ -17,34 +35,6 @@ export async function loader() {
     }
     return null;
 }
-
-// export async function action({ request }) {
-//     const formData = await request.formData()
-//     const username = formData.get("username")
-//     const firstName = formData.get("firstName")
-//     const email = formData.get("email")
-//     const password = formData.get("password")
-//     console.log({ username, firstName, email, password })
-//     try {
-//         const data = await createUserWithEmailAndPassword(auth, email, password)
-//         const user = data.user
-//         updateProfile(user, {
-//             displayName: username
-//         })
-//         auth.currentUser.getIdToken(true).then((idToken) => {
-//             console.log(idToken);
-//             const response = axios.post("http://localhost:4001/user/signup", {
-//                 headers: {
-//                     Authorization: `Bearer ${idToken}`,
-//                 },
-//             });
-//         });
-//         return redirect('/contests')
-//     } catch (err) {
-//         const errorMessage = err.message
-//         return errorMessage
-//     }
-
 
 export default function Signup() {
 

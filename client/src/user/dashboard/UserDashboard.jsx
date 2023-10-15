@@ -1,14 +1,29 @@
-import { useState, useEffect } from 'react';
-import { auth } from '../../../firebase';
-import { useLoaderData, NavLink, Outlet, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-// import { useUserAuth } from '../../context/UserAuthContext';
+import {
+  useState,
+  useEffect
+} from 'react';
+
+import {
+  auth
+} from '../../../firebase';
+
+import {
+  NavLink,
+  Outlet,
+  useNavigate
+} from "react-router-dom";
+
+import {
+  ToastContainer,
+  toast
+} from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 import SignoutButton from "../components/SignoutButton"
 import NewLogOut from "../components/NewLogOut"
 import { useUserAuth } from '../../context/UserAuthContext';
 import NewNavbar from "../../components/NewNavbar";
-import { Skeleton } from "@mui/material";
+import { Skeleton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import Chip from "@mui/material/Chip";
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
@@ -25,12 +40,7 @@ import NewFooter from "../../components/NewFooter"
 // import logo from "../assets/logo.png";
 
 export default function UserDashboard() {
-  console.log("OUTLET::", <Outlet />);
-  // const username = data.personal_data.username
-  // const { user } = useUserAuth()
-  // const userData = userDashboardDetails().then(
-  //   console.log("DAYAYAYAYAYAATATATATTA",userData)
-  // );
+
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState();
@@ -51,14 +61,10 @@ export default function UserDashboard() {
       try {
         const temp = await userDashboardDetails();
         setUserData(temp.data);
-        console.log("DAYAYAYAYAYAATATATATTA", temp.data);
         if (user) {
           setLoading(false);
         }
-        // Now you can use userData in your component
-        // setLoading(false);
       } catch (error) {
-        // Handle any errors that may occur during the data fetching
         console.error("Error fetching user data:", error);
         setLoading(true);
       }
@@ -332,22 +338,3 @@ export default function UserDashboard() {
     )
   }
 }
-
-
-
-
-
-
-
-
-
-// <NavLink to='personal' className="border-b-2 border-transparent hover:border-fuchsia-700 transition md:text-2xl " >
-//               Personal Info
-//             </NavLink>
-
-//             <NavLink to='ratings' className="ms-8 md:ms-12 border-b-2 border-transparent hover:border-fuchsia-700 transition md:text-2xl">
-//                 Ranking 
-//             </NavLink>
-//             <NavLink to='github' className="ms-8 md:ms-12 border-b-2 border-transparent hover:border-fuchsia-700 transition md:text-2xl">
-//                 Github Repos
-//             </NavLink>

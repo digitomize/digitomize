@@ -1,5 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { Form, useLoaderData } from 'react-router-dom'
+import React, { 
+  useState, 
+  useEffect
+ } from 'react'
+
+import {
+   Form
+   } from 'react-router-dom'
+
 import Checkbox from '../components/Checkbox'
 import UserDashboard from "./UserDashboard"
 import { submitUserFormData, userDashboardDetails } from '../../../api'
@@ -122,9 +129,7 @@ export default function UserDashRatings() {
     );
   }
 
-
-  // console.log(ratingsData)
-
+  
   console.log(ratingsData);
 
 

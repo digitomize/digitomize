@@ -1,6 +1,18 @@
-import { Form, useLoaderData } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { submitUserFormData, userDashboardDetails } from "../../../api";
+import {
+  Form,
+  useLoaderData
+} from "react-router-dom";
+
+import {
+  useState,
+  useEffect
+} from "react";
+
+import {
+  submitUserFormData,
+  userDashboardDetails
+} from "../../../api";
+
 import { useUserAuth } from "../../context/UserAuthContext";
 import axios from "axios";
 // import { toast } from "react-toastify";
@@ -10,7 +22,6 @@ import NewNavbar from "../../components/NewNavbar";
 import { ToastContainer, toast } from 'react-toastify';
 
 import Chip from "@mui/material/Chip";
-import Paper from "@mui/material/Paper";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import { styled } from "@mui/material/styles";
 import NewFooter from "../../components/NewFooter";
@@ -96,13 +107,7 @@ export default function UserDashPersonal() {
       [name]: value,
     }));
   };
-  //   const handleSkillsChange = (event) => {
-  //     const { name, value } = event.target;
-  //     setFormData((prevData) => ({
-  //       ...prevData,
-  //       skills: value.split(","),
-  //     }));
-  //   };
+
   const handleEducationChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
@@ -132,7 +137,6 @@ export default function UserDashPersonal() {
   };
   async function handleSubmit(event) {
     event.preventDefault();
-    // console.log(formData)
     const res = await submitUserFormData(formData)
       .then(() => {
         toast.success("updated successfully!", {
@@ -336,7 +340,7 @@ export default function UserDashPersonal() {
               }
 
               return (
-                //   <ListItem key={data.key}>
+              
                 <Chip
                   key={data.key}
                   variant="outlined"
@@ -345,7 +349,7 @@ export default function UserDashPersonal() {
                   label={data.label}
                   onDelete={handleDelete(data)}
                 />
-                //   </ListItem>
+             
               );
             })
           ) : (
