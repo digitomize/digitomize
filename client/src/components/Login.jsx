@@ -1,14 +1,45 @@
-import { Form, useNavigation, redirect, Link, useNavigate, useLoaderData } from "react-router-dom"
+
+import {
+    Form,
+    useNavigation,
+    redirect,
+    Link,
+    useNavigate,
+    useLoaderData
+} from "react-router-dom"
+
+import {
+     auth
+     } from "../../firebase"
+
+import {
+    GoogleAuthProvider,
+    GithubAuthProvider,
+    signInWithPopup
+} from "firebase/auth"
+
+import axios from 'axios'
+
+import {
+     useState 
+    } from "react"
+
+import { 
+    useUserAuth 
+} from "../context/UserAuthContext"
+
+import { 
+    isLoggedIn
+ } from "../../api"
+
+import { 
+    ToastContainer 
+} from "react-toastify"
+
+import SignoutButton from "../user/components/SignoutButton"
 import GoogleButton from 'react-google-button'
 import GithubButton from 'react-github-login-button'
-import { auth } from "../../firebase"
-import { GoogleAuthProvider, GithubAuthProvider, signInWithPopup } from "firebase/auth"
-import axios from 'axios'
-import { useState } from "react"
-import { useUserAuth } from "../context/UserAuthContext"
-import { isLoggedIn } from "../../api"
-import { toast, ToastContainer } from "react-toastify"
-import SignoutButton from "../user/components/SignoutButton"
+
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export async function loader({ request }) {
@@ -20,31 +51,6 @@ export async function loader({ request }) {
 
     return message
 }
-
-// export async function action({ request }) {
-//     const formData = await request.formData()
-//     const email = formData.get("email")
-//     const password = formData.get("password")
-
-//     try {
-//         const data = await signInWithEmailAndPassword(auth, email, password)
-//         auth.currentUser.getIdToken(true).then(async (idToken) => {
-//             console.log(idToken);
-//             const response = await axios.post("http://localhost:4001/user/dashboard", {
-//                 headers: {
-//                     Authorization: `Bearer ${idToken}`,
-//                     },
-//             });
-//         });
-
-//         return redirect('/contests')
-//     } catch (err) {
-//         const errorMessage = err.message
-//         return errorMessage
-//     }
-
-// }
-
 
 export default function Login() {
     const message = useLoaderData()
@@ -96,15 +102,13 @@ export default function Login() {
             });
     }
     const handleGoogleSignIn = async (e) => {
-        // console.log("Signing in");
         setbtnState(true);
-        e.preventDefault(); // Don't forget the parentheses here
+        e.preventDefault(); 
         try {
             const googleAuthProvider = new GoogleAuthProvider();
             await signInWithPopup(auth, googleAuthProvider)
                 .then(async () => {
                     await auth.currentUser.getIdToken(true).then(async (idToken) => {
-                        // console.log(idToken);
                         await axios.post(`${backendUrl}/user/signup`, {
                             headers: {
                                 Authorization: `Bearer ${idToken}`,
@@ -120,13 +124,11 @@ export default function Login() {
         setbtnState(false);
     }
 
-    // const message = useLoaderData()
     return (
         <div className="flex items-center justify-center mt-24 md:mt-0">
             <ToastContainer />
             <div className="flex flex-col overflow-hidden px-[27px] my-0 mx-auto font-outfit text-[1.5rem] justify-center items-center">
                 <h1 className="text-4xl text-center">Sign in to your account</h1>
-                {/* {message && toast.success(message)} */}
                 {error && <h3 className="text-[#cc0000] text-center">{error}</h3>}
                 <div className="flex justify-center">
                     <Form
@@ -150,12 +152,6 @@ export default function Login() {
                         </div>
                         <div className="md:flex md:items-center items-center">
                             <div className="w-full">
-                                {/* <button disabled={navigation.state === "submitting"} className="shadow bg-white  drop-shadow-2xl focus:shadow-outline focus:outline-none font-light text-black  py-2 px-12 rounded" type="submit">
-                                    {navigation.state === "submitting"
-                                        ? "Logging in..."
-                                        : "Log in"
-                                    }
-                                </button> */}
                                 <SignoutButton onClickFunction={(e) => handleSubmit} isDisabled={navigation.state === "submitting"} btnName={navigation.state === "submitting"
                                     ? "Logging in..."
                                     : "Log in"}
@@ -166,9 +162,9 @@ export default function Login() {
                     </Form>
                 </div>
                 <div className="flex flex-col items-center p-5 gap-2">
-                    <GoogleButton type="light" className={`g-btn`} onClick={handleGoogleSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with google'}`} style={{backgroundColor:"white"}}/>
-                    <GithubButton type="light" onClick={handleGithubSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with github'}`} style={{backgroundColor:"white"}}>Github</GithubButton>
-                    </div>
+                    <GoogleButton type="light" className={`g-btn`} onClick={handleGoogleSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with google'}`} style={{ backgroundColor: "white" }} />
+                    <GithubButton type="light" onClick={handleGithubSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with github'}`} style={{ backgroundColor: "white" }}>Github</GithubButton>
+                </div>
                 <p className="w-full text-center pb-5"> New user ? <Link to="/signup" className="text-[#4285f4]">Signup</Link></p>
             </div>
         </div>

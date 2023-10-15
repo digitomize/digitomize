@@ -1,7 +1,15 @@
-import React, {useState, useEffect} from 'react'
-import KeyboardDoubleArrowUpOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowUpOutlined';
-import {Link} from "react-scroll";
+import React, {
+    useState, 
+    useEffect
+} from 'react'
 
+import {
+KeyboardDoubleArrowUpOutlinedIcon 
+}from "./MuiIcons";
+
+import {
+    Link
+} from "react-scroll";
 
 const ScrollToTop = (props) => {
     const [scrollToTop, setScrollToTop] = useState(false);

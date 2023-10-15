@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/logo.png";
+import {logo} from "./AllAssets";
 
 const MobNav = ({ isMenuActive, toggleActive }) => {
   return (
@@ -25,7 +25,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
           >
             <div
               className="flex items-center justify-center p-2 opacity-60"
-              onClick={toggleActive} // Directly call toggleActive in the onClick handler
+              onClick={toggleActive} 
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
