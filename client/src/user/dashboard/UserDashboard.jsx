@@ -114,8 +114,8 @@ export default function UserDashboard() {
                 </h2>
                 <div className="contact">
 
-                <p>{userData.personal_data.phoneNumber.data}</p>
-                <p>{userData.personal_data.email}</p>
+                  <p>{userData.personal_data.phoneNumber.data}</p>
+                  <p>{userData.personal_data.email}</p>
                 </div>
                 <p>{userData.personal_data.bio.data}</p>
 
@@ -194,7 +194,7 @@ export default function UserDashboard() {
 
         {/* FOR PHONE */}
         <div className="phone:hidden">
-          <div className='flex flex-col max-phone:pt-32 md:mt-0 w-11/12 mx-auto'>
+          <div className='flex flex-col max-phone:mt-24 pt-12 md:mt-0 w-11/12 mx-auto'>
 
             <div className="personal m-auto flex flex-row">
               <div className="Ellipse3 w-[50px] h-[50px] m-2" >
@@ -259,26 +259,27 @@ export default function UserDashboard() {
                 <ul className="menu bg-base-200 w-full rounded-box">
                   <li>
                     {/* <a> */}
-                    <NavLink to='ratings' className="p-0 mt-2">
-                      <TrendingUpIcon fontSize="large" />
-                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> ratings</span>  <KeyboardDoubleArrowRightIcon /></h2>
+                    <NavLink to='personal' className="p-0 mt-2">
+                    <SettingsIcon fontSize="large" />
+                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> account</span>   <KeyboardDoubleArrowRightIcon /></h2>
+                      
                     </NavLink>
                     {/* </a> */}
                   </li>
                   <div className="divider w-4/5 self-center m-0 p-0"></div>
                   <li>
-                    <NavLink to='github' className="p-0">
-                      <GitHubIcon fontSize="large" />
-                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> github</span>  <KeyboardDoubleArrowRightIcon /></h2>
+                    <NavLink to='ratings' className="p-0">
+                    <TrendingUpIcon fontSize="large" />
+                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> ratings</span>  <KeyboardDoubleArrowRightIcon /></h2>
+                      
                     </NavLink>
                   </li>
                   <div className="divider w-4/5 self-center m-0 p-0"></div>
                   <li>
-                    <NavLink to='personal' className="p-0 mb-2">
-
-                      <SettingsIcon fontSize="large" />
-                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> account</span>   <KeyboardDoubleArrowRightIcon /></h2>
-                    </NavLink>
+                    <NavLink to='#' className="p-0 mb-2">
+                      <GitHubIcon fontSize="large" />
+                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2">github</span>  <KeyboardDoubleArrowRightIcon /></h2>
+                      </NavLink>
                   </li>
                 </ul>
               </div>

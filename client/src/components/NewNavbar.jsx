@@ -115,7 +115,7 @@ export default function NewNavbar() {
                 >
                   <li>
                     <Link to={"/user/dashboard/personal"}>
-                      <span>{"Personal"}</span>
+                      <span>{"account"}</span>
                     </Link>
                   </li>
                   <li>

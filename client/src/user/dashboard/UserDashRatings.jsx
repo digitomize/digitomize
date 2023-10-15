@@ -363,10 +363,10 @@ export default function UserDashRatings() {
               ranks.board
             </a></li>
 
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} className="mx-auto">
               <button
                 type="submit"
-                className="text-black bg-white font-medium rounded-lg text-sm w-1/2 px-5 py-2.5 text-center my-2 self-center"
+                className="text-black bg-white font-medium rounded-lg text-sm w-fit px-5 py-2.5 text-center my-2 self-center"
               >
                 Update
               </button>
