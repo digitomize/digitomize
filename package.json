@@ -23,6 +23,7 @@
         "concurrently": "^8.2.1"
     },
     "dependencies": {
+        "luxon": "^3.4.3",
         "vercel": "^32.2.2"
     }
 }
