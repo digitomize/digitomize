@@ -128,7 +128,7 @@ export default function Login() {
                 <h1 className="text-4xl text-center">Sign in to your account</h1>
                 {/* {message && toast.success(message)} */}
                 {error && <h3 className="text-[#cc0000] text-center">{error}</h3>}
-                <div className="flex w-full justify-center">
+                <div className="flex justify-center">
                     <Form
                         onSubmit={handleSubmit}
                         className="flex flex-col w-full max-w-lg mt-5"
