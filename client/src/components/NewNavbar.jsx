@@ -3,13 +3,12 @@ import { Link, useLocation } from "react-router-dom";
 import MobNav from "./MobNav";
 import logo from "../assets/logo.png";
 import { useUserAuth } from "../context/UserAuthContext";
+import { useUserDetails } from "../context/UserContext";
+import { ROLE } from "../core/utils/const";
 
 export default function NewNavbar() {
   const { user } = useUserAuth();
-  console.log("user is", user);
-  if (user) {
-    console.log("user is", user.displayName);
-  }
+  const { userDetails } = useUserDetails();
   const location = useLocation();
 
   const navbarStyle = {
@@ -90,6 +89,36 @@ export default function NewNavbar() {
             >
               Support
             </Link>
+            {userDetails && userDetails.personal_data.role === ROLE.ADMIN && (
+              <Link
+                to="/admin/user"
+                className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition dropdown dropdown-hover dropdown-bottom text-zinc-950 hover:bg-zinc-200`}
+              >
+                <div className="dropdown dropdown-hover dropdown-bottom">
+                  <div>Admin</div>
+                  <ul
+                    tabIndex={0}
+                    className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-2"
+                  >
+                    <li>
+                      <Link to={"/admin/user"}>
+                        <span>Users</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={"/admin/contest"}>
+                        <span>Contests</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to={"/admin/community"}>
+                        <span>Community</span>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </Link>
+            )}
           </div>
           <div className="flex justify-end">
             {user ? (

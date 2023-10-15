@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { COMMUNITY_ROLE } = require("../../community/utils/const");
+const { ROLE } = require("../../core/const");
 
 const stringToggleSchema = new mongoose.Schema({
   data: String,
@@ -21,18 +21,9 @@ const contestToggleSchema = new mongoose.Schema({
 });
 
 const communitySchema = new mongoose.Schema({
-  id: {
+  communityId: {
     type: String,
     required: [true, "Community Id is required."],
-    unique: true,
-  },
-  role: {
-    type: String,
-    default: COMMUNITY_ROLE.MEMBER,
-  },
-  score: {
-    type: Number,
-    default: 0,
   },
 });
 
@@ -47,6 +38,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "username is required"],
       unique: true,
+    },
+    role: {
+      type: Number,
+      required: [true, "role is required"],
+      default: ROLE.USER,
     },
     name: {
       type: String,
@@ -88,10 +84,6 @@ const userSchema = new mongoose.Schema(
         default: [],
       },
     ],
-    role: {
-      type: String,
-      default: "user",
-    },
     education: [
       {
         institute: {

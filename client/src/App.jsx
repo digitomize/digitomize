@@ -48,8 +48,12 @@ function ContributeRedirect() {
 }
 
 import { auth } from "../firebase";
-import { toast } from "react-toastify";
-
+import { ToastContainer, toast } from "react-toastify";
+import { UserContextProvider } from "./context/UserContext";
+import UserListPage from "./pages/admin/UserListPage";
+import AdminPanelGuard from "./AdminPanelGuard";
+import ContestListPage from "./pages/admin/ContestListPage";
+import CommunityListPage from "./pages/admin/CommunityListPage";
 
 function Logout() {
   const navigate = useNavigate();
@@ -89,16 +93,10 @@ function Logout() {
   // Conditionally render content based on the isLoggingOut state
   return (
     <div>
-      {isLoggingOut ? (
-        <div>Logging out...</div>
-      ) : (
-        <div>Logout completed.</div>
-      )}
+      {isLoggingOut ? <div>Logging out...</div> : <div>Logout completed.</div>}
     </div>
   );
 }
-
-
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -117,6 +115,11 @@ const router = createBrowserRouter(
         <Route path="contests/:vanity" element={<IndividualCard />} />
         <Route path="404" element={<ErrorPage />} />
       </Route>
+      <Route path="/admin" element={<AdminPanelGuard />}>
+        <Route path="user" element={<UserListPage />}></Route>
+        <Route path="contest" element={<ContestListPage />}></Route>
+        <Route path="community" element={<CommunityListPage />}></Route>
+      </Route>
       <Route path="/user" element={<ProtectedRoute />}>
         <Route path="dashboard">
           <Route
@@ -129,10 +132,7 @@ const router = createBrowserRouter(
             element={<UserDashPersonal />}
             loader={userDashPersonalLoader}
           />
-          <Route
-            path="ratings"
-            element={<UserDashRatings />}
-          />
+          <Route path="ratings" element={<UserDashRatings />} />
           <Route
             path="github"
             element={<UserDashGithub />}
@@ -152,7 +152,10 @@ const router = createBrowserRouter(
 function App() {
   return (
     <UserAuthContextProvider>
-      <RouterProvider router={router} />
+      <UserContextProvider>
+        <ToastContainer />
+        <RouterProvider router={router} />
+      </UserContextProvider>
     </UserAuthContextProvider>
   );
 }

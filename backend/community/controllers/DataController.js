@@ -1,6 +1,9 @@
 //? APIs to MongoDB
 
+const { ROLE } = require("../../core/const");
+const User = require("../../users/models/User");
 const { Community } = require("../models/Community");
+const { CommunityMember } = require("../models/CommunityMember");
 const { COMMUNITY_ROLE } = require("../utils/const");
 
 require("dotenv").config({ path: "../../.env" });
@@ -18,16 +21,43 @@ async function getCommunityList() {
 async function createCommunity(request, response) {
   try {
     const { body, decodedToken } = request;
-    body.members = [
-      {
-        uid: decodedToken.uid,
-        role: COMMUNITY_ROLE.ADMIN,
-      },
-    ];
+    const userId = req.decodedToken.uid;
+    const user = await User.findOne({ uid: userId });
+    if (!user) {
+      // User not found, redirect to the login page
+      return res
+        .status(404)
+        .json({ message: "User can't be verified", error: "User not found" });
+    }
+    if (user.role !== ROLE.ADMIN) {
+      return res.status(400).json({
+        message: "You don't have sufficient permission",
+        error: "You don't have sufficient permission",
+      });
+    }
     const newCommunity = new Community(body);
-    await newCommunity.save();
-    response.status(200).json({ data: newCommunity });
-    return newCommunity;
+    const savedCommunity = await newCommunity.save();
+    const communityMember = new CommunityMember({
+      communityId: savedCommunity._id,
+      uid: decodedToken.uid,
+      role: ROLE.COMMUNITY_ADMIN,
+    });
+    await communityMember.save();
+    const updatedCommunityList = [...user.community];
+    updatedCommunityList.push({
+      communityId: savedCommunity._id,
+    });
+    const updatedUser = await User.updateOne(
+      { uid: decodedToken.uid },
+      {
+        $set: {
+          community: updatedCommunityList,
+        },
+        $currentDate: { lastUpdated: true },
+      }
+    );
+
+    return response.status(200).json({ message: "Community Created!!" });
   } catch (error) {
     console.log("Error while creating community", error);
     return null;
@@ -73,64 +103,8 @@ async function updateCommunity(request, response) {
   }
 }
 
-async function updateCommunityMembers(request, response) {
-  try {
-    const { body, decodedToken } = request;
-    const community = await Community.findOne({ _id: body.communityId });
-    if (!community) {
-      response.status(200).json({ message: "No community found!" });
-    }
-    const { members } = community;
-    // Check if the user is admin of this community
-    const member = members.find((member) => member.uid === decodedToken.uid);
-    if (member.role === COMMUNITY_ROLE.ADMIN) {
-      if (!body.memberId) {
-        response.status(200).json({ message: "Member ID is required!" });
-      }
-      // Add the member
-      const index = members.findIndex((member) => member.uid === body.memberId);
-      if (index !== -1) {
-        // User Already Exist
-        if (body.remove) {
-          members.splice(index, 1);
-        } else {
-          members[index].role = body.role || COMMUNITY_ROLE.MEMBER;
-        }
-      } else {
-        members.push({
-          uid: body.memberId,
-          role: body.role || COMMUNITY_ROLE.MEMBER,
-        });
-      }
-      if (body.remove) {
-        response
-          .status(200)
-          .json({ message: "Cannot remove, member not found!" });
-      }
-      await Community.updateOne(
-        { _id: body.communityId },
-        {
-          $set: {
-            members,
-          },
-          $currentDate: { lastUpdated: true },
-        }
-      );
-      response.status(200).json({ message: "Member List Updated!!" });
-    } else {
-      response
-        .status(200)
-        .json({ message: "Only admin can add/update/remove member!" });
-    }
-  } catch (error) {
-    console.log("Error while creating community", error);
-    return null;
-  }
-}
-
 module.exports = {
   getCommunityList,
   createCommunity,
   updateCommunity,
-  updateCommunityMembers,
 };

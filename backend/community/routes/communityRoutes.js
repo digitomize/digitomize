@@ -2,7 +2,6 @@ const express = require("express");
 const {
   getCommunityList,
   createCommunity,
-  updateCommunityMembers,
   updateCommunity,
 } = require("../controllers/DataController");
 const { addUID } = require("../../users/middlewares/authMiddleware");
@@ -22,8 +21,5 @@ router.get("/", addUID, async (request, response) => {
 
 // Update Community
 router.put("/", addUID, updateCommunity);
-
-// Add Member / Update Member
-router.post("/updateMembers", addUID, updateCommunityMembers);
 
 module.exports = router;
