@@ -107,4 +107,7 @@
   .clip .share-button svg{
     width:27px;
   }
+  .button #Share{
+    margin-top: -31px;
+  }
 }

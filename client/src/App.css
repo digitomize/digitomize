@@ -134,4 +134,7 @@ svg {
     .button {
         margin-top: 65px;
     }
+    .button #Share{
+        margin-top: -31px;
+    }
 }
