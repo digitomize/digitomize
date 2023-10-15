@@ -1,7 +1,4 @@
 import React from 'react'
-import { auth } from '../../../firebase'
-import { toast } from 'react-toastify'
-import { useNavigate } from 'react-router-dom'
 
 function SignoutButton({ btnName, isDisabled, onClickFunction, backgroundColor }) {
 

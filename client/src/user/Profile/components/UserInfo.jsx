@@ -1,6 +1,11 @@
 import React from 'react'
-import logo from '../../../assets/profilelogo.png'
-import DownloadIcon from '@mui/icons-material/Download';
+import {
+  logo
+} from './AllAssets'
+
+import{
+  DownloadIcon
+}  from './MuiIcons';
 
 export default function UserInfo() {
   const user = {

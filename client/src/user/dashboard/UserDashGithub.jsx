@@ -1,7 +1,18 @@
 import React, { useState } from 'react'
-import { Form, useLoaderData } from "react-router-dom"
-import { userDashboardDetails, submitUserFormData } from '../../../api'
-import { toast } from "react-toastify"
+import {
+  Form,
+  useLoaderData
+} from "react-router-dom"
+
+import {
+  userDashboardDetails,
+  submitUserFormData
+} from '../../../api'
+
+import {
+  toast
+} from "react-toastify"
+
 import Checkbox from '../components/Checkbox'
 
 export async function loader() {
