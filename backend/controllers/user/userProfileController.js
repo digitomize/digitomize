@@ -1,4 +1,4 @@
-const { getUser } = require('../../services/auth');
+import  getUser  from '../../services/auth.js';
 
 // ?returns JSON
 // Sends only toggled ON info for any user
@@ -60,6 +60,6 @@ function handleCodingPlatform(targetObject, platform, platformKey) {
 }
 
 
-module.exports = {
+export default {
   handleUserProfilePreview
 };

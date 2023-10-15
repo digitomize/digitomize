@@ -1,5 +1,7 @@
-const https = require('https');
-require('dotenv').config();
+import https from "https";
+import dotenv from 'dotenv';
+dotenv.config();
+
 async function fetchContestsData() {
   return new Promise((resolve, reject) => {
     const options = {
@@ -28,4 +30,4 @@ async function fetchContestsData() {
   });
 }
 
-module.exports = fetchContestsData;
+export default fetchContestsData;

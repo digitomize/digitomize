@@ -1,11 +1,11 @@
-const express = require('express');
+import express from "express";
 const router = express.Router();
-const contestController = require("../../controllers/contest/contestController");
+import contestController from "../../controllers/contest/contestController.js";
 
-const fs = require('fs');
+import fs  from "fs";
 
 // Load the JSON file with motivational messages
-const messages = require('./messages.json');
+import messages from './messages.json' assert {type: 'json'};
 
 // GET route for sending a random message
 router.get("/random-message", (req, res) => {
@@ -20,4 +20,4 @@ router.get("/random-message", (req, res) => {
 // GET route for contests
 router.get("/", contestController.handleContestRoute);
 
-module.exports = router;
+export default router;

@@ -1,12 +1,13 @@
 //? APIs to MongoDB
-
-require('dotenv').config({ path: "../../.env" });
-const codechefContests = require('./platforms/codechefController');
-const codeforcesContests = require('./platforms/codeforcesController');
-const gfgContests = require('./platforms/gfgController');
-const leetcodeContests = require('./platforms/leetcodeController');
-const codingninjas_studioContests = require('./platforms/codingninjas_studioController');
-const { UpcomingContest, AllContest } = require('../../models/contest/Contest');
+import dotenv from 'dotenv';
+dotenv.config({ path: "../../.env" });
+import  codechef_c  from './platforms/codechefController.js';
+import codeforces_c  from './platforms/codeforcesController.js';
+import  geeksforgeeks_c  from './platforms/gfgController.js';
+import  leetcode_c  from './platforms/leetcodeController.js';
+import codingninjas_studio_c  from './platforms/codingninjas_studioController.js';
+import UpcomingContest  from '../../models/contest/Contest.js';
+import AllContest  from '../../models/contest/Contest.js';
 
 //* Clear the UpcomingContest collection in MongoDB
 async function clearUpcoming() {
@@ -67,26 +68,26 @@ async function syncContests() {
 
         // * Codingninjas_studio Section
         console.log("<======= Codingninjas_studio =====>");
-        const codingninjasData = await codingninjas_studioContests.codingninjas_studio_c();
+        const codingninjasData = await codingninjas_studio_c();
         await addToDB(codingninjasData, "Codingninjas_studio");
         
         //* LeetCode Section
         console.log("<======= LeetCode =====>");
-        const leetcodeData = await leetcodeContests.leetcode_c();
+        const leetcodeData = await leetcode_c();
         await addToDB(leetcodeData, "LeetCode");
         //* GeeksforGeeks Section
         console.log("<======= GeeksForGeeks =======>");
-        const geeksforgeeksData = await gfgContests.geeksforgeeks_c();
+        const geeksforgeeksData = await geeksforgeeks_c();
         await addToDB(geeksforgeeksData, "GeeksForGeeks");
 
         //* Codeforces Section
         console.log("<======= CodeForces =======>");
-        const codeforcesData = await codeforcesContests.codeforces_c();
+        const codeforcesData = await codeforces_c();
         await addToDB(codeforcesData, "Codeforces");
 
         //* CodeChef Section
         console.log("<======= CodeChef =======>");
-        const codechefData = await codechefContests.codechef_c();
+        const codechefData = await codechef_c();
         await addToDB(codechefData, "CodeChef");
 
         //* All Functions Synced.
@@ -98,6 +99,6 @@ async function syncContests() {
     }
 }
 
-module.exports = {
-    syncContests,
+export default {
+    syncContests
 }

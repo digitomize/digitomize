@@ -1,4 +1,5 @@
-const https = require("https");
+import https from "https"; 
+
 
 async function codingninjas_studio_c() {
     const url = "https://api.codingninjas.com/api/v4/public_section/contest_list";
@@ -45,6 +46,6 @@ async function codingninjas_studio_c() {
     });
     return filteredContestsPromise;
 }
-module.exports = {
+export default {
     codingninjas_studio_c,
 };

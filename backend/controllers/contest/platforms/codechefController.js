@@ -1,6 +1,6 @@
 // ? API to mongodb function
 
-const https = require("https");
+import https from "https"; 
 
 async function codechef_c() {
     const url = "https://www.codechef.com/api/list/contests/all";
@@ -57,6 +57,5 @@ function formatStartTimeIST(start_time) {
     return startTimeIST;
 }
 
-module.exports = {
-    codechef_c,
-};
+export default codechef_c;
+

@@ -1,7 +1,7 @@
-const bcrypt = require('bcrypt');
-const { generateToken, setUser, getUser } = require('../../services/auth');
-// const { setJwtCookie } = require('../../middlewares/authMiddleware');
-
+import bcrypt from "bcrypt";
+import  generateToken from '../../services/auth.js';
+import setUser from '../../services/auth.js';
+import getUser from '../../services/auth.js';
 
 //? returns JSON message with Status Code
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
@@ -84,7 +84,7 @@ const handleUserLogin = async (req, res) => {
 //   }
 // };
 
-module.exports = {
+export default {
   handleUserSignup,
   handleUserLogin,
   // handleUserSignout

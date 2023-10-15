@@ -1,7 +1,7 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+import bcrypt from 'bcrypt';
+import  jwt  from 'jsonwebtoken';
 const secretKey = 'mykey'; // Change this to a secure secret key
-const User = require('../models/user/User');
+import User from '../models/user/User.js';
 
 // Takes the data and creates a new User in MongoDB
 const setUser = async (userData) => {
@@ -50,4 +50,4 @@ const generateToken = (user) => {
     return jwt.sign({ userId: user._id, name: user.firstName }, secretKey);
 };
 
-module.exports = { setUser, getUser, generateToken };
+export default  { setUser, getUser, generateToken };

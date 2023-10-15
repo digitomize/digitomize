@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const stringToggleSchema = new mongoose.Schema({
     data: String,
@@ -82,4 +82,4 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-module.exports = User;
+export default User;

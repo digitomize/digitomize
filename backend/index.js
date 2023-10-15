@@ -1,13 +1,15 @@
-const express = require("express");
-const cors = require('cors');
-require('dotenv').config();
-const mongoose = require("mongoose");
-const dataSyncer = require("./controllers/contest/DataSyncController");
-const contestSyncer = require("./controllers/contest/contestController");
-const contestRouter = require("./routes/contest/contestRoutes");
-const userRoutes = require('./routes/user/userRoutes');
-const bodyParser = require('body-parser');
-const fetchContestsData = require('./fetchContests');
+import express from "express";
+import cors from 'cors';
+import dotenv from 'dotenv';
+dotenv.config();
+
+import mongoose from "mongoose";
+import dataSyncer from "./controllers/contest/DataSyncController.js";
+import contestSyncer from "./controllers/contest/contestController.js";
+import contestRouter from "./routes/contest/contestRoutes.js";
+import userRoutes from './routes/user/userRoutes.js';
+import bodyParser from 'body-parser';
+import fetchContestsData  from "./fetchContests.js";
 
 const app = express();
 

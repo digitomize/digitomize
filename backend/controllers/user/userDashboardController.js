@@ -1,4 +1,4 @@
-const User = require('../../models/user/User');
+import User from '../../models/user/User.js';
 
 const handleUserDashboard = async (req, res) => {
   try {
@@ -70,6 +70,6 @@ const handleUserDashboard = async (req, res) => {
   }
 };
 
-module.exports = {
+export default{
   handleUserDashboard,
 };

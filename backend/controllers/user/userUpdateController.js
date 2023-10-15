@@ -1,4 +1,4 @@
-const User = require('../../models/user/User');
+import User from '../../models/user/User.js';
 
 //? returns JSON message with Status Code
 // Finds user by Id and updates it with given data.
@@ -23,6 +23,6 @@ const handleUpdateUserProfile = async (req, res) => {
 };
 
 
-module.exports = {
+export default {
   handleUpdateUserProfile
 };
