@@ -1,6 +1,6 @@
 # Digitomize
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Join us on [Discord](https://discord.gg/bsbBytBqBc)!
@@ -101,6 +101,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/surveer-singh-5876761b9"><img src="https://avatars.githubusercontent.com/u/97107856?v=4?s=100" width="100px;" alt="Surveer Singh"/><br /><sub><b>Surveer Singh</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=hs309123" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/SauravGupta123"><img src="https://avatars.githubusercontent.com/u/103091748?v=4?s=100" width="100px;" alt="Saurav Gupta"/><br /><sub><b>Saurav Gupta</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=SauravGupta123" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/anmol111pal"><img src="https://avatars.githubusercontent.com/u/93645325?v=4?s=100" width="100px;" alt="Anmol Pal"/><br /><sub><b>Anmol Pal</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=anmol111pal" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/xnatsuk"><img src="https://avatars.githubusercontent.com/u/57514190?v=4?s=100" width="100px;" alt="Louise Tona"/><br /><sub><b>Louise Tona</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=xnatsuk" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
