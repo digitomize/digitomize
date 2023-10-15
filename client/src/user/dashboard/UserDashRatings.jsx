@@ -1,11 +1,11 @@
-import React, { 
-  useState, 
+import React, {
+  useState,
   useEffect
- } from 'react'
+} from 'react'
 
 import {
-   Form
-   } from 'react-router-dom'
+  Form
+} from 'react-router-dom'
 
 import Checkbox from '../components/Checkbox'
 import UserDashboard from "./UserDashboard"
@@ -81,7 +81,7 @@ export default function UserDashRatings() {
               username: ratingsData?.codechef.data || "",
               showOnWebsite: ratingsData?.codechef?.showOnWebsite || true,
             },
-      
+
             leetcode: {
               username: ratingsData?.leetcode.data || "",
               showOnWebsite: ratingsData?.leetcode?.showOnWebsite || true,
@@ -129,7 +129,7 @@ export default function UserDashRatings() {
     );
   }
 
-  
+
   console.log(ratingsData);
 
 
@@ -192,7 +192,7 @@ export default function UserDashRatings() {
 
       <UserDashboard/>
         </div> */}
-        <div className="px-8 max-md:py-20 md:py-12 min-h-[60vh] mt-24 md:scale-150 w-11/12 m-auto scale-125">
+        <div className="max-md:py-20 md:py-12 min-h-[60vh] mt-24 w-11/12 m-auto">
           {/* <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
         <Checkbox />
       </div> */}
@@ -201,8 +201,8 @@ export default function UserDashRatings() {
 
 
 
-          <ul className="menu menu-xs bg-base-200 rounded-lg w-fit mx-auto my-auto">
-          
+          <ul className="menu menu-xs bg-base-200 rounded-lg w-fit mx-auto my-auto md:scale-150">
+
             <li><a>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
               account.js
@@ -364,12 +364,12 @@ export default function UserDashRatings() {
             </a></li>
 
             <Form onSubmit={handleSubmit}>
-            <button
-              type="submit"
-              className="text-black bg-white font-medium rounded-lg text-sm w-1/2 px-5 py-2.5 text-center my-2 self-center"
-            >
-              Update
-            </button>
+              <button
+                type="submit"
+                className="text-black bg-white font-medium rounded-lg text-sm w-1/2 px-5 py-2.5 text-center my-2 self-center"
+              >
+                Update
+              </button>
             </Form>
 
           </ul>
@@ -407,7 +407,7 @@ export default function UserDashRatings() {
                   <img src={platformsIcon[4]} />
                 </div>
                 </div>*/}
-              {/* <input
+          {/* <input
                 type="text"
                 name="codeforces"
                 id="codeforces"
@@ -423,7 +423,7 @@ export default function UserDashRatings() {
                 Codeforces
               </label>
               <Checkbox isCheckedState={formData.codeforces.showOnWebsite} setState={updateShowOnWebsite('codeforces')} /> */}
-            
+
           {/* </div><div className="relative z-0 w-full md:w-3/4 mb-12 group">
           <input
             type="text"
