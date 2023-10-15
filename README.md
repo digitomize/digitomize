@@ -1,6 +1,6 @@
 # Digitomize
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-14-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Join us on [Discord](https://discord.gg/bsbBytBqBc)!
@@ -105,6 +105,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/HarshMakadiya"><img src="https://avatars.githubusercontent.com/u/70363509?v=4?s=100" width="100px;" alt="Harsh"/><br /><sub><b>Harsh</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=HarshMakadiya" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/j-mahapatra"><img src="https://avatars.githubusercontent.com/u/107102771?v=4?s=100" width="100px;" alt="Jagannath Mahapatra"/><br /><sub><b>Jagannath Mahapatra</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=j-mahapatra" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/MayurShirodkarOfficial"><img src="https://avatars.githubusercontent.com/u/69785986?v=4?s=100" width="100px;" alt="Mayur Shirodkar"/><br /><sub><b>Mayur Shirodkar</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=MayurShirodkarOfficial" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://spiffy-crepe-a5d6b0.netlify.app/"><img src="https://avatars.githubusercontent.com/u/89308426?v=4?s=100" width="100px;" alt="Ayush Shukla"/><br /><sub><b>Ayush Shukla</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=ayusshh19" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
