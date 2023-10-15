@@ -1,6 +1,13 @@
 # [Digitomize Version 2 LIVE](https://v2.digitomize.com)
 
 # Digitomize
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-19-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+[![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8fb0d3a9-43a1-4779-aa77-1fa56f0541fa/deploy-status)](https://app.netlify.com/sites/v2-digitomize/deploys)
+[![Forks on Github](https://img.shields.io/github/forks/digitomize/digitomize)](https://github.com/digitomize/digitomize/forks)
+[![Star on GitHub](https://img.shields.io/github/stars/digitomize/digitomize.svg?style=social)](https://github.com/digitomize/digitomize/stargazers)
 
 **Digitomize** is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios.
 
@@ -69,6 +76,19 @@
 ## Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## License
 
