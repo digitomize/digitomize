@@ -21,16 +21,16 @@ async function getCommunityList() {
 async function createCommunity(request, response) {
   try {
     const { body, decodedToken } = request;
-    const userId = req.decodedToken.uid;
+    const userId = request.decodedToken.uid;
     const user = await User.findOne({ uid: userId });
     if (!user) {
       // User not found, redirect to the login page
-      return res
+      return response
         .status(404)
         .json({ message: "User can't be verified", error: "User not found" });
     }
     if (user.role !== ROLE.ADMIN) {
-      return res.status(400).json({
+      return response.status(400).json({
         message: "You don't have sufficient permission",
         error: "You don't have sufficient permission",
       });
@@ -47,7 +47,7 @@ async function createCommunity(request, response) {
     updatedCommunityList.push({
       communityId: savedCommunity._id,
     });
-    const updatedUser = await User.updateOne(
+    await User.updateOne(
       { uid: decodedToken.uid },
       {
         $set: {
