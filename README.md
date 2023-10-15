@@ -1,6 +1,6 @@
 # Digitomize
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-<a href="https://discord.gg/angular">
+<a href="https://discord.com/invite/bsbBytBqBc">
     <img src="https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8" alt="Discord conversation" />
 </a>
 
