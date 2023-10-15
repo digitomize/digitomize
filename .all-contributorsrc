@@ -163,6 +163,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "Yash-Khattar",
+      "name": "Yash Khattar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/67179751?v=4",
+      "profile": "https://github.com/Yash-Khattar",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
