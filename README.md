@@ -80,7 +80,7 @@ Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for de
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/pranshugupta54"><img src="https://avatars.githubusercontent.com/u/76090263?v=4?s=100" width="100px;" alt="Pranshu Gupta"/><br /><sub><b>Pranshu Gupta</b></sub></a><br /><a href="#code-pranshugupta54" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/pranshugupta54"><img src="https://avatars.githubusercontent.com/u/76090263?v=4?s=100" width="100px;" alt="Pranshu Gupta"/><br /><sub><b>Pranshu Gupta</b></sub></a><br /><a href="#code-pranshugupta54" title="Code">💻</a> <a href="#doc-pranshugupta54" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
