@@ -1,6 +1,6 @@
 # Digitomize
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Join us on [Discord](https://discord.gg/bsbBytBqBc)!
@@ -100,17 +100,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/surveer-singh-5876761b9"><img src="https://avatars.githubusercontent.com/u/97107856?v=4?s=100" width="100px;" alt="Surveer Singh"/><br /><sub><b>Surveer Singh</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=hs309123" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/SauravGupta123"><img src="https://avatars.githubusercontent.com/u/103091748?v=4?s=100" width="100px;" alt="Saurav Gupta"/><br /><sub><b>Saurav Gupta</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=SauravGupta123" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/anmol111pal"><img src="https://avatars.githubusercontent.com/u/93645325?v=4?s=100" width="100px;" alt="Anmol Pal"/><br /><sub><b>Anmol Pal</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=anmol111pal" title="Code">💻</a></td>
     </tr>
   </tbody>
-  <tfoot>
-    <tr>
-      <td align="center" size="13px" colspan="7">
-        <img src="https://raw.githubusercontent.com/all-contributors/all-contributors-cli/1b8533af435da9854653492b1327a23a4dbd0a10/assets/logo-small.svg">
-          <a href="https://all-contributors.js.org/docs/en/bot/usage">Add your contributions</a>
-        </img>
-      </td>
-    </tr>
-  </tfoot>
 </table>
 
 <!-- markdownlint-restore -->
