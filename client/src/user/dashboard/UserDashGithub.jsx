@@ -3,6 +3,9 @@ import { Form, useLoaderData } from "react-router-dom"
 import { userDashboardDetails, submitUserFormData } from '../../../api'
 import { toast } from "react-toastify"
 import Checkbox from '../components/Checkbox'
+import NewNavbar from "../../components/NewNavbar"
+import DashboardNavbar from "../components/DashboardNavbar"
+import NewFooter from "../../components/NewFooter"
 
 export async function loader() {
   try {
@@ -89,8 +92,9 @@ export default function UserDashGithub() {
   }
 
   return (
-    <div className=" ">
-      <div className='px-8 py-12'>
+    <>
+      <DashboardNavbar />
+      <div className="px-8 mt-24 py-4 w-11/12 mx-auto">
         <Form className='flex flex-col items-center' onSubmit={handleSubmit}>
           <div className="relative z-0 w-full md:w-3/4 mb-4 group">
             <input type="text" name="github" id="github" className="block py-2.5 px-0 w-full text-md text-gray-200 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer" placeholder="" value={formData.github.data} onChange={handleInputChangeObjData} />
@@ -103,6 +107,7 @@ export default function UserDashGithub() {
           {svgImage()}
         </div>
       </div>
-    </div>
+      <NewFooter/>
+    </>
   )
 }

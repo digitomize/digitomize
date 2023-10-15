@@ -64,7 +64,7 @@ const userSchema = new mongoose.Schema(
     },
     email_show: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     bio: {
       type: stringToggleSchema,
@@ -72,11 +72,11 @@ const userSchema = new mongoose.Schema(
     },
     dateOfBirth: {
       type: stringToggleSchema,
-      default: { data: null, showOnWebsite: false },
+      default: { data: null, showOnWebsite: true },
     },
     phoneNumber: {
       type: numberToggleSchema,
-      default: { data: null, showOnWebsite: false },
+      default: { data: null, showOnWebsite: true },
     },
     skills: [
       {
@@ -106,7 +106,7 @@ const userSchema = new mongoose.Schema(
     },
     github: {
       type: stringToggleSchema,
-      default: { data: null, showOnWebsite: false },
+      default: { data: null, showOnWebsite: true },
     },
     codechef: {
       type: contestToggleSchema,
@@ -114,7 +114,7 @@ const userSchema = new mongoose.Schema(
         username: null,
         rating: null,
         badge: null,
-        showOnWebsite: false,
+        showOnWebsite: true,
         fetchTime: 0,
         attendedContestsCount: null,
       },
@@ -125,7 +125,7 @@ const userSchema = new mongoose.Schema(
         username: null,
         rating: null,
         badge: null,
-        showOnWebsite: false,
+        showOnWebsite: true,
         fetchTime: 0,
         attendedContestsCount: null,
       },
@@ -136,7 +136,7 @@ const userSchema = new mongoose.Schema(
         username: null,
         rating: null,
         badge: null,
-        showOnWebsite: false,
+        showOnWebsite: true,
         fetchTime: 0,
         attendedContestsCount: null,
       },

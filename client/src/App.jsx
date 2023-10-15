@@ -40,7 +40,12 @@ import Feedback from "./components/Feedback";
 // import ProtectedRoute from "./ProtectedRoute"
 function DiscordRedirect() {
   window.location.href = "https://discord.gg/bsbBytBqBc";
-  return null;
+  return (
+    <div className="flex flex-col justify-center items-center h-[60vh]">
+      <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
+      <h1 className="text-2xl ml-4">Redirecting to Discord</h1>
+    </div>
+  );
 }
 function ContributeRedirect() {
   window.location.href = "https://github.com/pranshugupta54/digitomize";
@@ -93,7 +98,14 @@ function Logout() {
   // Conditionally render content based on the isLoggingOut state
   return (
     <div>
-      {isLoggingOut ? <div>Logging out...</div> : <div>Logout completed.</div>}
+      {isLoggingOut ? (
+        <div className="flex flex-col justify-center items-center h-[60vh]">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
+          <h1 className="text-2xl ml-4">Logging out..</h1>
+        </div>
+      ) : (
+        <div>Logout completed.</div>
+      )}
     </div>
   );
 }
@@ -121,6 +133,7 @@ const router = createBrowserRouter(
         <Route path="community" element={<CommunityListPage />}></Route>
       </Route>
       <Route path="/user" element={<ProtectedRoute />}>
+        {/* <Route path="dashboard" element={<UserDashboard/>}> */}
         <Route path="dashboard">
           <Route
             index
