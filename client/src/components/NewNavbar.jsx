@@ -4,7 +4,7 @@ import MobNav from "./MobNav";
 import logo from "../assets/logo.png";
 import { useUserAuth } from "../context/UserAuthContext";
 
-export default function NewNavbar() {
+export default function NewNavbar({ position }) {
   const { user } = useUserAuth();
   console.log("user is", user);
   if (user) {
@@ -36,7 +36,7 @@ export default function NewNavbar() {
     <>
       <MobNav isMenuActive={isMenuActive} toggleActive={toggleActive} />
       <div
-        className="sticky inset-x-0 top-0 z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto"
+        className={`${position ? position : 'sticky'} inset-x-0 top-0 z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto`}
         style={navbarStyle}
       >
         {/* <div className="absolute inset-x-0 top-0 h-40 pointer-events-none -z-10 bg-gradient-to-b from-zinc-950 to-transparent"></div> */}
@@ -54,39 +54,35 @@ export default function NewNavbar() {
           <div className="flex items-center">
             <Link
               to="/home"
-              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
-                location.pathname === "/home" ? "bg-zinc-400 text-zinc-950" : ""
-              } hover:bg-zinc-200`}
+              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/home" ? "bg-zinc-400 text-zinc-950" : ""
+                } hover:bg-zinc-200`}
             >
               Home
             </Link>
             <Link
               to="/contests#list"
-              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
-                location.pathname === "/contests"
+              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/contests"
                   ? "bg-zinc-400 text-zinc-950"
                   : ""
-              } hover:bg-zinc-200`}
+                } hover:bg-zinc-200`}
             >
               Contests
             </Link>
             <Link
               to="/contribute"
-              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
-                location.pathname === "/contribute"
+              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/contribute"
                   ? "bg-zinc-400 text-zinc-950"
                   : ""
-              } hover:bg-zinc-200`}
+                } hover:bg-zinc-200`}
             >
               Contribute
             </Link>
             <Link
               to="/support"
-              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
-                location.pathname === "/support"
+              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/support"
                   ? "bg-zinc-400 text-zinc-950"
                   : ""
-              } hover:bg-zinc-200`}
+                } hover:bg-zinc-200`}
             >
               Support
             </Link>
