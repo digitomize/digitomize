@@ -1,6 +1,6 @@
 # Digitomize
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-15-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-16-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Join us on [Discord](https://discord.gg/bsbBytBqBc)!
@@ -108,6 +108,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://spiffy-crepe-a5d6b0.netlify.app/"><img src="https://avatars.githubusercontent.com/u/89308426?v=4?s=100" width="100px;" alt="Ayush Shukla"/><br /><sub><b>Ayush Shukla</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=ayusshh19" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://shresritik.web.app"><img src="https://avatars.githubusercontent.com/u/66729712?v=4?s=100" width="100px;" alt="Ritik Shrestha"/><br /><sub><b>Ritik Shrestha</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=shresritik" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
