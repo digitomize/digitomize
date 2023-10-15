@@ -1,8 +1,8 @@
 # Digitomize
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors-)
-[![Star on GitHub](https://img.shields.io/github/stars/digitomize/digitomize.svg?style=social)](https://github.com/digitomize/digitomize/stargazers)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/125b14c1-ebbe-46d7-97db-c3e97674e36e/deploy-status)](https://app.netlify.com/sites/digitomize/deploys)
+[![Star on GitHub](https://img.shields.io/github/stars/digitomize/digitomize.svg?style=social)](https://github.com/digitomize/digitomize/stargazers)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Join us on [Discord](https://discord.gg/bsbBytBqBc)!
