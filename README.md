@@ -89,7 +89,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Saanvi26"><img src="https://avatars.githubusercontent.com/u/129958210?v=4?s=100" width="100px;" alt="Saanvi Lakhanpal"/><br /><sub><b>Saanvi Lakhanpal</b></sub></a><br /><a href="https://digitomize.com/digitomize/digitomize/commits?author=Saanvi26" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/pranshugupta54"><img src="https://avatars.githubusercontent.com/u/76090263?v=4?s=100" width="100px;" alt="Pranshu Gupta"/><br /><sub><b>Pranshu Gupta</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=pranshugupta54" title="Code">💻</a></td>
     </tr>
   </tbody>
   <tfoot>
