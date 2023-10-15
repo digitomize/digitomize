@@ -1,21 +1,15 @@
 {
   "projectName": "digitomize",
   "projectOwner": "digitomize",
+  "repoType": "github",
+  "repoHost": "https://digitomize.com",
   "files": [
     "README.md"
   ],
-  "commitType": "docs",
-  "commitConvention": "angular",
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "none",
+  "contributors": [],
   "contributorsPerLine": 7,
-  "contributors": [
-    {
-      "login": "pranshugupta54",
-      "name": "Pranshu Gupta",
-      "avatar_url": "https://avatars.githubusercontent.com/u/76090263?v=4",
-      "profile": "https://github.com/pranshugupta54",
-      "contributions": [
-        "code"
-      ]
-    }
-  ]
+  "linkToUsage": true
 }

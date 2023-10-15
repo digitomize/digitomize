@@ -1,4 +1,7 @@
 # Digitomize
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Join us on [Discord](https://discord.gg/bsbBytBqBc)!
 
@@ -72,25 +75,19 @@ Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for de
     </div>
 </details>
 
-## Contributors
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/pranshugupta54"><img src="https://avatars.githubusercontent.com/u/76090263?v=4?s=100" width="100px;" alt="Pranshu Gupta"/><br /><sub><b>Pranshu Gupta</b></sub></a><br /><a href="#code-pranshugupta54" title="Code">💻</a></td>
-    </tr>
-  </tbody>
-</table>
-
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
