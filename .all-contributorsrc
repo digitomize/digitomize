@@ -45,8 +45,18 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "PushpakRaut",
+      "name": "Pushpak Raut",
+      "avatar_url": "https://avatars.githubusercontent.com/u/85230759?v=4",
+      "profile": "https://github.com/PushpakRaut",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
-  "linkToUsage": true
+  "linkToUsage": true,
+  "commitType": "docs"
 }
