@@ -1,11 +1,6 @@
 # Digitomize
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-
-[![Al Contributors](https://img.shields.io/badge/all_contributors-18-orange.svg?style=flat-square)](#contributors-)
-[![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/125b14c1-ebbe-46d7-97db-c3e97674e36e/deploy-status)](https://app.netlify.com/sites/digitomize/deploys)
-[![Forks on Github](https://img.shields.io/github/forks/digitomize/digitomize)](https://github.com/digitomize/digitomize/forks)
-[![Star on GitHub](https://img.shields.io/github/stars/digitomize/digitomize.svg?style=social)](https://github.com/digitomize/digitomize/stargazers)
+[![All Contributors](https://img.shields.io/badge/all_contributors-19-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## Join us on [Discord](https://discord.gg/bsbBytBqBc)!
@@ -116,6 +111,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://shresritik.web.app"><img src="https://avatars.githubusercontent.com/u/66729712?v=4?s=100" width="100px;" alt="Ritik Shrestha"/><br /><sub><b>Ritik Shrestha</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=shresritik" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Bishwajitpvt"><img src="https://avatars.githubusercontent.com/u/77453811?v=4?s=100" width="100px;" alt="Bishwajit Samanta"/><br /><sub><b>Bishwajit Samanta</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Bishwajitpvt" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Yash-Khattar"><img src="https://avatars.githubusercontent.com/u/67179751?v=4?s=100" width="100px;" alt="Yash Khattar"/><br /><sub><b>Yash Khattar</b></sub></a><br /><a href="#design-Yash-Khattar" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/kapilkumar9395"><img src="https://avatars.githubusercontent.com/u/50052501?v=4?s=100" width="100px;" alt="Kapil Kumar"/><br /><sub><b>Kapil Kumar</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=kapilkumar9395" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
