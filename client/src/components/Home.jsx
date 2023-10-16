@@ -1,19 +1,14 @@
-import { Element, Link } from "react-scroll";
+import { Link } from "react-scroll";
 
-import { Typography } from "@mui/material";
 import Typewriter from "typewriter-effect";
 
 import Filter from "../components/Filter";
-import BgEllipse from "../components/BgEllipse";
 import ScrollToTop from "./ScrollToTop";
-
-// import "./css/Home.css"
 
 function Home() {
 
   return (
     <div className="container flex flex-col mx-auto scroll-smooth">
-      {/* <BgEllipse /> */}
       <div className="button-container scroll-smooth h-[85vh] flex flex-col justify-center items-center z-[1] max-md:h-[80vh] max-md:mb-12 max-md:mt-8">
         {/* <Typography variant="h1" align="center"> */}
           <h1 className="font-['Outfit'] text-center mt-0 md:text-8xl font-extrabold tracking-wide lowercase text-white max-md:text-6xl">Your Ultimate Contest List</h1>
@@ -26,7 +21,7 @@ function Home() {
               typewriter
                 .typeString(`#include "contests/upcoming"`)
                 .pauseFor(10000)
-                // .typeString("Welcomes You")
+           
                 .start();
             }}
           />
@@ -52,22 +47,8 @@ function Home() {
 
         </Link>
       </div>
-
-      {/* <Element name="allContests">
-        <p style={{ marginBottom: '3%', fontSize: '3.5rem' }} className="text-white z-10 relative">Contests</p>
-      </Element> */}
-
       {/* <------ Filter for Contest | STARTS------> */}
       <Filter />
-
-      {/* <div className="scroll-smooth max-md:mb-28 bg-gradient-bg bg-gradient-to-r from-purple-800 via-red-500 to-yellow-300 bg-bottom bg-[length:100%_5px] bg-no-repeat">
-        <div id="footer" className="max-w-6xl mt-4 pb-4 md:text-6xl text-card-text font-bold text-4xl">
-          <h2>Hey👋</h2>
-          <h2>Loved ❤️ our project  ?</h2>
-          <h2>It’s open-source!</h2>
-          <h2>Consider contributing on <a href="https://github.com/pranshugupta54/digitomize" target="_blank" rel="noopener noreferrer" style={{ color: '#4DA9FF' }}>GitHub</a></h2>
-        </div>
-      </div> */}
       <div className="divider"></div>
       <ScrollToTop toid={"allContests"} h={1} />
     </div>

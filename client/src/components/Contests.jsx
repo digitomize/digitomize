@@ -10,7 +10,6 @@ function Contests({ contests, range }) {
   return (
     <>
       <div className="allContests scroll-smooth">
-        {/* <h2>Contests</h2> */}
         <div
           className="allContests lg:justify-evenly md:justify-evenly sm:justify-center px-4"
           style={{ display: "flex", flexWrap: "wrap" }}

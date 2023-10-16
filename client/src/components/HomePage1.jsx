@@ -1,4 +1,4 @@
-import { Element, Link } from "react-scroll";
+import {Link } from "react-scroll";
 
 export default function Home1() {
   return (
@@ -14,7 +14,6 @@ export default function Home1() {
           </h1>
         </div>
         <h1 className="pt-4 mt-0 sm:mt-2 inline-flex flex-col transition font-display max-md:text-7xl md:text-[8rem] bg-gradient-to-b from-50% bg-clip-text text-transparent from-custom-blue">
-          {/* <span>Compete. Develop.</span> */}
           <span>showcase.</span>
         </h1>
 
@@ -23,7 +22,6 @@ export default function Home1() {
           <span> with </span> <span>Digitomize</span>
           <Link to="second">
             <div className="lower text-center pt-8 animate-bounce my-16">
-              {/* <Test/> */}
               <div className="indicator pt-4">
                 <span></span>
                 <span></span>

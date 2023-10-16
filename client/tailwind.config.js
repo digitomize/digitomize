@@ -10,6 +10,7 @@ export default {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
         caveat: ['Caveat', 'cursive'],
+        outfit: ['Outfit', 'sans-serif'],
     },
       colors: {
         "custom-border": "#30363d",

@@ -1,9 +1,14 @@
 import React from 'react';
-import OpenInNewRoundedIcon from '@mui/icons-material/OpenInNewRounded';
-import Codechef from '../../../assets/codechef.svg'
-import Codeforces from '../../../assets/codeforces.svg'
-import GeeksForGeeks from '../../../assets/geeksforgeeks.svg'
-import Leetcode from '../../../assets/leetcode.svg'
+import{
+  OpenInNewRoundedIcon
+}  from './MuiIcons';
+
+import {
+  Codechef,
+  Codeforces,
+  GeeksForGeeks,
+  Leetcode
+}from './AllAssets'
 
 export default function Ranking() {
   const contestImages = {

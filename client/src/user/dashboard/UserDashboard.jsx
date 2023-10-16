@@ -1,17 +1,31 @@
-import { useState, useEffect } from 'react';
-import { auth } from '../../../firebase';
-import { useLoaderData, NavLink, Outlet, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-// import { useUserAuth } from '../../context/UserAuthContext';
+import {
+  useState,
+  useEffect
+} from 'react';
+
+import {
+  auth
+} from '../../../firebase';
+
+import {
+  NavLink,
+  Outlet,
+  useNavigate
+} from "react-router-dom";
+
+import {
+  ToastContainer,
+  toast
+} from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 import SignoutButton from "../components/SignoutButton"
 import { useUserAuth } from '../../context/UserAuthContext';
 import NewNavbar from "../../components/NewNavbar";
-import { Skeleton } from "@mui/material";
+import { Skeleton } from '@mui/material';
 
 export default function UserDashboard() {
-  // const username = data.personal_data.username
-  // const { user } = useUserAuth()
+
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true);
   const { user } = useUserAuth();
@@ -25,20 +39,20 @@ export default function UserDashboard() {
     if (user) {
       setLoading(false);
     } else {
-      setLoading(false); // Handle cases where user data is not available
+      setLoading(false);
     }
   }, [user]);
 
   if (loading) {
     return (
       <div className="m-auto flex flex-col items-cente r w-4/5 my-12">
-        <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width:"30%"}}/>
-        <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600"}}/>
-        <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width:"30%"}}/>
-        <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600"}}/>
-        <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width:"30%" }}/>
-        <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600"}}/>
-        </div>
+        <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
+        <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
+        <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
+        <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
+        <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
+        <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
+      </div>
     )
   }
   if (!loading) {
@@ -79,29 +93,9 @@ export default function UserDashboard() {
                 <Outlet />
               </div>
             </div>
-            {/* <SignoutButton /> */}
           </div>
         </div>
       </>
     )
   }
 }
-
-
-
-
-
-
-
-
-
-// <NavLink to='personal' className="border-b-2 border-transparent hover:border-fuchsia-700 transition md:text-2xl " >
-//               Personal Info
-//             </NavLink>
-
-//             <NavLink to='ratings' className="ms-8 md:ms-12 border-b-2 border-transparent hover:border-fuchsia-700 transition md:text-2xl">
-//                 Ranking 
-//             </NavLink>
-//             <NavLink to='github' className="ms-8 md:ms-12 border-b-2 border-transparent hover:border-fuchsia-700 transition md:text-2xl">
-//                 Github Repos
-//             </NavLink>
