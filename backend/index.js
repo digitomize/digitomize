@@ -1,13 +1,15 @@
-const express = require("express");
-const cors = require('cors');
-require('dotenv').config();
-const mongoose = require("mongoose");
-const dataSyncer = require("./contest/controllers/DataSyncController");
-const contestSyncer = require("./contest/controllers/contestController");
-const contestRouter = require("./contest/routes/contestRoutes");
-const userRoutes = require('./users/routes/userRoutes');
-const bodyParser = require('body-parser');
-const fetchContestsData = require('./fetchContests');
+import express from "express";
+import cors from 'cors';
+import dotenv from 'dotenv';
+dotenv.config();
+
+import mongoose from "mongoose";
+import dataSyncer from "./controllers/contest/DataSyncController.js";
+import contestSyncer from "./controllers/contest/contestController.js";
+import contestRouter from "./routes/contest/contestRoutes.js";
+import userRoutes from './routes/user/userRoutes.js';
+import bodyParser from 'body-parser';
+import fetchContestsData  from "./fetchContests.js";
 
 const app = express();
 
@@ -23,43 +25,34 @@ async function main() {
 }
 
 async function setupUserServer() {
-    const admin = require('firebase-admin');
-    // console.log(process.env.FIREBASE_CREDENTIALS);
-    console.log("ok");
-    // Get the Firebase service account JSON from the environment variable
-    const firebaseCredentials = JSON.parse(process.env.FIREBASE_CREDENTIALS);
-    // console.log(firebaseCredentials);
-
-    admin.initializeApp({
-        credential: admin.credential.cert(firebaseCredentials),
-    });
     // Set up user routes
     app.use('/user', userRoutes);
-}
 
+}
 
 async function setupContestServer() {
 
+    //* Fetches data from API and stores it in mongoDB
     await dataSyncer.syncContests();
-    setInterval(dataSyncer.syncContests, 90 * 60 * 1000);
+    setInterval(dataSyncer.syncContests, 12 * 60 * 60 * 1000);  // 12 hours
 
-
-    // Update contests data and sync contests data at regular intervals
+    //* Adds data from mongoDB to upcomingcontestslist variable
     await contestSyncer.updateContests();
-    setInterval(contestSyncer.updateContests, 60 * 60 * 1000);
+    setInterval(contestSyncer.updateContests, 30 * 60 * 1000); // 30 minutes
 
-    // Pinging the server every 13 minutes
+    // Pinging the server every 14 minutes
     setInterval(async () => {
         try {
             await main();
-            console.log('<=======Sent GET request to AWAKE');
+            console.log('<======= Sent GET request to AWAKE');
         } catch (error) {
             console.error('Error Pinging', error);
         }
-    }, 13 * 60 * 1000);
+    }, 14 * 60 * 1000);
 
     // Set up contest routes
-    app.use("/contests", contestRouter);
+    app.use("/api/contests", contestRouter);
+
 }
 
 async function startServersProduction() {
@@ -74,21 +67,9 @@ async function startServersProduction() {
 
         await setupUserServer();
         await setupContestServer();
-        const servers = [];
-        servers.push("User");
-        servers.push("Contest");
-
-        console.log("┌──────────────────────────────────┐");
-        if (servers.length > 0) {
-            for (const server of servers) {
-                console.log("│ Server active:", server.padEnd(18) + "│");
-            }
-            console.log("├──────────────────────────────────┤");
-        }
         const port = process.env.PORT || 3000;
         app.listen(port, () => {
-            console.log(`│ Server listening on port ${port}`.padEnd(35) + "│");
-            console.log("└──────────────────────────────────┘");
+            console.log(`<--- Server listening on port ${port} --->`);
         });
     } catch (err) {
         console.log("Error starting servers:", err);
@@ -102,30 +83,19 @@ async function startServersDev() {
 
         await mongoose.connect(process.env.MONGODB_URL);
         console.log("MongoDB Connected.");
-        const servers = [];
+        
+
         if (process.env.USERS === 'true') {
             await setupUserServer();
-            servers.push("User");
         }
         if (process.env.CONTESTS === 'true') {
             await setupContestServer();
-            servers.push("Contest");
         }
 
-        console.log("┌──────────────────────────────────┐");
-        if (servers.length > 0) {
-            for (const server of servers) {
-                console.log("│ Server active:", server.padEnd(18) + "│");
-            }
-            console.log("├──────────────────────────────────┤");
-        }
         const port = process.env.PORT || 3000;
         app.listen(port, () => {
-            console.log(`│ Server listening on port ${port}`.padEnd(35) + "│");
-            console.log("└──────────────────────────────────┘");
+            console.log(`<--- Server listening on port ${port} --->`);
         });
-
-
     } catch (err) {
         console.log("Error starting servers:", err);
     }

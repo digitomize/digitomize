@@ -9,6 +9,8 @@ Welcome to the backend documentation for our open-source project. This document 
   - [Environment Variables](#environment-variables)
   - [Running the Server](#running-the-server)
 - [API Routes](#api-routes)
+  - [Contest Routes](#contest-routes)
+  - [User Routes](#user-routes)
 - [Contributing](../CONTRIBUTING.md)
 - [Code of Conduct](../CODE_OF_CONDUCT.md)
 - [License](../LICENSE)
@@ -18,17 +20,18 @@ Welcome to the backend documentation for our open-source project. This document 
 The backend folder is organized into several directories, each serving a specific purpose:
 ```bash
 /backend
-  /contest
-    /controllers   # Logic for handling API requests related to contests
-    /models        # Database models for contests
-    /routes        # API route definitions for contests
-  /user
-    /controllers   # Logic for handling API requests related to users
-    /models        # Database models for users
-    /routes        # API route definitions for users
-    /middlewares   # Custom middleware functions specific to users
-    /services      # Reusable services and utilities specific to users
-  index.js         # Main server file
+  /controllers   # Logic for handling API requests
+    /contest
+    /user
+  /middlewares   # Custom middleware functions
+  /models        # Database models
+    /contest
+    /user
+  /routes        # API route definitions
+    /contest
+    /user
+  /services      # Reusable services and utilities
+  index.js      # Main server file
 ```
 
 ## Getting Started
@@ -51,9 +54,6 @@ BACKEND_URL=http://localhost:4001
 CONTESTS=true
 USERS=true
 NODE_ENV=development
-
-# Firebase Configuration
-FIREBASE_CREDENTIALS= # you need to add JSON for this 
 ```
 
 ### Running the Server
@@ -62,4 +62,17 @@ Start the server: `npm start`
 
 ## API Routes
 
-- https://digitomize.stoplight.io/docs/digitomize-api
+### Contest Routes
+
+- `/api/contests` - Get a list of all upcoming contests.
+- `/api/contests/:contestId` - Get detailed information about a specific contest.
+
+### User Routes
+
+- `/api/user/signup` - Sign up a new user.
+- `/api/user/login` - Log in an existing user.
+- `/api/user/dashboard` - Retrieve user data for the dashboard.
+- `/api/user/profile/:username` - View the profile of a specific user.
+- `/api/user/update` - Update user profile data.
+
+For more detailed information on each route and its functionality, refer to the respective route files in the `/routes` directory.
