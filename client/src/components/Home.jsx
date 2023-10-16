@@ -35,7 +35,7 @@ function Home() {
         {/* Scroll to Contests button */}
         <Link to="allContests">
         <button className="btn md:min-w-96 h-24 bg-black border-2 hover:border-[#D1E5F4] border-[#D1E5F4] shadow-[7px_7px_0px_#D1E5F4] text-white rounded-xl cursor-pointer md:text-4xl font-medium flex flex-col items-center justify-center mt-8 max-w-80 max-text-2xl lowercase transition-transform transform-gpu hover:scale-110 scroll-smooth flex-nowrap">
-            <span className="pt-2 text-3xl">contests</span>
+            <span className="pt-2 text-4xl">contests</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="151"
