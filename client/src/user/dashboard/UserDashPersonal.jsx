@@ -33,6 +33,7 @@ const ListItem = styled("li")(({ theme }) => ({
 export async function loader() {
   try {
     const res = await userDashboardDetails();
+    console.log("RES:", res);
     return res.data;
   } catch (err) {
     console.log(err);
