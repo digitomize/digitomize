@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { auth } from '../../../firebase';
 import { useLoaderData, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
-// import { useUserAuth } from '../../context/UserAuthContext';
 import 'react-toastify/dist/ReactToastify.css';
 import SignoutButton from "../components/SignoutButton"
 import { useUserAuth } from '../../context/UserAuthContext';
@@ -10,8 +9,7 @@ import NewNavbar from "../../components/NewNavbar";
 import { Skeleton } from "@mui/material";
 
 export default function UserDashboard() {
-  // const username = data.personal_data.username
-  // const { user } = useUserAuth()
+
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true);
   const { user } = useUserAuth();
@@ -25,7 +23,7 @@ export default function UserDashboard() {
     if (user) {
       setLoading(false);
     } else {
-      setLoading(false); // Handle cases where user data is not available
+      setLoading(false); 
     }
   }, [user]);
 

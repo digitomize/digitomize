@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Form, useLoaderData } from 'react-router-dom'
 import Checkbox from '../components/Checkbox'
 import { submitUserFormData, userDashboardDetails } from '../../../api'
-// import { useUserAuth } from '../../context/UserAuthContext'
 import { toast } from 'react-toastify'
 import { Skeleton } from "@mui/material"
 

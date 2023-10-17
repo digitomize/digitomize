@@ -6,10 +6,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import Checkbox from "../components/Checkbox";
 
-import Chip from "@mui/material/Chip";
-import Paper from "@mui/material/Paper";
+import { Chip , Paper , styled } from "@mui/material";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
-import { styled } from "@mui/material/styles";
 
 const ListItem = styled("li")(({ theme }) => ({
   margin: theme.spacing(0.5),

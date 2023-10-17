@@ -1,11 +1,6 @@
 import React from 'react'
 import Piechart from './Piechart';
-import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
-import HistoryOutlinedIcon from '@mui/icons-material/HistoryOutlined';
-import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
-import CommitOutlinedIcon from '@mui/icons-material/CommitOutlined';
-import EmojiEventsOutlinedIcon from '@mui/icons-material/EmojiEventsOutlined';
-
+import { StarBorderOutlinedIcon , HistoryOutlinedIcon , ErrorOutlineOutlinedIcon , CommitOutlinedIcon ,EmojiEventsOutlinedIcon} from '@mui/icons-material';
 
 export default function GithubStats() {
   const user = [

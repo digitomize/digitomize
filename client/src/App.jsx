@@ -11,13 +11,10 @@ import {
 } from "./context/UserAuthContext";
 import { useState, useEffect } from "react";
 import "./App.css";
-import Layout from "./components/Layout";
+import { Layout , Home , IndividualCard , ErrorPage , Updates ,NewHome ,Feedback} from "./components";
 import UserLayout, { loader as userLayoutLoader } from "./user/UserLayout";
-import Home from "./components/Home";
 import Login, { loader as loginLoader } from "./components/Login";
 import Signup, { loader as signupLoader } from "./components/Signup";
-import IndividualCard from "./components/IndividualCard";
-import ErrorPage from "./components/error-page";
 import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashPersonal, {
   loader as userDashPersonalLoader,
@@ -32,10 +29,7 @@ import UserProfile, {
   loader as userProfileLoader,
 } from "./user/Profile/UserProfile";
 import ProtectedRoute from "./ProtectedRoute";
-import Updates from "./components/Updates";
-import NewHome from "./components/NewHome";
 import NewUserProfile from "./user/Profile/NewUserProfile";
-import Feedback from "./components/Feedback";
 
 // import ProtectedRoute from "./ProtectedRoute"
 function DiscordRedirect() {

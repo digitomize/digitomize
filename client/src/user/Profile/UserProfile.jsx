@@ -1,12 +1,7 @@
 import React,{useEffect }from 'react'
 import { useLoaderData } from 'react-router-dom'
-import UserInfo from './components/UserInfo'
-import Ranking from './components/Ranking'
+import { UserInfo , Ranking , GithubStats , Skills , UserRepo}from './components'
 import axios from 'axios'
-
-import GithubStats from './components/GithubStats'
-import UserRepo from './components/UserRepo'
-import Skills from './components/Skills'
 import { userProfileDetails } from '../../../api'
 
 
