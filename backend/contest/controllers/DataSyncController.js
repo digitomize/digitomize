@@ -75,7 +75,7 @@ async function syncContests() {
         const leetcodeData = await leetcodeContests.leetcode_c();
         await addToDB(leetcodeData, "LeetCode");
 
-        console.log("├──────────────────────AtCoder────────────────────┤");
+        console.log("├───────────────────────AtCoder──────────────────────┤");
         // console.log("<======= AtCode =======>");
         const atcodeData = await atcoderContests.atcoder_c();
         await addToDB(atcodeData, "AtCoder");
