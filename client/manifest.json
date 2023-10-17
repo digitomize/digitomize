@@ -1,0 +1,33 @@
+{
+  "name": "digitomize",
+  "short_name": "digitomize",
+  "theme_color": "#1582ff",
+  "background_color": "#1582ff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+
+  "icons": [
+    {
+      "src": "src/assets/logox192.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "src/assets/logox192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "src/assets/logox512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "src/assets/logox128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
+}
