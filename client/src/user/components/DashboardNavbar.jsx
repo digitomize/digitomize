@@ -112,7 +112,7 @@ export default function DashboardNavbar() {
                 >
                   <li>
                     <Link to={"/user/dashboard/personal"}>
-                      <span>{"Personal"}</span>
+                      <span>{"account"}</span>
                     </Link>
                   </li>
                   <li>
