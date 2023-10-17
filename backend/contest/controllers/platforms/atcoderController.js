@@ -45,7 +45,7 @@ async function atcoder_c() {
 
                         // Create a new Date object
                         const date = new Date(year, month, day, hour, minute);
-                        const unixTimestamp = date.getTime() / 1000 - 3.5 * 60 * 60; //! issue for AtCoder timezone
+                        const unixTimestamp = date.getTime() / 1000 - 7 * 60 * 60; //! issue for AtCoder timezone
                         // console.log(unixTimestamp);
                         console.log(unixTimestamp);
                         // console.log(unixTimestamps);
