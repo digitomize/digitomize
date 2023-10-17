@@ -15,9 +15,9 @@ const hostToSVGMap = {
   leetcode: leetcode,
   codingninjas: codingninjas,
   codeforces: codeforces,
-  atcoder: atcoder,
   geeksforgeeks: geeksforgeeks,
   codechef: codechef,
+  atcoder:atcoder,
   // Add other hosts and their corresponding SVG variables here
 };
 

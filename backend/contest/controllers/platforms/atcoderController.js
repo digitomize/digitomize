@@ -1,6 +1,6 @@
 const https = require('https');
 const cheerio = require('cheerio');
-const { parseISO, getTime } = require('date-fns');
+// const { parseISO, getTime } = require('date-fns');
 
 async function atcoder_c() {
     const url = 'https://atcoder.jp/contests';
@@ -34,8 +34,21 @@ async function atcoder_c() {
                     const isoMatch = startTimeLink.match(/iso=([^&]+)/);
                     if (isoMatch) {
                         const iso = isoMatch[1];
-                        const date = parseISO(iso);
-                        const unixTimestamp = !isNaN(getTime(date)) ? getTime(date) / 1000 : 'Invalid ISO';
+                        // console.log(iso);
+                        // const date = parseISO(iso);
+                        // const unixTimestamp = !isNaN(getTime(date)) ? getTime(date) / 1000 : 'Invalid ISO';
+                        const year = parseInt(iso.substring(0, 4));
+                        const month = parseInt(iso.substring(4, 6)) - 1; // Months are zero-indexed in JavaScript
+                        const day = parseInt(iso.substring(6, 8));
+                        const hour = parseInt(iso.substring(9, 11));
+                        const minute = parseInt(iso.substring(11, 13));
+
+                        // Create a new Date object
+                        const date = new Date(year, month, day, hour, minute);
+                        const unixTimestamp = date.getTime() / 1000 - 3.5 * 60 * 60; //! issue for AtCoder timezone
+                        // console.log(unixTimestamp);
+                        console.log(unixTimestamp);
+                        // console.log(unixTimestamps);
                         contestInfo.startTimeUnix = unixTimestamp;
                     } else {
                         contestInfo.startTimeUnix = 'Invalid ISO';
@@ -44,10 +57,10 @@ async function atcoder_c() {
                     contestInfo.name = $(element).find('td:nth-of-type(2) a').text().trim();
                     const numberMatch = contestInfo.name.match(/(\d{3})\D*$/);
                     const contestNumber = numberMatch ? numberMatch[1] : 'N/A';
-                
+
                     contestInfo.host = "AtCoder";
                     contestInfo.vanity = `abc${contestNumber}`;
-                    contestInfo.url = `https://atcoder.jp/contests/abc${contestNumber}`; 
+                    contestInfo.url = `https://atcoder.jp/contests/abc${contestNumber}`;
 
                     const durationText = $(element).find('td:nth-of-type(3)').text().trim();
                     const [hours, minutes] = durationText.split(':').map(Number);
