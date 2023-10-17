@@ -1,6 +1,7 @@
 //? APIs to MongoDB
 
 require('dotenv').config({ path: "../../.env" });
+const atcoderContests = require('./platforms/atcoderController');
 const codechefContests = require('./platforms/codechefController');
 const codeforcesContests = require('./platforms/codeforcesController');
 const gfgContests = require('./platforms/gfgController');
@@ -74,6 +75,11 @@ async function syncContests() {
         const leetcodeData = await leetcodeContests.leetcode_c();
         await addToDB(leetcodeData, "LeetCode");
 
+        console.log("├──────────────────────AtCoder────────────────────┤");
+        // console.log("<======= AtCode =======>");
+        const atcodeData = await atcoderContests.atcoder_c();
+        await addToDB(atcodeData, "AtCoder");
+        
         //* GeeksforGeeks Section
         console.log("├────────────────────GeeksForGeeks───────────────────┤");
         // console.log("<======= GeeksForGeeks =======>");

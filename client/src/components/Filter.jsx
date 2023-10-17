@@ -16,6 +16,7 @@ import {
   leetcode,
   codingninjas,
   codechef,
+  atcoder,
   codeforces,
 } from "./AllAssets";
 import Contests from "./Contests";
@@ -43,6 +44,7 @@ const platformsIcon = [
   geeksforgeeks,
   codechef,
   codeforces,
+  atcoder,
 ];
 const platforms = [
   "leetcode",
@@ -50,6 +52,7 @@ const platforms = [
   "geeksforgeeks",
   "codechef",
   "codeforces",
+  "atcoder"
 ];
 function Filter() {
   const [contestsData, setContestsData] = useState([]);
@@ -118,7 +121,7 @@ function Filter() {
             <InputLabel
               variant="filled"
               id="platform-select-label"
-              className=""
+              shrink={selectedPlatforms.length == 0 ? false : true}
             >
               {selectedPlatforms.length == 0 ? "Platform" : ""}
             </InputLabel>

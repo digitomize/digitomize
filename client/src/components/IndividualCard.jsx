@@ -10,6 +10,7 @@ import {
   codingninjas,
   codechef,
   codeforces,
+  atcoder,
 } from "./AllAssets";
 
 
@@ -24,6 +25,7 @@ function IndividualCard() {
     codeforces: codeforces,
     geeksforgeeks: geeksforgeeks,
     codechef: codechef,
+    atcoder: atcoder,
     // Add other hosts and their corresponding SVG variables here
   };
 
