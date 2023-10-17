@@ -137,7 +137,7 @@ const router = createBrowserRouter(
           // loader={userDashPersonalLoader}
           />
           <Route
-            path="personal"
+            path="account"
             element={<UserDashPersonal />}
             loader={userDashPersonalLoader}
           />

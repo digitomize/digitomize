@@ -111,7 +111,7 @@ export default function DashboardNavbar() {
                   className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <Link to={"/user/dashboard/personal"}>
+                    <Link to={"/user/dashboard/account"}>
                       <span>{"account"}</span>
                     </Link>
                   </li>

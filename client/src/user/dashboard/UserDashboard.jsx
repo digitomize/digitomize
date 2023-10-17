@@ -136,7 +136,7 @@ export default function UserDashboard() {
                   </h2>
                   <p>If a dog chews shoes whose shoes does he choose?</p>
                   <div className="card-actions justify-end">
-                    <a href="/user/dashboard/personal">
+                    <a href="/user/dashboard/account">
                       <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]">
                         <SettingsIcon fontSize="large" />
                       </button>
