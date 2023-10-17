@@ -1,21 +1,10 @@
-import React, {
-  useState,
-  useEffect
-} from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import MobileNav from "./MobileNav";
+import logo from "../../assets/logo.png";
+import { useUserAuth } from "../../context/UserAuthContext";
 
-import {
-  Link,
-  useLocation
-} from "react-router-dom";
-
-import MobNav from "./MobNav";
-
-import {
-  logo
-} from "./AllAssets";
-import { useUserAuth } from "../context/UserAuthContext";
-
-export default function NewNavbar() {
+export default function DashboardNavbar() {
   const { user } = useUserAuth();
   console.log("user is", user);
   if (user) {
@@ -45,11 +34,13 @@ export default function NewNavbar() {
 
   return (
     <>
-      <MobNav isMenuActive={isMenuActive} toggleActive={toggleActive} />
+      <MobileNav isMenuActive={isMenuActive} toggleActive={toggleActive} />
       <div
         className="sticky inset-x-0 top-0 z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto"
         style={navbarStyle}
       >
+        {/* <div className="absolute inset-x-0 top-0 h-40 pointer-events-none -z-10 bg-gradient-to-b from-zinc-950 to-transparent"></div> */}
+
         <div className="flex cursor-pointer items-center gap-4 rounded-full bg-white p-2">
           <Link to="/">
             <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-zinc-100">
@@ -63,35 +54,39 @@ export default function NewNavbar() {
           <div className="flex items-center">
             <Link
               to="/home"
-              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/home" ? "bg-zinc-400 text-zinc-950" : ""
-                } hover:bg-zinc-200`}
+              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
+                location.pathname === "/home" ? "bg-zinc-400 text-zinc-950" : ""
+              } hover:bg-zinc-200`}
             >
               Home
             </Link>
             <Link
               to="/contests#list"
-              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/contests"
+              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
+                location.pathname === "/contests"
                   ? "bg-zinc-400 text-zinc-950"
                   : ""
-                } hover:bg-zinc-200`}
+              } hover:bg-zinc-200`}
             >
               Contests
             </Link>
             <Link
               to="/contribute"
-              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/contribute"
+              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
+                location.pathname === "/contribute"
                   ? "bg-zinc-400 text-zinc-950"
                   : ""
-                } hover:bg-zinc-200`}
+              } hover:bg-zinc-200`}
             >
               Contribute
             </Link>
             <Link
               to="/support"
-              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/support"
+              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
+                location.pathname === "/support"
                   ? "bg-zinc-400 text-zinc-950"
                   : ""
-                } hover:bg-zinc-200`}
+              } hover:bg-zinc-200`}
             >
               Support
             </Link>
@@ -107,7 +102,9 @@ export default function NewNavbar() {
                       className="bg-black hover:bg-blue-700 rounded-full"
                     />
                   </div>
-                 
+                  {/* <label tabIndex={0} className="btn">
+                    Hover
+                  </label>{" "} */}
                 </a>
                 <ul
                   tabIndex={0}
@@ -115,7 +112,7 @@ export default function NewNavbar() {
                 >
                   <li>
                     <Link to={"/user/dashboard/personal"}>
-                      <span>{"account"}</span>
+                      <span>{"Personal"}</span>
                     </Link>
                   </li>
                   <li>
