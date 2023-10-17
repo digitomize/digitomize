@@ -9,18 +9,18 @@
 
   "icons": [
     {
-      "src": "src/assets/logox192.png",
+      "src": "/logox192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "src/assets/logox512.png",
+      "src": "assets/logox512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "src/assets/logox144.png",
+      "src": "assets/logox144.png",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "any"
