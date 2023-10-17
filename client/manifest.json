@@ -4,7 +4,7 @@
   "theme_color": "#1582ff",
   "background_color": "#1582ff",
   "display": "standalone",
-  "scope": "/",
+  "scope": "https://deploy-preview-180--v2-digitomize.netlify.app/",
   "start_url": "/home",
 
   "icons": [
