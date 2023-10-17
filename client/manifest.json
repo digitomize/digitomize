@@ -20,7 +20,7 @@
       "purpose": "maskable"
     },
     {
-      "src": "/assets/logo-7fc06726.png",
+      "src": "https://deploy-preview-180--v2-digitomize.netlify.app/assets/logo-7fc06726.png",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "any"
