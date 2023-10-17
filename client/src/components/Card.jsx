@@ -7,6 +7,7 @@ import {
   codingninjas,
   codechef,
   codeforces,
+  atcoder
 } from "./AllAssets";
 import CopyToClipboard from "./CopyToClipboard";
 
@@ -14,6 +15,7 @@ const hostToSVGMap = {
   leetcode: leetcode,
   codingninjas: codingninjas,
   codeforces: codeforces,
+  atcoder: atcoder,
   geeksforgeeks: geeksforgeeks,
   codechef: codechef,
   // Add other hosts and their corresponding SVG variables here
