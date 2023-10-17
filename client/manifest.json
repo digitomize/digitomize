@@ -4,7 +4,7 @@
   "theme_color": "#1582ff",
   "background_color": "#1582ff",
   "display": "standalone",
-  "scope": "",
+  "scope": "https://deploy-preview-180--v2-digitomize.netlify.app/home/",
   "start_url": "https://deploy-preview-180--v2-digitomize.netlify.app/home/",
 
   "icons": [
@@ -26,7 +26,7 @@
       "purpose": "any"
     },
     {
-      "src": "/src/assets/logox128.png",
+      "src": "src/assets/logox128.png",
       "sizes": "128x128",
       "type": "image/png"
     }
