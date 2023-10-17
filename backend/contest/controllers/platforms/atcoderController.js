@@ -31,6 +31,11 @@ async function atcoder_c() {
 
                     const startTimeElement = $(element).find('.text-center a');
                     const startTimeLink = startTimeElement.attr('href');
+                    const contestURL = $(element).find('td:nth-of-type(2) a').attr('href');
+                    // const idkk = idk.attr('href');
+                    const parts = contestURL.split('/');
+                    const lastPart = parts[parts.length - 1];
+                    console.log(lastPart);
                     const isoMatch = startTimeLink.match(/iso=([^&]+)/);
                     if (isoMatch) {
                         const iso = isoMatch[1];
@@ -55,12 +60,12 @@ async function atcoder_c() {
                     }
 
                     contestInfo.name = $(element).find('td:nth-of-type(2) a').text().trim();
-                    const numberMatch = contestInfo.name.match(/(\d{3})\D*$/);
-                    const contestNumber = numberMatch ? numberMatch[1] : 'N/A';
+                    // const numberMatch = contestInfo.name.match(/(\d{3})\D*$/);
+                    // const contestNumber = numberMatch ? numberMatch[1] : 'N/A';
 
                     contestInfo.host = "AtCoder";
-                    contestInfo.vanity = `abc${contestNumber}`;
-                    contestInfo.url = `https://atcoder.jp/contests/abc${contestNumber}`;
+                    contestInfo.vanity = `${lastPart}`;
+                    contestInfo.url = `https://atcoder.jp/contests/${lastPart}`;
 
                     const durationText = $(element).find('td:nth-of-type(3)').text().trim();
                     const [hours, minutes] = durationText.split(':').map(Number);
