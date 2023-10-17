@@ -1,22 +1,26 @@
-import { Element, Link } from "react-scroll";
-import Typewriter from "typewriter-effect";
-import { Skeleton } from "@mui/material";
-import TagFacesIcon from "@mui/icons-material/TagFaces";
-import Tooltip from "@mui/material/Tooltip";
-import { green, pink } from "@mui/material/colors";
-import Avatar from "@mui/material/Avatar";
+import { Element } from "react-scroll";
 import { useState } from "react";
-import Switch from "@mui/material/Switch";
-import CallIcon from "@mui/icons-material/Call";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import GitHubIcon from "@mui/icons-material/GitHub";
 
-import leetcode from "../assets/leetcode.svg";
-import codechef from "../assets/codechef.svg";
-import codeforces from "../assets/codeforces.svg";
-import geeksforgeeks from "../assets/geeksforgeeks.svg";
-import codingninjas from "../assets/codingninjas.png";
+// Importing all MUI icons here...
+import {
+  Skeleton,
+  Tooltip,
+  Avatar,
+  Switch,
+  CallIcon,
+  LinkedInIcon,
+  InstagramIcon,
+  GitHubIcon,
+} from "./MuiIcons";
+
+// importing all the assets ...
+import {
+  geeksforgeeks,
+  leetcode,
+  codingninjas,
+  codechef,
+  codeforces,
+} from "./AllAssets";
 
 
 const gradientStyles = {
@@ -91,21 +95,6 @@ export default function Home2() {
               <h1 className="sm:text-8xl max-smtext-5xl my-0 font-medium max-sm:min-h-[100px] sm:min-h-[300px]">
                 User <span class="text-custom-blue font-bold">Dynamic</span>{" "}
                 Portfolio
-                {/* <Typewriter
-                  options={{ loop: true, delay: 100 }}
-                  onInit={(typewriter) => {
-                    typewriter
-                      .typeString(`User Portfol`)
-                      .pauseFor(100)
-                      .deleteChars(7)
-                      .typeString(
-                        `<span class="text-custom-blue font-bold">dynamic </span> portfolio.`
-                      )
-                      .pauseFor(8000)
-                      // .typeString("Welcomes You")
-                      .start();
-                  }}
-                /> */}
               </h1>
               <p className="py-6 font-['Source Code Pro']">
                 Showcase your ratings, GitHub stats, personal info, skills,
@@ -126,18 +115,11 @@ export default function Home2() {
                   </div>
                   <div className="flex flex-row px-4 py-4 bg-base-200">
                     <div className="flex flex-col w-2/4">
-                      {/* <TagFacesIcon fontSize="large" /> */}
                       <Avatar
                         src="/src/assets/hacker.png"
                         className="bg-custom-blue mb-2 self-center"
                         sx={{ padding: "6%", width: 40, height: 40 }}
                       />
-                      {/* <Skeleton
-                      sx={{ bgcolor: "grey.600" }}
-                      variant="circular"
-                      width={40}
-                      height={40}
-                    /> */}
                       <Skeleton
                         variant="text"
                         sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
@@ -343,9 +325,6 @@ export default function Home2() {
                       <p>
                         {formData.bio.showOnWebsite ? formData.bio.data : " "}
                       </p>
-                      {/* <div className="my-2 divider text-custom-blue">
-                        socials
-                      </div> */}
                       <div className="socials">
                         <LinkedInIcon sx={{ color: "#0077b5" }} />
                         <InstagramIcon sx={gradientStyles} fontSize="small" />
