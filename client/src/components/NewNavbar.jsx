@@ -47,7 +47,7 @@ export default function NewNavbar() {
     <>
       <MobNav isMenuActive={isMenuActive} toggleActive={toggleActive} />
       <div
-        className="sticky inset-x-0 top-0 z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto"
+        className="static inset-x-0 top-0 z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto"
         style={navbarStyle}
       >
         <div className="flex cursor-pointer items-center gap-4 rounded-full bg-white p-2">

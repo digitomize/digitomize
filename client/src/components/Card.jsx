@@ -32,6 +32,11 @@ function Card({ contest }) {
   };
   const startTimeIST = startDate.toLocaleString("en-US", options);
   const [remaningTime, setRemainingTime] = useState("loading...");
+
+  const [ show, setShow ] = useState(false);
+
+    const close_model = () => setShow(false);
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       setRemainingTime(updateTimer(startTimeUnix, duration));
@@ -55,6 +60,9 @@ function Card({ contest }) {
         <div>
           <p className="text-card-text text-xs font-light leading-tight lowercase">Duration : {duration}min</p>
           <div className="text-card-text text-xs font-light leading-tight lowercase">{remaningTime}</div>
+        </div>
+        <div className="h-8 max-md:w-12 clip" >
+         
         </div>
         <div className="h-8 max-md:w-12 clip">
           <CopyToClipboard vanity={vanity} />
