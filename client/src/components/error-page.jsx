@@ -1,6 +1,6 @@
 import { useRouteError, Link } from "react-router-dom"
 import './css/error-page.css'
-import Navbar from "./Navbar";
+import NewNavbar from "./NewNavbar";
 
 export default function ErrorPage() {
     const error = useRouteError();
@@ -8,7 +8,7 @@ export default function ErrorPage() {
   
     return (
       <>
-      <Navbar />
+      <NewNavbar />
         <div className="error-container">
           <div className="error-page" >
             <h1>Oops!</h1>
