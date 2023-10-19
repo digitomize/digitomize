@@ -14,7 +14,7 @@ export default function ErrorPage() {
             <h1>Oops!</h1>
             <p>Sorry, an unexpected error has occurred.</p>
             <p>
-              <i>{ error.statusText && `Error : ${error.statusText}`}</i>
+              <i>{ error.statusText && `Error : ${error.error.message}`}</i>
             </p>
             <button className="button-4"><Link to="/contests">Return to contests</Link></button>
             

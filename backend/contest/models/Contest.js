@@ -14,6 +14,7 @@ const contestSchema = new mongoose.Schema({
     vanity: {
         type: String,
         required: [true, "Vanity is required."],
+        lowercase: true,
     },
     url: {
         type: String,

@@ -1,13 +1,14 @@
 import { useState, useEffect, memo } from "react";
 import { Link } from "react-router-dom";
-
 import Button from "./Button";
-// import "./css/Card.css";
-import geeksforgeeks from "../assets/geeksforgeeks.svg";
-import leetcode from "../assets/leetcode.svg";
-import codingninjas from "../assets/codingninjas.png";
-import codechef from "../assets/codechef.svg";
-import codeforces from "../assets/codeforces.svg";
+import {
+  geeksforgeeks,
+  leetcode,
+  codingninjas,
+  codechef,
+  codeforces,
+  atcoder
+} from "./AllAssets";
 import CopyToClipboard from "./CopyToClipboard";
 
 const hostToSVGMap = {
@@ -16,6 +17,7 @@ const hostToSVGMap = {
   codeforces: codeforces,
   geeksforgeeks: geeksforgeeks,
   codechef: codechef,
+  atcoder:atcoder,
   // Add other hosts and their corresponding SVG variables here
 };
 
@@ -31,7 +33,7 @@ function Card({ contest }) {
     timeZone: "Asia/Kolkata",
   };
   const startTimeIST = startDate.toLocaleString("en-US", options);
-  const [remaningTime, setRemainingTime] = useState("0");
+  const [remaningTime, setRemainingTime] = useState("loading...");
   useEffect(() => {
     const intervalId = setInterval(() => {
       setRemainingTime(updateTimer(startTimeUnix, duration));
@@ -43,7 +45,7 @@ function Card({ contest }) {
   }, [startTimeUnix]);
 
   return (
-    <div className="my-4 md:w-96 min-h-[250px] p-6 rounded-xl bg-cardsColor flex flex-col max-md:w-72 hover:scale-[1.02] transition hover:bg-cardsHover" key={vanity}>
+    <div className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] my-4 sm:w-96 min-h-[250px] p-6 rounded-xl bg-cardsColor flex flex-col hover:scale-[1.02] hover:bg-cardsHover m-1" key={vanity}>
       <div className="flex justify-between">
         <p id="startTime" className="text-card-text font-light leading-tight lowercase text-lg max-md:text-sm">{startTimeIST}</p>
         <img src={hostToSVGMap[host]} alt={host} width="13%" />
@@ -54,7 +56,7 @@ function Card({ contest }) {
       <div className="flex justify-between items-end">
         <div>
           <p className="text-card-text text-xs font-light leading-tight lowercase">Duration : {duration}min</p>
-          <div className="text-card-text text-sm font-light leading-tight lowercase">{remaningTime}</div>
+          <div className="text-card-text text-xs font-light leading-tight lowercase">{remaningTime}</div>
         </div>
         <div className="h-8 max-md:w-12 clip">
           <CopyToClipboard vanity={vanity} />
@@ -69,10 +71,9 @@ export default memo(Card);
 
 function updateTimer(startTime, duration) {
   const currentTime = Math.floor(Date.now() / 1000);
-  // const currentTime = getCurrentTimeIST();
   const timeDiff = startTime - currentTime;
 
-  if (duration * 60 + startTime < currentTime) {
+  if ((duration * 60 + startTime) < currentTime) {
     return <p>the contest has ended</p>;
   } else if (startTime <= currentTime) {
     return <p>the contest has started!</p>;
@@ -84,17 +85,15 @@ function updateTimer(startTime, duration) {
     if (days > 0) {
       return (
         <p>
-          Time Left : {days}d {hours}h {minutes}m {seconds}s
+          starts in {days}d {hours}h {minutes}m
         </p>
       );
     }
     return (
       <p>
-        Time Left : {hours}h {minutes}m {seconds}s
+        starts in {hours}h {minutes}m {seconds}s
       </p>
     );
   }
 }
 
-// const startTime = timerElement.dataset.startTime;
-// const timerElementId = timerElement.id;

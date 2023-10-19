@@ -4,7 +4,7 @@ async function fetchContestsData() {
   return new Promise((resolve, reject) => {
     const options = {
       hostname: process.env.BACKEND_URL,
-      path: '/api/contests',
+      path: '/contests',
       method: 'GET',
     };
 

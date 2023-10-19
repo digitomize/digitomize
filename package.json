@@ -20,11 +20,10 @@
     },
     "homepage": "https://github.com/pranshugupta54/digitomize#readme",
     "devDependencies": {
-        "concurrently": "^8.2.0"
+        "all-contributors-cli": "^6.26.1",
+        "concurrently": "^8.2.1"
     },
     "dependencies": {
-        "daisyui": "^3.9.2",
-        "react-responsive": "^9.0.2",
         "vercel": "^32.2.2"
     }
 }

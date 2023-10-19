@@ -1,6 +1,10 @@
-import { Outlet } from "react-router-dom"
-import UserHeader from "./UserHeader"
-import { requireAuth } from "../../utils"
+import {
+   Outlet
+   } from "react-router-dom"
+
+import { 
+  requireAuth 
+} from "../../utils"
 
 export async function loader({ request }) {
   await requireAuth()
@@ -10,7 +14,6 @@ export async function loader({ request }) {
 export default function UserLayout() {
   return (
     <>
-    {/* <UserHeader /> */}
     <Outlet />
     </>
   )

@@ -69,6 +69,15 @@ const updateUserData = (userData, existingData) => {
     updatePlatformData(platform, userData, existingData[platform]);
   });
 
+  const skills = userData.skills;
+  if (skills) {
+    existingData.skills = skills;
+  }
+  const education = userData.education;
+  if (education) {
+    existingData.education = education;
+  }
+
   // You can similarly update other general properties as needed
 };
 
@@ -77,17 +86,18 @@ const handleUpdateUserProfile = async (req, res) => {
     // const { userId } = req;
     const userId = req.decodedToken.uid;
     const updatedData = req.body;
+    console.log("UpdatedData:", updatedData);
 
     // Check if updatedData is empty
     if (Object.keys(updatedData).length === 0) {
-      return res.status(400).json({ error: "No data provided for update" });
+      return res.status(400).json({ message:"No data provided for update", error: "No data provided for update" });
     }
 
     // Get the existing user profile
     const user = await User.findOne({ uid: userId });
 
     if (!user) {
-      return res.status(404).json({ error: "User not found" });
+      return res.status(404).json({ message:"User not found", error: "User not found" });
     }
     const today = new Date().toDateString();
     const updateIndex = user.updatesToday.findIndex(
@@ -99,7 +109,7 @@ const handleUpdateUserProfile = async (req, res) => {
     ) {
       return res
         .status(400)
-        .json({ error: "Maximum number of updates reached for today" });
+        .json({ message:"Maximum number of updates reached for today", error: "Maximum number of updates reached for today" });
     }
 
     try {
@@ -140,7 +150,7 @@ const handleUpdateUserProfile = async (req, res) => {
     }
   } catch (error) {
     console.error("Error:", error);
-    res.status(500).json({ error: "Error updating user" });
+    res.status(500).json({ message:"Internal Server Error", error: "Internal Server Error" });
   }
 };
 

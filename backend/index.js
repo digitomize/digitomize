@@ -7,6 +7,7 @@ const contestSyncer = require("./contest/controllers/contestController");
 const contestRouter = require("./contest/routes/contestRoutes");
 const userRoutes = require('./users/routes/userRoutes');
 const bodyParser = require('body-parser');
+const fetchContestsData = require('./fetchContests');
 
 const app = express();
 
@@ -14,7 +15,7 @@ console.log(process.env.TEST);
 async function main() {
     try {
         console.log('Pinging...');
-        // Your pinging logic here
+        const contestsData = await fetchContestsData();
         console.log('Pong!');
     } catch (error) {
         console.error('Error pinging the server:', error);
@@ -23,14 +24,19 @@ async function main() {
 
 async function setupUserServer() {
     const admin = require('firebase-admin');
+    // console.log(process.env.FIREBASE_CREDENTIALS);
+    console.log("ok");
+    // Get the Firebase service account JSON from the environment variable
+    const firebaseCredentials = JSON.parse(process.env.FIREBASE_CREDENTIALS);
+    // console.log(firebaseCredentials);
 
-    const serviceAccount = require('./firebase-config.json');
     admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount)
+        credential: admin.credential.cert(firebaseCredentials),
     });
     // Set up user routes
     app.use('/user', userRoutes);
 }
+
 
 async function setupContestServer() {
 
@@ -42,7 +48,7 @@ async function setupContestServer() {
     await contestSyncer.updateContests();
     setInterval(contestSyncer.updateContests, 60 * 60 * 1000);
 
-    // Pinging the server every 14 minutes
+    // Pinging the server every 13 minutes
     setInterval(async () => {
         try {
             await main();
@@ -50,10 +56,10 @@ async function setupContestServer() {
         } catch (error) {
             console.error('Error Pinging', error);
         }
-    }, 14 * 60 * 1000);
+    }, 13 * 60 * 1000);
 
     // Set up contest routes
-    app.use("/api/contests", contestRouter);
+    app.use("/contests", contestRouter);
 }
 
 async function startServersProduction() {

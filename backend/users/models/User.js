@@ -50,35 +50,53 @@ const userSchema = new mongoose.Schema({
     },
     email_show: {
         type: Boolean,
-        default: false,
+        default: true,
     },
     bio: {
         type: stringToggleSchema,
-        default: { data: null, showOnWebsite: false }
+        default: { data: null, showOnWebsite: true }
     },
     dateOfBirth: {
         type: stringToggleSchema,
-        default: { data: null, showOnWebsite: false }
+        default: { data: null, showOnWebsite: true }
     },
     phoneNumber: {
         type: numberToggleSchema,
-        default: { data: null, showOnWebsite: false }
+        default: { data: null, showOnWebsite: true }
     },
+    skills: [{
+        type: String,
+        default: []
+    }],
+    education: [{
+        institute: {
+            type: String,
+            default: null
+        },
+        degree: {
+            type: String,
+            default: null
+        },
+        year: {
+            type: Number,
+            default: null
+        },
+    }],
     github: {
         type: stringToggleSchema,
-        default: { data: null, showOnWebsite: false }
+        default: { data: null, showOnWebsite: true }
     },
     codechef: {
         type: contestToggleSchema,
-        default: { username: null, rating: null, badge: null, showOnWebsite: false, fetchTime: 0, attendedContestsCount: null }
+        default: { username: null, rating: null, badge: null, showOnWebsite: true, fetchTime: 0, attendedContestsCount: null }
     },
     leetcode: {
         type: contestToggleSchema,
-        default: { username: null, rating: null, badge: null, showOnWebsite: false, fetchTime: 0, attendedContestsCount: null }
+        default: { username: null, rating: null, badge: null, showOnWebsite: true, fetchTime: 0, attendedContestsCount: null }
     },
     codeforces: {
         type: contestToggleSchema,
-        default: { username: null, rating: null, badge: null, showOnWebsite: false, fetchTime: 0, attendedContestsCount: null }
+        default: { username: null, rating: null, badge: null, showOnWebsite: true, fetchTime: 0, attendedContestsCount: null }
     },
     updatesToday: [
         {

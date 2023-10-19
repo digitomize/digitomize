@@ -14,6 +14,8 @@ import codechef from '../assets/codechef.svg'
 import codeforces from '../assets/codeforces.svg'
 import CopyToClipboard from './CopyToClipboard';
 
+const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+
 function IndividualCard() {
   const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   const hostToSVGMap = {
@@ -22,6 +24,7 @@ function IndividualCard() {
     codeforces: codeforces,
     geeksforgeeks: geeksforgeeks,
     codechef: codechef,
+    atcoder: atcoder,
     // Add other hosts and their corresponding SVG variables here
   };
 
@@ -30,6 +33,7 @@ function IndividualCard() {
   const vanity = params.vanity
 
   useEffect(() => {
+    fetch(`${backendUrl}/contests?vanity=${vanity}`)
     fetch(`${backendUrl}/contests?vanity=${vanity}`)
       .then(res => res.json())
       .then(data => setContest(data.results[0]))

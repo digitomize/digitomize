@@ -1,16 +1,27 @@
-// Navbar.js
-import { useState, useEffect } from "react";
-// import "./css/Navbar.css";
-import { Link } from "react-router-dom";
-import logo from "../assets/digitomizeLogo.png";
-// import { useUserAuth } from '../context/UserAuthContext';
-import { signOut } from "firebase/auth";
-import { auth } from "../../firebase";
+
+import {
+  useState,
+  useEffect
+} from "react";
+
+import {
+  Link
+} from "react-router-dom";
+
+import {
+  logo
+} from "./AllAssets";
+
+import {
+  signOut
+} from "firebase/auth";
+
+import {
+  auth
+} from "../../firebase";
 
 function Navbar() {
-  // const name = getUserNameFromCookie()
   const [isMenuActive, setActive] = useState(false);
-  // const { user, logOut } = useUserAuth()
   const handleSignout = async () => {
     try {
       await signOut(auth);
@@ -64,7 +75,6 @@ function Navbar() {
               Login
             </li>
           </Link>
-          {/* <li onClick={handleSignout} className='contents'>Signout</li> */}
         </div>
 
         <div
