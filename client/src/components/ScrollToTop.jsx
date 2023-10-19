@@ -37,7 +37,7 @@ const ScrollToTop = (props) => {
           {scrollToTop && (
             <Link to={toid} smooth={true} duration={100}>
             <div
-                className='fixed bottom-[30px] right-[30px] h-[60px] w-[60px] text-[100px] cursor-pointer z-10000 flex justify-center items-center rounded-full duration-300 ease bg-black-500 hover:bg-white text-white border-2 border-white hover:text-black hover:border-black'               
+                className='fixed z-[200] bottom-[30px] right-[30px] h-[60px] w-[60px] text-[100px] cursor-pointer z-10000 flex justify-center items-center rounded-full duration-300 ease bg-black hover:bg-white text-white border-2 border-white hover:text-black hover:border-black'               
                 
             >
                 <KeyboardDoubleArrowUpOutlinedIcon className=''/>
