@@ -1,67 +1,73 @@
 // Navbar.js
-import { useState ,useEffect} from 'react';
-import './css/Navbar.css';
-import { Link } from 'react-router-dom';
-import logo from '../assets/digitomizeLogo.png'
-import { getUserNameFromCookie } from '../../api';
+import { FiMenu } from "react-icons/fi";
+import { AiOutlineClose } from "react-icons/ai";
+import { useState, useEffect } from "react";
+import "./css/Navbar.css";
+import { Link } from "react-router-dom";
+import logo from "../assets/digitomizeLogo.png";
+import { getUserNameFromCookie } from "../../api";
 
 function Navbar() {
-  const name = getUserNameFromCookie()
-  const [path, setPath] = useState("/login")
-  const [btnMessage, setBtnMessage] = useState("Login")
-  const[isMenuActive, setActive]=useState(false);
- 
+  const name = getUserNameFromCookie();
+  const [path, setPath] = useState("/login");
+  const [btnMessage, setBtnMessage] = useState("Login");
+  const [isMenuActive, setActive] = useState(false);
 
-  function toggleActive(){
-    console.log("clicekd");
-    if(isMenuActive){
+  function toggleActive() {
+    if (isMenuActive) {
       setActive(false);
-    }
-    else{
+    } else {
       setActive(true);
     }
   }
 
   useEffect(() => {
-    if(name) {
-      setBtnMessage(name)
-      setPath("/user/dashboard")
+    if (name) {
+      setBtnMessage(name);
+      setPath("/user/dashboard");
     }
 
-    document.body.className = isMenuActive ? "scrollOff": '';
+    document.body.className = isMenuActive ? "scrollOff" : "";
   }, [isMenuActive, name]);
-  
+
+  //  for navlinks
+  const navLinks = [
+    { name: "Contests", path: "/contests" },
+    {
+      name: "Contribute",
+      path: "https://github.com/pranshugupta54/digitomize",
+    },
+    { name: "Feedback", path: "/feedback" },
+  ];
 
   return (
     <nav>
-      <div className='navbar'>
-
-
+      <div className="navbar">
         <div className="brand">
-        <Link to="/" className='nav-brand-link'>
-          
-            <img src={logo} alt="Logo" /> 
-        </Link>
-        </div>
-
-        <div className={`nav-link  ${isMenuActive ? 'active' : ''}`}>
-          <Link to="/contests" className='link'>
-            <li onClick={()=>toggleActive()} className='contents'>Contests</li>
-          </Link>
-          <Link to="https://github.com/pranshugupta54/digitomize"className='link' >
-            <li onClick={()=>toggleActive()} className='contents'>Contribute</li>
-          </Link>
-          <Link to="/feedback"className='link' >
-            <li onClick={()=>toggleActive()} className='contents'>Feedback</li>
+          <Link to="/" className="nav-brand-link">
+            <img src={logo} alt="Logo" />
           </Link>
         </div>
 
-        <div onClick={()=>toggleActive()} className={`closeMenu ${isMenuActive ? 'active' : ''}`}>close</div>
-
-      <div onClick={()=>toggleActive()} className="hamburger">
-          <span className="bar"></span>
-          <span className="bar"></span>
-          <span className="bar"></span>
+        <div className={`nav-link  ${isMenuActive ? "active" : ""}`}>
+          {navLinks.map((item, index) => (
+            <Link to={item.path} className="link" key={index}>
+              <li onClick={() => toggleActive()} className="contents">
+                {item.name}
+              </li>
+            </Link>
+          ))}
+        </div>
+        {/* for close menu  */}
+        <div
+          onClick={() => toggleActive()}
+          className={`closeMenu ${isMenuActive ? "active" : ""}`}
+        >
+          <AiOutlineClose />
+        </div>
+        {/* for open menu  */}
+        <div onClick={() => toggleActive()} className="hamburger">
+          <FiMenu />
         </div>
       </div>
     </nav>
