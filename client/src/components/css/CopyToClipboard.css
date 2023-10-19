@@ -1,19 +1,19 @@
 
-.share-button-container {
+/* .share-button-container {
   position: relative;
   display: inline-block;
   height: 100px;
 
-}
+} */
 
-.share-button {
+/* .share-button {
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
   outline: none;
   
-}
+} */
 
 .tooltip {
   visibility: hidden;
@@ -38,13 +38,7 @@ span p{
   bottom:6px;
 }
 @media (max-width:768px) {
-    /* .share-button-container svg{
-        width:15%;
-    } */
     .ic-inner-lower {
       align-self: flex-start;
   }
-
-
-
 }

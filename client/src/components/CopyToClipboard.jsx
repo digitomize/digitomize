@@ -53,9 +53,9 @@ function CopyToClipboard({ msg, gradient, vanity : propVanity }) {
   }, 1300)
   return (
     <div className={`${gradient} share-button-container`} style={{ boxShadow: `8px 8px ${colorTheme}` }}>
-      <button className="share-button max-md:w-12" onClick={copyToClipboard} >
+      <button className="share-button" onClick={copyToClipboard} >
         <p>{msg}</p>
-        <span className="tooltip">{message}</span>
+        {/* <span className="tooltip">{message}</span> */}
       </button>
     </div>
   )

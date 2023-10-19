@@ -3,9 +3,11 @@
     align-items: center;
     justify-content: center;
     margin: 2% auto;
+    /* 2% remains percentage */
     height: 36.5rem;
     width: 56.5rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
+    /* 10px */
 }
 
 .ic-child {
@@ -13,9 +15,11 @@
     flex-direction: row;
     height: 36rem;
     width: 56rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
+    /* 10px */
     background: #1e1e1e;
     padding: 3%;
+    /* 3% remains percentage */
     position: relative;
     overflow: hidden;
 }
@@ -24,7 +28,6 @@
     display: flex;
     flex: 0.7;
     flex-direction: column;
-
 }
 
 .ic-child-center {
@@ -47,29 +50,62 @@
     flex: 0.5;
     text-align: center;
     vertical-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
+    /* 10px */
 }
 
 .ic-child-right-third {
+    display: flex;
+    flex: 0.2;
+    justify-content: center;
+    align-items: end;
     height: max-content;
-    text-align: center;
-    padding-bottom: 20px;
+    /* text-align: center; */
+    /* padding-bottom: 1.25rem; */
 }
 
 .ic-child-right-fourth {
-    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     flex: 1;
-    margin-top: 10px;
+    margin-top: 0.625rem;
+    /* 10px */
 }
 
 .bi-alarm {
-    margin-bottom: 2px;
-
+    margin-bottom: 0.125rem;
+    /* 2px */
 }
 
 .contest-name {
     display: inline-block;
-    font-size: 30px;
+    font-size: 1.875rem;
+    /* 30px */
+}
+
+.mv-contest-name {
+    display: inline-block;
+    font-size: 6vw;
+    /* 30px */
+}
+
+.mv-btn-div {
+    display: flex;
+    flex-direction: column;
+    width: 55vw;
+    height: 4rem;
+    border-radius: 0.444rem;
+    background: #E5E7EB;
+    position: relative;
+    margin-top: 0.75rem;
+    transition: box-shadow 0.4s ease;
+}
+
+.mv-btn-div:hover {
+    box-shadow: 0 0 0 !important;
 }
 
 .btn-div {
@@ -80,8 +116,8 @@
     border-radius: 0.444rem;
     background: #E5E7EB;
     position: relative;
-    margin-top: 12px;
-    margin-left: 105px;
+    margin-top: 0.75rem;
+    /* 12px */
     transition: box-shadow 0.4s ease;
 }
 
@@ -90,37 +126,53 @@
 }
 
 .share-button {
+    display: flex;
     color: black;
     font-weight: bold;
-    font-size: 20px;
-    margin-top: 17px;
+    font-size: 1.25rem;
+    /* 20px */
+    margin-top: 1.0625rem;
+    /* 17px */
+    align-items: center;
+    justify-content: center;
 }
 
 .share-button-container {
-    margin-top: 20px;
+    margin-top: 1.5625rem;
+    /* 25px */
 }
 
 .outerClipboard {
-    height: 100px;
+    height: 6.25rem;
+    /* 100px */
 }
 
 .siteName {
-    font-size: 30px;
+    font-size: 1.875rem;
+    /* 30px */
+}
 
+.mv-siteName {
+    font-size: 6vw;
 }
 
 .center-filled-box {
-    margin-top: 18px;
+    margin-top: 1.125rem;
+    /* 18px */
 }
 
 .first-filled-box {
-    margin-top: 29px;
+    margin-top: 1.8125rem;
+    /* 29px */
 }
 
 .left-filled-box {
-    margin-left: 160px;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-left: 10rem;
+    /* 160px */
+    margin-bottom: 0.625rem;
+    /* 10px */
+    margin-top: 0.625rem;
+    /* 10px */
 }
 
 .ic-child-left-zeroth {
@@ -136,8 +188,10 @@
     width: 8.133rem;
     height: 2.588rem;
     border-radius: 0.444rem;
-    margin-left: 100px;
-    margin-top: 5px;
+    margin-left: 6.25rem;
+    /* 100px */
+    margin-top: 0.3125rem;
+    /* 5px */
 }
 
 .ic-child-left-second {
@@ -147,9 +201,12 @@
 .ic-child-left-third {
     flex: 0.05;
     background-color: white;
-    width: 100px;
-    height: 1px;
-    margin-left: 110px;
+    width: 6.25rem;
+    /* 100px */
+    height: 0.0625rem;
+    /* 1px */
+    margin-left: 6.875rem;
+    /* 110px */
 }
 
 .ic-child-left-fourth {
@@ -159,9 +216,12 @@
 .ic-child-left-fifth {
     flex: 0.05;
     background-color: white;
-    width: 100px;
-    height: 1px;
-    margin-left: 110px;
+    width: 6.25rem;
+    /* 100px */
+    height: 0.0625rem;
+    /* 1px */
+    margin-left: 6.875rem;
+    /* 110px */
 }
 
 .ic-child-left-sixth {
@@ -176,8 +236,10 @@
     width: 8.133rem;
     height: 2.588rem;
     border-radius: 0.444rem;
-    margin-left: 100px;
-    margin-top: 5px;
+    margin-left: 6.25rem;
+    /* 100px */
+    margin-top: 0.3125rem;
+    /* 5px */
 }
 
 .ic-child-left-eight {
@@ -185,78 +247,245 @@
 }
 
 .date {
-  display: block;
-  width: 400px;
-  height: 50px;
-  -ms-transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  position: absolute;
-  text-align: center;
-  line-height: 50px;
-  left: -150px;
-  top: 30px;  
-  font-family: arial;
-  font-size: 21px;
+    display: block;
+    width: 25rem;
+    /* 400px */
+    height: 3.125rem;
+    /* 50px */
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: absolute;
+    text-align: center;
+    line-height: 3.125rem;
+    /* 50px */
+    left: -9.375rem;
+    /* -150px */
+    top: 1.875rem;
+    /* 30px */
+    font-family: arial;
+    font-size: 1.3125rem;
+    /* 21px */
 }
 
+.mv-date {
+    display: flex;
+    width: 25rem;
+    /* 400px */
+    height: 7vw;
+    /* 50px */
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    line-height: 3vh;
+    /* 50px */
+    left: -9.375rem;
+    /* -150px */
+    top: 1.875rem;
+    /* 30px */
+    font-family: arial;
+    font-size: 4vw;
+    /* 21px */
+}
 
-@media (max-width:768px) {
-    * {
-        margin: 0px;
-        padding: 0px;
-    }
+.ic-mv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2% auto;
+    /* Percentages stay as they are */
+    border-radius: 0.625rem;
+    /* 10px */
+    /* margin-top: 50%; */
+    /* Percentages stay as they are */
+    margin-right: 3%;
+    /* Percentages stay as they are */
+    margin-left: 3%;
+    /* Percentages stay as they are */
+    height: 87vh;
+    /* vh stays as it is */
+}
 
-    .ic {
-        max-width: 91vw;
-    }
+.ic-mv-child {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.625rem;
+    /* 10px */
+    background: #1e1e1e;
+    padding: 3%;
+    /* Percentages stay as they are */
+    position: relative;
+    overflow: hidden;
+    width: 91vw;
+    /* vw stays as it is */
+    height: 85vh;
+    /* vh stays as it is */
+}
 
-    .ic-top {
-        padding-right: 1rem;
+.ic-mv-child-first {
+    display: flex;
+    flex: 0.1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+}
 
-    }
+.siteName {
+    text-align: center;
+}
 
-    #startTime {
-        margin-top: 10px;
+.ic-mv-child-second {
+    display: flex;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    flex: 0.1;
+    justify-content: center;
+    align-items: center;
+}
 
-        font-size: 1.3rem;
-    }
+.ic-mv-child-second h2 {
+    text-align: center;
+}
 
-    .ic-child {
-        max-width: 90vw;
-        height: 36.2rem;
-        font-size: 1px;
-    }
+.ic-mv-child-third {
+    display: flex;
+    flex: 0.1;
+}
 
-    #contest-title {
-        font-size: 1.75rem;
-        /* Adjust this value as needed */
-        max-width: inherit;
-        margin-bottom: 4rem;
-        /* Adjust this value as needed */
-        text-align: center;
-    }
+.ic-mv-child-third-first {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: right;
+}
 
-    .btn-div {
-        max-width: 70vw;
-        margin-bottom: 10px;
+.mv-end-time-div {
+    border-radius: 0.25rem;
+    /* 4px */
+    padding: 0.3125rem;
+    /* 5px */
+    width: fit-content;
+}
 
+.mv-start-time-div {
+    border-radius: 0.25rem;
+    width: fit-content;
+    padding: 0.3125rem;
+}
 
-    }
+.ic-mv-child-third-second {
+    display: flex;
+    flex: 0.5;
+    gap: 0.4375rem;
+    /* 7px */
+    align-items: center;
+    justify-content: center;
+    padding-right: 0.3rem;
+    padding-left: 0.3rem;
+}
 
-    .ic-lower-button {
-        flex-direction: column-reverse;
-        margin-left: 10px;
-        margin-bottom: 10px;
-        align-self: center;
+.ic-mv-child-third-third {
+    display: flex;
+    flex-direction: column;
+    flex: 0.8;
+}
 
+.ic-mv-child-third-third-first {
+    display: flex;
+    flex: 1;
+    align-items: end;
+}
 
-    }
+.ic-mv-child-third-third-second {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0.4;
+}
 
-    .ic-lower-button button {
-        width: 99%;
-        position: relative;
-        left: 1px;
-    }
+.ic-mv-child-third-third-third {
+    flex: 1;
+}
 
+.ic-mv-child-third-fourth {
+    display: flex;
+    flex: 0.5;
+    gap: 0.4375rem;
+    /* 7px */
+    align-items: center;
+    justify-content: center;
+    padding-right: 0.3rem;
+    padding-left: 0.3rem;
+}
+
+.ic-mv-child-third-fifth {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: left;
+}
+
+.ic-mv-child-fourth {
+    display: flex;
+    flex: 0.3;
+    justify-content: center;
+    align-items: end;
+}
+
+.ic-mv-child-fifth {
+    display: flex;
+    flex: 0.5;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.ic-mv-child-third-third-first-sub {
+    width: 100%;
+    height: 0.15625rem;
+    /* 2.5px */
+    background-color: white;
+}
+
+.ic-mv-child-third-third-third-sub {
+    width: 100%;
+    height: 0.15625rem;
+    /* 2.5px */
+    background-color: white;
+}
+
+.card_Navigation {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    /* width: 59%; */
+    text-decoration: none;
+    color: #FFF;
+    /* font-size: 70%; */
+    fill: #fff;
+    font-weight: normal;
+    text-transform: lowercase;
+}
+
+.card_nav_path h3 {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.75);
+    user-select: none;
+}
+
+.card_nav_path a {
+    display: flex;
+    align-items: center;
+}
+
+.card_nav_path svg {
+    padding-left: 0 !important;
+    transform: rotate(0) !important;
 }

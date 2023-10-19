@@ -23,6 +23,8 @@
         "concurrently": "^8.2.0"
     },
     "dependencies": {
+        "daisyui": "^3.9.2",
+        "react-responsive": "^9.0.2",
         "vercel": "^32.2.2"
     }
 }
