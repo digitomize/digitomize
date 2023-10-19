@@ -158,7 +158,7 @@ function IndividualCard() {
                   <a href={url} target="_blank" rel="noopener noreferrer" className="mv-btn-div" style={{ boxShadow: `0.5rem 0.5rem ${colorTheme}` }}>
                     <button style={{ color: 'black', fontWeight: 'bold', fontSize: '1.25rem', marginTop: '1.063rem' }}>participate</button>
                   </a>
-                  <CopyToClipboard msg="share" className='mv-btn-div share-button-div share-button-container' gradient={"mv-btn-div"} />
+                  <CopyToClipboard msg="share" className="mv-btn-div share-button-div share-button-container mv-btn-share-div" gradient={"mv-btn-div"} />
                 </div>
               </div>
             </div>
