@@ -2,8 +2,9 @@ import { useState, useEffect, memo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Typewriter from "typewriter-effect";
-import { Alert } from "@mui/material";
-import {Home as HomeIcon, Whatshot as WhatshotIcon, Grain as GrainIcon} from "@mui/icons-material";
+import { Alert, AlertTitle } from "@mui/material";
+import SportsCricketIcon from '@mui/icons-material/SportsCricket';
+import { Home as HomeIcon, Whatshot as WhatshotIcon, Grain as GrainIcon } from "@mui/icons-material";
 
 import "./css/IndividualCard.css";
 
@@ -36,8 +37,8 @@ function IndividualCard() {
       .then((res) => res.json())
       .then((data) => setContest(data.results[0]))
       .catch((error) => console.error("Error fetching contest:", error));
-    
-      fetch(`${backendUrl}/random-message`)
+
+    fetch(`${backendUrl}/random-message`)
       .then((res) => res.json())
       .then((data) => setMsg(data.message))
       .catch((error) => console.error("Error fetching contest:", error));
@@ -105,17 +106,23 @@ function IndividualCard() {
       </Helmet>
       <div className="individualContestOuter">
 
-<div className="feedback">
-          <Alert
-            severity="info"
-            sx={{
-              backgroundColor: "#1e1e1e",
-              color: "rgba(255, 255, 255, 0.75)",
-            }}
-          >
-            {msg}
-          </Alert>
+          <a href="https://www.codingninjas.com/studio/challenges/coding-world-cup/register?utm_source=Growth-CS&utm_medium=AS&utm_campaign=cwcchallenge_hardDigitomize_19nov">
+          <div className="feedback">
+            <Alert
+              icon={<SportsCricketIcon/>}
+              sx={{
+                backgroundColor: "#1e1e1e",
+                color: "white"
+                // color: "rgba(255, 255, 255, 0.75)",
+              }}
+            >
+              
+              <AlertTitle sx={{ textAlign: "left", color: "orange" }}>coding world cup 2023 - Join Now!</AlertTitle>
+              win Logitech MX Series Mouse worth INR 9000/- every week
+              {/* {msg} */}
+            </Alert>
         </div>
+          </a>
 
         <div className="card_Navigation">
           <div className="card_nav_path">
@@ -191,9 +198,9 @@ function IndividualCard() {
             /feedback
           </a>
                 . */
-                } 
+          }
           <a href="/hacktoberfest" style={{ color: "rgb(21, 132, 255)" }}>
-          Hacktoberfest 2023 X Digitomize 
+            Hacktoberfest 2023 X Digitomize
           </a>
         </Alert>
       </div>
@@ -206,9 +213,9 @@ export default IndividualCard;
 function updateTimer(startTime, duration) {
   const currentTime = Math.floor(Date.now() / 1000);
   const timeDiff = startTime - currentTime;
-  if ((duration*60 + startTime) < currentTime) {
+  if ((duration * 60 + startTime) < currentTime) {
     return <p>the contest has ended</p>;
-  } else if (startTime <= currentTime && currentTime <= (duration*60 + startTime)) {
+  } else if (startTime <= currentTime && currentTime <= (duration * 60 + startTime)) {
     return <p>the contest has started!</p>;
   } else {
     const days = Math.floor(timeDiff / 86400);
