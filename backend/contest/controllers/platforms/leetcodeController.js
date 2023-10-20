@@ -1,6 +1,7 @@
 // ? API to mongodb function
 
-const https = require("https");
+import https from 'https';
+
 
 async function leetcode_c() {
   return new Promise((resolve, reject) => {
@@ -74,6 +75,6 @@ async function leetcode_c() {
   });
 }
 
-module.exports = {
+export default {
   leetcode_c
 };

@@ -1,5 +1,6 @@
-const https = require('https');
-const cheerio = require('cheerio');
+import https from 'https';
+
+import  cheerio from 'cheerio';
 // const { parseISO, getTime } = require('date-fns');
 
 async function atcoder_c() {
@@ -83,7 +84,6 @@ async function atcoder_c() {
 
     return filteredContestsPromise;
 }
-
-module.exports = {
+export default {
     atcoder_c,
 };

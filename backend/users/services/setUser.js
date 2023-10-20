@@ -1,4 +1,5 @@
-const User = require('../models/User');
+import User from '../models/User.js';
+
 
 // Utility function to create default contest object
 function createDefaultContestObject(platformData) {
@@ -71,6 +72,6 @@ const setUser = async (userData) => {
     }
 };
 
-module.exports = {
+export default {
     setUser
 }

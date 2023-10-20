@@ -1,4 +1,5 @@
-const User = require("../models/User");
+import  User from "../models/User.js";
+
 const maxUpdatesPerDay = 50;
 
 // Helper function to update platform-specific data
@@ -81,7 +82,7 @@ const updateUserData = (userData, existingData) => {
   // You can similarly update other general properties as needed
 };
 
-const handleUpdateUserProfile = async (req, res) => {
+export const handleUpdateUserProfile = async (req, res) => {
   try {
     // const { userId } = req;
     const userId = req.decodedToken.uid;
@@ -152,8 +153,4 @@ const handleUpdateUserProfile = async (req, res) => {
     console.error("Error:", error);
     res.status(500).json({ message:"Internal Server Error", error: "Internal Server Error" });
   }
-};
-
-module.exports = {
-  handleUpdateUserProfile,
 };

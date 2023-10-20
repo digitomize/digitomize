@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
 
 //* Contest Schema
 const contestSchema = new mongoose.Schema({
@@ -31,10 +32,6 @@ const contestSchema = new mongoose.Schema({
     },
 }, { timestamps: true });
 
-const UpcomingContest = mongoose.model('UpcomingContest', contestSchema, 'upcomingcontests');
-const AllContest = mongoose.model('AllContest', contestSchema, 'allcontests');
+export const UpcomingContest = mongoose.model('UpcomingContest', contestSchema, 'upcomingcontests');
+export const AllContest = mongoose.model('AllContest', contestSchema, 'allcontests');
 
-module.exports = {
-  UpcomingContest,
-  AllContest,
-};
