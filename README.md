@@ -1,6 +1,6 @@
 # Digitomize
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-20-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/125b14c1-ebbe-46d7-97db-c3e97674e36e/deploy-status)](https://app.netlify.com/sites/digitomize/deploys)
@@ -110,6 +110,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Yash-Khattar"><img src="https://avatars.githubusercontent.com/u/67179751?v=4?s=100" width="100px;" alt="Yash Khattar"/><br /><sub><b>Yash Khattar</b></sub></a><br /><a href="#design-Yash-Khattar" title="Design">🎨</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/kapilkumar9395"><img src="https://avatars.githubusercontent.com/u/50052501?v=4?s=100" width="100px;" alt="Kapil Kumar"/><br /><sub><b>Kapil Kumar</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=kapilkumar9395" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/DeltaCoderr"><img src="https://avatars.githubusercontent.com/u/51528076?v=4?s=100" width="100px;" alt="Subodh Inamdar"/><br /><sub><b>Subodh Inamdar</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=DeltaCoderr" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://priyank.live"><img src="https://avatars.githubusercontent.com/u/88102392?v=4?s=100" width="100px;" alt="Priyankar Pal"/><br /><sub><b>Priyankar Pal</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=priyankarpal" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
