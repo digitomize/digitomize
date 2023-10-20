@@ -1,14 +1,29 @@
-import { useState, useEffect } from 'react';
-import { auth } from '../../../firebase';
-import { useLoaderData, NavLink, Outlet, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-// import { useUserAuth } from '../../context/UserAuthContext';
+import {
+  useState,
+  useEffect
+} from 'react';
+
+import {
+  auth
+} from '../../../firebase';
+
+import {
+  NavLink,
+  Outlet,
+  useNavigate
+} from "react-router-dom";
+
+import {
+  ToastContainer,
+  toast
+} from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 import SignoutButton from "../components/SignoutButton"
 import NewLogOut from "../components/NewLogOut"
 import { useUserAuth } from '../../context/UserAuthContext';
 import NewNavbar from "../../components/NewNavbar";
-import { Skeleton } from "@mui/material";
+import { Skeleton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import Chip from "@mui/material/Chip";
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
@@ -20,14 +35,12 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import logo from "../../assets/logo.png";
 import Badge from '@mui/material/Badge';
 import MoodIcon from '@mui/icons-material/Mood';
+import Tooltip from "@mui/material/Tooltip";
+import NewFooter from "../../components/NewFooter"
 // import logo from "../assets/logo.png";
 
 export default function UserDashboard() {
-  // const username = data.personal_data.username
-  // const { user } = useUserAuth()
-  // const userData = userDashboardDetails().then(
-  //   console.log("DAYAYAYAYAYAATATATATTA",userData)
-  // );
+
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState();
@@ -47,22 +60,16 @@ export default function UserDashboard() {
     async function fetchData() {
       try {
         const temp = await userDashboardDetails();
-        await setUserData(temp);
-        console.log("DAYAYAYAYAYAATATATATTA", userData);
-        // Now you can use userData in your component
-        setLoading(false);
+        setUserData(temp.data);
+        if (user) {
+          setLoading(false);
+        }
       } catch (error) {
-        // Handle any errors that may occur during the data fetching
         console.error("Error fetching user data:", error);
-        setLoading(false);
+        setLoading(true);
       }
     }
     fetchData();
-    if (user) {
-      setLoading(false);
-    } else {
-      setLoading(false); // Handle cases where user data is not available
-    }
   }, [user]);
 
   if (loading) {
@@ -84,112 +91,212 @@ export default function UserDashboard() {
       <>
         <ToastContainer />
         <NewNavbar />
-        <div className='flex max-phone:flex-col pt-24 md:mt-0 w-11/12 mx-auto'>
 
 
-          <div className="personal m-auto flex flex-row">
-            <div className="Ellipse3 w-[50px] h-[50px] m-2" >
-              <Badge anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right',
-              }} badgeContent={<MoodIcon fontSize="small" sx={{ maxWidth: '20px', bgcolor: "red", borderRadius: "100%" }} />}>
-                <div className="avatar rounded-full ring ring-blue ">
-                  <div className="rounded-full">
-                    <img src={logo} alt="avatar" /> {/*// TODO: FIX THIS*/}
+        {/* FOR DESKTOP */}
+        <div className="max-phone:hidden w-11/12 mx-auto mt-4">
+
+          <h1>Heyyy</h1>
+
+          <div className="flex flex-row">
+
+
+            <div className="card w-96 bg-cardsColor shadow-xl border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] rounded-xl hover:scale-[1.02] hover:bg-cardsHover my-8">
+              <div className="card-body text-center items-center">
+                <div className="avatar">
+                  <div className="w-24 rounded-full border-2">
+                    <img src={user.photoURL || logo} />
                   </div>
                 </div>
+                <h2 className="card-title">
+                  {`${userData.personal_data.name}`}
+                  {/* <div className="badge badge-secondary"></div> */}
+                </h2>
+                <div className="contact">
 
-              </Badge>
-            </div>
-            <div className="username my-auto w-fit">
-              <h2 className='text-2xl'>{`${user.displayName}`}</h2>
-            </div>
-            <div className="edit my-auto mx-2">
+                  <p>{userData.personal_data.phoneNumber.data}</p>
+                  <p>{userData.personal_data.email}</p>
+                </div>
+                <p>{userData.personal_data.bio.data}</p>
 
-              <EditIcon fontSize="small" />
+                <div className="card-actions justify-end">
+                  <button className="btn btn-primary lowercase">share now</button>
+                </div>
+              </div>
+            </div>
+            <div className="cards flex flex-row flex-wrap items-center justify-evenly">
+
+
+              <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl my-4">
+                <div className="card-body">
+                  <h2 className="card-title">
+                    <SettingsIcon fontSize="medium" />
+                    account
+                    {/* <div className="badge badge-secondary"></div> */}
+                  </h2>
+                  <p>If a dog chews shoes whose shoes does he choose?</p>
+                  <div className="card-actions justify-end">
+                    <a href="/user/dashboard/account">
+                      <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]">
+                        <SettingsIcon fontSize="large" />
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl my-4">
+                <div className="card-body">
+                  <h2 className="card-title">
+                    <TrendingUpIcon fontSize="medium" />
+                    ratings
+                    <div className="badge badge-secondary">new</div>
+                  </h2>
+                  <p>If a dog chews shoes whose shoes does he choose?</p>
+                  <div className="card-actions justify-end">
+                    <a href="/user/dashboard/ratings">
+                      <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]"><TrendingUpIcon fontSize="large" /></button>
+                    </a>
+
+                  </div>
+                </div>
+              </div>
+
+              <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl my-4">
+                <div className="card-body">
+                  <h2 className="card-title">
+                    <GitHubIcon fontSize="medium" />
+                    Github
+                    <div className="badge badge-secondary">coming soon</div>
+                  </h2>
+                  <p>If a dog chews shoes whose shoes does he choose?</p>
+                  <div className="card-actions justify-end">
+                    <Tooltip title="coming soon" placement="top">
+                      <span>
+
+                        <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]"><GitHubIcon fontSize="large" /></button>
+                      </span>
+                    </Tooltip>
+                  </div>
+                </div>
+              </div>
+
+
             </div>
           </div>
-          <div className="divider"></div>
-          <div className="status">
-            <label className="label">
-              <span className="label-text">my status</span>
-            </label>
-            <div>
-              <Chip
-                label="Busy"
-                color='primary'
-                variant={selectedStatus === 'Busy' ? 'filled' : 'outlined'}
-                onClick={() => handleStatusClick('Busy')}
-              />
-              <Chip
-                label="Working"
-                color='primary'
-                variant={selectedStatus === 'Working' ? 'filled' : 'outlined'}
-                onClick={() => handleStatusClick('Working')}
-              />
-              <Chip
-                label="Available"
-                color='primary'
-                variant={selectedStatus === 'Available' ? 'filled' : 'outlined'}
-                onClick={() => handleStatusClick('Available')}
-              />
-              <Chip
-                label="Offline"
-                color='primary'
-                variant={selectedStatus === 'Offline' ? 'filled' : 'outlined'}
-                onClick={() => handleStatusClick('Offline')}
-              />
-            </div>
+          <div className="w-full flex justify-center my-16">
+            <div className="divider w-3/5"></div>
           </div>
+        </div>
 
-          <div className="divider"></div>
 
-          <div className="dashboard">
-            <label className="label">
-              <span className="label-text">dashboard</span>
-            </label>
-            <div className="ratings">
-              <ul className="menu bg-base-200 w-full rounded-box">
-                <li>
-                  {/* <a> */}
-                  <NavLink to='ratings' className="p-0 mt-2">
-                    <TrendingUpIcon fontSize="large" />
-                    <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> ratings</span>  <KeyboardDoubleArrowRightIcon /></h2>
-                  </NavLink>
-                  {/* </a> */}
-                </li>
-                <div className="divider w-4/5 self-center m-0 p-0"></div>
-                <li>
-                  <NavLink to='github' className="p-0">
-                    <GitHubIcon fontSize="large" />
-                    <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> github</span>  <KeyboardDoubleArrowRightIcon /></h2>
-                  </NavLink>
-                </li>
-                <div className="divider w-4/5 self-center m-0 p-0"></div>
-                <li>
-                  <NavLink to='account' className="p-0 mb-2">
 
+
+        {/* FOR PHONE */}
+        <div className="phone:hidden">
+          <div className='flex flex-col max-phone:mt-24 pt-12 md:mt-0 w-11/12 mx-auto'>
+
+            <div className="personal m-auto flex flex-row">
+              <div className="Ellipse3 w-[50px] h-[50px] m-2" >
+                <Badge anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }} badgeContent={<MoodIcon fontSize="small" sx={{ maxWidth: '20px', bgcolor: "red", borderRadius: "100%" }} />}>
+                  <div className="avatar rounded-full ring ring-blue ">
+                    <div className="rounded-full">
+                      <img src={logo} alt="avatar" /> {/*// TODO: FIX THIS*/}
+                    </div>
+                  </div>
+
+                </Badge>
+              </div>
+              <div className="username my-auto w-fit">
+                <h2 className='text-2xl'>{`${user.displayName}`}</h2>
+              </div>
+              <div className="edit my-auto mx-2">
+
+                <EditIcon fontSize="small" />
+              </div>
+            </div>
+            <div className="status self-center">
+              <label className="label justify-center">
+                <span className="label-text">my status</span>
+              </label>
+              <div>
+                <Chip
+                  label="Busy"
+                  color='primary'
+                  variant={selectedStatus === 'Busy' ? 'filled' : 'outlined'}
+                  onClick={() => handleStatusClick('Busy')}
+                />
+                <Chip
+                  label="Working"
+                  color='primary'
+                  variant={selectedStatus === 'Working' ? 'filled' : 'outlined'}
+                  onClick={() => handleStatusClick('Working')}
+                />
+                <Chip
+                  label="Available"
+                  color='primary'
+                  variant={selectedStatus === 'Available' ? 'filled' : 'outlined'}
+                  onClick={() => handleStatusClick('Available')}
+                />
+                <Chip
+                  label="Offline"
+                  color='primary'
+                  variant={selectedStatus === 'Offline' ? 'filled' : 'outlined'}
+                  onClick={() => handleStatusClick('Offline')}
+                />
+              </div>
+            </div>
+            <div className="divider"></div>
+
+            <div className="phone:hidden dashboard">
+              <label className="label">
+                <span className="label-text">dashboard</span>
+              </label>
+              <div className="ratings">
+                <ul className="menu bg-base-200 w-full rounded-box">
+                  <li>
+                    {/* <a> */}
+                    <NavLink to='personal' className="p-0 mt-2">
                     <SettingsIcon fontSize="large" />
-                    <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> account</span>   <KeyboardDoubleArrowRightIcon /></h2>
-                  </NavLink>
-                </li>
-              </ul>
+                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> account</span>   <KeyboardDoubleArrowRightIcon /></h2>
+                      
+                    </NavLink>
+                    {/* </a> */}
+                  </li>
+                  <div className="divider w-4/5 self-center m-0 p-0"></div>
+                  <li>
+                    <NavLink to='ratings' className="p-0">
+                    <TrendingUpIcon fontSize="large" />
+                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> ratings</span>  <KeyboardDoubleArrowRightIcon /></h2>
+                      
+                    </NavLink>
+                  </li>
+                  <div className="divider w-4/5 self-center m-0 p-0"></div>
+                  <li>
+                    <NavLink to='#' className="p-0 mb-2">
+                      <GitHubIcon fontSize="large" />
+                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2">github</span>  <KeyboardDoubleArrowRightIcon /></h2>
+                      </NavLink>
+                  </li>
+                </ul>
+              </div>
+
             </div>
+            <div className="logout py-16 self-center">
 
-          </div>
+              <NewLogOut isDisabled={false} btnName="sign out" onClickFunction={handleLogout} />
 
-          <div className="logout py-8 self-center">
-
-            <NewLogOut isDisabled={false} btnName="sign out" onClickFunction={handleLogout} />
-
-          </div>
-          <Outlet />
+            </div>
+            {/* <Outlet /> */}
 
 
 
 
 
-          {/*
+            {/*
 
           <div className='flex w-full min-h-screen flex-col items-center md:pt-12 gap-12 '>
             <div className="w-[100%] md:w-3/4 flex items-center  justify-between  ">
@@ -225,27 +332,10 @@ export default function UserDashboard() {
             </div>
              
           </div>*/}
+          </div>
         </div>
+        <NewFooter />
       </>
     )
   }
 }
-
-
-
-
-
-
-
-
-
-// <NavLink to='personal' className="border-b-2 border-transparent hover:border-fuchsia-700 transition md:text-2xl " >
-//               Personal Info
-//             </NavLink>
-
-//             <NavLink to='ratings' className="ms-8 md:ms-12 border-b-2 border-transparent hover:border-fuchsia-700 transition md:text-2xl">
-//                 Ranking 
-//             </NavLink>
-//             <NavLink to='github' className="ms-8 md:ms-12 border-b-2 border-transparent hover:border-fuchsia-700 transition md:text-2xl">
-//                 Github Repos
-//             </NavLink>

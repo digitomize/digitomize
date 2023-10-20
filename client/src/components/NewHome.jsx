@@ -1,19 +1,18 @@
 import "./css/NewHome.css";
 import React from "react";
-import { useState } from "react";
 import "daisyui";
 import Filter from "./Filter";
-import NewNavbar from "./NewNavbar";
-import Test from "./MobNav";
 import HomePage1 from "./HomePage1";
 import HomePage2 from "./HomePage2";
 
-// import { useLocation } from "react-router-dom";
-import { Element, Link } from "react-scroll";
+import { 
+  Element
+ } from "react-scroll";
+ 
 import ScrollToTop from "./ScrollToTop";
 
 export default function NewHome() {
-  // const location = useLocation();
+
   return (
     <div>
       <div id="home" >
@@ -24,10 +23,10 @@ export default function NewHome() {
           <div className="mx-auto text-center px-6 md:px-8">
             <h1 className="inline-flex flex-col transition font-display md:text-[8rem] bg-gradient-to-r from-60% bg-clip-text text-transparent from-blue-600">
               <span>Page2.</span>
-              {/* <span>Showcase.</span> */}
+         
             </h1>
             <h1 className="mt-2 inline-flex flex-col transition font-display md:text-[8rem] bg-gradient-to-r from-60% bg-clip-text text-transparent from-blue-600">
-              {/* <span>Compete. Develop.</span> */}
+      
               <span>Showcase.</span>
             </h1>
           </div>

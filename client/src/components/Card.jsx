@@ -1,13 +1,14 @@
 import { useState, useEffect, memo } from "react";
 import { Link } from "react-router-dom";
-
 import Button from "./Button";
-// import "./css/Card.css";
-import geeksforgeeks from "../assets/geeksforgeeks.svg";
-import leetcode from "../assets/leetcode.svg";
-import codingninjas from "../assets/codingninjas.png";
-import codechef from "../assets/codechef.svg";
-import codeforces from "../assets/codeforces.svg";
+import {
+  geeksforgeeks,
+  leetcode,
+  codingninjas,
+  codechef,
+  codeforces,
+  atcoder
+} from "./AllAssets";
 import CopyToClipboard from "./CopyToClipboard";
 
 const hostToSVGMap = {
@@ -16,6 +17,7 @@ const hostToSVGMap = {
   codeforces: codeforces,
   geeksforgeeks: geeksforgeeks,
   codechef: codechef,
+  atcoder:atcoder,
   // Add other hosts and their corresponding SVG variables here
 };
 
@@ -69,7 +71,6 @@ export default memo(Card);
 
 function updateTimer(startTime, duration) {
   const currentTime = Math.floor(Date.now() / 1000);
-  // const currentTime = getCurrentTimeIST();
   const timeDiff = startTime - currentTime;
 
   if ((duration * 60 + startTime) < currentTime) {
@@ -96,5 +97,3 @@ function updateTimer(startTime, duration) {
   }
 }
 
-// const startTime = timerElement.dataset.startTime;
-// const timerElementId = timerElement.id;

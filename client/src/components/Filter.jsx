@@ -11,20 +11,18 @@ import {
   ListItemIcon,
   Skeleton,
 } from "@mui/material";
-
-import leetcode from "../assets/leetcode.svg";
-import codechef from "../assets/codechef.svg";
-import codeforces from "../assets/codeforces.svg";
-import geeksforgeeks from "../assets/geeksforgeeks.svg";
-import codingninjas from "../assets/codingninjas.png";
+import {
+  geeksforgeeks,
+  leetcode,
+  codingninjas,
+  codechef,
+  atcoder,
+  codeforces,
+} from "./AllAssets";
 import Contests from "./Contests";
 import { Element } from "react-scroll";
 import CustomSlider from "./CustomSlider";
-// import "./css/Filter.css";
-
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
 const MenuProps = {
   PaperProps: {
     style: {
@@ -32,10 +30,10 @@ const MenuProps = {
       width: 250,
       backgroundColor: "#252525",
       color: "white",
-      borderTopLeftRadius: "1px", // Add this line
-      borderTopRightRadius: "1px", // Add this line
-      borderBottomLeftRadius: "10px", // Add this line
-      borderBottomRightRadius: "10px", // Add this line
+      borderTopLeftRadius: "1px", 
+      borderTopRightRadius: "1px", 
+      borderBottomLeftRadius: "10px",
+      borderBottomRightRadius: "10px",
     },
   },
 };
@@ -46,6 +44,7 @@ const platformsIcon = [
   geeksforgeeks,
   codechef,
   codeforces,
+  atcoder,
 ];
 const platforms = [
   "leetcode",
@@ -53,6 +52,7 @@ const platforms = [
   "geeksforgeeks",
   "codechef",
   "codeforces",
+  "atcoder"
 ];
 function Filter() {
   const [contestsData, setContestsData] = useState([]);
@@ -63,7 +63,6 @@ function Filter() {
   useEffect(() => {
     // Fetch data from the backend API
     const selectedPlatformsParam = selectedPlatforms.join(",");
-    // console.log(selectedPlatforms);
     const url = selectedPlatformsParam
       ? `${backendUrl}/contests?host=${selectedPlatformsParam}`
       : `${backendUrl}/contests`;
@@ -112,7 +111,7 @@ function Filter() {
       <Element className=" flex md:flex-row flex-col justify-between mx-auto md:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
         {/* //checkmarks */}
         <div
-          className={`filter-div w-fit self-center bg-cardsColor p-1 relative rounded-xl`}
+          className={`filter-div w-fit self-center bg-cardsColor relative rounded-xl`}
         >
           <FormControl
             variant="filled"
@@ -122,7 +121,7 @@ function Filter() {
             <InputLabel
               variant="filled"
               id="platform-select-label"
-              className=""
+              shrink={selectedPlatforms.length == 0 ? false : true}
             >
               {selectedPlatforms.length == 0 ? "Platform" : ""}
             </InputLabel>
@@ -135,7 +134,6 @@ function Filter() {
               onClick={!open ? () => setOpen(true) : () => setOpen(false)}
               onChange={handleChange}
               input={<OutlinedInput id="select-multiple-chip" label="" />}
-              // renderValue={(selected) => selected.join(" ")}
               renderValue={(selected) => (
                 <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                   {selected?.map((value) => (
@@ -152,7 +150,6 @@ function Filter() {
               {/* All the platforms list is fetched here */}
               {platforms.map((platform, idx) => (
                 <MenuItem key={platform} value={platform}>
-                  {/* <Checkbox checked={selectedPlatforms.indexOf(platform) > -1} /> */}
                   <ListItemIcon>
                     <img
                       src={platformsIcon[idx]}

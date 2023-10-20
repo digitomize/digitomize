@@ -3,7 +3,7 @@ import React from "react";
 function Button({ url }) {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer" className="my-auto">
-      {/* <button>Join Contest</button> */}
+      
       <button style={{background:'transparent',border:'none', cursor:'pointer'}}>
         {/* go to contests */}
         <svg
