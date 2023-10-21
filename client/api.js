@@ -71,15 +71,14 @@ export async function userProfileDetails(username) {
   }
 }
 
-export async function leaderboardData() {
+export async function leaderboardData(page = 1) {
   try {
     const response = await axios.get(
-      `${backendUrl}/user/leaderboard`
+      `${backendUrl}/user/leaderboard?page=${page}`
     );
     return response;
-  }
-  catch (err) {
-    console.log(error);
+  } catch (err) {
+    console.log(err);
   }
 }
 

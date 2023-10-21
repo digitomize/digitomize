@@ -70,6 +70,7 @@ const getLeaderboard = async (req, res) => {
       return {
           username: user.username,
           picture: user.picture,
+          name: user.name,
         ...userRatings,
         digitomize_rating: digitomizeRating,
         platform_rating: platformRating,
