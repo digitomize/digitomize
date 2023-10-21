@@ -199,6 +199,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "inbuilt-aura",
+      "name": "AMAN MADDHESHIYA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/74290697?v=4",
+      "profile": "https://portfolio-aman-three.vercel.app/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
