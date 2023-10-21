@@ -1,8 +1,8 @@
-const { getUser } = require('../services/getUser');
-const { codeforces_u } = require('./platforms/codeforcesUpdater');
-const { codechef_u } = require('./platforms/codechefUpdater'); // Import your CodeChef updater function
-const { leetcode_u } = require('./platforms/leetcodeUpdater'); // Import your LeetCode updater function
-const { updateUser } = require('../services/updateUser');
+import getUser  from '../services/getUser.js';
+import codeforces_u  from './platforms/codeforcesUpdater.js';
+import  codechef_u  from './platforms/codechefUpdater.js'; // Import your CodeChef updater function
+import leetcode_u  from './platforms/leetcodeUpdater.js'; // Import your LeetCode updater function
+import updateUser  from '../services/updateUser.js';
 
 // Mapping of platform names to their updater functions
 const platformUpdaters = {
@@ -11,7 +11,7 @@ const platformUpdaters = {
   leetcode: leetcode_u        // Replace with your LeetCode updater function
 };
 
-const handleUserPlatformUpdate = async (username, platform) => {
+ const handleUserPlatformUpdate = async (username, platform) => {
   const updater = platformUpdaters[platform];
   if (updater) {
     return await updater(username);
@@ -111,6 +111,4 @@ function handleCodingPlatform(targetObject, platform, platformKey) {
   }
 }
 
-module.exports = {
-  handleUserProfilePreview
-};
+export {handleUserPlatformUpdate,handleUserDataUpdate,handleUserProfilePreview};

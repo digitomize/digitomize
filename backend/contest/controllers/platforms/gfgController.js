@@ -1,6 +1,7 @@
 // ? API to mongodb function
 
-const https = require("https");
+import https from 'https';
+
 
 async function geeksforgeeks_c() {
     const url = "https://practiceapi.geeksforgeeks.org/api/v1/events/?type=contest&page_number=1&sub_type=all";
@@ -59,6 +60,6 @@ function formatStartTimeIST(start_time) {
     return startTimeIST;
 }
 
-module.exports = {
+export default{
     geeksforgeeks_c,
 };

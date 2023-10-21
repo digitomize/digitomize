@@ -1,8 +1,8 @@
-const { getUser } = require("../services/getUser");
-const { getAuth } = require("firebase-admin/auth");
+import  getUser  from "../services/getUser.js";
+import { getAuth }   from "firebase-admin/auth";
 // const { admin } = require("../../firebase-config.json"); // Update the path accordingly
 
-async function addUID(request, response, next) {
+const addUID = async (request, response, next) => {
   const authHeader = request?.body?.headers?.Authorization || request?.body?.headers?.authorization || request?.headers?.authorization || request?.headers?.Authorization || request?.Authorization || request?.authorization;
   const authToken = authHeader && authHeader.split(" ")[1];
   if (!authToken) {
@@ -37,7 +37,7 @@ async function addUID(request, response, next) {
   }
 }
 
-async function checkAuth(request, response, next) {
+ const checkAuth = async (request, response, next) => {
   const authHeader = request.headers["authorization"];
   const authToken = authHeader && authHeader.split(" ")[1]; // Get the token part after 'Bearer'
 
@@ -61,7 +61,7 @@ async function checkAuth(request, response, next) {
   }
 }
 
-async function checkUserOwnership(req, res, next) {
+ const checkUserOwnership = async(req, res, next) => {
   const userUIDFromToken = req.decodedToken.uid;;
 
   const usernameFromRequest = req.params.username; // Make sure to adjust this based on your route
@@ -81,9 +81,4 @@ async function checkUserOwnership(req, res, next) {
   next();
 }
 
-module.exports = {
-  checkAuth,
-  addUID,
-  // setJwtCookie,
-  checkUserOwnership,
-};
+export {addUID,checkAuth,checkUserOwnership};

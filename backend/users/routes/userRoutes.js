@@ -1,10 +1,9 @@
-const express = require('express');
-const { handleUserSignup } = require('../controllers/authController');
-const { handleUserDashboard } = require('../controllers/userDashboardController');
-const { handleUserProfilePreview } = require('../controllers/userProfileController');
-const { handleUpdateUserProfile } = require('../controllers/userUpdateController');
-const { addUID } = require('../middlewares/authMiddleware');
-// const { checkLoggedIn } = require('../../services/checkLoggedIn');
+import express from'express';
+import  {handleUserSignup} from'../controllers/authController.js';
+import  {handleUserDashboard } from '../controllers/userDashboardController.js';
+import  {handleUserProfilePreview} from '../controllers/userProfileController.js';
+import  {handleUpdateUserProfile} from '../controllers/userUpdateController.js';
+import  {addUID} from '../middlewares/authMiddleware.js';
 
 
 const router = express.Router();
@@ -24,4 +23,5 @@ router.get('/profile/:username', handleUserProfilePreview);
 
 // router.post('/isLoggedin', checkLoggedIn);
 
-module.exports = router;
+export default router;
+

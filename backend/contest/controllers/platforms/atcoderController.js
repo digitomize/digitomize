@@ -1,5 +1,6 @@
-const https = require('https');
-const cheerio = require('cheerio');
+import https from 'https';
+
+import  cheerio from 'cheerio';
 // const { parseISO, getTime } = require('date-fns');
 
 async function atcoder_c() {
@@ -35,7 +36,7 @@ async function atcoder_c() {
                     // const idkk = idk.attr('href');
                     const parts = contestURL.split('/');
                     const lastPart = parts[parts.length - 1];
-                    console.log(lastPart);
+                    // console.log(lastPart);
                     const isoMatch = startTimeLink.match(/iso=([^&]+)/);
                     if (isoMatch) {
                         const iso = isoMatch[1];
@@ -83,7 +84,6 @@ async function atcoder_c() {
 
     return filteredContestsPromise;
 }
-
-module.exports = {
+export default {
     atcoder_c,
 };
