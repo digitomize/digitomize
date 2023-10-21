@@ -68,7 +68,8 @@ const getLeaderboard = async (req, res) => {
       }
 
       return {
-        username: user.username,
+          username: user.username,
+          picture: user.picture,
         ...userRatings,
         digitomize_rating: digitomizeRating,
         platform_rating: platformRating,
