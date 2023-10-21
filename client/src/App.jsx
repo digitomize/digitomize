@@ -42,6 +42,7 @@ import UserProfile, {
 } from "./user/Profile/UserProfile";
 import ProtectedRoute from "./ProtectedRoute";
 import NewUserProfile from "./user/Profile/NewUserProfile";
+import Leaderboard from "./user/leaderboard/Leaderboard";
 function DiscordRedirect() {
   window.location.href = "https://discord.gg/bsbBytBqBc";
   return (
@@ -156,6 +157,10 @@ const router = createBrowserRouter(
         path="/user/profile/:username"
         element={<NewUserProfile />}
         loader={userProfileLoader}
+      />
+      <Route
+        path="/user/leaderboard"
+        element={<Leaderboard />}
       />
     </Route>
   )
