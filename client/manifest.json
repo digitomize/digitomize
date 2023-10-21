@@ -5,7 +5,7 @@
   "background_color": "#1582ff",
   "display": "standalone",
   "scope": "https://deploy-preview-180--v2-digitomize.netlify.app/home/",
-  "start_url": "https://deploy-preview-180--v2-digitomize.netlify.app/home/",
+  "start_url": "/",
   "icons": [
     {
       "src": "https://res.cloudinary.com/dsazw0r59/image/upload/v1697627259/logox48.png",
