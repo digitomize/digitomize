@@ -24,7 +24,7 @@ async function main() {
     }
 }
 
-export async function setupUserServer() {
+async function setupUserServer() {
    
     // console.log(process.env.FIREBASE_CREDENTIALS);
     console.log("ok");
