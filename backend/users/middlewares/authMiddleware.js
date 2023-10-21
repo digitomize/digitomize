@@ -2,7 +2,7 @@ import  getUser  from "../services/getUser.js";
 import { getAuth }   from "firebase-admin/auth";
 // const { admin } = require("../../firebase-config.json"); // Update the path accordingly
 
-export const addUID = async (request, response, next) => {
+const addUID = async (request, response, next) => {
   const authHeader = request?.body?.headers?.Authorization || request?.body?.headers?.authorization || request?.headers?.authorization || request?.headers?.Authorization || request?.Authorization || request?.authorization;
   const authToken = authHeader && authHeader.split(" ")[1];
   if (!authToken) {
@@ -37,7 +37,7 @@ export const addUID = async (request, response, next) => {
   }
 }
 
-export const checkAuth = async (request, response, next) => {
+ const checkAuth = async (request, response, next) => {
   const authHeader = request.headers["authorization"];
   const authToken = authHeader && authHeader.split(" ")[1]; // Get the token part after 'Bearer'
 
@@ -61,7 +61,7 @@ export const checkAuth = async (request, response, next) => {
   }
 }
 
-export const checkUserOwnership = async(req, res, next) => {
+ const checkUserOwnership = async(req, res, next) => {
   const userUIDFromToken = req.decodedToken.uid;;
 
   const usernameFromRequest = req.params.username; // Make sure to adjust this based on your route
@@ -80,3 +80,5 @@ export const checkUserOwnership = async(req, res, next) => {
 
   next();
 }
+
+export {addUID,checkAuth,checkUserOwnership};

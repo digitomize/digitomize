@@ -82,7 +82,7 @@ const updateUserData = (userData, existingData) => {
   // You can similarly update other general properties as needed
 };
 
-export const handleUpdateUserProfile = async (req, res) => {
+ const handleUpdateUserProfile = async (req, res) => {
   try {
     // const { userId } = req;
     const userId = req.decodedToken.uid;
@@ -154,3 +154,5 @@ export const handleUpdateUserProfile = async (req, res) => {
     res.status(500).json({ message:"Internal Server Error", error: "Internal Server Error" });
   }
 };
+
+export {updatePlatformData,updateDataField,updateUserData,handleUpdateUserProfile};

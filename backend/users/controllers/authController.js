@@ -2,7 +2,7 @@ import  setUser   from '../services/setUser.js';
 
 //? returns JSON message with Status Code
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
-export const handleUserSignup = async (req, res) => {
+ const handleUserSignup = async (req, res) => {
   // console.log("singup function called");
   const {
     uid, username, name, picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
@@ -34,27 +34,4 @@ export const handleUserSignup = async (req, res) => {
   }
 };
 
-//? returns JSON message with Status Code
-// Uses getUser to find the user, then checks the bcrypt password, then generates a token using generateToken, then sets the cookie using setJwtCookie.
-// const handleUserLogin = async (req, res) => {
-//   const { username, password } = req.body;
-//   try {
-//     const user = await getUser(username);
-//     if (!user) {
-//       return res.status(401).json({ error: 'User not found' });
-//     }
-
-//     const isPasswordValid = await bcrypt.compare(password, user.password);
-//     if (!isPasswordValid) {
-//       return res.status(401).json({ error: 'Invalid password' });
-//     }
-
-//     const token = generateToken(user);
-//     // setJwtCookie(req, res, token, () => {
-//     res.status(200).json({ message: 'Login successful', token: token });
-//     // });
-//   } catch (error) {
-//     console.log("Error:", error);
-//     res.status(500).json({ error: 'Error logging in' });
-//   }
-// };
+export {handleUserSignup};

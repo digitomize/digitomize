@@ -1,5 +1,5 @@
 import User from '../models/User.js';
- // Replace with your User model
+
 
 // Function to update user data in MongoDB
 const updateUser = async (updatedUser) => {

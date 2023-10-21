@@ -112,5 +112,5 @@ async function syncContests() {
 }
 
 export default {
-    syncContests,
-}
+    syncContests
+};

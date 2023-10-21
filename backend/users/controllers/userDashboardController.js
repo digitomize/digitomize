@@ -1,6 +1,6 @@
 import User from '../models/User.js';
 
-export const handleUserDashboard = async (req, res) => {
+ const handleUserDashboard = async (req, res) => {
   try {
     // Check if user is logged in using the checkAuth middleware
     // if (!req.userId) {
@@ -69,3 +69,5 @@ export const handleUserDashboard = async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 };
+
+export {handleUserDashboard};

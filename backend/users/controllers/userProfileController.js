@@ -11,7 +11,7 @@ const platformUpdaters = {
   leetcode: leetcode_u        // Replace with your LeetCode updater function
 };
 
-export const handleUserPlatformUpdate = async (username, platform) => {
+ const handleUserPlatformUpdate = async (username, platform) => {
   const updater = platformUpdaters[platform];
   if (updater) {
     return await updater(username);
@@ -48,7 +48,7 @@ const handleUserDataUpdate = async (user) => {
 };
 
 // Handle user profile preview route
-export const handleUserProfilePreview = async (req, res) => {
+const handleUserProfilePreview = async (req, res) => {
   try {
     const username = req.params.username;
 
@@ -110,3 +110,5 @@ function handleCodingPlatform(targetObject, platform, platformKey) {
     };
   }
 }
+
+export {handleUserPlatformUpdate,handleUserDataUpdate,handleUserProfilePreview};
