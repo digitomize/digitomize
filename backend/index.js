@@ -8,7 +8,7 @@ import contestRouter from './contest/routes/contestRoutes.js';
 import userRoutes from './users/routes/userRoutes.js';
 import bodyParser from 'body-parser';
 import fetchContestsData from './fetchContests.js';
-import * as admin from 'firebase-admin';
+import admin from 'firebase-admin';
 
 dotenv.config();
 const app = express();

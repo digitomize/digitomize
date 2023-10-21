@@ -36,7 +36,7 @@ async function atcoder_c() {
                     // const idkk = idk.attr('href');
                     const parts = contestURL.split('/');
                     const lastPart = parts[parts.length - 1];
-                    console.log(lastPart);
+                    // console.log(lastPart);
                     const isoMatch = startTimeLink.match(/iso=([^&]+)/);
                     if (isoMatch) {
                         const iso = isoMatch[1];
