@@ -56,7 +56,8 @@ import User from '../models/User.js';
         leetcode: {
           data: user.leetcode.username || null,
           showOnWebsite: user.leetcode.showOnWebsite,
-        }
+        },
+        digitomize_rating: user.digitomize_rating,
       }
     };
     console.log(jsonResponse);

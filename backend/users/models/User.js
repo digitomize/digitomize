@@ -99,6 +99,10 @@ const userSchema = new mongoose.Schema({
         type: contestToggleSchema,
         default: { username: null, rating: null, badge: null, showOnWebsite: true, fetchTime: 0, attendedContestsCount: null }
     },
+    digitomize_rating: {
+        type: Number,
+        default: 0
+    },
     updatesToday: [
         {
             timestamp: { type: Date, default: Date.now },
