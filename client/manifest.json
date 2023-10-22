@@ -2,7 +2,7 @@
   "name": "digitomize",
   "short_name": "digitomize",
   "theme_color": "#1582ff",
-  "background_color": "#1582ff",
+  "background_color": "#000000",
   "display": "standalone",
   "scope": "https://v2.digitomize.com/contests#allContests",
   "start_url": "https://v2.digitomize.com/contests#allContests",
