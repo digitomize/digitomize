@@ -1,5 +1,5 @@
-import  getUser  from "../services/getUser.js";
-import { getAuth }   from "firebase-admin/auth";
+import { getUser } from "../services/getUser.js";
+import { getAuth } from "firebase-admin/auth";
 // const { admin } = require("../../firebase-config.json"); // Update the path accordingly
 
 const addUID = async (request, response, next) => {
@@ -37,7 +37,7 @@ const addUID = async (request, response, next) => {
   }
 }
 
- const checkAuth = async (request, response, next) => {
+const checkAuth = async (request, response, next) => {
   const authHeader = request.headers["authorization"];
   const authToken = authHeader && authHeader.split(" ")[1]; // Get the token part after 'Bearer'
 
@@ -61,7 +61,7 @@ const addUID = async (request, response, next) => {
   }
 }
 
- const checkUserOwnership = async(req, res, next) => {
+const checkUserOwnership = async (req, res, next) => {
   const userUIDFromToken = req.decodedToken.uid;;
 
   const usernameFromRequest = req.params.username; // Make sure to adjust this based on your route
@@ -81,4 +81,4 @@ const addUID = async (request, response, next) => {
   next();
 }
 
-export {addUID,checkAuth,checkUserOwnership};
+export { addUID, checkAuth, checkUserOwnership };

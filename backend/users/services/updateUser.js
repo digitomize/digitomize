@@ -11,6 +11,6 @@ const updateUser = async (updatedUser) => {
         console.error('Error updating user:', error);
     }
 };
-export default{
+export {
     updateUser
 };

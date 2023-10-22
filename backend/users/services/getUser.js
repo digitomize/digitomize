@@ -13,6 +13,6 @@ const getUser = async (identifier) => {
 };
 
 
-export default  {
+export  {
     getUser
 }
