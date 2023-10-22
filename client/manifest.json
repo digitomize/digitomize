@@ -4,8 +4,8 @@
   "theme_color": "#1582ff",
   "background_color": "#1582ff",
   "display": "standalone",
-  "scope": "https://deploy-preview-180--v2-digitomize.netlify.app/home/",
-  "start_url": "/",
+  "scope": "https://v2.digitomize.com/contests#allContests",
+  "start_url": "https://v2.digitomize.com/contests#allContests",
   "icons": [
     {
       "src": "https://res.cloudinary.com/dsazw0r59/image/upload/v1697627259/logox48.png",
