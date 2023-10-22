@@ -1,8 +1,8 @@
-import  setUser   from '../services/setUser.js';
+import { setUser } from '../services/setUser.js';
 
 //? returns JSON message with Status Code
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
- const handleUserSignup = async (req, res) => {
+const handleUserSignup = async (req, res) => {
   // console.log("singup function called");
   const {
     uid, username, name, picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
@@ -34,4 +34,4 @@ import  setUser   from '../services/setUser.js';
   }
 };
 
-export {handleUserSignup};
+export { handleUserSignup };

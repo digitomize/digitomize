@@ -72,6 +72,6 @@ const setUser = async (userData) => {
     }
 };
 
-export default {
+export {
     setUser
 }
