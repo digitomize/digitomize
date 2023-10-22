@@ -16,6 +16,7 @@ export default function Leaderboard() {
         async function fetchData() {
             try {
                 console.log(currentPage);
+                setLoading(true);
                 const res = await leaderboardData(currentPage);
                 setTotalPages(res.data.total_pages);
                 setData(res.data.leaderboard);
