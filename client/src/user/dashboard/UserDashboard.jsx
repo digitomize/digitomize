@@ -105,7 +105,7 @@ export default function UserDashboard() {
               <div className="card-body text-center items-center">
                 <div className="avatar">
                   <div className="w-24 rounded-full border-2">
-                    <img src={user.photoURL || logo} />
+                    <img src={userData.personal_data.picture || logo} />
                   </div>
                 </div>
                 <h2 className="card-title">
@@ -204,14 +204,14 @@ export default function UserDashboard() {
                 }} badgeContent={<MoodIcon fontSize="small" sx={{ maxWidth: '20px', bgcolor: "red", borderRadius: "100%" }} />}>
                   <div className="avatar rounded-full ring ring-blue ">
                     <div className="rounded-full">
-                      <img src={logo} alt="avatar" /> {/*// TODO: FIX THIS*/}
+                      <img src={userData.personal_data.picture} alt="avatar" /> {/*// TODO: FIX THIS*/}
                     </div>
                   </div>
 
                 </Badge>
               </div>
               <div className="username my-auto w-fit">
-                <h2 className='text-2xl'>{`${user.displayName}`}</h2>
+                <h2 className='text-2xl'>{`${userData.personal_data.name}`}</h2>
               </div>
               <div className="edit my-auto mx-2">
 

@@ -25,7 +25,7 @@ const setUser = async (userData) => {
             uid,
             username: username || uid,
             name,
-            picture: picture || null,
+            picture: picture || "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png",
             email,
             email_verified,
             email_show: email_show || undefined,
