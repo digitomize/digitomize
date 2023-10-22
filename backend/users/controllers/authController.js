@@ -3,11 +3,12 @@ import { setUser } from '../services/setUser.js';
 //? returns JSON message with Status Code
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
 const handleUserSignup = async (req, res) => {
-  // console.log("singup function called");
-  const {
-    uid, username, name, picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
+  let {
+    uid, username, name , picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
   } = req.decodedToken;
 
+  username = req.body?.username;
+  name = req.body?.name;
   // Validate required fields
   if (!uid) {
     return res.status(400).json({ error: 'Missing required fields' });

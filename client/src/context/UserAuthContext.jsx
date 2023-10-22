@@ -13,6 +13,7 @@ import {
     GoogleAuthProvider,
     signInWithPopup,
     GithubAuthProvider,
+    updateProfile
 } from "firebase/auth";
 
 import { auth } from "../../firebase";
@@ -25,8 +26,16 @@ export function UserAuthContextProvider({ children }) {
     function logIn(email, password) {
         return signInWithEmailAndPassword(auth, email, password);
     }
-    function signUp(email, password) {
-        return createUserWithEmailAndPassword(auth, email, password);
+    async function signUp(email, password, username, name) {
+        return createUserWithEmailAndPassword(auth, email, password).then(async (result) => {
+            await updateProfile(auth.currentUser, {
+                displayName: name
+            }).then(() => {
+                console.log("Profile updated successfully.");
+            }).catch((error) => {
+                console.error("Error updating profile:", error);
+            });
+          })
     }
     function logOut() {
         return signOut(auth);

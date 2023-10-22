@@ -51,7 +51,7 @@ export default function Signup() {
         e.preventDefault();
         setError("");
         try {
-            await signUp(email, password)
+            await signUp(email, password, username, firstName)
             const token = auth.currentUser.accessToken
             if (token) {
                 axios.post(`${backendUrl}/user/signup`, {
