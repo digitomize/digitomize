@@ -1,4 +1,5 @@
-const https = require("https");
+import https from 'https';
+
 
 async function codeforces_u(handle) {
     if (!handle) {
@@ -86,6 +87,6 @@ async function resolveUserInfo(userInfo, resolve, reject) {
     }
 }
 
-module.exports = {
+export default {
     codeforces_u,
 };

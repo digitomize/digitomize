@@ -1,8 +1,8 @@
-const { getUser } = require('../services/getUser');
-const { codeforces_u } = require('./platforms/codeforcesUpdater');
-const { codechef_u } = require('./platforms/codechefUpdater'); // Import your CodeChef updater function
-const { leetcode_u } = require('./platforms/leetcodeUpdater'); // Import your LeetCode updater function
-const { updateUser } = require('../services/updateUser');
+import { getUser } from '../services/getUser.js';
+import codeforces_u from './platforms/codeforcesUpdater.js';
+import codechef_u from './platforms/codechefUpdater.js'; // Import your CodeChef updater function
+import leetcode_u from './platforms/leetcodeUpdater.js'; // Import your LeetCode updater function
+import { updateUser } from '../services/updateUser.js';
 
 // Mapping of platform names to their updater functions
 const platformUpdaters = {
@@ -22,10 +22,10 @@ const handleUserPlatformUpdate = async (username, platform) => {
 // Updates user data in DB
 const handleUserDataUpdate = async (user) => {
   const currentTime = new Date();
-  
+
   let changes = false;
   for (const platformKey of ['codeforces', 'codechef', 'leetcode']) {
-  // for (const platformKey of ['codeforces']) {
+    // for (const platformKey of ['codeforces']) {
     const platformData = user[platformKey];
     if (platformData.showOnWebsite && platformData.fetchTime + 12 * 60 * 60 * 1000 < currentTime) {
       const newData = await handleUserPlatformUpdate(platformData.username, platformKey);
@@ -56,7 +56,7 @@ const handleUserProfilePreview = async (req, res) => {
     const user = await getUser(username);
 
     if (!user) {
-      return res.status(404).json({ message:"User not found", error: 'User not found' });
+      return res.status(404).json({ message: "User not found", error: 'User not found' });
     }
 
     await handleUserDataUpdate(user);
@@ -89,7 +89,7 @@ const handleUserProfilePreview = async (req, res) => {
     res.status(200).json(publicUserData);
   } catch (error) {
     console.error('Error:', error);
-    res.status(500).json({ message:"Error fetching user profile", error: 'Error fetching user profile' });
+    res.status(500).json({ message: "Error fetching user profile", error: 'Error fetching user profile' });
   }
 };
 
@@ -111,6 +111,4 @@ function handleCodingPlatform(targetObject, platform, platformKey) {
   }
 }
 
-module.exports = {
-  handleUserProfilePreview
-};
+export { handleUserPlatformUpdate, handleUserDataUpdate, handleUserProfilePreview };

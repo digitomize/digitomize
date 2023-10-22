@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
 
 const stringToggleSchema = new mongoose.Schema({
     data: String,
@@ -142,4 +143,4 @@ userSchema.methods.updateCount = function () {
 
 const User = mongoose.model('User', userSchema);
 
-module.exports = User;
+export default User;

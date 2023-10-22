@@ -1,4 +1,5 @@
-const User = require("../models/User");
+import  User from "../models/User.js";
+
 const maxUpdatesPerDay = 50;
 
 // Helper function to update platform-specific data
@@ -81,7 +82,7 @@ const updateUserData = (userData, existingData) => {
   // You can similarly update other general properties as needed
 };
 
-const handleUpdateUserProfile = async (req, res) => {
+ const handleUpdateUserProfile = async (req, res) => {
   try {
     // const { userId } = req;
     const userId = req.decodedToken.uid;
@@ -154,6 +155,4 @@ const handleUpdateUserProfile = async (req, res) => {
   }
 };
 
-module.exports = {
-  handleUpdateUserProfile,
-};
+export {updatePlatformData,updateDataField,updateUserData,handleUpdateUserProfile};

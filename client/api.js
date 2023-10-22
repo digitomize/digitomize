@@ -71,7 +71,16 @@ export async function userProfileDetails(username) {
   }
 }
 
-
+export async function leaderboardData(page = 1) {
+  try {
+    const response = await axios.get(
+      `${backendUrl}/user/leaderboard?page=${page}`
+    );
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 export async function submitUserFormData(formData) {
   // const jwtToken = Cookies.get("jwt");

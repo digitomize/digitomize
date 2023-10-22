@@ -39,11 +39,11 @@ import UserDashGithub, {
 } from "./user/dashboard/UserDashGithub";
 import ProtectedRoute from "./ProtectedRoute";
 import NewUserProfile from "./user/Profile/NewUserProfile";
-import Feedback from "./components/Feedback";
 
 import ProfileRatingsPage from "./user/Profile/pages/ProfileRatingsPage";
 
 // import ProtectedRoute from "./ProtectedRoute"
+import Leaderboard from "./user/leaderboard/Leaderboard";
 function DiscordRedirect() {
   window.location.href = "https://discord.gg/bsbBytBqBc";
   return (
@@ -166,6 +166,10 @@ const router = createBrowserRouter(
         <Route path="github" element={<div>Github</div>} />
         <Route path="ratings" element={<ProfileRatingsPage />} />
       </Route>
+      <Route
+        path="/user/leaderboard"
+        element={<Leaderboard />}
+      />
     </Route>
   )
 );

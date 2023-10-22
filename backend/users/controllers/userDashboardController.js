@@ -1,6 +1,6 @@
-const User = require('../models/User');
+import User from '../models/User.js';
 
-const handleUserDashboard = async (req, res) => {
+ const handleUserDashboard = async (req, res) => {
   try {
     // Check if user is logged in using the checkAuth middleware
     // if (!req.userId) {
@@ -70,6 +70,4 @@ const handleUserDashboard = async (req, res) => {
   }
 };
 
-module.exports = {
-  handleUserDashboard,
-};
+export {handleUserDashboard};
