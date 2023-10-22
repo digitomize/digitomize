@@ -1,7 +1,7 @@
 import { getUser } from '../services/getUser.js';
-import codeforces_u from './platforms/codeforcesUpdater.js';
-import codechef_u from './platforms/codechefUpdater.js'; // Import your CodeChef updater function
-import leetcode_u from './platforms/leetcodeUpdater.js'; // Import your LeetCode updater function
+import { codeforces_u } from './platforms/codeforcesUpdater.js';
+import { codechef_u }  from './platforms/codechefUpdater.js'; // Import your CodeChef updater function
+import { leetcode_u } from './platforms/leetcodeUpdater.js'; // Import your LeetCode updater function
 import { updateUser } from '../services/updateUser.js';
 
 // Mapping of platform names to their updater functions
