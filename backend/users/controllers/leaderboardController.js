@@ -1,36 +1,5 @@
 import User from '../models/User.js';
 
-const weightage = {
-  codechef: 1.333,
-  leetcode: 1.0,
-  codeforces: 1.2,
-  digitomize_rating: 1.142,
-};
-
-const calculateDigitomizeRating = (user) => {
-  let ratings = {
-    codechef: null,
-    leetcode: null,
-    codeforces: null,
-  };
-  let digitomizeRating = 0;
-
-  for (const platform in ratings) {
-    if (user[platform] && user[platform].rating && weightage[platform]) {
-      const platformRating = {
-        rating: user[platform].rating,
-        digitomizeRating: user[platform].rating * weightage[platform],
-      };
-      ratings[platform] = platformRating;
-      if (platformRating.digitomizeRating > digitomizeRating) {
-        digitomizeRating = platformRating.digitomizeRating;
-      }
-    }
-  }
-
-  return { ratings, digitomizeRating };
-};
-
 const getLeaderboard = async (req, res) => {
   try {
     const pageSize = 5; // Number of users per page
@@ -44,35 +13,41 @@ const getLeaderboard = async (req, res) => {
 
     if (req.query.platform) {
       const platform = req.query.platform.toLowerCase();
-      users = await User.find({ [`${platform}.rating`]: { $exists: true, $ne: null } })
-        .limit(pageSize)
-        .skip((page - 1) * pageSize);
-      totalUsers = await User.countDocuments({ [`${platform}.rating`]: { $exists: true, $ne: null } });
+      users = await User.find({ [`${platform}.rating`]: { $exists: true, $ne: null } });
+      totalUsers = users.length;
+      users.sort((a, b) => {
+        const aRating = a[platform] ? a[platform].rating || 0 : 0;
+        const bRating = b[platform] ? b[platform].rating || 0 : 0;
+        return bRating - aRating;
+      });
+      users = users.slice((page - 1) * pageSize, page * pageSize);
     } else {
-      users = await User.find()
-        .limit(pageSize)
-        .skip((page - 1) * pageSize);
-      totalUsers = await User.countDocuments();
+      users = await User.find();
+      totalUsers = users.length;
+      console.log(totalUsers);
+      users.sort((a, b) => b.digitomize_rating - a.digitomize_rating);
+      // console.log("Sorted:", users);
+      users = users.slice((page - 1) * pageSize, page * pageSize);
     }
 
     const total_pages = Math.ceil(totalUsers / pageSize);
     const users_in_page = users.length;
 
     const leaderboard = users.map((user) => {
-      const { ratings, digitomizeRating } = calculateDigitomizeRating(user);
-      const platformRating = ratings[req.query.platform] ? ratings[req.query.platform].rating : null;
+      const platformRating = user[req.query.platform] ? user[req.query.platform].rating : null;
 
-      const userRatings = {};
-      for (const platform in ratings) {
-        userRatings[platform] = ratings[platform] ? ratings[platform].rating : null;
-      }
+      const userRatings = {
+        codechef: user.codechef ? user.codechef.rating : null,
+        leetcode: user.leetcode ? user.leetcode.rating : null,
+        codeforces: user.codeforces ? user.codeforces.rating : null,
+      };
 
       return {
-          username: user.username,
-          picture: user.picture,
-          name: user.name,
+        username: user.username,
+        picture: user.picture,
+        name: user.name,
         ...userRatings,
-        digitomize_rating: digitomizeRating,
+        digitomize_rating: user.digitomize_rating,
         platform_rating: platformRating,
       };
     });
@@ -91,8 +66,8 @@ const getLeaderboard = async (req, res) => {
       total_users: totalUsers,
       users_in_page,
       total_pages,
-        current_page: page,
-        leaderboard
+      current_page: page,
+      leaderboard,
     });
   } catch (err) {
     console.error(err);
