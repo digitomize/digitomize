@@ -1,10 +1,10 @@
-const express = require("express");
-const {
-  getCommunityList,
+import express from "express";
+import {
   createCommunity,
+  getCommunityList,
   updateCommunity,
-} = require("../controllers/DataController");
-const { addUID } = require("../../users/middlewares/authMiddleware");
+} from "../controllers/DataController.js";
+import { addUID } from "../../users/middlewares/authMiddleware.js";
 
 const router = express.Router();
 
@@ -22,4 +22,4 @@ router.get("/", addUID, async (request, response) => {
 // Update Community
 router.put("/", addUID, updateCommunity);
 
-module.exports = router;
+export default router;

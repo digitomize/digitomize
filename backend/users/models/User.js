@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-
-const { ROLE } = require("../../core/const");
+import { ROLE } from "../../core/const.js";
 
 const stringToggleSchema = new mongoose.Schema({
   data: String,

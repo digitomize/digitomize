@@ -1,15 +1,10 @@
-const express = require("express");
-const { handleUserSignup } = require("../controllers/authController");
-const {
-  handleUserDashboard,
-} = require("../controllers/userDashboardController");
-
-const { addUID } = require("../middlewares/authMiddleware");
-const { getUserList, updateUser } = require("../controllers/userController");
+import express from "express";
+import { addUID } from "../middlewares/authMiddleware.js";
+import { getUserList } from "../controllers/userController.js";
+import { updateUser } from "../services/updateUser.js";
 
 const router = express.Router();
 
 router.get("/user-list", addUID, getUserList);
 router.put("/user", addUID, updateUser);
-
-module.exports = router;
+export default router;

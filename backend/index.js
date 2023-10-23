@@ -6,6 +6,8 @@ import dataSyncer from "./contest/controllers/DataSyncController.js";
 import contestSyncer from "./contest/controllers/contestController.js";
 import contestRouter from "./contest/routes/contestRoutes.js";
 import userRoutes from "./users/routes/userRoutes.js";
+import adminRoutes from "./users/routes/adminRoutes.js";
+import communityRoutes from "./community/routes/communityRoutes.js";
 import bodyParser from "body-parser";
 import fetchContestsData from "./fetchContests.js";
 import admin from "firebase-admin";
