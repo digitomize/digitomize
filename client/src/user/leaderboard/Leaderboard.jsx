@@ -60,7 +60,7 @@ export default function Leaderboard() {
                                 <th>LeetCode</th>
                                 <th>CodeForces</th>
                                 <th>Digitomize Rating</th>
-                                <th>Platform Rating</th>
+                                {/* <th>Platform Rating</th> */}
                             </tr>
                         </thead>
                         {
@@ -126,7 +126,7 @@ export default function Leaderboard() {
                                                 <td>{row.leetcode}</td>
                                                 <td>{row.codeforces}</td>
                                                 <td>{row.digitomize_rating}</td>
-                                                <td>{row.platform_rating}</td>
+                                                {/* <td>{row.platform_rating}</td> */}
                                             </tr>
                                         ))}
                                 </tbody>
@@ -140,7 +140,7 @@ export default function Leaderboard() {
                                 <th>LeetCode</th>
                                 <th>CodeForces</th>
                                 <th>Digitomize Rating</th>
-                                <th>Platform Rating</th>
+                                {/* <th>Platform Rating</th> */}
                             </tr>
                         </tfoot>
                     </table>

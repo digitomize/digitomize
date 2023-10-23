@@ -90,8 +90,8 @@ export default function Home2() {
   };
 
   return (
-    <Element name="second">
-      <div className="hero min-h-screen bg-base-200">
+    <Element name="third">
+      <div className="hero min-h-screen">
         <div className="hero-content flex-col sm:flex-row">
           <div className="left sm:w-[40%] text-center">
             <div className="sm:text-left max-sm:text-center">
