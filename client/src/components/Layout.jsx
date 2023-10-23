@@ -12,33 +12,33 @@ export default function Layout() {
   };
   return (
     <>
-        <Navbar />
-        {alertOpen && (
+      <Navbar />
+      {alertOpen && (
         <Alert
           onClose={handleCloseAlert}
           severity="success"
           sx={{
             position: "fixed",
-             zIndex: 200,
-             marginBottom: 2,
-             width:"30%",
-             marginTop:"2%",
-             right:0
+            zIndex: 200,
+            marginBottom: 2,
+            marginTop: "2%",
+            right: 0
           }}
           icon={false}
         >
           Haven't checked out the version-2 !? Here it is :-
-          <a 
-      href="https://v2.digitomize.com/" 
-      target="_blank" 
-      style={{ textDecoration: 'none', color: 'blue' }}
-    >
-      https://v2.digitomize.com/
-    </a>
+          <a
+            href="https://v2.digitomize.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'none', color: 'blue' }}
+          >
+            https://v2.digitomize.com/
+          </a>
         </Alert>
-      )}r
-        <Outlet />
-        <Analytics />
+      )}
+      <Outlet />
+      <Analytics />
     </>
   )
 }
