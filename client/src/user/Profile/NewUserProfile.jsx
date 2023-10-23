@@ -1,46 +1,55 @@
 import React from 'react'
-import Timeline from './components/Timeline'
-
-export default function NewUserProfile() {
+import { Link } from 'react-router-dom'
+import NewNavbar from '../../components/NewNavbar'
+import logo from '../../assets/logo.png'
+import UserCard from './components/UserCard'
+function NewUserProfile() {
     return (
         <>
-            <div className="mt-4 mx-4">
-                <div className="grid grid-cols-1 md:grid-cols-2  gap-3">
-                    <div className="flex flex-col pt-4 rounded-md bg-[#191919] w-full min-h-screen">
-                        <div className='flex justify-center rounded-md '>
-                            <div className="flex flex-col  justify-center items-center gap-3" >
-                                <div className='Ellipse3 w-[60px] h-[60px] bg-pink-700 rounded-full'>
-                                    <img src="https://www.svgrepo.com/show/446517/avatar.svg" alt="avatar" />
-                                </div>
-                                <div className='ms-2'>
-                                    <h2 className='text-3xl text-center normal-case'>{`Anurag Sharma`}</h2>
-                                    <p className='text-center md:text-left text-gray-400'>sharma.anurag0225@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='flex flex-col mt-12 items-center md:px-4 gap-2'>
-                            <h2 className='lowercase text-2xl font-medium text-blue-500'>About myself :</h2>
-                            <p className='text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla nesciunt recusandae pariatur quos vitae in vel, illo odit odio molestias voluptatibus modi quod dolore necessitatibus nisi maiores autem hic magni!</p>
-                        </div>
-                        <div className='flex flex-col mt-12 items-center md:px-4 gap-2'>
-                            <h2 className='lowercase text-2xl font-medium text-blue-500'>Education :</h2>
-                            <div className='mt-4 ps-4'>
-                                <Timeline />
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex justify-center rounded-md">
-                        <div className='flex flex-col pt-4 ps-4 items-start w-full rounded-md bg-[#191919] min-h-screen'>
+            <div className="flex mt-8 flex-col md:flex-row w-3/4">
+                {/* First Column with 450px width */}
+                <div className="flex ps-4 md:w-1/2 py-8 md:py-0" >
+                    <UserCard/>
+                </div>
 
-                        </div>
+                {/* Second Column with two rows */}
+                <div className="w-full md:w-1/2 px-4 py-8">
+                    {/* First Row */}
+                    <div className="flex flex-col md:flex-row">
+                        <Link to='resume' className="w-full md:w-1/2 px-2">
+                            {/* First Card */}
+                            <div className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] rounded-xl bg-cardsColor  hover:scale-[1.02] hover:bg-cardsHover w-[450px] h-[250px] p-6">
+                                <h2 className='text-xl'>See my resume</h2>
+                            </div>
+                        </Link>
+                        <Link to='socials' className="w-full md:w-1/2 px-2">
+                            {/* Second Card */}
+                            <div className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] rounded-xl bg-cardsColor  hover:scale-[1.02] hover:bg-cardsHover w-[450px] h-[250px] p-6">
+                                <h2 className='text-xl'>Socials</h2>
+                            </div>
+                        </Link>
                     </div>
-                    <div className="flex justify-center rounded-md">
-                        <div className='flex flex-col pt-4 ps-4 items-start w-full rounded-md bg-[#191919] min-h-screen'>
 
-                        </div>
+                    {/* Second Row */}
+                    <div className="flex flex-col md:flex-row mt-4">
+                        <Link to='ratings' className="w-full md:w-1/2 px-2">
+                            {/* Third Card */}
+                            <div className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] rounded-xl bg-cardsColor  hover:scale-[1.02] hover:bg-cardsHover w-[450px] h-[250px] p-6">
+                                <h2 className='text-xl'>Ratings</h2>
+                            </div>
+                        </Link>
+                        <Link to='github' className="w-full md:w-1/2 px-2">
+                            {/* Fourth Card */}
+                            <div className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] rounded-xl bg-cardsColor  hover:scale-[1.02] hover:bg-cardsHover w-[450px] h-[250px] p-6">
+                                <h2 className='text-xl'>Github</h2>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
+
         </>
     )
 }
+
+export default NewUserProfile

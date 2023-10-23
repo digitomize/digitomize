@@ -43,14 +43,11 @@ export async function userDashboardDetails() {
 
     if (accessToken) {
       try {
-        const response = await axios.get(
-          `${backendUrl}/user/dashboard`,
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
+        const response = await axios.get(`${backendUrl}/user/dashboard`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
         return response;
       } catch (err) {
         console.log(err);
@@ -59,12 +56,8 @@ export async function userDashboardDetails() {
   }
 }
 export async function userProfileDetails(username) {
-
   try {
-    const response = await axios.get(
-      `${backendUrl}/user/profile/${username}`
-
-    );
+    const response = await axios.get(`${backendUrl}/user/profile/${username}`);
     return response;
   } catch (err) {
     console.log(err);
@@ -91,15 +84,21 @@ export async function submitUserFormData(formData) {
   const currentUser = auth.currentUser;
   const accessToken = await currentUser.getIdToken();
   // console.log(jwtToken);
-  const res = await axios.post(
-    `${backendUrl}/user/dashboard`,
-    formData,
-    {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    }
-  );
+  const res = await axios.post(`${backendUrl}/user/dashboard`, formData, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
   console.log("RESPONSE ----> ", res);
   console.log(res.status);
+}
+
+export async function getProfileData(username) {
+  try {
+    const response = await axios.get(`${backendUrl}/user/profile/${username}`);
+    // console.log(response);
+    return response.data;
+  } catch (e) {
+    console.error(e);
+  }
 }
