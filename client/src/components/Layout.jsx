@@ -30,15 +30,15 @@ export default function Layout() {
           }}
           icon={false}
         >
-          Haven't checked out the version-2 !? Here it is :-
+          {"Site under construction! Report bugs on "}
           <a
-            href="https://v2.digitomize.com/"
+            href="/discord"
             target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: 'none', color: 'blue' }}
           >
-            https://v2.digitomize.com/
-          </a>
+            /discord
+          </a>.
         </Alert>
       )}
       <Outlet />
