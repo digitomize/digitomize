@@ -4,12 +4,12 @@ import './css/InstallPWAButton.css';
 function InstallPWAButton() {
   const [showInstallPrompt, setShowInstallPrompt] = useState(false);
   const [postponedPrompt, setPostponedPrompt] = useState(null);
-  // const [userDismissed, setUserDismissed] = useState(false);
 
   useEffect(() => {
     const hasUserDismissedPrompt = sessionStorage.getItem('user-dismissed-prompt');
+    const remindedLater = sessionStorage.getItem('remind-me-later');
 
-    if (hasUserDismissedPrompt) {
+    if (hasUserDismissedPrompt || remindedLater) {
       return;
     }
 
@@ -26,7 +26,6 @@ function InstallPWAButton() {
     };
   }, []);
 
-
   const onInstallClick = () => {
     if (postponedPrompt) {
       setShowInstallPrompt(false);
@@ -41,6 +40,10 @@ function InstallPWAButton() {
     }
   };
 
+  const onRemindLaterClick = () => {
+    setShowInstallPrompt(false);
+    sessionStorage.setItem('remind-me-later', 'true');
+  };
 
   if (!showInstallPrompt) {
     return null;
@@ -50,13 +53,11 @@ function InstallPWAButton() {
         <p>Install our app for a better experience!</p>
         <div className='installPromptButtonsDiv'>
           <button onClick={onInstallClick}>Install</button>
-          <button onClick={() => setShowInstallPrompt(false)}>Remind me later</button>
+          <button onClick={onRemindLaterClick}>Remind me later</button>
         </div>
       </div>
     );
   }
-
-
 }
 
 export default InstallPWAButton;

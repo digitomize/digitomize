@@ -69,6 +69,6 @@ async function codechef_u(username) {
     }
 }
 
-export default  {
+export  {
     codechef_u,
 };

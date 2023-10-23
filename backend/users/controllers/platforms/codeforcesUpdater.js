@@ -87,6 +87,6 @@ async function resolveUserInfo(userInfo, resolve, reject) {
     }
 }
 
-export default {
+export {
     codeforces_u,
 };

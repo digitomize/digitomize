@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import NewNavbar from "../../components/NewNavbar";
 import { leaderboardData } from "../../../api";
 import { OpenInNew, WorkspacePremium } from '@mui/icons-material';
+import { Skeleton } from '@mui/material';
 
 export default function Leaderboard() {
     const location = useLocation();
@@ -15,6 +16,7 @@ export default function Leaderboard() {
         async function fetchData() {
             try {
                 console.log(currentPage);
+                setLoading(true);
                 const res = await leaderboardData(currentPage);
                 setTotalPages(res.data.total_pages);
                 setData(res.data.leaderboard);
@@ -61,51 +63,74 @@ export default function Leaderboard() {
                                 <th>Platform Rating</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            {/* rows */}
-                            {data &&
-                                data.map((row, index) => (
-                                    <tr key={index}>
-                                        <td>
-                                            {getRank(index)}
-                                            {
-                                                (getRank(index) == 1) ? <WorkspacePremium sx={{ color: "#FFD700" }} color="inherit" /> : ""
-                                            }
-                                            {
-                                                (getRank(index) == 2) ? <WorkspacePremium sx={{ color: "#C0C0C0" }} color="inherit" /> : ""
-                                            }
-                                            {
-                                                (getRank(index) == 3) ? <WorkspacePremium sx={{ color: "#CD7F32" }} color="inherit" /> : ""
-                                            }
-
-                                        </td>
-                                        <td>
-                                            <div className="flex items-center space-x-3">
-                                                <div className="avatar">
-                                                    <a href={"/user/profile/" + row.username} target="_blank">
-                                                        <div className="mask mask-squircle w-12 h-12 ring ring-primary ring-offset-base-100 ring-offset-2">
-                                                            {/* You can set the image source dynamically */}
-                                                            <img className="mask mask-hexagon" src={row.picture} alt="Avatar Tailwind CSS Component" />
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                                <div>
-                                                    <a href={"/user/profile/" + row.username} target="_blank">
-                                                        <div className="font-bold">{row.name} <OpenInNew fontSize="small" /> </div>
-                                                        <div className="text-sm opacity-50">@{row.username}</div>
-                                                        {/* You can display more user details here if needed */}
-                                                    </a>
-                                                </div>
+                        {
+                            (loading)
+                                ?
+                                <tbody className="w-full">
+                                    <tr>
+                                        <td colSpan="7">
+                                            <div className="m-auto flex flex-col items-center">
+                                            
+                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
                                             </div>
                                         </td>
-                                        <td>{row.codechef}</td>
-                                        <td>{row.leetcode}</td>
-                                        <td>{row.codeforces}</td>
-                                        <td>{row.digitomize_rating}</td>
-                                        <td>{row.platform_rating}</td>
                                     </tr>
-                                ))}
-                        </tbody>
+                                </tbody>
+
+                                :
+                                <tbody>
+                                    {/* rows */}
+                                    {data &&
+                                        data.map((row, index) => (
+                                            <tr key={index}>
+                                                <td>
+                                                    {getRank(index)}
+                                                    {
+                                                        (getRank(index) == 1) ? <WorkspacePremium sx={{ color: "#FFD700" }} color="inherit" /> : ""
+                                                    }
+                                                    {
+                                                        (getRank(index) == 2) ? <WorkspacePremium sx={{ color: "#C0C0C0" }} color="inherit" /> : ""
+                                                    }
+                                                    {
+                                                        (getRank(index) == 3) ? <WorkspacePremium sx={{ color: "#CD7F32" }} color="inherit" /> : ""
+                                                    }
+
+                                                </td>
+                                                <td>
+                                                    <div className="flex items-center space-x-3">
+                                                        <div className="avatar">
+                                                            <a href={"/user/profile/" + row.username} target="_blank">
+                                                                <div className="mask mask-squircle w-12 h-12 ring ring-primary ring-offset-base-100 ring-offset-2">
+                                                                    {/* You can set the image source dynamically */}
+                                                                    <img className="mask mask-hexagon" src={row.picture} alt="Avatar Tailwind CSS Component" />
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div>
+                                                            <a href={"/user/profile/" + row.username} target="_blank">
+                                                                <div className="font-bold">{row.name} <OpenInNew fontSize="small" /> </div>
+                                                                <div className="text-sm opacity-50">@{row.username}</div>
+                                                                {/* You can display more user details here if needed */}
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>{row.codechef}</td>
+                                                <td>{row.leetcode}</td>
+                                                <td>{row.codeforces}</td>
+                                                <td>{row.digitomize_rating}</td>
+                                                <td>{row.platform_rating}</td>
+                                            </tr>
+                                        ))}
+                                </tbody>
+                        }
                         {/* foot */}
                         <tfoot>
                             <tr>

@@ -72,6 +72,6 @@ async function leetcode_u(handle) {
     });
 }
 
-export default{
+export {
     leetcode_u,
 };

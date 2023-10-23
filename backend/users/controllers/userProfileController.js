@@ -1,7 +1,7 @@
 import { getUser } from '../services/getUser.js';
-import codeforces_u from './platforms/codeforcesUpdater.js';
-import codechef_u from './platforms/codechefUpdater.js'; // Import your CodeChef updater function
-import leetcode_u from './platforms/leetcodeUpdater.js'; // Import your LeetCode updater function
+import { codeforces_u } from './platforms/codeforcesUpdater.js';
+import { codechef_u }  from './platforms/codechefUpdater.js'; // Import your CodeChef updater function
+import { leetcode_u } from './platforms/leetcodeUpdater.js'; // Import your LeetCode updater function
 import { updateUser } from '../services/updateUser.js';
 
 // Mapping of platform names to their updater functions
@@ -17,6 +17,27 @@ const handleUserPlatformUpdate = async (username, platform) => {
     return await updater(username);
   }
   return null; // Handle unsupported platform case if needed
+};
+
+const calculateDigitomizeRating = (user) => {
+  let maxDigitomizeRating = 0;
+
+  ['codeforces', 'codechef', 'leetcode'].forEach((platform) => {
+    const platformData = user[platform];
+    if (platformData && platformData.rating) {
+      const weightage = {
+        codechef: 1.333,
+        leetcode: 1.0,
+        codeforces: 1.2,
+      };
+      const platformRating = platformData.rating * weightage[platform];
+      if (platformRating > maxDigitomizeRating) {
+        maxDigitomizeRating = platformRating;
+      }
+    }
+  });
+
+  return maxDigitomizeRating;
 };
 
 // Updates user data in DB
@@ -40,7 +61,9 @@ const handleUserDataUpdate = async (user) => {
       }
     }
   }
-
+  user.digitomize_rating = calculateDigitomizeRating(user);
+  // console.log("new:", user.digitomize_rating);
+  
   // Save the updated user object in MongoDB
   if (changes) {
     await updateUser(user);
@@ -78,7 +101,9 @@ const handleUserProfilePreview = async (req, res) => {
       github: {
         data: user.github.showOnWebsite ? user.github.data : null
       },
-      ratings: {}
+      ratings: {
+        digitomize_rating: user.digitomize_rating
+      }
     };
 
     // Handle coding platforms
@@ -111,4 +136,4 @@ function handleCodingPlatform(targetObject, platform, platformKey) {
   }
 }
 
-export { handleUserPlatformUpdate, handleUserDataUpdate, handleUserProfilePreview };
+export { handleUserProfilePreview };
