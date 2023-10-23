@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { ROLE } from "../../core/const.js";
 
 //* Community Schema
 const communityMemberSchema = new mongoose.Schema(
@@ -14,11 +15,7 @@ const communityMemberSchema = new mongoose.Schema(
     },
     role: {
       type: Number,
-      default: 0,
-    },
-    role: {
-      type: String,
-      required: [true, "Community Role is required."],
+      default: ROLE.COMMUNITY_MEMBER,
     },
   },
   { timestamps: true }

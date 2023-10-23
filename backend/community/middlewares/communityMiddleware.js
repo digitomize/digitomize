@@ -1,3 +1,4 @@
+import { error } from "../../core/api/response.api.js";
 import { ROLE } from "../../core/const.js";
 import User from "../../users/models/User.js";
 import CommunityMember from "../models/CommunityMember.js";
@@ -22,14 +23,16 @@ const communityAdminCheck = async (request, response, next) => {
     uid: userId,
     communityId: body.communityId,
   });
-
+  if (!communityMember) {
+    return error(response, 403, "Incorrect Community ID!");
+  }
   if (communityMember.role !== ROLE.COMMUNITY_ADMIN) {
     return response.status(403).json({
       message: "You don't have sufficient permission",
       error: "You don't have sufficient permission",
     });
   }
-  request.communityMember = communityMember;
+  request.communityAdmin = communityMember;
   next();
 };
 

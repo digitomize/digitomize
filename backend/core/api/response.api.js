@@ -1,17 +1,15 @@
-export const success = (results, response, message) => {
-  const { statusCode } = response;
-  return {
+export const success = (results, response, statusCode, message) => {
+  return response.status(statusCode).json({
     message,
-    error: false,
+    success: true,
     code: statusCode,
     results,
-  };
+  });
 };
 
-export const error = (response, message) => {
+export const error = (response, statusCode, message) => {
   // List of common HTTP request code
   const codes = [200, 201, 400, 401, 404, 403, 422, 500];
-  const { statusCode } = response;
 
   // Get matched code
   const findCode = codes.find((code) => code == statusCode);
@@ -19,9 +17,9 @@ export const error = (response, message) => {
   if (!findCode) statusCode = 500;
   else statusCode = findCode;
 
-  return {
+  return response.status(statusCode).json({
     message,
     code: statusCode,
-    error: true,
-  };
+    success: false,
+  });
 };
