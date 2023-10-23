@@ -108,14 +108,12 @@ async function startServersDev() {
     if (process.env.USERS === "true") {
       await setupUserServer();
       servers.push("User");
+      await setupCommunityServer();
+      servers.push("Community");
     }
     if (process.env.CONTESTS === "true") {
       await setupContestServer();
       servers.push("Contest");
-    }
-    if (process.env.COMMUNITY === "true") {
-      await setupCommunityServer();
-      servers.push("Community");
     }
 
     console.log("┌──────────────────────────────────┐");
