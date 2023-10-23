@@ -41,7 +41,8 @@ import ProtectedRoute from "./ProtectedRoute";
 import NewUserProfile from "./user/Profile/NewUserProfile";
 
 import ProfileRatingsPage from "./user/Profile/pages/ProfileRatingsPage";
-
+import PlatformRatings from "./user/Profile/components/PlatformRatings";
+import ProfileLayout, { loader as profileLoader } from "./user/Profile/pages/ProfileLayout";
 // import ProtectedRoute from "./ProtectedRoute"
 import Leaderboard from "./user/leaderboard/Leaderboard";
 function DiscordRedirect() {
@@ -158,13 +159,17 @@ const router = createBrowserRouter(
       </Route>
       <Route
         path="/u/:username"
+        element={<ProfileLayout />}
+        loader={profileLoader}
       >
         <Route index element={<NewUserProfile />} />
         <Route path="about" element={<div>User about</div>} />
         <Route path="resume" element={<div>resume</div>} />
         <Route path="socials" element={<div>Socials</div>} />
         <Route path="github" element={<div>Github</div>} />
-        <Route path="ratings" element={<ProfileRatingsPage />} />
+        <Route path="ratings" element={<ProfileRatingsPage />} >
+          <Route path=":platform" element={<PlatformRatings />} />
+        </Route>
       </Route>
       <Route
         path="/user/leaderboard"

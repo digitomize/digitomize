@@ -6,12 +6,10 @@ import UserCard from './components/UserCard'
 function NewUserProfile() {
     return (
         <>
-            <NewNavbar position='static' />
-
-            <div className="flex mt-8 flex-col md:flex-row">
+            <div className="flex mt-8 flex-col md:flex-row w-3/4">
                 {/* First Column with 450px width */}
-                <div className="w-full md:w-1/2 px-4 ms-4 py-8 md:py-0" >
-                    <UserCard height={600}/>
+                <div className="flex ps-4 md:w-1/2 py-8 md:py-0" >
+                    <UserCard/>
                 </div>
 
                 {/* Second Column with two rows */}
