@@ -106,7 +106,7 @@ export default function Leaderboard() {
                                                 <td>
                                                     <div className="flex items-center space-x-3">
                                                         <div className="avatar">
-                                                            <a href={"/user/profile/" + row.username} target="_blank">
+                                                            <a href={"/u/" + row.username} target="_blank">
                                                                 <div className="mask mask-squircle w-12 h-12 ring ring-primary ring-offset-base-100 ring-offset-2">
                                                                     {/* You can set the image source dynamically */}
                                                                     <img className="mask mask-hexagon" src={row.picture} alt="Avatar Tailwind CSS Component" />
