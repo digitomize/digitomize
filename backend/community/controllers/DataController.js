@@ -1,3 +1,13 @@
+//? APIs to MongoDB
+
+import { ROLE } from "../../core/const.js";
+import User from "../../users/models/User.js";
+import { getUser } from "../../users/services/getUser.js";
+import { Community } from "../models/Community.js";
+import { CommunityMember } from "../models/CommunityMember.js";
+import { COMMUNITY_ROLE } from "../utils/const.js";
+import dotenv from "dotenv";
+dotenv.config({ path: "../../.env" });
 import { error, success } from "../../core/api/response.api.js";
 import CommunityMember from "../models/CommunityMember.js";
 
@@ -47,11 +57,12 @@ async function createCommunity(request, response) {
         error: "You don't have sufficient permission",
       });
     }
+    const cmAdmin = await getUser(body.cmAdmin);
     const newCommunity = new Community(body);
     const savedCommunity = await newCommunity.save();
     const communityMember = new CommunityMember({
       communityId: savedCommunity._id,
-      uid: decodedToken.uid,
+      uid: cmAdmin.uid,
       role: ROLE.COMMUNITY_ADMIN,
     });
     await communityMember.save();
@@ -60,7 +71,7 @@ async function createCommunity(request, response) {
       communityId: savedCommunity._id,
     });
     await User.updateOne(
-      { uid: decodedToken.uid },
+      { uid: cmAdmin.uid },
       {
         $set: {
           community: updatedCommunityList,
@@ -71,8 +82,10 @@ async function createCommunity(request, response) {
 
     return response.status(200).json({ message: "Community Created!!" });
   } catch (error) {
-    console.log("Error while creating community", error);
-    return null;
+    if (error.code === 11000) {
+      return response.status(404).json({ message: `${Object.keys(error.keyValue).join(", ")} already taken.`, error: `${Object.keys(error.keyValue).join(", ")} already taken.` });
+    }
+    return response.status(500).json({ message: "Internal Server Error", error: "Internal Server Error" });
   }
 }
 
@@ -115,6 +128,7 @@ async function updateCommunity(request, response) {
   }
 }
 
+export {
 export {
   getCommunityList,
   getCommunityMemberList,

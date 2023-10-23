@@ -3,6 +3,4 @@ const COMMUNITY_ROLE = {
   MEMBER: "member",
 };
 
-module.exports = {
-  COMMUNITY_ROLE,
-};
+export { COMMUNITY_ROLE };

@@ -4,7 +4,8 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import dataSyncer from "./contest/controllers/DataSyncController.js";
 import contestSyncer from "./contest/controllers/contestController.js";
-import contestRouter from "./contest/routes/contestRoutes.js";
+import contestRoutes from "./contest/routes/contestRoutes.js";
+import communityRoutes from "./community/routes/communityRoutes.js";
 import userRoutes from "./users/routes/userRoutes.js";
 import adminRoutes from "./users/routes/adminRoutes.js";
 import communityRoutes from "./community/routes/communityRoutes.js";
@@ -60,7 +61,7 @@ async function setupContestServer() {
   }, 13 * 60 * 1000);
 
   // Set up contest routes
-  app.use("/contests", contestRouter);
+  app.use("/contests", contestRoutes);
 }
 
 async function setupCommunityServer() {
@@ -108,14 +109,12 @@ async function startServersDev() {
     if (process.env.USERS === "true") {
       await setupUserServer();
       servers.push("User");
+      await setupCommunityServer();
+      servers.push("Community");
     }
     if (process.env.CONTESTS === "true") {
       await setupContestServer();
       servers.push("Contest");
-    }
-    if (process.env.COMMUNITY === "true") {
-      await setupCommunityServer();
-      servers.push("Community");
     }
 
     console.log("┌──────────────────────────────────┐");

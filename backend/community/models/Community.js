@@ -10,7 +10,12 @@ const communitySchema = new mongoose.Schema(
     description: {
       type: String,
       required: [true, "Description is required."],
+    },
+    vanity: {
+      type: String,
+      required: [true, "Vanity is required."],
       lowercase: true,
+      unique: { value: true, caseInsensitive: true },
     },
   },
   { timestamps: true }

@@ -12,7 +12,7 @@ const communityMemberSchema = new mongoose.Schema(
       required: [true, "User Id is required."],
       lowercase: true,
     },
-    score: {
+    role: {
       type: Number,
       default: 0,
     },

@@ -9,10 +9,12 @@ export default function CreateCommunity({ handleClose }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { name, description } = event.target;
+    const { name, description, vanity, cmAdmin } = event.target;
     const payload = {
       name: name.value,
       description: description.value,
+      vanity: vanity.value,
+      cmAdmin: cmAdmin.value,
     };
 
     setPending(true);
@@ -22,7 +24,7 @@ export default function CreateCommunity({ handleClose }) {
         toast.success(response.data.message);
       })
       .catch((error) => {
-        toast.success(error.data.message);
+        toast.success(error.response.data.message);
       })
       .finally(() => {
         setPending(false);

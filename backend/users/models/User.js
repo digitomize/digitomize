@@ -145,10 +145,6 @@ const userSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-    digitomize_rating: {
-      type: Number,
-      default: 0,
-    },
     updatesToday: [
       {
         timestamp: { type: Date, default: Date.now },
