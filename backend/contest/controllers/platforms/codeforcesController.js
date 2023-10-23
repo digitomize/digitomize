@@ -1,6 +1,7 @@
 // ? API to mongodb function
 
-const https = require("https");
+import https from 'https';
+
 
 async function codeforces_c() {
   const url = "https://codeforces.com/api/contest.list";
@@ -51,6 +52,6 @@ async function codeforces_c() {
   return filteredContestsPromise;
 }
 
-module.exports = {
+export default {
   codeforces_c,
 };

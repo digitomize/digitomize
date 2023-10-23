@@ -1,6 +1,7 @@
 // ? MongoDB to our API
 
-const { UpcomingContest, AllContest } = require('../models/Contest');
+import { UpcomingContest, AllContest } from '../models/Contest.js';
+
 
 let upcomingContestList = []; // Variable to store contests in memory
 
@@ -55,7 +56,7 @@ const getContestByVanity = async (vanity) => {
     }
 };
 
-module.exports = {
+export default {
     getContestList,
     updateContests,
     getContestByVanity

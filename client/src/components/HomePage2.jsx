@@ -20,6 +20,7 @@ import {
   codingninjas,
   codechef,
   codeforces,
+  atcoder,
 } from "./AllAssets";
 
 
@@ -35,6 +36,7 @@ const platformsIcon = [
   geeksforgeeks,
   codechef,
   codeforces,
+  atcoder,
 ];
 const platforms = [
   "leetcode",
@@ -42,6 +44,7 @@ const platforms = [
   "geeksforgeeks",
   "codechef",
   "codeforces",
+  "atcoder",
 ];
 
 export default function Home2() {

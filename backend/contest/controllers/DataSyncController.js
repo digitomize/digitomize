@@ -1,12 +1,16 @@
 //? APIs to MongoDB
 
-require('dotenv').config({ path: "../../.env" });
-const codechefContests = require('./platforms/codechefController');
-const codeforcesContests = require('./platforms/codeforcesController');
-const gfgContests = require('./platforms/gfgController');
-const leetcodeContests = require('./platforms/leetcodeController');
-const codingninjas_studioContests = require('./platforms/codingninjas_studioController');
-const { UpcomingContest, AllContest } = require('../models/Contest');
+import dotenv from 'dotenv';
+import atcoderContests from './platforms/atcoderController.js';
+import codechefContests from './platforms/codechefController.js';
+import codeforcesContests from './platforms/codeforcesController.js';
+import gfgContests from './platforms/gfgController.js';
+import leetcodeContests from './platforms/leetcodeController.js';
+import codingninjas_studioContests from './platforms/codingninjas_studioController.js';
+import { UpcomingContest, AllContest } from '../models/Contest.js';
+
+dotenv.config({ path: "../../.env" });
+
 
 //* Clear the UpcomingContest collection in MongoDB
 async function clearUpcoming() {
@@ -74,6 +78,11 @@ async function syncContests() {
         const leetcodeData = await leetcodeContests.leetcode_c();
         await addToDB(leetcodeData, "LeetCode");
 
+        console.log("├───────────────────────AtCoder──────────────────────┤");
+        // console.log("<======= AtCode =======>");
+        const atcodeData = await atcoderContests.atcoder_c();
+        await addToDB(atcodeData, "AtCoder");
+        
         //* GeeksforGeeks Section
         console.log("├────────────────────GeeksForGeeks───────────────────┤");
         // console.log("<======= GeeksForGeeks =======>");
@@ -102,6 +111,6 @@ async function syncContests() {
     }
 }
 
-module.exports = {
-    syncContests,
-}
+export default {
+    syncContests
+};

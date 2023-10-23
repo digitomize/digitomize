@@ -1,4 +1,5 @@
-const https = require('https');
+import https from 'https';
+
 
 async function leetcode_u(handle) {
     if (!handle) {
@@ -71,6 +72,6 @@ async function leetcode_u(handle) {
     });
 }
 
-module.exports = {
+export {
     leetcode_u,
 };

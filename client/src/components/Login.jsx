@@ -46,7 +46,7 @@ export async function loader({ request }) {
     const message = new URL(request.url).searchParams.get("message")
     const loggedIn = await isLoggedIn();
     if (loggedIn) {
-        return redirect("/user/dashboard/personal")
+        return redirect("/user/dashboard")
     }
 
     return message
@@ -94,7 +94,7 @@ export default function Login() {
                     },
                 }).then(res => console.log(res))
                     .catch(err => console.log(err));
-                navigate('/user/dashboard/personal')
+                navigate('/user/dashboard/account')
 
             }).catch((error) => {
                 setError(`${error.code} - ${error.message}`)
@@ -116,7 +116,7 @@ export default function Login() {
                         }).then(res => console.log(res))
                             .catch(err => console.log(err));
                     });
-                    navigate('/user/dashboard/personal')
+                    navigate('/user/dashboard')
                 }).catch(err => setError("internal server error"))
         } catch (err) {
             setError(err.message);

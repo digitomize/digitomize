@@ -86,13 +86,13 @@ export default function NewNavbar() {
               Contribute
             </Link>
             <Link
-              to="/support"
-              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/support"
+              to="/user/leaderboard"
+              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/user/leaderboard"
                   ? "bg-zinc-400 text-zinc-950"
                   : ""
                 } hover:bg-zinc-200`}
             >
-              Support
+              leaderboard
             </Link>
             {userDetails && userDetails.personal_data.role === ROLE.ADMIN && (
               <Link
@@ -143,7 +143,7 @@ export default function NewNavbar() {
                   className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <Link to={"/user/dashboard/personal"}>
+                    <Link to={"/user/dashboard/account"}>
                       <span>{"account"}</span>
                     </Link>
                   </li>

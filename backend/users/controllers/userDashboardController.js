@@ -1,4 +1,4 @@
-const User = require("../models/User");
+import User from "../models/User.js";
 
 const handleUserDashboard = async (req, res) => {
   try {
@@ -64,6 +64,7 @@ const handleUserDashboard = async (req, res) => {
           data: user.leetcode.username || null,
           showOnWebsite: user.leetcode.showOnWebsite,
         },
+        digitomize_rating: user.digitomize_rating,
       },
     };
     // console.log(jsonResponse.education);
@@ -76,6 +77,4 @@ const handleUserDashboard = async (req, res) => {
   }
 };
 
-module.exports = {
-  handleUserDashboard,
-};
+export { handleUserDashboard };
