@@ -4,8 +4,10 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import dataSyncer from "./contest/controllers/DataSyncController.js";
 import contestSyncer from "./contest/controllers/contestController.js";
-import contestRouter from "./contest/routes/contestRoutes.js";
+import contestRoutes from "./contest/routes/contestRoutes.js";
+import communityRoutes from "./community/routes/communityRoutes.js";
 import userRoutes from "./users/routes/userRoutes.js";
+import adminRoutes from "./users/routes/adminRoutes.js";
 import bodyParser from "body-parser";
 import fetchContestsData from "./fetchContests.js";
 import admin from "firebase-admin";
@@ -58,7 +60,7 @@ async function setupContestServer() {
   }, 13 * 60 * 1000);
 
   // Set up contest routes
-  app.use("/contests", contestRouter);
+  app.use("/contests", contestRoutes);
 }
 
 async function setupCommunityServer() {

@@ -7,6 +7,4 @@ const ROLE = {
   ADMIN: 5,
 };
 
-module.exports = {
-  ROLE,
-};
+export { ROLE };

@@ -1,5 +1,5 @@
-const { ROLE } = require("../../core/const");
-const User = require("../models/User");
+import { ROLE } from "../../core/const.js";
+import User from "../models/User.js";
 
 const getUserList = async (req, res) => {
   try {
@@ -76,7 +76,7 @@ const updateUser = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   getUserList,
   updateUser,
 };

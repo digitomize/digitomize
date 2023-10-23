@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 //* Community Schema
 const communitySchema = new mongoose.Schema(
@@ -18,6 +18,6 @@ const communitySchema = new mongoose.Schema(
 
 const Community = mongoose.model("Community", communitySchema, "community");
 
-module.exports = {
-  Community,
+export {
+  Community
 };

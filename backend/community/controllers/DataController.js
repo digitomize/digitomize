@@ -1,12 +1,12 @@
 //? APIs to MongoDB
 
-const { ROLE } = require("../../core/const");
-const User = require("../../users/models/User");
-const { Community } = require("../models/Community");
-const { CommunityMember } = require("../models/CommunityMember");
-const { COMMUNITY_ROLE } = require("../utils/const");
-
-require("dotenv").config({ path: "../../.env" });
+import { ROLE } from "../../core/const.js";
+import User from "../../users/models/User.js";
+import { Community } from "../models/Community.js";
+import { CommunityMember } from "../models/CommunityMember.js";
+import { COMMUNITY_ROLE } from "../utils/const.js";
+import dotenv from "dotenv";
+dotenv.config({ path: "../../.env" });
 
 async function getCommunityList() {
   try {
@@ -103,7 +103,7 @@ async function updateCommunity(request, response) {
   }
 }
 
-module.exports = {
+export {
   getCommunityList,
   createCommunity,
   updateCommunity,
