@@ -8,7 +8,6 @@ export async function loginUser({ username, password }) {
     username,
     password,
   });
-  console.log(res.status);
   if (res.status !== 200) {
     throw {
       statusCode: res.status,
@@ -22,7 +21,6 @@ export function isLoggedIn() {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       unsubscribe(); // Unsubscribe the listener once it's called
       if (currentUser) {
-        console.log(currentUser);
         resolve(true);
       } else {
         resolve(false);
@@ -38,19 +36,13 @@ export async function userDashboardDetails() {
     const currentUser = auth.currentUser;
     const accessToken = await currentUser.getIdToken();
 
-    console.log("before access token");
-    console.log(accessToken);
-
     if (accessToken) {
       try {
-        const response = await axios.get(
-          `${backendUrl}/user/dashboard`,
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        );
+        const response = await axios.get(`${backendUrl}/user/dashboard`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
         return response;
       } catch (err) {
         console.log(err);
@@ -59,12 +51,8 @@ export async function userDashboardDetails() {
   }
 }
 export async function userProfileDetails(username) {
-
   try {
-    const response = await axios.get(
-      `${backendUrl}/user/profile/${username}`
-
-    );
+    const response = await axios.get(`${backendUrl}/user/profile/${username}`);
     return response;
   } catch (err) {
     console.log(err);
@@ -91,15 +79,9 @@ export async function submitUserFormData(formData) {
   const currentUser = auth.currentUser;
   const accessToken = await currentUser.getIdToken();
   // console.log(jwtToken);
-  const res = await axios.post(
-    `${backendUrl}/user/dashboard`,
-    formData,
-    {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    }
-  );
-  console.log("RESPONSE ----> ", res);
-  console.log(res.status);
+  const res = await axios.post(`${backendUrl}/user/dashboard`, formData, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
 }

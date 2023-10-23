@@ -1,6 +1,6 @@
-import User from '../models/User.js';
+import User from "../models/User.js";
 
- const handleUserDashboard = async (req, res) => {
+const handleUserDashboard = async (req, res) => {
   try {
     // Check if user is logged in using the checkAuth middleware
     // if (!req.userId) {
@@ -10,12 +10,15 @@ import User from '../models/User.js';
 
     // User is logged in, fetch user data from the database
     const userId = req.decodedToken.uid;
-    const user = await User.findOne({ uid: userId })
-      .select('-_id -password -createdAt -updatedAt -__v');
+    const user = await User.findOne({ uid: userId }).select(
+      "-_id -password -createdAt -updatedAt -__v"
+    );
 
     if (!user) {
       // User not found, redirect to the login page
-      return res.status(404).json({ message: "User not found", error: "User not found" });
+      return res
+        .status(404)
+        .json({ message: "User not found", error: "User not found" });
     }
 
     // Construct the JSON response with all fields
@@ -23,6 +26,7 @@ import User from '../models/User.js';
       personal_data: {
         uid: user.uid,
         username: user.username,
+        role: user.role,
         name: user.name,
         picture: user.picture,
         email_verified: user.email_verified,
@@ -31,14 +35,17 @@ import User from '../models/User.js';
         skills: user.skills,
         education: user.education,
         bio: {
-          data: user.bio.data || null, showOnWebsite: user.bio.showOnWebsite
+          data: user.bio.data || null,
+          showOnWebsite: user.bio.showOnWebsite,
         },
         phoneNumber: {
-          data: user.phoneNumber.data || null, showOnWebsite: user.phoneNumber.showOnWebsite
+          data: user.phoneNumber.data || null,
+          showOnWebsite: user.phoneNumber.showOnWebsite,
         },
         dateOfBirth: {
-          data: user.dateOfBirth.data || null, showOnWebsite: user.dateOfBirth.showOnWebsite
-        }
+          data: user.dateOfBirth.data || null,
+          showOnWebsite: user.dateOfBirth.showOnWebsite,
+        },
       },
       github: {
         data: user.github.data || null,
@@ -58,17 +65,16 @@ import User from '../models/User.js';
           showOnWebsite: user.leetcode.showOnWebsite,
         },
         digitomize_rating: user.digitomize_rating,
-      }
+      },
     };
-    console.log(jsonResponse);
     // console.log(jsonResponse.education);
     // Send the JSON response to the client
     res.status(200).json(jsonResponse);
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
     // Internal server error, send a 500 Internal Server Error status
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 
-export {handleUserDashboard};
+export { handleUserDashboard };

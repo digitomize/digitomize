@@ -1,144 +1,142 @@
 import express from "express";
-import cors from 'cors';
-import dotenv from 'dotenv';
-import mongoose from 'mongoose';
-import dataSyncer from './contest/controllers/DataSyncController.js';
-import contestSyncer from './contest/controllers/contestController.js';
-import contestRouter from './contest/routes/contestRoutes.js';
-import userRoutes from './users/routes/userRoutes.js';
-import bodyParser from 'body-parser';
-import fetchContestsData from './fetchContests.js';
-import admin from 'firebase-admin';
+import cors from "cors";
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+import dataSyncer from "./contest/controllers/DataSyncController.js";
+import contestSyncer from "./contest/controllers/contestController.js";
+import contestRouter from "./contest/routes/contestRoutes.js";
+import userRoutes from "./users/routes/userRoutes.js";
+import bodyParser from "body-parser";
+import fetchContestsData from "./fetchContests.js";
+import admin from "firebase-admin";
 
 dotenv.config();
 const app = express();
 
 console.log(process.env.TEST);
 async function main() {
-    try {
-        console.log('Pinging...');
-        const contestsData = await fetchContestsData();
-        console.log('Pong!');
-    } catch (error) {
-        console.error('Error pinging the server:', error);
-    }
+  try {
+    console.log("Pinging...");
+    const contestsData = await fetchContestsData();
+    console.log("Pong!");
+  } catch (error) {
+    console.error("Error pinging the server:", error);
+  }
 }
 
 async function setupUserServer() {
-   
-    // console.log(process.env.FIREBASE_CREDENTIALS);
-    console.log("ok");
-    // Get the Firebase service account JSON from the environment variable
-    const firebaseCredentials = JSON.parse(process.env.FIREBASE_CREDENTIALS);
-    // console.log(firebaseCredentials);
+  // console.log(process.env.FIREBASE_CREDENTIALS);
+  console.log("ok");
+  // Get the Firebase service account JSON from the environment variable
+  const firebaseCredentials = JSON.parse(process.env.FIREBASE_CREDENTIALS);
+  // console.log(firebaseCredentials);
 
-    admin.initializeApp({
-        credential: admin.credential.cert(firebaseCredentials),
-    });
-    // Set up user routes
-    app.use('/user', userRoutes);
+  admin.initializeApp({
+    credential: admin.credential.cert(firebaseCredentials),
+  });
+  // Set up user routes
+  app.use("/user", userRoutes);
+  app.use("/admin", adminRoutes);
 }
 
-
 async function setupContestServer() {
+  await dataSyncer.syncContests();
+  setInterval(dataSyncer.syncContests, 90 * 60 * 1000);
 
-    await dataSyncer.syncContests();
-    setInterval(dataSyncer.syncContests, 90 * 60 * 1000);
+  // Update contests data and sync contests data at regular intervals
+  await contestSyncer.updateContests();
+  setInterval(contestSyncer.updateContests, 60 * 60 * 1000);
 
+  // Pinging the server every 13 minutes
+  setInterval(async () => {
+    try {
+      await main();
+      console.log("<=======Sent GET request to AWAKE");
+    } catch (error) {
+      console.error("Error Pinging", error);
+    }
+  }, 13 * 60 * 1000);
 
-    // Update contests data and sync contests data at regular intervals
-    await contestSyncer.updateContests();
-    setInterval(contestSyncer.updateContests, 60 * 60 * 1000);
+  // Set up contest routes
+  app.use("/contests", contestRouter);
+}
 
-    // Pinging the server every 13 minutes
-    setInterval(async () => {
-        try {
-            await main();
-            console.log('<=======Sent GET request to AWAKE');
-        } catch (error) {
-            console.error('Error Pinging', error);
-        }
-    }, 13 * 60 * 1000);
-
-    // Set up contest routes
-    app.use("/contests", contestRouter);
+async function setupCommunityServer() {
+  app.use("/community", communityRoutes);
 }
 
 async function startServersProduction() {
+  try {
+    app.use(cors());
+    app.use(bodyParser.json());
 
-    try {
+    await mongoose.connect(process.env.MONGODB_URL);
+    console.log("MongoDB Connected.");
 
-        app.use(cors());
-        app.use(bodyParser.json());
+    await setupUserServer();
+    await setupContestServer();
+    const servers = [];
+    servers.push("User");
+    servers.push("Contest");
 
-        await mongoose.connect(process.env.MONGODB_URL);
-        console.log("MongoDB Connected.");
-
-        await setupUserServer();
-        await setupContestServer();
-        const servers = [];
-        servers.push("User");
-        servers.push("Contest");
-
-        console.log("┌──────────────────────────────────┐");
-        if (servers.length > 0) {
-            for (const server of servers) {
-                console.log("│ Server active:", server.padEnd(18) + "│");
-            }
-            console.log("├──────────────────────────────────┤");
-        }
-        const port = process.env.PORT || 3000;
-        app.listen(port, () => {
-            console.log(`│ Server listening on port ${port}`.padEnd(35) + "│");
-            console.log("└──────────────────────────────────┘");
-        });
-    } catch (err) {
-        console.log("Error starting servers:", err);
+    console.log("┌──────────────────────────────────┐");
+    if (servers.length > 0) {
+      for (const server of servers) {
+        console.log("│ Server active:", server.padEnd(18) + "│");
+      }
+      console.log("├──────────────────────────────────┤");
     }
-
+    const port = process.env.PORT || 3000;
+    app.listen(port, () => {
+      console.log(`│ Server listening on port ${port}`.padEnd(35) + "│");
+      console.log("└──────────────────────────────────┘");
+    });
+  } catch (err) {
+    console.log("Error starting servers:", err);
+  }
 }
 async function startServersDev() {
-    try {
-        app.use(cors());
-        app.use(bodyParser.json());
+  try {
+    app.use(cors());
+    app.use(bodyParser.json());
 
-        await mongoose.connect(process.env.MONGODB_URL);
-        console.log("MongoDB Connected.");
-        const servers = [];
-        if (process.env.USERS === 'true') {
-            await setupUserServer();
-            servers.push("User");
-        }
-        if (process.env.CONTESTS === 'true') {
-            await setupContestServer();
-            servers.push("Contest");
-        }
-
-        console.log("┌──────────────────────────────────┐");
-        if (servers.length > 0) {
-            for (const server of servers) {
-                console.log("│ Server active:", server.padEnd(18) + "│");
-            }
-            console.log("├──────────────────────────────────┤");
-        }
-        const port = process.env.PORT || 3000;
-        app.listen(port, () => {
-            console.log(`│ Server listening on port ${port}`.padEnd(35) + "│");
-            console.log("└──────────────────────────────────┘");
-        });
-
-
-    } catch (err) {
-        console.log("Error starting servers:", err);
+    await mongoose.connect(process.env.MONGODB_URL);
+    console.log("MongoDB Connected.");
+    const servers = [];
+    if (process.env.USERS === "true") {
+      await setupUserServer();
+      servers.push("User");
     }
+    if (process.env.CONTESTS === "true") {
+      await setupContestServer();
+      servers.push("Contest");
+    }
+    if (process.env.COMMUNITY === "true") {
+      await setupCommunityServer();
+      servers.push("Community");
+    }
+
+    console.log("┌──────────────────────────────────┐");
+    if (servers.length > 0) {
+      for (const server of servers) {
+        console.log("│ Server active:", server.padEnd(18) + "│");
+      }
+      console.log("├──────────────────────────────────┤");
+    }
+    const port = process.env.PORT || 3000;
+    app.listen(port, () => {
+      console.log(`│ Server listening on port ${port}`.padEnd(35) + "│");
+      console.log("└──────────────────────────────────┘");
+    });
+  } catch (err) {
+    console.log("Error starting servers:", err);
+  }
 }
 
-if (process.env.NODE_ENV === 'development') {
-    startServersDev();
-}
-else if (process.env.NODE_ENV === 'production') {
-    startServersProduction();
-}
-else {
-    console.log("Error: NODE_ENV not set.");
+if (process.env.NODE_ENV === "development") {
+  startServersDev();
+} else if (process.env.NODE_ENV === "production") {
+  startServersProduction();
+} else {
+  console.log("Error: NODE_ENV not set.");
 }
