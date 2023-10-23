@@ -17,4 +17,10 @@ export const CreateCommunityForm = [
     name: "vanity",
     placeholder: "Enter Vanity...",
   },
+  {
+    label: "Community Admin",
+    type: "text",
+    name: "cmAdmin",
+    placeholder: "Enter Community Admin Username...",
+  },
 ];
