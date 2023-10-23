@@ -1,7 +1,18 @@
 import React from "react";
-import { Form } from "react-router-dom";
-import { TEInput, TERipple } from "tw-elements-react";
-import loginSvg from "../assets/fingerprint-animate.svg"
+
+import { 
+    Form
+ } from "react-router-dom";
+
+import {
+     TEInput, 
+     TERipple 
+    } from "tw-elements-react";
+    
+import {
+    loginSvg
+} from "./AllAssets";
+
 import GoogleButton from "react-google-button";
 
 export default function NewLogin() {
@@ -9,7 +20,7 @@ export default function NewLogin() {
         <section className="h-2/4 w-full flex justify-center">
             <div className="container h-full px-2 md:px-8 py-24">
                 <div className="g-6 flex flex-wrap items-center justify-center ">
-                    {/* <!-- Left column container with background--> */}
+               
                     <div className="mb-12 h-full md:mb-0 md:w-4/12 lg:w-4/12">
                         <img
                             src={loginSvg}
@@ -17,8 +28,6 @@ export default function NewLogin() {
                             alt="Phone image"
                         />
                     </div>
-
-                    {/* <!-- Right column container with form --> */}
                     <div className="md:w-6/12 lg:ml-6 lg:w-5/12">
                     <p className="mb-8 text-4xl text-center md:text-start">Sign in</p>
 

@@ -11,13 +11,22 @@ import {
 } from "./context/UserAuthContext";
 import { useState, useEffect } from "react";
 import "./App.css";
-import Layout from "./components/Layout";
-import UserLayout, { loader as userLayoutLoader } from "./user/UserLayout";
-import Home from "./components/Home";
-import Login, { loader as loginLoader } from "./components/Login";
-import Signup, { loader as signupLoader } from "./components/Signup";
-import IndividualCard from "./components/IndividualCard";
-import ErrorPage from "./components/error-page";
+
+// importing all the components ...
+
+import {
+  Layout,
+  Home,
+  Login,
+  loginLoader,
+  Signup,
+  signupLoader,
+  ErrorPage,
+  IndividualCard,
+  Updates,
+  NewHome,
+  Feedback,
+} from "./components/CustomComponents";
 import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashPersonal, {
   loader as userDashPersonalLoader,
@@ -32,12 +41,7 @@ import UserProfile, {
   loader as userProfileLoader,
 } from "./user/Profile/UserProfile";
 import ProtectedRoute from "./ProtectedRoute";
-import Updates from "./components/Updates";
-import NewHome from "./components/NewHome";
 import NewUserProfile from "./user/Profile/NewUserProfile";
-import Feedback from "./components/Feedback";
-
-// import ProtectedRoute from "./ProtectedRoute"
 function DiscordRedirect() {
   window.location.href = "https://discord.gg/bsbBytBqBc";
   return (

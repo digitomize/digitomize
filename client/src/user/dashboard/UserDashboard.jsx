@@ -1,14 +1,29 @@
-import { useState, useEffect } from 'react';
-import { auth } from '../../../firebase';
-import { useLoaderData, NavLink, Outlet, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-// import { useUserAuth } from '../../context/UserAuthContext';
+import {
+  useState,
+  useEffect
+} from 'react';
+
+import {
+  auth
+} from '../../../firebase';
+
+import {
+  NavLink,
+  Outlet,
+  useNavigate
+} from "react-router-dom";
+
+import {
+  ToastContainer,
+  toast
+} from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 import SignoutButton from "../components/SignoutButton"
 import NewLogOut from "../components/NewLogOut"
 import { useUserAuth } from '../../context/UserAuthContext';
 import NewNavbar from "../../components/NewNavbar";
-import { Skeleton } from "@mui/material";
+import { Skeleton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import Chip from "@mui/material/Chip";
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
@@ -25,12 +40,7 @@ import NewFooter from "../../components/NewFooter"
 // import logo from "../assets/logo.png";
 
 export default function UserDashboard() {
-  console.log("OUTLET::", <Outlet />);
-  // const username = data.personal_data.username
-  // const { user } = useUserAuth()
-  // const userData = userDashboardDetails().then(
-  //   console.log("DAYAYAYAYAYAATATATATTA",userData)
-  // );
+
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState();
@@ -51,14 +61,10 @@ export default function UserDashboard() {
       try {
         const temp = await userDashboardDetails();
         setUserData(temp.data);
-        console.log("DAYAYAYAYAYAATATATATTA", temp.data);
         if (user) {
           setLoading(false);
         }
-        // Now you can use userData in your component
-        // setLoading(false);
       } catch (error) {
-        // Handle any errors that may occur during the data fetching
         console.error("Error fetching user data:", error);
         setLoading(true);
       }
@@ -108,8 +114,8 @@ export default function UserDashboard() {
                 </h2>
                 <div className="contact">
 
-                <p>{userData.personal_data.phoneNumber.data}</p>
-                <p>{userData.personal_data.email}</p>
+                  <p>{userData.personal_data.phoneNumber.data}</p>
+                  <p>{userData.personal_data.email}</p>
                 </div>
                 <p>{userData.personal_data.bio.data}</p>
 
@@ -188,7 +194,7 @@ export default function UserDashboard() {
 
         {/* FOR PHONE */}
         <div className="phone:hidden">
-          <div className='flex flex-col max-phone:pt-32 md:mt-0 w-11/12 mx-auto'>
+          <div className='flex flex-col max-phone:mt-24 pt-12 md:mt-0 w-11/12 mx-auto'>
 
             <div className="personal m-auto flex flex-row">
               <div className="Ellipse3 w-[50px] h-[50px] m-2" >
@@ -253,26 +259,27 @@ export default function UserDashboard() {
                 <ul className="menu bg-base-200 w-full rounded-box">
                   <li>
                     {/* <a> */}
-                    <NavLink to='ratings' className="p-0 mt-2">
-                      <TrendingUpIcon fontSize="large" />
-                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> ratings</span>  <KeyboardDoubleArrowRightIcon /></h2>
+                    <NavLink to='personal' className="p-0 mt-2">
+                    <SettingsIcon fontSize="large" />
+                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> account</span>   <KeyboardDoubleArrowRightIcon /></h2>
+                      
                     </NavLink>
                     {/* </a> */}
                   </li>
                   <div className="divider w-4/5 self-center m-0 p-0"></div>
                   <li>
-                    <NavLink to='github' className="p-0">
-                      <GitHubIcon fontSize="large" />
-                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> github</span>  <KeyboardDoubleArrowRightIcon /></h2>
+                    <NavLink to='ratings' className="p-0">
+                    <TrendingUpIcon fontSize="large" />
+                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> ratings</span>  <KeyboardDoubleArrowRightIcon /></h2>
+                      
                     </NavLink>
                   </li>
                   <div className="divider w-4/5 self-center m-0 p-0"></div>
                   <li>
-                    <NavLink to='personal' className="p-0 mb-2">
-
-                      <SettingsIcon fontSize="large" />
-                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> account</span>   <KeyboardDoubleArrowRightIcon /></h2>
-                    </NavLink>
+                    <NavLink to='#' className="p-0 mb-2">
+                      <GitHubIcon fontSize="large" />
+                      <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2">github</span>  <KeyboardDoubleArrowRightIcon /></h2>
+                      </NavLink>
                   </li>
                 </ul>
               </div>
@@ -332,22 +339,3 @@ export default function UserDashboard() {
     )
   }
 }
-
-
-
-
-
-
-
-
-
-// <NavLink to='personal' className="border-b-2 border-transparent hover:border-fuchsia-700 transition md:text-2xl " >
-//               Personal Info
-//             </NavLink>
-
-//             <NavLink to='ratings' className="ms-8 md:ms-12 border-b-2 border-transparent hover:border-fuchsia-700 transition md:text-2xl">
-//                 Ranking 
-//             </NavLink>
-//             <NavLink to='github' className="ms-8 md:ms-12 border-b-2 border-transparent hover:border-fuchsia-700 transition md:text-2xl">
-//                 Github Repos
-//             </NavLink>
