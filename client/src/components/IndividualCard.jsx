@@ -1,19 +1,16 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Typewriter from "typewriter-effect";
 import { Alert, AlertTitle } from "@mui/material";
 import SportsCricketIcon from '@mui/icons-material/SportsCricket';
 import { Home as HomeIcon, Whatshot as WhatshotIcon, Grain as GrainIcon } from "@mui/icons-material";
-
 import "./css/IndividualCard.css";
-
 import geeksforgeeks from "../assets/geeksforgeeks.svg";
 import leetcode from "../assets/leetcode.svg";
 import codingninjas from "../assets/codingninjas.png";
 import codechef from "../assets/codechef.svg";
 import codeforces from "../assets/codeforces.svg";
-import Navbar from "./Navbar";
 import CopyToClipboard from "./CopyToClipboard";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
