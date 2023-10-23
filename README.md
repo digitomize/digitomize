@@ -1,6 +1,6 @@
 # Digitomize
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-22-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-23-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/125b14c1-ebbe-46d7-97db-c3e97674e36e/deploy-status)](https://app.netlify.com/sites/digitomize/deploys)
@@ -114,6 +114,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://portfolio-aman-three.vercel.app/"><img src="https://avatars.githubusercontent.com/u/74290697?v=4?s=100" width="100px;" alt="AMAN MADDHESHIYA"/><br /><sub><b>AMAN MADDHESHIYA</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=inbuilt-aura" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/AlmightyNan"><img src="https://avatars.githubusercontent.com/u/93263738?v=4?s=100" width="100px;" alt="AlmightyNan"/><br /><sub><b>AlmightyNan</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=AlmightyNan" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
