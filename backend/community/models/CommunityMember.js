@@ -16,6 +16,10 @@ const communityMemberSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
+    role: {
+      type: String,
+      required: [true, "Community Role is required."],
+    },
   },
   { timestamps: true }
 );

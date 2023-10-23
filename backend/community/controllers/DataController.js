@@ -1,9 +1,31 @@
+import { error, success } from "../../core/api/response.api.js";
+import CommunityMember from "../models/CommunityMember.js";
+
 async function getCommunityList() {
   try {
     const communityList = await Community.find();
     return communityList;
   } catch (error) {
     console.log("Error fetching Community List", error);
+  }
+  return null;
+}
+
+async function getCommunityMemberList(request, response) {
+  try {
+    const { body } = request;
+    if (!body.communityId) {
+      response.status(400).json(error(response, "Community ID not found"));
+    }
+    const communityMembers = await CommunityMember.find({
+      communityId: body.communityId,
+    });
+
+    return response
+      .status(200)
+      .json(success(communityMembers, response, "Community Member List"));
+  } catch (error) {
+    console.log("Error fetching Community Member List", error);
   }
   return null;
 }
@@ -20,7 +42,7 @@ async function createCommunity(request, response) {
         .json({ message: "User can't be verified", error: "User not found" });
     }
     if (user.role !== ROLE.ADMIN) {
-      return response.status(400).json({
+      return response.status(403).json({
         message: "You don't have sufficient permission",
         error: "You don't have sufficient permission",
       });
@@ -93,4 +115,9 @@ async function updateCommunity(request, response) {
   }
 }
 
-export { getCommunityList, createCommunity, updateCommunity };
+export {
+  getCommunityList,
+  getCommunityMemberList,
+  createCommunity,
+  updateCommunity,
+};
