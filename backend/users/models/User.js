@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
 const { ROLE } = require("../../core/const");
 
 const stringToggleSchema = new mongoose.Schema({
@@ -131,16 +131,13 @@ const userSchema = new mongoose.Schema(
       },
     },
     codeforces: {
-      type: contestToggleSchema,
-      default: {
-        username: null,
-        rating: null,
-        badge: null,
-        showOnWebsite: true,
-        fetchTime: 0,
-        attendedContestsCount: null,
-      },
+        type: contestToggleSchema,
+        default: { username: null, rating: null, badge: null, showOnWebsite: true, fetchTime: 0, attendedContestsCount: null }
     },
+    digitomize_rating: {
+      type: Number,
+      default: 0
+  },
     updatesToday: [
       {
         timestamp: { type: Date, default: Date.now },
@@ -188,4 +185,4 @@ userSchema.methods.updateCount = function () {
 
 const User = mongoose.model("User", userSchema);
 
-module.exports = User;
+export default User;

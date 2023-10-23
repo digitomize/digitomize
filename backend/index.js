@@ -1,16 +1,17 @@
-const express = require("express");
-const cors = require("cors");
-require("dotenv").config();
-const mongoose = require("mongoose");
-const dataSyncer = require("./contest/controllers/DataSyncController");
-const contestSyncer = require("./contest/controllers/contestController");
-const contestRouter = require("./contest/routes/contestRoutes");
-const userRoutes = require("./users/routes/userRoutes");
+import express from "express";
+import cors from 'cors';
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import dataSyncer from './contest/controllers/DataSyncController.js';
+import contestSyncer from './contest/controllers/contestController.js';
+import contestRouter from './contest/routes/contestRoutes.js';
+import userRoutes from './users/routes/userRoutes.js';
+import bodyParser from 'body-parser';
+import fetchContestsData from './fetchContests.js';
+import admin from 'firebase-admin';
 const adminRoutes = require("./users/routes/adminRoutes");
 const communityRoutes = require("./community/routes/communityRoutes");
-const bodyParser = require("body-parser");
-const fetchContestsData = require("./fetchContests");
-
+dotenv.config();
 const app = express();
 
 console.log(process.env.TEST);
@@ -25,12 +26,12 @@ async function main() {
 }
 
 async function setupUserServer() {
-  const admin = require("firebase-admin");
-  // console.log(process.env.FIREBASE_CREDENTIALS);
-  console.log("ok");
-  // Get the Firebase service account JSON from the environment variable
-  const firebaseCredentials = JSON.parse(process.env.FIREBASE_CREDENTIALS);
-  // console.log(firebaseCredentials);
+   
+    // console.log(process.env.FIREBASE_CREDENTIALS);
+    console.log("ok");
+    // Get the Firebase service account JSON from the environment variable
+    const firebaseCredentials = JSON.parse(process.env.FIREBASE_CREDENTIALS);
+    // console.log(firebaseCredentials);
 
   admin.initializeApp({
     credential: admin.credential.cert(firebaseCredentials),

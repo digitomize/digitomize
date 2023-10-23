@@ -1,4 +1,5 @@
-const User = require('../models/User'); // Replace with your User model
+import User from '../models/User.js';
+
 
 // Function to update user data in MongoDB
 const updateUser = async (updatedUser) => {
@@ -10,7 +11,6 @@ const updateUser = async (updatedUser) => {
         console.error('Error updating user:', error);
     }
 };
-
-module.exports = {
+export {
     updateUser
 };

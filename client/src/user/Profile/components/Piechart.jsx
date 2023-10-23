@@ -1,5 +1,10 @@
 import React from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer
+} from 'recharts';
 
 const user = [
   { language: 'HTML', percentage: 40 },
@@ -15,12 +20,12 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   const radius = innerRadius + (outerRadius - innerRadius) * .7; // Adjust the label distance
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  
+
   const lineLength = outerRadius + 50; // Increased line length
-  
+
   const startX = cx + (outerRadius + 10) * Math.cos(-midAngle * RADIAN);
   const startY = cy + (outerRadius + 10) * Math.sin(-midAngle * RADIAN);
-  
+
   const endX = cx + lineLength * Math.cos(-midAngle * RADIAN); // Increased line length
   const endY = cy + lineLength * Math.sin(-midAngle * RADIAN); // Increased line length
 

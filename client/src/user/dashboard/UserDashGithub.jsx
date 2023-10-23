@@ -1,7 +1,18 @@
 import React, { useState } from 'react'
-import { Form, useLoaderData } from "react-router-dom"
-import { userDashboardDetails, submitUserFormData } from '../../../api'
-import { toast } from "react-toastify"
+import {
+  Form,
+  useLoaderData
+} from "react-router-dom"
+
+import {
+  userDashboardDetails,
+  submitUserFormData
+} from '../../../api'
+
+import {
+  toast
+} from "react-toastify"
+
 import Checkbox from '../components/Checkbox'
 import NewNavbar from "../../components/NewNavbar"
 import DashboardNavbar from "../components/DashboardNavbar"
@@ -101,11 +112,12 @@ export default function UserDashGithub() {
             <label htmlFor="github" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Github Username</label>
             <Checkbox isCheckedState={formData.github.showOnWebsite} setState={updateShowOnWebsite('github')} />
           </div>
-          <button type="submit" className="text-black bg-white font-medium rounded-lg text-sm w-full sm:w-[20%] px-5 py-2.5 text-center mt-8 ">Update</button>
+          
+          <button type="submit" className="text-black bg-white font-medium rounded-lg text-sm w-full sm:w-[20%] px-5 py-2.5 text-center mt-8 " disabled>Update (Coming Soon..)</button>
         </Form>
-        <div className="flex flex-wrap justify-center gap-4 mt-4">
+        {/* <div className="flex flex-wrap justify-center gap-4 mt-4">
           {svgImage()}
-        </div>
+        </div> */}
       </div>
       <NewFooter/>
     </>
