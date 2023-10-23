@@ -37,11 +37,13 @@ import UserDashRatings, {
 import UserDashGithub, {
   loader as userDashGithubLoader,
 } from "./user/dashboard/UserDashGithub";
-import UserProfile, {
-  loader as userProfileLoader,
-} from "./user/Profile/UserProfile";
 import ProtectedRoute from "./ProtectedRoute";
 import NewUserProfile from "./user/Profile/NewUserProfile";
+
+import ProfileRatingsPage from "./user/Profile/pages/ProfileRatingsPage";
+import PlatformRatings from "./user/Profile/components/PlatformRatings";
+import ProfileLayout, { loader as profileLoader } from "./user/Profile/pages/ProfileLayout";
+// import ProtectedRoute from "./ProtectedRoute"
 import Leaderboard from "./user/leaderboard/Leaderboard";
 function DiscordRedirect() {
   window.location.href = "https://discord.gg/bsbBytBqBc";
@@ -58,6 +60,7 @@ function ContributeRedirect() {
 
 import { auth } from "../firebase";
 import { toast } from "react-toastify";
+import { Diversity1 } from "@mui/icons-material";
 
 
 function Logout() {
@@ -136,6 +139,7 @@ const router = createBrowserRouter(
             index
             element={<UserDashboard />}
           // loader={userDashPersonalLoader}
+          // loader={userDashPersonalLoader}
           />
           <Route
             path="account"
@@ -154,10 +158,19 @@ const router = createBrowserRouter(
         </Route>
       </Route>
       <Route
-        path="/user/profile/:username"
-        element={<NewUserProfile />}
-        loader={userProfileLoader}
-      />
+        path="/u/:username"
+        element={<ProfileLayout />}
+        loader={profileLoader}
+      >
+        <Route index element={<NewUserProfile />} />
+        <Route path="about" element={<div>User about</div>} />
+        <Route path="resume" element={<div>resume</div>} />
+        <Route path="socials" element={<div>Socials</div>} />
+        <Route path="github" element={<div>Github</div>} />
+        <Route path="ratings" element={<ProfileRatingsPage />} >
+          <Route path=":platform" element={<PlatformRatings />} />
+        </Route>
+      </Route>
       <Route
         path="/user/leaderboard"
         element={<Leaderboard />}
