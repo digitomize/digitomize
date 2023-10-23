@@ -64,6 +64,7 @@ export default function CommunityListPage() {
             <TableRow>
               <StyledTableCell>ID</StyledTableCell>
               <StyledTableCell>Name</StyledTableCell>
+              <StyledTableCell>vanity</StyledTableCell>
               <StyledTableCell>Description</StyledTableCell>
               <StyledTableCell>Actions</StyledTableCell>
             </TableRow>
@@ -76,6 +77,9 @@ export default function CommunityListPage() {
                 </StyledTableCell>
                 <StyledTableCell component="th" scope="row">
                   {community.name}
+                </StyledTableCell>
+                <StyledTableCell component="th" scope="row">
+                  {community.vanity}
                 </StyledTableCell>
                 <StyledTableCell>{community.description}</StyledTableCell>
                 <StyledTableCell>

@@ -9,10 +9,11 @@ export default function CreateCommunity({ handleClose }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { name, description } = event.target;
+    const { name, description, vanity } = event.target;
     const payload = {
       name: name.value,
       description: description.value,
+      vanity: vanity.value,
     };
 
     setPending(true);

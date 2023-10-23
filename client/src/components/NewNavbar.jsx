@@ -95,15 +95,22 @@ export default function NewNavbar() {
               leaderboard
             </Link>
             {userDetails && userDetails.personal_data.role === ROLE.ADMIN && (
+              // <Link
+              //   to="/admin/user"
+              //   className={`px-4 py-2 cursor-pointer rounded-full transition dropdown dropdown-hover dropdown-bottom hover:bg-zinc-200`}
+              // >
               <Link
-                to="/admin/user"
-                className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition dropdown dropdown-hover dropdown-bottom text-zinc-950 hover:bg-zinc-200`}
-              >
+              to="/admin/user"
+              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname.includes("/admin")
+                  ? "bg-zinc-400 text-zinc-950"
+                  : ""
+                } hover:bg-zinc-200`}
+            >
                 <div className="dropdown dropdown-hover dropdown-bottom">
                   <div>Admin</div>
                   <ul
                     tabIndex={0}
-                    className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-2"
+                    className="dropdown-content z-[1] menu p-2 shadow text-zinc-300 bg-base-100 rounded-box w-52 mt-2"
                   >
                     <li>
                       <Link to={"/admin/user"}>

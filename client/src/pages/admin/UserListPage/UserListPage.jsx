@@ -17,6 +17,7 @@ import {
 } from "@mui/material";
 import { useUserAuth } from "../../../context/UserAuthContext";
 import { StyledTableCell, StyledTableRow } from "../../../index.styled";
+import { NewFooter } from "../../../components/CustomComponents";
 
 const roleOptions = getUserRoleOptions();
 
@@ -52,7 +53,8 @@ export default function UserListPage() {
   };
 
   return (
-    <Container class="w-10/12 m-auto mt-10">
+    <>
+    <Container class="w-10/12 m-auto my-10">
       <Typography variant="h4" fontWeight={500} mb={2}>
         Users
       </Typography>
@@ -61,6 +63,8 @@ export default function UserListPage() {
           <TableHead>
             <TableRow>
               <StyledTableCell>ID</StyledTableCell>
+              <StyledTableCell>name</StyledTableCell>
+              <StyledTableCell>username</StyledTableCell>
               <StyledTableCell>Email</StyledTableCell>
               <StyledTableCell>Role</StyledTableCell>
             </TableRow>
@@ -71,6 +75,8 @@ export default function UserListPage() {
                 <StyledTableCell component="th" scope="row">
                   {user.uid}
                 </StyledTableCell>
+                <StyledTableCell>{user.name}</StyledTableCell>
+                <StyledTableCell>{user.username}</StyledTableCell>
                 <StyledTableCell>{user.email}</StyledTableCell>
                 <StyledTableCell>
                   <FormControl fullWidth>
@@ -99,5 +105,7 @@ export default function UserListPage() {
         </Table>
       </TableContainer>
     </Container>
+    <NewFooter/>
+    </>
   );
 }
