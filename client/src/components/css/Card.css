@@ -108,39 +108,3 @@
     width:27px;
   }
 }
-.button {
-  position: relative;
-  background-color: #0078d4;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  overflow: hidden;
-}
-
-.button:before {
-  content: "";
-  position: absolute;
-  left: 41%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  opacity: 0;
-  transition: width 0.4s, height 0.4s, opacity 0.3s;
-}
-
-.button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.button:hover:before {
-  width: 400px;
-  height: 400px;
-  opacity: 1;
-  transition: width 0.3s, height 0.3s, opacity 0.3s;
-}

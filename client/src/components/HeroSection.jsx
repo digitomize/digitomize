@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from "react-scroll";
 import { Typography } from "@mui/material";
 import Typewriter from "typewriter-effect";
-import './css/card.css';
+import './css/HeroSection.css';
 
 const HeroSection = () => {
   return (
