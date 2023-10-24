@@ -217,6 +217,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "menghif",
+      "name": "Francesco Menghi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53121061?v=4",
+      "profile": "http://francescomenghi.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
