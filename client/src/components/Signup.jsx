@@ -61,11 +61,11 @@ export default function Signup() {
                         Authorization: `Bearer ${token}`,
                     }
                 }).then(res => console.log(res))
-                    .catch(err => setError(err.message))
+                    .catch(err => setError(err.code))
             }
             navigate("/login")
         } catch (err) {
-            setError(err.message);
+            setError(err.code);
         }
     }
 

@@ -9,8 +9,8 @@ import {
 } from "react-router-dom"
 
 import {
-     auth
-     } from "../../firebase"
+    auth
+} from "../../firebase"
 
 import {
     GoogleAuthProvider,
@@ -21,19 +21,19 @@ import {
 import axios from 'axios'
 
 import {
-     useState 
-    } from "react"
+    useState
+} from "react"
 
-import { 
-    useUserAuth 
+import {
+    useUserAuth
 } from "../context/UserAuthContext"
 
-import { 
+import {
     isLoggedIn
- } from "../../api"
+} from "../../api"
 
-import { 
-    ToastContainer 
+import {
+    ToastContainer
 } from "react-toastify"
 
 import SignoutButton from "../user/components/SignoutButton"
@@ -103,7 +103,7 @@ export default function Login() {
     }
     const handleGoogleSignIn = async (e) => {
         setbtnState(true);
-        e.preventDefault(); 
+        e.preventDefault();
         try {
             const googleAuthProvider = new GoogleAuthProvider();
             await signInWithPopup(auth, googleAuthProvider)
@@ -117,9 +117,12 @@ export default function Login() {
                             .catch(err => console.log(err));
                     });
                     navigate('/user/dashboard')
-                }).catch(err => setError("internal server error"))
+                }).catch((err) => {
+                    setError(err.code);
+                }
+                )
         } catch (err) {
-            setError(err.message);
+            setError(err.code);
         }
         setbtnState(false);
     }
