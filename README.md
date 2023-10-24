@@ -53,8 +53,7 @@
 
 1. Clone the repository: `git clone https://github.com/pranshugupta54/digitomize.git`
 2. Install project dependencies and start the development environment: <br>
-   a. In the root directory of the project (where package.json is located), run `npm install`. <br>
-   b. Install backend and client dependencies together by `npm run installer`. <br>
+In the root directory of the project (where package.json is located), run `npm install`. <br>
 3. Configure environment variables: Create a .env file in the backend and client directories respectively, and set up the required environment variables such as database connection details, API keys, and other configurations.
 - For more information check  [Backend Documentation](/backend/README.md) and [Frontend Documentation](/client/README.md).
 4. Start the development environment: `npm run dev` (This command, defined in your project's package.json, starts both the backend server and the client using the concurrently library. It's a convenient way to run both parts of your application concurrently during development.)
