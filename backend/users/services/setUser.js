@@ -24,7 +24,7 @@ const setUser = async (userData) => {
         const newUser = new User({
             uid,
             username: username || uid,
-            name,
+            name: name || "Digitomize User",
             picture: picture || "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png",
             email,
             email_verified,

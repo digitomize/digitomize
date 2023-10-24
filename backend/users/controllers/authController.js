@@ -7,8 +7,12 @@ const handleUserSignup = async (req, res) => {
     uid, username, name , picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
   } = req.decodedToken;
 
-  username = req.body?.username;
-  name = req.body?.name;
+  if (!username) {
+    username = req.body?.username;
+  }
+  if (!name) {
+    name = req.body?.name;
+  }
   // Validate required fields
   if (!uid) {
     return res.status(400).json({ error: 'Missing required fields' });

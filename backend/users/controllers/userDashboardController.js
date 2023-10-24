@@ -60,7 +60,7 @@ import User from '../models/User.js';
         digitomize_rating: user.digitomize_rating,
       }
     };
-    console.log(jsonResponse);
+    // console.log(jsonResponse);
     // console.log(jsonResponse.education);
     // Send the JSON response to the client
     res.status(200).json(jsonResponse);
