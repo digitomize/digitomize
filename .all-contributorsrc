@@ -226,6 +226,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "DeepRahangdale",
+      "name": "Deep",
+      "avatar_url": "https://avatars.githubusercontent.com/u/115669089?v=4",
+      "profile": "https://deeprahangdale-portfolio.vercel.app",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
