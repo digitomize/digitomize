@@ -181,6 +181,60 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "DeltaCoderr",
+      "name": "Subodh Inamdar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/51528076?v=4",
+      "profile": "https://github.com/DeltaCoderr",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "priyankarpal",
+      "name": "Priyankar Pal",
+      "avatar_url": "https://avatars.githubusercontent.com/u/88102392?v=4",
+      "profile": "http://priyank.live",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "inbuilt-aura",
+      "name": "AMAN MADDHESHIYA",
+      "avatar_url": "https://avatars.githubusercontent.com/u/74290697?v=4",
+      "profile": "https://portfolio-aman-three.vercel.app/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "AlmightyNan",
+      "name": "AlmightyNan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/93263738?v=4",
+      "profile": "https://github.com/AlmightyNan",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "menghif",
+      "name": "Francesco Menghi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/53121061?v=4",
+      "profile": "http://francescomenghi.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "DeepRahangdale",
+      "name": "Deep",
+      "avatar_url": "https://avatars.githubusercontent.com/u/115669089?v=4",
+      "profile": "https://deeprahangdale-portfolio.vercel.app",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
