@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { ROLE } from "../../core/const.js";
 
 //* Community Schema
 const communityMemberSchema = new mongoose.Schema(
@@ -14,7 +15,7 @@ const communityMemberSchema = new mongoose.Schema(
     },
     role: {
       type: Number,
-      default: 0,
+      default: ROLE.COMMUNITY_MEMBER,
     },
   },
   { timestamps: true }
@@ -26,6 +27,4 @@ const CommunityMember = mongoose.model(
   "communityMember"
 );
 
-export {
-  CommunityMember,
-};
+export default CommunityMember;

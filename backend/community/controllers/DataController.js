@@ -3,11 +3,9 @@
 import { ROLE } from "../../core/const.js";
 import User from "../../users/models/User.js";
 import { getUser } from "../../users/services/getUser.js";
-import { Community } from "../models/Community.js";
-import { CommunityMember } from "../models/CommunityMember.js";
-import { COMMUNITY_ROLE } from "../utils/const.js";
-import dotenv from "dotenv";
-dotenv.config({ path: "../../.env" });
+import Community from "../models/Community.js";
+import { error, success } from "../../core/api/response.api.js";
+import CommunityMember from "../models/CommunityMember.js";
 
 async function getCommunityList() {
   try {
@@ -22,7 +20,7 @@ async function getCommunityList() {
 async function createCommunity(request, response) {
   try {
     const { body, decodedToken } = request;
-    const userId = request.decodedToken.uid;
+    const userId = decodedToken.uid;
     const user = await User.findOne({ uid: userId });
     if (!user) {
       // User not found, redirect to the login page
@@ -31,26 +29,29 @@ async function createCommunity(request, response) {
         .json({ message: "User can't be verified", error: "User not found" });
     }
     if (user.role !== ROLE.ADMIN) {
-      return response.status(400).json({
+      return response.status(403).json({
         message: "You don't have sufficient permission",
         error: "You don't have sufficient permission",
       });
     }
-    const cmAdmin = await getUser(body.cmAdmin);
+    let cmAdminUser = body.cmAdmin ? await getUser(body.cmAdmin) : user;
+    if (!cmAdminUser) {
+      return error(response, 400, "User not found!");
+    }
     const newCommunity = new Community(body);
     const savedCommunity = await newCommunity.save();
     const communityMember = new CommunityMember({
       communityId: savedCommunity._id,
-      uid: cmAdmin.uid,
+      uid: cmAdminUser.uid,
       role: ROLE.COMMUNITY_ADMIN,
     });
     await communityMember.save();
-    const updatedCommunityList = [...user.community];
+    const updatedCommunityList = [...cmAdminUser.community];
     updatedCommunityList.push({
       communityId: savedCommunity._id,
     });
     await User.updateOne(
-      { uid: cmAdmin.uid },
+      { uid: cmAdminUser.uid },
       {
         $set: {
           community: updatedCommunityList,
@@ -59,18 +60,25 @@ async function createCommunity(request, response) {
       }
     );
 
-    return response.status(200).json({ message: "Community Created!!" });
+    return success(savedCommunity, response, 200, "Community Created!!");
   } catch (error) {
+    console.log(error);
     if (error.code === 11000) {
-      return response.status(404).json({ message: `${Object.keys(error.keyValue).join(", ")} already taken.`, error: `${Object.keys(error.keyValue).join(", ")} already taken.` });
+      return response.status(404).json({
+        message: `${Object.keys(error.keyValue).join(", ")} already taken.`,
+        error: `${Object.keys(error.keyValue).join(", ")} already taken.`,
+      });
     }
-    return response.status(500).json({ message: "Internal Server Error", error: "Internal Server Error" });
+    return response.status(500).json({
+      message: "Internal Server Error",
+      error: "Internal Server Error",
+    });
   }
 }
 
 const updateCommunityHelper = (community, body) => {
   const updatedCommunity = {};
-  const keys = ["name", "description"];
+  const keys = ["name", "description", "vanity"];
   keys.forEach((key) => {
     updatedCommunity[key] = body[key] || community[key];
   });
@@ -79,17 +87,13 @@ const updateCommunityHelper = (community, body) => {
 
 async function updateCommunity(request, response) {
   try {
-    const { body, decodedToken } = request;
-    const community = await Community.findOne({ _id: body.communityId });
-    const { members } = community;
-    const member = members.find((member) => member.uid === decodedToken.uid);
-    if (!member || member.role !== COMMUNITY_ROLE.ADMIN) {
-      response
-        .status(400)
-        .json({ message: "Only admin can update community!" });
+    const { body } = request;
+    if (!body.communityId) {
+      return error(response, 400, "Community ID cannot be null");
     }
+    const community = await Community.findOne({ _id: body.communityId });
     if (!community) {
-      response.status(200).json({ message: "No community found!" });
+      return error(response, 400, "No Community Found!!");
     }
     const updatedCommunity = updateCommunityHelper(community, body);
     await Community.updateOne(
@@ -101,14 +105,25 @@ async function updateCommunity(request, response) {
         $currentDate: { lastUpdated: true },
       }
     );
-    response.status(200).json({ message: "Community data updated!!" });
+    return success(updateCommunity, response, 200, "Community Updated!!");
   } catch (error) {
     response.status(500).json({ message: "Something went wrong!!" });
   }
 }
 
-export {
-  getCommunityList,
-  createCommunity,
-  updateCommunity,
-};
+async function deleteCommunity(request, response) {
+  try {
+    const { communityId } = request.body;
+    if (!communityId) {
+      return error(response, 400, "Community ID cannot be null");
+    }
+    await Community.deleteOne({ _id: communityId });
+    await CommunityMember.deleteMany({ communityId });
+
+    return success({}, response, 200, "Community Deleted!!");
+  } catch (error) {
+    response.status(500).json({ message: "Something went wrong!!" });
+  }
+}
+
+export { getCommunityList, createCommunity, updateCommunity, deleteCommunity };

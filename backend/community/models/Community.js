@@ -16,13 +16,11 @@ const communitySchema = new mongoose.Schema(
       required: [true, "Vanity is required."],
       lowercase: true,
       unique: { value: true, caseInsensitive: true },
-    }
+    },
   },
   { timestamps: true }
 );
 
 const Community = mongoose.model("Community", communitySchema, "community");
 
-export {
-  Community
-};
+export default Community;

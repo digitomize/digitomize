@@ -76,7 +76,4 @@ const updateUser = async (req, res) => {
   }
 };
 
-export {
-  getUserList,
-  updateUser,
-};
+export { getUserList, updateUser };
