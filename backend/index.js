@@ -11,6 +11,13 @@ const fetchContestsData = require('./fetchContests');
 
 const app = express();
 
+//Handling uncaught exception 
+process.on('uncaughtException', err =>{
+    console.log(`Error: ${err.message}`);
+    console.log('Shutting down due to uncaught exception');
+    process.exit(1)
+})
+
 console.log(process.env.TEST);
 async function main() {
     try {
@@ -65,6 +72,12 @@ async function startServersProduction() {
 
         await setupUserServer();
         await setupContestServer();
+
+        //Handle unhandled routes
+        app.all('*', (req,res,next)=>{
+            next(`${req.originalUrl} route not found`)
+        })
+        
         const port = process.env.PORT || 3000;
         app.listen(port, () => {
             console.log(`<--- Server listening on port ${port} --->`);
@@ -90,6 +103,11 @@ async function startServersDev() {
             await setupContestServer();
         }
 
+        //Handle unhandled routes
+        app.all('*', (req,res,next)=>{
+            next(`${req.originalUrl} route not found`)
+        })
+
         const port = process.env.PORT || 3000;
         app.listen(port, () => {
             console.log(`<--- Server listening on port ${port} --->`);
@@ -108,3 +126,11 @@ else if (process.env.NODE_ENV === 'production') {
 else {
     console.log("Error: NODE_ENV not set.");
 }
+
+//Handling unhandled server errors
+process.on('unhandledRejection',(err)=>{
+    console.log(`Error: ${err.message}`)
+    console.log('Shutting down the server due to Unhandled promise rejection')
+    
+    process.exit(1)
+})
