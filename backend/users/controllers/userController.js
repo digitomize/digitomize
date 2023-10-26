@@ -53,7 +53,7 @@ const createUserFirebase = async (req, res, next) => {
   })
   .catch((error) => {
     console.log('Error creating new user:', error);
-    return res.status(404).json({error:"User not created."});
+    return res.status(404).json({error:error, message: `code:${error.errorInfo.code}, \n message:${error.errorInfo.message}`});
   });
 }
 
