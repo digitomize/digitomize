@@ -6,6 +6,7 @@ import {
   Container,
   FormControl,
   MenuItem,
+  Button,
   Paper,
   Select,
   Table,
@@ -14,10 +15,14 @@ import {
   TableHead,
   TableRow,
   Typography,
+  Stack
 } from "@mui/material";
 import { useUserAuth } from "../../../context/UserAuthContext";
 import { StyledTableCell, StyledTableRow } from "../../../index.styled";
 import { NewFooter } from "../../../components/CustomComponents";
+import AppModal from "../../../core/components/AppModal";
+import AppDialog from "../../../core/components/AppModal";
+import CreateUser from "./CreateUser";
 
 const roleOptions = getUserRoleOptions();
 
@@ -25,6 +30,10 @@ export default function UserListPage() {
   const { user: currentUser } = useUserAuth();
   const [userList, setUserList] = useState([]);
   const [disableInput, setDisableInput] = useState(null);
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
     // Get all users
@@ -54,10 +63,29 @@ export default function UserListPage() {
 
   return (
     <>
-    <Container class="w-10/12 m-auto my-10">
-      <Typography variant="h4" fontWeight={500} mb={2}>
+    <Container class="w-10/12 m-auto my-10 max-phone:mt-24">
+      {/* <Typography variant="h4" fontWeight={500} mb={2}>
         Users
-      </Typography>
+        </Typography> */}
+        <Stack
+        mb={2}
+        direction={"row"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+      >
+        <Typography variant="h4" fontWeight={500}>
+          users
+        </Typography>
+        <Button onClick={handleOpen}>Create user</Button>
+        <AppDialog
+          open={open}
+          handleClose={handleClose}
+          title={"Create User"}
+        >
+          <CreateUser handleClose={handleClose} />
+        </AppDialog>
+        </Stack>
+        
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700 }} aria-label="customized table">
           <TableHead>

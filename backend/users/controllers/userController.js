@@ -1,26 +1,9 @@
-import { ROLE } from "../../core/const.js";
 import User from "../models/User.js";
+import admin from "firebase-admin";
+import { setUser } from "../services/setUser.js";
 
 const getUserList = async (req, res) => {
   try {
-    // User is logged in, fetch user data from the database
-    const userId = req.decodedToken.uid;
-    const user = await User.findOne({ uid: userId }).select(
-      "-_id -password -createdAt -updatedAt -__v"
-    );
-
-    if (!user) {
-      // User not found, redirect to the login page
-      return res
-        .status(404)
-        .json({ message: "User not found", error: "User not found" });
-    }
-    if (user.role !== ROLE.ADMIN) {
-      return res.status(400).json({
-        message: "You don't have sufficient permission",
-        error: "You don't have sufficient permission",
-      });
-    }
     const users = await User.find().select(
       "-_id -password -createdAt -updatedAt -__v"
     );
@@ -35,27 +18,7 @@ const getUserList = async (req, res) => {
 
 const updateUser = async (req, res) => {
   try {
-    // User is logged in, fetch user data from the database
-    const userId = req.decodedToken.uid;
     const { body } = req;
-    if (userId === body.uid) {
-      return res
-        .status(400)
-        .json({ message: "Operation not allowed", error: "Bad Request" });
-    }
-    const user = await User.findOne({ uid: userId });
-    if (!user) {
-      // User not found, redirect to the login page
-      return res
-        .status(404)
-        .json({ message: "User can't be verified", error: "User not found" });
-    }
-    if (user.role !== ROLE.ADMIN) {
-      return res.status(400).json({
-        message: "You don't have sufficient permission",
-        error: "You don't have sufficient permission",
-      });
-    }
     const updatedUser = await User.updateOne(
       { uid: body.uid },
       {
@@ -76,4 +39,60 @@ const updateUser = async (req, res) => {
   }
 };
 
-export { getUserList, updateUser };
+const createUserFirebase = async (req, res, next) => {
+  const { body } = req;
+  admin.auth().createUser({
+    email: body.email,
+    displayName: body.name,
+    password: body.password
+  }).then((userRecord) => {
+    // See the UserRecord reference doc for the contents of userRecord.
+    req.user = userRecord;
+    console.log('Successfully created new user:', userRecord);
+    next();
+  })
+  .catch((error) => {
+    console.log('Error creating new user:', error);
+    return res.status(404).json({error:"User not created."});
+  });
+}
+
+const createUserDB = async (req, res) => {
+
+  let {
+    uid, username, name , picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
+  } = req.user;
+
+  if (!username) {
+    username = req.body?.username;
+  }
+  if (!name) {
+    name = req.body?.name;
+  }
+  // Validate required fields
+  if (!uid) {
+    return res.status(400).json({ error: 'Missing required fields' });
+  }
+  // console.log(uid);
+  try {
+    const userData = {
+      uid, username, name, picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
+    };
+
+    const newUser = await setUser(userData); // Create a new user using setUser
+    // console.log(newUser);
+    res.status(201).json({ message: 'User created successfully' });
+
+  } catch (error) {
+    console.error("Error:", error);
+    if (error.status === 400) {
+      return res.status(400).json({ error: error.message });
+    }
+    if (error.status === 200) {
+      return res.status(200).json({ message: "User already exists." });
+    }
+    res.status(500).json({ error: 'Error creating user' });
+  }
+}
+
+export { getUserList, updateUser, createUserFirebase,createUserDB };
