@@ -35,6 +35,7 @@ export default function CommunityListPage() {
       });
   }, []);
   return (
+    <>
     <Container class="w-10/12 m-auto mt-10">
       <Stack
         mb={2}
@@ -97,6 +98,7 @@ export default function CommunityListPage() {
           </TableBody>
         </Table>
       </TableContainer>
-    </Container>
+      </Container>
+      </>
   );
 }

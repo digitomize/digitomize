@@ -103,3 +103,34 @@ export const createNewUser = async (body) => {
     }
   }
 };
+
+export const deleteUser = async (body) => {
+  const loggedIn = await isLoggedIn();
+
+  console.log("HEREEEEE");
+  if (loggedIn) {
+    const currentUser = auth.currentUser;
+    const accessToken = await currentUser.getIdToken();
+    console.log(accessToken);
+    if (accessToken) {
+      try {
+        return axios.delete(`${BACKEND_URL}/admin/user`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`
+          },
+          data: body
+        });
+
+        // return axios.delete(`${BACKEND_URL}/admin/user`, body, {
+        //   headers: {
+        //     Authorization: `Bearer ${accessToken}`,
+        //   },
+        // });
+      } catch (err) {
+        return new Promise((resolve, reject) => {
+          reject({ err });
+        });
+      }
+    }
+  }
+};
