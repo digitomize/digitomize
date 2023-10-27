@@ -21,9 +21,13 @@ const setUser = async (userData) => {
     console.log(userData);
     try {
         const { uid, username, name, picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces } = userData;
+
+        // Finds if the username with same name is already registered.
+        const checkForDuplicateUsername = await User.findOne({ username: username });
+
         const newUser = new User({
             uid,
-            username: username || uid,
+            username: checkForDuplicateUsername ? uid : username || uid,     // if username already used, use uid as username.
             name: name || "Digitomize User",
             picture: picture || "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png",
             email,
