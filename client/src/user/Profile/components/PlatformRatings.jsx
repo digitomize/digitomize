@@ -14,34 +14,40 @@ function PlatformRatings() {
         codeforces: {
             name: 'Codeforces',
             link: 'codeforces',
+            profileUrl: 'https://codeforces.com/profile/',
             img: codeforces
         },
         codechef: {
             name: 'Codechef',
             link: 'codechef',
+            profileUrl: 'https://www.codechef.com/users/',
             img: codechef
         },
         leetcode: {
             name: 'Leetcode',
             link: 'leetcode',
+            profileUrl: 'https://leetcode.com/',
             img: leetcode
         }
     };
-    const platformData = data.ratings[platform];
+    var platformData = data.ratings[platform];
+    // if (platformData.username == null || platformData.rating == null) {
+    //     platformData = null;
+    // }
     console.log(platformData);
-    const startDate = new Date(platformData.fetchTime);
-  const options = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    timeZone: "Asia/Kolkata",
-  };
-  const startTimeIST = startDate.toLocaleString("en-US", options);
+    const startDate = new Date(platformData?.fetchTime);
+    const options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        timeZone: "Asia/Kolkata",
+    };
+    const startTimeIST = startDate.toLocaleString("en-US", options);
 
     // Assuming that `data.ratings` contains the platform data
-    
+
 
     // Check if platformData is available before rendering
     if (platformData) {
@@ -63,37 +69,35 @@ function PlatformRatings() {
                         </figure>
                         <div className="card-body bg-base-100 text-center items-center w-full">
                             <h2 className="card-title text-center my-3">
-                                @{platformData.username}
-                                <div><OpenInNew /></div>
+                                @{platformData?.username || "user not found"}
+                                <div>
+                                    <a href={platformData?.username? contestLinks[platform].profileUrl + platformData.username: "#"} target={platformData?.username? "_blank":""} rel="noopener noreferrer">
+                                        <OpenInNew />
+                                    </a>
+                                </div>
                             </h2>
                             <div className="info flex flex-row w-full justify-around my-3">
                                 <div className="flex flex-col">
-                                    <h3>{platformData.rating}</h3>
+                                    <h3>{platformData?.rating || "null"}</h3>
                                     <div className="badge badge-outline my-2">Rating</div>
                                 </div>
                                 <div className="flex flex-col">
-                                    <h3>{platformData.badge}</h3>
+                                    <h3>{platformData?.badge || "null"}</h3>
                                     <div className="badge badge-outline my-2">badge</div>
                                 </div>
                                 <div className="flex flex-col">
-                                    <h3>{platformData.attendedContestsCount}</h3>
+                                    <h3>{platformData?.attendedContestsCount || "null"}</h3>
                                     <div className="badge badge-outline my-2">contests</div>
                                 </div>
 
                             </div>
-                            {/* <p>If a dog chews shoes whose shoes does he choose?</p> */}
-                            {/* <div className="card-actions justify-end">
-                                <div className="badge badge-secondary">{platformData.badge}</div>
-                                <div className="badge badge-outline">Fashion</div>
-                                <div className="badge badge-outline">Products</div>
-                            </div> */}
                             <div className="buttons">
                                 <button className="btn btn-outline btn-success">Share</button>
                             </div>
                         </div>
-                    <div className="fetch-time flex w-full justify-end p-2">
-                        Last fetched: {startTimeIST}
-                    </div>
+                        <div className="fetch-time flex w-full justify-end p-2">
+                            Last fetched: {startTimeIST}
+                        </div>
                     </div>
                 </div>
             </>
