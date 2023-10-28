@@ -102,7 +102,7 @@ function IndividualCard() {
     isMobile ?
       (
         <>
-          <div className='mt-24'>
+          <div className='py-8 '>
             <div className="card_Navigation mx-4" >
               <div className="card_nav_path">
                 <Link to="/">

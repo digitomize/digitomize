@@ -9,7 +9,7 @@ function Home() {
 
   return (
     <div className="container flex flex-col mx-auto scroll-smooth">
-      <div className="button-container scroll-smooth h-[85vh] flex flex-col justify-center items-center z-[1] max-md:h-[80vh] max-md:mb-12 max-md:mt-8">
+      <div className="button-container scroll-smooth h-[85vh] flex flex-col justify-center items-center z-[1] max-md:h-[80vh] max-md:mb-12 ">
         {/* <Typography variant="h1" align="center"> */}
           <h1 className="font-['Outfit'] text-center mt-0 md:text-8xl font-extrabold tracking-wide lowercase text-white max-md:text-6xl">Your Ultimate Contest List</h1>
         {/* </Typography> */}
