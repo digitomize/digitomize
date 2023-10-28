@@ -9,7 +9,7 @@ function UserCard({ username, name, picture, bio, phoneNumber }) {
         setShowMore(!showMore);
     };
 
-    const truncatedBio = showMore ? bio : bio.slice(0, 219);
+    const truncatedBio = showMore ? bio : bio?.slice(0, 219);
     return (
         <div className={`border-[#D1E5F4] border-2 rounded-xl bg-cardsColor flex flex-col w-full h-fit p-6 mx-4 `}>
             <div className='flex w-full justify-center'>

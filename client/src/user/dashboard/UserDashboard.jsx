@@ -259,7 +259,7 @@ export default function UserDashboard() {
                 <ul className="menu bg-base-200 w-full rounded-box">
                   <li>
                     {/* <a> */}
-                    <NavLink to='personal' className="p-0 mt-2">
+                    <NavLink to='account' className="p-0 mt-2">
                     <SettingsIcon fontSize="large" />
                       <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> account</span>   <KeyboardDoubleArrowRightIcon /></h2>
                       
