@@ -71,26 +71,23 @@ export default function NewNavbar({ position }) {
             <Link
               to="/contests#list"
               className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/contests"
-                  ? "bg-zinc-400 text-zinc-950"
-                  : ""
+                ? "bg-zinc-400 text-zinc-950"
+                : ""
                 } hover:bg-zinc-200`}
             >
               Contests
             </Link>
-            <Link
-              to="/contribute"
-              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/contribute"
-                  ? "bg-zinc-400 text-zinc-950"
-                  : ""
-                } hover:bg-zinc-200`}
+            <a
+              href="https://github.com/pranshugupta54/digitomize"
+              className={`px-4 py-2 text-zinc-700 cursor-pointer hover:bg-zinc-200 rounded-full transition `}
             >
               Contribute
-            </Link>
+            </a>
             <Link
               to="/user/leaderboard"
               className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/user/leaderboard"
-                  ? "bg-zinc-400 text-zinc-950"
-                  : ""
+                ? "bg-zinc-400 text-zinc-950"
+                : ""
                 } hover:bg-zinc-200`}
             >
               leaderboard
@@ -107,7 +104,7 @@ export default function NewNavbar({ position }) {
                       className="bg-black hover:bg-blue-700 rounded-full"
                     />
                   </div>
-                 
+
                 </a>
                 <ul
                   tabIndex={0}

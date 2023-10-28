@@ -10,7 +10,7 @@ import codeforces from '../../../assets/codeforces.svg'
 function ProfileRatingsPage() {
   const navigate = useNavigate();
   const profileData = useOutletContext();
-
+  const personal_data = profileData.personal_data;
   React.useEffect(() => {
     navigate('codeforces');
   }, [navigate]);
@@ -45,13 +45,15 @@ function ProfileRatingsPage() {
 
   return (
     <>
-      <div className="w-11/12 mx-auto py-4">
-        <div className="flex max-phone:flex-col max-phone:mt-24">
-          <div className='flex flex-col justify-center'>
+      <div className="phone:w-9/12 mx-auto py-4">
+        <div className="flex max-phone:flex-col max-phone:mt-4">
+          <div className='flex flex-col justify-center phone:w-2/4 max-phone:w-11/12 mx-auto'>
+            <div className="phone:w-3/5">
             <Link to="..">
-              <UserCard height={500} />
+              <UserCard username={personal_data.username} name={personal_data.name} picture={personal_data.picture} bio={personal_data.bio} phoneNumber={personal_data.phoneNumber}/>
             </Link>
-            <div className='border-[#D1E5F4] border-2 rounded-xl bg-cardsColor p-6 mt-4'>
+            </div>
+            <div className='border-[#D1E5F4] border-2 rounded-xl bg-cardsColor p-6 mt-4 phone:w-3/5'>
               <div className='flex w-full h-full flex-col justify-around'>
                 {
                   contestLinks.map((contestLink, index) => (
@@ -74,7 +76,7 @@ function ProfileRatingsPage() {
             </div>
 
           </div>
-          <div className='h-full w-full'>
+          <div className='h-full phone:w-2/4'>
             <Outlet context={profileData} />
           </div>
         </div>

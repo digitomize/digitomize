@@ -3,7 +3,7 @@ import {Link } from "react-scroll";
 export default function Home1() {
   return (
     <>
-      <div className="hero h-screen xl:pt-8 xl:pt-24 max-md:pt-24 items-center flex flex-col text-center">
+      <div className="hero h-screen xl:pt-8 max-md:pt-4 items-center flex flex-col text-center">
             <div className="max-md:hidden divider sticky my-0"></div>
         <div className="flex-row">
           <h1 className="pt-4 mt-0 sm:mt-2 inline-flex flex-col md:flex-row transition font-display max-md:text-7xl md:text-[8rem] bg-gradient-to-b from-60% bg-clip-text text-transparent from-custom-blue sm:me-4">
