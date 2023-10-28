@@ -25,11 +25,6 @@ function ProfileRatingsPage() {
       link: 'codechef',
       img: codechef
     },
-    // {
-    //   name: 'Coding Ninjas',
-    //   link: 'codingninjas',
-    //   img: codingninjas
-    // },
     {
       name: 'Leetcode',
       link: 'leetcode',
@@ -37,42 +32,54 @@ function ProfileRatingsPage() {
     }
   ]
 
+  // return (
+  //   <>
+  //     <div className="w-11/12 mx-auto mt-4">
+  //       <div className="flex">
+
+  //       </div>
+  //     </div>
+  //   </>
+  // )
+
 
   return (
-    <div className="flex">
+    <>
+      <div className="w-11/12 mx-auto py-4">
+        <div className="flex max-phone:flex-col max-phone:mt-24">
+          <div className='flex flex-col justify-center'>
+            <Link to="..">
+              <UserCard height={500} />
+            </Link>
+            <div className='border-[#D1E5F4] border-2 rounded-xl bg-cardsColor p-6 mt-4'>
+              <div className='flex w-full h-full flex-col justify-around'>
+                {
+                  contestLinks.map((contestLink, index) => (
+                    <>
+                      <Link to={contestLink.link} key={index}>
+                        <div className='flex justify-between my-4'>
+                          <p className='text-3xl'>{contestLink.name}</p>
+                          <img src={contestLink.img} alt={contestLink.img} style={{ maxHeight: '35px', maxWidth: '35px' }} />
 
-      <div className='min-h-screen flex flex-col justify-center gap-8 ps-8'>
-        <Link to="..">
-          <UserCard height={500} />
-        </Link>
-        <div className='border-[#D1E5F4] border-2 rounded-xl bg-cardsColor  w-[450px] h-[400px] p-6 '>
-          <div className='flex w-full h-full flex-col justify-around'>
-            {
-              contestLinks.map((contestLink, index) => (
-                <>
-                  <Link to={contestLink.link} key={index}>
-                    <div className='flex justify-between'>
-                      <p className='text-3xl'>{contestLink.name}</p>
-                      <img src={contestLink.img} alt={contestLink.img} style={{ maxHeight: '35px', maxWidth: '35px' }} />
+                        </div>
+                      </Link>
+                      {index !== contestLinks.length - 1 && <div className='h-[1px] bg-white w-full'></div>}
 
-                    </div>
-                  </Link>
-                  {index !== contestLinks.length - 1 && <div className='h-[1px] bg-white w-full'></div>}
+                    </>
 
-                </>
+                  ))
+                }
 
-              ))
-            }
+              </div>
+            </div>
 
           </div>
+          <div className='h-full w-full'>
+            <Outlet context={profileData} />
+          </div>
         </div>
-
       </div>
-      <div className='h-full w-full'>
-        <Outlet context={profileData} />
-      </div>
-    </div>
-
+    </>
   )
 }
 
