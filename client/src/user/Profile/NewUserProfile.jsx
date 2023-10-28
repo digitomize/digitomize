@@ -10,9 +10,9 @@ function NewUserProfile() {
     console.log(personal_data)
     return (
         <>
-            <div className="flex mt-8 flex-col md:flex-row w-full">
+            <div className="flex mt-8 flex-col md:flex-row w-11/12 mx-auto">
                 {/* First Column with 450px width */}
-                <div className="flex ps-4 md:w-1/2 " >
+                <div className="flex md:w-1/2" >
                     <UserCard username={personal_data.username} name={personal_data.name} picture={personal_data.picture} bio={personal_data.bio} phoneNumber={personal_data.phoneNumber} />
                 </div>
 

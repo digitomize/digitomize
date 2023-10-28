@@ -54,7 +54,7 @@ function PlatformRatings() {
         return (
             <>
                 {/* <EmojiEventsIcon sx={{ fontSize: 100 }} /> */}
-                <div className="m-auto text-center items-center flex flex-col my-12">
+                <div className="m-auto text-center items-center flex flex-col my-12 w-11/12">
                     {/* <div className="card flex flex-row">
                         <div className="upper flex flex-row">
                             <img src={contestLinks[platform].img} style={{ maxHeight: '35px', maxWidth: '35px' }} />
@@ -63,8 +63,8 @@ function PlatformRatings() {
 
                         </div>
                     </div> */}
-                    <div className="border-[#D1E5F4] border-2 rounded-xl shadow-[8px_8px_0px_#D1E5F4] card phone:w-2/5 max-phone:w-11/12 bg-base-300 items-center">
-                        <figure className="w-40">
+                    <div className="border-[#D1E5F4] border-2 rounded-xl shadow-[8px_8px_0px_#D1E5F4] card max-phone:w-11/12 bg-base-300 items-center">
+                        <figure className="w-40 h-40">
                             <img className="w-full" src={contestLinks[platform].img} alt="platform icon" />
                         </figure>
                         <div className="card-body bg-base-100 text-center items-center w-full">
