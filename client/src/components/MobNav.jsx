@@ -68,14 +68,21 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
               <span>{user? "logout":"login"}</span>
             </a>
             <div className="flex flex-col mt-6 divide-y divide-white/5 border-y border-y-white/5">
+              {user && <a
+                className="flex items-center gap-2 py-4 font-display text-lg font-medium"
+                href="/user/dashboard"
+                onClick={toggleActive}
+              >
+                dashboard
+              </a>}
               <a
                 className="flex items-center gap-2 py-4 font-display text-lg font-medium"
-                href="/contests#list"
+                href="/contests"
                 onClick={toggleActive}
               >
                 Contests
               </a>
-              <a
+              {/* <a
                 className="flex items-center gap-2 py-4 font-display text-lg font-medium"
                 href="/about"
                 onClick={toggleActive}
@@ -88,7 +95,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
                 onClick={toggleActive}
               >
                 Updates
-              </a>
+              </a> */}
               <a
                 className="flex items-center gap-2 py-4 font-display text-lg font-medium"
                 href="/discord"
