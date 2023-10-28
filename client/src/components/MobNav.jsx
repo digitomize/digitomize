@@ -6,7 +6,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
   const { user } = useUserAuth();
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 py-4 md:hidden border-b border-b-white/5 bg-zinc-950`}
+      className={`relative inset-x-0 top-0 z-50 py-4 md:hidden border-b border-b-white/5 bg-zinc-950`}
     >
       <div className="mx-auto max-w-screen-xl px-6 md:px-10">
         <div className="flex items-center justify-between">

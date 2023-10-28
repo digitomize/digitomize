@@ -42,7 +42,7 @@ export default function Layout() {
         </Alert>
       )}
       <Outlet />
-      <NewFooter />
+      {/* <NewFooter /> */}
       <Analytics />
     </>
   )

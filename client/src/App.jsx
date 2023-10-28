@@ -53,10 +53,10 @@ function DiscordRedirect() {
       <h1 className="text-2xl ml-4">Redirecting to Discord</h1>
     </div>)
 }
-function ContributeRedirect() {
-  window.location.href = "https://github.com/pranshugupta54/digitomize";
-  return null;
-}
+// function ContributeRedirect() {
+//   window.location.href = "https://github.com/pranshugupta54/digitomize";
+//   return null;
+// }
 
 import { auth } from "../firebase";
 import { toast } from "react-toastify";
@@ -127,7 +127,7 @@ const router = createBrowserRouter(
         <Route path="updates" element={<Updates />} />
         <Route path="home" element={<NewHome />} />
         <Route path="feedback" element={<Feedback />} />
-        <Route path="contribute" element={<ContributeRedirect />} />
+        {/* <Route path="contribute" element={<ContributeRedirect />} /> */}
         <Route path="discord" element={<DiscordRedirect />} />
         <Route path="contests/:vanity" element={<IndividualCard />} />
         <Route path="404" element={<ErrorPage />} />
