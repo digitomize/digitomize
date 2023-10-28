@@ -29,9 +29,13 @@ import User from '../models/User.js';
         email: user.email,
         email_show: user.email_show,
         skills: user.skills,
+        status: user.status,
         education: user.education,
         bio: {
           data: user.bio.data || null, showOnWebsite: user.bio.showOnWebsite
+        },
+        status: {
+          status: user.status.data || null, showOnWebsite: user.status.showOnWebsite
         },
         phoneNumber: {
           data: user.phoneNumber.data || null, showOnWebsite: user.phoneNumber.showOnWebsite

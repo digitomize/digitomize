@@ -74,6 +74,10 @@ const updateUserData = (userData, existingData) => {
   if (skills) {
     existingData.skills = skills;
   }
+  const status = userData.status;
+  if (status) {
+    existingData.status = status;
+  }
   const education = userData.education;
   if (education) {
     existingData.education = education;

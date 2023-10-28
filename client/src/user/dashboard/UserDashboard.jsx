@@ -35,9 +35,14 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import logo from "../../assets/logo.png";
 import Badge from '@mui/material/Badge';
 import MoodIcon from '@mui/icons-material/Mood';
+import DoNotDisturbOnTotalSilenceRoundedIcon from '@mui/icons-material/DoNotDisturbOnTotalSilenceRounded';
 import Tooltip from "@mui/material/Tooltip";
 import NewFooter from "../../components/NewFooter"
+import EmojiPicker, { Emoji } from 'emoji-picker-react';
 // import logo from "../assets/logo.png";
+
+
+
 
 export default function UserDashboard() {
 
@@ -46,10 +51,29 @@ export default function UserDashboard() {
   const [userData, setUserData] = useState();
   const { user } = useUserAuth();
   const [selectedStatus, setSelectedStatus] = useState('Busy'); // Initialize with a default status
-
+  const [isEmojiPickerOpen, setIsEmojiPickerOpen] = useState(false);
+  const [chosenEmoji, setChosenEmoji] = useState(null);
+  const [statusText, setStatusText] = useState(null)
+  const [isSelected, setIsSelected] = useState(false)
   const handleStatusClick = (status) => {
     setSelectedStatus(status);
   };
+  const handleEmojiClick = (emojiObject) => {
+    const selectedEmoji = emojiObject.emoji;
+    setChosenEmoji(selectedEmoji);
+    setIsEmojiPickerOpen(false);
+  };
+  const handleBadgeContentClick = () => setIsEmojiPickerOpen(!isEmojiPickerOpen);
+  const handleChange = (e) => {
+    let text = e.target.value
+    setStatusText(text)
+    console.log(statusText)
+  }
+  const handleChangeSelected = () => {
+    setIsSelected(!isSelected)
+    console.log(isSelected)
+  }
+
   async function handleLogout() {
     await auth.signOut()
     toast.success("Logged out successfully")
@@ -198,18 +222,32 @@ export default function UserDashboard() {
 
             <div className="personal m-auto flex flex-row">
               <div className="Ellipse3 w-[50px] h-[50px] m-2" >
-                <Badge anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'right',
-                }} badgeContent={<MoodIcon fontSize="small" sx={{ maxWidth: '20px', bgcolor: "red", borderRadius: "100%" }} />}>
-                  <div className="avatar rounded-full ring ring-blue ">
-                    <div className="rounded-full">
-                      <img src={logo} alt="avatar" /> {/*// TODO: FIX THIS*/}
-                    </div>
-                  </div>
+                <Tooltip title={statusText} placement='top' arrow>
+                  <Badge
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'right',
+                    }}
+                    badgeContent={chosenEmoji ? chosenEmoji : (<MoodIcon />)}
+                    onClick={handleBadgeContentClick}
+                  >
+                    <div className="avatar rounded-full ring ring-blue">
+                      <div className="rounded-full">
 
-                </Badge>
+                        <img src={logo} alt="avatar" /> {/*// TODO: FIX THIS*/}
+
+                      </div>
+                    </div>
+                  </Badge>
+                </Tooltip>
+
+
+                <div>
+
+                </div>
+
               </div>
+
               <div className="username my-auto w-fit">
                 <h2 className='text-2xl'>{`${user.displayName}`}</h2>
               </div>
@@ -219,35 +257,17 @@ export default function UserDashboard() {
               </div>
             </div>
             <div className="status self-center">
-              <label className="label justify-center">
-                <span className="label-text">my status</span>
-              </label>
-              <div>
-                <Chip
-                  label="Busy"
-                  color='primary'
-                  variant={selectedStatus === 'Busy' ? 'filled' : 'outlined'}
-                  onClick={() => handleStatusClick('Busy')}
-                />
-                <Chip
-                  label="Working"
-                  color='primary'
-                  variant={selectedStatus === 'Working' ? 'filled' : 'outlined'}
-                  onClick={() => handleStatusClick('Working')}
-                />
-                <Chip
-                  label="Available"
-                  color='primary'
-                  variant={selectedStatus === 'Available' ? 'filled' : 'outlined'}
-                  onClick={() => handleStatusClick('Available')}
-                />
-                <Chip
-                  label="Offline"
-                  color='primary'
-                  variant={selectedStatus === 'Offline' ? 'filled' : 'outlined'}
-                  onClick={() => handleStatusClick('Offline')}
-                />
-              </div>
+              {<div class="join">
+                    <input className="input input-bordered join-item" placeholder={statusText ? statusText:"What's up?"} onChange={handleChange} />
+
+                    <button className="btn join-item rounded-r-full" onClick={handleChangeSelected}>
+                      {isSelected ? <EmojiPicker onEmojiClick={handleEmojiClick} /> : <MoodIcon />}
+                    </button>
+
+
+                  </div>}
+
+
             </div>
             <div className="divider"></div>
 
@@ -260,18 +280,18 @@ export default function UserDashboard() {
                   <li>
                     {/* <a> */}
                     <NavLink to='personal' className="p-0 mt-2">
-                    <SettingsIcon fontSize="large" />
+                      <SettingsIcon fontSize="large" />
                       <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> account</span>   <KeyboardDoubleArrowRightIcon /></h2>
-                      
+
                     </NavLink>
                     {/* </a> */}
                   </li>
                   <div className="divider w-4/5 self-center m-0 p-0"></div>
                   <li>
                     <NavLink to='ratings' className="p-0">
-                    <TrendingUpIcon fontSize="large" />
+                      <TrendingUpIcon fontSize="large" />
                       <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2"> ratings</span>  <KeyboardDoubleArrowRightIcon /></h2>
-                      
+
                     </NavLink>
                   </li>
                   <div className="divider w-4/5 self-center m-0 p-0"></div>
@@ -279,7 +299,7 @@ export default function UserDashboard() {
                     <NavLink to='#' className="p-0 mb-2">
                       <GitHubIcon fontSize="large" />
                       <h2 className="my-auto flex items-center justify-evenly"> <span className="text-xl w-1/2">github</span>  <KeyboardDoubleArrowRightIcon /></h2>
-                      </NavLink>
+                    </NavLink>
                   </li>
                 </ul>
               </div>
