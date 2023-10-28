@@ -114,7 +114,7 @@ export default function Leaderboard() {
                                                             </a>
                                                         </div>
                                                         <div>
-                                                            <a href={"/user/profile/" + row.username} target="_blank">
+                                                            <a href={"/u/" + row.username} target="_blank">
                                                                 <div className="font-bold">{row.name} <OpenInNew fontSize="small" /> </div>
                                                                 <div className="text-sm opacity-50">@{row.username}</div>
                                                                 {/* You can display more user details here if needed */}

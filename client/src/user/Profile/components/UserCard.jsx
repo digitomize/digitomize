@@ -11,7 +11,7 @@ function UserCard({ height }) {
             <div className='flex flex-col items-start gap-[8px] p-0'>
                 <div>
                     <h1>
-                        Anurag Sharma 👋
+                        user name 👋
                     </h1>
                 </div>
 
