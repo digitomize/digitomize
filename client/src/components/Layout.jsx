@@ -26,7 +26,8 @@ export default function Layout() {
             zIndex: 200,
             marginBottom: 2,
             marginTop: "2%",
-            right: 0
+            right: 0,
+            bottom: 0,
           }}
           icon={false}
         >
