@@ -71,7 +71,7 @@ export default function DashboardNavbar() {
               Contests
             </Link>
             <Link
-              to="/contribute"
+              to="https://github.com/pranshugupta54/digitomize"
               className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
                 location.pathname === "/contribute"
                   ? "bg-zinc-400 text-zinc-950"
@@ -81,14 +81,14 @@ export default function DashboardNavbar() {
               Contribute
             </Link>
             <Link
-              to="/support"
+              to="user/leaderboard"
               className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
-                location.pathname === "/support"
+                location.pathname === "/leaderboard"
                   ? "bg-zinc-400 text-zinc-950"
                   : ""
               } hover:bg-zinc-200`}
             >
-              Support
+              leaderboard
             </Link>
           </div>
           <div className="flex justify-end">
