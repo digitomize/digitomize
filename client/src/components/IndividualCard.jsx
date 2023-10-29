@@ -3,7 +3,7 @@ import { useMediaQuery } from 'react-responsive';
 import { Link, useParams } from 'react-router-dom';
 // import {HomeIcon, WhatshotIcon, GrainIcon} from '@mui/icons-material';
 import { Home as HomeIcon, Whatshot as WhatshotIcon, Grain as GrainIcon } from "@mui/icons-material";
-
+import { NewFooter } from "./CustomComponents";
 
 import './css/IndividualCard.css'
 
@@ -210,6 +210,7 @@ function IndividualCard() {
             </div>
           </div>
         </div>
+        <NewFooter/>
       </>)
   );
 }
