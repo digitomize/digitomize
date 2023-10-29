@@ -2,7 +2,7 @@
 
 # Digitomize
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-19-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-26-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8fb0d3a9-43a1-4779-aa77-1fa56f0541fa/deploy-status)](https://app.netlify.com/sites/v2-digitomize/deploys)
@@ -109,6 +109,15 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Bishwajitpvt"><img src="https://avatars.githubusercontent.com/u/77453811?v=4?s=100" width="100px;" alt="Bishwajit Samanta"/><br /><sub><b>Bishwajit Samanta</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Bishwajitpvt" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Yash-Khattar"><img src="https://avatars.githubusercontent.com/u/67179751?v=4?s=100" width="100px;" alt="Yash Khattar"/><br /><sub><b>Yash Khattar</b></sub></a><br /><a href="#design-Yash-Khattar" title="Design">🎨</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/kapilkumar9395"><img src="https://avatars.githubusercontent.com/u/50052501?v=4?s=100" width="100px;" alt="Kapil Kumar"/><br /><sub><b>Kapil Kumar</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=kapilkumar9395" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/DeltaCoderr"><img src="https://avatars.githubusercontent.com/u/51528076?v=4?s=100" width="100px;" alt="Subodh Inamdar"/><br /><sub><b>Subodh Inamdar</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=DeltaCoderr" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://priyank.live"><img src="https://avatars.githubusercontent.com/u/88102392?v=4?s=100" width="100px;" alt="Priyankar Pal"/><br /><sub><b>Priyankar Pal</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=priyankarpal" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://portfolio-aman-three.vercel.app/"><img src="https://avatars.githubusercontent.com/u/74290697?v=4?s=100" width="100px;" alt="AMAN MADDHESHIYA"/><br /><sub><b>AMAN MADDHESHIYA</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=inbuilt-aura" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/AlmightyNan"><img src="https://avatars.githubusercontent.com/u/93263738?v=4?s=100" width="100px;" alt="AlmightyNan"/><br /><sub><b>AlmightyNan</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=AlmightyNan" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://francescomenghi.com"><img src="https://avatars.githubusercontent.com/u/53121061?v=4?s=100" width="100px;" alt="Francesco Menghi"/><br /><sub><b>Francesco Menghi</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=menghif" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://deeprahangdale-portfolio.vercel.app"><img src="https://avatars.githubusercontent.com/u/115669089?v=4?s=100" width="100px;" alt="Deep"/><br /><sub><b>Deep</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=DeepRahangdale" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Rushi1109"><img src="https://avatars.githubusercontent.com/u/91152294?v=4?s=100" width="100px;" alt="Rushi1109"/><br /><sub><b>Rushi1109</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Rushi1109" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
