@@ -34,7 +34,7 @@ const MobileNav = ({ isMenuActive, toggleActive }) => {
             <div className="mx-auto max-w-screen-xl px-6 md:px-10">
                 <div className="flex items-center justify-between">
                     <div className="flex">
-                        <a href="/user/dashboard" className="group">
+                        <a href="/u/dashboard" className="group">
                             <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-blue-700">
                                 <KeyboardBackspaceIcon />
                                 {/* <img
