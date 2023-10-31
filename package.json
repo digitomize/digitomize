@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "installer": "concurrently \"cd backend && npm i\" \"cd client && npm i\"",
+        "postinstall": "concurrently \"cd backend && npm i\" \"cd client && npm i\"",
         "build": "concurrently \"cd backend && npm run start\" \"cd frontend && npm build\"",
         "dev": "concurrently \"cd backend && npm run dev\" \"cd client && npm run dev\"",
         "test": "echo \"Error: no test specified\" && exit 1"
