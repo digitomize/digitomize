@@ -77,7 +77,7 @@ const ShareModel = ({close_model, copyToClipboard, contestLink, theme }) => {
     return ReactDOM.createPortal(
         <>
         <div className="model_container" onClick={close_model}>
-            <div className="model_wrapper gradiant-model-border" onClick={handleContainerClick} style={{background:`${theme}`}}>
+            <div className="model_wrapper gradiant-model-border" onClick={handleContainerClick} style={{background:`${theme}`!= '' ? `${theme}`: 'whitesmoke'}}>
                 <div>
                     <p>Share this link via</p>
                 </div>
