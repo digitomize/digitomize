@@ -15,7 +15,7 @@ import {
 } from "./AllAssets";
 import { useUserAuth } from "../context/UserAuthContext";
 
-export default function NewNavbar() {
+export default function NewNavbar({ position }) {
   const { user } = useUserAuth();
   console.log("user is", user);
   if (user) {
@@ -47,7 +47,7 @@ export default function NewNavbar() {
     <>
       <MobNav isMenuActive={isMenuActive} toggleActive={toggleActive} />
       <div
-        className="static inset-x-0 top-0 z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto"
+        className={`${position ? position : 'sticky'} inset-x-0 top-0 z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto`}
         style={navbarStyle}
       >
         <div className="flex cursor-pointer items-center gap-4 rounded-full bg-white p-2">
@@ -71,29 +71,26 @@ export default function NewNavbar() {
             <Link
               to="/contests#list"
               className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/contests"
-                  ? "bg-zinc-400 text-zinc-950"
-                  : ""
+                ? "bg-zinc-400 text-zinc-950"
+                : ""
                 } hover:bg-zinc-200`}
             >
               Contests
             </Link>
-            <Link
-              to="/contribute"
-              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/contribute"
-                  ? "bg-zinc-400 text-zinc-950"
-                  : ""
-                } hover:bg-zinc-200`}
+            <a
+              href="https://github.com/pranshugupta54/digitomize"
+              className={`px-4 py-2 text-zinc-700 cursor-pointer hover:bg-zinc-200 rounded-full transition `}
             >
               Contribute
-            </Link>
+            </a>
             <Link
-              to="/support"
-              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/support"
-                  ? "bg-zinc-400 text-zinc-950"
-                  : ""
+              to="/user/leaderboard"
+              className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === "/user/leaderboard"
+                ? "bg-zinc-400 text-zinc-950"
+                : ""
                 } hover:bg-zinc-200`}
             >
-              Support
+              leaderboard
             </Link>
           </div>
           <div className="flex justify-end">
@@ -107,15 +104,15 @@ export default function NewNavbar() {
                       className="bg-black hover:bg-blue-700 rounded-full"
                     />
                   </div>
-                 
+
                 </a>
                 <ul
                   tabIndex={0}
                   className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <Link to={"/user/dashboard/personal"}>
-                      <span>{"Personal"}</span>
+                    <Link to={"/user/dashboard/account"}>
+                      <span>{"account"}</span>
                     </Link>
                   </li>
                   <li>

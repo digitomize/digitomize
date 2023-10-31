@@ -3,7 +3,7 @@
   --width: 44vh;
 }
 
-.model_container {
+  .model_container {
     position: fixed;
     z-index: 2;
     top: 0;
@@ -15,7 +15,7 @@
     cursor: default;
 }
 
-.model_wrapper {
+  .model_wrapper {
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -32,8 +32,7 @@
   justify-content: space-evenly;
 }
 
-.gradiant-model-border {
-    background: white;
+  .gradiant-model-border {
     position: relative;
     z-index: 1;
   }
@@ -51,32 +50,36 @@
 
   
 
-  .input_url  {
-   padding: 4px;
+  .input_url {
+   padding: 3px;
+   border: 1px solid white;
+   border-radius: 4px;
   }
 
   .input_value {
     position: relative;
-    border: 1px solid white;
-    border-radius: 4px;
+    outline: 0;
+    border: transparent;
     background: #161616;
     margin: 4px;
     padding: 6px;
-    cursor: pointer;
+    cursor: text;
   }
+
+
 
   .text-copied{
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  z-index: 2;  
-  background-color: #333;
-  color: #fff;
-  padding: 5px;
-  border-radius: 6px;
-  font-size: 13px;
-  white-space: nowrap;
+    background-color: #333;
+    z-index: 2;  
+    color: #fff;
+    padding: 5px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
   }
 
   @media (max-width: 1024px) {
