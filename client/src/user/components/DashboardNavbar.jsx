@@ -81,7 +81,7 @@ export default function DashboardNavbar() {
               Contribute
             </Link>
             <Link
-              to="user/leaderboard"
+              to="/user/leaderboard"
               className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
                 location.pathname === "/leaderboard"
                   ? "bg-zinc-400 text-zinc-950"
