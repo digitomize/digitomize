@@ -8,9 +8,10 @@ import {
 } from '../../../firebase';
 
 import {
-    NavLink,
-    Outlet,
-    useNavigate
+  NavLink,
+  Outlet,
+  Link,
+  useNavigate
 } from "react-router-dom";
 
 import {
@@ -137,12 +138,14 @@ export default function UserDashboard() {
                                 </div>
                                 <p>{userData.personal_data.bio.data}</p>
 
-                                <div className="card-actions justify-end">
-                                    <button className="btn btn-primary lowercase">share now</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="cards flex flex-row flex-wrap items-center justify-evenly">
+                <div className="card-actions justify-end">
+                  <Link to={`/u/${userData.personal_data.username}`}>
+                    <button className="btn btn-primary lowercase">view profile</button>
+                    </Link>
+                </div>
+              </div>
+            </div>
+            <div className="cards flex flex-row flex-wrap items-center justify-evenly">
 
 
                             <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl my-4">

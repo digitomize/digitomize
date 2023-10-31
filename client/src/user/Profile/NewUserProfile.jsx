@@ -3,7 +3,10 @@ import { Link, useOutletContext } from 'react-router-dom'
 import NewNavbar from '../../components/NewNavbar'
 import logo from '../../assets/logo.png'
 import UserCard from './components/UserCard'
-import { PersonOff } from '@mui/icons-material'
+import { AiFillGithub, AiFillLinkedin, AiFillFacebook, AiFillInstagram } from 'react-icons/ai'
+import { FaXTwitter } from 'react-icons/fa6';
+import { TbWorld } from 'react-icons/tb';
+
 function NewUserProfile() {
     const { personal_data } = useOutletContext();
 
@@ -26,12 +29,27 @@ function NewUserProfile() {
                                 <h2 className='text-xl'>See my resume</h2>
                             </div>
                         </Link>
-                        <Link to='socials' className="w-full md:w-1/2 ">
+                        <div className="w-full md:w-1/2 ">
                             {/* Second Card */}
-                            <div className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] rounded-xl bg-cardsColor  hover:scale-[1.02] hover:bg-cardsHover w-full h-[250px] p-6">
+                            <div className="border-[#D1E5F4] border-2 rounded-xl bg-cardsColor w-full h-[250px] p-6">
                                 <h2 className='text-xl'>Socials</h2>
+                                <div className="icons flex flex-col max-h-[90%]">
+                                    <div className="row1 flex flex-row h-2/4 justify-around items-center">
+                                        <Link>
+                                            <AiFillGithub className="m-1" size='5vw' />
+                                        </Link>
+                                        <AiFillLinkedin className="m-1" size='5vw' />
+                                        <AiFillFacebook className="m-1" size='5vw' />
+                                    </div>
+                                    <div className="row2 flex flex-row h-2/4 justify-around items-center">
+                                        <FaXTwitter className="m-2" size='4vw' />
+                                        <AiFillInstagram className="m-1" size='5vw' />
+                                        <TbWorld className="m-1" size='5vw' />
+                                    </div>
+                                </div>
+
                             </div>
-                        </Link>
+                        </div>
                     </div>
 
                     {/* Second Row */}

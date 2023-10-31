@@ -2,9 +2,10 @@ import { useState } from 'react'
 import logo from '../../../assets/logo.png'
 import { AiFillGithub } from 'react-icons/ai'
 
-function UserCard({ username, name, picture, bio, phoneNumber }) {
+function UserCard({ username, name, picture, bio, phoneNumber, role }) {
     const [showMore, setShowMore] = useState(false);
-
+    role = 4;
+    console.log("role:", role);
     const toggleBio = () => {
         setShowMore(!showMore);
     };
@@ -21,6 +22,15 @@ function UserCard({ username, name, picture, bio, phoneNumber }) {
                     <h1 className='normal-case text-center'>
                         {name}
                     </h1>
+                    <div className="badges text-center">
+                        <div className="badge bg-[#9ACD32] text-black mx-1">member</div>
+                        {role >= 4 && <div className="badge bg-[#FFFF00] text-black mx-1">
+                            contributor
+                        </div>}
+                        {role >= 5 && <div className="badge bg-[#7DF9FF] text-black mx-1">
+                            admin
+                        </div>}
+                    </div>
                 </div>
                 <div>
                     <p>
@@ -34,7 +44,7 @@ function UserCard({ username, name, picture, bio, phoneNumber }) {
                     </p>
                 </div>
                 <div>
-                    <AiFillGithub size='5vw'/>
+                    <AiFillGithub size='5vw' />
                 </div>
 
             </div>
