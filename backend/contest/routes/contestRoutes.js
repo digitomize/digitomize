@@ -1,6 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const contestController = require("../controllers/contestController");
+import express from 'express';
+import contestController from "../controllers/contestController.js";
+import { Router } from 'express';
+
+const router = Router();
+
 
 // GET route for contests
 router.get("/", async (req, res) => {
@@ -55,4 +58,4 @@ router.get("/", async (req, res) => {
     }
 });
 
-module.exports = router;
+export default  router;

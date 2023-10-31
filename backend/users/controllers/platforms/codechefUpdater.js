@@ -1,4 +1,5 @@
-const https = require('https');
+import https from 'https';
+
 
 async function codechef_u(username) {
     if (!username) {
@@ -68,6 +69,6 @@ async function codechef_u(username) {
     }
 }
 
-module.exports = {
+export  {
     codechef_u,
 };

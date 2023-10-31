@@ -37,11 +37,14 @@ import UserDashRatings, {
 import UserDashGithub, {
   loader as userDashGithubLoader,
 } from "./user/dashboard/UserDashGithub";
-import UserProfile, {
-  loader as userProfileLoader,
-} from "./user/Profile/UserProfile";
 import ProtectedRoute from "./ProtectedRoute";
 import NewUserProfile from "./user/Profile/NewUserProfile";
+
+import ProfileRatingsPage from "./user/Profile/pages/ProfileRatingsPage";
+import PlatformRatings from "./user/Profile/components/PlatformRatings";
+import ProfileLayout, { loader as profileLoader } from "./user/Profile/pages/ProfileLayout";
+// import ProtectedRoute from "./ProtectedRoute"
+import Leaderboard from "./user/leaderboard/Leaderboard";
 function DiscordRedirect() {
   window.location.href = "https://discord.gg/bsbBytBqBc";
   return (
@@ -50,13 +53,14 @@ function DiscordRedirect() {
       <h1 className="text-2xl ml-4">Redirecting to Discord</h1>
     </div>)
 }
-function ContributeRedirect() {
-  window.location.href = "https://github.com/pranshugupta54/digitomize";
-  return null;
-}
+// function ContributeRedirect() {
+//   window.location.href = "https://github.com/pranshugupta54/digitomize";
+//   return null;
+// }
 
 import { auth } from "../firebase";
 import { toast } from "react-toastify";
+import { Diversity1 } from "@mui/icons-material";
 
 
 function Logout() {
@@ -123,15 +127,22 @@ const router = createBrowserRouter(
         <Route path="updates" element={<Updates />} />
         <Route path="home" element={<NewHome />} />
         <Route path="feedback" element={<Feedback />} />
-        <Route path="contribute" element={<ContributeRedirect />} />
+        {/* <Route path="contribute" element={<ContributeRedirect />} /> */}
         <Route path="discord" element={<DiscordRedirect />} />
         <Route path="contests/:vanity" element={<IndividualCard />} />
         <Route path="404" element={<ErrorPage />} />
       </Route>
       <Route path="/user" element={<ProtectedRoute />}>
-        <Route path="dashboard" element={<UserDashboard />}>
+        {/* <Route path="dashboard" element={<UserDashboard/>}> */}
+        <Route path="dashboard">
           <Route
-            path="personal"
+            index
+            element={<UserDashboard />}
+          // loader={userDashPersonalLoader}
+          // loader={userDashPersonalLoader}
+          />
+          <Route
+            path="account"
             element={<UserDashPersonal />}
             loader={userDashPersonalLoader}
           />
@@ -147,9 +158,22 @@ const router = createBrowserRouter(
         </Route>
       </Route>
       <Route
-        path="/user/profile/:username"
-        element={<NewUserProfile />}
-        loader={userProfileLoader}
+        path="/u/:username"
+        element={<ProfileLayout />}
+        loader={profileLoader}
+      >
+        <Route index element={<NewUserProfile />} />
+        <Route path="about" element={<div>User about</div>} />
+        <Route path="resume" element={<div>resume</div>} />
+        <Route path="socials" element={<div>Socials</div>} />
+        <Route path="github" element={<div>Github</div>} />
+        <Route path="ratings" element={<ProfileRatingsPage />} >
+          <Route path=":platform" element={<PlatformRatings />} />
+        </Route>
+      </Route>
+      <Route
+        path="/user/leaderboard"
+        element={<Leaderboard />}
       />
     </Route>
   )

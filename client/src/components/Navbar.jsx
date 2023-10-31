@@ -1,27 +1,14 @@
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { logo } from "./AllAssets";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
-import {
-  useState,
-  useEffect
-} from "react";
-
-import {
-  Link
-} from "react-router-dom";
-
-import {
-  logo
-} from "./AllAssets";
-
-import {
-  signOut
-} from "firebase/auth";
-
-import {
-  auth
-} from "../../firebase";
 
 function Navbar() {
+
   const [isMenuActive, setActive] = useState(false);
+
   const handleSignout = async () => {
     try {
       await signOut(auth);
@@ -31,7 +18,6 @@ function Navbar() {
   };
 
   function toggleActive() {
-
     if (window.innerWidth < 768) {
       if (isMenuActive) {
         setActive(false);
@@ -45,6 +31,27 @@ function Navbar() {
     document.body.className = isMenuActive ? "overflow-hidden" : "";
   }, [isMenuActive]);
 
+  //  for navlinks
+
+  const navLinks = [
+    {
+      title: "Home",
+      path: "/home",
+    },
+    {
+      title: "Contests",
+      path: "/contests",
+    },
+    {
+      title: "Contribute",
+      path: "https://github.com/pranshugupta54/digitomize",
+    },
+    {
+      title: "Login",
+      path: "/login",
+    },
+  ];
+
   return (
     <nav>
       <div className="flex justify-between md:px-16 px-12 md:pt-12 items-center">
@@ -54,37 +61,36 @@ function Navbar() {
           </Link>
         </div>
 
-        <div className={`${isMenuActive ? "bg-black h-full flex justify-center inset-x-0 inset-y-0 z-50 fixed flex-col items-center" : "hidden"} md:flex`}>
-          <Link to="/home">
-            <li onClick={() => toggleActive()} className="flex text-nav-text text-3xl font-light p-4 lowercase hover:white">
-              Home
-            </li>
-          </Link>
-          <Link to="/contests">
-            <li onClick={() => toggleActive()} className="flex text-nav-text text-3xl font-light p-4 lowercase hover:white">
-              Contests
-            </li>
-          </Link>
-          <Link to="https://github.com/pranshugupta54/digitomize">
-            <li onClick={() => toggleActive()} className="text-nav-text flex text-3xl font-light p-4 lowercase hover:white">
-              Contribute
-            </li>
-          </Link>
-          <Link to="/login">
-            <li onClick={() => toggleActive()} className="text-nav-text  flex text-3xl font-light p-4 lowercase hover:white">
-              Login
-            </li>
-          </Link>
+        <div
+          className={`${isMenuActive
+            ? "bg-black h-full flex justify-center inset-x-0 inset-y-0 z-50 fixed flex-col items-center"
+            : "hidden"
+            } md:flex`}
+        >
+          {navLinks.map((link, index) => (
+            <Link to={link.path} key={index}>
+              <li
+                onClick={() => toggleActive()}
+                className="flex text-nav-text text-3xl font-light p-4 lowercase hover:white"
+              >
+                {link.title}
+              </li>
+            </Link>
+          ))}
         </div>
 
         <div
           onClick={() => toggleActive()}
-          className={`${isMenuActive ? "mx-6 my-2 block fixed right-5 z-50" : "hidden"}`}
+          className={`${isMenuActive ? "mx-6 my-2 block fixed right-5 z-50" : "hidden"
+            }`}
         >
           close
         </div>
 
-        <div onClick={() => toggleActive()} className="md:hidden max-sm:block cursor-pointer">
+        <div
+          onClick={() => toggleActive()}
+          className="md:hidden max-sm:block cursor-pointer"
+        >
           <span className="block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
           <span className="block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
           <span className="block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>

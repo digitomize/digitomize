@@ -1,10 +1,12 @@
 import React from "react";
 import {logo} from "./AllAssets";
+import { useUserAuth } from "../context/UserAuthContext";
 
 const MobNav = ({ isMenuActive, toggleActive }) => {
+  const { user } = useUserAuth();
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 py-4 md:hidden border-b border-b-white/5 bg-zinc-950`}
+      className={`relative inset-x-0 top-0 z-50 py-4 md:hidden border-b border-b-white/5 bg-zinc-950`}
     >
       <div className="mx-auto max-w-screen-xl px-6 md:px-10">
         <div className="flex items-center justify-between">
@@ -61,19 +63,26 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
             <a
               target="_self"
               className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 rounded-full hover:bg-emerald-400 hover:text-emerald-950 disabled:bg-white/5 disabled:text-zinc-50 justify-center py-3 text-lg font-medium bg-custom-blue font-display text-zinc-950"
-              href="/login"
+              href={user? "/logout":"/login"}
             >
-              <span>Login</span>
+              <span>{user? "logout":"login"}</span>
             </a>
             <div className="flex flex-col mt-6 divide-y divide-white/5 border-y border-y-white/5">
+              {user && <a
+                className="flex items-center gap-2 py-4 font-display text-lg font-medium"
+                href="/user/dashboard"
+                onClick={toggleActive}
+              >
+                dashboard
+              </a>}
               <a
                 className="flex items-center gap-2 py-4 font-display text-lg font-medium"
-                href="/contests#list"
+                href="/contests"
                 onClick={toggleActive}
               >
                 Contests
               </a>
-              <a
+              {/* <a
                 className="flex items-center gap-2 py-4 font-display text-lg font-medium"
                 href="/about"
                 onClick={toggleActive}
@@ -86,7 +95,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
                 onClick={toggleActive}
               >
                 Updates
-              </a>
+              </a> */}
               <a
                 className="flex items-center gap-2 py-4 font-display text-lg font-medium"
                 href="/discord"
@@ -96,10 +105,10 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
               </a>
               <a
                 className="flex items-center gap-2 py-4 font-display text-lg font-medium"
-                href="/docs"
+                href="/user/leaderboard"
                 onClick={toggleActive}
               >
-                Docs
+                Leaderboard
               </a>
             </div>
           </nav>

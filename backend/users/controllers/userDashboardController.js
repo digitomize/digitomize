@@ -1,6 +1,6 @@
-const User = require('../models/User');
+import User from '../models/User.js';
 
-const handleUserDashboard = async (req, res) => {
+ const handleUserDashboard = async (req, res) => {
   try {
     // Check if user is logged in using the checkAuth middleware
     // if (!req.userId) {
@@ -56,10 +56,11 @@ const handleUserDashboard = async (req, res) => {
         leetcode: {
           data: user.leetcode.username || null,
           showOnWebsite: user.leetcode.showOnWebsite,
-        }
+        },
+        digitomize_rating: user.digitomize_rating,
       }
     };
-    console.log(jsonResponse);
+    // console.log(jsonResponse);
     // console.log(jsonResponse.education);
     // Send the JSON response to the client
     res.status(200).json(jsonResponse);
@@ -70,6 +71,4 @@ const handleUserDashboard = async (req, res) => {
   }
 };
 
-module.exports = {
-  handleUserDashboard,
-};
+export {handleUserDashboard};
