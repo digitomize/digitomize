@@ -67,7 +67,7 @@ function IndividualCard() {
     } else if (host === "atcoder") {
       return "white";
     } else {
-      return "";
+      return "black";
     }
   }
   const colorTheme = getColorTheme();
