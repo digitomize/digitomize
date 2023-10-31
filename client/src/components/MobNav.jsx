@@ -7,7 +7,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
 
     const dashboardLink = {
         title: "Dashboard",
-        path: `/user/dashboard`,
+        path: `/u/dashboard`,
     }
     const navLinks = [
         {
@@ -20,7 +20,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
         },
         {
             title: "Leaderboard",
-            path: "/user/leaderboard"
+            path: "/u/leaderboard"
         }
     ]
 

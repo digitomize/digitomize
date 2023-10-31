@@ -44,22 +44,22 @@ export default function NewNavbar({ position }) {
         },
         {
             title: "Leaderboard",
-            path: "/user/leaderboard",
+            path: "/u/leaderboard",
         },
     ]
 
     const navLinksDashboard = [
         {
             title: 'account',
-            path: "/user/dashboard/account",
+            path: "/u/dashboard/account",
         },
         {
             title: 'ratings',
-            path: "/user/dashboard/ratings",
+            path: "/u/dashboard/ratings",
         },
         {
             title: 'github',
-            path: "/user/dashboard/github",
+            path: "/u/dashboard/github",
         }
     ]
 
@@ -109,7 +109,7 @@ export default function NewNavbar({ position }) {
                     <div className="flex justify-end">
                         {user ? (
                             <div className="dropdown dropdown-hover dropdown-bottom">
-                                <a href="/user/dashboard">
+                                <a href="/u/dashboard">
                                     <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-zinc-100">
                                         <img
                                             src={user.photoURL || logo}

@@ -46,7 +46,7 @@ export async function loader({ request }) {
     const message = new URL(request.url).searchParams.get("message")
     const loggedIn = await isLoggedIn();
     if (loggedIn) {
-        return redirect("/user/dashboard")
+        return redirect("/u/dashboard")
     }
 
     return message
@@ -69,7 +69,7 @@ export default function Login() {
         try {
             await logIn(email, password)
             console.log(auth.currentUser.accessToken)
-            navigate('/user/dashboard')
+            navigate('/u/dashboard')
         } catch (err) {
             setError(err.message);
         }
@@ -94,7 +94,7 @@ export default function Login() {
                     },
                 }).then(res => console.log(res))
                     .catch(err => console.log(err));
-                navigate('/user/dashboard/account')
+                navigate('/u/dashboard/account')
 
             }).catch((error) => {
                 setError(`${error.code} - ${error.message}`)
@@ -116,7 +116,7 @@ export default function Login() {
                         }).then(res => console.log(res))
                             .catch(err => console.log(err));
                     });
-                    navigate('/user/dashboard')
+                    navigate('/u/dashboard')
                 }).catch((err) => {
                     setError(err.code);
                 }

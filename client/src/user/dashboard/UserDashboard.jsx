@@ -8,10 +8,10 @@ import {
 } from '../../../firebase';
 
 import {
-  NavLink,
-  Outlet,
-  Link,
-  useNavigate
+    NavLink,
+    Outlet,
+    Link,
+    useNavigate
 } from "react-router-dom";
 
 import {
@@ -138,14 +138,14 @@ export default function UserDashboard() {
                                 </div>
                                 <p>{userData.personal_data.bio.data}</p>
 
-                <div className="card-actions justify-end">
-                  <Link to={`/u/${userData.personal_data.username}`}>
-                    <button className="btn btn-primary lowercase">view profile</button>
-                    </Link>
-                </div>
-              </div>
-            </div>
-            <div className="cards flex flex-row flex-wrap items-center justify-evenly">
+                                <div className="card-actions justify-end">
+                                    <Link to={`/u/${userData.personal_data.username}`}>
+                                        <button className="btn btn-primary lowercase">view profile</button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="cards flex flex-row flex-wrap items-center justify-evenly">
 
 
                             <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl my-4">
@@ -157,7 +157,7 @@ export default function UserDashboard() {
                                     </h2>
                                     <p>If a dog chews shoes whose shoes does he choose?</p>
                                     <div className="card-actions justify-end">
-                                        <a href="/user/dashboard/account">
+                                        <a href="/u/dashboard/account">
                                             <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]">
                                                 <SettingsIcon fontSize="large" />
                                             </button>
@@ -175,7 +175,7 @@ export default function UserDashboard() {
                                     </h2>
                                     <p>If a dog chews shoes whose shoes does he choose?</p>
                                     <div className="card-actions justify-end">
-                                        <a href="/user/dashboard/ratings">
+                                        <a href="/u/dashboard/ratings">
                                             <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]"><TrendingUpIcon fontSize="large" /></button>
                                         </a>
 
