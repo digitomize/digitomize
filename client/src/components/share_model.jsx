@@ -28,7 +28,7 @@ const ShareModel = ({close_model, copyToClipboard, contestLink, theme }) => {
         const Message = `Check out this link: ${contestLink}`;
         const whatsappLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(Message)}`;
         try {
-          indow.open(whatsappLink);
+          window.open(whatsappLink);
         } catch (e) {
           console.log(e);
         }
