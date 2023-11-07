@@ -231,8 +231,8 @@ export default function UserDashPersonal() {
           </label>
         </div>
       </div>
-      <div className="grid md:grid-cols-2 md:gap-2">
-        <div className="relative z-0 w-full md:w-3/4 mb-12 group">
+      <div className="grid md:grid-cols-2 md:gap-8 gap">
+        <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
           <input
             type="tel"
             name="phoneNumber"
@@ -258,7 +258,7 @@ export default function UserDashPersonal() {
             }} className="checkbox checkbox-success" /> */}
 
         </div>
-        <div className="relative z-0 w-full md:w-3/4 mb-12 group">
+        <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
           <input
             type="date"
             name="dateOfBirth"
@@ -279,22 +279,24 @@ export default function UserDashPersonal() {
           />
         </div>
       </div>
-      <div className="relative z-0 w-full md:w-3/4 mb-12 group">
+      <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-7 ">
         <textarea
           name="bio"
           id="bio"
-          className="block py-2.5 px-0 w-full md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
+          className=" block w-full py-2   px-4  text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
           placeholder=""
           value={formData.bio.data}
           onChange={handleInputChangeObjData}
         />
         <label
           htmlFor="bio"
-          className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 
+          bottom-2 pb-5 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
         >
           Bio
         </label>
         <Checkbox
+        
           isCheckedState={formData.bio.showOnWebsite}
           setState={updateShowOnWebsite("bio")}
         />
@@ -303,12 +305,12 @@ export default function UserDashPersonal() {
       {/* skills */}
       <div className="skills relative z-0 w-full md:w-3/4 mb-12 group">
 
-        <div className="z-0 w-full md:w-3/4 mb-2 group flex flex-row">
+        <div className="z-0 w-full md:w-3/4 mb-2 group flex flex-row items-center space-x-2">
           <input
             type="text"
             name="skills"
             id="skills"
-            className="block py-2.5 px-0 w-3/4 md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
+            className="block py-2.5 px-0 w-auto md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
             placeholder=""
             value={newSkill}
             onChange={(e) => setNewSkill(e.target.value)}
@@ -323,9 +325,9 @@ export default function UserDashPersonal() {
             <button
               type="submit"
 
-              className="text-black bg-white font-medium rounded-lg md:text-xl sm:w-auto px-5 py-2.5 text-center "
+              className="text-black bg-white font-medium rounded-lg text-sm md:text-lg sm:w-auto px-5 py-1.5 text-center "
             >
-              Add skill
+              Add
             </button>
           </Form>
         </div>
@@ -353,16 +355,16 @@ export default function UserDashPersonal() {
               );
             })
           ) : (
-            <p>No skills added.</p>
+            <p className="font-semibold font-mono text-red-600">No skills added.</p>
           )}
         </div>
       </div>
 
 
-      <Form onSubmit={handleSubmit}>
+      <Form className=" flex justify-center  w-auto" onSubmit={handleSubmit}>
         <button
           type="submit"
-          className="text-black bg-white font-medium rounded-lg md:text-xl w-full sm:w-auto px-5 py-2.5 text-center "
+          className="text-black bg-white font-medium rounded-lg  text-xl  md:text-3xl   px-5 py-1.5 text-center "
         >
           Update
         </button>
