@@ -6,6 +6,8 @@ import UserCard from './components/UserCard'
 import { AiFillGithub, AiFillLinkedin, AiFillFacebook, AiFillInstagram } from 'react-icons/ai'
 import { FaXTwitter } from 'react-icons/fa6';
 import { TbWorld } from 'react-icons/tb';
+import { PiUserFocusFill } from 'react-icons/pi'
+import { BsFillArrowUpRightCircleFill, BsGraphUpArrow } from 'react-icons/bs'
 
 function NewUserProfile() {
     const { personal_data } = useOutletContext();
@@ -13,7 +15,7 @@ function NewUserProfile() {
     console.log(personal_data)
     return (
         <>
-            <div className="flex mt-8 flex-col md:flex-row w-11/12 mx-auto">
+            <div className="flex mt-8 flex-col md:flex-row w-11/12 mx-auto pb-8">
                 {/* First Column with 450px width */}
                 <div className="flex md:w-1/2" >
                     <UserCard username={personal_data.username} name={personal_data.name} picture={personal_data.picture} bio={personal_data.bio} phoneNumber={personal_data.phoneNumber} />
@@ -25,13 +27,23 @@ function NewUserProfile() {
                     <div className="flex flex-col md:flex-row pb-2 px-2 gap-6">
                         <Link to='resume' className="w-full md:w-1/2 ">
 
-                            <div className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] rounded-xl bg-cardsColor  hover:scale-[1.02] hover:bg-cardsHover w-full h-[250px] p-6">
-                                <h2 className='text-xl'>See my resume</h2>
+                            <div className="border-[#d1e5f47d] border-2 transition ease-in-out delay-150 motion-reduce:transition-none motion-reduce:hover:transform-none shadow-2xl rounded-3xl bg-[#FF526A]  hover:scale-[1.02] w-full h-[250px] p-8">
+                                <div className='w-full h-full flex items-end'>
+                                    <div className=''>
+                                        <PiUserFocusFill size='20%' />
+                                        <p className='uppercase tracking-tighter text-sm text-black pb-4'> Learn more about me</p>
+                                        <div className='flex justify-between items-center'>
+
+                                            <p className='text-4xl tracking-tight text-black font-medium'>See my
+                                                resume</p>
+                                            <BsFillArrowUpRightCircleFill size='12%' className='ml-2' />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </Link>
                         <div className="w-full md:w-1/2 ">
-                            {/* Second Card */}
-                            <div className="border-[#D1E5F4] border-2 rounded-xl bg-cardsColor w-full h-[250px] p-6">
+                            <div className="border-[#d1e5f47d] border-2 border-2 rounded-3xl bg-cardsColor w-full h-[250px] p-6">
                                 <h2 className='text-xl'>Socials</h2>
                                 <div className="icons flex flex-col max-h-[90%]">
                                     <div className="row1 flex flex-row h-2/4 justify-around items-center">
@@ -56,14 +68,35 @@ function NewUserProfile() {
                     <div className="flex flex-col md:flex-row pt-4 px-2 gap-6">
                         <Link to='ratings' className="w-full md:w-1/2 ">
                             {/* Third Card */}
-                            <div className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] rounded-xl bg-cardsColor  hover:scale-[1.02] hover:bg-cardsHover w-full h-[250px] p-6">
-                                <h2 className='text-xl'>Ratings</h2>
+                            <div className="border-[#d1e5f47d] border-2 transition ease-in-out delay-150 motion-reduce:transition-none motion-reduce:hover:transform-none shadow-2xl rounded-3xl bg-[#050127]  hover:scale-[1.02] w-full h-[250px] p-8">
+                                <div className='w-full h-full flex items-end'>
+                                    <div className=''>
+                                        <BsGraphUpArrow size='20%' />
+                                        <div className='flex justify-between items-center'>
+
+                                            <p className='pt-4 tracking-tight text-4xl text-[#ffc552de] font-medium'>
+                                                contest ratings &#10024;</p>
+                                            <BsFillArrowUpRightCircleFill size='12%' className='ml-2' />
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         </Link>
                         <Link to='github' className="w-full md:w-1/2 ">
                             {/* Fourth Card */}
-                            <div className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] rounded-xl bg-cardsColor  hover:scale-[1.02] hover:bg-cardsHover w-full h-[250px] p-6">
-                                <h2 className='text-xl'>Github</h2>
+                            <div className="border-[#d1e5f47d] border-2 transition ease-in-out delay-150 motion-reduce:transition-none motion-reduce:hover:transform-none shadow-2xl rounded-3xl bg-[#926bf2]  hover:scale-[1.02] w-full h-[250px] p-8">
+                                <div className='w-full h-full flex items-end'>
+                                    <div className=''>
+                                        <AiFillGithub size='20%' />
+                                        <div className='flex justify-between items-center'>
+
+                                            <p className='pt-4 tracking-tight text-4xl text-white font-medium'>
+                                                Github projects</p>
+                                            <BsFillArrowUpRightCircleFill size='12%' className='ml-2' />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </Link>
                     </div>

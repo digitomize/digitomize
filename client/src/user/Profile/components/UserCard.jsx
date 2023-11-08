@@ -12,9 +12,9 @@ function UserCard({ username, name, picture, bio, phoneNumber, role }) {
 
     const truncatedBio = showMore ? bio : bio?.slice(0, 219);
     return (
-        <div className={`border-[#D1E5F4] border-2 rounded-xl bg-cardsColor flex flex-col  h-fit p-6 w-full`}>
+        <div className={`rounded-xl  flex flex-col  h-fit p-6 w-full`}>
             <div className='flex w-full justify-center'>
-                <img src={picture} alt="" className='rounded-full h-[90px] w-[90px]' />
+                <img src={picture} alt="" className='rounded-full  w-[90px]' />
             </div>
 
             <div className='flex flex-col items-center gap-[8px] p-0'>
