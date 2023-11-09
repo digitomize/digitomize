@@ -1,5 +1,7 @@
 import { getUser } from "../services/getUser.js";
 import { getAuth } from "firebase-admin/auth";
+import User from "../models/User.js";
+import { ROLE } from "../../core/const.js";
 // const { admin } = require("../../firebase-config.json"); // Update the path accordingly
 
 const addUID = async (request, response, next) => {
@@ -81,4 +83,29 @@ const checkUserOwnership = async (req, res, next) => {
   next();
 }
 
-export { addUID, checkAuth, checkUserOwnership };
+const dgmAdminCheck = async (request, response, next) => {
+  const { body, decodedToken } = request;
+  const userId = decodedToken.uid;
+  // Check If User has admin role
+  const user = await User.findOne({ uid: userId }).select(
+    "-_id -password -createdAt -updatedAt -__v"
+  );
+
+  if (!user) {
+    // User not found, redirect to the login page
+    return response
+      .status(404)
+      .json({ message: "User not found", error: "User not found" });
+  }
+
+  if (user.role !== ROLE.ADMIN) {
+    return response.status(403).json({
+      message: "You don't have sufficient permission",
+      error: "You don't have sufficient permission",
+    });
+  }
+  next();
+};
+
+
+export { addUID, checkAuth, checkUserOwnership, dgmAdminCheck };

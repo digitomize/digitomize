@@ -1,25 +1,16 @@
-import {
-  Form,
-  useLoaderData
-} from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
 
-import {
-  useState,
-  useEffect
-} from "react";
+import { useState, useEffect } from "react";
 
-import {
-  submitUserFormData,
-  userDashboardDetails
-} from "../../../api";
+import { submitUserFormData, userDashboardDetails } from "../../../api";
 
 import { useUserAuth } from "../../context/UserAuthContext";
 import axios from "axios";
 // import { toast } from "react-toastify";
-import DashboardNavbar from "../components/DashboardNavbar"
+import DashboardNavbar from "../components/DashboardNavbar";
 import Checkbox from "../components/Checkbox";
 import NewNavbar from "../../components/NewNavbar";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 
 import Chip from "@mui/material/Chip";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
@@ -42,7 +33,6 @@ export async function loader() {
 
 export default function UserDashPersonal() {
   const personalData = useLoaderData().personal_data;
-  console.log(personalData);
   const [newSkill, setNewSkill] = useState("");
   const [skillData, setskillData] = useState(
     personalData.skills.map((skill, index) => ({
@@ -99,7 +89,6 @@ export default function UserDashPersonal() {
     skills: skillData.map((data) => data.label) || [],
     education: personalData.education || [],
   });
-  console.log(formData);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
@@ -169,18 +158,15 @@ export default function UserDashPersonal() {
 
   return (
     <>
-    <ToastContainer />
-    <DashboardNavbar />
-    {/* <div className="px-8 md:ps-12 py-12 pt-24 w-11/12 mx-auto"> */}
-    <div className="px-8 mt-24 py-4 w-11/12 mx-auto">
-      {/* <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
+      <ToastContainer />
+      <DashboardNavbar />
+      {/* <div className="px-8 md:ps-12 py-12 pt-24 w-11/12 mx-auto"> */}
+      <div className="px-8 mt-24 py-4 w-11/12 mx-auto">
+        {/* <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
             <Checkbox />
         </div> */}
 
-
-
-
-      {/* <div className=" w-full">
+        {/* <div className=" w-full">
         <label className="label">
           <span className="label-text">What is your name?</span>
         </label>
@@ -192,184 +178,177 @@ export default function UserDashPersonal() {
 
       </div> */}
 
-
-      <div className="grid md:grid-cols-2 md:gap-2">
-        <div className="relative z-0 w-full md:w-3/4 mb-12 group">
-          <input
-            type="text"
-            name="name"
-            id="name"
-            className="block py-2.5 px-0 w-full text-md md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
-            placeholder=" "
-            value={formData.name}
-            onChange={handleInputChange}
-            required
-          />
-          <label
-            htmlFor="firstName"
-            className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Name
-          </label>
+        <div className="grid md:grid-cols-2 md:gap-2">
+          <div className="relative z-0 w-full md:w-3/4 mb-12 group">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              className="block py-2.5 px-0 w-full text-md md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
+              placeholder=" "
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+            />
+            <label
+              htmlFor="firstName"
+              className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              Name
+            </label>
+          </div>
+          <div className="relative z-0 w-full md:w-3/4 mb-12 group">
+            <input
+              type="text"
+              name="username"
+              id="username"
+              className="block py-2.5 px-0 w-full text-md md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
+              placeholder=" "
+              value={formData.username}
+              onChange={handleInputChange}
+              required
+            />
+            <label
+              htmlFor="username"
+              className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              Username
+            </label>
+          </div>
         </div>
-        <div className="relative z-0 w-full md:w-3/4 mb-12 group">
-          <input
-            type="text"
-            name="username"
-            id="username"
-            className="block py-2.5 px-0 w-full text-md md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
-            placeholder=" "
-            value={formData.username}
-            onChange={handleInputChange}
-            required
-          />
-          <label
-            htmlFor="username"
-            className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Username
-          </label>
-        </div>
-      </div>
-      <div className="grid md:grid-cols-2 md:gap-2">
-        <div className="relative z-0 w-full md:w-3/4 mb-12 group">
-          <input
-            type="tel"
-            name="phoneNumber"
-            id="phoneNumber"
-            className="block py-2.5 px-0 w-full md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
-            placeholder=" "
-            value={formData.phoneNumber.data}
-            onChange={handleInputChangeObjData}
-          />
-          <label
-            htmlFor="phoneNumber"
-            className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Phone number
-          </label>
-          <Checkbox
-            isCheckedState={formData.phoneNumber.showOnWebsite}
+        <div className="grid md:grid-cols-2 md:gap-2">
+          <div className="relative z-0 w-full md:w-3/4 mb-12 group">
+            <input
+              type="tel"
+              name="phoneNumber"
+              id="phoneNumber"
+              className="block py-2.5 px-0 w-full md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
+              placeholder=" "
+              value={formData.phoneNumber.data}
+              onChange={handleInputChangeObjData}
+            />
+            <label
+              htmlFor="phoneNumber"
+              className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              Phone number
+            </label>
+            <Checkbox
+              isCheckedState={formData.phoneNumber.showOnWebsite}
               setState={updateShowOnWebsite("phoneNumber")}
               className="checkbox checkbox-success"
             />
             {/* <input type="checkbox" checked={formData.phoneNumber.showOnWebsite} onChange={(e) => {
     updateShowOnWebsite("phoneNumber")(e.target.checked);
             }} className="checkbox checkbox-success" /> */}
-
+          </div>
+          <div className="relative z-0 w-full md:w-3/4 mb-12 group">
+            <input
+              type="date"
+              name="dateOfBirth"
+              id="dateOfBirth"
+              className="block py-2.5 px-0 w-full md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
+              value={formData.dateOfBirth.data}
+              onChange={handleInputChangeObjData}
+            />
+            <label
+              htmlFor="dateOfBirth"
+              className="peer-focus:font-medium absolute md:text-lg text-gray-300 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              Date of birth
+            </label>
+            <Checkbox
+              isCheckedState={formData.dateOfBirth.showOnWebsite}
+              setState={updateShowOnWebsite("dateOfBirth")}
+            />
+          </div>
         </div>
         <div className="relative z-0 w-full md:w-3/4 mb-12 group">
-          <input
-            type="date"
-            name="dateOfBirth"
-            id="dateOfBirth"
+          <textarea
+            name="bio"
+            id="bio"
             className="block py-2.5 px-0 w-full md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
-            value={formData.dateOfBirth.data}
+            placeholder=""
+            value={formData.bio.data}
             onChange={handleInputChangeObjData}
           />
           <label
-            htmlFor="dateOfBirth"
-            className="peer-focus:font-medium absolute md:text-lg text-gray-300 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Date of birth
-          </label>
-          <Checkbox
-            isCheckedState={formData.dateOfBirth.showOnWebsite}
-            setState={updateShowOnWebsite("dateOfBirth")}
-          />
-        </div>
-      </div>
-      <div className="relative z-0 w-full md:w-3/4 mb-12 group">
-        <textarea
-          name="bio"
-          id="bio"
-          className="block py-2.5 px-0 w-full md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
-          placeholder=""
-          value={formData.bio.data}
-          onChange={handleInputChangeObjData}
-        />
-        <label
-          htmlFor="bio"
-          className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-        >
-          Bio
-        </label>
-        <Checkbox
-          isCheckedState={formData.bio.showOnWebsite}
-          setState={updateShowOnWebsite("bio")}
-        />
-      </div>
-
-      {/* skills */}
-      <div className="skills relative z-0 w-full md:w-3/4 mb-12 group">
-
-        <div className="z-0 w-full md:w-3/4 mb-2 group flex flex-row">
-          <input
-            type="text"
-            name="skills"
-            id="skills"
-            className="block py-2.5 px-0 w-3/4 md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
-            placeholder=""
-            value={newSkill}
-            onChange={(e) => setNewSkill(e.target.value)}
-          />
-          <label
-            htmlFor="skills"
+            htmlFor="bio"
             className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
-            Skills
+            Bio
           </label>
-          <Form onSubmit={handleAdd}>
-            <button
-              type="submit"
+          <Checkbox
+            isCheckedState={formData.bio.showOnWebsite}
+            setState={updateShowOnWebsite("bio")}
+          />
+        </div>
 
-              className="text-black bg-white font-medium rounded-lg md:text-xl sm:w-auto px-5 py-2.5 text-center "
+        {/* skills */}
+        <div className="skills relative z-0 w-full md:w-3/4 mb-12 group">
+          <div className="z-0 w-full md:w-3/4 mb-2 group flex flex-row">
+            <input
+              type="text"
+              name="skills"
+              id="skills"
+              className="block py-2.5 px-0 w-3/4 md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
+              placeholder=""
+              value={newSkill}
+              onChange={(e) => setNewSkill(e.target.value)}
+            />
+            <label
+              htmlFor="skills"
+              className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
-              Add skill
-            </button>
-          </Form>
+              Skills
+            </label>
+            <Form onSubmit={handleAdd}>
+              <button
+                type="submit"
+                className="text-black bg-white font-medium rounded-lg md:text-xl sm:w-auto px-5 py-2.5 text-center "
+              >
+                Add skill
+              </button>
+            </Form>
+          </div>
+
+          <div className="skillchips">
+            {skillData.length > 0 ? (
+              skillData.map((data) => {
+                let icon;
+
+                if (data.label === "React") {
+                  icon = <TagFacesIcon />;
+                }
+
+                return (
+                  <Chip
+                    key={data.key}
+                    variant="outlined"
+                    color="primary"
+                    icon={icon}
+                    label={data.label}
+                    onDelete={handleDelete(data)}
+                  />
+                );
+              })
+            ) : (
+              <p>No skills added.</p>
+            )}
+          </div>
         </div>
 
-        <div className="skillchips">
-          {skillData.length > 0 ? (
-            skillData.map((data) => {
-              let icon;
-
-              if (data.label === "React") {
-                icon = <TagFacesIcon />;
-              }
-
-              return (
-              
-                <Chip
-                  key={data.key}
-                  variant="outlined"
-                  color="primary"
-                  icon={icon}
-                  label={data.label}
-                  onDelete={handleDelete(data)}
-                />
-             
-              );
-            })
-          ) : (
-            <p>No skills added.</p>
-          )}
-        </div>
+        <Form onSubmit={handleSubmit}>
+          <button
+            type="submit"
+            className="text-black bg-white font-medium rounded-lg md:text-xl w-full sm:w-auto px-5 py-2.5 text-center "
+          >
+            Update
+          </button>
+        </Form>
       </div>
 
-
-      <Form onSubmit={handleSubmit}>
-        <button
-          type="submit"
-          className="text-black bg-white font-medium rounded-lg md:text-xl w-full sm:w-auto px-5 py-2.5 text-center "
-        >
-          Update
-        </button>
-      </Form>
-      </div>
-      
-      <NewFooter/>
+      <NewFooter />
     </>
   );
 }

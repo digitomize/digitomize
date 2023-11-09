@@ -25,7 +25,7 @@ import {
     IndividualCard,
     Updates,
     NewHome,
-    Feedback
+    Feedback,
 } from "./components/CustomComponents";
 import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashPersonal, {
@@ -51,7 +51,8 @@ function DiscordRedirect() {
         <div className="flex flex-col justify-center items-center h-[60vh]">
             <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
             <h1 className="text-2xl ml-4">Redirecting to Discord</h1>
-        </div>)
+        </div>
+    );
 }
 // function ContributeRedirect() {
 //   window.location.href = "https://github.com/pranshugupta54/digitomize";
@@ -59,7 +60,12 @@ function DiscordRedirect() {
 // }
 
 import { auth } from "../firebase";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import { UserContextProvider } from "./context/UserContext";
+import UserListPage from "./pages/admin/UserListPage";
+import AdminPanelGuard from "./AdminPanelGuard";
+import ContestListPage from "./pages/admin/ContestListPage";
+import CommunityListPage from "./pages/admin/CommunityListPage";
 import { Diversity1 } from "@mui/icons-material";
 
 
@@ -113,8 +119,6 @@ function Logout() {
     );
 }
 
-
-
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route errorElement={<ErrorPage />}>
@@ -131,6 +135,11 @@ const router = createBrowserRouter(
                 <Route path="discord" element={<DiscordRedirect />} />
                 <Route path="contests/:vanity" element={<IndividualCard />} />
                 <Route path="404" element={<ErrorPage />} />
+            </Route>
+            <Route path="/admin" element={<AdminPanelGuard />}>
+                <Route path="user" element={<UserListPage />}></Route>
+                <Route path="contest" element={<ContestListPage />}></Route>
+                <Route path="community" element={<CommunityListPage />}></Route>
             </Route>
             <Route path="/u" element={<ProtectedRoute />}>
                 {/* <Route path="dashboard" element={<UserDashboard/>}> */}
@@ -182,7 +191,10 @@ const router = createBrowserRouter(
 function App() {
     return (
         <UserAuthContextProvider>
-            <RouterProvider router={router} />
+            <UserContextProvider>
+                <ToastContainer />
+                <RouterProvider router={router} />
+            </UserContextProvider>
         </UserAuthContextProvider>
     );
 }

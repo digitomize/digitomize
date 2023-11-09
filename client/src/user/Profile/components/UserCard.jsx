@@ -4,8 +4,6 @@ import { AiFillGithub } from 'react-icons/ai'
 
 function UserCard({ username, name, picture, bio, phoneNumber, role }) {
     const [showMore, setShowMore] = useState(false);
-    role = 4;
-    console.log("role:", role);
     const toggleBio = () => {
         setShowMore(!showMore);
     };
