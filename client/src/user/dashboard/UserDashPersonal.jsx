@@ -5,7 +5,8 @@ import {
 
 import {
   useState,
-  useEffect
+  useEffect,
+  useRef
 } from "react";
 
 import {
@@ -58,8 +59,13 @@ export default function UserDashPersonal() {
   };
   const handleAdd = (e) => {
     e.preventDefault();
+   
 
     if (newSkill.trim() !== "") {
+      if(newSkill.length > 20 ){
+       toast.error("Length exceeding 20 characters")
+        return;
+      }
       setskillData((prevSkills) => [
         ...prevSkills,
         {
@@ -72,14 +78,34 @@ export default function UserDashPersonal() {
       setNewSkill("");
     }
   };
+  const btnRef = useRef()
 
   useEffect(() => {
     // This code will run after setSkillData has completed
+
+    if(skillData.length > 10){
+     
+      toast.error("You cannot add more skills", {
+        position: "top-left",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      })
+      skillData.pop()
+      btnRef.current.disabled = true;
+     
+   }else{
+     btnRef.current.disabled = false;
+   }
     setFormData((prevData) => ({
       ...prevData,
       skills: skillData.map((data) => data.label) || [],
     }));
-  }, [skillData]);
+  }, [skillData , btnRef]);
 
   const [formData, setFormData] = useState({
     username: personalData.username,
@@ -193,9 +219,24 @@ export default function UserDashPersonal() {
       </div> */}
 
 
-      <div className="grid md:grid-cols-2 md:gap-2">
-        <div className="relative z-0 w-full md:w-3/4 mb-12 group">
-          <input
+      <div className="grid md:grid-cols-2 mx-auto">
+        <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center ">
+
+        <div className="form-control w-full   max-w-lg   ">
+  <label  htmlFor="firstName" className="label">
+    <span className="label-text"> Name</span>
+  </label>
+  <div className="flex  items-center gap-3">
+  <input  type="text"
+            name="name"
+            id="name"  placeholder=" "
+            value={formData.name}
+            onChange={handleInputChange}
+            required  className="input input-bordered w-full  " />
+  </div>
+ 
+</div>
+          {/* <input
             type="text"
             name="name"
             id="name"
@@ -210,9 +251,28 @@ export default function UserDashPersonal() {
             className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             Name
-          </label>
+          </label> */}
         </div>
-        <div className="relative z-0 w-full md:w-3/4 mb-12 group">
+        <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3 ">
+
+
+        <div className="form-control w-full max-w-lg    ">
+  <label  htmlFor="username" className="label">
+    <span className="label-text"> Username</span>
+  </label>
+  <div className="flex  items-center gap-3">
+  <input   type="text"
+            name="username"
+            id="username"  placeholder=" "
+            value={formData.username}
+            onChange={handleInputChange}
+            required  className="input input-bordered w-full" />
+  </div>
+ 
+</div>
+
+
+{/* 
           <input
             type="text"
             name="username"
@@ -228,12 +288,31 @@ export default function UserDashPersonal() {
             className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
           >
             Username
-          </label>
+          </label> */}
         </div>
       </div>
-      <div className="grid md:grid-cols-2 md:gap-8 gap">
+      <div className="grid md:grid-cols-2  mx-auto ">
+
         <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
-          <input
+
+        <div className="form-control w-full ">
+  <label htmlFor="phoneNumber" className="label">
+    <span className="label-text"> Phone number</span>
+  </label>
+  <div className="flex  items-center gap-3 ">
+  <input  type="tel"
+            name="phoneNumber"
+            id="phoneNumber" value={formData.phoneNumber.data}
+            onChange={handleInputChangeObjData}  className="input input-bordered w-full max-w-lg " />
+  <Checkbox
+             isCheckedState={formData.phoneNumber.showOnWebsite}
+              setState={updateShowOnWebsite("phoneNumber")}
+          />
+  </div>
+ 
+</div>
+
+          {/* <input
             type="tel"
             name="phoneNumber"
             id="phoneNumber"
@@ -252,87 +331,97 @@ export default function UserDashPersonal() {
             isCheckedState={formData.phoneNumber.showOnWebsite}
               setState={updateShowOnWebsite("phoneNumber")}
               className="checkbox checkbox-success"
-            />
+            />  */}
             {/* <input type="checkbox" checked={formData.phoneNumber.showOnWebsite} onChange={(e) => {
     updateShowOnWebsite("phoneNumber")(e.target.checked);
             }} className="checkbox checkbox-success" /> */}
 
         </div>
+
+
+
+
+
         <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
-          <input
-            type="date"
-            name="dateOfBirth"
-            id="dateOfBirth"
-            className="block py-2.5 px-0 w-full md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
-            value={formData.dateOfBirth.data}
-            onChange={handleInputChangeObjData}
-          />
-          <label
-            htmlFor="dateOfBirth"
-            className="peer-focus:font-medium absolute md:text-lg text-gray-300 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Date of birth
-          </label>
-          <Checkbox
+          
+          <div className="form-control w-full  ">
+  <label   htmlFor="dateOfBirth" className="label">
+    <span className="label-text">   Date of birth</span>
+  </label>
+  <div className="flex  items-center gap-3">
+  <input type="date" id="dateOfBirth"
+            name="dateOfBirth" value={formData.dateOfBirth.data}
+            onChange={handleInputChangeObjData} placeholder="Type here" className="input input-bordered w-full max-w-lg " />
+  <Checkbox
             isCheckedState={formData.dateOfBirth.showOnWebsite}
             setState={updateShowOnWebsite("dateOfBirth")}
           />
+  </div>
+ 
+</div>
+          
         </div>
       </div>
-      <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-7 ">
-        <textarea
-          name="bio"
-          id="bio"
-          className=" block w-full py-2   px-4  text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
-          placeholder=""
+
+
+      <div className="flex flex-col md:flex-row  items-start gap-5  mb-10">
+
+      <div  className="relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
+
+
+      <div className="form-control   w-full">
+  <label className="label">
+    <span className="label-text">Bio</span>
+    
+  </label>
+  <div className="flex items-center gap-3">
+  <textarea  name="bio"
+          id="bio" className="textarea  w-full textarea-bordered h-24 max-w-lg" placeholder=""
           value={formData.bio.data}
-          onChange={handleInputChangeObjData}
-        />
-        <label
-          htmlFor="bio"
-          className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 
-          bottom-2 pb-5 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-        >
-          Bio
-        </label>
-        <Checkbox
+          onChange={handleInputChangeObjData}></textarea>
+<Checkbox
         
-          isCheckedState={formData.bio.showOnWebsite}
-          setState={updateShowOnWebsite("bio")}
-        />
+        isCheckedState={formData.bio.showOnWebsite}
+        setState={updateShowOnWebsite("bio")}
+      />
+  </div>
+  
+</div>
       </div>
 
       {/* skills */}
-      <div className="skills relative z-0 w-full md:w-3/4 mb-12 group">
+      <div className="skills relative z-0 w-full md:w-3/4 mb-5  group flex flex-col items-center gap-3">
 
-        <div className="z-0 w-full md:w-3/4 mb-2 group flex flex-row items-center space-x-2">
-          <input
-            type="text"
+        <div className="z-0 w-full md:w-3/4 group flex items-start md:mr-5 ">
+
+
+
+        <div className="form-control  w-full ">
+  <label    htmlFor="skills" className="label">
+    <span className="label-text">Skills</span>
+    
+  </label>
+  <div className="flex items-center gap-3">
+  <input     type="text"
             name="skills"
-            id="skills"
-            className="block py-2.5 px-0 w-auto md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
-            placeholder=""
+            id="skills" className="input input-bordered  w-full max-w-lg"   placeholder=""
             value={newSkill}
-            onChange={(e) => setNewSkill(e.target.value)}
-          />
-          <label
-            htmlFor="skills"
-            className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Skills
-          </label>
-          <Form onSubmit={handleAdd}>
-            <button
+            onChange={(e) => setNewSkill(e.target.value)}/>
+  <Form onSubmit={handleAdd}>
+            <button ref={btnRef}
               type="submit"
-
+               
               className="text-black bg-white font-medium rounded-lg text-sm md:text-lg sm:w-auto px-5 py-1.5 text-center "
             >
               Add
             </button>
           </Form>
+  </div>
+  
+</div>
         </div>
 
-        <div className="skillchips">
+        <div className="skillchips w-full max-w-3xl mx-auto  ">
           {skillData.length > 0 ? (
             skillData.map((data) => {
               let icon;
@@ -342,15 +431,18 @@ export default function UserDashPersonal() {
               }
 
               return (
-              
+              <div   key={data.key} className="m-2 inline-block">
+
                 <Chip
-                  key={data.key}
+                
+                
                   variant="outlined"
                   color="primary"
                   icon={icon}
                   label={data.label}
                   onDelete={handleDelete(data)}
                 />
+              </div>
              
               );
             })
@@ -359,6 +451,8 @@ export default function UserDashPersonal() {
           )}
         </div>
       </div>
+      </div>
+
 
 
       <Form className=" flex justify-center  w-auto" onSubmit={handleSubmit}>
