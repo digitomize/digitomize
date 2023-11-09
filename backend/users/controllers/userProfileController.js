@@ -27,9 +27,9 @@ const calculateDigitomizeRating = (user) => {
     const platformData = user[platform];
     if (platformData && platformData.rating) {
       const weightage = {
-        codechef: 1.333,
-        leetcode: 1.0,
-        codeforces: 1.2,
+        codechef: 0.760,
+        leetcode: 0.695,
+        codeforces: 1,
       };
       const platformRating = platformData.rating * weightage[platform];
       if (platformRating > maxDigitomizeRating) {

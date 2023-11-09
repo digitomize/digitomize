@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom'
 import NewNavbar from "../../components/NewNavbar";
 import { leaderboardData } from "../../../api";
-import { OpenInNew, WorkspacePremium } from '@mui/icons-material';
-import { Skeleton } from '@mui/material';
+import { OpenInNew, WorkspacePremium, Info } from '@mui/icons-material';
+import { Skeleton, Stack, Typography, Tooltip, tooltipClasses, styled } from '@mui/material';
 
 export default function Leaderboard() {
     const location = useLocation();
@@ -11,6 +11,61 @@ export default function Leaderboard() {
     const [data, setData] = useState(null);
     const [totalPages, setTotalPages] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
+
+    const HtmlTooltip = styled(({ className, ...props }) => (
+        <Tooltip className="custom-bg" {...props} classes={{ popper: className }} />
+    ))(({ theme }) => ({
+        [`& .${tooltipClasses.tooltip}`]: {
+            color: 'white',
+            maxWidth: 220,
+            fontSize: theme.typography.pxToRem(12),
+        },
+    }));
+
+    const CustomTooltip = () => {
+        return (
+            <HtmlTooltip
+                title={
+                    <React.Fragment>
+                        <Typography color="inherit">Digitomize Rating</Typography>
+                        <p className="italic">A unified rating scale that normalizes Codeforces, CodeChef, and LeetCode ratings for easy comparison. </p>
+                        <p className="bold">Example:</p>
+                        <table className="border border-white rounded-xl">
+                            <thead>
+                                <tr className="border border-white">
+                                    <th className="border border-white">Platform</th>
+                                    <th className="border border-white ">Rating</th>
+                                    <th className="border border-white ">Digitomize Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="border border-white">
+                                    <td className="border border-white ">Codeforces</td>
+                                    <td className="border border-white ">1200</td>
+                                    <td className="border border-white ">1200</td>
+                                </tr>
+                                <tr className="border border-white">
+                                    <td className="border border-white ">CodeChef</td>
+                                    <td className="border border-white ">1579</td>
+                                    <td className="border border-white ">1200</td>
+                                </tr>
+                                <tr className="border border-white">
+                                    <td className="border border-white ">LeetCode</td>
+                                    <td className="border border-white ">1726</td>
+                                    <td className="border border-white ">1200</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </React.Fragment>
+                }
+            >
+                <button>
+                    <Info fontSize="small" />
+                </button>
+            </HtmlTooltip>
+        );
+    };
+
 
     useEffect(() => {
         async function fetchData() {
@@ -59,7 +114,12 @@ export default function Leaderboard() {
                                 <th>CodeChef</th>
                                 <th>LeetCode</th>
                                 <th>CodeForces</th>
-                                <th>Digitomize Rating</th>
+                                <th>
+                                    <Stack direction={"row"} className="items-center">
+                                        Digitomize Rating
+                                        <CustomTooltip />
+                                    </Stack>
+                                </th>
                                 {/* <th>Platform Rating</th> */}
                             </tr>
                         </thead>
@@ -70,15 +130,15 @@ export default function Leaderboard() {
                                     <tr>
                                         <td colSpan="7">
                                             <div className="m-auto flex flex-col items-center">
-                                            
-                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
-                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
-                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
-                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
-                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
-                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
-                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
-                                            <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+
+                                                <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                                <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                                <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                                <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                                <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                                <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                                <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                                <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
                                             </div>
                                         </td>
                                     </tr>
@@ -125,7 +185,7 @@ export default function Leaderboard() {
                                                 <td>{row.codechef}</td>
                                                 <td>{row.leetcode}</td>
                                                 <td>{row.codeforces}</td>
-                                                <td>{row.digitomize_rating}</td>
+                                                <td>{Math.floor(row.digitomize_rating)}</td>
                                                 {/* <td>{row.platform_rating}</td> */}
                                             </tr>
                                         ))}
@@ -139,7 +199,12 @@ export default function Leaderboard() {
                                 <th>CodeChef</th>
                                 <th>LeetCode</th>
                                 <th>CodeForces</th>
-                                <th>Digitomize Rating</th>
+                                <th>
+                                    <Stack direction={"row"} className="items-center">
+                                        Digitomize Rating
+                                        <CustomTooltip />
+                                    </Stack>
+                                </th>
                                 {/* <th>Platform Rating</th> */}
                             </tr>
                         </tfoot>
