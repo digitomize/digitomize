@@ -253,6 +253,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "LynxSumit",
+      "name": "Sumit Upadhyay",
+      "avatar_url": "https://avatars.githubusercontent.com/u/114245865?v=4",
+      "profile": "https://lynxsumit.vercel.app",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
