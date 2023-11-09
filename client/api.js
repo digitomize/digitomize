@@ -8,7 +8,6 @@ export async function loginUser({ username, password }) {
     username,
     password,
   });
-  console.log(res.status);
   if (res.status !== 200) {
     throw {
       statusCode: res.status,
@@ -22,7 +21,6 @@ export function isLoggedIn() {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       unsubscribe(); // Unsubscribe the listener once it's called
       if (currentUser) {
-        console.log(currentUser);
         resolve(true);
       } else {
         resolve(false);
@@ -37,9 +35,6 @@ export async function userDashboardDetails() {
   if (loggedIn) {
     const currentUser = auth.currentUser;
     const accessToken = await currentUser.getIdToken();
-
-    console.log("before access token");
-    console.log(accessToken);
 
     if (accessToken) {
       try {

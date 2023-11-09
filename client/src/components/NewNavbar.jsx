@@ -14,9 +14,12 @@ import {
     logo
 } from "./AllAssets";
 import { useUserAuth } from "../context/UserAuthContext";
+import { useUserDetails } from "../context/UserContext";
+import { ROLE } from "../core/utils/const";
 
 export default function NewNavbar({ position }) {
     const { user } = useUserAuth();
+    const { userDetails } = useUserDetails();
     console.log("user is", user);
     if (user) {
         console.log("user is", user.displayName);
@@ -105,6 +108,44 @@ export default function NewNavbar({ position }) {
                                 </>
                             ))
                         }
+                        {userDetails && userDetails.personal_data.role === ROLE.ADMIN && (
+                            // <Link
+                            //   to="/admin/user"
+                            //   className={`px-4 py-2 cursor-pointer rounded-full transition dropdown dropdown-hover dropdown-bottom hover:bg-zinc-200`}
+                            // >
+                            <Link
+                                to="/admin/user"
+                                className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname.includes("/admin")
+                                    ? "bg-zinc-400 text-zinc-950"
+                                    : ""
+                                    } hover:bg-zinc-200`}
+                            >
+                                <div className="dropdown  dropdown-bottom">
+                                    {/* <div>Admin</div> */}
+                                    <label tabIndex={0}>Admin</label>
+                                    <ul
+                                        tabIndex={0}
+                                        className="dropdown-content z-[1] menu p-2 shadow text-zinc-300 bg-base-100 rounded-box w-52 mt-2"
+                                    >
+                                        <li>
+                                            <Link to={"/admin/user"}>
+                                                <span>Users</span>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to={"/admin/contest"}>
+                                                <span>Contests</span>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link to={"/admin/community"}>
+                                                <span>Community</span>
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </Link>
+                        )}
                     </div>
                     <div className="flex justify-end">
                         {user ? (

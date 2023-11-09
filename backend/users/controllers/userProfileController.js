@@ -3,6 +3,7 @@ import { codeforces_u } from './platforms/codeforcesUpdater.js';
 import { codechef_u }  from './platforms/codechefUpdater.js'; // Import your CodeChef updater function
 import { leetcode_u } from './platforms/leetcodeUpdater.js'; // Import your LeetCode updater function
 import { updateUser } from '../services/updateUser.js';
+import { ROLE } from "../../core/const.js";
 
 // Mapping of platform names to their updater functions
 const platformUpdaters = {
@@ -26,9 +27,9 @@ const calculateDigitomizeRating = (user) => {
     const platformData = user[platform];
     if (platformData && platformData.rating) {
       const weightage = {
-        codechef: 1.333,
-        leetcode: 1.0,
-        codeforces: 1.2,
+        codechef: 0.760,
+        leetcode: 0.695,
+        codeforces: 1,
       };
       const platformRating = platformData.rating * weightage[platform];
       if (platformRating > maxDigitomizeRating) {
@@ -96,7 +97,8 @@ const handleUserProfilePreview = async (req, res) => {
         // email_show: user.email_show,
         bio: user.bio.showOnWebsite ? user.bio.data : null,
         dateOfBirth: user.dateOfBirth.showOnWebsite ? user.dateOfBirth.data : null,
-        phoneNumber: user.phoneNumber.showOnWebsite ? user.phoneNumber.data : null
+        phoneNumber: user.phoneNumber.showOnWebsite ? user.phoneNumber.data : null,
+        role: user.role || ROLE.USER,
       },
       github: {
         data: user.github.showOnWebsite ? user.github.data : null

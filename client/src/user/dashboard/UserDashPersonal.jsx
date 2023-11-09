@@ -1,7 +1,4 @@
-import {
-  Form,
-  useLoaderData
-} from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
 
 import {
   useState,
@@ -9,18 +6,15 @@ import {
   useRef
 } from "react";
 
-import {
-  submitUserFormData,
-  userDashboardDetails
-} from "../../../api";
+import { submitUserFormData, userDashboardDetails } from "../../../api";
 
 import { useUserAuth } from "../../context/UserAuthContext";
 import axios from "axios";
 // import { toast } from "react-toastify";
-import DashboardNavbar from "../components/DashboardNavbar"
+import DashboardNavbar from "../components/DashboardNavbar";
 import Checkbox from "../components/Checkbox";
 import NewNavbar from "../../components/NewNavbar";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 
 import Chip from "@mui/material/Chip";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
@@ -43,7 +37,6 @@ export async function loader() {
 
 export default function UserDashPersonal() {
   const personalData = useLoaderData().personal_data;
-  console.log(personalData);
   const [newSkill, setNewSkill] = useState("");
   const [skillData, setskillData] = useState(
     personalData.skills.map((skill, index) => ({
@@ -125,7 +118,6 @@ export default function UserDashPersonal() {
     skills: skillData.map((data) => data.label) || [],
     education: personalData.education || [],
   });
-  console.log(formData);
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
@@ -195,18 +187,15 @@ export default function UserDashPersonal() {
 
   return (
     <>
-    <ToastContainer />
-    <DashboardNavbar />
-    {/* <div className="px-8 md:ps-12 py-12 pt-24 w-11/12 mx-auto"> */}
-    <div className="px-8 mt-24 py-4 w-11/12 mx-auto">
-      {/* <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
+      <ToastContainer />
+      <DashboardNavbar />
+      {/* <div className="px-8 md:ps-12 py-12 pt-24 w-11/12 mx-auto"> */}
+      <div className="px-8 mt-24 py-4 w-11/12 mx-auto">
+        {/* <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
             <Checkbox />
         </div> */}
 
-
-
-
-      {/* <div className=" w-full">
+        {/* <div className=" w-full">
         <label className="label">
           <span className="label-text">What is your name?</span>
         </label>
@@ -217,7 +206,6 @@ export default function UserDashPersonal() {
         <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
 
       </div> */}
-
 
       <div className="grid md:grid-cols-2 mx-auto">
         <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center ">
@@ -426,9 +414,9 @@ export default function UserDashPersonal() {
             skillData.map((data) => {
               let icon;
 
-              if (data.label === "React") {
-                icon = <TagFacesIcon />;
-              }
+                if (data.label === "React") {
+                  icon = <TagFacesIcon />;
+                }
 
               return (
               <div   key={data.key} className="m-2 inline-block">
@@ -464,8 +452,8 @@ export default function UserDashPersonal() {
         </button>
       </Form>
       </div>
-      
-      <NewFooter/>
+
+      <NewFooter />
     </>
   );
 }
