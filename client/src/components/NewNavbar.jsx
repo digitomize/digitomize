@@ -42,8 +42,8 @@ export default function NewNavbar({ position }) {
             path: "/contests#list",
         },
         {
-            title: "Contribute",
-            path: "https://github.com/pranshugupta54/digitomize",
+            title: "About",
+            path: "/about",
         },
         {
             title: "Leaderboard",

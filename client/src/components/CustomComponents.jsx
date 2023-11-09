@@ -2,6 +2,7 @@ import BgEllipse from './BgEllipse';
 import Button from './Button';
 import Card from './Card';
 import Contests from './Contests';
+import About from "./About";
 import CopyToClipboard from './CopyToClipboard';
 import ErrorPage from './error-page';
 import Feedback from './Feedback';
@@ -23,4 +24,4 @@ import NewNavbar from './NewNavbar';
 import ScrollToTop from './ScrollToTop';
 import Signup from './Signup';
 import Updates from './Updates';
-export { BgEllipse, Button, Card, Contests, CopyToClipboard, ErrorPage, Feedback, Home, HomePage1, HomePage2, IndividualCard, Layout, Login, Logout, MobNav, Navbar, NewHome, NewFooter, NewLogin, NewNavbar, ScrollToTop, Signup, Updates,loginLoader,signupLoader }
+export { BgEllipse, Button, Card, Contests, About, CopyToClipboard, ErrorPage, Feedback, Home, HomePage1, HomePage2, IndividualCard, Layout, Login, Logout, MobNav, Navbar, NewHome, NewFooter, NewLogin, NewNavbar, ScrollToTop, Signup, Updates,loginLoader,signupLoader }

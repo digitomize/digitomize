@@ -26,6 +26,7 @@ import {
     Updates,
     NewHome,
     Feedback,
+    About,
 } from "./components/CustomComponents";
 import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashPersonal, {
@@ -131,7 +132,7 @@ const router = createBrowserRouter(
                 <Route path="updates" element={<Updates />} />
                 <Route path="home" element={<NewHome />} />
                 <Route path="feedback" element={<Feedback />} />
-                {/* <Route path="contribute" element={<ContributeRedirect />} /> */}
+                <Route path="about" element={<About />} />
                 <Route path="discord" element={<DiscordRedirect />} />
                 <Route path="contests/:vanity" element={<IndividualCard />} />
                 <Route path="404" element={<ErrorPage />} />
