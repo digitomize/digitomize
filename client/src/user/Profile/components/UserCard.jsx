@@ -43,9 +43,9 @@ function UserCard({ username, name, picture, bio, phoneNumber, role }) {
                         )}
                     </p>
                 </div>
-                <div>
+                {/* <div>
                     <AiFillGithub size='5vw' />
-                </div>
+                </div> */}
 
             </div>
         </div>
