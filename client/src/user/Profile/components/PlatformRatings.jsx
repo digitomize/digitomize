@@ -5,6 +5,7 @@ import leetcode from '../../../assets/leetcode.svg'
 import codechef from '../../../assets/codechef.svg'
 import codeforces from '../../../assets/codeforces.svg'
 import { OpenInNew } from '@mui/icons-material';
+import { Helmet } from "react-helmet";
 
 function PlatformRatings() {
     const data = useOutletContext();
@@ -45,14 +46,18 @@ function PlatformRatings() {
         timeZone: "Asia/Kolkata",
     };
     const startTimeIST = startDate.toLocaleString("en-US", options);
-
-    // Assuming that `data.ratings` contains the platform data
-
-
+    const pageTitle = `${platform} | ${data.personal_data.name}`;
+    const contentDescription = platformData.rating ? `${platformData.badge} with ${platformData.rating} rating | @${platformData.username}` : `Check out ${data.personal_data.name}'s ratings`;
     // Check if platformData is available before rendering
     if (platformData) {
         return (
             <>
+                <Helmet>
+                    <title>{pageTitle}</title>
+                    <meta property="og:title" content={pageTitle} />
+                    <meta property="og:description" content={contentDescription} />
+                    <meta name="description" content={contentDescription} />
+                </Helmet>
                 {/* <EmojiEventsIcon sx={{ fontSize: 100 }} /> */}
                 <div className="m-auto text-center items-center flex flex-col my-12 w-11/12">
                     {/* <div className="card flex flex-row">
@@ -71,7 +76,7 @@ function PlatformRatings() {
                             <h2 className="card-title text-center my-3">
                                 @{platformData?.username || "user not found"}
                                 <div>
-                                    <a href={platformData?.username? contestLinks[platform].profileUrl + platformData.username: "#"} target={platformData?.username? "_blank":""} rel="noopener noreferrer">
+                                    <a href={platformData?.username ? contestLinks[platform].profileUrl + platformData.username : "#"} target={platformData?.username ? "_blank" : ""} rel="noopener noreferrer">
                                         <OpenInNew />
                                     </a>
                                 </div>

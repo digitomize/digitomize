@@ -1,18 +1,28 @@
-import React from 'react'
-import { Link, useOutletContext } from 'react-router-dom'
-import UserCard from './components/UserCard'
-import { AiFillGithub, AiFillLinkedin, AiFillFacebook, AiFillInstagram, AiFillLock } from 'react-icons/ai'
+import React from 'react';
+import { Link, useOutletContext } from 'react-router-dom';
+import UserCard from './components/UserCard';
+import { AiFillGithub, AiFillLinkedin, AiFillFacebook, AiFillInstagram, AiFillLock } from 'react-icons/ai';
 import { FaXTwitter } from 'react-icons/fa6';
 import { TbWorld } from 'react-icons/tb';
-import { ImProfile } from 'react-icons/im'
-import { BsFillArrowUpRightCircleFill, BsGraphUpArrow } from 'react-icons/bs'
+import { ImProfile } from 'react-icons/im';
+import { BsFillArrowUpRightCircleFill, BsGraphUpArrow } from 'react-icons/bs';
+import { Helmet } from "react-helmet";
 
 function NewUserProfile() {
     const { personal_data } = useOutletContext();
-
+    const contentDescription = `${personal_data.bio.length > 30
+        ? personal_data.bio.substring(0, 30) + "..."
+        : personal_data.bio}`;      
+    const pageTitle = `${personal_data.name} | digitomize`;
     console.log(personal_data)
     return (
         <>
+            <Helmet>
+                <title>{personal_data.name} | digitomize</title>
+                <meta property="og:title" content={pageTitle} />
+                <meta property="og:description" content={contentDescription} />
+                <meta name="description" content={contentDescription} />
+            </Helmet>
             <div className="flex mt-8 flex-col md:flex-row w-11/12 mx-auto pb-8">
                 {/* First Column with 450px width */}
                 <div className="flex md:w-1/2" >
@@ -46,25 +56,25 @@ function NewUserProfile() {
                                 <div className="icons flex flex-col h-full">
                                     <div className="row1 flex flex-row h-2/5 justify-around items-center">
                                         <Link className="w-full h-full flex justify-center items-center">
-                                            <AiFillGithub className="m-1 w-3/5 h-3/5"  />
+                                            <AiFillGithub className="m-1 w-3/5 h-3/5" />
                                         </Link>
                                         <Link className="w-full h-full flex justify-center items-center">
                                             <AiFillLinkedin className="m-1 w-3/5 h-3/5" />
                                         </Link>
                                         <Link className="w-full h-full flex justify-center items-center">
                                             <AiFillFacebook className="m-1 w-3/5 h-3/5" />
-                                            </Link>
+                                        </Link>
                                     </div>
                                     <div className="row2 flex flex-row h-2/5 justify-around items-center">
-                                    <Link className="w-full h-full flex justify-center items-center">
+                                        <Link className="w-full h-full flex justify-center items-center">
                                             <FaXTwitter className="m-2 w-3/5 h-3/5" />
-                                            </Link>
-                                            <Link className="w-full h-full flex justify-center items-center">
+                                        </Link>
+                                        <Link className="w-full h-full flex justify-center items-center">
                                             <AiFillInstagram className="m-1 w-3/5 h-3/5" />
-                                            </Link>
-                                                <Link className="w-full h-full flex justify-center items-center">
+                                        </Link>
+                                        <Link className="w-full h-full flex justify-center items-center">
                                             <TbWorld className="m-1 w-3/5 h-3/5" />
-                                            </Link>
+                                        </Link>
                                     </div>
                                 </div>
 

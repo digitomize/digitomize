@@ -1,0 +1,55 @@
+{
+    "/": {
+      "title": "Digitomize",
+      "description": "Empowering Coders and Developers Worldwide"
+    },
+    "/contests": {
+      "title": "contests | digitomize",
+      "description": "Discover upcoming coding contests on Digitomize and stay in the loop with the latest challenges. Join us, take part, and put your coding skills to the test!"
+    },
+    "/contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with us."
+    },
+    "/login": {
+      "title": "Login",
+      "description": "Log in to your Digitomize account."
+    },
+    "/logout": {
+      "title": "Logout",
+      "description": "Log out from your Digitomize account."
+    },
+    "/signup": {
+      "title": "Sign Up",
+      "description": "Create a new account on Digitomize."
+    },
+    "/updates": {
+      "title": "Updates",
+      "description": "Stay updated with the latest news and developments from Digitomize."
+    },
+    "/home": {
+      "title": "Home",
+      "description": "Empowering Coders and Developers Worldwide"
+    },
+    "/feedback": {
+      "title": "Feedback",
+      "description": "Provide your valuable feedback to Digitomize."
+    },
+    "/discord": {
+      "title": "Discord Redirect",
+      "description": "Redirecting to Digitomize's Discord channel."
+    },
+    "/404": {
+      "title": "Error 404",
+      "description": "Page not found. Error 404."
+    },
+    "/u/leaderboard": {
+      "title": "Leaderboard",
+      "description": "Check the leaderboard for top performers on Digitomize."
+    },
+    "":{
+        "title":"idk",
+        "description":"jm"
+    }
+  }
+  
