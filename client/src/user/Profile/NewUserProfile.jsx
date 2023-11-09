@@ -16,7 +16,7 @@ function NewUserProfile() {
             <div className="flex mt-8 flex-col md:flex-row w-11/12 mx-auto">
                 {/* First Column with 450px width */}
                 <div className="flex md:w-1/2" >
-                    <UserCard username={personal_data.username} name={personal_data.name} picture={personal_data.picture} bio={personal_data.bio} phoneNumber={personal_data.phoneNumber} />
+                    <UserCard username={personal_data.username} name={personal_data.name} picture={personal_data.picture} bio={personal_data.bio} phoneNumber={personal_data.phoneNumber} role={personal_data.role} />
                 </div>
 
                 {/* Second Column with two rows */}
