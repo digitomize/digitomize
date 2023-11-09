@@ -48,12 +48,12 @@ function ProfileRatingsPage() {
       <div className="phone:w-9/12 mx-auto py-4">
         <div className="flex max-phone:flex-col max-phone:mt-4">
           <div className='flex flex-col justify-center phone:w-2/4 max-phone:w-11/12 mx-auto'>
-            <div className="phone:w-3/5">
+            <div className="phone:w-9/12">
             <Link to="..">
               <UserCard username={personal_data.username} name={personal_data.name} picture={personal_data.picture} bio={personal_data.bio} phoneNumber={personal_data.phoneNumber}/>
             </Link>
             </div>
-            <div className='border-[#D1E5F4] border-2 rounded-xl bg-cardsColor p-6 mt-4 phone:w-3/5'>
+            <div className='border-[#D1E5F4] border-2 rounded-xl bg-cardsColor p-6 mt-4 phone:w-9/12'>
               <div className='flex w-full h-full flex-col justify-around'>
                 {
                   contestLinks.map((contestLink, index) => (
