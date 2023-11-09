@@ -1,46 +1,77 @@
 import React from 'react'
-import Timeline from './components/Timeline'
+import { Link, useOutletContext } from 'react-router-dom'
+import NewNavbar from '../../components/NewNavbar'
+import logo from '../../assets/logo.png'
+import UserCard from './components/UserCard'
+import { AiFillGithub, AiFillLinkedin, AiFillFacebook, AiFillInstagram } from 'react-icons/ai'
+import { FaXTwitter } from 'react-icons/fa6';
+import { TbWorld } from 'react-icons/tb';
 
-export default function NewUserProfile() {
+function NewUserProfile() {
+    const { personal_data } = useOutletContext();
+
+    console.log(personal_data)
     return (
         <>
-            <div className="mt-4 mx-4">
-                <div className="grid grid-cols-1 md:grid-cols-2  gap-3">
-                    <div className="flex flex-col pt-4 rounded-md bg-[#191919] w-full min-h-screen">
-                        <div className='flex justify-center rounded-md '>
-                            <div className="flex flex-col  justify-center items-center gap-3" >
-                                <div className='Ellipse3 w-[60px] h-[60px] bg-pink-700 rounded-full'>
-                                    <img src="https://www.svgrepo.com/show/446517/avatar.svg" alt="avatar" />
-                                </div>
-                                <div className='ms-2'>
-                                    <h2 className='text-3xl text-center normal-case'>{`Anurag Sharma`}</h2>
-                                    <p className='text-center md:text-left text-gray-400'>sharma.anurag0225@gmail.com</p>
-                                </div>
+            <div className="flex mt-8 flex-col md:flex-row w-11/12 mx-auto">
+                {/* First Column with 450px width */}
+                <div className="flex md:w-1/2" >
+                    <UserCard username={personal_data.username} name={personal_data.name} picture={personal_data.picture} bio={personal_data.bio} phoneNumber={personal_data.phoneNumber} />
+                </div>
+
+                {/* Second Column with two rows */}
+                <div className="flex flex-col w-full md:w-1/2 px-4 pt-4 md:pt-0">
+                    {/* First Row */}
+                    <div className="flex flex-col md:flex-row pb-2 px-2 gap-6">
+                        <Link to='resume' className="w-full md:w-1/2 ">
+
+                            <div className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] rounded-xl bg-cardsColor  hover:scale-[1.02] hover:bg-cardsHover w-full h-[250px] p-6">
+                                <h2 className='text-xl'>See my resume</h2>
                             </div>
-                        </div>
-                        <div className='flex flex-col mt-12 items-center md:px-4 gap-2'>
-                            <h2 className='lowercase text-2xl font-medium text-blue-500'>About myself :</h2>
-                            <p className='text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla nesciunt recusandae pariatur quos vitae in vel, illo odit odio molestias voluptatibus modi quod dolore necessitatibus nisi maiores autem hic magni!</p>
-                        </div>
-                        <div className='flex flex-col mt-12 items-center md:px-4 gap-2'>
-                            <h2 className='lowercase text-2xl font-medium text-blue-500'>Education :</h2>
-                            <div className='mt-4 ps-4'>
-                                <Timeline />
+                        </Link>
+                        <div className="w-full md:w-1/2 ">
+                            {/* Second Card */}
+                            <div className="border-[#D1E5F4] border-2 rounded-xl bg-cardsColor w-full h-[250px] p-6">
+                                <h2 className='text-xl'>Socials</h2>
+                                <div className="icons flex flex-col max-h-[90%]">
+                                    <div className="row1 flex flex-row h-2/4 justify-around items-center">
+                                        <Link>
+                                            <AiFillGithub className="m-1" size='5vw' />
+                                        </Link>
+                                        <AiFillLinkedin className="m-1" size='5vw' />
+                                        <AiFillFacebook className="m-1" size='5vw' />
+                                    </div>
+                                    <div className="row2 flex flex-row h-2/4 justify-around items-center">
+                                        <FaXTwitter className="m-2" size='4vw' />
+                                        <AiFillInstagram className="m-1" size='5vw' />
+                                        <TbWorld className="m-1" size='5vw' />
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
-                    <div className="flex justify-center rounded-md">
-                        <div className='flex flex-col pt-4 ps-4 items-start w-full rounded-md bg-[#191919] min-h-screen'>
 
-                        </div>
-                    </div>
-                    <div className="flex justify-center rounded-md">
-                        <div className='flex flex-col pt-4 ps-4 items-start w-full rounded-md bg-[#191919] min-h-screen'>
-
-                        </div>
+                    {/* Second Row */}
+                    <div className="flex flex-col md:flex-row pt-4 px-2 gap-6">
+                        <Link to='ratings' className="w-full md:w-1/2 ">
+                            {/* Third Card */}
+                            <div className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] rounded-xl bg-cardsColor  hover:scale-[1.02] hover:bg-cardsHover w-full h-[250px] p-6">
+                                <h2 className='text-xl'>Ratings</h2>
+                            </div>
+                        </Link>
+                        <Link to='github' className="w-full md:w-1/2 ">
+                            {/* Fourth Card */}
+                            <div className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] rounded-xl bg-cardsColor  hover:scale-[1.02] hover:bg-cardsHover w-full h-[250px] p-6">
+                                <h2 className='text-xl'>Github</h2>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
+
         </>
     )
 }
+
+export default NewUserProfile

@@ -124,14 +124,16 @@ function handleCodingPlatform(targetObject, platform, platformKey) {
       username: platform.username || null,
       rating: platform.rating || null,
       attendedContestsCount: platform.attendedContestsCount || null,
-      badge: platform.badge || null
+      badge: platform.badge || null,
+      fetchTime: platform.fetchTime || 0,
     };
   } else {
     targetObject[platformKey] = {
       username: null,
       rating: null,
       attendedContestsCount: null,
-      badge: null
+      badge: null,
+      fetchTime: null,
     };
   }
 }

@@ -84,4 +84,16 @@ export async function submitUserFormData(formData) {
       Authorization: `Bearer ${accessToken}`,
     },
   });
+  console.log("RESPONSE ----> ", res);
+  console.log(res.status);
+}
+
+export async function getProfileData(username) {
+  try {
+    const response = await axios.get(`${backendUrl}/user/profile/${username}`);
+    // console.log(response);
+    return response.data;
+  } catch (e) {
+    console.error(e);
+  }
 }

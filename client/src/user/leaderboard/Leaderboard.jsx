@@ -60,7 +60,7 @@ export default function Leaderboard() {
                                 <th>LeetCode</th>
                                 <th>CodeForces</th>
                                 <th>Digitomize Rating</th>
-                                <th>Platform Rating</th>
+                                {/* <th>Platform Rating</th> */}
                             </tr>
                         </thead>
                         {
@@ -106,7 +106,7 @@ export default function Leaderboard() {
                                                 <td>
                                                     <div className="flex items-center space-x-3">
                                                         <div className="avatar">
-                                                            <a href={"/user/profile/" + row.username} target="_blank">
+                                                            <a href={"/u/" + row.username} target="_blank">
                                                                 <div className="mask mask-squircle w-12 h-12 ring ring-primary ring-offset-base-100 ring-offset-2">
                                                                     {/* You can set the image source dynamically */}
                                                                     <img className="mask mask-hexagon" src={row.picture} alt="Avatar Tailwind CSS Component" />
@@ -114,7 +114,7 @@ export default function Leaderboard() {
                                                             </a>
                                                         </div>
                                                         <div>
-                                                            <a href={"/user/profile/" + row.username} target="_blank">
+                                                            <a href={"/u/" + row.username} target="_blank">
                                                                 <div className="font-bold">{row.name} <OpenInNew fontSize="small" /> </div>
                                                                 <div className="text-sm opacity-50">@{row.username}</div>
                                                                 {/* You can display more user details here if needed */}
@@ -126,7 +126,7 @@ export default function Leaderboard() {
                                                 <td>{row.leetcode}</td>
                                                 <td>{row.codeforces}</td>
                                                 <td>{row.digitomize_rating}</td>
-                                                <td>{row.platform_rating}</td>
+                                                {/* <td>{row.platform_rating}</td> */}
                                             </tr>
                                         ))}
                                 </tbody>
@@ -140,7 +140,7 @@ export default function Leaderboard() {
                                 <th>LeetCode</th>
                                 <th>CodeForces</th>
                                 <th>Digitomize Rating</th>
-                                <th>Platform Rating</th>
+                                {/* <th>Platform Rating</th> */}
                             </tr>
                         </tfoot>
                     </table>

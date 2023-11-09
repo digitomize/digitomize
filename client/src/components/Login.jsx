@@ -9,8 +9,8 @@ import {
 } from "react-router-dom"
 
 import {
-     auth
-     } from "../../firebase"
+    auth
+} from "../../firebase"
 
 import {
     GoogleAuthProvider,
@@ -21,19 +21,19 @@ import {
 import axios from 'axios'
 
 import {
-     useState 
-    } from "react"
+    useState
+} from "react"
 
-import { 
-    useUserAuth 
+import {
+    useUserAuth
 } from "../context/UserAuthContext"
 
-import { 
+import {
     isLoggedIn
- } from "../../api"
+} from "../../api"
 
-import { 
-    ToastContainer 
+import {
+    ToastContainer
 } from "react-toastify"
 
 import SignoutButton from "../user/components/SignoutButton"
@@ -46,7 +46,7 @@ export async function loader({ request }) {
     const message = new URL(request.url).searchParams.get("message")
     const loggedIn = await isLoggedIn();
     if (loggedIn) {
-        return redirect("/user/dashboard")
+        return redirect("/u/dashboard")
     }
 
     return message
@@ -69,7 +69,7 @@ export default function Login() {
         try {
             await logIn(email, password)
             console.log(auth.currentUser.accessToken)
-            navigate('/user/dashboard')
+            navigate('/u/dashboard')
         } catch (err) {
             setError(err.message);
         }
@@ -94,7 +94,7 @@ export default function Login() {
                     },
                 }).then(res => console.log(res))
                     .catch(err => console.log(err));
-                navigate('/user/dashboard/account')
+                navigate('/u/dashboard/account')
 
             }).catch((error) => {
                 setError(`${error.code} - ${error.message}`)
@@ -103,7 +103,7 @@ export default function Login() {
     }
     const handleGoogleSignIn = async (e) => {
         setbtnState(true);
-        e.preventDefault(); 
+        e.preventDefault();
         try {
             const googleAuthProvider = new GoogleAuthProvider();
             await signInWithPopup(auth, googleAuthProvider)
@@ -116,10 +116,13 @@ export default function Login() {
                         }).then(res => console.log(res))
                             .catch(err => console.log(err));
                     });
-                    navigate('/user/dashboard')
-                }).catch(err => setError("internal server error"))
+                    navigate('/u/dashboard')
+                }).catch((err) => {
+                    setError(err.code);
+                }
+                )
         } catch (err) {
-            setError(err.message);
+            setError(err.code);
         }
         setbtnState(false);
     }

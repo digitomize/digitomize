@@ -99,7 +99,7 @@ export default function Home2() {
                 User <span class="text-custom-blue font-bold">Dynamic</span>{" "}
                 Portfolio
               </h1>
-              <p className="py-6 font-['Source Code Pro']">
+              <p className="py-6 font-['Source Code Pro'] text-xl">
                 Showcase your ratings, GitHub stats, personal info, skills,
                 education, and more. Climb the leaderboard while enjoying
                 friendly competition with friends in the coding community.
@@ -166,7 +166,7 @@ export default function Home2() {
               </a>
           </div>
           <div className="max-lg:hidden w-[60%] right items-end max-lg:flex flex-col relative min-h-[65vh]">
-            <div className="mockup-browser border bg-base-300 w-full absolute h-fit duration-500 hover:scale-125">
+            <div className="mockup-browser border bg-base-300 w-full absolute h-fit duration-500">
               <div className="mockup-browser-toolbar">
                 <div style={{ marginLeft: "0px" }} className="ml-0 input ml-0">
                   https://digitomize.com/dashboard

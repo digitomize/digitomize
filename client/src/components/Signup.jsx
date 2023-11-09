@@ -51,7 +51,7 @@ export default function Signup() {
         e.preventDefault();
         setError("");
         try {
-            await signUp(email, password)
+            await signUp(email, password, username, firstName)
             const token = auth.currentUser.accessToken
             if (token) {
                 axios.post(`${backendUrl}/user/signup`, {
@@ -61,11 +61,11 @@ export default function Signup() {
                         Authorization: `Bearer ${token}`,
                     }
                 }).then(res => console.log(res))
-                    .catch(err => setError(err.message))
+                    .catch(err => setError(err.code))
             }
             navigate("/login")
         } catch (err) {
-            setError(err.message);
+            setError(err.code);
         }
     }
 
