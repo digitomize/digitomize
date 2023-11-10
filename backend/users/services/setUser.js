@@ -21,10 +21,18 @@ function createDefaultContestObject(platformData) {
 const setUser = async (userData) => {
     console.log(userData);
     try {
-        const { uid, username, name, picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces } = userData;
-
+        const { uid, name, picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces } = userData;
+        
+        let { username } = userData;
+        const emailParts = email.split('@');
+        const usernameBeforeAtSymbol = emailParts[0];
+        if (!username) {
+            username = usernameBeforeAtSymbol;
+        }
         // Finds if the username with same name is already registered.
         const checkForDuplicateUsername = await User.findOne({ username: username });
+        
+        
 
         const newUser = new User({
             uid,
