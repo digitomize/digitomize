@@ -15,13 +15,16 @@ import { routeLogging } from "./users/middlewares/authMiddleware.js";
 
 dotenv.config();
 const app = express();
-app.use(routeLogging);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(routeLogging);
+}
 
 //Handling uncaught exception 
-process.on('uncaughtException', err =>{
-    console.log(`Error: ${err.message}`);
-    console.log('Shutting down due to uncaught exception');
-    process.exit(1)
+process.on('uncaughtException', err => {
+  console.log(`Error: ${err.message}`);
+  console.log('Shutting down due to uncaught exception');
+  process.exit(1)
 })
 
 console.log(process.env.TEST);
@@ -84,17 +87,17 @@ async function startServersProduction() {
     await mongoose.connect(process.env.MONGODB_URL);
     console.log("MongoDB Connected.");
 
-        await setupUserServer();
-        await setupContestServer();
+    await setupUserServer();
+    await setupContestServer();
 
-        //Handle unhandled routes
-        app.all('*', (req,res,next)=>{
-            res.status(404).json({ error: `${req.originalUrl} route not found`});
-        })
+    //Handle unhandled routes
+    app.all('*', (req, res, next) => {
+      res.status(404).json({ error: `${req.originalUrl} route not found` });
+    })
 
-        const servers = [];
-        servers.push("User");
-        servers.push("Contest");
+    const servers = [];
+    servers.push("User");
+    servers.push("Contest");
 
     console.log("┌──────────────────────────────────┐");
     if (servers.length > 0) {
@@ -131,10 +134,10 @@ async function startServersDev() {
       servers.push("Contest");
     }
 
-        //Handle unhandled routes
-        app.all('*', (req,res,next)=>{
-            res.status(404).json({ error: `${req.originalUrl} route not found`});
-        })
+    //Handle unhandled routes
+    app.all('*', (req, res, next) => {
+      res.status(404).json({ error: `${req.originalUrl} route not found` });
+    })
 
     console.log("┌──────────────────────────────────┐");
     if (servers.length > 0) {
@@ -162,11 +165,11 @@ if (process.env.NODE_ENV === "development") {
 }
 
 //Handling unhandled server errors
-process.on('unhandledRejection',(err)=>{
-    console.log(`Error: ${err.message}`)
-    console.log('Shutting down the server due to Unhandled promise rejection')
+process.on('unhandledRejection', (err) => {
+  console.log(`Error: ${err.message}`)
+  console.log('Shutting down the server due to Unhandled promise rejection')
 
-    server.close(()=>{
-        process.exit(1)
-    })
+  server.close(() => {
+    process.exit(1)
+  })
 })

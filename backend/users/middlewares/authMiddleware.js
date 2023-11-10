@@ -123,7 +123,6 @@ const routeLogging = async (req, response, next) => {
   console.log('Request Log:', logData);
 
   try {
-    
     sendRequestLog(req);
   }
   catch (error) {
