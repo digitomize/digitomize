@@ -1,6 +1,6 @@
 import { getUser } from '../services/getUser.js';
 import { codeforces_u } from './platforms/codeforcesUpdater.js';
-import { codechef_u }  from './platforms/codechefUpdater.js'; // Import your CodeChef updater function
+import { codechef_u } from './platforms/codechefUpdater.js'; // Import your CodeChef updater function
 import { leetcode_u } from './platforms/leetcodeUpdater.js'; // Import your LeetCode updater function
 import { updateUser } from '../services/updateUser.js';
 import { ROLE } from "../../core/const.js";
@@ -27,9 +27,9 @@ const calculateDigitomizeRating = (user) => {
     const platformData = user[platform];
     if (platformData && platformData.rating) {
       const weightage = {
-        codechef: 0.760,
-        leetcode: 0.695,
-        codeforces: 1,
+        codeforces: 0.754,
+        codechef: 0.803,
+        leetcode: 1,
       };
       const platformRating = platformData.rating * weightage[platform];
       if (platformRating > maxDigitomizeRating) {
@@ -64,7 +64,7 @@ const handleUserDataUpdate = async (user) => {
   }
   user.digitomize_rating = calculateDigitomizeRating(user);
   // console.log("new:", user.digitomize_rating);
-  
+
   // Save the updated user object in MongoDB
   if (changes) {
     await updateUser(user);
