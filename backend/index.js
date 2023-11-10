@@ -16,9 +16,9 @@ import { routeLogging } from "./users/middlewares/authMiddleware.js";
 dotenv.config();
 const app = express();
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use(routeLogging);
-// }
+if (process.env.NODE_ENV === "production") {
+  app.use(routeLogging);
+}
 
 //Handling uncaught exception 
 process.on('uncaughtException', err => {
