@@ -1,10 +1,10 @@
 // email.js
 import brevo from '@getbrevo/brevo';
+import { sendErrorLog } from "../discord-webhook/error.js";
 
 let defaultClient = brevo.ApiClient.instance;
 let apiKey = defaultClient.authentications['api-key'];
 apiKey.apiKey = process.env.BREVO_API;
-
 let contactsApi = new brevo.ContactsApi();
 let transactionalEmailsApi = new brevo.TransactionalEmailsApi();
 
@@ -29,7 +29,15 @@ const createContact = async (email, firstName) => {
 const sendEmail = async (recipientEmail, recipientName) => {
     try {
         // Create contact before sending email
-        await createContact(recipientEmail, recipientName);
+        try {
+            await createContact(recipientEmail, recipientName);
+        }
+        catch (error) {
+            sendErrorLog({
+                title: `Error creating contact`,
+                description: 'Email: `' + recipientEmail + '` \n Name: `' + recipientName + '`',
+            })
+        }
 
         // Send email
         let sendSmtpEmail = new brevo.SendSmtpEmail();
