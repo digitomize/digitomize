@@ -10,7 +10,7 @@ import { Helmet } from "react-helmet";
 
 function NewUserProfile() {
     const { personal_data } = useOutletContext();
-    const contentDescription = `${personal_data.bio.length > 30
+    const contentDescription = `${personal_data?.bio?.length > 30
         ? personal_data.bio.substring(0, 30) + "..."
         : personal_data.bio}`;      
     const pageTitle = `${personal_data.name} | digitomize`;

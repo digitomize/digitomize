@@ -1,5 +1,5 @@
 import User from '../models/User.js';
-
+import { sendEmail } from "../../services/email/createAccount.js";
 
 // Utility function to create default contest object
 function createDefaultContestObject(platformData) {
@@ -63,6 +63,9 @@ const setUser = async (userData) => {
         });
 
         await newUser.save();
+        if (process.env.NODE_ENV === "production") {
+            await sendEmail(newUser.email, newUser.name);
+        }
         return newUser;
     } catch (error) {
         if (error.code === 11000) {
