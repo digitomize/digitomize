@@ -4,9 +4,9 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const webhookClient = new WebhookClient({ url: process.env.DC_WH_UPDATE });
 
 function sendWebhook_updateAccount({ oldImage, newImage, oldUsername, newUsername, oldData, newData }) {
+    const webhookClient = new WebhookClient({ url: process.env.DC_WH_UPDATE });
     console.log('oldImage:', oldImage);
     console.log('newImage:', newImage);
 

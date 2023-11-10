@@ -4,9 +4,9 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const webhookClient = new WebhookClient({ url: process.env.DC_WH_CREATE });
 
 function sendWebhook_createAccount({ imageURL, title, description, content = null, username }) {
+    const webhookClient = new WebhookClient({ url: process.env.DC_WH_CREATE });
     console.log('imageURL:', imageURL);
     console.log('title:', title);
     console.log('description:', description);

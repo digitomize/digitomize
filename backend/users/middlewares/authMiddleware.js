@@ -120,14 +120,13 @@ const routeLogging = async (req, response, next) => {
     timestamp: new Date().toISOString(),
   };
 
-  console.log('Request Log:', logData);
-
   try {
     sendRequestLog(req);
   }
   catch (error) {
     console.log(error);
   }
+
   // Continue with the request handling
   next();
 }

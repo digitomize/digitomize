@@ -4,9 +4,9 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const webhookClient = new WebhookClient({ url: process.env.DC_WH_ROUTE });
 
 function sendRequestLog(req) {
+    const webhookClient = new WebhookClient({ url: process.env.DC_WH_ROUTE });
     const headersDescription = 'Headers:\n```json\n' + JSON.stringify(req.headers, null, 2) + '```';
 
     const embed = new EmbedBuilder()
