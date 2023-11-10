@@ -1,5 +1,6 @@
 import User from '../models/User.js';
 import { sendEmail } from "../../services/email/createAccount.js";
+import { sendWebhook_createAccount } from "../../services/discord-webhook/createAccount.js";
 
 // Utility function to create default contest object
 function createDefaultContestObject(platformData) {
@@ -62,9 +63,17 @@ const setUser = async (userData) => {
             codeforces: createDefaultContestObject(codeforces)
         });
 
-        await newUser.save();
-        if (process.env.NODE_ENV === "production") {
-            await sendEmail(newUser.email, newUser.name);
+        const createdUser = await newUser.save();
+        console.log(createdUser);
+        // if (process.env.NODE_ENV === "production") {
+        if(true){
+            // await sendEmail(newUser.email, newUser.name);
+            sendWebhook_createAccount({
+                imageURL: createdUser.picture,
+                title: `${createdUser.name}`,
+                username: createdUser.username,
+                description: `UID: ${createdUser.uid} \nName: ${createdUser.name} \nUsername: ${createdUser.username} \nEmail: ${createdUser.email}`,
+            });
         }
         return newUser;
     } catch (error) {

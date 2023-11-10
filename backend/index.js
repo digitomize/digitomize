@@ -11,9 +11,11 @@ import adminRoutes from "./users/routes/adminRoutes.js";
 import bodyParser from "body-parser";
 import fetchContestsData from "./fetchContests.js";
 import admin from "firebase-admin";
+import { routeLogging } from "./users/middlewares/authMiddleware.js";
 
 dotenv.config();
 const app = express();
+app.use(routeLogging);
 
 //Handling uncaught exception 
 process.on('uncaughtException', err =>{

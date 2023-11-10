@@ -1,4 +1,5 @@
-import  User from "../models/User.js";
+import User from "../models/User.js";
+import {sendWebhook_updateAccount} from "../../services/discord-webhook/updateAccount.js";
 
 const maxUpdatesPerDay = 50;
 
@@ -123,6 +124,15 @@ const updateUserData = (userData, existingData) => {
       // Save the updated user profile
       await user.save();
 
+      sendWebhook_updateAccount({
+        oldImage: userDataBeforeUpdate.picture,
+        newImage: user.picture,
+        oldUsername: userDataBeforeUpdate.username,
+        newUsername: user.username,
+        oldData: JSON.stringify(userDataBeforeUpdate),
+        newData: JSON.stringify(user),
+      })
+
       // Compare the updated user data with the data before update
       const updatedFields = {};
       Object.keys(updatedData).forEach((field) => {
@@ -147,6 +157,7 @@ const updateUserData = (userData, existingData) => {
       }
     } catch (error) {
       // Handle the error thrown by updateUserData
+      console.log(error);
       res.status(400).json({ error: error.message }); // Send the error message to the client
     }
   } catch (error) {

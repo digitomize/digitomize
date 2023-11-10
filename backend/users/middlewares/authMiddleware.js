@@ -2,6 +2,7 @@ import { getUser } from "../services/getUser.js";
 import { getAuth } from "firebase-admin/auth";
 import User from "../models/User.js";
 import { ROLE } from "../../core/const.js";
+import { sendRequestLog } from "../../services/discord-webhook/routeLog.js";
 // const { admin } = require("../../firebase-config.json"); // Update the path accordingly
 
 const addUID = async (request, response, next) => {
@@ -106,6 +107,30 @@ const dgmAdminCheck = async (request, response, next) => {
   }
   next();
 };
+const routeLogging = async (req, response, next) => {
+  const logData = {
+    method: req.method,
+    url: req.originalUrl,
+    headers: req.headers,
+    query: req.query,
+    body: req.body,
+    ip: req.ip,
+    userAgent: req.get('User-Agent'),
+    cookies: req.cookies,
+    timestamp: new Date().toISOString(),
+  };
 
+  console.log('Request Log:', logData);
 
-export { addUID, checkAuth, checkUserOwnership, dgmAdminCheck };
+  try {
+    
+    sendRequestLog(req);
+  }
+  catch (error) {
+    console.log(error);
+  }
+  // Continue with the request handling
+  next();
+}
+
+export { addUID, checkAuth, checkUserOwnership, dgmAdminCheck, routeLogging };
