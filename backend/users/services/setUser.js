@@ -65,9 +65,9 @@ const setUser = async (userData) => {
 
         const createdUser = await newUser.save();
         console.log(createdUser);
-        // if (process.env.NODE_ENV === "production") {
-        if(true){
-            // await sendEmail(newUser.email, newUser.name);
+        if (process.env.NODE_ENV === "production") {
+        // if(true){
+            await sendEmail(newUser.email, newUser.name);
             sendWebhook_createAccount({
                 imageURL: createdUser.picture,
                 title: `${createdUser.name}`,
