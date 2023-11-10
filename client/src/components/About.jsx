@@ -164,7 +164,7 @@ export default function About() {
                             </div>
                             <div className="p-2 phone:mt-4">
                                 <h4 className="text-2xl font-medium leading-tight">Pick an issue</h4>
-                                <p className="mt-2 text-base font-book leading-snug text-gray-9">Head over to <a className="text-primary" href="https://github.com/digitomize/digitomize/issues" target="_blank" rel="noreferrer">issues page</a> or open a  <a className="text-primary" href="https://github.com/novuhq/novu/issues/new?assignees=&amp;labels=&amp;template=bug_report.md&amp;title=" target="_blank" rel="noreferrer">new issue</a>, Comment on it and we will assign it to you.
+                                <p className="mt-2 text-base font-book leading-snug text-gray-9">Head over to <a className="text-primary" href="https://github.com/digitomize/digitomize/issues" target="_blank" rel="noreferrer">issues page</a> or open a  <a className="text-primary" href="https://github.com/digitomize/digitomize/issues/new" target="_blank" rel="noreferrer">new issue</a>, Comment on it and we will assign it to you.
                                 </p>
                             </div>
                         </div>
