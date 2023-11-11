@@ -17,7 +17,7 @@ export default function Layout() {
   return (
     <>
       <NewNavbar />
-      {alertOpen && (
+      {/* {alertOpen && (
         <Alert
           onClose={handleCloseAlert}
           severity="success"
@@ -41,7 +41,7 @@ export default function Layout() {
             /discord
           </a>.
         </Alert>
-      )}
+      )} */}
       <Outlet />
       {/* <NewFooter /> */}
       <Analytics />
