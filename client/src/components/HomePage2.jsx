@@ -172,7 +172,7 @@ export default function Home2() {
                   https://digitomize.com/dashboard
                 </div>
               </div>
-              <div className="flex justify-start px-4 py-4 bg-base-200 h-full">
+              <div className="flex justify-start px-4 py-4 bg-base-200">
                 <div className="form-control w-2/4 max-w-xs">
                   <Avatar
                     src="/src/assets/hacker.png"
