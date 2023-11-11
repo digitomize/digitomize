@@ -190,9 +190,11 @@ export default function UserDashPersonal() {
       <ToastContainer />
       <DashboardNavbar />
       {/* <div className="px-8 md:ps-12 py-12 pt-24 w-11/12 mx-auto"> */}
-      <div className="px-8 mt-12 py-4 w-11/12 mx-auto">
-        <div className="mockup-window border bg-base-300 p-8">
-
+      <div className="phone:mt-12 max-phone:mt-24 py-4 w-11/12 mx-auto">
+        <div className="mockup-browser border bg-base-300">
+          <div className="mockup-browser-toolbar">
+            <div className="input" style={{ marginLeft: '0' }}>{"#include {digitomize} > {personal}"}</div>
+          </div>
           {/* <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
             <Checkbox />
         </div> */}
@@ -209,25 +211,28 @@ export default function UserDashPersonal() {
 
       </div> */}
 
-          <div className="grid md:grid-cols-2 mx-auto">
-            <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center ">
+          <div className="bg-base-200 w-full p-8">
 
-              <div className="form-control w-full   max-w-lg   ">
-                <label htmlFor="firstName" className="label">
-                  <span className="label-text"> Name</span>
-                </label>
-                <div className="flex  items-center gap-3">
-                  <input type="text"
-                    name="name"
-                    id="name" placeholder=" "
-                    value={formData.name}
-                    maxLength={25}
-                    onChange={handleInputChange}
-                    required className="input input-bordered w-full  " />
+
+            <div className="grid md:grid-cols-2 mx-auto">
+              <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center ">
+
+                <div className="form-control w-full   max-w-lg   ">
+                  <label htmlFor="firstName" className="label">
+                    <span className="label-text"> Name</span>
+                  </label>
+                  <div className="flex  items-center gap-3">
+                    <input type="text"
+                      name="name"
+                      id="name" placeholder=" "
+                      value={formData.name}
+                      maxLength={25}
+                      onChange={handleInputChange}
+                      required className="input input-bordered w-full  " />
+                  </div>
+
                 </div>
-
-              </div>
-              {/* <input
+                {/* <input
             type="text"
             name="name"
             id="name"
@@ -243,28 +248,28 @@ export default function UserDashPersonal() {
           >
             Name
           </label> */}
-            </div>
-            <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3 ">
+              </div>
+              <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3 ">
 
 
-              <div className="form-control w-full max-w-lg    ">
-                <label htmlFor="username" className="label">
-                  <span className="label-text"> Username</span>
-                </label>
-                <div className="flex  items-center gap-3">
-                  <input type="text"
-                    name="username"
-                    id="username" placeholder=" "
-                    value={formData.username}
-                    maxLength={15}
-                    onChange={handleInputChange}
-                    required className="input input-bordered w-full" />
+                <div className="form-control w-full max-w-lg    ">
+                  <label htmlFor="username" className="label">
+                    <span className="label-text"> Username</span>
+                  </label>
+                  <div className="flex  items-center gap-3">
+                    <input type="text"
+                      name="username"
+                      id="username" placeholder=" "
+                      value={formData.username}
+                      maxLength={15}
+                      onChange={handleInputChange}
+                      required className="input input-bordered w-full" />
+                  </div>
+
                 </div>
 
-              </div>
 
-
-              {/* 
+                {/* 
           <input
             type="text"
             name="username"
@@ -281,31 +286,31 @@ export default function UserDashPersonal() {
           >
             Username
           </label> */}
+              </div>
             </div>
-          </div>
-          <div className="grid md:grid-cols-2  mx-auto ">
+            <div className="grid md:grid-cols-2  mx-auto ">
 
-            <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
+              <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
 
-              <div className="form-control w-full ">
-                <label htmlFor="phoneNumber" className="label">
-                  <span className="label-text"> Phone number</span>
-                </label>
-                <div className="flex  items-center gap-3 ">
-                  <input type="tel"
-                    name="phoneNumber"
-                    maxLength={15}
-                    id="phoneNumber" value={formData.phoneNumber.data}
-                    onChange={handleInputChangeObjData} className="input input-bordered w-full max-w-lg " />
-                  <Checkbox
-                    isCheckedState={formData.phoneNumber.showOnWebsite}
-                    setState={updateShowOnWebsite("phoneNumber")}
-                  />
+                <div className="form-control w-full ">
+                  <label htmlFor="phoneNumber" className="label">
+                    <span className="label-text"> Phone number</span>
+                  </label>
+                  <div className="flex  items-center gap-3 ">
+                    <input type="tel"
+                      name="phoneNumber"
+                      maxLength={15}
+                      id="phoneNumber" value={formData.phoneNumber.data}
+                      onChange={handleInputChangeObjData} className="input input-bordered w-full max-w-lg " />
+                    <Checkbox
+                      isCheckedState={formData.phoneNumber.showOnWebsite}
+                      setState={updateShowOnWebsite("phoneNumber")}
+                    />
+                  </div>
+
                 </div>
 
-              </div>
-
-              {/* <input
+                {/* <input
             type="tel"
             name="phoneNumber"
             id="phoneNumber"
@@ -325,140 +330,154 @@ export default function UserDashPersonal() {
               setState={updateShowOnWebsite("phoneNumber")}
               className="checkbox checkbox-success"
             />  */}
-              {/* <input type="checkbox" checked={formData.phoneNumber.showOnWebsite} onChange={(e) => {
+                {/* <input type="checkbox" checked={formData.phoneNumber.showOnWebsite} onChange={(e) => {
     updateShowOnWebsite("phoneNumber")(e.target.checked);
             }} className="checkbox checkbox-success" /> */}
 
-            </div>
-
-
-
-
-
-            <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
-
-              <div className="form-control w-full  ">
-                <label htmlFor="dateOfBirth" className="label">
-                  <span className="label-text">   Date of birth</span>
-                </label>
-                <div className="flex  items-center gap-3">
-                  <input type="date" id="dateOfBirth"
-                    name="dateOfBirth" value={formData.dateOfBirth.data}
-                    onChange={handleInputChangeObjData} placeholder="Type here" className="input input-bordered w-full max-w-lg " />
-                  <Checkbox
-                    isCheckedState={formData.dateOfBirth.showOnWebsite}
-                    setState={updateShowOnWebsite("dateOfBirth")}
-                  />
-                </div>
-
               </div>
 
-            </div>
-          </div>
 
 
-          <div className="flex flex-col md:flex-row  items-start gap-5  mb-10">
-
-            <div className="relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
 
 
-              <div className="form-control   w-full">
-                <label className="label">
-                  <span className="label-text">Bio</span>
+              <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
 
-                </label>
-                <div className="flex items-center gap-3">
-                  <textarea name="bio"
-                    maxLength={250}
-                    id="bio" className="textarea  w-full textarea-bordered h-24 max-w-lg" placeholder=""
-                    value={formData.bio.data}
-                    onChange={handleInputChangeObjData}></textarea>
-                  <Checkbox
+                <div className="form-control w-full  ">
+                  <label htmlFor="dateOfBirth" className="label">
+                    <span className="label-text">   Date of birth</span>
+                  </label>
+                  <div className="flex  items-center gap-3">
+                    <input type="date" id="dateOfBirth"
+                      name="dateOfBirth" value={formData.dateOfBirth.data}
+                      onChange={handleInputChangeObjData} placeholder="Type here" className="input input-bordered w-full max-w-lg " />
+                    <Checkbox
+                      isCheckedState={formData.dateOfBirth.showOnWebsite}
+                      setState={updateShowOnWebsite("dateOfBirth")}
+                    />
+                  </div>
 
-                    isCheckedState={formData.bio.showOnWebsite}
-                    setState={updateShowOnWebsite("bio")}
-                  />
                 </div>
 
               </div>
             </div>
 
-            {/* skills */}
-            <div className="skills relative z-0 w-full md:w-3/4 mb-5  group flex flex-col items-center gap-3">
 
-              <div className="z-0 w-full md:w-3/4 group flex items-start md:mr-5 ">
+            <div className="flex flex-col md:flex-row  items-start gap-5  mb-10">
+
+              <div className="relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
 
 
-
-                <div className="form-control  w-full ">
-                  <label htmlFor="skills" className="label">
-                    <span className="label-text">Skills</span>
+                <div className="form-control   w-full">
+                  <label className="label">
+                    <span className="label-text">Bio</span>
 
                   </label>
                   <div className="flex items-center gap-3">
-                    <input type="text"
-                      name="skills"
-                      id="skills" className="input input-bordered  w-full max-w-lg" placeholder=""
-                      value={newSkill}
-                      onChange={(e) => setNewSkill(e.target.value)} />
-                    <Form onSubmit={handleAdd}>
-                      <button ref={btnRef}
-                        type="submit"
+                    <textarea name="bio"
+                      maxLength={250}
+                      id="bio" className="textarea  w-full textarea-bordered h-24 max-w-lg" placeholder=""
+                      value={formData.bio.data}
+                      onChange={handleInputChangeObjData}></textarea>
+                    <Checkbox
 
-                        className="text-black bg-white font-medium rounded-lg text-sm md:text-lg sm:w-auto px-5 py-1.5 text-center "
-                      >
-                        Add
-                      </button>
-                    </Form>
+                      isCheckedState={formData.bio.showOnWebsite}
+                      setState={updateShowOnWebsite("bio")}
+                    />
                   </div>
 
                 </div>
               </div>
 
-              <div className="skillchips w-full max-w-3xl mx-auto  ">
-                {skillData.length > 0 ? (
-                  skillData.map((data) => {
-                    let icon;
+              {/* skills */}
+              <div className="skills relative z-0 w-full md:w-3/4 mb-5  group flex flex-col items-center gap-3">
 
-                    if (data.label === "React") {
-                      icon = <TagFacesIcon />;
-                    }
-
-                    return (
-                      <div key={data.key} className="m-2 inline-block">
-
-                        <Chip
+                <div className="z-0 w-full md:w-3/4 group flex items-start md:mr-5 ">
 
 
-                          variant="outlined"
-                          color="primary"
-                          icon={icon}
-                          label={data.label}
-                          onDelete={handleDelete(data)}
-                        />
-                      </div>
 
-                    );
-                  })
-                ) : (
-                  <p className="font-semibold font-mono text-red-600">No skills added.</p>
-                )}
+                  <div className="form-control  w-full ">
+                    <label htmlFor="skills" className="label">
+                      <span className="label-text">Skills</span>
+
+                    </label>
+                    <div className="flex items-center gap-3">
+                      <input type="text"
+                        name="skills"
+                        id="skills" className="input input-bordered  w-full max-w-lg" placeholder=""
+                        value={newSkill}
+                        onChange={(e) => setNewSkill(e.target.value)} />
+                      <Form onSubmit={handleAdd}>
+                        <button ref={btnRef}
+                          type="submit"
+
+                          className="text-black bg-white font-medium rounded-lg text-sm md:text-lg sm:w-auto px-5 py-1.5 text-center "
+                        >
+                          Add
+                        </button>
+                      </Form>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div className="skillchips w-full max-w-3xl mx-auto  ">
+                  {skillData.length > 0 ? (
+                    skillData.map((data) => {
+                      let icon;
+
+                      if (data.label === "React") {
+                        icon = <TagFacesIcon />;
+                      }
+
+                      return (
+                        <div key={data.key} className="m-2 inline-block">
+
+                          <Chip
+
+
+                            variant="outlined"
+                            color="primary"
+                            icon={icon}
+                            label={data.label}
+                            onDelete={handleDelete(data)}
+                          />
+                        </div>
+
+                      );
+                    })
+                  ) : (
+                    <p className="font-semibold font-mono text-red-600">No skills added.</p>
+                  )}
+                </div>
               </div>
             </div>
+
+
+
+            <Form className=" flex justify-center  w-auto" onSubmit={handleSubmit}>
+              <button
+                type="submit"
+                className="text-black bg-white font-medium rounded-lg  text-xl  md:text-3xl   px-5 py-1.5 text-center "
+              >
+                Update
+              </button>
+            </Form>
+          </div>
+        </div>
+        <div className="mockup-browser border bg-base-300 mt-4">
+          <div className="mockup-browser-toolbar">
+            <div className="input" style={{ marginLeft: '0' }}>{"#include {digitomize} > {socials}"}</div>
+          </div>
+          <div className="flex justify-center px-4 py-16 bg-base-200">
+            <div className="mockup-code">
+              <pre data-prefix="1"><code className="text-white">npm i socials</code></pre>
+              <pre data-prefix="2"><code className="text-success">installing...</code></pre>
+              <pre data-prefix="3" className="bg-warning text-warning-content"><code>coming soon!</code></pre>
+            </div>
+
           </div>
 
-
-
-          <Form className=" flex justify-center  w-auto" onSubmit={handleSubmit}>
-            <button
-              type="submit"
-              className="text-black bg-white font-medium rounded-lg  text-xl  md:text-3xl   px-5 py-1.5 text-center "
-            >
-              Update
-            </button>
-          </Form>
         </div>
-
       </div>
       <NewFooter />
     </>

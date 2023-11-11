@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect } from "react";
 import ReactDOM from 'react-dom';
 import '../components/css/socials.css';
