@@ -61,7 +61,7 @@ export default function UserDashboard() {
         },
         {
             icon: GitHubIcon,
-            title: 'github',
+            title: 'github(soon...)',
             path: '#',
         }
     ]
@@ -233,15 +233,20 @@ export default function UserDashboard() {
                             </div>
                             <div className="username my-auto w-fit">
                                 <h2 className='text-2xl'>{`${userData.personal_data.name}`}</h2>
+                                <p style={{ overflowWrap: 'anywhere' }}>{`@${userData.personal_data.username}`}</p>
                             </div>
                             <div className="edit my-auto mx-2">
-
+                                <Link to={"account"}>
                                 <EditIcon fontSize="small" />
+                                </Link>
                             </div>
                         </div>
-                        <button>
-                            view profile
-                        </button>
+                        <div className="profile self-center mt-4">
+
+                        <Link to={`/u/${userData.personal_data.username}`}>
+                                        <button className="btn btn-primary lowercase">view profile</button>
+                                    </Link>
+                        </div>
                         {/* <div className="status self-center">
                             <label className="label justify-center">
                                 <span className="label-text">my status</span>
