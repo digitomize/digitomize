@@ -155,7 +155,7 @@ export default function UserDashboard() {
                                         account
                                         {/* <div className="badge badge-secondary"></div> */}
                                     </h2>
-                                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                                    <p>Personalize your experience and manage preferences.</p>
                                     <div className="card-actions justify-end">
                                         <a href="/u/dashboard/account">
                                             <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]">
@@ -173,7 +173,7 @@ export default function UserDashboard() {
                                         ratings
                                         <div className="badge badge-secondary">new</div>
                                     </h2>
-                                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                                    <p>Connect usernames for linked coding profiles.</p>
                                     <div className="card-actions justify-end">
                                         <a href="/u/dashboard/ratings">
                                             <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]"><TrendingUpIcon fontSize="large" /></button>
@@ -190,7 +190,7 @@ export default function UserDashboard() {
                                         Github
                                         <div className="badge badge-secondary">coming soon</div>
                                     </h2>
-                                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                                    <p>Showcase and collaborate on coding projects.</p>
                                     <div className="card-actions justify-end">
                                         <Tooltip title="coming soon" placement="top">
                                             <span>
@@ -239,7 +239,10 @@ export default function UserDashboard() {
                                 <EditIcon fontSize="small" />
                             </div>
                         </div>
-                        <div className="status self-center">
+                        <button>
+                            view profile
+                        </button>
+                        {/* <div className="status self-center">
                             <label className="label justify-center">
                                 <span className="label-text">my status</span>
                             </label>
@@ -269,7 +272,7 @@ export default function UserDashboard() {
                                     onClick={() => handleStatusClick('Offline')}
                                 />
                             </div>
-                        </div>
+                        </div> */}
                         <div className="divider"></div>
 
                         <div className="phone:hidden dashboard">
