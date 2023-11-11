@@ -221,6 +221,7 @@ export default function UserDashPersonal() {
                     name="name"
                     id="name" placeholder=" "
                     value={formData.name}
+                    maxLength={25}
                     onChange={handleInputChange}
                     required className="input input-bordered w-full  " />
                 </div>
@@ -255,6 +256,7 @@ export default function UserDashPersonal() {
                     name="username"
                     id="username" placeholder=" "
                     value={formData.username}
+                    maxLength={15}
                     onChange={handleInputChange}
                     required className="input input-bordered w-full" />
                 </div>
@@ -292,6 +294,7 @@ export default function UserDashPersonal() {
                 <div className="flex  items-center gap-3 ">
                   <input type="tel"
                     name="phoneNumber"
+                    maxLength={15}
                     id="phoneNumber" value={formData.phoneNumber.data}
                     onChange={handleInputChangeObjData} className="input input-bordered w-full max-w-lg " />
                   <Checkbox
@@ -366,6 +369,7 @@ export default function UserDashPersonal() {
                 </label>
                 <div className="flex items-center gap-3">
                   <textarea name="bio"
+                    maxLength={250}
                     id="bio" className="textarea  w-full textarea-bordered h-24 max-w-lg" placeholder=""
                     value={formData.bio.data}
                     onChange={handleInputChangeObjData}></textarea>
