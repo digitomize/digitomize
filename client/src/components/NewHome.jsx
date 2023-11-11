@@ -1,15 +1,8 @@
 import "./css/NewHome.css";
-import React from "react";
-import "daisyui";
-import Filter from "./Filter";
 import HomePage1 from "./HomePage1";
 import HomePage2 from "./HomePage2";
 import HomePage3 from "./HomePage3";
 import NewFooter from "./NewFooter";
-
-import {
-  Element
-} from "react-scroll";
 
 import ScrollToTop from "./ScrollToTop";
 

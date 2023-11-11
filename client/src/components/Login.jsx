@@ -9,18 +9,6 @@ import {
 } from "react-router-dom"
 
 import {
-    auth
-} from "../../firebase"
-
-import {
-    GoogleAuthProvider,
-    GithubAuthProvider,
-    signInWithPopup
-} from "firebase/auth"
-
-import axios from 'axios'
-
-import {
     useState
 } from "react"
 
@@ -37,10 +25,9 @@ import {
 } from "react-toastify"
 
 import SignoutButton from "../user/components/SignoutButton"
-import GoogleButton from 'react-google-button'
-import GithubButton from 'react-github-login-button'
 
-const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+import GoogleAuthButton from "./AuthButtons/GoogleAuthButton"
+import GithubAuthButton from "./AuthButtons/GithubAuthButton"
 
 export async function loader({ request }) {
     const message = new URL(request.url).searchParams.get("message")
@@ -61,70 +48,16 @@ export default function Login() {
     const [error, setError] = useState("")
     const { logIn } = useUserAuth()
     const navigate = useNavigate()
-    const [btnState, setbtnState] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
         try {
             await logIn(email, password)
-            console.log(auth.currentUser.accessToken)
             navigate('/u/dashboard')
         } catch (err) {
             setError(err.message);
         }
-    }
-    const handleGithubSignIn = async (e) => {
-        setbtnState(true);
-        e.preventDefault();
-        const provider = new GithubAuthProvider();
-        provider.addScope('repo');
-        return signInWithPopup(auth, provider)
-            .then(async (result) => {
-                const credential = GithubAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                console.log("token --> ", token);
-                // The signed-in user info.
-                const user = result.user;
-                console.log("user --> ", user);
-                console.log("user -->", user.accessToken);
-                await axios.post(`${backendUrl}/user/signup`, {
-                    headers: {
-                        Authorization: `Bearer ${user.accessToken}`,
-                    },
-                }).then(res => console.log(res))
-                    .catch(err => console.log(err));
-                navigate('/u/dashboard/account')
-
-            }).catch((error) => {
-                setError(`${error.code} - ${error.message}`)
-                setbtnState(false);
-            });
-    }
-    const handleGoogleSignIn = async (e) => {
-        setbtnState(true);
-        e.preventDefault();
-        try {
-            const googleAuthProvider = new GoogleAuthProvider();
-            await signInWithPopup(auth, googleAuthProvider)
-                .then(async () => {
-                    await auth.currentUser.getIdToken(true).then(async (idToken) => {
-                        await axios.post(`${backendUrl}/user/signup`, {
-                            headers: {
-                                Authorization: `Bearer ${idToken}`,
-                            },
-                        }).then(res => console.log(res))
-                            .catch(err => console.log(err));
-                    });
-                    navigate('/u/dashboard')
-                }).catch((err) => {
-                    setError(err.code);
-                }
-                )
-        } catch (err) {
-            setError(err.code);
-        }
-        setbtnState(false);
     }
 
     return (
@@ -165,8 +98,8 @@ export default function Login() {
                     </Form>
                 </div>
                 <div className="flex flex-col items-center p-5 gap-2">
-                    <GoogleButton type="light" className={`g-btn`} onClick={handleGoogleSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with google'}`} style={{ backgroundColor: "white" }} />
-                    <GithubButton type="light" onClick={handleGithubSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : 'sign in with github'}`} style={{ backgroundColor: "white" }}>Github</GithubButton>
+                    <GoogleAuthButton setError={setError} btnText="sign in with google" />
+                    <GithubAuthButton setError={setError} btnText="sign in with github" />
                 </div>
                 <p className="w-full text-center pb-5"> New user ? <Link to="/signup" className="text-[#4285f4]">Signup</Link></p>
             </div>

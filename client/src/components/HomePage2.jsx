@@ -1,5 +1,6 @@
 import { Element } from "react-scroll";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 // Importing all MUI icons here...
 import {
@@ -96,7 +97,7 @@ export default function Home2() {
           <div className="left sm:w-[40%] text-center">
             <div className="sm:text-left max-sm:text-center">
               <h1 className="sm:text-8xl max-smtext-5xl my-0 font-medium max-sm:min-h-[100px] sm:min-h-[300px]">
-                User <span class="text-custom-blue font-bold">Dynamic</span>{" "}
+                User <span className="text-custom-blue font-bold">Dynamic</span>{" "}
                 Portfolio
               </h1>
               <p className="py-6 font-['Source Code Pro'] text-xl">
@@ -156,19 +157,19 @@ export default function Home2() {
                 </div>
               </div>
             </div>
-            <a href="/signup">
-            <button
-              data-theme="mytheme"
-              className="btn btn-outline text-custom-blue lowercase hover:bg-custom-blue hover:border-custom-blue mt-12 hover:animate-none hover:scale-110"
-            >
-              Create now
+            <Link to="/signup">
+              <button
+                data-theme="mytheme"
+                className="btn btn-outline text-custom-blue lowercase hover:bg-custom-blue hover:border-custom-blue mt-12 hover:animate-none hover:scale-110"
+              >
+                Create now
               </button>
-              </a>
+            </Link>
           </div>
-          <div className="max-lg:hidden w-[60%] right items-end max-lg:flex flex-col relative min-h-[65vh]">
+          <div className="max-lg:hidden w-[60%] right items-end flex-col relative min-h-[65vh]">
             <div className="mockup-browser border bg-base-300 w-full absolute h-fit duration-500">
               <div className="mockup-browser-toolbar">
-                <div style={{ marginLeft: "0px" }} className="ml-0 input ml-0">
+                <div style={{ marginLeft: "0px" }} className="ml-0 input">
                   https://digitomize.com/dashboard
                 </div>
               </div>
@@ -182,7 +183,7 @@ export default function Home2() {
                   <label className="cursor-text select-text label">
                     <span className="select-text cursor-text label-text">
                       #include {"<"}
-                      <span class="text-custom-blue">name</span>
+                      <span className="text-custom-blue">name</span>
                       {">"}
                     </span>
                   </label>
@@ -232,13 +233,13 @@ export default function Home2() {
                         placement="top"
                       >
 
-                      <Switch
-                        size="small"
-                        inputProps={{ "aria-label": "controlled" }}
-                        checked={formData.bio.showOnWebsite}
-                        onChange={updateShowOnWebsite("bio")}
+                        <Switch
+                          size="small"
+                          inputProps={{ "aria-label": "controlled" }}
+                          checked={formData.bio.showOnWebsite}
+                          onChange={updateShowOnWebsite("bio")}
                         />
-                        </Tooltip>
+                      </Tooltip>
                     </span>
                   </label>
                   <textarea
@@ -264,7 +265,7 @@ export default function Home2() {
                   />
                   <label className="label mx-2">
                     <span className="label-text">
-                      fetch{`("` }<span class="text-custom-blue">ratings</span>{`");`}
+                      fetch{`("`}<span class="text-custom-blue">ratings</span>{`");`}
                     </span>
                   </label>
                   <Skeleton

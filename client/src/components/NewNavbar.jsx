@@ -1,4 +1,4 @@
-import React, {
+import {
     useState,
     useEffect
 } from "react";
@@ -109,10 +109,6 @@ export default function NewNavbar({ position }) {
                             ))
                         }
                         {userDetails && userDetails.personal_data.role === ROLE.ADMIN && (
-                            // <Link
-                            //   to="/admin/user"
-                            //   className={`px-4 py-2 cursor-pointer rounded-full transition dropdown dropdown-hover dropdown-bottom hover:bg-zinc-200`}
-                            // >
                             <Link
                                 to="/admin/user"
                                 className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname.includes("/admin")
