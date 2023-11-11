@@ -280,6 +280,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "decaplanet",
+      "name": "Deca",
+      "avatar_url": "https://avatars.githubusercontent.com/u/126875757?v=4",
+      "profile": "https://decaplanet.com",
+      "contributions": [
+        "design"
+      ]
     }
   ],
   "contributorsPerLine": 7,
