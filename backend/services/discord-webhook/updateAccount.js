@@ -28,7 +28,7 @@ function sendWebhook_updateAccount({ oldImage, newImage, oldUsername, newUsernam
         .setTimestamp()
         .addFields(
             { name: 'Image', value: newImage, inline: true },
-            { name: 'Username', value: newUsername, inline: true },
+            { name: 'Username', value: `[${newUsername}](https://digitomize.com/u/${newUsername})`, inline: true },
         )
         .setDescription(`New Data:\n\`\`\`json\n${newData}\n\`\`\``);
 
