@@ -18,7 +18,7 @@ import {
     ToastContainer,
     toast
 } from 'react-toastify';
-
+import Typewriter from 'typewriter-effect';
 import 'react-toastify/dist/ReactToastify.css';
 import SignoutButton from "../components/SignoutButton"
 import NewLogOut from "../components/NewLogOut"
@@ -93,13 +93,31 @@ export default function UserDashboard() {
 
     if (loading) {
         return (
-            <div className="m-auto flex flex-col items-cente r w-4/5 my-12">
-                <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
+            <div className="m-auto flex flex-col items-cente r w-4/5 py-12">
+                {/* <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
                 <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
+                <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} /> */}
+                <div className="mockup-code w-2/4 mx-auto">
+
+                    <pre data-prefix="$"><code className="text-white">npm i</code> <code className="text-red">dashboard</code></pre>
+                    <pre data-prefix=">" className="text-warning flex flex-row"><code className="flex flex-row">
+                        installing
+                        <Typewriter
+                            options={{loop:true}}
+                            onInit={(typewriter) => {
+                                typewriter.typeString('...')
+                                    .pauseFor(1000)
+                                    .deleteAll()
+                                    .start();
+                            }}
+                        /></code></pre>
+                    <pre data-prefix=">" className="text-success"><code>
+                        Done!
+                    </code></pre>
+                </div>
+                {/* <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
                 <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
-                <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
-                <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
-                <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
+                <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} /> */}
             </div>
         )
     }
@@ -237,15 +255,15 @@ export default function UserDashboard() {
                             </div>
                             <div className="edit my-auto mx-2">
                                 <Link to={"account"}>
-                                <EditIcon fontSize="small" />
+                                    <EditIcon fontSize="small" />
                                 </Link>
                             </div>
                         </div>
                         <div className="profile self-center mt-4">
 
-                        <Link to={`/u/${userData.personal_data.username}`}>
-                                        <button className="btn btn-primary lowercase">view profile</button>
-                                    </Link>
+                            <Link to={`/u/${userData.personal_data.username}`}>
+                                <button className="btn btn-primary lowercase">view profile</button>
+                            </Link>
                         </div>
                         {/* <div className="status self-center">
                             <label className="label justify-center">

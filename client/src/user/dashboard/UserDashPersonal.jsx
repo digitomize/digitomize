@@ -190,7 +190,7 @@ export default function UserDashPersonal() {
       <ToastContainer />
       <DashboardNavbar />
       {/* <div className="px-8 md:ps-12 py-12 pt-24 w-11/12 mx-auto"> */}
-      <div className="px-8 mt-12 py-4 w-11/12 mx-auto">
+      <div className="phone:mt-12 max-phone:mt-24 py-4 w-11/12 mx-auto">
         <div className="mockup-browser border bg-base-300">
           <div className="mockup-browser-toolbar">
             <div className="input" style={{ marginLeft: '0' }}>{"#include {digitomize} > {personal}"}</div>
