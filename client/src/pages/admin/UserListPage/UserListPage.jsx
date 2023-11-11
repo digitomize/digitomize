@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getUserList, updateUserData } from "../../../core/api/user.api";
 import { getUserRoleOptions } from "../../../core/utils/options";
 import {
@@ -19,6 +20,7 @@ import {
   Stack,
 } from "@mui/material";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import LaunchIcon from '@mui/icons-material/Launch';
 import { useUserAuth } from "../../../context/UserAuthContext";
 import { StyledTableCell, StyledTableRow } from "../../../index.styled";
 import { NewFooter } from "../../../components/CustomComponents";
@@ -112,7 +114,7 @@ export default function UserListPage() {
         </Stack>
 
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 700 }} aria-label="customized table">
+          <Table sx={{ minWidth: 700, overflowWrap: "anywhere" }} aria-label="customized table">
             <TableHead>
               <TableRow>
                 <StyledTableCell>ID</StyledTableCell>
@@ -130,7 +132,12 @@ export default function UserListPage() {
                     {user.uid}
                   </StyledTableCell>
                   <StyledTableCell>{user.name}</StyledTableCell>
-                  <StyledTableCell>{user.username}</StyledTableCell>
+                  <StyledTableCell>
+                    <Link to={"/u/"+ user.username} target="_blank">
+                      <LaunchIcon/>
+                      {user.username}
+                    </Link>
+                  </StyledTableCell>
                   <StyledTableCell>{user.email}</StyledTableCell>
                   <StyledTableCell>
                     <FormControl fullWidth >
