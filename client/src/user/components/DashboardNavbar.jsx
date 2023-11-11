@@ -25,11 +25,15 @@ export default function DashboardNavbar() {
         },
         {
             title: "Contests",
-            path: "/contests#list",
+            path: "/contests",
         },
         {
-            title: "Contribute",
-            path: "https://github.com/pranshugupta54/digitomize",
+            title: "about",
+            path: "/about",
+        },
+        {
+            title: "Discord",
+            path: "/discord",
         },
         {
             title: "Leaderboard",

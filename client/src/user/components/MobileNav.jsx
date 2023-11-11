@@ -1,29 +1,31 @@
 import React from "react";
 import logo from "../../assets/logo.png"
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import { useUserAuth } from "../../context/UserAuthContext";
 
 const MobileNav = ({ isMenuActive, toggleActive }) => {
+    const { user } = useUserAuth();
 
     const navLinks = [
         {
+            title: "Home",
+            path: "/home",
+        },
+        {
             title: "Contests",
-            path: "/contests#list",
+            path: "/contests",
         },
         {
             title: "About",
             path: "/about",
         },
         {
-            title: "Updates",
-            path: "/updates",
-        },
-        {
             title: "Discord",
             path: "/discord",
         },
         {
-            title: "Docs",
-            path: "/docs",
+            title: "Leaderboard",
+            path: "/u/leaderboard",
         },
     ]
 
@@ -83,13 +85,23 @@ const MobileNav = ({ isMenuActive, toggleActive }) => {
                         className={`duration-500 absolute inset-x-0 top-full z-10 mt-px flex-col p-6 pb-24 bg-zinc-950 shadow-2xl flex transition-[opacity] ${isMenuActive ? "opacity-100" : "opacity-0 pointer-events-none z-0"
                             }`}
                     >
-                        <a
-                            target="_self"
-                            className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 rounded-full hover:bg-emerald-400 hover:text-emerald-950 disabled:bg-white/5 disabled:text-zinc-50 justify-center py-3 text-lg font-medium bg-custom-blue font-display text-zinc-950"
-                            href="/login"
-                        >
-                            <span>Login</span>
-                        </a>
+                        {user ?
+                            <a
+                                target="_self"
+                                className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 rounded-full hover:bg-emerald-400 hover:text-emerald-950 disabled:bg-white/5 disabled:text-zinc-50 justify-center py-3 text-lg font-medium bg-custom-blue font-display text-zinc-950"
+                                href="/logout"
+                            >
+                                <span>Logout</span>
+                            </a>
+                            :
+                            <a
+                                target="_self"
+                                className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 rounded-full hover:bg-emerald-400 hover:text-emerald-950 disabled:bg-white/5 disabled:text-zinc-50 justify-center py-3 text-lg font-medium bg-custom-blue font-display text-zinc-950"
+                                href="/login"
+                            >
+                                <span>Login</span>
+                            </a>
+                        }
                         <div className="flex flex-col mt-6 divide-y divide-white/5 border-y border-y-white/5">
                             {
                                 navLinks.map((navLink, index) => (
