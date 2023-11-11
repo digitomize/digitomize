@@ -2,7 +2,7 @@
 
 # Digitomize
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-26-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-31-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/125b14c1-ebbe-46d7-97db-c3e97674e36e/deploy-status)](https://app.netlify.com/sites/digitomize/deploys)
@@ -118,6 +118,13 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://francescomenghi.com"><img src="https://avatars.githubusercontent.com/u/53121061?v=4?s=100" width="100px;" alt="Francesco Menghi"/><br /><sub><b>Francesco Menghi</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=menghif" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://deeprahangdale-portfolio.vercel.app"><img src="https://avatars.githubusercontent.com/u/115669089?v=4?s=100" width="100px;" alt="Deep"/><br /><sub><b>Deep</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=DeepRahangdale" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Rushi1109"><img src="https://avatars.githubusercontent.com/u/91152294?v=4?s=100" width="100px;" alt="Rushi1109"/><br /><sub><b>Rushi1109</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Rushi1109" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/vrun1208"><img src="https://avatars.githubusercontent.com/u/58364635?v=4?s=100" width="100px;" alt="Varun Patodia"/><br /><sub><b>Varun Patodia</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=vrun1208" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://lynxsumit.vercel.app"><img src="https://avatars.githubusercontent.com/u/114245865?v=4?s=100" width="100px;" alt="Sumit Upadhyay"/><br /><sub><b>Sumit Upadhyay</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=LynxSumit" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Khagesh2409"><img src="https://avatars.githubusercontent.com/u/120746199?v=4?s=100" width="100px;" alt="Khagesh Sharma"/><br /><sub><b>Khagesh Sharma</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Khagesh2409" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/manojna191"><img src="https://avatars.githubusercontent.com/u/79504458?v=4?s=100" width="100px;" alt="Manojna Vinjamuri"/><br /><sub><b>Manojna Vinjamuri</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=manojna191" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://decaplanet.com"><img src="https://avatars.githubusercontent.com/u/126875757?v=4?s=100" width="100px;" alt="Deca"/><br /><sub><b>Deca</b></sub></a><br /><a href="#design-decaplanet" title="Design">🎨</a></td>
     </tr>
   </tbody>
 </table>

@@ -4,6 +4,14 @@ import NewNavbar from "../../components/NewNavbar";
 import { leaderboardData } from "../../../api";
 import { OpenInNew, WorkspacePremium, Info } from '@mui/icons-material';
 import { Skeleton, Stack, Typography, Tooltip, tooltipClasses, styled } from '@mui/material';
+import Pagination from '@mui/material/Pagination';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+    palette: {
+        mode: 'dark',
+    },
+});
 
 export default function Leaderboard() {
     const location = useLocation();
@@ -85,9 +93,8 @@ export default function Leaderboard() {
         fetchData();
     }, [currentPage]);
 
-
-    const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
+    const handlePageChange = (event, value) => {
+        setCurrentPage(value);
     };
 
     const getRank = (index) => {
@@ -97,7 +104,7 @@ export default function Leaderboard() {
     return (
         <>
             <NewNavbar />
-            <div className="w-4/6 mx-auto mt-4 text-center">
+            <div className="phone:w-4/6 w-11/12 mx-auto mt-4 text-center">
                 <div className="heading text-center my-4">
                     <h1>
                         Leaderboard
@@ -105,7 +112,7 @@ export default function Leaderboard() {
 
                 </div>
                 <div className="overflow-x-auto border-2 border-[#D1E5F4] rounded-xl shadow-[9px_9px_0px_#D1E5F4]">
-                    <table className="table table-pin-cols">
+                    <table className="table">
                         {/* head */}
                         <thead>
                             <tr>
@@ -212,15 +219,19 @@ export default function Leaderboard() {
                 </div>
 
 
-                <div className="join my-8 mx-auto">
+                {/* <div className="join my-8 mx-auto">
                     {Array.from({ length: totalPages }, (_, i) => (
                         <>
                             <button className={"join-item btn" + (currentPage - 1 == i ? " btn-active" : "")} onClick={() => handlePageChange(i + 1)}>{i + 1}</button>
 
-
                         </>
                     ))}
-                </div>
+                </div> */}
+                <ThemeProvider theme={theme}>
+                    <div className="pagination py-8 mx-auto w-fit">
+                        <Pagination count={totalPages} page={currentPage} onChange={handlePageChange} color="primary" className="text-white" siblingCount={0} boundaryCount={1} shape="rounded" sx={{ color: "pink" }} style={{ color: "pink" }} />
+                    </div>
+                </ThemeProvider>
             </div>
         </>
     );

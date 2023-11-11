@@ -2,6 +2,7 @@ export const BACKEND_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export const USER_ROLE = {
   USER: 1,
+  CONTRIBUTOR: 4,
   ADMIN: 5,
 };
 
