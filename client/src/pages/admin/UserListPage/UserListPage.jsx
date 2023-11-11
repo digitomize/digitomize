@@ -30,6 +30,23 @@ import AppDialog from "../../../core/components/AppModal";
 import CreateUser from "./CreateUser";
 import DeleteUser from "./DeleteUser";
 
+function formatCreatedAt(createdAtString) {
+  const createdAt = new Date(createdAtString);
+
+  const options = {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: false  // Use 24-hour format
+  };
+
+  return createdAt.toLocaleDateString('en-US', options);
+}
+
+
+
 const roleOptions = getUserRoleOptions();
 
 export default function UserListPage() {
@@ -130,72 +147,83 @@ export default function UserListPage() {
             </TableHead>
             <TableBody>
               {userList.map((user) => (
-                <StyledTableRow key={user.uid}>
-                  <StyledTableCell>
-                    <Avatar sx={{ bgcolor: deepOrange[500] }} alt={user.name} src={user.picture} />
-                  </StyledTableCell>
-                  <StyledTableCell component="th" scope="row">
-                    {user.uid}
-                  </StyledTableCell>
-                  <StyledTableCell>{user.name}</StyledTableCell>
-                  <StyledTableCell>
-                    <Link to={"/u/"+ user.username} target="_blank">
-                      <LaunchIcon/>
-                      {user.username}
-                    </Link>
-                  </StyledTableCell>
-                  <StyledTableCell>{user.email}</StyledTableCell>
-                  <StyledTableCell>
-                    <FormControl fullWidth >
-                      <Select
-                        disabled={
-                          user.uid === currentUser.uid ||
-                          disableInput === user.uid
-                        }
-                        sx={{ background: "#fff" }}
-                        size="small"
-                        defaultValue={user.role}
-                        label="Age"
-                        onChange={(event) => handleChange(event, user.uid)}
-                      >
-                        {roleOptions.map((option) => (
-                          <MenuItem className="capitalize" value={option.value}>
-                            {option.label}
-                          </MenuItem>
-                        ))}
-                      </Select>
-                    </FormControl>
-                  </StyledTableCell>
-                  <StyledTableCell>
-                    <Stack direction={"row"} columnGap={2}>
-                      <Box
-                        sx={{
-                          cursor:
-                            user.uid === currentUser.uid || disableInput === user.uid
-                              ? "not-allowed"
-                              : "pointer",
-                        }}
-                      >
-                        <DeleteForeverIcon
-                          onClick={() => {
-                            if (!(user.uid === currentUser.uid || disableInput === user.uid)) {
-                              handleOpenDel(user);
-                            }
-                          }}
-                          title="delete user"
-                          style={{
-                            opacity:
-                              user.uid === currentUser.uid || disableInput === user.uid ? 0.5 : 1,
-                            pointerEvents:
+                <>
+                  {console.log(user)}
+                  <StyledTableRow key={user.uid}>
+                    <StyledTableCell>
+                      <Avatar sx={{ bgcolor: deepOrange[500] }} alt={user.name} src={user.picture} />
+                    </StyledTableCell>
+                    <StyledTableCell component="th" scope="row">
+                      <Stack direction={"column"} columnGap={2}>
+                        <p className="text-xs">
+                          {user.uid}
+                        </p>
+                        <p className="text-xs">
+                          created: {formatCreatedAt(user.createdAt)}
+                        </p>
+
+                      </Stack>
+                    </StyledTableCell>
+                    <StyledTableCell>{user.name}</StyledTableCell>
+                    <StyledTableCell>
+                      <Link to={"/u/" + user.username} target="_blank">
+                        <LaunchIcon />
+                        {user.username}
+                      </Link>
+                    </StyledTableCell>
+                    <StyledTableCell>{user.email}</StyledTableCell>
+                    <StyledTableCell>
+                      <FormControl fullWidth >
+                        <Select
+                          disabled={
+                            user.uid === currentUser.uid ||
+                            disableInput === user.uid
+                          }
+                          sx={{ background: "#fff" }}
+                          size="small"
+                          defaultValue={user.role}
+                          label="Age"
+                          onChange={(event) => handleChange(event, user.uid)}
+                        >
+                          {roleOptions.map((option) => (
+                            <MenuItem className="capitalize" value={option.value}>
+                              {option.label}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl>
+                    </StyledTableCell>
+                    <StyledTableCell>
+                      <Stack direction={"row"} columnGap={2}>
+                        <Box
+                          sx={{
+                            cursor:
                               user.uid === currentUser.uid || disableInput === user.uid
-                                ? "none"
-                                : "auto",
+                                ? "not-allowed"
+                                : "pointer",
                           }}
-                        />
-                      </Box>
-                    </Stack>
-                  </StyledTableCell>
-                </StyledTableRow>
+                        >
+                          <DeleteForeverIcon
+                            onClick={() => {
+                              if (!(user.uid === currentUser.uid || disableInput === user.uid)) {
+                                handleOpenDel(user);
+                              }
+                            }}
+                            title="delete user"
+                            style={{
+                              opacity:
+                                user.uid === currentUser.uid || disableInput === user.uid ? 0.5 : 1,
+                              pointerEvents:
+                                user.uid === currentUser.uid || disableInput === user.uid
+                                  ? "none"
+                                  : "auto",
+                            }}
+                          />
+                        </Box>
+                      </Stack>
+                    </StyledTableCell>
+                  </StyledTableRow>
+                </>
               ))}
             </TableBody>
           </Table>
