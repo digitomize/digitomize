@@ -244,6 +244,33 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "vrun1208",
+      "name": "Varun Patodia",
+      "avatar_url": "https://avatars.githubusercontent.com/u/58364635?v=4",
+      "profile": "https://github.com/vrun1208",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "LynxSumit",
+      "name": "Sumit Upadhyay",
+      "avatar_url": "https://avatars.githubusercontent.com/u/114245865?v=4",
+      "profile": "https://lynxsumit.vercel.app",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Khagesh2409",
+      "name": "Khagesh Sharma",
+      "avatar_url": "https://avatars.githubusercontent.com/u/120746199?v=4",
+      "profile": "https://github.com/Khagesh2409",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
