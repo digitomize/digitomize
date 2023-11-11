@@ -6,7 +6,7 @@ import { error, success } from "../../core/api/response.api.js";
 const getUserList = async (req, res) => {
   try {
     const users = await User.find().select(
-      "-_id -password -createdAt -updatedAt -__v"
+      "-_id -password -updatedAt -__v"
     );
 
     res.status(200).json(users);

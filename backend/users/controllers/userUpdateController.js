@@ -130,8 +130,8 @@ const handleUpdateUserProfile = async (req, res) => {
           newImage: user.picture,
           oldUsername: userDataBeforeUpdate.username,
           newUsername: user.username,
-          oldData: JSON.stringify(userDataBeforeUpdate),
-          newData: JSON.stringify(user),
+          oldData: userDataBeforeUpdate,
+          newData: user,
         })
       }
 
