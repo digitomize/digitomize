@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getUserList, updateUserData } from "../../../core/api/user.api";
 import { getUserRoleOptions } from "../../../core/utils/options";
+import { deepOrange } from '@mui/material/colors';
 import {
+  Avatar,
   Container,
   FormControl,
   MenuItem,
@@ -117,6 +119,7 @@ export default function UserListPage() {
           <Table sx={{ minWidth: 700, overflowWrap: "anywhere" }} aria-label="customized table">
             <TableHead>
               <TableRow>
+                <StyledTableCell>Photo</StyledTableCell>
                 <StyledTableCell>ID</StyledTableCell>
                 <StyledTableCell>name</StyledTableCell>
                 <StyledTableCell>username</StyledTableCell>
@@ -128,6 +131,9 @@ export default function UserListPage() {
             <TableBody>
               {userList.map((user) => (
                 <StyledTableRow key={user.uid}>
+                  <StyledTableCell>
+                    <Avatar sx={{ bgcolor: deepOrange[500] }} alt={user.name} src={user.picture} />
+                  </StyledTableCell>
                   <StyledTableCell component="th" scope="row">
                     {user.uid}
                   </StyledTableCell>
