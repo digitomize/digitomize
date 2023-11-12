@@ -4,8 +4,8 @@
   "theme_color": "#1582ff",
   "background_color": "#000000",
   "display": "standalone",
-  "scope": "https://v2.digitomize.com/contests#allContests",
-  "start_url": "https://v2.digitomize.com/contests#allContests",
+  "scope": "https://www.digitomize.com/u/dashboard",
+  "start_url": "https://www.digitomize.com/u/dashboard",
   "icons": [
     {
       "src": "https://res.cloudinary.com/dsazw0r59/image/upload/v1697627259/logox48.png",
