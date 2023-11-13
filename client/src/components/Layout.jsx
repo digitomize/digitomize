@@ -17,31 +17,6 @@ export default function Layout() {
   return (
     <>
       <NewNavbar />
-      {/* {alertOpen && (
-        <Alert
-          onClose={handleCloseAlert}
-          severity="success"
-          sx={{
-            position: "fixed",
-            zIndex: 200,
-            marginBottom: 2,
-            marginTop: "2%",
-            right: 0,
-            bottom: 0,
-          }}
-          icon={false}
-        >
-          {"Site under construction! Report bugs on "}
-          <a
-            href="/discord"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: 'none', color: 'blue' }}
-          >
-            /discord
-          </a>.
-        </Alert>
-      )} */}
       <Outlet />
       {/* <NewFooter /> */}
       <Analytics />
