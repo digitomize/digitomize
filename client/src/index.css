@@ -10,6 +10,10 @@
 }
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: "myFont";
+  src: url("../src/assets/myFont.ttf");
+}
 
 .gradient-custom {
     background: linear-gradient(
