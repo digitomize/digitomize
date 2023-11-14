@@ -2,6 +2,7 @@ import React, { Suspense } from 'react'
 import NewNavbar from '../../../components/NewNavbar'
 import { Outlet, useLoaderData, defer, Await } from 'react-router-dom'
 import { getProfileData } from '../../../../api'
+import LoadingScreen from "../../../components/LoadingScreen"
 
 export async function loader({ params }) {
     const username = params.username;
@@ -20,7 +21,7 @@ function ProfileLayout() {
     return (
         <>
             <NewNavbar position='static' />
-            <Suspense fallback={<h1>loading.......</h1>}>
+            <Suspense fallback={<LoadingScreen logout={false} />}>
                 <Await resolve={loaderData.profileData}>
                     {(loadedProfileData) => {
                         console.log(loadedProfileData)

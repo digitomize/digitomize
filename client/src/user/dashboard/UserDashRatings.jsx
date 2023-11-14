@@ -4,7 +4,8 @@ import React, {
 } from 'react'
 
 import {
-  Form
+  Form,
+  Link
 } from 'react-router-dom'
 
 import Checkbox from '../components/Checkbox'
@@ -16,12 +17,16 @@ import { Skeleton } from "@mui/material"
 import NewNavbar from "../../components/NewNavbar"
 import DashboardNavbar from "../components/DashboardNavbar"
 import NewFooter from "../../components/NewFooter";
+import LoadingScreen from "../../components/LoadingScreen";
+
 
 import leetcode from "../../assets/leetcode.svg";
 import codechef from "../../assets/codechef.svg";
 import codeforces from "../../assets/codeforces.svg";
 import geeksforgeeks from "../../assets/geeksforgeeks.svg";
 import codingninjas from "../../assets/codingninjas.png";
+
+
 
 
 const platformsIcon = [
@@ -118,14 +123,9 @@ export default function UserDashRatings() {
 
   if (loading) {
     return (
-      <div className="m-auto flex flex-col items-cente r w-4/5 my-12">
-        <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
-        <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
-        <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
-        <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
-        <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
-        <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
-      </div>
+      <>
+        <LoadingScreen/>
+      </>
     );
   }
 
