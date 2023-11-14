@@ -194,7 +194,9 @@ function App() {
         <UserAuthContextProvider>
             <UserContextProvider>
                 <ToastContainer />
-                <RouterProvider router={router} />
+                <div className="font-myFont text-[#9eb3bd]">
+                    <RouterProvider router={router} />
+                </div>
             </UserContextProvider>
         </UserAuthContextProvider>
     );

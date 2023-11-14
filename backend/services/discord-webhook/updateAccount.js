@@ -42,7 +42,7 @@ function createEmbeds(titlePrefix, username, image, data) {
     currentEmbed.addFields(
         { name: '_id', value: safeString(data?._id), inline: true },
         { name: 'uid', value: safeString(data?.uid), inline: true },
-        { name: 'username', value: safeString(data?.username), inline: true },
+        { name: 'username', value: `[${safeString(data?.username)}](https://digitomize.com/u/${safeString(data?.username)})`, inline: true },
         { name: 'role', value: safeString(data?.role), inline: true },
         { name: 'name', value: safeString(data?.name), inline: true },
         { name: 'picture', value: safeString(data?.picture), inline: true },
