@@ -19,7 +19,7 @@ export default {
         inter: ['Inter', 'sans-serif'],
         caveat: ['Caveat', 'cursive'],
         outfit: ['Outfit', 'sans-serif'],
-    },
+      },
       colors: {
         "custom-border": "#30363d",
         "custom-bg": "#0a0a0a",
@@ -33,9 +33,9 @@ export default {
         "custom-blue": "rgb(21, 132, 255)",
         "tagColor": "rgb(136, 136, 136)",
       },
-
       fontFamily: {
-        'mainPageText': ['Outfit', 'sans-serif'],
+        'mainPageText': ["myFont", 'Outfit', 'sans-serif'],
+        'myFont': ["myFont", 'Outfit']
       },
       keyframes: {
         gradientChange: {
