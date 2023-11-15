@@ -99,6 +99,7 @@ const handleUserProfilePreview = async (req, res) => {
         dateOfBirth: user.dateOfBirth.showOnWebsite ? user.dateOfBirth.data : null,
         phoneNumber: user.phoneNumber.showOnWebsite ? user.phoneNumber.data : null,
         role: user.role || ROLE.USER,
+        skills: user.skills || null,
       },
       github: {
         data: user.github.showOnWebsite ? user.github.data : null
