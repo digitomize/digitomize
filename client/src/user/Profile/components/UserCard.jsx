@@ -2,13 +2,13 @@ import { useState } from 'react'
 import logo from '../../../assets/logo.png'
 import { AiFillGithub } from 'react-icons/ai'
 
-function UserCard({ username, name, picture, bio, phoneNumber, role }) {
+function UserCard({ username, name, picture, bio, phoneNumber, role, skills = [] }) {
     const [showMore, setShowMore] = useState(false);
     const toggleBio = () => {
         setShowMore(!showMore);
     };
 
-    const truncatedBio = showMore ? bio : bio?.slice(0, 219);
+    const truncatedBio = showMore ? bio : bio?.slice(0, 150);
     return (
         <div className={`rounded-xl  flex flex-col  h-fit p-6 w-full`}>
             <div className='flex w-full justify-center'>
@@ -29,14 +29,22 @@ function UserCard({ username, name, picture, bio, phoneNumber, role }) {
                             admin
                         </div>}
                     </div>
+                    <div className="skills text-center pt-2">
+                        {skills.map((skill, index) => (
+                            <div key={index} className="badge bg-custom-blue text-black mx-1">
+                                {skill}
+                            </div>
+                        ))}
+                    </div>
+
                 </div>
                 <div>
                     <p>
                         {truncatedBio}
 
-                        {bio?.length > 219 && (
+                        {bio?.length > 150 && (
                             <button onClick={toggleBio} className="text-blue-500 hover:underline">
-                                {showMore ? 'Show less' : 'Show more'}
+                                {showMore ? '...show less' : '...show more'}
                             </button>
                         )}
                     </p>

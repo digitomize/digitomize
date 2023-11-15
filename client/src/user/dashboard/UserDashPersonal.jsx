@@ -76,9 +76,9 @@ export default function UserDashPersonal() {
   useEffect(() => {
     // This code will run after setSkillData has completed
 
-    if (skillData.length > 10) {
+    if (skillData.length > 5) {
 
-      toast.error("You cannot add more skills", {
+      toast.error("You cannot add more than 5 skills", {
         position: "top-left",
         autoClose: 1500,
         hideProgressBar: false,
@@ -405,11 +405,11 @@ export default function UserDashPersonal() {
                         name="skills"
                         id="skills" className="input input-bordered  w-full max-w-lg" placeholder=""
                         value={newSkill}
+                        maxLength={10}
                         onChange={(e) => setNewSkill(e.target.value)} />
                       <Form onSubmit={handleAdd}>
                         <button ref={btnRef}
                           type="submit"
-
                           className="text-black bg-white font-medium rounded-lg text-sm md:text-lg sm:w-auto px-5 py-1.5 text-center "
                         >
                           Add
