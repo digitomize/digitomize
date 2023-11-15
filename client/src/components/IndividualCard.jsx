@@ -120,7 +120,7 @@ function IndividualCard() {
       {!user &&
         <div className="mx-auto w-fit mt-4 px-4">
           <Alert severity="info" className="w-fit">
-            <Link to="/signup">
+            <Link to="/signup?utm_source=contests">
               <AlertTitle>
                 <strong>Don't Miss Out on Ratings!</strong> -
                 <span> Join in<OpenInNew fontSize="small" />
