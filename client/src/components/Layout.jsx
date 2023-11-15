@@ -7,13 +7,6 @@ import { Analytics } from '@vercel/analytics/react';
 import { Outlet } from "react-router-dom";
 
 export default function Layout() {
-  const [alertOpen, setAlertOpen] = useState(true);
-
-  const handleCloseAlert = () => {
-
-    setAlertOpen(false);
-  };
-
   return (
     <>
       <NewNavbar />

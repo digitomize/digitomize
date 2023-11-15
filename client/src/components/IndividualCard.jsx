@@ -2,11 +2,11 @@ import { useState, useEffect, memo } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Link, useParams } from 'react-router-dom';
 // import {HomeIcon, WhatshotIcon, GrainIcon} from '@mui/icons-material';
-import { Home as HomeIcon, Whatshot as WhatshotIcon, Grain as GrainIcon } from "@mui/icons-material";
+import { Home as HomeIcon, Whatshot as WhatshotIcon, Grain as GrainIcon, OpenInNew } from "@mui/icons-material";
 import { NewFooter } from "./CustomComponents";
 import { Helmet } from "react-helmet";
 import './css/IndividualCard.css'
-
+import { Alert, AlertTitle } from "@mui/material";
 import geeksforgeeks from '../assets/geeksforgeeks.svg'
 import leetcode from '../assets/leetcode.svg'
 import codingninjas from "../assets/codingninjas.png";
@@ -14,10 +14,12 @@ import codechef from '../assets/codechef.svg'
 import codeforces from '../assets/codeforces.svg'
 import atcoder from '../assets/atcoder.svg'
 import CopyToClipboard from './CopyToClipboard';
+import { useUserAuth } from "../context/UserAuthContext";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 function IndividualCard() {
+  const { user } = useUserAuth();
   const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   const hostToSVGMap = {
     leetcode: leetcode,
@@ -27,6 +29,12 @@ function IndividualCard() {
     codechef: codechef,
     atcoder: atcoder,
     // Add other hosts and their corresponding SVG variables here
+  };
+  const [alertOpen, setAlertOpen] = useState(true);
+
+  const handleCloseAlert = () => {
+
+    setAlertOpen(false);
   };
 
   const params = useParams()
@@ -109,6 +117,20 @@ function IndividualCard() {
         <meta property="og:description" content={contentDescription} />
         <meta name="description" content={contentDescription} />
       </Helmet>
+      {!user &&
+        <div className="mx-auto w-fit mt-4 px-4">
+          <Alert severity="info" className="w-fit">
+            <Link to="/signup?utm_source=contests">
+              <AlertTitle>
+                <strong>Don't Miss Out on Ratings!</strong> -
+                <span> Join in<OpenInNew fontSize="small" />
+                </span>
+              </AlertTitle>
+              Add your <strong>username</strong>, see all your ratings <strong>instantly</strong> at one place!
+            </Link>
+          </Alert>
+        </div>
+      }
       {isMobile ?
         (
           <>
