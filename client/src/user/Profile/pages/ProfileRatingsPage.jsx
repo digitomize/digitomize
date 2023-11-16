@@ -39,7 +39,7 @@ function ProfileRatingsPage() {
       navigate(platformWithRating.link);
     } else {
       // Default navigation if no platform has a rating
-      navigate('/u/dashboard/ratings');
+      navigate('leetcode');
     }
   }, [contestLinks, navigate]);
 
