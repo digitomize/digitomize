@@ -10,7 +10,7 @@ function UserCard({ username, name, picture, bio, phoneNumber, role, skills = []
 
     const truncatedBio = showMore ? bio : bio?.slice(0, 150);
     return (
-        <div className={`rounded-xl  flex flex-col  h-fit p-6 w-full`}>
+        <div className="rounded-2xl bg-eerie-black-2  shadow-md flex flex-col h-fit p-12 border border-jet w-full">
             <div className='flex w-full justify-center'>
                 <img src={picture} alt="" className='rounded-full  w-[90px]' />
             </div>

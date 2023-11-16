@@ -49,7 +49,7 @@ function PlatformRatings() {
     const pageTitle = `${platform} | ${data.personal_data.name}`;
     const contentDescription = platformData.rating ? `${platformData.badge} with ${platformData.rating} rating | @${platformData.username}` : `Check out ${data.personal_data.name}'s ratings`;
     // Check if platformData is available before rendering
-    if (platformData) {
+    if (platformData.rating !== null) {
         return (
             <>
                 <Helmet>
@@ -59,7 +59,7 @@ function PlatformRatings() {
                     <meta name="description" content={contentDescription} />
                 </Helmet>
                 {/* <EmojiEventsIcon sx={{ fontSize: 100 }} /> */}
-                <div className="m-auto text-center items-center flex flex-col my-12 w-11/12">
+                <div className="mx-auto text-center items-center flex flex-col my-12 w-full pb-12">
                     {/* <div className="card flex flex-row">
                         <div className="upper flex flex-row">
                             <img src={contestLinks[platform].img} style={{ maxHeight: '35px', maxWidth: '35px' }} />
@@ -68,11 +68,11 @@ function PlatformRatings() {
 
                         </div>
                     </div> */}
-                    <div className="border-[#D1E5F4] border-2 rounded-xl shadow-[8px_8px_0px_#D1E5F4] card max-phone:w-11/12 bg-base-300 items-center">
-                        <figure className="w-40 h-40">
-                            <img className="w-full" src={contestLinks[platform].img} alt="platform icon" />
+                    <div className="relative border border-jet bg-gradient-to-br from-color-1 from-0% via-color-2 via-100% to-color-3 rounded-3xl shadow-shadowBlack cursor-pointer z-1 w-2/4 max-phone:w-3/4">
+                        <figure className="w-full flex justify-center rounded-3xl">
+                            <img className="w-16 h-16" src={contestLinks[platform].img} alt="platform icon" />
                         </figure>
-                        <div className="card-body bg-base-100 text-center items-center w-full">
+                        <div className="card-body p-4 text-center items-center w-full">
                             <h2 className="card-title text-center my-3">
                                 @{platformData?.username || "user not found"}
                                 <div>
@@ -82,26 +82,28 @@ function PlatformRatings() {
                                 </div>
                             </h2>
                             <div className="info flex flex-row w-full justify-around my-3">
-                                <div className="flex flex-col">
-                                    <h3>{platformData?.rating || "null"}</h3>
-                                    <div className="badge badge-outline my-2">Rating</div>
+                                <div className="flex flex-col ">
+                                    <h3 className="text-xl">{platformData?.rating || "null"}</h3>
+                                    <div className="badge badge-outline text-[#f6c43d] my-2">Rating</div>
                                 </div>
                                 <div className="flex flex-col">
-                                    <h3>{platformData?.badge || "null"}</h3>
-                                    <div className="badge badge-outline my-2">badge</div>
+                                    <h3 className="text-xl">{platformData?.badge || "null"}</h3>
+                                    <div className="badge text-[#1789ca] badge-outline my-2">badge</div>
                                 </div>
                                 <div className="flex flex-col">
-                                    <h3>{platformData?.attendedContestsCount || "null"}</h3>
-                                    <div className="badge badge-outline my-2">contests</div>
+                                    <h3 className="text-xl">{platformData?.attendedContestsCount || "null"}</h3>
+                                    <div className="badge badge-outline text-[#da2828] my-2">contests</div>
                                 </div>
 
                             </div>
                             <div className="buttons">
-                                <button className="btn btn-outline btn-success">Share</button>
+                                <button className="btn btn-outline btn-accent">Share</button>
                             </div>
                         </div>
-                        <div className="fetch-time flex w-full justify-end p-2">
-                            Last fetched: {startTimeIST}
+                        <div className="fetch-time flex w-full justify-center p-2">
+                            <p className="text-sm">
+                                Last fetched: {startTimeIST}
+                            </p>
                         </div>
                     </div>
                 </div>
