@@ -59,7 +59,7 @@ function PlatformRatings() {
                     <meta name="description" content={contentDescription} />
                 </Helmet>
                 {/* <EmojiEventsIcon sx={{ fontSize: 100 }} /> */}
-                <div className="mx-auto text-center items-center flex flex-col my-12 w-full pb-12">
+                <div className="mx-auto text-center items-center flex flex-col my-12 w-full pb-12 h-full">
                     {/* <div className="card flex flex-row">
                         <div className="upper flex flex-row">
                             <img src={contestLinks[platform].img} style={{ maxHeight: '35px', maxWidth: '35px' }} />
@@ -68,18 +68,16 @@ function PlatformRatings() {
 
                         </div>
                     </div> */}
-                    <div className="relative border border-jet bg-gradient-to-br from-color-1 from-0% via-color-2 via-100% to-color-3 rounded-3xl shadow-shadowBlack cursor-pointer z-1 w-2/4 max-phone:w-3/4">
+                    <div className="border border-jet bg-gradient-to-br from-color-1 from-0% via-color-2 via-100% to-color-3 rounded-3xl shadow-shadowBlack z-1 w-2/4 max-phone:w-3/4 py-4">
                         <figure className="w-full flex justify-center rounded-3xl">
                             <img className="w-16 h-16" src={contestLinks[platform].img} alt="platform icon" />
                         </figure>
                         <div className="card-body p-4 text-center items-center w-full">
-                            <h2 className="card-title text-center my-3">
+                            <h2 className="card-title text-center my-3 cursor-pointer">
                                 @{platformData?.username || "user not found"}
-                                <div>
-                                    <a href={platformData?.username ? contestLinks[platform].profileUrl + platformData.username : "#"} target={platformData?.username ? "_blank" : ""} rel="noopener noreferrer">
-                                        <OpenInNew />
-                                    </a>
-                                </div>
+                                <a href={platformData?.username ? contestLinks[platform].profileUrl + platformData.username : "#"} target={platformData?.username ? "_blank" : ""} rel="noopener noreferrer">
+                                    <OpenInNew />
+                                </a>
                             </h2>
                             <div className="info flex flex-row w-full justify-around my-3">
                                 <div className="flex flex-col ">
@@ -111,7 +109,7 @@ function PlatformRatings() {
         );
     } else {
         return (
-            <div>
+            <div className="mx-auto text-center items-center flex flex-col my-12 w-full h-full pb-12">
                 <p>No data available for the selected platform: {platform}</p>
             </div>
         );

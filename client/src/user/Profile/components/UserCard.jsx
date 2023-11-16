@@ -1,8 +1,13 @@
 import { useState } from 'react'
 import logo from '../../../assets/logo.png'
-import { AiFillGithub } from 'react-icons/ai'
+import { AiFillGithub, AiOutlineFastBackward } from 'react-icons/ai'
+import { useLocation } from 'react-router-dom';
+
 
 function UserCard({ username, name, picture, bio, phoneNumber, role, skills = [] }) {
+    const location = useLocation();
+    const isUserProfile = location.pathname === `/u/${username}`;
+
     const [showMore, setShowMore] = useState(false);
     const toggleBio = () => {
         setShowMore(!showMore);
@@ -54,6 +59,14 @@ function UserCard({ username, name, picture, bio, phoneNumber, role, skills = []
                 </div> */}
 
             </div>
+            {isUserProfile ? null : (
+                <div className="flex w-full justify-center">
+                    <button className="bg-blue-500 flex gap-1 items-center justify-center text-white px-4 py-2 rounded-full mt-4">
+                        <AiOutlineFastBackward />
+                        Go back
+                    </button>
+                </div>
+            )}
         </div>
     )
 }
