@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import WarningIcon from '@mui/icons-material/Warning';
 
 function NewUserProfile() {
     const { personal_data } = useOutletContext();
@@ -82,8 +83,12 @@ function NewUserProfile() {
                                     </div>
                                     :
                                     <div className="w-full bg-white text-black rounded-md">
-                                        <div className="w-9/12 mx-auto">
+                                        <div className="w-9/12 mx-auto text-center">
+                                            <Typography variant="h4">
+
+                                            <WarningIcon  fontSize="large"/>
                                             no resume found
+                                            </Typography>
                                         </div>
                                     </div>
                                 }
