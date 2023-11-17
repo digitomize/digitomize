@@ -77,33 +77,34 @@ export default function Leaderboard() {
     };
 
     // useEffect(() => {
-        async function fetchData() {
-            try{
-                const userData = await rankOnLeaderboard(userDetails?.personal_data?.username);
-                setCurrentUserData(userData?.data);
-                console.log(currentUserData);
-            } catch (err) {
-                console.log(err);
-            }
+    async function fetchLoggedUserData() {
+        try {
+            const userData = await rankOnLeaderboard(userDetails?.personal_data?.username);
+            setCurrentUserData(userData?.data);
+            console.log(currentUserData);
+        } catch (err) {
+            console.log(err);
         }
-        fetchData();
+    }
+    // fetchLoggedUserData();
     // }, [userDetails]);
 
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                console.log(currentPage);
-                setLoading(true);
-                const res = await leaderboardData(currentPage);
-                setTotalPages(res.data.total_pages);
-                setData(res.data.leaderboard);
-            } catch (err) {
-                console.log(err);
-            } finally {
-                setLoading(false);
-            }
+    async function fetchLbData() {
+        try {
+            console.log(currentPage);
+            setLoading(true);
+            const res = await leaderboardData(currentPage);
+            setTotalPages(res.data.total_pages);
+            setData(res.data.leaderboard);
+        } catch (err) {
+            console.log(err);
+        } finally {
+            setLoading(false);
         }
-        fetchData();
+    }
+    useEffect(() => {
+        fetchLoggedUserData();
+        fetchLbData();
     }, [currentPage]);
 
     const handlePageChange = (event, value) => {
@@ -209,7 +210,7 @@ export default function Leaderboard() {
                                                 {/* <td>{row.platform_rating}</td> */}
                                             </tr>
                                         ))}
-                                    { currentUserData && userDetails &&
+                                    {currentUserData && userDetails &&
                                         <tr key={currentUserData.user_position} className="bg-[#252525]">
                                             <td>
                                                 {currentUserData.user_position || "Not ranked"}
