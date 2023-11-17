@@ -51,6 +51,9 @@ const userSchema = new mongoose.Schema(
     picture: {
       type: String,
     },
+    resume: {
+      type: String,
+    },
     email_verified: {
       type: Boolean,
       required: true,
