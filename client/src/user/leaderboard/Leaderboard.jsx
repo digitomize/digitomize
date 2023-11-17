@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import NewNavbar from "../../components/NewNavbar";
 import { leaderboardData, rankOnLeaderboard } from "../../../api";
 import { OpenInNew, WorkspacePremium, Info } from '@mui/icons-material';
@@ -187,19 +187,19 @@ export default function Leaderboard() {
                                                 <td>
                                                     <div className="flex items-center space-x-3">
                                                         <div className="avatar">
-                                                            <a href={"/u/" + row.username} target="_blank">
+                                                            <Link to={"/u/" + row.username}>
                                                                 <div className="mask mask-squircle w-12 h-12 ring ring-primary ring-offset-base-100 ring-offset-2">
                                                                     {/* You can set the image source dynamically */}
                                                                     <img className="mask mask-hexagon" src={row.picture} alt="Avatar Tailwind CSS Component" />
                                                                 </div>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                         <div>
-                                                            <a href={"/u/" + row.username} target="_blank">
+                                                            <Link to={"/u/" + row.username} >
                                                                 <div className="font-bold">{row.name} <OpenInNew fontSize="small" /> </div>
                                                                 <div className="text-sm opacity-50">@{row.username}</div>
                                                                 {/* You can display more userDetails details here if needed */}
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -218,19 +218,19 @@ export default function Leaderboard() {
                                             <td>
                                                 <div className="flex items-center space-x-3">
                                                     <div className="avatar">
-                                                        <a href={"/u/" + userDetails.username} target="_blank">
+                                                        <Link to={"/u/" + userDetails.username} target="_blank">
                                                             <div className="mask mask-squircle w-12 h-12 ring ring-primary ring-offset-base-100 ring-offset-2">
                                                                 {/* You can set the image source dynamically */}
                                                                 <img className="mask mask-hexagon" src={userDetails.personal_data.picture} alt="Avatar Tailwind CSS Component" />
                                                             </div>
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                     <div>
-                                                        <a href={"/u/" + userDetails.personal_data.username} target="_blank">
+                                                        <Link to={"/u/" + userDetails.personal_data.username} >
                                                             <div className="font-bold">{userDetails.personal_data.name}{"(YOU)"} <OpenInNew fontSize="small" /> </div>
                                                             <div className="text-sm opacity-50">@{userDetails.personal_data.username}</div>
                                                             {/* You can display more userDetails details here if needed */}
-                                                        </a>
+                                                        </Link>
                                                     </div>
                                                 </div>
                                             </td>
