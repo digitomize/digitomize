@@ -1,4 +1,5 @@
-import { useOutletContext, useParams } from "react-router-dom";
+import { useState } from "react";
+import { useOutletContext, useParams, useLocation } from "react-router-dom";
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import leetcode from '../../../assets/leetcode.svg'
 // import codingninjas from "../../../assets/codingninjas.png";
@@ -6,11 +7,26 @@ import codechef from '../../../assets/codechef.svg'
 import codeforces from '../../../assets/codeforces.svg'
 import { OpenInNew } from '@mui/icons-material';
 import { Helmet } from "react-helmet";
+import ShareModel from "../../../components/share_model.jsx";
 
+const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 function PlatformRatings() {
     const data = useOutletContext();
     const { platform } = useParams();
-    console.log(platform);
+    // console.log(platform);
+    const location = useLocation();
+    const [show, setShow] = useState(false);
+    const close_model = () => setShow(false);
+
+    const main_model = (
+        <ShareModel
+            close_model={close_model}
+            contestLink={`${frontendUrl}${location.pathname}`}
+            //theme={colorTheme}
+            theme=''
+        />
+    )
+
     const contestLinks = {
         codeforces: {
             name: 'Codeforces',
@@ -95,7 +111,10 @@ function PlatformRatings() {
 
                             </div>
                             <div className="buttons">
-                                <button className="btn btn-outline btn-accent">Share</button>
+                                <button className="btn btn-outline btn-accent" onClick={() => setShow(true)}>
+                                    Share
+                                </button>
+                                {show && main_model}
                             </div>
                         </div>
                         <div className="fetch-time flex w-full justify-center p-2">
