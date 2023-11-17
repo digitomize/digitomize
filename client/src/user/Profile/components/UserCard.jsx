@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import logo from '../../../assets/logo.png'
-import { AiFillGithub, AiOutlineFastBackward } from 'react-icons/ai'
+import {  AiOutlineFastBackward } from 'react-icons/ai'
 import { useLocation } from 'react-router-dom';
 
 
@@ -22,7 +21,7 @@ function UserCard({ username, name, picture, bio, phoneNumber, role, skills = []
 
             <div className='flex flex-col items-center gap-[8px] p-0'>
                 <div>
-                    <h1 className='normal-case text-center'>
+                    <h1 className='normal-case text-center text-[#F0FFF0]'>
                         {name}
                     </h1>
                     <div className="badges text-center">
