@@ -106,6 +106,7 @@ export default function Leaderboard() {
     }
     useEffect(() => {
         fetchLbData();
+        fetchLoggedUserData();
     }, [currentPage]);
 
     const handlePageChange = (event, value) => {
