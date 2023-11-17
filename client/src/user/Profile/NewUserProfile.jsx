@@ -7,16 +7,48 @@ import { TbWorld } from 'react-icons/tb';
 import { ImProfile } from 'react-icons/im';
 import { BsFillArrowUpRightCircleFill, BsGraphUpArrow } from 'react-icons/bs';
 import { Helmet } from "react-helmet";
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '70%',
+    bgcolor: 'rgba(128, 128, 128, 0.7)',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+};
 
 function NewUserProfile() {
     const { personal_data } = useOutletContext();
     const contentDescription = `${personal_data?.bio?.length > 30
         ? personal_data.bio.substring(0, 30) + "..."
-        : personal_data.bio}`;      
+        : personal_data.bio}`;
     const pageTitle = `${personal_data.name} | digitomize`;
     console.log(personal_data)
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+    const resumeEmbedUrl = "https://drive.google.com/uc?id={resume_id}";
     return (
         <>
+            <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+                <Box sx={style}>
+                    <button onClick={handleClose} style={{ position: 'absolute', top: '5%', right: '5%', background: 'none', border: 'none', cursor: 'pointer' }}>
+                        Close
+                    </button>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                        {personal_data.name}'s resume
+                    </Typography>
+                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                        <iframe src={resumeEmbedUrl} title="Resume" width="100%" height="600px" allowFullScreen></iframe>
+                    </Typography>
+                </Box>
+            </Modal>
             <Helmet>
                 <title>{personal_data.name} | digitomize</title>
                 <meta property="og:title" content={pageTitle} />
@@ -33,25 +65,21 @@ function NewUserProfile() {
                 <div className="flex flex-col w-full md:w-1/2 px-4 pt-4 md:pt-0">
                     {/* First Row */}
                     <div className="flex flex-col md:flex-row pb-2 px-2 gap-6">
-                        <Link to='resume' className="w-full md:w-1/2 ">
-
-                            <div className="border-[#d1e5f47d] border-2 transition ease-in-out delay-150 motion-reduce:transition-none motion-reduce:hover:transform-none shadow-2xl rounded-3xl bg-[#FF526A]  hover:scale-[1.02] w-full h-[250px] p-8">
-                                <div className='w-full h-full flex items-end'>
-                                    <div className='w-full'>
-                                        <ImProfile size='20%' />
-                                        {/* <p className='uppercase tracking-tighter text-sm text-black pb-4'> Learn more about me</p> */}
-                                        <div className='flex justify-between items-center w-full'>
-
-                                            <p className='text-4xl tracking-tight text-black font-medium'>See my
-                                                resume</p>
-                                            <BsFillArrowUpRightCircleFill className='phone:w-1/6 phone:h-1/6 ml-2 w-2/4 h-2/4' />
-                                        </div>
+                        <div onClick={handleOpen} className="border-[#d1e5f47d] border-2 transition ease-in-out delay-150 motion-reduce:transition-none motion-reduce:hover:transform-none shadow-2xl rounded-3xl bg-[#FF526A]  hover:scale-[1.02] w-full h-[250px] p-8">
+                            <div className='w-full h-full flex items-end'>
+                                <div className='w-full'>
+                                    <ImProfile size='20%' />
+                                    {/* <p className='uppercase tracking-tighter text-sm text-black pb-4'> Learn more about me</p> */}
+                                    <div className='flex justify-between items-center w-full'>
+                                        <p className='text-4xl tracking-tight text-black font-medium'>See my resume</p>
+                                        <BsFillArrowUpRightCircleFill className='phone:w-1/6 phone:h-1/6 ml-2 w-2/4 h-2/4' />
                                     </div>
                                 </div>
                             </div>
-                        </Link>
+                        </div>
+
                         <div className="w-full md:w-1/2 ">
-                            <div className="border-[#d1e5f47d] border-2 border-2 rounded-3xl bg-cardsColor w-full h-[250px] p-6">
+                            <div className="border-[#d1e5f47d] border-2 rounded-3xl bg-cardsColor w-full h-[250px] p-6">
                                 <h2 className='text-xl'>Socials</h2>
                                 <div className="icons flex flex-col h-full">
                                     <div className="row1 flex flex-row h-2/5 justify-around items-center">
