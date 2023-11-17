@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import {  AiOutlineFastBackward } from 'react-icons/ai'
+import { AiOutlineFastBackward, AiOutlineShareAlt } from 'react-icons/ai'
 import { useLocation } from 'react-router-dom';
-
+import ShareModel from "../../../components/share_model";
+const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 
 function UserCard({ username, name, picture, bio, phoneNumber, role, skills = [] }) {
     const location = useLocation();
@@ -11,6 +12,17 @@ function UserCard({ username, name, picture, bio, phoneNumber, role, skills = []
     const toggleBio = () => {
         setShowMore(!showMore);
     };
+    const [show, setShow] = useState(false);
+    const close_model = () => setShow(false);
+
+    const main_model = (
+        <ShareModel
+            close_model={close_model}
+            contestLink={`${frontendUrl}/u/${username}`}
+            //theme={colorTheme}
+            theme=''
+        />
+    )
 
     const truncatedBio = showMore ? bio : bio?.slice(0, 150);
     return (
@@ -58,14 +70,28 @@ function UserCard({ username, name, picture, bio, phoneNumber, role, skills = []
                 </div> */}
 
             </div>
-            {isUserProfile ? null : (
-                <div className="flex w-full justify-center">
-                    <button className="bg-blue-500 flex gap-1 items-center justify-center text-white px-4 py-2 rounded-full mt-4">
-                        <AiOutlineFastBackward />
-                        Go back
-                    </button>
-                </div>
-            )}
+
+            <div className="flex w-full justify-center">
+                <button className="bg-blue-500 flex gap-1 items-center justify-center text-white px-4 py-2 rounded-full mt-4" onClick={() => setShow(isUserProfile)}>
+                    {isUserProfile ? 
+                        (
+                            <>
+                                <AiOutlineShareAlt />
+                                Share
+                            </>
+                        
+                        )
+                     :
+                        (
+                        <>
+                            < AiOutlineFastBackward />
+                            Go back
+                        </>
+                    )}
+                </button>
+            </div>
+            {show && main_model}
+
         </div>
     )
 }
