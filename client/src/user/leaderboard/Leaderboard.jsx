@@ -246,7 +246,7 @@ export default function Leaderboard() {
                         <tfoot>
                             <tr>
                                 <th>#</th>
-                                <th>userDetails</th>
+                                <th>User</th>
                                 <th>CodeChef</th>
                                 <th>LeetCode</th>
                                 <th>CodeForces</th>
