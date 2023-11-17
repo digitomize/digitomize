@@ -11,18 +11,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '70%',
-    bgcolor: 'rgba(128, 128, 128, 0.7)',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-};
-
 function NewUserProfile() {
     const { personal_data } = useOutletContext();
     const contentDescription = `${personal_data?.bio?.length > 30
