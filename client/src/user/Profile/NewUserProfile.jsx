@@ -33,22 +33,20 @@ function NewUserProfile() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    const resumeEmbedUrl = "https://drive.google.com/uc?id={resume_id}";
+    const getDriveFileId = (link) => {
+        const fileIdMatch = link.match(/\/d\/(.+?)\//);
+        return fileIdMatch ? fileIdMatch[1] : null;
+    };
+    const generateEmbedUrl = () => {
+        const fileId = getDriveFileId(personal_data.resume);
+        if (fileId) {
+            return `https://drive.google.com/uc?id=${fileId}`;
+        }
+        return null;
+    };
+    const resumeEmbedUrl = generateEmbedUrl();
     return (
         <>
-            <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-                <Box sx={style}>
-                    <button onClick={handleClose} style={{ position: 'absolute', top: '5%', right: '5%', background: 'none', border: 'none', cursor: 'pointer' }}>
-                        Close
-                    </button>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        {personal_data.name}'s resume
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        <iframe src={resumeEmbedUrl} title="Resume" width="100%" height="600px" allowFullScreen></iframe>
-                    </Typography>
-                </Box>
-            </Modal>
             <Helmet>
                 <title>{personal_data.name} | digitomize</title>
                 <meta property="og:title" content={pageTitle} />
@@ -77,6 +75,20 @@ function NewUserProfile() {
                                 </div>
                             </div>
                         </div>
+
+                        <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+                            <Box sx={style}>
+                                <button onClick={handleClose} style={{ position: 'absolute', top: '5%', right: '5%', background: 'none', border: 'none', cursor: 'pointer' }}>
+                                    Close
+                                </button>
+                                <Typography id="modal-modal-title" variant="h6" component="h2">
+                                    {personal_data.name}'s resume
+                                </Typography>
+                                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                                    <iframe src={resumeEmbedUrl} title="Resume" width="100%" height="600px" allowFullScreen></iframe>
+                                </Typography>
+                            </Box>
+                        </Modal>
 
                         <div className="w-full md:w-1/2 ">
                             <div className="border-[#d1e5f47d] border-2 rounded-3xl bg-cardsColor w-full h-[250px] p-6">
