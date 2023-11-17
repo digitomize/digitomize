@@ -92,6 +92,7 @@ const handleUserProfilePreview = async (req, res) => {
         username: user.username,
         name: user.name,
         picture: user.picture,
+        resume: user.resume,
         email_verified: user.email_verified,
         email: user.email_show ? user.email : null,
         // email_show: user.email_show,

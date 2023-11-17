@@ -21,7 +21,7 @@ function createDefaultContestObject(platformData) {
 const setUser = async (userData) => {
     console.log(userData);
     try {
-        const { uid, name, picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces } = userData;
+        const { uid, name, picture, resume, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces } = userData;
         
         let { username } = userData;
         const emailParts = email.split('@');
@@ -39,6 +39,7 @@ const setUser = async (userData) => {
             username: checkForDuplicateUsername ? uid : username || uid,     // if username already used, use uid as username.
             name: name || "Digitomize User",
             picture: picture || "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png",
+            resume,
             email,
             email_verified,
             email_show: email_show || undefined,
