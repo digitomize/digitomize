@@ -79,15 +79,11 @@ export default function Leaderboard() {
     useEffect(() => {
         async function fetchData() {
             try{
-            console.log("HMMMMMEMRMEM", userDetails.personal_data.username)
-                const userData = await rankOnLeaderboard(userDetails.personal_data.username);
-                console.log(userData);
-                setCurrentUserData(userData.data);
+                const userData = await rankOnLeaderboard(userDetails?.personal_data?.username);
+                setCurrentUserData(userData?.data);
                 console.log(currentUserData);
             } catch (err) {
                 console.log(err);
-            } finally {
-                setLoading(false);
             }
         }
         fetchData();
