@@ -124,7 +124,7 @@ export default function UserDashRatings() {
   if (loading) {
     return (
       <>
-        <LoadingScreen/>
+        <LoadingScreen />
       </>
     );
   }
@@ -203,10 +203,13 @@ export default function UserDashRatings() {
 
           <ul className="menu menu-xs bg-base-200 rounded-lg w-fit mx-auto my-auto md:scale-150">
 
-            <li><a>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
-              account.js
-            </a></li>
+            <li>
+              <Link to={"/u/dashboard/account"}>
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+                account.js
+              </Link>
+            </li>
 
             <li>
               <ul>
@@ -251,7 +254,7 @@ export default function UserDashRatings() {
                       <li>
                         <a>
                           <div className="join">
-                            <a href="https://codeforces.com/profile" target="_blank">
+                            <a href="https://www.codechef.com/dashboard" target="_blank">
                               <div className="w-8 h-6 input-bordered join-item bg-cardsHover">
                                 <img src={platformsIcon[3]} className="inpt-xs w-full h-full" />
                               </div>
@@ -276,7 +279,7 @@ export default function UserDashRatings() {
                       <li>
                         <a>
                           <div className="join">
-                            <a href="https://codeforces.com/profile" target="_blank">
+                            <a href="https://leetcode.com/" target="_blank">
                               <div className="w-8 h-6 input-bordered join-item bg-cardsHover">
                                 <img src={platformsIcon[0]} className="inpt-xs w-full h-full p-1" />
                               </div>
@@ -361,10 +364,10 @@ export default function UserDashRatings() {
             </li>
 
 
-            <li><a>
+            <li><Link to={"/u/leaderboard"}>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
               ranks.board
-            </a></li>
+            </Link></li>
 
             <Form onSubmit={handleSubmit} className="mx-auto">
               <button

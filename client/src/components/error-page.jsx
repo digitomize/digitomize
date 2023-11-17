@@ -24,7 +24,7 @@ export default function ErrorPage() {
             <i>{error.statusText && `Error : ${error.statusText}`}</i>
           </p>
           <button className="button-4">
-            <Link to="/contests">Return to contests</Link>
+            <Link to="/discord">Report on Discord</Link>
           </button>
         </div>
       </div>
