@@ -12,6 +12,7 @@ const createContact = async (email, firstName) => {
     try {
         let createContactRequest = new brevo.CreateContact();
         createContactRequest.email = email;
+        createContactRequest.listIds = [19]
         createContactRequest.attributes = {
             "FIRSTNAME": firstName
         };
