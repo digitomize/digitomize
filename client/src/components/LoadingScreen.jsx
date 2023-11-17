@@ -38,7 +38,7 @@ export default function LoadingScreen({ logout = true }) {
 
                     </code></pre>
                 </div>
-                <div className="buttons my-3 flex gap-3 mx-auto">
+                <div className="buttons my-3 flex gap-3 mx-auto max-phone:flex-col phone:flex-row items-center">
                     <button className="btn lowercase" disabled={isRefreshBtnDisabled} onClick={() => window.location.reload()}>
                         <Refresh />
                         refresh in 10s

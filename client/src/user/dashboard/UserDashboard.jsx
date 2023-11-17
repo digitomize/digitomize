@@ -11,7 +11,8 @@ import {
     NavLink,
     Outlet,
     Link,
-    useNavigate
+    useNavigate,
+    useLocation
 } from "react-router-dom";
 
 import {
@@ -39,6 +40,8 @@ import MoodIcon from '@mui/icons-material/Mood';
 import Tooltip from "@mui/material/Tooltip";
 import NewFooter from "../../components/NewFooter"
 import LoadingScreen from "../../components/LoadingScreen";
+import ShareModel from "../../components/share_model.jsx";
+const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 // import logo from "../assets/logo.png";
 
 export default function UserDashboard() {
@@ -66,6 +69,20 @@ export default function UserDashboard() {
             path: '#',
         }
     ]
+
+    const location = useLocation();
+    const [show, setShow] = useState(false);
+    const close_model = () => setShow(false);
+
+    const main_model = (
+        <ShareModel
+            close_model={close_model}
+            contestLink={`${frontendUrl}/u/${userData?.personal_data.username}`}
+            //theme={colorTheme}
+            theme=''
+        />
+    )
+
 
     const handleStatusClick = (status) => {
         setSelectedStatus(status);
@@ -134,10 +151,14 @@ export default function UserDashboard() {
                                 </div>
                                 <p>{userData.personal_data.bio.data}</p>
 
-                                <div className="card-actions justify-end">
-                                    <Link to={`/u/${userData.personal_data.username}`}>
-                                        <button className="btn btn-primary lowercase">view profile</button>
-                                    </Link>
+                                <div className="buttons flex flex-col gap-2">
+                                    <button className="btn btn-primary lowercase" onClick={() => setShow(true)}>share </button>
+                                    {show && main_model}
+                                    <div className="card-actions justify-end">
+                                        <Link to={`/u/${userData.personal_data.username}`}>
+                                            <button className="btn btn-primary lowercase">view profile</button>
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -211,7 +232,7 @@ export default function UserDashboard() {
 
                 {/* FOR PHONE */}
                 <div className="phone:hidden">
-                    <div className='flex flex-col pt-20 md:mt-0 w-11/12 mx-auto'>
+                    <div className='flex flex-col pt-8 md:mt-0 w-11/12 mx-auto'>
 
                         <div className="personal m-auto flex flex-row">
                             <div className="Ellipse3 w-[50px] h-[50px] m-2" >
@@ -237,10 +258,12 @@ export default function UserDashboard() {
                                 </Link>
                             </div>
                         </div>
-                        <div className="profile self-center mt-4">
+                        <div className="profile self-center mt-4 flex flex-col">
 
+                            <button className="btn btn-primary lowercase" onClick={() => setShow(true)}>share </button>
+                            {show && main_model}
                             <Link to={`/u/${userData.personal_data.username}`}>
-                                <button className="btn btn-primary lowercase">view profile</button>
+                                <button className="btn btn-primary lowercase my-2">view profile</button>
                             </Link>
                         </div>
                         {/* <div className="status self-center">
@@ -274,7 +297,7 @@ export default function UserDashboard() {
                                 />
                             </div>
                         </div> */}
-                        <div className="divider"></div>
+                        <div className="divider my-2"></div>
 
                         <div className="phone:hidden dashboard">
                             <label className="label">
@@ -297,7 +320,7 @@ export default function UserDashboard() {
                             </div>
 
                         </div>
-                        <div className="logout py-16 self-center">
+                        <div className="logout py-8 self-center">
 
                             <NewLogOut isDisabled={false} btnName="sign out" onClickFunction={handleLogout} />
 

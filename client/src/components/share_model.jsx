@@ -45,7 +45,8 @@ const ShareModel = ({close_model, copyToClipboard, contestLink, theme }) => {
 
     const handleLinkedinClick = () => {
         const Message = `Check out this link: ${contestLink}`;
-        const linkedinLink = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(Message)}`;
+      const linkedinLink = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(contestLink)}`;
+      
         try {
           window.open(linkedinLink);
         }

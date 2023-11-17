@@ -1,4 +1,5 @@
-import { useOutletContext, useParams } from "react-router-dom";
+import { useState } from "react";
+import { useOutletContext, useParams, useLocation } from "react-router-dom";
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import leetcode from '../../../assets/leetcode.svg'
 // import codingninjas from "../../../assets/codingninjas.png";
@@ -6,11 +7,26 @@ import codechef from '../../../assets/codechef.svg'
 import codeforces from '../../../assets/codeforces.svg'
 import { OpenInNew } from '@mui/icons-material';
 import { Helmet } from "react-helmet";
+import ShareModel from "../../../components/share_model.jsx";
 
+const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 function PlatformRatings() {
     const data = useOutletContext();
     const { platform } = useParams();
-    console.log(platform);
+    // console.log(platform);
+    const location = useLocation();
+    const [show, setShow] = useState(false);
+    const close_model = () => setShow(false);
+
+    const main_model = (
+        <ShareModel
+            close_model={close_model}
+            contestLink={`${frontendUrl}${location.pathname}`}
+            //theme={colorTheme}
+            theme=''
+        />
+    )
+
     const contestLinks = {
         codeforces: {
             name: 'Codeforces',
@@ -80,22 +96,25 @@ function PlatformRatings() {
                                 </a>
                             </h2>
                             <div className="info flex flex-row w-full justify-around my-3">
-                                <div className="flex flex-col ">
+                                <div className="flex flex-col items-center">
                                     <h3 className="text-xl">{platformData?.rating || "null"}</h3>
                                     <div className="badge badge-outline text-[#f6c43d] my-2">Rating</div>
                                 </div>
-                                <div className="flex flex-col">
+                                <div className="flex flex-col items-center">
                                     <h3 className="text-xl">{platformData?.badge || "null"}</h3>
                                     <div className="badge text-[#1789ca] badge-outline my-2">badge</div>
                                 </div>
-                                <div className="flex flex-col">
+                                <div className="flex flex-col items-center">
                                     <h3 className="text-xl">{platformData?.attendedContestsCount || "null"}</h3>
                                     <div className="badge badge-outline text-[#da2828] my-2">contests</div>
                                 </div>
 
                             </div>
                             <div className="buttons">
-                                <button className="btn btn-outline btn-accent">Share</button>
+                                <button className="btn btn-outline btn-accent" onClick={() => setShow(true)}>
+                                    Share
+                                </button>
+                                {show && main_model}
                             </div>
                         </div>
                         <div className="fetch-time flex w-full justify-center p-2">

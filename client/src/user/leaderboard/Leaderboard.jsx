@@ -76,7 +76,10 @@ export default function Leaderboard() {
         );
     };
 
-    // useEffect(() => {
+    useEffect(() => {
+        fetchLoggedUserData();
+    }, [userDetails]);
+
     async function fetchLoggedUserData() {
         try {
             const userData = await rankOnLeaderboard(userDetails?.personal_data?.username);
@@ -86,8 +89,7 @@ export default function Leaderboard() {
             console.log(err);
         }
     }
-    // fetchLoggedUserData();
-    // }, [userDetails]);
+
 
     async function fetchLbData() {
         try {
@@ -103,8 +105,8 @@ export default function Leaderboard() {
         }
     }
     useEffect(() => {
-        fetchLoggedUserData();
         fetchLbData();
+        fetchLoggedUserData();
     }, [currentPage]);
 
     const handlePageChange = (event, value) => {
@@ -218,7 +220,7 @@ export default function Leaderboard() {
                                             <td>
                                                 <div className="flex items-center space-x-3">
                                                     <div className="avatar">
-                                                        <Link to={"/u/" + userDetails.username} target="_blank">
+                                                        <Link to={"/u/" + userDetails.personal_data.username} target="_blank">
                                                             <div className="mask mask-squircle w-12 h-12 ring ring-primary ring-offset-base-100 ring-offset-2">
                                                                 {/* You can set the image source dynamically */}
                                                                 <img className="mask mask-hexagon" src={userDetails.personal_data.picture} alt="Avatar Tailwind CSS Component" />
