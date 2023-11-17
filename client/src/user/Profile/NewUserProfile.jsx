@@ -23,7 +23,7 @@ function NewUserProfile() {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
     const getDriveFileId = (link) => {
-        const fileIdMatch = link.match(/\/d\/(.+?)\//);
+        const fileIdMatch = link?.match(/\/d\/(.+?)\//);
         return fileIdMatch ? fileIdMatch[1] : null;
     };
     const generateEmbedUrl = () => {
