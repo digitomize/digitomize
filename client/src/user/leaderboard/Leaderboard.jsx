@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom'
 import NewNavbar from "../../components/NewNavbar";
-import { leaderboardData } from "../../../api";
+import { leaderboardData, rankOnLeaderboard } from "../../../api";
 import { OpenInNew, WorkspacePremium, Info } from '@mui/icons-material';
 import { Skeleton, Stack, Typography, Tooltip, tooltipClasses, styled } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { useUserDetails } from "../../context/UserContext";
 const theme = createTheme({
     palette: {
         mode: 'dark',
@@ -19,7 +19,9 @@ export default function Leaderboard() {
     const [data, setData] = useState(null);
     const [totalPages, setTotalPages] = useState(1);
     const [currentPage, setCurrentPage] = useState(1);
-
+    const [currentUserData, setCurrentUserData] = useState(null);
+    const { userDetails } = useUserDetails();
+    console.log("USERERER", userDetails);
     const HtmlTooltip = styled(({ className, ...props }) => (
         <Tooltip className="custom-bg" {...props} classes={{ popper: className }} />
     ))(({ theme }) => ({
@@ -74,6 +76,18 @@ export default function Leaderboard() {
         );
     };
 
+    useEffect(() => {
+        async function fetchData() {
+            try{
+                const userData = await rankOnLeaderboard(userDetails?.personal_data?.username);
+                setCurrentUserData(userData?.data);
+                console.log(currentUserData);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        fetchData();
+    }, [userDetails]);
 
     useEffect(() => {
         async function fetchData() {
@@ -89,7 +103,6 @@ export default function Leaderboard() {
                 setLoading(false);
             }
         }
-
         fetchData();
     }, [currentPage]);
 
@@ -145,7 +158,7 @@ export default function Leaderboard() {
                                                 <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
                                                 <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
                                                 <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
-                                                <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                                {/* <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" /> */}
                                             </div>
                                         </td>
                                     </tr>
@@ -184,7 +197,7 @@ export default function Leaderboard() {
                                                             <a href={"/u/" + row.username} target="_blank">
                                                                 <div className="font-bold">{row.name} <OpenInNew fontSize="small" /> </div>
                                                                 <div className="text-sm opacity-50">@{row.username}</div>
-                                                                {/* You can display more user details here if needed */}
+                                                                {/* You can display more userDetails details here if needed */}
                                                             </a>
                                                         </div>
                                                     </div>
@@ -196,6 +209,37 @@ export default function Leaderboard() {
                                                 {/* <td>{row.platform_rating}</td> */}
                                             </tr>
                                         ))}
+                                    { currentUserData &&
+                                        <tr key={currentUserData.user_position} className="bg-[#252525]">
+                                            <td>
+                                                {currentUserData.user_position || "Not ranked"}
+                                            </td>
+                                            <td>
+                                                <div className="flex items-center space-x-3">
+                                                    <div className="avatar">
+                                                        <a href={"/u/" + userDetails.username} target="_blank">
+                                                            <div className="mask mask-squircle w-12 h-12 ring ring-primary ring-offset-base-100 ring-offset-2">
+                                                                {/* You can set the image source dynamically */}
+                                                                <img className="mask mask-hexagon" src={userDetails.personal_data.picture} alt="Avatar Tailwind CSS Component" />
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div>
+                                                        <a href={"/u/" + userDetails.personal_data.username} target="_blank">
+                                                            <div className="font-bold">{userDetails.personal_data.name}{"(YOU)"} <OpenInNew fontSize="small" /> </div>
+                                                            <div className="text-sm opacity-50">@{userDetails.personal_data.username}</div>
+                                                            {/* You can display more userDetails details here if needed */}
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{currentUserData.ratings.codechef || 0}</td>
+                                            <td>{currentUserData.ratings.leetcode || 0}</td>
+                                            <td>{currentUserData.ratings.codeforces || 0}</td>
+                                            <td>{Math.floor(currentUserData.ratings.digitomize_rating)}</td>
+                                            {/* <td>{userDetails.platform_rating}</td> */}
+                                        </tr>
+                                    }
                                 </tbody>
                         }
                         {/* foot */}
