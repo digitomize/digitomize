@@ -21,7 +21,7 @@ export default function Leaderboard() {
     const [currentPage, setCurrentPage] = useState(1);
     const [currentUserData, setCurrentUserData] = useState(null);
     const { userDetails } = useUserDetails();
-    console.log("USERERER", userDetails);
+    // console.log("USERERER", userDetails);
     const HtmlTooltip = styled(({ className, ...props }) => (
         <Tooltip className="custom-bg" {...props} classes={{ popper: className }} />
     ))(({ theme }) => ({
@@ -76,7 +76,7 @@ export default function Leaderboard() {
         );
     };
 
-    useEffect(() => {
+    // useEffect(() => {
         async function fetchData() {
             try{
                 const userData = await rankOnLeaderboard(userDetails?.personal_data?.username);
@@ -87,7 +87,7 @@ export default function Leaderboard() {
             }
         }
         fetchData();
-    }, [userDetails]);
+    // }, [userDetails]);
 
     useEffect(() => {
         async function fetchData() {
@@ -209,7 +209,7 @@ export default function Leaderboard() {
                                                 {/* <td>{row.platform_rating}</td> */}
                                             </tr>
                                         ))}
-                                    { currentUserData &&
+                                    { currentUserData && userDetails &&
                                         <tr key={currentUserData.user_position} className="bg-[#252525]">
                                             <td>
                                                 {currentUserData.user_position || "Not ranked"}
