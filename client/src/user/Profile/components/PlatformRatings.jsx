@@ -96,15 +96,15 @@ function PlatformRatings() {
                                 </a>
                             </h2>
                             <div className="info flex flex-row w-full justify-around my-3">
-                                <div className="flex flex-col ">
+                                <div className="flex flex-col items-center">
                                     <h3 className="text-xl">{platformData?.rating || "null"}</h3>
                                     <div className="badge badge-outline text-[#f6c43d] my-2">Rating</div>
                                 </div>
-                                <div className="flex flex-col">
+                                <div className="flex flex-col items-center">
                                     <h3 className="text-xl">{platformData?.badge || "null"}</h3>
                                     <div className="badge text-[#1789ca] badge-outline my-2">badge</div>
                                 </div>
-                                <div className="flex flex-col">
+                                <div className="flex flex-col items-center">
                                     <h3 className="text-xl">{platformData?.attendedContestsCount || "null"}</h3>
                                     <div className="badge badge-outline text-[#da2828] my-2">contests</div>
                                 </div>
