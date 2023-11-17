@@ -77,7 +77,7 @@ function NewUserProfile() {
                         </div>
 
                         <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-                            <Box sx={style}>
+                            <Box className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-70 bg-gray-500 bg-opacity-70 border-2 border-black shadow-lg p-4">
                                 <button onClick={handleClose} style={{ position: 'absolute', top: '5%', right: '5%', background: 'none', border: 'none', cursor: 'pointer' }}>
                                     Close
                                 </button>
