@@ -66,18 +66,27 @@ function NewUserProfile() {
 
                         <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
                             {/* <Box className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-phone:w-full phone:w-10/12 bg-opacity-95 border-2 border-black shadow-lg p-4 rounded-xl glass"> */}
-                            <Box className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-phone:w-full phone:w-10/12 border-2 border-black shadow-lg p-4 rounded-xl glass">
+                            <Box className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-phone:w-[95%] phone:w-10/12 border-2 border-black shadow-lg p-4 rounded-xl glass">
                                 <div className="title">
-                                    <button onClick={handleClose} style={{ position: 'absolute', top: '5%', right: '5%', background: 'none', border: 'none', cursor: 'pointer' }}>
+                                    <button onClick={handleClose} style={{ position: 'absolute', right: '5%', background: 'none', border: 'none', cursor: 'pointer' }}>
                                         Close
                                     </button>
                                     <Typography id="modal-modal-title" variant="h6" component="h2">
                                         {personal_data.name}'s resume
                                     </Typography>
                                 </div>
-                                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                                {personal_data.resume
+                                    ?
+                                    <div id="modal-modal-description" sx={{ mt: 2 }}>
                                     <iframe src={resumeEmbedUrl} title="Resume" width="100%" height="600px" allowFullScreen></iframe>
-                                </Typography>
+                                    </div>
+                                    :
+                                    <div className="w-full bg-white text-black rounded-md">
+                                        <div className="w-9/12 mx-auto">
+                                            no resume found
+                                        </div>
+                                    </div>
+                                }
                             </Box>
                         </Modal>
 
