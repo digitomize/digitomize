@@ -95,7 +95,7 @@ function NewUserProfile() {
                             </Box>
                         </Modal>
 
-                        <CustomLinkCard to="ratings" bgColor="#050127" icon={<BsGraphUpArrow />} title="contest ratings &#10024;" textColor="text-[#ffc552de]" />
+                        <CustomLinkCard bgColor="#050127" to="ratings" icon={<BsGraphUpArrow />} title="contest ratings &#10024;" textColor="text-[#ffc552de]" />
 
                     </div>
 
