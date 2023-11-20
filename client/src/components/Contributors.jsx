@@ -361,7 +361,7 @@ export default function Contributors() {
                             spaceBetween={10}
                             slidesPerView={5}
                             modules={[Autoplay]}
-                            autoplay={{ delay: 500, disableOnInteraction: false, pauseOnMouseEnter: true }}
+                            autoplay={{ delay: 1500, disableOnInteraction: false, pauseOnMouseEnter: true }}
                             loop={true}
                             breakpoints={{
                                 100: {
@@ -442,7 +442,7 @@ export default function Contributors() {
                             spaceBetween={10}
                             slidesPerView={4.5}
                             modules={[Autoplay]}
-                            autoplay={{ delay: 800, disableOnInteraction: false, pauseOnMouseEnter: true, reverseDirection: true }}
+                            autoplay={{ delay: 1500, disableOnInteraction: false, pauseOnMouseEnter: true, reverseDirection: true }}
                             loop={true}
                             breakpoints={{
                                 100: {
