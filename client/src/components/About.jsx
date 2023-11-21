@@ -124,7 +124,7 @@ export default function About() {
                                 <AiFillLinkedin className="w-8 h-8" />
                             </div>
                             <div className="stat-title">linkedin followers</div>
-                            <div className="stat-value text-secondary">500+</div>
+                            <div className="stat-value text-secondary">550+</div>
                             {/* <div className="stat-desc">21% more than last month</div> */}
                         </div>
                     </Link>
@@ -135,7 +135,7 @@ export default function About() {
                                 <AiFillStar className="w-8 h-8" />
                             </div>
                             <div className="stat-title">Github Stars</div>
-                            <div className="stat-value text-secondary">75+</div>
+                            <div className="stat-value text-secondary">80+</div>
                             {/* <div className="stat-desc">21% more than last month</div> */}
                         </div>
                     </Link>
