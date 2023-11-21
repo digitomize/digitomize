@@ -253,7 +253,7 @@ export default function Home2() {
                 <div className="flex flex-col w-2/4">
                   <label className="label mx-2">
                     <span className="label-text">
-                      import "<span class="text-custom-blue">socials</span>";
+                      import "<span className="text-custom-blue">socials</span>";
                     </span>
                   </label>
                   <Skeleton
@@ -265,7 +265,7 @@ export default function Home2() {
                   />
                   <label className="label mx-2">
                     <span className="label-text">
-                      fetch{`("`}<span class="text-custom-blue">ratings</span>{`");`}
+                      fetch{`("`}<span className="text-custom-blue">ratings</span>{`");`}
                     </span>
                   </label>
                   <Skeleton
@@ -277,7 +277,7 @@ export default function Home2() {
                   />
                   <label className="label mx-2">
                     <span className="label-text">
-                      <span class="text-custom-blue">github</span>
+                      <span className="text-custom-blue">github</span>
                     </span>
                   </label>
                   <Skeleton
