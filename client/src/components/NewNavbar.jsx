@@ -100,12 +100,10 @@ export default function NewNavbar({ position }) {
                     <div className="flex items-center">
                         {
                             navLinks.map((navLink, index) => (
-                                <>
                                     <Link to={navLink.path} key={index} className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === navLink.path ? "bg-zinc-400 text-zinc-950" : ""
                                         } hover:bg-zinc-200`}>
                                         {navLink.title}
                                     </Link>
-                                </>
                             ))
                         }
                         {userDetails && userDetails.personal_data.role === ROLE.ADMIN && (
@@ -162,13 +160,11 @@ export default function NewNavbar({ position }) {
                                 >
                                     {
                                         navLinksDashboard.map((navLinkDashboard, index) => (
-                                            <>
                                                 <li key={index}>
                                                     <Link to={navLinkDashboard.path}>
                                                         <span>{navLinkDashboard.title}</span>
                                                     </Link>
                                                 </li>
-                                            </>
                                         ))
                                     }
                                     <li>

@@ -14,7 +14,7 @@ export default function Footer() {
             alt="logo"
             className="rounded-full"
           />
-          <p>
+          <div>
             <h2 className="text-base-content text-xl">Hey👋</h2>
             <h2 className="text-base-content text-xl">Loved ❤️ digitomize ?</h2>
             <h2 className="text-base-content text-xl">It’s open-source!</h2>
@@ -29,7 +29,7 @@ export default function Footer() {
                 GitHub
               </a>
             </h2>
-          </p>
+          </div>
         </aside>
         <nav className='flex justify-center items-center flex-col'>
           <header className="text-light-font font-semibold lowercase text-3xl border-b-4 border-custom-blue p-1">Social</header>
