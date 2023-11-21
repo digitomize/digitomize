@@ -49,7 +49,7 @@ async function leetcode_u(handle) {
                             globalRanking: 0,
                         }
                     }
-                    userInfo.data.userContestRanking.rank = "STARR";
+                    userInfo.data.userContestRanking.rank = "none";
                     userInfo.data.userContestRanking.handle = handle;
 
 
