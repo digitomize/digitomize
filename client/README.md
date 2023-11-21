@@ -86,7 +86,7 @@ _Fill the empty fields by creating a demo firebase project._
 * Once you register your app you'll get a prompt to add firebase SDK to your app
 * In that propt you'll see a const variable called firebaseConfig which will contain all your config info it will look something like this. (these are just dummy values)
 
-  ```json
+  ```javascript
   const firebaseConfig = {  apiKey: "IKNdsaKsdabdGL5iuywrfHUIKBubkjbJGDfIBHUGnkjVA",  authDomain: "sample-u78nb.firebaseapp.com",  projectId: "sample-u78nb",  storageBucket: "sample-u78nb.appspot.com",  messagingSenderId: "872459742932",  appId: "9:872459742932:web:&8ufnhjbhbj89nu8b",  measurementId: "G-YTUTY89kFT"};
   ```
 * Use these values to populate your .env file
