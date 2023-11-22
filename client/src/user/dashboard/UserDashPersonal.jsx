@@ -20,6 +20,7 @@ import Chip from "@mui/material/Chip";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import { styled } from "@mui/material/styles";
 import NewFooter from "../../components/NewFooter";
+import ImageUploader from "../../components/ImageUploader";
 
 const ListItem = styled("li")(({ theme }) => ({
   margin: theme.spacing(0.5),
@@ -196,31 +197,13 @@ export default function UserDashPersonal() {
           <div className="mockup-browser-toolbar">
             <div className="input" style={{ marginLeft: '0' }}>{"#include {digitomize} > {personal}"}</div>
           </div>
-          {/* <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
-            <Checkbox />
-        </div> */}
-
-          {/* <div className=" w-full">
-        <label className="label">
-          <span className="label-text">What is your name?</span>
-        </label>
-        <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-        <label className="label">
-          <span className="label-text">What is your name?</span>
-        </label>
-        <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-
-      </div> */}
 
           <div className="bg-base-200 w-full p-8">
-
-
             <div className="grid md:grid-cols-2 mx-auto">
               <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center ">
-
                 <div className="form-control w-full   max-w-lg   ">
                   <label htmlFor="firstName" className="label">
-                    <span className="label-text"> Name</span>
+                    <span className="label-text"> name</span>
                   </label>
                   <div className="flex  items-center gap-3">
                     <input type="text"
@@ -231,28 +214,10 @@ export default function UserDashPersonal() {
                       onChange={handleInputChange}
                       required className="input input-bordered w-full  " />
                   </div>
-
                 </div>
-                {/* <input
-            type="text"
-            name="name"
-            id="name"
-            className="block py-2.5 px-0 w-full text-md md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
-            placeholder=" "
-            value={formData.name}
-            onChange={handleInputChange}
-            required
-          />
-          <label
-            htmlFor="firstName"
-            className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Name
-          </label> */}
               </div>
+
               <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3 ">
-
-
                 <div className="form-control w-full max-w-lg    ">
                   <label htmlFor="username" className="label">
                     <span className="label-text"> Username</span>
@@ -266,33 +231,12 @@ export default function UserDashPersonal() {
                       onChange={handleInputChange}
                       required className="input input-bordered w-full" />
                   </div>
-
                 </div>
-
-
-                {/* 
-          <input
-            type="text"
-            name="username"
-            id="username"
-            className="block py-2.5 px-0 w-full text-md md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
-            placeholder=" "
-            value={formData.username}
-            onChange={handleInputChange}
-            required
-          />
-          <label
-            htmlFor="username"
-            className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Username
-          </label> */}
               </div>
             </div>
-            <div className="grid md:grid-cols-2  mx-auto ">
 
+            <div className="grid md:grid-cols-2 mx-auto">
               <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
-
                 <div className="form-control w-full ">
                   <label htmlFor="phoneNumber" className="label">
                     <span className="label-text"> Phone number</span>
@@ -308,41 +252,10 @@ export default function UserDashPersonal() {
                       setState={updateShowOnWebsite("phoneNumber")}
                     />
                   </div>
-
                 </div>
-
-                {/* <input
-            type="tel"
-            name="phoneNumber"
-            id="phoneNumber"
-            className="block py-2.5 px-0 w-full md:text-xl text-gray-300 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-fuchsia-700 focus:outline-none focus:ring-0 focus:border-fuchsia-700 peer"
-            placeholder=" "
-            value={formData.phoneNumber.data}
-            onChange={handleInputChangeObjData}
-          />
-          <label
-            htmlFor="phoneNumber"
-            className="peer-focus:font-medium absolute md:text-lg text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-fuchsia-700 peer-focus:dark:text-fuchsia-700 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            Phone number
-          </label>
-          <Checkbox
-            isCheckedState={formData.phoneNumber.showOnWebsite}
-              setState={updateShowOnWebsite("phoneNumber")}
-              className="checkbox checkbox-success"
-            />  */}
-                {/* <input type="checkbox" checked={formData.phoneNumber.showOnWebsite} onChange={(e) => {
-    updateShowOnWebsite("phoneNumber")(e.target.checked);
-            }} className="checkbox checkbox-success" /> */}
-
               </div>
 
-
-
-
-
               <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
-
                 <div className="form-control w-full  ">
                   <label htmlFor="dateOfBirth" className="label">
                     <span className="label-text">   Date of birth</span>
@@ -356,16 +269,12 @@ export default function UserDashPersonal() {
                       setState={updateShowOnWebsite("dateOfBirth")}
                     />
                   </div>
-
                 </div>
-
               </div>
             </div>
-
+		
             <div className="grid md:grid-cols-2  mx-auto ">
-
               <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
-
                 <div className="form-control w-full ">
                   <label htmlFor="resume" className="label">
                     <span className="label-text"> resume</span>
@@ -376,49 +285,14 @@ export default function UserDashPersonal() {
                       id="resume" value={formData.resume}
                       onChange={handleInputChange} className="input input-bordered w-full max-w-lg " />
                   </div>
-
-                </div>
-              </div>
-            </div>
-
-
-            <div className="flex flex-col md:flex-row  items-start gap-5  mb-10">
-
-              <div className="relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
-
-
-                <div className="form-control   w-full">
-                  <label className="label">
-                    <span className="label-text">Bio</span>
-
-                  </label>
-                  <div className="flex items-center gap-3">
-                    <textarea name="bio"
-                      maxLength={250}
-                      id="bio" className="textarea  w-full textarea-bordered h-24 max-w-lg" placeholder=""
-                      value={formData.bio.data}
-                      onChange={handleInputChangeObjData}></textarea>
-                    <Checkbox
-
-                      isCheckedState={formData.bio.showOnWebsite}
-                      setState={updateShowOnWebsite("bio")}
-                    />
-                  </div>
-
                 </div>
               </div>
 
-              {/* skills */}
-              <div className="skills relative z-0 w-full md:w-3/4 mb-5  group flex flex-col items-center gap-3">
-
+			  {/* <div className="skills relative z-0 w-full md:w-3/4 mb-5  group flex flex-col items-center gap-3"> */}
                 <div className="z-0 w-full md:w-3/4 group flex items-start md:mr-5 ">
-
-
-
                   <div className="form-control  w-full ">
                     <label htmlFor="skills" className="label">
                       <span className="label-text">Skills</span>
-
                     </label>
                     <div className="flex items-center gap-3">
                       <input type="text"
@@ -436,15 +310,10 @@ export default function UserDashPersonal() {
                         </button>
                       </Form>
                     </div>
-
-                  </div>
-                </div>
-
-                <div className="skillchips w-full max-w-3xl mx-auto  ">
+					<div className="skillchips w-full max-w-3xl mx-auto  ">
                   {skillData.length > 0 ? (
                     skillData.map((data) => {
                       let icon;
-
                       if (data.label === "React") {
                         icon = <TagFacesIcon />;
                       }
@@ -453,8 +322,6 @@ export default function UserDashPersonal() {
                         <div key={data.key} className="m-2 inline-block">
 
                           <Chip
-
-
                             variant="outlined"
                             color="primary"
                             icon={icon}
@@ -462,14 +329,52 @@ export default function UserDashPersonal() {
                             onDelete={handleDelete(data)}
                           />
                         </div>
-
                       );
                     })
                   ) : (
                     <p className="font-semibold font-mono text-red-600">No skills added.</p>
                   )}
                 </div>
+                  </div>
+                </div>
+                
               </div>
+            {/* </div> */}
+
+            <div className="flex flex-col md:flex-row  items-start gap-5  mb-10 mt-9">
+              <div className="relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
+                <div className="form-control   w-full">
+                  <label className="label">
+                    <span className="label-text">Bio</span>
+                  </label>
+                  <div className="flex items-center gap-3">
+                    <textarea name="bio"
+                      maxLength={250}
+                      id="bio" className="textarea w-full textarea-bordered h-24 max-w-lg" placeholder=""
+                      value={formData.bio.data}
+                      onChange={handleInputChangeObjData}></textarea>
+                    <Checkbox
+                      isCheckedState={formData.bio.showOnWebsite}
+                      setState={updateShowOnWebsite("bio")}
+                    />
+                  </div>
+
+                </div>
+              </div>
+              {/* skills */}
+
+			  <div className="relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
+                <div className="form-control w-full">
+                  <label className="label">
+                    <span className="label-text">Upload Profile Picture</span>
+                  </label>
+				  <div className="flex items-center gap-3">
+				  	<ImageUploader></ImageUploader>
+				  </div>
+
+                </div>
+              </div>
+              
             </div>
 
 
