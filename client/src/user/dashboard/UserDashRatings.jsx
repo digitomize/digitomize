@@ -65,7 +65,7 @@ export default function UserDashRatings() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   let ratingsData = data?.ratings
-  console.log("RATINGGSS:", ratingsData);
+  // console.log("RATINGGSS:", ratingsData);
   const username = data?.personal_data.username
 
   useEffect(() => {
@@ -75,7 +75,7 @@ export default function UserDashRatings() {
         if (res.data) {
           setData(res.data);
           ratingsData = res.data.ratings;
-          console.log("HM", ratingsData);
+          // console.log("HM", ratingsData);
           setFormData({
             username: username,
             codeforces: {
@@ -130,7 +130,7 @@ export default function UserDashRatings() {
   }
 
 
-  console.log(ratingsData);
+  // console.log(ratingsData);
 
 
   const handleInputChangeObjData = (event) => {

@@ -356,7 +356,6 @@ export default function Contributors() {
 
             // Access the data from the response
             const rawData = response.data.contributors;
-            console.log("RAWWW", rawData)
             // Set the data to state
             setData(rawData);
         } catch (error) {

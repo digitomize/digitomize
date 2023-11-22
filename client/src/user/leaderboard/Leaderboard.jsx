@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, Link } from 'react-router-dom'
+import { useLocation, Link, useNavigate, useSearchParams } from 'react-router-dom'
 import NewNavbar from "../../components/NewNavbar";
 import { leaderboardData, rankOnLeaderboard } from "../../../api";
 import { OpenInNew, WorkspacePremium, Info } from '@mui/icons-material';
@@ -16,10 +16,13 @@ const theme = createTheme({
 
 export default function Leaderboard() {
     const location = useLocation();
+    const navigate = useNavigate();
+    let [searchParams, setSearchParams] = useSearchParams();
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState(null);
     const [totalPages, setTotalPages] = useState(1);
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(searchParams.get("page") || 1);
+    console.log("current page", currentPage)
     const [currentUserData, setCurrentUserData] = useState(null);
     const { userDetails } = useUserDetails();
     // console.log("USERERER", userDetails);
@@ -85,7 +88,7 @@ export default function Leaderboard() {
         try {
             const userData = await rankOnLeaderboard(userDetails?.personal_data?.username);
             setCurrentUserData(userData?.data);
-            console.log(currentUserData);
+            // console.log(currentUserData);
         } catch (err) {
             console.log(err);
         }
@@ -94,7 +97,7 @@ export default function Leaderboard() {
 
     async function fetchLbData() {
         try {
-            console.log(currentPage);
+            // console.log(currentPage);
             setLoading(true);
             const res = await leaderboardData(currentPage);
             setTotalPages(res.data.total_pages);
@@ -106,12 +109,14 @@ export default function Leaderboard() {
         }
     }
     useEffect(() => {
-        fetchLbData();
+        fetchLbData(currentPage);
         fetchLoggedUserData();
     }, [currentPage]);
 
     const handlePageChange = (event, value) => {
         setCurrentPage(value);
+
+        navigate(`${location.pathname}?page=${value}`);
     };
 
     const getRank = (index) => {

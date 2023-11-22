@@ -6,7 +6,6 @@ import { useState } from "react";
 import { useUserAuth } from "../../../../context/UserAuthContext"
 
 export default function DeleteUser({ user, handleClose }) {
-  console.log("KEYYYY:", user);
   const [pending, setPending] = useState(false);
   const { signUp } = useUserAuth()
 
@@ -28,7 +27,7 @@ export default function DeleteUser({ user, handleClose }) {
             toast.success(response.data.message);
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
             toast.success(error.response.data.message);
           })
           .finally(() => {
@@ -36,7 +35,7 @@ export default function DeleteUser({ user, handleClose }) {
           });
       // }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       toast.error(err.code);
     }
 

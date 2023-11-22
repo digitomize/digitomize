@@ -28,11 +28,8 @@ export default function GithubAuthButton({ setError, btnText }) {
             .then(async (result) => {
                 const credential = GithubAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
-                console.log("token --> ", token);
                 // The signed-in user info.
                 const user = result.user;
-                console.log("user --> ", user);
-                console.log("user -->", user.accessToken);
                 await axios.post(`${backendUrl}/user/signup`, {
                     headers: {
                         Authorization: `Bearer ${user.accessToken}`,
