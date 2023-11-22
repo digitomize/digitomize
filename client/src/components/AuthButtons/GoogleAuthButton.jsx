@@ -8,6 +8,7 @@ import {
 import {
     auth
 } from "../../../firebase"
+import googleIcon from "../../assets/google.svg"
 
 import axios from 'axios'
 
@@ -50,7 +51,10 @@ export default function GoogleAuthButton({ setError, btnText }){
     return (
 
         <>
-            <GoogleButton type="light" className={`g-btn`} onClick={handleGoogleSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : btnText}`} style={{ backgroundColor: "white" }} />
+            <button onClick={handleGoogleSignIn} disabled={btnState}>
+                <img src={googleIcon} alt="google button" width={60} />
+            </button>
+            {/* <GoogleButton type="light" className={`g-btn`} onClick={handleGoogleSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : btnText}`} style={{ backgroundColor: "white" }} /> */}
         </>
     )
 }

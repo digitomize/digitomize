@@ -9,7 +9,7 @@ import {
 } from "../../../firebase"
 
 import { useNavigate } from 'react-router-dom'
-
+import githubIcon from "../../assets/github.svg"
 import axios from 'axios'
 import GithubButton from 'react-github-login-button'
 
@@ -48,7 +48,10 @@ export default function GithubAuthButton({ setError, btnText }) {
     }
     return (
         <>
-            <GithubButton type="light" onClick={handleGithubSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : btnText}`} style={{ backgroundColor: "white" }}>Github</GithubButton>
+            <button onClick={handleGithubSignIn} disabled={btnState} className="border-[#8E918F] border-[1.5px] rounded-full">
+                <img src={githubIcon} alt="google button" className="m-3" width={35}/>
+            </button>
+            {/* <GithubButton type="light" onClick={handleGithubSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : btnText}`} style={{ backgroundColor: "white" }}>Github</GithubButton> */}
         </>
     )
 }
