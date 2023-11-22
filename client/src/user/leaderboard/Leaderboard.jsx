@@ -7,6 +7,7 @@ import { Skeleton, Stack, Typography, Tooltip, tooltipClasses, styled } from '@m
 import Pagination from '@mui/material/Pagination';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useUserDetails } from "../../context/UserContext";
+import Rank from './components/Rank';
 const theme = createTheme({
     palette: {
         mode: 'dark',
@@ -119,14 +120,20 @@ export default function Leaderboard() {
 
     return (
         <>
-            <NewNavbar />
-            <div className="phone:w-4/6 w-11/12 mx-auto mt-4 text-center">
-                <div className="heading text-center my-4">
-                    <h1>
-                        Leaderboard
-                    </h1>
+            <NewNavbar position='static' />
+            <div className="heading text-center my-4">
+                <h1>
+                    Leaderboard
+                </h1>
 
-                </div>
+            </div>
+            <div className='flex justify-center gap-7 phone:w-4/6 w-11/12 mx-auto mt-8 h-fit'>
+                <Rank color="#C0C0C0" photoUrl={'#'} />
+                <Rank color="#FFD700" pt="0" photoUrl={'#'} />
+                <Rank color="#CD7F32" photoUrl={'#'} />
+            </div>
+            <div className="phone:w-4/6 w-11/12 mx-auto mt-4 text-center">
+
                 <div className="overflow-x-auto border-2 border-[#D1E5F4] rounded-xl shadow-[9px_9px_0px_#D1E5F4]">
                     <table className="table">
                         {/* head */}
