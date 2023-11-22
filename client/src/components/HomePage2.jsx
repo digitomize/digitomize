@@ -1,4 +1,4 @@
-import { Element } from "react-scroll";
+import { Element, Link as Linkto } from "react-scroll";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -91,9 +91,9 @@ export default function Home2() {
   };
 
   return (
-    <Element name="second">
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col sm:flex-row">
+    <>
+      <Element name="second" className="hero min-h-screen bg-base-200 flex flex-col">
+        <div className="hero-content flex-col sm:flex-row my-auto">
           <div className="left sm:w-[40%] text-center">
             <div className="sm:text-left max-sm:text-center">
               <h1 className="sm:text-8xl max-smtext-5xl my-0 font-medium max-sm:min-h-[100px] sm:min-h-[300px]">
@@ -412,7 +412,17 @@ export default function Home2() {
             </div>
           </div>
         </div>
-      </div>
-    </Element>
+        <Linkto to="third">
+          <div className="lower text-center animate-bounce">
+            <div className="indicator pt-4">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </Linkto>
+      </Element>
+    </>
   );
 }

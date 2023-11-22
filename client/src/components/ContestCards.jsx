@@ -13,6 +13,24 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+import {
+    geeksforgeeks,
+    leetcode,
+    codingninjas,
+    codechef,
+    atcoder,
+    codeforces,
+} from "./AllAssets";
+
+const platformsIcon = [
+    leetcode,
+    codingninjas,
+    geeksforgeeks,
+    codechef,
+    codeforces,
+    atcoder,
+];
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme({
     palette: {
@@ -30,32 +48,32 @@ export default function ContestCards() {
         {
             name: "leetcode",
             description: "Platform for honing coding skills through a variety of algorithmic challenges.",
-            icon: "leetcode.svg",
+            icon: leetcode,
         },
         {
             name: "atcoder",
             description: "Competitive programming platform that hosts contests and offers practice problems.",
-            icon: "atcoder.svg",
+            icon: atcoder,
         },
         {
             name: "codeforces",
             description: "Online competitive programming platform with a global community and regular contests.",
-            icon: "codeforces.svg",
+            icon: codeforces,
         },
         {
             name: "codechef",
             description: "Competitive programming platform featuring coding contests and challenges.",
-            icon: "codechef.svg",
+            icon: codechef,
         },
         {
             name: "geeksforgeeks",
             description: "Platform providing a variety of coding resources, tutorials, and practice problems.",
-            icon: "geeksforgeeks.svg",
+            icon: geeksforgeeks,
         },
         {
             name: "codingninjas",
             description: "Educational platform offering coding courses, challenges, and programming competitions.",
-            icon: "codingninjas.png",
+            icon: codingninjas,
         },
     ];
 
@@ -77,7 +95,7 @@ export default function ContestCards() {
                         }}
                         grabCursor={true}
                         // loop={true}
-                        modules={[EffectCards]}
+                        modules={[Autoplay,EffectCards]}
                         className="mySwiper"
                     >
                         {platforms.map((item) => (
@@ -88,7 +106,7 @@ export default function ContestCards() {
                                             <CardMedia
                                                 className=""
                                                 sx={{ height: 100, width: 100 }}
-                                                image={`src/assets/${item.icon}`}
+                                                image={`${item.icon}`}
                                                 title="green iguana"
                                             />
                                         </CardContent>
