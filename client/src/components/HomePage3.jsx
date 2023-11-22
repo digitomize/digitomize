@@ -22,18 +22,16 @@ export default function Home2() {
           </div>
           <div className="description">
             <p className="py-6 font-['Source Code Pro'] text-xl phone:text-right max-phone:text-center">
-              Showcase your ratings, GitHub stats, personal info, skills,
-              education, and more. Climb the leaderboard while enjoying
-              friendly competition with friends in the coding community.
+            Filter contests based on various criteria and view contest details such as remaining time, duration, and more.
             </p>
           </div>
-          <div className="button phone:ml-auto phone:mr-[25%] max-phone:mx-auto">
+          <div className="button phone:ml-auto phone:mr-[20%] max-phone:mx-auto">
             <Link to="/contests">
               <button
                 data-theme="mytheme"
                 className="btn btn-outline text-custom-blue lowercase hover:bg-custom-blue hover:border-custom-blue hover:animate-none hover:scale-110"
               >
-                explore
+                explore contests
               </button>
             </Link>
           </div>
