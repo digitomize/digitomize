@@ -106,7 +106,7 @@ export default function Home2() {
                 friendly competition with friends in the coding community.
               </p>
             </div>
-            <div className="lg:hidden card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-2">
+            <div className="lg:hidden mx-auto card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-2">
               <div className="">
                 <div className="mockup-browser border bg-base-300">
                   <div className="mockup-browser-toolbar">
@@ -114,7 +114,7 @@ export default function Home2() {
                       className="input text-custom-blue"
                       style={{ width: "fit-content" }}
                     >
-                      digitomize.com/profile
+                      /u/profile
                     </div>
                   </div>
                   <div className="flex flex-row px-4 py-4 bg-base-200">
