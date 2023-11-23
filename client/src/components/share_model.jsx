@@ -91,7 +91,7 @@ const ShareModel = ({close_model, copyToClipboard, contestLink, theme }) => {
                     <button style={{padding:"10px"}} onClick={handleWhatsAppClick}><WhatsAppIcon sx={{transform: "scale(1.5)"}}/></button>
                     <button style={{padding:"10px"}} onClick={handleTelegramClick}><TelegramIcon sx={{transform: "scale(1.5)"}}/></button>
                     <button style={{padding:"10px"}} onClick={handleLinkedinClick}><LinkedInIcon sx={{transform: "scale(1.5)"}}/></button>
-                    <button style={{padding:"10px"}} onClick={handleTwitterClick}><TwitterIcon sx={{transform: "scale(1.5)"}}/></button>
+                    <button style={{padding:"10px"}} onClick={handleTwitterClick}><i className="fa-brands fa-x-twitter fa-2xl"></i></button> 
                 </div>
                 <div>
                     or copy link
