@@ -16,10 +16,10 @@ import {
     useNavigate
 
 } from "react-router-dom"
-
+import { Tooltip } from "@mui/material"
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
-export default function GoogleAuthButton({ setError, btnText }){
+export default function GoogleAuthButton({ setError, btnText }) {
     const navigate = useNavigate();
 
     const [btnState, setbtnState] = useState(false);
@@ -41,6 +41,16 @@ export default function GoogleAuthButton({ setError, btnText }){
                     navigate('/u/dashboard')
                 }).catch((err) => {
                     setError(err.code);
+                    toast.error(error.code, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    });
                 }
                 )
         } catch (err) {
@@ -51,9 +61,11 @@ export default function GoogleAuthButton({ setError, btnText }){
     return (
 
         <>
-            <button onClick={handleGoogleSignIn} disabled={btnState}>
-                <img src={googleIcon} alt="google button" width={60} />
-            </button>
+            <Tooltip title="Continue with Google" arrow>
+                <button onClick={handleGoogleSignIn} disabled={btnState}>
+                    <img src={googleIcon} alt="google button" width={60} />
+                </button>
+            </Tooltip>
             {/* <GoogleButton type="light" className={`g-btn`} onClick={handleGoogleSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : btnText}`} style={{ backgroundColor: "white" }} /> */}
         </>
     )
