@@ -74,7 +74,6 @@ export async function rankOnLeaderboard(username) {
     const response = await axios.get(
       `${backendUrl}/user/leaderboard?username=${username}`
     );
-    console.log("response:", response);
     return response;
   } catch (err) {
     console.log(err);

@@ -17,12 +17,11 @@ const theme = createTheme({
 export default function Leaderboard() {
     const location = useLocation();
     const navigate = useNavigate();
-    let [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState(null);
     const [totalPages, setTotalPages] = useState(1);
     const [currentPage, setCurrentPage] = useState(searchParams.get("page") || 1);
-    console.log("current page", currentPage)
     const [currentUserData, setCurrentUserData] = useState(null);
     const { userDetails } = useUserDetails();
     // console.log("USERERER", userDetails);
@@ -288,7 +287,7 @@ export default function Leaderboard() {
                 </div> */}
                 <ThemeProvider theme={theme}>
                     <div className="pagination py-8 mx-auto w-fit">
-                        <Pagination count={totalPages} page={currentPage} onChange={handlePageChange} color="primary" className="text-white" siblingCount={0} boundaryCount={1} shape="rounded" sx={{ color: "pink" }} style={{ color: "pink" }} />
+                        <Pagination count={totalPages} page={currentPage} onChange={handlePageChange} color="primary" className="text-white" siblingCount={1} boundaryCount={1} shape="rounded" sx={{ color: "pink" }} style={{ color: "pink" }} />
                     </div>
                 </ThemeProvider>
             </div>
