@@ -81,7 +81,7 @@ const ShareModel = ({close_model, copyToClipboard, contestLink, theme }) => {
                 <div>
                     <p>Share this link via</p>
                 </div>
-                <div>
+                <div className="flex">
                     <Stack 
                         justifyContent="center"
                         alignItems="center"
@@ -91,7 +91,7 @@ const ShareModel = ({close_model, copyToClipboard, contestLink, theme }) => {
                     <button style={{padding:"10px"}} onClick={handleWhatsAppClick}><WhatsAppIcon sx={{transform: "scale(1.5)"}}/></button>
                     <button style={{padding:"10px"}} onClick={handleTelegramClick}><TelegramIcon sx={{transform: "scale(1.5)"}}/></button>
                     <button style={{padding:"10px"}} onClick={handleLinkedinClick}><LinkedInIcon sx={{transform: "scale(1.5)"}}/></button>
-                    <button style={{padding:"10px"}} onClick={handleTwitterClick}><i className="fa-brands fa-x-twitter fa-2xl"></i></button> 
+                    <button style={{padding:"10px"}} onClick={handleTwitterClick}><img className="h-7 w-7 bg-gray-300 p-1 rounded-sm" src="https://about.twitter.com/content/dam/about-twitter/x/brand-toolkit/logo-black.png.twimg.1920.png"/></button> 
                 </div>
                 <div>
                     or copy link
