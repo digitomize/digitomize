@@ -48,12 +48,12 @@ export default function Login() {
     const [error, setError] = useState("")
     const { logIn } = useUserAuth()
     const navigate = useNavigate()
-    const [btn, setBtn] = useState(false) // disable feature
+    const [btnState, setbtnState] = useState(false) // disable feature
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
-        setBtn(true)
+        setbtnState(true)
         try {
             await logIn(email, password)
             navigate('/u/dashboard')
@@ -68,7 +68,7 @@ export default function Login() {
                 progress: undefined,
                 theme: "colored",
             });
-            setBtn(false)
+            setbtnState(false)
             setError(err.code);
         }
     }
@@ -90,8 +90,8 @@ export default function Login() {
                             </p>
                         </div>
                         <div className="auth-btns flex flex-row gap-2 justify-center mt-4">
-                            <GoogleAuthButton setError={setError} />
-                            <GithubAuthButton setError={setError} />
+                            <GoogleAuthButton setError={setError} btnState={btnState} setbtnState={setbtnState} />
+                            <GithubAuthButton setError={setError} btnState={btnState} setbtnState={setbtnState} />
                         </div>
                         <div className="divider">OR</div>
                         <div className="email-form mx-auto">
@@ -136,7 +136,7 @@ export default function Login() {
                                 </div>
                                 <div className="items-center">
                                     <div className="w-full">
-                                        <SignoutButton onClickFunction={(e) => handleSubmit} isDisabled={btn} btnName={btn
+                                        <SignoutButton onClickFunction={(e) => handleSubmit} isDisabled={btnState} btnName={btnState
                                             ? "Logging in..."
                                             : "Log in"}
                                             backgroundColor="bg-[#4285f4]"

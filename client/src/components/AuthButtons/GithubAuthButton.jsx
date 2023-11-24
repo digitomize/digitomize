@@ -17,9 +17,9 @@ import { Tooltip } from "@mui/material"
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 
-export default function GithubAuthButton({ setError, btnText }) {
+export default function GithubAuthButton({ setError, btnText, btnState, setbtnState }) {
     const navigate = useNavigate();
-    const [btnState, setbtnState] = useState(false);
+    // const [btnState, setbtnState] = useState(false);
     const handleGithubSignIn = async (e) => {
         setbtnState(true);
         e.preventDefault();

@@ -46,12 +46,12 @@ export default function Signup() {
     const [error, setError] = useState("")
     const navigate = useNavigate()
     const { signUp } = useUserAuth()
-    const [btn, setBtn] = useState(false)
+    const [btnState, setbtnState] = useState(false)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
-        setBtn(true);
+        setbtnState(true);
         try {
             await signUp(email, password, username, firstName)
             const token = auth.currentUser.accessToken
@@ -67,7 +67,7 @@ export default function Signup() {
             }
             navigate("/login")
         } catch (err) {
-            setBtn(true);
+            setbtnState(true);
             toast.error(err.code, {
                 position: "top-right",
                 autoClose: 5000,
@@ -100,8 +100,8 @@ export default function Signup() {
                             </p>
                         </div>
                         <div className="auth-btns flex flex-row gap-2 justify-center mt-4">
-                            <GoogleAuthButton setError={setError} />
-                            <GithubAuthButton setError={setError} />
+                            <GoogleAuthButton setError={setError} btnState={btnState} setbtnState={setbtnState}/>
+                            <GithubAuthButton setError={setError} btnState={btnState} setbtnState={setbtnState} />
                         </div>
                         <div className="divider mb-0">OR</div>
                         <div className="email-form mx-auto my-0">
@@ -172,7 +172,7 @@ export default function Signup() {
                                 </div>
                                 <div className="items-center">
                                     <div className="w-full">
-                                        <SignoutButton onClickFunction={(e) => handleSubmit} isDisabled={btn} btnName={btn
+                                        <SignoutButton onClickFunction={(e) => handleSubmit} isDisabled={btnState} btnName={btnState
                                             ? "Joining in..."
                                             : "Join the coders"}
                                             backgroundColor="bg-[#4285f4]"
