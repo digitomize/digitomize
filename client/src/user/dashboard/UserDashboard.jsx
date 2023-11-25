@@ -90,7 +90,7 @@ export default function UserDashboard() {
     async function handleLogout() {
         await auth.signOut()
         toast.success("Logged out successfully")
-        console.log("before");
+        // console.log("before");
         navigate('/login?message=Logged out successfully')
     }
     useEffect(() => {
