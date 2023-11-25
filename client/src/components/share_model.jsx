@@ -7,6 +7,7 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import { FaXTwitter } from "react-icons/fa6";
 
 const ShareModel = ({close_model, copyToClipboard, contestLink, theme }) => {
     //const [ showModel, setShowModel ] = useState('');
@@ -70,7 +71,7 @@ const ShareModel = ({close_model, copyToClipboard, contestLink, theme }) => {
         navigator.clipboard.writeText(contestLink);
         setInterval(()=>{
           document.querySelector('.text-copied').classList.add('hidden');
-        }, 1000);
+        }, 3000);
         document.querySelector('.text-copied').classList.remove('hidden');
     }  
 
@@ -88,21 +89,22 @@ const ShareModel = ({close_model, copyToClipboard, contestLink, theme }) => {
                         spacing= {3}
                         direction="row"
                     />
-                    <button style={{padding:"10px"}} onClick={handleWhatsAppClick}><WhatsAppIcon sx={{transform: "scale(1.5)"}}/></button>
+                    <button style={{padding:"10px"}} onClick={handleWhatsAppClick}><WhatsAppIcon sx={{transform: "scale(1.4)"}}/></button>
                     <button style={{padding:"10px"}} onClick={handleTelegramClick}><TelegramIcon sx={{transform: "scale(1.5)"}}/></button>
                     <button style={{padding:"10px"}} onClick={handleLinkedinClick}><LinkedInIcon sx={{transform: "scale(1.5)"}}/></button>
-                    <button style={{padding:"10px"}} onClick={handleTwitterClick}><img className="h-7 w-7 bg-gray-300 p-1 rounded-sm" src="https://about.twitter.com/content/dam/about-twitter/x/brand-toolkit/logo-black.png.twimg.1920.png"/></button> 
+                    <button style={{padding:"10px"}} onClick={handleTwitterClick}><FaXTwitter size={'1.8rem'}/></button> 
                 </div>
                 <div>
+                  <p onClick={copy_text}>
                     or copy link
+                  </p>
                 </div>
-                
-            <div className="input_url">
-                <span className="text-copied hidden">copied!</span>
-                <input type="text" className="input_value" value={contestLink}/>
-                
-                <button onClick={copy_text}><ContentCopyIcon/></button>
-            </div>
+                    
+                <div className="input_url">
+                    <span className="text-copied hidden">copied!</span>
+                    <input type="text" className="input_value cursor-default" value={contestLink} onClick={copy_text}/>
+                    <button onClick={copy_text}><ContentCopyIcon/></button>
+                </div>
                 
           </div>
         </div>
