@@ -23,7 +23,7 @@ import {
 import {
     ToastContainer, toast
 } from "react-toastify"
-import welcomeBack from "../assets/welcome-back.svg"
+// import welcomeBack from "../assets/welcome-back.svg"
 import SignoutButton from "../user/components/SignoutButton"
 
 import GoogleAuthButton from "./AuthButtons/GoogleAuthButton"
