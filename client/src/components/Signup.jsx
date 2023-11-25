@@ -87,8 +87,8 @@ export default function Signup() {
             <ToastContainer />
             <div className="phone:pt-4 pb-12">
                 {error && <h3 className="text-[#cc0000] text-center">{error}</h3>}
-                <div className="outer container w-11/12 flex flex-row mx-auto my-auto phone:border-2 rounded-xl border-jet">
-                    <div className="left phone:w-2/4 max-phone:w-full phone:px-12">
+                <div className="outer w-11/12 flex flex-row mx-auto my-auto phone:border-2 rounded-xl border-jet">
+                    <div className="left md:w-2/4 max-md:w-full phone:px-12">
                         <div className="heading text-center">
                             <h1 className="max-phone:mt-8">
 
@@ -191,7 +191,7 @@ export default function Signup() {
                             </Form>
                         </div>
                     </div>
-                    <div className="right phone:w-2/4 max-phone:hidden px-12 my-auto h-full">
+                    <div className="right md:w-2/4 max-md:hidden px-12 my-auto h-full">
                         <img src={loginIcon} alt="Login image" className="" />
                     </div>
                 </div>
