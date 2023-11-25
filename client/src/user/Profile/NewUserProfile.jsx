@@ -17,7 +17,6 @@ function NewUserProfile() {
         ? personal_data.bio.substring(0, 30) + "..."
         : personal_data.bio}`;
     const pageTitle = `${personal_data.name} | digitomize`;
-    console.log(personal_data)
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);

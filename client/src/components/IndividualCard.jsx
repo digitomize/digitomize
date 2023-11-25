@@ -2,7 +2,7 @@ import { useState, useEffect, memo } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Link, useParams } from 'react-router-dom';
 // import {HomeIcon, WhatshotIcon, GrainIcon} from '@mui/icons-material';
-import { Home as HomeIcon, Whatshot as WhatshotIcon, Grain as GrainIcon, OpenInNew } from "@mui/icons-material";
+import { Home as HomeIcon, Whatshot as WhatshotIcon, Grain as GrainIcon, OpenInNew, PanTool } from "@mui/icons-material";
 import { NewFooter } from "./CustomComponents";
 import { Helmet } from "react-helmet";
 import './css/IndividualCard.css'
@@ -119,14 +119,14 @@ function IndividualCard() {
       </Helmet>
       {!user &&
         <div className="mx-auto w-fit mt-4 px-4">
-          <Alert severity="info" className="w-fit">
+          <Alert severity="error" className="w-fit" icon={<PanTool className="animate-ping"/>}>
             <Link to="/signup?utm_source=contests">
               <AlertTitle>
-                <strong>Don't Miss Out on Ratings!</strong> -
+                <strong>One-Stop Ratings!</strong> -
                 <span> Join in<OpenInNew fontSize="small" />
                 </span>
               </AlertTitle>
-              Add your <strong>username</strong>, see all your ratings <strong>instantly</strong> at one place!
+              stop checking ratings <strong>one by one</strong>; see them all at <strong>once</strong>!
             </Link>
           </Alert>
         </div>

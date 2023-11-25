@@ -24,7 +24,6 @@ function ProfileLayout() {
             <Suspense fallback={<LoadingScreen logout={false} />}>
                 <Await resolve={loaderData.profileData}>
                     {(loadedProfileData) => {
-                        console.log(loadedProfileData)
                         return (
                             <Outlet context={loadedProfileData} />
                         )
