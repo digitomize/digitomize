@@ -4,7 +4,7 @@ import { setUser } from '../services/setUser.js';
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
 const handleUserSignup = async (req, res) => {
   let {
-    uid, username, name , picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
+    uid, username, name , picture, resume, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
   } = req.decodedToken;
 
   if (!username) {
@@ -20,7 +20,7 @@ const handleUserSignup = async (req, res) => {
   // console.log(uid);
   try {
     const userData = {
-      uid, username, name, picture, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
+      uid, username, name, picture, resume, email_verified, email, email_show, bio, dateOfBirth, phoneNumber, github, codechef, leetcode, codeforces
     };
 
     const newUser = await setUser(userData); // Create a new user using setUser

@@ -29,6 +29,7 @@ const handleUserDashboard = async (req, res) => {
         role: user.role,
         name: user.name,
         picture: user.picture,
+        resume: user.resume,
         email_verified: user.email_verified,
         email: user.email,
         email_show: user.email_show,

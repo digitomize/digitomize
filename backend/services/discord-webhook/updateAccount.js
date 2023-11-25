@@ -46,6 +46,7 @@ function createEmbeds(titlePrefix, username, image, data) {
         { name: 'role', value: safeString(data?.role), inline: true },
         { name: 'name', value: safeString(data?.name), inline: true },
         { name: 'picture', value: safeString(data?.picture), inline: true },
+        { name: 'resume', value: safeString(data?.resume), inline: true },
         { name: 'email_verified', value: safeString(data?.email_verified), inline: true },
         { name: 'email', value: safeString(data?.email), inline: true },
         { name: 'email_show', value: safeString(data?.email_show), inline: true },

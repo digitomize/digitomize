@@ -103,6 +103,7 @@ export default function UserDashPersonal() {
   const [formData, setFormData] = useState({
     username: personalData.username,
     name: personalData.name || "",
+    resume: personalData.resume || "",
     phoneNumber: {
       data: personalData.phoneNumber.data || "",
       showOnWebsite: personalData.phoneNumber.showOnWebsite || true,
@@ -358,6 +359,25 @@ export default function UserDashPersonal() {
 
                 </div>
 
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-2  mx-auto ">
+
+              <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
+
+                <div className="form-control w-full ">
+                  <label htmlFor="resume" className="label">
+                    <span className="label-text"> resume</span>
+                  </label>
+                  <div className="flex  items-center gap-3 ">
+                    <input type="tel"
+                      name="resume"
+                      id="resume" value={formData.resume}
+                      onChange={handleInputChange} className="input input-bordered w-full max-w-lg " />
+                  </div>
+
+                </div>
               </div>
             </div>
 

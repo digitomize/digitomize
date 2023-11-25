@@ -174,7 +174,7 @@ const router = createBrowserRouter(
             >
                 <Route index element={<NewUserProfile />} />
                 <Route path="about" element={<div>User about</div>} />
-                <Route path="resume" element={<div>resume</div>} />
+                {/* <Route path="resume" element={<Resume />} /> */}
                 <Route path="socials" element={<div>Socials</div>} />
                 <Route path="github" element={<div>Github</div>} />
                 <Route path="ratings" element={<ProfileRatingsPage />} >
