@@ -38,7 +38,6 @@ import logo from "../../assets/logo.png";
 import Badge from '@mui/material/Badge';
 import MoodIcon from '@mui/icons-material/Mood';
 import Tooltip from "@mui/material/Tooltip";
-import NewFooter from "../../components/NewFooter"
 import LoadingScreen from "../../components/LoadingScreen";
 import ShareModel from "../../components/share_model.jsx";
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
@@ -369,7 +368,7 @@ export default function UserDashboard() {
           </div>*/}
                     </div>
                 </div>
-                <NewFooter />
+                
             </>
         )
     }
