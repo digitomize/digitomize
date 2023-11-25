@@ -24,6 +24,7 @@ export default function Leaderboard() {
     const [currentPage, setCurrentPage] = useState(searchParams.get("page") || 1);
     const [currentUserData, setCurrentUserData] = useState(null);
     const { userDetails } = useUserDetails();
+    const [top3, setTop3] = useState([]);
     // console.log("USERERER", userDetails);
     const HtmlTooltip = styled(({ className, ...props }) => (
         <Tooltip className="custom-bg" {...props} classes={{ popper: className }} />
@@ -101,6 +102,10 @@ export default function Leaderboard() {
             const res = await leaderboardData(currentPage);
             setTotalPages(res.data.total_pages);
             setData(res.data.leaderboard);
+            setTop3(res.data.top3);
+            console.log(res.data);
+            console.log(res.data.leaderboard);
+            console.log(top3[0]);
         } catch (err) {
             console.log(err);
         } finally {
@@ -119,7 +124,7 @@ export default function Leaderboard() {
     };
 
     const getRank = (index) => {
-        return index + 1 + (currentPage - 1) * 5;
+        return index + 4 + (currentPage - 1) * 5;
     };
 
     return (
@@ -131,10 +136,10 @@ export default function Leaderboard() {
                 </h1>
 
             </div>
-            <div className='flex justify-center gap-7 phone:w-4/6 w-11/12 mx-auto mt-8 h-fit'>
-                <Rank color="#C0C0C0" photoUrl={'#'} />
-                <Rank color="#FFD700" pt="0" photoUrl={'#'} />
-                <Rank color="#CD7F32" photoUrl={'#'} />
+            <div className='flex justify-center max-phone:gap-6 phone:gap-12 phone:w-4/6 w-11/12 mx-auto mt-8 h-fit'>
+                <Rank color="#C0C0C0" user={top3[1]} />
+                <Rank color="#FFD700" pt="0" user={top3[0]} />
+                <Rank color="#CD7F32" user={top3[2]} />
             </div>
             <div className="phone:w-4/6 w-11/12 mx-auto mt-4 text-center">
 
@@ -186,16 +191,6 @@ export default function Leaderboard() {
                                             <tr key={index}>
                                                 <td>
                                                     {getRank(index)}
-                                                    {
-                                                        (getRank(index) == 1) ? <WorkspacePremium sx={{ color: "#FFD700" }} color="inherit" /> : ""
-                                                    }
-                                                    {
-                                                        (getRank(index) == 2) ? <WorkspacePremium sx={{ color: "#C0C0C0" }} color="inherit" /> : ""
-                                                    }
-                                                    {
-                                                        (getRank(index) == 3) ? <WorkspacePremium sx={{ color: "#CD7F32" }} color="inherit" /> : ""
-                                                    }
-
                                                 </td>
                                                 <td>
                                                     <div className="flex items-center space-x-3">
