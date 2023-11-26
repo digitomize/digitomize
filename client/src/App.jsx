@@ -68,6 +68,7 @@ import AdminPanelGuard from "./AdminPanelGuard";
 import ContestListPage from "./pages/admin/ContestListPage";
 import CommunityListPage from "./pages/admin/CommunityListPage";
 import { Diversity1 } from "@mui/icons-material";
+import UserDashLayout from "./user/components/UserDashLayout";
 
 
 function Logout() {
@@ -132,7 +133,6 @@ const router = createBrowserRouter(
                 <Route path="updates" element={<Updates />} />
                 <Route path="home" element={<NewHome />} />
                 <Route path="feedback" element={<Feedback />} />
-                <Route path="contact" element={<About />} />
                 <Route path="about" element={<About />} />
                 <Route path="discord" element={<DiscordRedirect />} />
                 <Route path="contests/:vanity" element={<IndividualCard />} />
@@ -145,13 +145,7 @@ const router = createBrowserRouter(
             </Route>
             <Route path="/u" element={<ProtectedRoute />}>
                 {/* <Route path="dashboard" element={<UserDashboard/>}> */}
-                <Route path="dashboard">
-                    <Route
-                        index
-                        element={<UserDashboard />}
-                    // loader={userDashPersonalLoader}
-                    // loader={userDashPersonalLoader}
-                    />
+                <Route path="dashboard" element={<UserDashLayout />}>
                     <Route
                         path="account"
                         element={<UserDashPersonal />}

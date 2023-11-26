@@ -71,6 +71,7 @@ export default function UserDashboard() {
     ]
 
     const location = useLocation();
+    console.log(location.pathname);
     const [show, setShow] = useState(false);
     const close_model = () => setShow(false);
 
