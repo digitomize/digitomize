@@ -24,8 +24,6 @@
         "concurrently": "^8.2.1"
     },
     "dependencies": {
-        "@cloudinary/react": "^1.11.2",
-        "@cloudinary/url-gen": "^1.13.0",
         "vercel": "^32.2.2"
     }
 }
