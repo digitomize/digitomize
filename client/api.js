@@ -82,8 +82,8 @@ export async function rankOnLeaderboard(username) {
   }
 }
 
-async function uploadPictureToCloudinary(picture) {
-  // generating signature so we can do signed uploads
+// generating signature so we can do signed uploads
+async function uploadPictureToCloudinary(formData,accessToken) {
   const { data } = await axios.get(`${backendUrl}/user/signImageUpload`,
     {
       headers: {
@@ -98,7 +98,7 @@ async function uploadPictureToCloudinary(picture) {
 
   // creating New form data object with picture and other paramaters
   let cloudinaryformData = new FormData()
-  cloudinaryformData.append('file', picture)
+  cloudinaryformData.append('file', formData.picture)
   cloudinaryformData.append('signature', signature)
   cloudinaryformData.append('timestamp', timestamp)
   cloudinaryformData.append('api_key', CLOUDINARY_API_KEY)
@@ -124,8 +124,8 @@ export async function submitUserFormData(formData) {
   const accessToken = await currentUser.getIdToken();
   // console.log(jwtToken);
 
-  uploadPictureToCloudinary(formData.picture)
-
+  await uploadPictureToCloudinary(formData,accessToken)
+  console.log(formData.picture);
   const res = await axios.post(`${backendUrl}/user/dashboard`, formData, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
