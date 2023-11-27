@@ -205,7 +205,7 @@ function IndividualCard() {
         )
         :
         (<>
-          <div className="card_Navigation flex justify-center mt-10 text-2xl" >
+          <div className="card_Navigation flex justify-center mt-8 text-2xl" >
                 <div className="card_nav_path">
                   <Link to="/">
                     <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
