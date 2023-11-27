@@ -5,26 +5,10 @@ import PersonIcon from '@mui/icons-material/Person';
 const ImageUploader = ({image, setFormData}) => {
     const [selectedImage, setSelectedImage] = useState(null);
 
-    // converts image into binary data
-    const getBinaryData = (file) => {
-        return new Promise((resolve, reject) => {
-          const reader = new FileReader();
-          reader.onload = () => {
-            resolve(reader.result);
-          };
-          reader.onerror = () => {
-            reject(reader.error);
-          };
-          reader.readAsArrayBuffer(file);
-        });
-      }
-
     // update the image state in form data
     const setImage = async (file)=>{
         // const binaryData = await getBinaryData(file)
         let name = 'picture'
-        console.log(name,"NAME");
-        console.log(file);
         setFormData((prevData) => ({
             ...prevData,
             [name]: file,
