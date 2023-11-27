@@ -1,7 +1,7 @@
 import { Link } from "react-scroll";
 import gitbookSvg from '../public/svg/GitBook.svg'
 import MSMESvg from '../public/svg/MSME.svg'
-import microsoftLogo from '../public/png/MS_Startups_Celebration_Badge_Light.png'
+import microsoftLogo from '../public/png/MS_Startups_Celebration_Badge_Dark.png'
 
 export default function Home1() {
   return (
