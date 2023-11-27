@@ -1,4 +1,6 @@
 import { Link } from "react-scroll";
+import gitbookSvg from '../public/svg/GitBook.svg'
+import microsoftLogo from '../public/png/MS_Startups_Celebration_Badge_Dark.png'
 
 export default function Home1() {
   return (
@@ -17,7 +19,7 @@ export default function Home1() {
           <span>showcase.</span>
         </h1>
 
-        <div className="text-center phone:text-4xl max-phone:text-2xl my-4 lowercase py-4 text-tagColor max-md:flex flex-col font-myFont text-[#9eb3bd]">
+        <div className="text-center phone:text-4xl max-phone:text-2xl my-4 lowercase py-4 text-tagColor max-md:flex flex-col font-myFont ">
           <span> Elevate Your Coding and Development Journey</span>{" "}
           <span> with </span> <span>Digitomize</span>
           <Link to="second">
@@ -33,6 +35,27 @@ export default function Home1() {
           </Link>
         </div>
       </div>
+      <section className="border-t border-jet bg-dark pt-8">
+        <p className="w-full text-center uppercase text-2xl max-md:text-4xl font-normal tracking-wide">We are trusted by</p>
+        <div className="mx-auto w-full max-w-screen-xl px-2.5 md:px-20 py-20">
+          <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:gap-x-6 ">
+            {/* map */}
+            <div className="md:flex-shrink-0 flex justify-center">
+              <div className="flex items-center justify-center ">
+                <img src={gitbookSvg} className="w-3/4" alt="" />
+
+              </div>
+            </div>
+            <div className="md:flex-shrink-0 flex justify-center">
+              <div className="flex items-center justify-center ">
+                <img src={microsoftLogo} className=" w-3/4 max-w-md" alt="" />
+
+              </div>
+            </div>
+            {/* map end */}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
