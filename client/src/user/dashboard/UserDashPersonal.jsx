@@ -105,6 +105,7 @@ export default function UserDashPersonal() {
     username: personalData.username,
     name: personalData.name || "",
     resume: personalData.resume || "",
+    picture:personalData.picture,
     phoneNumber: {
       data: personalData.phoneNumber.data || "",
       showOnWebsite: personalData.phoneNumber.showOnWebsite || true,
@@ -272,7 +273,7 @@ export default function UserDashPersonal() {
                 </div>
               </div>
             </div>
-		
+
             <div className="grid md:grid-cols-2  mx-auto ">
               <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
                 <div className="form-control w-full ">
@@ -288,57 +289,57 @@ export default function UserDashPersonal() {
                 </div>
               </div>
 
-			  {/* <div className="skills relative z-0 w-full md:w-3/4 mb-5  group flex flex-col items-center gap-3"> */}
-                <div className="z-0 w-full md:w-3/4 group flex items-start md:mr-5 ">
-                  <div className="form-control  w-full ">
-                    <label htmlFor="skills" className="label">
-                      <span className="label-text">Skills</span>
-                    </label>
-                    <div className="flex items-center gap-3">
-                      <input type="text"
-                        name="skills"
-                        id="skills" className="input input-bordered  w-full max-w-lg" placeholder=""
-                        value={newSkill}
-                        maxLength={10}
-                        onChange={(e) => setNewSkill(e.target.value)} />
-                      <Form onSubmit={handleAdd}>
-                        <button ref={btnRef}
-                          type="submit"
-                          className="text-black bg-white font-medium rounded-lg text-sm md:text-lg sm:w-auto px-5 py-1.5 text-center "
-                        >
-                          Add
-                        </button>
-                      </Form>
-                    </div>
-					<div className="skillchips w-full max-w-3xl mx-auto  ">
-                  {skillData.length > 0 ? (
-                    skillData.map((data) => {
-                      let icon;
-                      if (data.label === "React") {
-                        icon = <TagFacesIcon />;
-                      }
+              {/* <div className="skills relative z-0 w-full md:w-3/4 mb-5  group flex flex-col items-center gap-3"> */}
+              <div className="z-0 w-full md:w-3/4 group flex items-start md:mr-5 ">
+                <div className="form-control  w-full ">
+                  <label htmlFor="skills" className="label">
+                    <span className="label-text">Skills</span>
+                  </label>
+                  <div className="flex items-center gap-3">
+                    <input type="text"
+                      name="skills"
+                      id="skills" className="input input-bordered  w-full max-w-lg" placeholder=""
+                      value={newSkill}
+                      maxLength={10}
+                      onChange={(e) => setNewSkill(e.target.value)} />
+                    <Form onSubmit={handleAdd}>
+                      <button ref={btnRef}
+                        type="submit"
+                        className="text-black bg-white font-medium rounded-lg text-sm md:text-lg sm:w-auto px-5 py-1.5 text-center "
+                      >
+                        Add
+                      </button>
+                    </Form>
+                  </div>
+                  <div className="skillchips w-full max-w-3xl mx-auto  ">
+                    {skillData.length > 0 ? (
+                      skillData.map((data) => {
+                        let icon;
+                        if (data.label === "React") {
+                          icon = <TagFacesIcon />;
+                        }
 
-                      return (
-                        <div key={data.key} className="m-2 inline-block">
+                        return (
+                          <div key={data.key} className="m-2 inline-block">
 
-                          <Chip
-                            variant="outlined"
-                            color="primary"
-                            icon={icon}
-                            label={data.label}
-                            onDelete={handleDelete(data)}
-                          />
-                        </div>
-                      );
-                    })
-                  ) : (
-                    <p className="font-semibold font-mono text-red-600">No skills added.</p>
-                  )}
-                </div>
+                            <Chip
+                              variant="outlined"
+                              color="primary"
+                              icon={icon}
+                              label={data.label}
+                              onDelete={handleDelete(data)}
+                            />
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <p className="font-semibold font-mono text-red-600">No skills added.</p>
+                    )}
                   </div>
                 </div>
-                
               </div>
+
+            </div>
             {/* </div> */}
 
             <div className="flex flex-col md:flex-row  items-start gap-5  mb-10 mt-9">
@@ -363,18 +364,18 @@ export default function UserDashPersonal() {
               </div>
               {/* skills */}
 
-			  <div className="relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
+              <div className="relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
                 <div className="form-control w-full">
                   <label className="label">
                     <span className="label-text">Upload Profile Picture</span>
                   </label>
-				  <div className="flex items-center gap-3">
-				  	<ImageUploader></ImageUploader>
-				  </div>
+                  <div className="flex items-center gap-3">
+                    <ImageUploader image={formData.picture} setFormData={setFormData}></ImageUploader>
+                  </div>
 
                 </div>
               </div>
-              
+
             </div>
 
 
