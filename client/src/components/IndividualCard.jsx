@@ -205,6 +205,28 @@ function IndividualCard() {
         )
         :
         (<>
+          <div className="card_Navigation flex justify-center mt-10 text-2xl" >
+                <div className="card_nav_path">
+                  <Link to="/">
+                    <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                    Home
+                  </Link>
+                </div>
+                <h3>&gt;</h3>
+                <div className="card_nav_path">
+                  <Link to="/contests">
+                    <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                    Contests
+                  </Link>
+                </div>
+                <h3>&gt;</h3>
+                <div className="card_nav_path">
+                  <h3>
+                    <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                    {name}
+                  </h3>
+              </div>
+            </div>
           <div className="ic py-8" key={vanity} style={{ backgroundColor: colorTheme }}>
             <div className="ic-child">
               <div className='date' style={{ color: 'black', fontWeight: 'bold', backgroundColor: colorTheme }}>{startDate.getDate()} {monthName}' {startDate.getFullYear()}</div>
