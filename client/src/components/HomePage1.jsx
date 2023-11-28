@@ -1,4 +1,4 @@
-import { Link } from "react-scroll";
+import { Link, Element } from "react-scroll";
 import gitbookSvg from '../public/svg/GitBook.svg'
 import MSMESvg from '../public/svg/MSME.svg'
 import microsoftLogo from '../public/png/MS_Startups_Celebration_Badge_Dark.png'
@@ -36,6 +36,7 @@ export default function Home1() {
           </Link> */}
         </div>
 
+        <Element name="supporters">
         <section className="w-full flex justify-center">
           <div className="border-t md:w-3/4 border-jet bg-dark phone:mt-12">
             <p className="w-full text-center lowercase text-4xl font-normal tracking-wide pt-8">Supported by</p>
@@ -74,7 +75,8 @@ export default function Home1() {
               </div>
             </div>
           </div>
-        </section>
+          </section>
+          </Element>
       </div>
     </>
   );

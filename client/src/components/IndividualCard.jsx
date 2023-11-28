@@ -2,7 +2,7 @@ import { useState, useEffect, memo } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Link, useParams } from 'react-router-dom';
 // import {HomeIcon, WhatshotIcon, GrainIcon} from '@mui/icons-material';
-import { Home as HomeIcon, Whatshot as WhatshotIcon, Grain as GrainIcon, OpenInNew, PanTool } from "@mui/icons-material";
+import { Home as HomeIcon, Whatshot as WhatshotIcon, Grain as GrainIcon, OpenInNew, PanTool, Celebration } from "@mui/icons-material";
 import { NewFooter } from "./CustomComponents";
 import { Helmet } from "react-helmet";
 import './css/IndividualCard.css'
@@ -15,6 +15,7 @@ import codeforces from '../assets/codeforces.svg'
 import atcoder from '../assets/atcoder.svg'
 import CopyToClipboard from './CopyToClipboard';
 import { useUserAuth } from "../context/UserAuthContext";
+import microsoftLogo from "../public/png/MS_Startups_Celebration_Badge_Dark.png";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
@@ -118,8 +119,20 @@ function IndividualCard() {
         <meta name="description" content={contentDescription} />
       </Helmet>
       {!user &&
-        <div className="mx-auto w-fit mt-4 px-4">
-          <Alert severity="error" className="w-fit" icon={<PanTool className="animate-ping"/>}>
+        <div className="mx-auto w-fit mt-4">
+          <Alert severity="error" className="w-fit" icon={<Celebration className="animate-ping"/>}>
+            <Link to="/home#supporters">
+              <AlertTitle>
+                <strong>🎉 digitomize</strong>
+                <span className="normal-case"> is now a part of <strong>Microsoft for Startups Founders Hub </strong>🎉 
+                </span>
+              </AlertTitle>
+            </Link>
+          </Alert>
+          {/* <div className="w-full flex md:flex-row-reverse -right-8 -top-4 md:relative max-md:justify-center max-md:mt-4">
+          <img src={ microsoftLogo} alt="" className="w-40"/>
+          </div> */}
+          {/* <Alert severity="error" className="w-fit" icon={<PanTool className="animate-ping"/>}>
             <Link to="/signup?utm_source=contests">
               <AlertTitle>
                 <strong>One-Stop Ratings!</strong> -
@@ -128,7 +141,7 @@ function IndividualCard() {
               </AlertTitle>
               stop checking ratings <strong>one by one</strong>; see them all at <strong>once</strong>!
             </Link>
-          </Alert>
+          </Alert> */}
         </div>
       }
       {isMobile ?
