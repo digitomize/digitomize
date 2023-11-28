@@ -118,7 +118,7 @@ function IndividualCard() {
         <meta property="og:description" content={contentDescription} />
         <meta name="description" content={contentDescription} />
       </Helmet>
-      {!user &&
+      {true &&
         <div className="mx-auto w-fit mt-4">
           <Alert severity="error" className="w-fit" icon={<Celebration className="animate-ping"/>}>
             <Link to="/home#supporters">
