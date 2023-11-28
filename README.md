@@ -2,7 +2,7 @@
 
 # Digitomize
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-34-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-35-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/125b14c1-ebbe-46d7-97db-c3e97674e36e/deploy-status)](https://app.netlify.com/sites/digitomize/deploys)
@@ -128,6 +128,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Nishantkumar012"><img src="https://avatars.githubusercontent.com/u/124617537?v=4?s=100" width="100px;" alt="Nishantkumar012"/><br /><sub><b>Nishantkumar012</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Nishantkumar012" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://troncodes.com"><img src="https://avatars.githubusercontent.com/u/48357640?v=4?s=100" width="100px;" alt="cybertron15"/><br /><sub><b>cybertron15</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=cybertron15" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://palsarthaak.wixsite.com/sarthaakpal/portfolio"><img src="https://avatars.githubusercontent.com/u/123382000?v=4?s=100" width="100px;" alt="sarthaak pal"/><br /><sub><b>sarthaak pal</b></sub></a><br /><a href="#design-sarthaakpal" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Rushikesh0107"><img src="https://avatars.githubusercontent.com/u/97348386?v=4?s=100" width="100px;" alt="Rushikesh Dadas"/><br /><sub><b>Rushikesh Dadas</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Rushikesh0107" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
