@@ -121,13 +121,13 @@ function IndividualCard() {
       {true &&
         <div className="mx-auto w-fit mt-4">
           <Alert severity="error" className="w-fit" icon={<Celebration className="animate-ping"/>}>
-            <Link to="/home#supporters">
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7135350446415564800" target="_blank">
               <AlertTitle>
                 <strong>🎉 digitomize</strong>
                 <span className="normal-case"> is now a part of <strong>Microsoft for Startups Founders Hub </strong>🎉 
                 </span>
               </AlertTitle>
-            </Link>
+            </a>
           </Alert>
           {/* <div className="w-full flex md:flex-row-reverse -right-8 -top-4 md:relative max-md:justify-center max-md:mt-4">
           <img src={ microsoftLogo} alt="" className="w-40"/>
