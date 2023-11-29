@@ -14,54 +14,58 @@
   font-family: "myFont";
   src: url("../src/assets/myFont.ttf");
 }
+.text-gradient {
+  background: linear-gradient(
+    270deg,
+    #751c87 0%,
+    #8d41aa 10%,
+    #ba356c 20%,
+    #f22c30 35%,
+    #f8573a 60%,
+    #fcbb57 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .gradient-custom {
-    background: linear-gradient(
-      270deg,
-      #751c87 0%,
-      #8D41AA 10%,
-      #BA356C 20%,
-      #F22C30 35%,
-      #F8573A 60%,
-      #FCBB57 100%
-    );
-  }
+  background: linear-gradient(
+    270deg,
+    #751c87 0%,
+    #8d41aa 10%,
+    #ba356c 20%,
+    #f22c30 35%,
+    #f8573a 60%,
+    #fcbb57 100%
+  );
+}
 
 .gradient-custom-onHover:hover {
   background: linear-gradient(
-      270deg,
-      #751c87 0%,
-      #8D41AA 10%,
-      #BA356C 20%,
-      #F22C30 35%,
-      #F8573A 60%,
-      #FCBB57 100%
-    );
-  
-  }
+    270deg,
+    #751c87 0%,
+    #8d41aa 10%,
+    #ba356c 20%,
+    #f22c30 35%,
+    #f8573a 60%,
+    #fcbb57 100%
+  );
+}
 
-
-
-  .gradient-custom-border {
+.gradient-custom-border {
   border-image: linear-gradient(
     270deg,
     #751c87 0%,
-    #8D41AA 10%,
-    #BA356C 20%,
-    #F22C30 35%,
-    #F8573A 60%,
-    #FCBB57 100%
+    #8d41aa 10%,
+    #ba356c 20%,
+    #f22c30 35%,
+    #f8573a 60%,
+    #fcbb57 100%
   );
   border-image-slice: 1;
 }
 
-
-
-
-
-
 .cardsBg {
-    background: #191919;
+  background: #191919;
 }
-    
-  

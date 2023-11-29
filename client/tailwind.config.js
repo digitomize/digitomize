@@ -25,7 +25,7 @@ export default {
       colors: {
         "custom-border": "#30363d",
         "custom-bg": "#0a0a0a",
-        "light-blue":"#9eb3bd",
+        "light-blue": "#9eb3bd",
         "light-font": "#888888",
         "nav-text": "rgba(255, 255, 255, 0.50)",
         "card-text": "rgba(255, 255, 255, 0.75)",
@@ -44,6 +44,7 @@ export default {
         "color-3": "hsl(240, 2%, 13%)",
         "gradient-onyx":
           "linear-gradient( to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97% )",
+        "grad-bg": "-webkit-linear-gradient(#eee, #333);",
       },
       shadowBlack: " hsla(0, 0%, 0%, 0.25);",
       keyframes: {
