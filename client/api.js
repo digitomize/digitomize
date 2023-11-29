@@ -69,6 +69,17 @@ export async function leaderboardData(page = 1) {
     console.log(err);
   }
 }
+export async function rankOnLeaderboard(username) {
+  try {
+    const response = await axios.get(
+      `${backendUrl}/user/leaderboard?username=${username}`
+    );
+    return response;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
+}
 
 export async function submitUserFormData(formData) {
   // const jwtToken = Cookies.get("jwt");

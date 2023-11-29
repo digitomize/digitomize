@@ -20,14 +20,50 @@ const getLeaderboard = async (req, res) => {
         const bRating = b[platform] ? b[platform].rating || 0 : 0;
         return bRating - aRating;
       });
-      users = users.slice((page - 1) * pageSize, page * pageSize);
+
     } else {
       users = await User.find();
       totalUsers = users.length;
-      console.log(totalUsers);
       users.sort((a, b) => b.digitomize_rating - a.digitomize_rating);
-      // console.log("Sorted:", users);
-      users = users.slice((page - 1) * pageSize, page * pageSize);
+    }
+
+    const top3 = users.slice(0, 3).map((user) => {
+      const platformRating = user[req.query.platform] ? user[req.query.platform].rating : null;
+
+      const userRatings = {
+        codechef: user.codechef ? user.codechef.rating : null,
+        leetcode: user.leetcode ? user.leetcode.rating : null,
+        codeforces: user.codeforces ? user.codeforces.rating : null,
+      };
+
+      return {
+        username: user.username,
+        picture: user.picture,
+        name: user.name,
+        ...userRatings,
+        digitomize_rating: user.digitomize_rating,
+        platform_rating: platformRating,
+      };
+    });
+
+    const allSortedUsers = users;
+    users = users.slice(3); // Exclude top3
+    users = users.slice((page - 1) * pageSize, page * pageSize);
+
+    if (req.query.username) {
+      const username = req.query.username;
+      const user = allSortedUsers.find(user => user.username === username);
+      const userIndex = allSortedUsers.findIndex(user => user.username === username);
+      const userPosition = userIndex !== -1 ? (page - 1) * pageSize + userIndex + 1 : null;
+      const userRatings = {
+        codechef: user ? (user.codechef ? user.codechef.rating : null) : null,
+        leetcode: user ? (user.leetcode ? user.leetcode.rating : null) : null,
+        codeforces: user ? (user.codeforces ? user.codeforces.rating : null) : null,
+        digitomize_rating: user ? user.digitomize_rating : null,
+        platform_rating: user ? (user[req.query.platform] ? user[req.query.platform].rating : null) : null,
+      };
+      res.json({ user_position: userPosition, ratings: userRatings });
+      return; // Return early if the username is provided
     }
 
     const total_pages = Math.ceil(totalUsers / pageSize);
@@ -64,6 +100,7 @@ const getLeaderboard = async (req, res) => {
 
     res.json({
       total_users: totalUsers,
+      top3,
       users_in_page,
       total_pages,
       current_page: page,

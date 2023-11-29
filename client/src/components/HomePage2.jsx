@@ -1,4 +1,4 @@
-import { Element } from "react-scroll";
+import { Element, Link as Linkto } from "react-scroll";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -78,8 +78,6 @@ export default function Home2() {
     }));
   };
   const updateShowOnWebsite = (field) => (value) => {
-    console.log(`field: ${field}, value: ${value}`);
-    console.log(value.target.checked);
     value = value.target.checked;
     setFormData((prevData) => ({
       ...prevData,
@@ -91,9 +89,9 @@ export default function Home2() {
   };
 
   return (
-    <Element name="second">
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content flex-col sm:flex-row">
+    <>
+      <Element name="second" className="hero min-h-screen bg-base-200 flex flex-col">
+        <div className="hero-content flex-col sm:flex-row my-auto">
           <div className="left sm:w-[40%] text-center">
             <div className="sm:text-left max-sm:text-center">
               <h1 className="sm:text-8xl max-smtext-5xl my-0 font-medium max-sm:min-h-[100px] sm:min-h-[300px]">
@@ -106,7 +104,7 @@ export default function Home2() {
                 friendly competition with friends in the coding community.
               </p>
             </div>
-            <div className="lg:hidden card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-2">
+            <div className="lg:hidden mx-auto card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-2">
               <div className="">
                 <div className="mockup-browser border bg-base-300">
                   <div className="mockup-browser-toolbar">
@@ -114,7 +112,7 @@ export default function Home2() {
                       className="input text-custom-blue"
                       style={{ width: "fit-content" }}
                     >
-                      digitomize.com/profile
+                      /u/profile
                     </div>
                   </div>
                   <div className="flex flex-row px-4 py-4 bg-base-200">
@@ -253,7 +251,7 @@ export default function Home2() {
                 <div className="flex flex-col w-2/4">
                   <label className="label mx-2">
                     <span className="label-text">
-                      import "<span class="text-custom-blue">socials</span>";
+                      import "<span className="text-custom-blue">socials</span>";
                     </span>
                   </label>
                   <Skeleton
@@ -265,7 +263,7 @@ export default function Home2() {
                   />
                   <label className="label mx-2">
                     <span className="label-text">
-                      fetch{`("`}<span class="text-custom-blue">ratings</span>{`");`}
+                      fetch{`("`}<span className="text-custom-blue">ratings</span>{`");`}
                     </span>
                   </label>
                   <Skeleton
@@ -277,7 +275,7 @@ export default function Home2() {
                   />
                   <label className="label mx-2">
                     <span className="label-text">
-                      <span class="text-custom-blue">github</span>
+                      <span className="text-custom-blue">github</span>
                     </span>
                   </label>
                   <Skeleton
@@ -412,7 +410,17 @@ export default function Home2() {
             </div>
           </div>
         </div>
-      </div>
-    </Element>
+        <Linkto to="third">
+          <div className="lower text-center animate-bounce">
+            <div className="indicator pt-4">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </Linkto>
+      </Element>
+    </>
   );
 }

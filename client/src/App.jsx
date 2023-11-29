@@ -132,6 +132,7 @@ const router = createBrowserRouter(
                 <Route path="updates" element={<Updates />} />
                 <Route path="home" element={<NewHome />} />
                 <Route path="feedback" element={<Feedback />} />
+                <Route path="contact" element={<About />} />
                 <Route path="about" element={<About />} />
                 <Route path="discord" element={<DiscordRedirect />} />
                 <Route path="contests/:vanity" element={<IndividualCard />} />

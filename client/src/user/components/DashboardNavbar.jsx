@@ -6,10 +6,10 @@ import { useUserAuth } from "../../context/UserAuthContext";
 
 export default function DashboardNavbar() {
     const { user } = useUserAuth();
-    console.log("user is", user);
-    if (user) {
-        console.log("user is", user.displayName);
-    }
+    // console.log("user is", user);
+    // if (user) {
+    //     console.log("user is", user.displayName);
+    // }
     const location = useLocation();
 
     const navbarStyle = {

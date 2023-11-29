@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link, useNavigate, useSearchParams } from 'react-router-dom'
 import NewNavbar from "../../components/NewNavbar";
-import { leaderboardData } from "../../../api";
+import { leaderboardData, rankOnLeaderboard } from "../../../api";
 import { OpenInNew, WorkspacePremium, Info } from '@mui/icons-material';
 import { Skeleton, Stack, Typography, Tooltip, tooltipClasses, styled } from '@mui/material';
 import Pagination from '@mui/material/Pagination';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { useUserDetails } from "../../context/UserContext";
+import Rank from './components/Rank';
 const theme = createTheme({
     palette: {
         mode: 'dark',
@@ -15,11 +16,16 @@ const theme = createTheme({
 
 export default function Leaderboard() {
     const location = useLocation();
+    const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState(null);
     const [totalPages, setTotalPages] = useState(1);
-    const [currentPage, setCurrentPage] = useState(1);
-
+    const [currentPage, setCurrentPage] = useState(searchParams.get("page") || 1);
+    const [currentUserData, setCurrentUserData] = useState(null);
+    const { userDetails } = useUserDetails();
+    const [top3, setTop3] = useState([]);
+    // console.log("USERERER", userDetails);
     const HtmlTooltip = styled(({ className, ...props }) => (
         <Tooltip className="custom-bg" {...props} classes={{ popper: className }} />
     ))(({ theme }) => ({
@@ -74,43 +80,69 @@ export default function Leaderboard() {
         );
     };
 
-
     useEffect(() => {
-        async function fetchData() {
-            try {
-                console.log(currentPage);
-                setLoading(true);
-                const res = await leaderboardData(currentPage);
-                setTotalPages(res.data.total_pages);
-                setData(res.data.leaderboard);
-            } catch (err) {
-                console.log(err);
-            } finally {
-                setLoading(false);
-            }
-        }
+        fetchLoggedUserData();
+    }, [userDetails]);
 
-        fetchData();
+    async function fetchLoggedUserData() {
+        try {
+            const userData = await rankOnLeaderboard(userDetails?.personal_data?.username);
+            setCurrentUserData(userData?.data);
+            // console.log(currentUserData);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+
+    async function fetchLbData() {
+        try {
+            // console.log(currentPage);
+            setLoading(true);
+            const res = await leaderboardData(currentPage);
+            setTotalPages(res.data.total_pages);
+            setData(res.data.leaderboard);
+            setTop3(res.data.top3);
+            console.log(res.data);
+            console.log(res.data.leaderboard);
+            console.log(top3[0]);
+        } catch (err) {
+            console.log(err);
+        } finally {
+            setLoading(false);
+        }
+    }
+    useEffect(() => {
+        fetchLbData(currentPage);
+        fetchLoggedUserData();
     }, [currentPage]);
 
     const handlePageChange = (event, value) => {
         setCurrentPage(value);
+
+        navigate(`${location.pathname}?page=${value}`);
     };
 
     const getRank = (index) => {
-        return index + 1 + (currentPage - 1) * 5;
+        return index + 4 + (currentPage - 1) * 5;
     };
 
     return (
         <>
-            <NewNavbar />
-            <div className="phone:w-4/6 w-11/12 mx-auto mt-4 text-center">
-                <div className="heading text-center my-4">
-                    <h1>
-                        Leaderboard
-                    </h1>
+            <NewNavbar position='static' />
+            <div className="heading text-center my-4">
+                <h1>
+                    Leaderboard
+                </h1>
 
-                </div>
+            </div>
+            <div className='flex justify-center max-phone:gap-6 phone:gap-12 phone:w-4/6 w-11/12 mx-auto mt-8 h-fit'>
+                <Rank color="#C0C0C0" user={top3[1]} />
+                <Rank color="#FFD700" pt="0" user={top3[0]} />
+                <Rank color="#CD7F32" user={top3[2]} />
+            </div>
+            <div className="phone:w-4/6 w-11/12 mx-auto mt-4 text-center">
+
                 <div className="overflow-x-auto border-2 border-[#D1E5F4] rounded-xl shadow-[9px_9px_0px_#D1E5F4]">
                     <table className="table">
                         {/* head */}
@@ -145,7 +177,7 @@ export default function Leaderboard() {
                                                 <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
                                                 <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
                                                 <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
-                                                <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" />
+                                                {/* <Skeleton variant="rounded" width={"100%"} height={"2rem"} sx={{ bgcolor: "grey.600" }} className="my-2" /> */}
                                             </div>
                                         </td>
                                     </tr>
@@ -159,33 +191,23 @@ export default function Leaderboard() {
                                             <tr key={index}>
                                                 <td>
                                                     {getRank(index)}
-                                                    {
-                                                        (getRank(index) == 1) ? <WorkspacePremium sx={{ color: "#FFD700" }} color="inherit" /> : ""
-                                                    }
-                                                    {
-                                                        (getRank(index) == 2) ? <WorkspacePremium sx={{ color: "#C0C0C0" }} color="inherit" /> : ""
-                                                    }
-                                                    {
-                                                        (getRank(index) == 3) ? <WorkspacePremium sx={{ color: "#CD7F32" }} color="inherit" /> : ""
-                                                    }
-
                                                 </td>
                                                 <td>
                                                     <div className="flex items-center space-x-3">
                                                         <div className="avatar">
-                                                            <a href={"/u/" + row.username} target="_blank">
+                                                            <Link to={"/u/" + row.username}>
                                                                 <div className="mask mask-squircle w-12 h-12 ring ring-primary ring-offset-base-100 ring-offset-2">
                                                                     {/* You can set the image source dynamically */}
                                                                     <img className="mask mask-hexagon" src={row.picture} alt="Avatar Tailwind CSS Component" />
                                                                 </div>
-                                                            </a>
+                                                            </Link>
                                                         </div>
                                                         <div>
-                                                            <a href={"/u/" + row.username} target="_blank">
+                                                            <Link to={"/u/" + row.username} >
                                                                 <div className="font-bold">{row.name} <OpenInNew fontSize="small" /> </div>
                                                                 <div className="text-sm opacity-50">@{row.username}</div>
-                                                                {/* You can display more user details here if needed */}
-                                                            </a>
+                                                                {/* You can display more userDetails details here if needed */}
+                                                            </Link>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -196,6 +218,37 @@ export default function Leaderboard() {
                                                 {/* <td>{row.platform_rating}</td> */}
                                             </tr>
                                         ))}
+                                    {currentUserData && userDetails &&
+                                        <tr key={currentUserData.user_position} className="bg-[#252525]">
+                                            <td>
+                                                {currentUserData.user_position || "Not ranked"}
+                                            </td>
+                                            <td>
+                                                <div className="flex items-center space-x-3">
+                                                    <div className="avatar">
+                                                        <Link to={"/u/" + userDetails.personal_data.username} target="_blank">
+                                                            <div className="mask mask-squircle w-12 h-12 ring ring-primary ring-offset-base-100 ring-offset-2">
+                                                                {/* You can set the image source dynamically */}
+                                                                <img className="mask mask-hexagon" src={userDetails.personal_data.picture} alt="Avatar Tailwind CSS Component" />
+                                                            </div>
+                                                        </Link>
+                                                    </div>
+                                                    <div>
+                                                        <Link to={"/u/" + userDetails.personal_data.username} >
+                                                            <div className="font-bold">{userDetails.personal_data.name}{"(YOU)"} <OpenInNew fontSize="small" /> </div>
+                                                            <div className="text-sm opacity-50">@{userDetails.personal_data.username}</div>
+                                                            {/* You can display more userDetails details here if needed */}
+                                                        </Link>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>{currentUserData.ratings.codechef || 0}</td>
+                                            <td>{currentUserData.ratings.leetcode || 0}</td>
+                                            <td>{currentUserData.ratings.codeforces || 0}</td>
+                                            <td>{Math.floor(currentUserData.ratings.digitomize_rating)}</td>
+                                            {/* <td>{userDetails.platform_rating}</td> */}
+                                        </tr>
+                                    }
                                 </tbody>
                         }
                         {/* foot */}
@@ -229,7 +282,7 @@ export default function Leaderboard() {
                 </div> */}
                 <ThemeProvider theme={theme}>
                     <div className="pagination py-8 mx-auto w-fit">
-                        <Pagination count={totalPages} page={currentPage} onChange={handlePageChange} color="primary" className="text-white" siblingCount={0} boundaryCount={1} shape="rounded" sx={{ color: "pink" }} style={{ color: "pink" }} />
+                        <Pagination count={totalPages} page={currentPage} onChange={handlePageChange} color="primary" className="text-white" siblingCount={1} boundaryCount={1} shape="rounded" sx={{ color: "pink" }} style={{ color: "pink" }} />
                     </div>
                 </ThemeProvider>
             </div>
