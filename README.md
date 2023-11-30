@@ -2,14 +2,19 @@
 
 # Digitomize
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-34-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-35-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/125b14c1-ebbe-46d7-97db-c3e97674e36e/deploy-status)](https://app.netlify.com/sites/digitomize/deploys)
 [![Forks on Github](https://img.shields.io/github/forks/digitomize/digitomize)](https://github.com/digitomize/digitomize/forks)
 [![Star on GitHub](https://img.shields.io/github/stars/digitomize/digitomize.svg?style=social)](https://github.com/digitomize/digitomize/stargazers)
 
-**Digitomize** is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios.
+**Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios.
+
+## Supported by:
+<img src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" width="30%">
+<img src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" width="30%">
+
 
 ## Table of Contents
 
@@ -128,6 +133,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Nishantkumar012"><img src="https://avatars.githubusercontent.com/u/124617537?v=4?s=100" width="100px;" alt="Nishantkumar012"/><br /><sub><b>Nishantkumar012</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Nishantkumar012" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://troncodes.com"><img src="https://avatars.githubusercontent.com/u/48357640?v=4?s=100" width="100px;" alt="cybertron15"/><br /><sub><b>cybertron15</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=cybertron15" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://palsarthaak.wixsite.com/sarthaakpal/portfolio"><img src="https://avatars.githubusercontent.com/u/123382000?v=4?s=100" width="100px;" alt="sarthaak pal"/><br /><sub><b>sarthaak pal</b></sub></a><br /><a href="#design-sarthaakpal" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Rushikesh0107"><img src="https://avatars.githubusercontent.com/u/97348386?v=4?s=100" width="100px;" alt="Rushikesh Dadas"/><br /><sub><b>Rushikesh Dadas</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Rushikesh0107" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>

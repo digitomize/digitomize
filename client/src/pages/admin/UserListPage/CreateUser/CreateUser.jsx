@@ -31,7 +31,7 @@ export default function CreateUser({ handleClose }) {
             toast.success(response.data.message);
           })
           .catch((error) => {
-            console.log(error);
+            // console.log(error);
             toast.success(error.response.data.message);
           })
           .finally(() => {
@@ -39,7 +39,7 @@ export default function CreateUser({ handleClose }) {
           });
       // }
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       toast.error(err.code);
     }
 

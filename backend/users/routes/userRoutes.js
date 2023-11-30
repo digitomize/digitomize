@@ -5,6 +5,7 @@ import { handleUserProfilePreview } from "../controllers/userProfileController.j
 import { handleUpdateUserProfile } from "../controllers/userUpdateController.js";
 import { addUID } from "../middlewares/authMiddleware.js";
 import { getLeaderboard } from "../controllers/leaderboardController.js";
+import { generateSignature } from "../controllers/cloudinaryUploadController.js";
 
 const router = express.Router();
 
@@ -18,6 +19,8 @@ router.post("/signup", addUID, handleUserSignup);
 router.get("/dashboard", addUID, handleUserDashboard);
 
 router.post("/dashboard", addUID, handleUpdateUserProfile);
+
+router.get("/signImageUpload",addUID, generateSignature)
 
 router.get("/profile/:username", handleUserProfilePreview);
 

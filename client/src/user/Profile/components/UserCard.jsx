@@ -28,7 +28,7 @@ function UserCard({ username, name, picture, bio, phoneNumber, role, skills = []
     return (
         <div className="rounded-2xl bg-eerie-black-2  shadow-md flex flex-col h-fit p-12 border border-jet w-full">
             <div className='flex w-full justify-center'>
-                <img src={picture} alt="" className='rounded-full  w-[90px]' />
+                <img src={picture} alt="" className='rounded-full  w-[90px] h-[90px]' />
             </div>
 
             <div className='flex flex-col items-center gap-[8px] p-0'>

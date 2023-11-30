@@ -51,7 +51,6 @@ function PlatformRatings() {
     // if (platformData.username == null || platformData.rating == null) {
     //     platformData = null;
     // }
-    console.log(platformData);
     const startDate = new Date(platformData?.fetchTime);
     const options = {
         year: "numeric",

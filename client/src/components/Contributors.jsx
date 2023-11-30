@@ -298,6 +298,7 @@ export default function Contributors() {
   // fetchData();
   // useEffect(() => {
   // }, []);
+
   return (
     <>
       <CssVarsProvider defaultMode="dark">
