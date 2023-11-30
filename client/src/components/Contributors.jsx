@@ -306,7 +306,7 @@ export default function Contributors() {
           <div className="flex flex-row">
             <Swiper
               spaceBetween={10}
-              slidesPerView={5}
+              slidesPerView={4.5}
               modules={[Autoplay]}
               autoplay={{
                 delay: 1500,
@@ -323,34 +323,46 @@ export default function Contributors() {
                   slidesPerView: 2.8,
                   spaceBetween: 30,
                 },
+                400: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+                500: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 30,
+                },
                 640: {
-                  slidesPerView: 3.7,
+                  slidesPerView: 2,
                   spaceBetween: 30,
                 },
                 768: {
-                  slidesPerView: 4.2,
+                  slidesPerView: 2.5,
                   spaceBetween: 30,
                 },
                 1024: {
-                  slidesPerView: 4.8,
+                  slidesPerView: 3.5,
+                  spaceBetween: 50,
+                },
+                1280: {
+                  slidesPerView: 4,
+                  spaceBetween: 50,
+                },
+                1440: {
+                  slidesPerView: 4.5,
                   spaceBetween: 50,
                 },
               }}
             >
               {temp.map((item) => (
                 <div className="w-full">
-                  <SwiperSlide
-                    key={item.name}
-                    className="w-fit"
-                  >
+                  <SwiperSlide key={item.name} className="w-fit">
                     <Link to={item.profile}>
                       <Card
                         orientation="horizontal"
-                        className="w-full hover:scale-105 overflow-hidden text-ellipsis"
+                        className="w-full hover:scale-105 overflow-hidden"
                         size="sm"
                         key={item.title}
                         variant="outlined"
-                  
                       >
                         <AspectRatio ratio="1" sx={{ minWidth: 60 }}>
                           <img
@@ -360,7 +372,7 @@ export default function Contributors() {
                           />
                         </AspectRatio>
                         <Box
-                          sx={{ whiteSpace: "nowrap", mx: 1}}
+                          sx={{ whiteSpace: "nowrap", mx: 1 }}
                           className="max-phone:hidden flex flex-col items-start justify-start"
                         >
                           <Typography level="title-md">
@@ -428,30 +440,43 @@ export default function Contributors() {
                   slidesPerView: 2.8,
                   spaceBetween: 30,
                 },
+                400: {
+                  slidesPerView: 3,
+                  spaceBetween: 30,
+                },
+                500: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 30,
+                },
                 640: {
-                  slidesPerView: 3.7,
+                  slidesPerView: 2,
                   spaceBetween: 30,
                 },
                 768: {
-                  slidesPerView: 4.2,
+                  slidesPerView: 2.5,
                   spaceBetween: 30,
                 },
                 1024: {
-                  slidesPerView: 4.8,
+                  slidesPerView: 3.5,
+                  spaceBetween: 50,
+                },
+                1280: {
+                  slidesPerView: 4,
+                  spaceBetween: 50,
+                },
+                1440: {
+                  slidesPerView: 4.5,
                   spaceBetween: 50,
                 },
               }}
             >
               {temp.map((item) => (
                 <div className="w-full">
-                  <SwiperSlide
-                    key={item.name}
-                    className="w-fit"
-                  >
+                  <SwiperSlide key={item.name} className="w-fit">
                     <Link to={item.profile}>
                       <Card
                         orientation="horizontal"
-                        className="w-full hover:scale-105 overflow-hidden text-ellipsis"
+                        className="w-full hover:scale-105 overflow-hidden"
                         size="sm"
                         key={item.title}
                         variant="outlined"
