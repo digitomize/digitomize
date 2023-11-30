@@ -39,6 +39,7 @@ export async function loader() {
 export default function UserDashPersonal() {
   const personalData = useLoaderData().personal_data;
   const [newSkill, setNewSkill] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
   const [skillData, setskillData] = useState(
     personalData.skills.map((skill, index) => ({
       key: index, // Use the index as the key
@@ -105,7 +106,7 @@ export default function UserDashPersonal() {
     username: personalData.username,
     name: personalData.name || "",
     resume: personalData.resume || "",
-    picture:personalData.picture,
+    picture: personalData.picture,
     phoneNumber: {
       data: personalData.phoneNumber.data || "",
       showOnWebsite: personalData.phoneNumber.showOnWebsite || true,
@@ -158,6 +159,7 @@ export default function UserDashPersonal() {
   };
   async function handleSubmit(event) {
     event.preventDefault();
+    setIsDisabled(true);
     const res = await submitUserFormData(formData)
       .then(() => {
         toast.success("updated successfully!", {
@@ -170,6 +172,7 @@ export default function UserDashPersonal() {
           progress: undefined,
           theme: "colored",
         });
+        setIsDisabled(false);
       })
       .catch((err) => {
         toast.error("error updating", {
@@ -183,6 +186,7 @@ export default function UserDashPersonal() {
           theme: "colored",
         });
         console.log(err);
+        setIsDisabled(false);
       });
 
     console.log(res);
@@ -379,15 +383,17 @@ export default function UserDashPersonal() {
             </div>
 
 
+            <div className="flex w-full max-sm:justify-center md:justify-end pe-12">
 
-            <Form className=" flex justify-center  w-auto" onSubmit={handleSubmit}>
               <button
+                onClick={handleSubmit}
+                disabled={isDisabled}
                 type="submit"
-                className="text-black bg-white font-medium rounded-lg  text-xl  md:text-3xl   px-5 py-1.5 text-center "
+                className={`text-black bg-white font-medium rounded-lg  text-xl  md:text-3xl   px-8 py-3 text-center ${isDisabled ? 'cursor-not-allowed opacity-20' : null}`}
               >
-                Update
+                {isDisabled ? "Updating..." : "Update"}
               </button>
-            </Form>
+            </div>
           </div>
         </div>
         <div className="mockup-browser border bg-base-300 mt-4">
