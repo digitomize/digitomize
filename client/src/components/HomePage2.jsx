@@ -78,8 +78,6 @@ export default function Home2() {
     }));
   };
   const updateShowOnWebsite = (field) => (value) => {
-    console.log(`field: ${field}, value: ${value}`);
-    console.log(value.target.checked);
     value = value.target.checked;
     setFormData((prevData) => ({
       ...prevData,

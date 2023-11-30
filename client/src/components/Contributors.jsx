@@ -373,8 +373,7 @@ export default function Contributors() {
                         </AspectRatio>
                         <Box
                           sx={{ whiteSpace: "nowrap", mx: 1 }}
-                          className="max-phone:hidden flex flex-col items-start justify-start"
-                        >
+                          className="max-phone:hidden flex flex-col items-start justify-start"})
                           <Typography level="title-md">
                             {item.name.slice(0, 15)}
                           </Typography>

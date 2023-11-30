@@ -66,8 +66,8 @@ export default function UserListPage() {
 
   const handleOpenDel = (user) => {
     setselectedUser(user);
-    console.log("SELECTED:", selectedUser);
-    console.log(`Deleting user: ${user}`);
+    // console.log("SELECTED:", selectedUser);
+    // console.log(`Deleting user: ${user}`);
     setOpenDel(true);
   };
 
@@ -148,7 +148,7 @@ export default function UserListPage() {
             <TableBody>
               {userList.map((user) => (
                 <>
-                  {console.log(user)}
+                  {/* {console.log(user)} */}
                   <StyledTableRow key={user.uid}>
                     <StyledTableCell>
                       <Avatar sx={{ bgcolor: deepOrange[500] }} alt={user.name} src={user.picture} />

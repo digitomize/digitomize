@@ -20,21 +20,40 @@ const getLeaderboard = async (req, res) => {
         const bRating = b[platform] ? b[platform].rating || 0 : 0;
         return bRating - aRating;
       });
-      users = users.slice((page - 1) * pageSize, page * pageSize);
+
     } else {
       users = await User.find();
       totalUsers = users.length;
-      console.log(totalUsers);
       users.sort((a, b) => b.digitomize_rating - a.digitomize_rating);
-      // console.log("Sorted:", users);
-      users = users.slice((page - 1) * pageSize, page * pageSize);
     }
 
-    // Check if the username parameter is provided
+    const top3 = users.slice(0, 3).map((user) => {
+      const platformRating = user[req.query.platform] ? user[req.query.platform].rating : null;
+
+      const userRatings = {
+        codechef: user.codechef ? user.codechef.rating : null,
+        leetcode: user.leetcode ? user.leetcode.rating : null,
+        codeforces: user.codeforces ? user.codeforces.rating : null,
+      };
+
+      return {
+        username: user.username,
+        picture: user.picture,
+        name: user.name,
+        ...userRatings,
+        digitomize_rating: user.digitomize_rating,
+        platform_rating: platformRating,
+      };
+    });
+
+    const allSortedUsers = users;
+    users = users.slice(3); // Exclude top3
+    users = users.slice((page - 1) * pageSize, page * pageSize);
+
     if (req.query.username) {
       const username = req.query.username;
-      const user = users.find(user => user.username === username);
-      const userIndex = users.findIndex(user => user.username === username);
+      const user = allSortedUsers.find(user => user.username === username);
+      const userIndex = allSortedUsers.findIndex(user => user.username === username);
       const userPosition = userIndex !== -1 ? (page - 1) * pageSize + userIndex + 1 : null;
       const userRatings = {
         codechef: user ? (user.codechef ? user.codechef.rating : null) : null,
@@ -81,6 +100,7 @@ const getLeaderboard = async (req, res) => {
 
     res.json({
       total_users: totalUsers,
+      top3,
       users_in_page,
       total_pages,
       current_page: page,

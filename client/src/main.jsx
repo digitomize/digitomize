@@ -13,7 +13,6 @@ import metaData from './metaData.json';
 
 const location = window.location.pathname;
 const currentPageData = metaData[location];
-console.log("LOCATION:", location);
 
 const defaultTitle = "digitomize";
 const defaultDesc = "Empowering Coders and Developers Worldwide";
