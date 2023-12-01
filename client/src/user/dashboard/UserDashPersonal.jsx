@@ -371,7 +371,7 @@ export default function UserDashPersonal() {
               <div className="relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Upload Profile Picture</span>
+                    <span className="label-text">Upload Profile Picture { "(automatically focuses on face)"}</span>
                   </label>
                   <div className="flex items-center gap-3">
                     <ImageUploader image={formData.picture} setFormData={setFormData}></ImageUploader>
@@ -383,7 +383,7 @@ export default function UserDashPersonal() {
             </div>
 
 
-            <div className="flex w-full max-sm:justify-center md:justify-end pe-12">
+            <div className="flex w-full max-sm:justify-center md:justify-end md:pe-12">
 
               <button
                 onClick={handleSubmit}

@@ -38,7 +38,7 @@ const ImageUploader = ({image, setFormData}) => {
     };
 
     return (
-        <div className="flex gap-3 w-full h-24 max-w-lg">
+        <div className="flex gap-3 w-full min-h-24 max-w-lg max-phone:flex-col-reverse items-center">
             <label
                 htmlFor="imageUpload"
                 className="input h-24 flex-none border-2 border-dashed border-gray-300 p-4 text-center cursor-pointer w-3/4 flex justify-center items-center"                
@@ -63,7 +63,7 @@ const ImageUploader = ({image, setFormData}) => {
                         className="mb-2 self-center h-24"
                         sx={{ width: 100, height: 96, padding: 0 }}
                     />
-                </div> : <div className="bg-gray-800 flex flex-col items-center justify-center">
+                </div> : <div className="flex flex-col items-center justify-center">
                     {image? <Avatar
                         variant="rounded"
                         src={image}

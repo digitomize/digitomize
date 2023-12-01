@@ -83,7 +83,7 @@ export async function rankOnLeaderboard(username) {
 }
 
 // generating signature so we can do signed uploads
-async function uploadPictureToCloudinary(formData, accessToken) {
+async function uploadPictureToCloudinary(formData, accessToken, uid) {
   const { data } = await axios.get(`${backendUrl}/user/signImageUpload`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
@@ -108,9 +108,13 @@ async function uploadPictureToCloudinary(formData, accessToken) {
   await axios
     .post(url, cloudinaryformData)
     .then((res) => {
-      formData.picture = res.data.url;
+      console.log(timestamp);
+      console.log(res.data);
+      const photo = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/ar_1.0,c_fill,g_face/f_auto/r_max/v${res.data.version}/users/${uid}.${res.data.format}`;
+      formData.picture = photo;
       updateProfile(auth.currentUser, {
-        photoURL: res.data.url,
+        // photoURL: res.data.url,
+        photoURL: photo
       });
     })
     .catch((err) => {
@@ -126,10 +130,11 @@ export async function submitUserFormData(formData) {
     throw redirect("/login");
   }
   const currentUser = auth.currentUser;
+  console.log(currentUser);
   const accessToken = await currentUser.getIdToken();
   // console.log(jwtToken);
 
-  await uploadPictureToCloudinary(formData, accessToken);
+  await uploadPictureToCloudinary(formData, accessToken, currentUser.uid);
   console.log(formData.picture);
   const res = await axios.post(`${backendUrl}/user/dashboard`, formData, {
     headers: {
