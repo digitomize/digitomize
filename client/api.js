@@ -104,13 +104,13 @@ async function uploadPictureToCloudinary(formData, accessToken) {
   cloudinaryformData.append("api_key", CLOUDINARY_API_KEY);
   cloudinaryformData.append("public_id", public_id);
 
-  // making post request to clodinary to store the picture and updating form data to store the URL
+  // making post request to cloudinary to store the picture and updating form data to store the URL
   await axios
     .post(url, cloudinaryformData)
     .then((res) => {
       formData.picture = res.data.url;
       updateProfile(auth.currentUser, {
-        photoURL: url,
+        photoURL: res.data.url,
       });
     })
     .catch((err) => {
