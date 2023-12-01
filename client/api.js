@@ -1,6 +1,7 @@
 import axios from "axios";
 import { redirect } from "react-router-dom";
 import { auth } from "./firebase";
+import { updateProfile } from "firebase/auth";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export async function loginUser({ username, password }) {
@@ -82,35 +83,39 @@ export async function rankOnLeaderboard(username) {
 }
 
 // generating signature so we can do signed uploads
-async function uploadPictureToCloudinary(formData,accessToken) {
-  const { data } = await axios.get(`${backendUrl}/user/signImageUpload`,
-    {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    })
-  const { signature, timestamp, public_id } = data
-  const CLOUDINARY_API_KEY = import.meta.env.VITE_REACT_APP_CLOUDINARY_API_KEY
-  const CLOUD_NAME = import.meta.env.VITE_REACT_APP_CLOUDINARY_CLOUD_NAME
+async function uploadPictureToCloudinary(formData, accessToken) {
+  const { data } = await axios.get(`${backendUrl}/user/signImageUpload`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  const { signature, timestamp, public_id } = data;
+  const CLOUDINARY_API_KEY = import.meta.env.VITE_REACT_APP_CLOUDINARY_API_KEY;
+  const CLOUD_NAME = import.meta.env.VITE_REACT_APP_CLOUDINARY_CLOUD_NAME;
 
-  const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`
+  const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`;
 
   // creating New form data object with picture and other paramaters
-  let cloudinaryformData = new FormData()
-  cloudinaryformData.append('file', formData.picture)
-  cloudinaryformData.append('signature', signature)
-  cloudinaryformData.append('timestamp', timestamp)
-  cloudinaryformData.append('api_key', CLOUDINARY_API_KEY)
+  let cloudinaryformData = new FormData();
+  cloudinaryformData.append("file", formData.picture);
+  cloudinaryformData.append("signature", signature);
+  cloudinaryformData.append("timestamp", timestamp);
+  cloudinaryformData.append("api_key", CLOUDINARY_API_KEY);
   cloudinaryformData.append("public_id", public_id);
-  
+
   // making post request to clodinary to store the picture and updating form data to store the URL
-  await axios.post(url, cloudinaryformData).then((res) => {
-    formData.picture = res.data.url
-  }
-  ).catch((err) => {
-    console.log('failed to upload profile picture');
-    console.log(err);
-  })
+  await axios
+    .post(url, cloudinaryformData)
+    .then((res) => {
+      formData.picture = res.data.url;
+      updateProfile(auth.currentUser, {
+        photoURL: res.data.url,
+      });
+    })
+    .catch((err) => {
+      console.log("failed to upload profile picture");
+      console.log(err);
+    });
 }
 
 export async function submitUserFormData(formData) {
@@ -123,7 +128,7 @@ export async function submitUserFormData(formData) {
   const accessToken = await currentUser.getIdToken();
   // console.log(jwtToken);
 
-  await uploadPictureToCloudinary(formData,accessToken)
+  await uploadPictureToCloudinary(formData, accessToken);
   console.log(formData.picture);
   const res = await axios.post(`${backendUrl}/user/dashboard`, formData, {
     headers: {
