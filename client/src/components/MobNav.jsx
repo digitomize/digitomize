@@ -1,6 +1,7 @@
 import React from "react";
 import { logo } from "./AllAssets";
 import { useUserAuth } from "../context/UserAuthContext";
+import Headroom from "react-headroom";
 
 const MobNav = ({ isMenuActive, toggleActive }) => {
     const { user } = useUserAuth();
@@ -25,8 +26,9 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
     ]
 
     return (
-        <header
-            className={`sticky top-0 w-full z-50 py-4 md:hidden border-b border-b-white/5 bg-zinc-950`}
+        <Headroom>
+            <header
+            className={`relative inset-x-0 top-0 z-50 py-4 md:hidden border-b border-b-white/5 bg-zinc-950 transition-all`}
         >
             <div className="mx-auto max-w-screen-xl px-6 md:px-10 sticky top-0">
                 <div className="flex items-center justify-between">
@@ -102,6 +104,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
                 </div>
             </div>
         </header>
+            </Headroom>
     );
 };
 

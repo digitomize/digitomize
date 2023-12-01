@@ -25,6 +25,7 @@
     "react-dom": "^18.2.0",
     "react-github-login-button": "^1.0.1",
     "react-google-button": "^0.7.2",
+    "react-headroom": "^3.2.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.11.0",
     "react-responsive": "^9.0.2",
