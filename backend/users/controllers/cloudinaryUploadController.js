@@ -8,7 +8,8 @@ async function generateSignature(req, res) {
 
     // get the timestamp in seconds
     const timestamp = Math.round(new Date().getTime() / 1000);
-    const options = {
+        const options = {
+        folder: "users",
         timestamp,
         public_id
     }

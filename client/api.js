@@ -98,6 +98,7 @@ async function uploadPictureToCloudinary(formData, accessToken) {
   // creating New form data object with picture and other paramaters
   let cloudinaryformData = new FormData();
   cloudinaryformData.append("file", formData.picture);
+  cloudinaryformData.append("folder", "users");
   cloudinaryformData.append("signature", signature);
   cloudinaryformData.append("timestamp", timestamp);
   cloudinaryformData.append("api_key", CLOUDINARY_API_KEY);
