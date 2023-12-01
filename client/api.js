@@ -109,7 +109,7 @@ async function uploadPictureToCloudinary(formData, accessToken) {
     .then((res) => {
       formData.picture = res.data.url;
       updateProfile(auth.currentUser, {
-        photoURL: res.data.url,
+        photoURL: url,
       });
     })
     .catch((err) => {
