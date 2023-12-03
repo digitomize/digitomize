@@ -1,6 +1,7 @@
 import axios from "axios";
 import { redirect } from "react-router-dom";
 import { auth } from "./firebase";
+import { updateProfile } from "firebase/auth";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export async function loginUser({ username, password }) {
@@ -81,6 +82,47 @@ export async function rankOnLeaderboard(username) {
   }
 }
 
+// generating signature so we can do signed uploads
+async function uploadPictureToCloudinary(formData, accessToken, uid) {
+  const { data } = await axios.get(`${backendUrl}/user/signImageUpload`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  const { signature, timestamp, public_id } = data;
+  const CLOUDINARY_API_KEY = import.meta.env.VITE_REACT_APP_CLOUDINARY_API_KEY;
+  const CLOUD_NAME = import.meta.env.VITE_REACT_APP_CLOUDINARY_CLOUD_NAME;
+
+  const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/upload`;
+
+  // creating New form data object with picture and other paramaters
+  let cloudinaryformData = new FormData();
+  cloudinaryformData.append("file", formData.picture);
+  cloudinaryformData.append("folder", "users");
+  cloudinaryformData.append("signature", signature);
+  cloudinaryformData.append("timestamp", timestamp);
+  cloudinaryformData.append("api_key", CLOUDINARY_API_KEY);
+  cloudinaryformData.append("public_id", public_id);
+
+  // making post request to cloudinary to store the picture and updating form data to store the URL
+  await axios
+    .post(url, cloudinaryformData)
+    .then((res) => {
+      console.log(timestamp);
+      console.log(res.data);
+      const photo = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/ar_1.0,c_fill,g_face/f_auto/r_max/v${res.data.version}/users/${uid}.${res.data.format}`;
+      formData.picture = photo;
+      updateProfile(auth.currentUser, {
+        // photoURL: res.data.url,
+        photoURL: photo
+      });
+    })
+    .catch((err) => {
+      console.log("failed to upload profile picture");
+      console.log(err);
+    });
+}
+
 export async function submitUserFormData(formData) {
   // const jwtToken = Cookies.get("jwt");
   const loggedIn = await isLoggedIn();
@@ -88,8 +130,12 @@ export async function submitUserFormData(formData) {
     throw redirect("/login");
   }
   const currentUser = auth.currentUser;
+  console.log(currentUser);
   const accessToken = await currentUser.getIdToken();
   // console.log(jwtToken);
+
+  await uploadPictureToCloudinary(formData, accessToken, currentUser.uid);
+  console.log(formData.picture);
   const res = await axios.post(`${backendUrl}/user/dashboard`, formData, {
     headers: {
       Authorization: `Bearer ${accessToken}`,

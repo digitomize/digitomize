@@ -1,12 +1,15 @@
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom"
 import { AiOutlineFastBackward, AiOutlineShareAlt } from 'react-icons/ai'
 import { useLocation } from 'react-router-dom';
 import ShareModel from "../../../components/share_model";
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 
 function UserCard({ username, name, picture, bio, phoneNumber, role, skills = [] }) {
+    const navigate = useNavigate();
     const location = useLocation();
     const isUserProfile = location.pathname === `/u/${username}`;
+    const isUserDashboard = location.pathname === "/u/dashboard";
 
     const [showMore, setShowMore] = useState(false);
     const toggleBio = () => {
@@ -28,12 +31,12 @@ function UserCard({ username, name, picture, bio, phoneNumber, role, skills = []
     return (
         <div className="rounded-2xl bg-eerie-black-2  shadow-md flex flex-col h-fit p-12 border border-jet w-full">
             <div className='flex w-full justify-center'>
-                <img src={picture} alt="" className='rounded-full  w-[90px]' />
+                <img src={picture} alt="" className='rounded-full  w-[90px] h-[90px]' />
             </div>
 
             <div className='flex flex-col items-center gap-[8px] p-0'>
                 <div>
-                    <h1 className='normal-case text-center text-[#F0FFF0]'>
+                    <h1 className='normal-case text-center text-[#F0ECE5]'>
                         {name}
                     </h1>
                     <div className="badges text-center">
@@ -71,24 +74,28 @@ function UserCard({ username, name, picture, bio, phoneNumber, role, skills = []
 
             </div>
 
-            <div className="flex w-full justify-center">
-                <button className="bg-blue-500 flex gap-1 items-center justify-center text-white px-4 py-2 rounded-full mt-4" onClick={() => setShow(isUserProfile)}>
-                    {isUserProfile ? 
-                        (
-                            <>
-                                <AiOutlineShareAlt />
-                                Share
-                            </>
-                        
-                        )
-                     :
-                        (
+            <div className="flex flex-col w-full justify-center items-center">
+                {(isUserProfile || isUserDashboard) && (
+                    <button className="bg-blue-500 flex gap-1 w-fit items-center justify-center text-white px-4 py-2 rounded-full mt-4 hover:opacity-80" onClick={() => setShow(isUserProfile)}>
                         <>
-                            < AiOutlineFastBackward />
-                            Go back
+                            <AiOutlineShareAlt />
+                            Share
                         </>
-                    )}
-                </button>
+                    </button>
+                )}
+                {!isUserProfile && !isUserDashboard && (
+                    <button className="bg-blue-500 flex gap-1 w-fit items-center justify-center text-white px-4 py-2 rounded-full mt-4 hover:opacity-80">
+                        <>
+                            <AiOutlineFastBackward />
+                            Back
+                        </>
+                    </button>
+                )}
+                {
+                    isUserDashboard && (
+                        <button className='bg-blue-500 flex gap-1 w-fit items-center justify-center text-white px-4 py-2 rounded-full mt-4 hover:opacity-80' onClick={() => navigate(`/u/${username}`)}>View Profile</button>
+                    )
+                }
             </div>
             {show && main_model}
 

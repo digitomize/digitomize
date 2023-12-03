@@ -141,11 +141,12 @@ export default function NewNavbar({ position }) {
                         {user ? (
                             <div className="dropdown dropdown-hover dropdown-bottom">
                                 <a href="/u/dashboard">
-                                    <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-zinc-100">
+                                    <div className="flex items-center justify-center w-[40px] h-[40px] rounded-full hover:bg-zinc-100">
                                         <img
                                             src={user.photoURL || logo}
                                             alt="logo"
-                                            className="bg-black hover:bg-blue-700 rounded-full"
+                                            className="bg-black object-fill hover:bg-blue-700 rounded-full"
+                                            style={{ width: '40px', height: '40px' }}
                                         />
                                     </div>
 
