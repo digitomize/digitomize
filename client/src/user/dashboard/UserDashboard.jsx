@@ -129,13 +129,13 @@ export default function UserDashboard() {
                 {/* FOR DESKTOP */}
                 <div className="max-phone:hidden w-11/12 mx-auto mt-4">
 
-                    <h1>Heyyy</h1>
+                    <h1 className='pb-4 normal-case text-[#F0ECE5]'>Hey, {userData.personal_data.name} 👋</h1>
 
                     <div className="flex flex-row">
 
                         <div className='w-[40%]'>
 
-                            <UserCard username={userData.personal_data.username} name={userData.personal_data.name} picture={userData.personal_data.picture} bio={userData.personal_data.bio} phoneNumber={userData.personal_data.phoneNumber} role={userData.personal_data.role} skills={userData.personal_data.skills} />
+                            <UserCard username={userData.personal_data.username} name={userData.personal_data.name} picture={userData.personal_data.picture} bio={userData.personal_data.bio.data} phoneNumber={userData.personal_data.phoneNumber} role={userData.personal_data.role} skills={userData.personal_data.skills} />
                         </div>
                         <div className="cards flex flex-row flex-wrap items-center justify-evenly">
 
