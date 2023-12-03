@@ -48,8 +48,8 @@ function ProfileRatingsPage() {
     <>
       <div className="phone:w-10/12 mx-auto py-4">
         <div className="flex max-sm:flex-col max-phone:flex-col max-phone:mt-4">
-          <div className='flex flex-col justify-center phone:w-2/4 max-phone:w-11/12 mx-auto'>
-            <div className="phone:w-11/12">
+          <div className='flex flex-col justify-center sm:w-2/4 max-phone:w-11/12 mx-auto'>
+            <div className="phone:w-11/12 mx-auto">
               <Link to="..">
                 <UserCard username={personal_data.username} name={personal_data.name} picture={personal_data.picture} bio={personal_data.bio} phoneNumber={personal_data.phoneNumber} role={personal_data.role} />
               </Link>

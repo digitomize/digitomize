@@ -83,7 +83,7 @@ function PlatformRatings() {
 
                         </div>
                     </div> */}
-                    <div className="border border-jet bg-gradient-to-br from-color-1 from-0% via-color-2 via-100% to-color-3 rounded-3xl shadow-shadowBlack z-1 w-2/4 max-phone:w-3/4 py-4">
+                    <div className="border border-jet bg-gradient-to-br from-color-1 from-0% via-color-2 via-100% to-color-3 rounded-3xl shadow-shadowBlack z-1 w-2/4 max-md:w-3/4 py-4">
                         <figure className="w-full flex justify-center rounded-3xl">
                             <img className="w-16 h-16" src={contestLinks[platform].img} alt="platform icon" />
                         </figure>
