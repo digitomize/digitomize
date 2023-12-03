@@ -21,8 +21,7 @@
     "express": "^4.18.2",
     "firebase-admin": "^11.10.1",
     "https": "^1.0.0",
-    "mongoose": "^7.4.1",
-    "swiper": "^11.0.5"
+    "mongoose": "^7.4.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
