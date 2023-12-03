@@ -16,18 +16,21 @@ function ProfileRatingsPage() {
       name: 'Codeforces',
       link: 'codeforces',
       img: codeforces,
+      username: profileData.ratings.codeforces.username,
       rating: profileData.ratings.codeforces.rating,
     },
     {
       name: 'Codechef',
       link: 'codechef',
       img: codechef,
+      username: profileData.ratings.codechef.username,
       rating: profileData.ratings.codechef.rating,
     },
     {
       name: 'Leetcode',
       link: 'leetcode',
       img: leetcode,
+      username: profileData.ratings.leetcode.username,
       rating: profileData.ratings.leetcode.rating,
     }
   ], [profileData.ratings.codeforces.rating, profileData.ratings.codechef.rating, profileData.ratings.leetcode.rating]);
@@ -56,15 +59,15 @@ function ProfileRatingsPage() {
             </div>
           </div>
           <div className="flex w-full justify-center">
-            <div className="phone:w-11/12 pt-12 max-phone:pt-4">
+            <div className="w-11/12 pt-12 max-phone:pt-4">
               <div className='m-auto bg-eerie-black-2 h-full w-full rounded-2xl max-phone:rounded-tr-none max-phone:rounded-tl-none shadow-md border border-jet'>
 
-                {contestLinks.some(contestLink => contestLink.rating !== null) ? (
+                {contestLinks.some(contestLink => contestLink.username !== null) ? (
                   <div className="flex flex-col items-end w-full">
                     <nav className="navbar bg-eerie-black-1 backdrop-blur-md border border-jet phone:w-max rounded-tr-2xl rounded-bl-2xl max-phone:rounded-br-2xl max-phone:rounded-tr-none shadow-none py-0 px-6">
                       <ul className='navbar-list flex gap-4 py-0 px-6'>
                         {contestLinks
-                          .filter(contestLink => contestLink.rating !== null)
+                          .filter(contestLink => contestLink.username !== null)
                           .map((contestLink, index) => (
                             <NavLink to={`${contestLink.link}`}
                               className={({ isActive }) => isActive ? 'text-white drop-shadow' : 'text-gray-500'}

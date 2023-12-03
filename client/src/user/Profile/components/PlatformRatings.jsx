@@ -64,7 +64,7 @@ function PlatformRatings() {
     const pageTitle = `${platform} | ${data.personal_data.name}`;
     const contentDescription = platformData.rating ? `${platformData.badge} with ${platformData.rating} rating | @${platformData.username}` : `Check out ${data.personal_data.name}'s ratings`;
     // Check if platformData is available before rendering
-    if (platformData.rating !== null) {
+    if (platformData.username !== null) {
         return (
             <>
                 <Helmet>
