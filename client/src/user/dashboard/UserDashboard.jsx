@@ -41,6 +41,7 @@ import Tooltip from "@mui/material/Tooltip";
 import NewFooter from "../../components/NewFooter"
 import LoadingScreen from "../../components/LoadingScreen";
 import ShareModel from "../../components/share_model.jsx";
+import UserCard from '../Profile/components/UserCard.jsx';
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 // import logo from "../assets/logo.png";
 
@@ -128,39 +129,13 @@ export default function UserDashboard() {
                 {/* FOR DESKTOP */}
                 <div className="max-phone:hidden w-11/12 mx-auto mt-4">
 
-                    <h1>Heyyy</h1>
+                    <h1 className='pb-4 normal-case text-[#F0ECE5]'>Hey, {userData.personal_data.name} 👋</h1>
 
                     <div className="flex flex-row">
 
+                        <div className='w-[40%]'>
 
-                        <div className="card w-96 bg-cardsColor shadow-xl border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] rounded-xl hover:scale-[1.02] hover:bg-cardsHover my-8">
-                            <div className="card-body text-center items-center">
-                                <div className="avatar">
-                                    <div className="w-24 rounded-full border-2">
-                                        <img src={userData.personal_data.picture || logo} />
-                                    </div>
-                                </div>
-                                <h2 className="card-title">
-                                    {`${userData.personal_data.name}`}
-                                    {/* <div className="badge badge-secondary"></div> */}
-                                </h2>
-                                <div className="contact">
-
-                                    <p>{userData.personal_data.phoneNumber.data}</p>
-                                    <p>{userData.personal_data.email}</p>
-                                </div>
-                                <p>{userData.personal_data.bio.data}</p>
-
-                                <div className="buttons flex flex-col gap-2">
-                                    <button className="btn btn-primary lowercase" onClick={() => setShow(true)}>share </button>
-                                    {show && main_model}
-                                    <div className="card-actions justify-end">
-                                        <Link to={`/u/${userData.personal_data.username}`}>
-                                            <button className="btn btn-primary lowercase">view profile</button>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
+                            <UserCard username={userData.personal_data.username} name={userData.personal_data.name} picture={userData.personal_data.picture} bio={userData.personal_data.bio.data} phoneNumber={userData.personal_data.phoneNumber} role={userData.personal_data.role} skills={userData.personal_data.skills} />
                         </div>
                         <div className="cards flex flex-row flex-wrap items-center justify-evenly">
 

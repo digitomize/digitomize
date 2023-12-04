@@ -66,7 +66,7 @@ const getLeaderboard = async (req, res) => {
       return; // Return early if the username is provided
     }
 
-    const total_pages = Math.ceil(totalUsers / pageSize);
+    const total_pages = Math.ceil((totalUsers-3) / pageSize);
     const users_in_page = users.length;
 
     const leaderboard = users.map((user) => {
