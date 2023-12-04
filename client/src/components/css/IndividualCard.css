@@ -53,7 +53,7 @@
     display: flex;
     flex: 0.2;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
     height: max-content;
 }
 
@@ -336,7 +336,7 @@
 
 .ic-mv-child-third-third-first {
     display: flex;
-    align-items: end;
+    align-items: flex-end;
 }
 
 .ic-mv-child-third-third-second {
@@ -364,7 +364,7 @@
 .ic-mv-child-fourth {
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
     padding-bottom: 10px;
     padding-top: 20px;
 }
