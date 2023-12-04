@@ -1,6 +1,7 @@
 import React from 'react'
 import NewNavbar from '../../components/NewNavbar'
 import SheetCard from '../components/SheetCard'
+import QuestionComponent from '../components/QuestionComponent'
 const sheet = [
     {
         name: "Striver's SDE Sheet",
@@ -47,6 +48,7 @@ const SheetHome = () => {
                             </div>
                         ))}
                     </div>
+                    <QuestionComponent />
                 </div>
             </section>
         </main>
