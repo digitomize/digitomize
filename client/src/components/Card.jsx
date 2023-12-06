@@ -59,7 +59,7 @@ function Card({ contest }) {
 
   return (
     <div
-      className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] my-4 sm:w-96 min-h-[250px] p-6 rounded-xl bg-cardsColor flex flex-col hover:scale-[1.02] hover:bg-cardsHover m-1"
+      className="border-[#D1E5F4] mr-6 border-2 hover:shadow-[8px_8px_0px_#D1E5F4] my-4 sm:w-96 min-h-[250px] p-6 rounded-xl bg-cardsColor flex flex-col hover:scale-[1.02] hover:bg-cardsHover m-1 duration-75"
       key={vanity}
     >
       <div className="flex justify-between">

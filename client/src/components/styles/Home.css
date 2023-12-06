@@ -1,9 +1,9 @@
-/* html,
+html,
 body {
   background-color: #070D19;
   color: rgba(255, 255, 255, 0.75);
-
-} */
+  font-family: 'Outfit', sans-serif;
+}
 
 on-container p {
   color: rgba(255, 255, 255, 0.75);
@@ -14,4 +14,12 @@ on-container p {
   line-height: normal;
   text-transform: lowercase;
   margin-bottom: 5%;
+}
+
+.homepagebg {
+    background-color: #070D19;
+  color: rgba(255, 255, 255, 0.75);
+  background-size: 75px 75px;
+  background-image: linear-gradient(rgb(23, 33, 54) .1em, transparent .1em), linear-gradient(90deg, rgba(23, 33, 54) .1em, transparent .1em);
+
 }

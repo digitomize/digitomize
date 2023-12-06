@@ -2,12 +2,12 @@ import { Element } from "react-scroll";
 import gitbookSvg from "../public/svg/GitBook.svg";
 import MSMESvg from "../public/svg/MSME.svg";
 import microsoftLogo from "../public/png/MS_Startups_Celebration_Badge_Dark.png";
+import "./styles/Home.css"
 
 export default function Home1() {
   return (
-    <div>
-      <div className="hero h-screen xl:pt-8 max-md:pt-4 items-center flex flex-col text-center">
-        <div className="max-md:hidden divider sticky"></div>
+    <div className="homepagebg">
+      <div className=" h-screen max-md:pt-4 items-center flex flex-col text-center">
         <div className="flex-row">
           <h1 className="pt-2 inline-flex flex-col md:flex-row transition font-display font-semibold max-md:text-6xl md:text-[5rem] bg-gradient-to-b from-60% bg-clip-text text-transparent from-custom-blue sm:me-4">
             <span>Compete. </span>
@@ -38,7 +38,7 @@ export default function Home1() {
 
         <Element name="supporters">
           <section className="w-full flex justify-center">
-            <div className="border-t md:w-3/4 border-jet bg-dark phone:mt-12">
+            <div className="md:w-3/4 bg-dark phone:mt-12">
               <p className="w-full text-center lowercase text-4xl font-normal tracking-wide pt-8">
                 Supported by
               </p>

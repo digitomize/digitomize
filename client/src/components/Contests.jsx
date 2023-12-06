@@ -22,7 +22,7 @@ function Contests({ contests, range }) {
       </Helmet>
       <div className="allContests scroll-smooth">
         <div
-          className="allContests lg:justify-evenly md:justify-evenly sm:justify-center px-4"
+          className="allContests lg:justify-evenly md:justify-evenly sm:justify-center px-4 py-10"
           style={{ display: "flex", flexWrap: "wrap" }}
         >
           {queryData.map((contest) => (
