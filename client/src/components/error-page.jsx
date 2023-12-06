@@ -1,5 +1,5 @@
 import { useRouteError, Link } from "react-router-dom";
-import "./css/error-page.css";
+import "./styles/error-page.css";
 import Navbar from "./NewNavbar";
 import { Helmet } from "react-helmet";
 

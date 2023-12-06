@@ -1,0 +1,17 @@
+h2 {
+  color: #fff;
+  font-size: 4.375rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: lowercase;
+  margin-left: 3%;
+}
+.allContests {
+  margin: 2% auto;
+}
+@media (max-width: 1067px) {
+  .allContests h2 {
+    text-align: center;
+  }
+}

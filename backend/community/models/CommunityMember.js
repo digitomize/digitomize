@@ -18,13 +18,13 @@ const communityMemberSchema = new mongoose.Schema(
       default: ROLE.COMMUNITY_MEMBER,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const CommunityMember = mongoose.model(
   "CommunityMember",
   communityMemberSchema,
-  "communityMember"
+  "communityMember",
 );
 
 export default CommunityMember;

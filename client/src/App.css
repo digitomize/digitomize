@@ -2,10 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-#root{
-    min-height: 100vh;
-    text-transform: lowercase;
+#root {
+  min-height: 100vh;
+  text-transform: lowercase;
 }
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  background-color: #070D19;
+  color: rgba(255, 255, 255, 0.75);
+  background-size: 75px 75px;
+  background-image: linear-gradient(rgb(23, 33, 54) .1em, transparent .1em), linear-gradient(90deg, rgba(23, 33, 54) .1em, transparent .1em);
+  font-family: 'Outfit', sans-serif;
 }
