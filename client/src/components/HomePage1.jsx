@@ -6,7 +6,7 @@ import "./styles/Home.css"
 
 export default function Home1() {
   return (
-    <div className="homepagebg">
+    <div>
       <div className=" h-screen max-md:pt-4 items-center flex flex-col text-center">
         <div className="flex-row">
           <h1 className="pt-2 inline-flex flex-col md:flex-row transition font-display font-semibold max-md:text-6xl md:text-[5rem] bg-gradient-to-b from-60% bg-clip-text text-transparent from-custom-blue sm:me-4">
