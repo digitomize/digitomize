@@ -1,44 +1,46 @@
 .error-container {
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
 }
 .error-page {
-    height: 100%;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5%;
-
+  height: 100%;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
 }
 .error-page h1 {
-    font-size: 90px;
+  font-size: 90px;
 }
 .error-page p {
-    font-size: 40px;
-    text-align: center;
+  font-size: 40px;
+  text-align: center;
 }
 .error-page a {
-    text-decoration: none;
-    color: #191919;
-    font-size: 20px;
+  text-decoration: none;
+  color: #191919;
+  font-size: 20px;
 }
 
 .button-4 {
   appearance: none;
-  background-color: #FAFBFC;
+  background-color: #fafbfc;
   border: 1px solid rgba(27, 31, 35, 0.15);
-  border-radius:13px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  border-radius: 13px;
+  box-shadow:
+    rgba(27, 31, 35, 0.04) 0 1px 0,
+    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
-  color: #24292E;
+  color: #24292e;
   cursor: pointer;
   display: inline-block;
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
@@ -55,20 +57,20 @@
 }
 
 .button-4:hover {
-  background-color: #F3F4F6;
+  background-color: #f3f4f6;
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
 .button-4:disabled {
-  background-color: #FAFBFC;
+  background-color: #fafbfc;
   border-color: rgba(27, 31, 35, 0.15);
-  color: #959DA5;
+  color: #959da5;
   cursor: default;
 }
 
 .button-4:active {
-  background-color: #EDEFF2;
+  background-color: #edeff2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
@@ -85,16 +87,15 @@
   display: none;
 }
 
-
-@media (max-width : 768px) {
-    .error-page h1 {
-        font-size: 60px;
-    }
-    .error-page p {
-        font-size: 20px;
-    }
-    .button-4 {
-        padding-top: 13px;
-        padding-bottom: 13px;
-    }
+@media (max-width: 768px) {
+  .error-page h1 {
+    font-size: 60px;
+  }
+  .error-page p {
+    font-size: 20px;
+  }
+  .button-4 {
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
 }

@@ -3,88 +3,84 @@
   --width: 44vh;
 }
 
-  .model_container {
-    position: fixed;
-    z-index: 20;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    backdrop-filter: blur(5px);
-    background-color: rgba(61, 58, 58, 0.34);
-    cursor: default;
+.model_container {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  backdrop-filter: blur(5px);
+  background-color: rgba(61, 58, 58, 0.34);
+  cursor: default;
 }
 
-  .model_wrapper {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top:  50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: var(--height);
-    width: var(--width);
-    background-color: #161616;
-    color: rgba(255, 255, 255, 0.75);
-    border-radius: 20px;
-    display: flex;
+.model_wrapper {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: var(--height);
+  width: var(--width);
+  background-color: #161616;
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: 20px;
+  display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
 
-  .gradiant-model-border {
-    position: relative;
-    z-index: 1;
+.gradiant-model-border {
+  position: relative;
+  z-index: 1;
+}
+
+.gradiant-model-border::before {
+  content: "";
+  display: block;
+  background-color: #161616;
+  position: absolute;
+  border-radius: calc(20px - 4px);
+  height: calc(var(--height) - 4px * 2);
+  width: calc(var(--width) - 4px * 2);
+  z-index: -1;
+}
+
+.input_url {
+  padding: 3px;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+.input_value {
+  position: relative;
+  outline: 0;
+  border: transparent;
+  background: #161616;
+  margin: 4px;
+  padding: 6px;
+  cursor: text;
+}
+
+.text-copied {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #333;
+  z-index: 2;
+  color: #fff;
+  padding: 5px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --height: 38vh;
+    --width: 44vh;
   }
-  
-  .gradiant-model-border::before {
-    content: "";
-    display: block;
-    background-color: #161616;
-    position: absolute;
-    border-radius: calc(20px - 4px);
-    height: calc(var(--height) - 4px * 2);
-    width: calc(var(--width) - 4px * 2);
-    z-index: -1;
-  }
-
-  
-
-  .input_url {
-   padding: 3px;
-   border: 1px solid white;
-   border-radius: 4px;
-  }
-
-  .input_value {
-    position: relative;
-    outline: 0;
-    border: transparent;
-    background: #161616;
-    margin: 4px;
-    padding: 6px;
-    cursor: text;
-  }
-
-
-
-  .text-copied{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #333;
-    z-index: 2;  
-    color: #fff;
-    padding: 5px;
-    border-radius: 6px;
-    font-size: 13px;
-    white-space: nowrap;
-  }
-
-  @media (max-width: 1024px) {
-    :root{
-      --height: 38vh;
-      --width: 44vh;
-    }
-  }
+}

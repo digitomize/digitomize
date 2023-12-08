@@ -6,12 +6,22 @@ import { sendRequestLog } from "../../services/discord-webhook/routeLog.js";
 // const { admin } = require("../../firebase-config.json"); // Update the path accordingly
 
 const addUID = async (request, response, next) => {
-  const authHeader = request?.body?.headers?.Authorization || request?.body?.headers?.authorization || request?.headers?.authorization || request?.headers?.Authorization || request?.Authorization || request?.authorization;
+  const authHeader =
+    request?.body?.headers?.Authorization ||
+    request?.body?.headers?.authorization ||
+    request?.headers?.authorization ||
+    request?.headers?.Authorization ||
+    request?.Authorization ||
+    request?.authorization;
   const authToken = authHeader && authHeader.split(" ")[1];
   if (!authToken) {
     return response
       .status(401)
-      .json({ message: "User Not Authorised", error: "Authentication required. Please include an 'Authorization' header with a valid Bearer token." }); // Redirect to the login page
+      .json({
+        message: "User Not Authorised",
+        error:
+          "Authentication required. Please include an 'Authorization' header with a valid Bearer token.",
+      }); // Redirect to the login page
   }
 
   try {
@@ -38,7 +48,7 @@ const addUID = async (request, response, next) => {
       error: "Access forbidden",
     }); // Redirect to the login page
   }
-}
+};
 
 const checkAuth = async (request, response, next) => {
   const authHeader = request.headers["authorization"];
@@ -62,10 +72,10 @@ const checkAuth = async (request, response, next) => {
       error: "does not have access rights",
     }); // Redirect to the login page
   }
-}
+};
 
 const checkUserOwnership = async (req, res, next) => {
-  const userUIDFromToken = req.decodedToken.uid;;
+  const userUIDFromToken = req.decodedToken.uid;
 
   const usernameFromRequest = req.params.username; // Make sure to adjust this based on your route
 
@@ -82,14 +92,14 @@ const checkUserOwnership = async (req, res, next) => {
   req.userId = userUIDFromRequest;
 
   next();
-}
+};
 
 const dgmAdminCheck = async (request, response, next) => {
   const { body, decodedToken } = request;
   const userId = decodedToken.uid;
   // Check If User has admin role
   const user = await User.findOne({ uid: userId }).select(
-    "-_id -password -createdAt -updatedAt -__v"
+    "-_id -password -createdAt -updatedAt -__v",
   );
 
   if (!user) {
@@ -115,20 +125,19 @@ const routeLogging = async (req, response, next) => {
     query: req.query,
     body: req.body,
     ip: req.ip,
-    userAgent: req.get('User-Agent'),
+    userAgent: req.get("User-Agent"),
     cookies: req.cookies,
     timestamp: new Date().toISOString(),
   };
 
   try {
     sendRequestLog(req);
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error);
   }
 
   // Continue with the request handling
   next();
-}
+};
 
 export { addUID, checkAuth, checkUserOwnership, dgmAdminCheck, routeLogging };

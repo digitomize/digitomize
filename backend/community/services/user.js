@@ -12,7 +12,7 @@ export const userAddCommunity = async (communityId, userId) => {
           community: communityList,
         },
         $currentDate: { lastUpdated: true },
-      }
+      },
     );
   } catch (error) {
     throw new Error("Something Went Wrong!");
@@ -23,7 +23,7 @@ export const userRemoveCommunity = async (communityId, userId) => {
   try {
     const user = await User.findOne({ uid: userId });
     const communityList = user.community.filter(
-      (item) => item.communityId !== communityId
+      (item) => item.communityId !== communityId,
     );
     await User.updateOne(
       { uid: userId },
@@ -32,7 +32,7 @@ export const userRemoveCommunity = async (communityId, userId) => {
           community: communityList,
         },
         $currentDate: { lastUpdated: true },
-      }
+      },
     );
   } catch (error) {
     throw new Error("Something Went Wrong!");

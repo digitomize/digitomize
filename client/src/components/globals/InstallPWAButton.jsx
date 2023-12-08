@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import './css/InstallPWAButton.css';
+import React, { useEffect, useState } from "react";
+import "/src/components/css/InstallPWAButton.css";
 
 function InstallPWAButton() {
   const [showInstallPrompt, setShowInstallPrompt] = useState(false);
   const [postponedPrompt, setPostponedPrompt] = useState(null);
 
   useEffect(() => {
-    const hasUserDismissedPrompt = sessionStorage.getItem('user-dismissed-prompt');
-    const remindedLater = sessionStorage.getItem('remind-me-later');
+    const hasUserDismissedPrompt = sessionStorage.getItem(
+      "user-dismissed-prompt",
+    );
+    const remindedLater = sessionStorage.getItem("remind-me-later");
 
     if (hasUserDismissedPrompt || remindedLater) {
       return;
@@ -19,10 +21,13 @@ function InstallPWAButton() {
       setShowInstallPrompt(true);
     };
 
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
 
     return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener(
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt,
+      );
     };
   }, []);
 
@@ -32,8 +37,8 @@ function InstallPWAButton() {
       postponedPrompt.prompt();
 
       postponedPrompt.userChoice.then((choiceResult) => {
-        if (choiceResult.outcome === 'dismissed') {
-          sessionStorage.setItem('user-dismissed-prompt', 'true');
+        if (choiceResult.outcome === "dismissed") {
+          sessionStorage.setItem("user-dismissed-prompt", "true");
         }
         setPostponedPrompt(null);
       });
@@ -42,7 +47,7 @@ function InstallPWAButton() {
 
   const onRemindLaterClick = () => {
     setShowInstallPrompt(false);
-    sessionStorage.setItem('remind-me-later', 'true');
+    sessionStorage.setItem("remind-me-later", "true");
   };
 
   if (!showInstallPrompt) {
@@ -51,7 +56,7 @@ function InstallPWAButton() {
     return (
       <div className="install-prompt">
         <p>Install our app for a better experience!</p>
-        <div className='installPromptButtonsDiv'>
+        <div className="installPromptButtonsDiv">
           <button onClick={onInstallClick}>Install</button>
           <button onClick={onRemindLaterClick}>Remind me later</button>
         </div>
