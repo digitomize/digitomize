@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import Checkbox from "../components/Checkbox";
 import NewNavbar from "../../components/NewNavbar";
 import DashboardNavbar from "../components/DashboardNavbar";
-import NewFooter from "../../components/NewFooter";
+import Footer from "../../components/Footer";
 
 export async function loader() {
   try {
@@ -135,7 +135,7 @@ export default function UserDashGithub() {
           {svgImage()}
         </div> */}
       </div>
-      <NewFooter />
+      <Footer />
     </>
   );
 }

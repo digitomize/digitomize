@@ -30,7 +30,7 @@ import logo from "../../assets/logo.png";
 import Badge from "@mui/material/Badge";
 import MoodIcon from "@mui/icons-material/Mood";
 import Tooltip from "@mui/material/Tooltip";
-import NewFooter from "../../components/NewFooter";
+import Footer from "../../components/Footer.jsx";
 import LoadingScreen from "../../components/LoadingScreen";
 import ShareModel from "../../components/share_model.jsx";
 import UserCard from "../Profile/components/UserCard.jsx";
@@ -359,7 +359,7 @@ export default function UserDashboard() {
           </div>*/}
           </div>
         </div>
-        <NewFooter />
+        <Footer />
       </>
     );
   }

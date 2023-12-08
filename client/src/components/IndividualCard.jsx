@@ -10,7 +10,7 @@ import {
   PanTool,
   Celebration,
 } from "@mui/icons-material";
-import { NewFooter } from "./CustomComponents";
+import { Footer } from "./CustomComponents";
 import { Helmet } from "react-helmet";
 import "./css/IndividualCard.css";
 import { Alert, AlertTitle } from "@mui/material";
@@ -912,7 +912,7 @@ function IndividualCard() {
               </div>
             </div>
           </div>
-          <NewFooter />
+          <Footer />
         </>
       )}
     </>

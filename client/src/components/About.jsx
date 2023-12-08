@@ -4,7 +4,7 @@ import {
   AiFillLinkedin,
 } from "react-icons/ai";
 import { Avatar, Skeleton } from "@mui/material";
-import NewFooter from "./NewFooter";
+import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import Contributors from "./Contributors";
 export default function About() {
@@ -285,7 +285,7 @@ export default function About() {
         </div>
       </div>
       <div className="divider w-0"></div>
-      <NewFooter />
+      <Footer />
     </>
   );
 }

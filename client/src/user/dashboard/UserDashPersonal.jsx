@@ -15,7 +15,7 @@ import { ToastContainer, toast } from "react-toastify";
 import Chip from "@mui/material/Chip";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import { styled } from "@mui/material/styles";
-import NewFooter from "../../components/NewFooter";
+import Footer from "../../components/Footer";
 import ImageUploader from "../../components/ImageUploader";
 
 const ListItem = styled("li")(({ theme }) => ({
@@ -445,7 +445,7 @@ export default function UserDashPersonal() {
           </div>
         </div>
       </div>
-      <NewFooter />
+      <Footer />
     </>
   );
 }

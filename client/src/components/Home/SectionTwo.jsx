@@ -12,7 +12,7 @@ import {
   LinkedInIcon,
   InstagramIcon,
   GitHubIcon,
-} from "./MuiIcons";
+} from "../MuiIcons";
 
 // importing all the assets ...
 import {
@@ -22,7 +22,7 @@ import {
   codechef,
   codeforces,
   atcoder,
-} from "./AllAssets";
+} from "../AllAssets";
 
 const gradientStyles = {
   background:
@@ -47,7 +47,7 @@ const platforms = [
   "atcoder",
 ];
 
-export default function Home2() {
+export default function SectionTwo() {
   const [formData, setFormData] = useState({
     name: "pranshu",
     phoneNumber: {
@@ -88,8 +88,7 @@ export default function Home2() {
   };
 
   return (
-    <>
-      <Element
+    <Element
         name="second"
         className="hero min-h-screen bg-base-200 flex flex-col"
       >
@@ -256,8 +255,8 @@ export default function Home2() {
                 <div className="flex flex-col w-2/4">
                   <label className="label mx-2">
                     <span className="label-text">
-                      import "<span className="text-custom-blue">socials</span>
-                      ";
+                      import &quot;<span className="text-custom-blue">socials</span>
+                      &quot;
                     </span>
                   </label>
                   <Skeleton
@@ -306,7 +305,7 @@ export default function Home2() {
                   >
                     <div
                       style={{ marginLeft: "0px" }}
-                      className="ml-0 input ml-0 w-fit overflow-x-auto"
+                      className="input ml-0 w-fit overflow-x-auto"
                     >
                       https://digitomize.com
                     </div>
@@ -429,6 +428,5 @@ export default function Home2() {
           </div>
         </Linkto>
       </Element>
-    </>
   );
 }

@@ -10,7 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { Skeleton } from "@mui/material";
 import NewNavbar from "../../components/NewNavbar";
 import DashboardNavbar from "../components/DashboardNavbar";
-import NewFooter from "../../components/NewFooter";
+import Footer from "../../components/Footer";
 import LoadingScreen from "../../components/LoadingScreen";
 
 import leetcode from "../../assets/leetcode.svg";
@@ -587,7 +587,7 @@ export default function UserDashRatings() {
         <div className="flex justify-center py-12">
           <div className="divider w-3/5"></div>
         </div>
-        <NewFooter />
+        <Footer />
       </>
     );
   }

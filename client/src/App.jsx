@@ -24,7 +24,7 @@ import {
   ErrorPage,
   IndividualCard,
   Updates,
-  NewHome,
+  Homepage,
   Feedback,
   About,
 } from "./components/CustomComponents";
@@ -125,13 +125,13 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route errorElement={<ErrorPage />}>
       <Route path="/" element={<Layout />}>
-        <Route index element={<NewHome />} />
+        <Route index element={<Homepage />} />
         <Route path="login" element={<Login />} loader={loginLoader} />
         <Route path="logout" element={<Logout />} />;
         <Route path="signup" element={<Signup />} loader={signupLoader} />
         <Route path="contests" element={<Home />} />
         <Route path="updates" element={<Updates />} />
-        <Route path="home" element={<NewHome />} />
+        <Route path="home" element={<Homepage />} />
         <Route path="feedback" element={<Feedback />} />
         <Route path="contact" element={<About />} />
         <Route path="about" element={<About />} />
