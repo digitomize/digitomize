@@ -18,10 +18,10 @@ import {
   codechef,
   atcoder,
   codeforces,
-} from "./AllAssets";
-import Contests from "./Contests";
+} from "../AllAssets";
+import Contests from "../Contests";
 import { Element } from "react-scroll";
-import CustomSlider from "./CustomSlider";
+import CustomSlider from "../CustomSlider";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 const MenuProps = {
   PaperProps: {
@@ -30,8 +30,8 @@ const MenuProps = {
       width: 250,
       backgroundColor: "#252525",
       color: "white",
-      borderTopLeftRadius: "1px", 
-      borderTopRightRadius: "1px", 
+      borderTopLeftRadius: "1px",
+      borderTopRightRadius: "1px",
       borderBottomLeftRadius: "10px",
       borderBottomRightRadius: "10px",
     },
@@ -52,7 +52,7 @@ const platforms = [
   "geeksforgeeks",
   "codechef",
   "codeforces",
-  "atcoder"
+  "atcoder",
 ];
 function Filter() {
   const [contestsData, setContestsData] = useState([]);
@@ -85,7 +85,7 @@ function Filter() {
 
   const handleDelete = (value) => {
     let newSelectedParams = selectedPlatforms.filter(
-      (platform) => platform != value
+      (platform) => platform != value,
     );
     setSelectedPlatforms(newSelectedParams);
   };

@@ -45,13 +45,13 @@ async function updateCommunityMember(request, response) {
           ...updatedCommunityMember,
         },
         $currentDate: { lastUpdated: true },
-      }
+      },
     );
     return success(
       updatedCommunityMember._doc,
       response,
       200,
-      "Community Member Updated!!"
+      "Community Member Updated!!",
     );
   } catch (error) {
     response.status(500).json({ message: "Something went wrong!!" });
@@ -83,7 +83,7 @@ async function addCommunityMember(request, response) {
       newCommunityMember,
       response,
       200,
-      "Community Member Added!!"
+      "Community Member Added!!",
     );
   } catch (error) {
     console.log(error);

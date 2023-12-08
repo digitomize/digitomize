@@ -1,9 +1,13 @@
 # [Digitomize LIVE](https://digitomize.com)
 
 # Digitomize
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+
 [![All Contributors](https://img.shields.io/badge/all_contributors-35-orange.svg?style=flat-square)](#contributors-)
+
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/125b14c1-ebbe-46d7-97db-c3e97674e36e/deploy-status)](https://app.netlify.com/sites/digitomize/deploys)
 [![Forks on Github](https://img.shields.io/github/forks/digitomize/digitomize)](https://github.com/digitomize/digitomize/forks)
@@ -12,9 +16,9 @@
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios.
 
 ## Supported by:
+
 <img src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" width="30%">
 <img src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" width="30%">
-
 
 ## Table of Contents
 
@@ -41,14 +45,17 @@
 - **User Profiles:** Create your developer portfolio by providing user handles for different coding platforms. The platform dynamically fetches and displays your updated ratings, achievements, and coding history.
 
 ## Getting Started
+
 ### Tech Stack
 
-  ### Frontend
-  - React.js
-  - Vite
-  - Tailwind (Daisyui, Material UI, Flowbite)
-    
+### Frontend
+
+- React.js
+- Vite
+- Tailwind (Daisyui, Material UI, Flowbite)
+
 ### Backend
+
 - Node.js
 - Express
 - NPM
@@ -58,9 +65,11 @@
 
 1. Clone the repository: `git clone https://github.com/pranshugupta54/digitomize.git`
 2. Install project dependencies and start the development environment: <br>
-In the root directory of the project (where package.json is located), run `npm install`. <br>
+   In the root directory of the project (where package.json is located), run `npm install`. <br>
 3. Configure environment variables: Create a .env file in the backend and client directories respectively, and set up the required environment variables such as database connection details, API keys, and other configurations.
-- For more information check  [Backend Documentation](/backend/README.md) and [Frontend Documentation](/client/README.md).
+
+- For more information check [Backend Documentation](/backend/README.md) and [Frontend Documentation](/client/README.md).
+
 4. Start the development environment: `npm run dev` (This command, defined in your project's package.json, starts both the backend server and the client using the concurrently library. It's a convenient way to run both parts of your application concurrently during development.)
 
 ## Usage

@@ -11,7 +11,7 @@ const handleUserDashboard = async (req, res) => {
     // User is logged in, fetch user data from the database
     const userId = req.decodedToken.uid;
     const user = await User.findOne({ uid: userId }).select(
-      "-_id -password -createdAt -updatedAt -__v"
+      "-_id -password -createdAt -updatedAt -__v",
     );
 
     if (!user) {

@@ -18,7 +18,7 @@ const communitySchema = new mongoose.Schema(
       unique: { value: true, caseInsensitive: true },
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const Community = mongoose.model("Community", communitySchema, "community");

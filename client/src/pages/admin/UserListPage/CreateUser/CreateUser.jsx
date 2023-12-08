@@ -3,11 +3,11 @@ import { CreateUserForm } from "./CreateUser.helper";
 import { createNewUser } from "../../../../core/api/user.api";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { useUserAuth } from "../../../../context/UserAuthContext"
+import { useUserAuth } from "../../../../context/UserAuthContext";
 
 export default function CreateUser({ handleClose }) {
   const [pending, setPending] = useState(false);
-  const { signUp } = useUserAuth()
+  const { signUp } = useUserAuth();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -24,30 +24,25 @@ export default function CreateUser({ handleClose }) {
       // const token = newUser.token;
       // console.log(token);
       // if (token) {
-        setPending(true);
-        createNewUser(payload)
-          .then((response) => {
-            handleClose();
-            toast.success(response.data.message);
-          })
-          .catch((error) => {
-            // console.log(error);
-            toast.success(error.response.data.message);
-          })
-          .finally(() => {
-            setPending(false);
-          });
+      setPending(true);
+      createNewUser(payload)
+        .then((response) => {
+          handleClose();
+          toast.success(response.data.message);
+        })
+        .catch((error) => {
+          // console.log(error);
+          toast.success(error.response.data.message);
+        })
+        .finally(() => {
+          setPending(false);
+        });
       // }
     } catch (err) {
       // console.log(err);
       toast.error(err.code);
     }
-
   };
-
-
-
-
 
   return (
     <>
@@ -61,7 +56,8 @@ export default function CreateUser({ handleClose }) {
             return (
               <div class="relative mb-3" data-te-input-wrapper-init>
                 <label>{item.label}</label>
-                <input required
+                <input
+                  required
                   class="peer block min-h-[auto] w-full rounded  px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear"
                   {...item}
                 />

@@ -8,6 +8,8 @@ import contestRoutes from "./contest/routes/contestRoutes.js";
 import communityRoutes from "./community/routes/communityRoutes.js";
 import userRoutes from "./users/routes/userRoutes.js";
 import adminRoutes from "./users/routes/adminRoutes.js";
+import sheetRoutes from "./DSA_sheets/routes/sheetRoutes.js";
+import questionRoutes from "./DSA_sheets/routes/questionRoutes.js";
 import bodyParser from "body-parser";
 import fetchContestsData from "./fetchContests.js";
 import admin from "firebase-admin";
@@ -20,12 +22,12 @@ if (process.env.NODE_ENV === "production") {
   app.use(routeLogging);
 }
 
-//Handling uncaught exception 
-process.on('uncaughtException', err => {
+//Handling uncaught exception
+process.on("uncaughtException", (err) => {
   console.log(`Error: ${err.message}`);
-  console.log('Shutting down due to uncaught exception');
-  process.exit(1)
-})
+  console.log("Shutting down due to uncaught exception");
+  process.exit(1);
+});
 
 console.log(process.env.TEST);
 async function main() {
@@ -51,6 +53,8 @@ async function setupUserServer() {
   // Set up user routes
   app.use("/user", userRoutes);
   app.use("/admin", adminRoutes);
+  app.use("/sheets", sheetRoutes);
+  app.use("/questions", questionRoutes);
 }
 
 async function setupContestServer() {
@@ -62,14 +66,17 @@ async function setupContestServer() {
   setInterval(contestSyncer.updateContests, 60 * 60 * 1000);
 
   // Pinging the server every 13 minutes
-  setInterval(async () => {
-    try {
-      await main();
-      console.log("<=======Sent GET request to AWAKE");
-    } catch (error) {
-      console.error("Error Pinging", error);
-    }
-  }, 13 * 60 * 1000);
+  setInterval(
+    async () => {
+      try {
+        await main();
+        console.log("<=======Sent GET request to AWAKE");
+      } catch (error) {
+        console.error("Error Pinging", error);
+      }
+    },
+    13 * 60 * 1000,
+  );
 
   // Set up contest routes
   app.use("/contests", contestRoutes);
@@ -91,9 +98,9 @@ async function startServersProduction() {
     await setupContestServer();
 
     //Handle unhandled routes
-    app.all('*', (req, res, next) => {
+    app.all("*", (req, res, next) => {
       res.status(404).json({ error: `${req.originalUrl} route not found` });
-    })
+    });
 
     const servers = [];
     servers.push("User");
@@ -135,9 +142,9 @@ async function startServersDev() {
     }
 
     //Handle unhandled routes
-    app.all('*', (req, res, next) => {
+    app.all("*", (req, res, next) => {
       res.status(404).json({ error: `${req.originalUrl} route not found` });
-    })
+    });
 
     console.log("┌──────────────────────────────────┐");
     if (servers.length > 0) {
@@ -165,11 +172,11 @@ if (process.env.NODE_ENV === "development") {
 }
 
 //Handling unhandled server errors
-process.on('unhandledRejection', (err) => {
-  console.log(`Error: ${err.message}`)
-  console.log('Shutting down the server due to Unhandled promise rejection')
+process.on("unhandledRejection", (err) => {
+  console.log(`Error: ${err.message}`);
+  console.log("Shutting down the server due to Unhandled promise rejection");
 
   server.close(() => {
-    process.exit(1)
-  })
-})
+    process.exit(1);
+  });
+});

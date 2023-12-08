@@ -8,7 +8,7 @@ export function requireAuth(request) {
   const isLog = isLoggedIn();
   if (!isLog) {
     throw redirect(
-      `/login?message=You must log in first.&redirectTo=${pathname}`
+      `/login?message=You must log in first.&redirectTo=${pathname}`,
     );
   }
 }
