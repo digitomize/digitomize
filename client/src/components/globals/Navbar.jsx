@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { logo } from "./AllAssets";
+import { logo } from "../AllAssets";
 import { signOut } from "firebase/auth";
-import { auth } from "../../firebase";
+import { auth } from "../../../firebase";
 
 function Navbar() {
   const [isMenuActive, setActive] = useState(false);

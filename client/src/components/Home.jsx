@@ -2,8 +2,8 @@ import { Link } from "react-scroll";
 
 import Typewriter from "typewriter-effect";
 
-import Filter from "../components/Filter";
-import ScrollToTop from "./ScrollToTop";
+import Filter from "./globals/Filter";
+import ScrollToTop from "./globals/ScrollToTop";
 
 function Home() {
   return (

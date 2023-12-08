@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./css/CopyToClipboard.css";
-import { getColorTheme } from "./IndividualCard";
+import { getColorTheme } from "./globals/IndividualCard";
 import ShareModel from "./share_model";
 
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;

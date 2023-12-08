@@ -1,5 +1,5 @@
 import React from "react";
-import "./css/ellipse.css";
+import "/src/components/css/ellipse.css";
 
 function Button({ url }) {
   return <div className="ellipse"></div>;

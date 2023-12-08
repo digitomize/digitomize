@@ -1,9 +1,9 @@
 import { Element } from "react-scroll";
-import gitbookSvg from "../public/svg/GitBook.svg";
-import MSMESvg from "../public/svg/MSME.svg";
-import microsoftLogo from "../public/png/MS_Startups_Celebration_Badge_Dark.png";
+import gitbookSvg from "./svgs/GitBook.svg";
+import MSMESvg from "./svgs/MSME.svg";
+import microsoftLogo from "./pngs/MS_Startups_Celebration_Badge_Dark.png";
 
-export default function Home1() {
+export default function SectionOne() {
   return (
     <div className="hero h-screen xl:pt-8 max-md:pt-4 items-center flex flex-col text-center">
       <div className="max-md:hidden divider sticky my-0"></div>
@@ -46,7 +46,7 @@ export default function Home1() {
                 {/* map */}
                 <div className="text-center flex md:flex-col items-center md:justify-center  md:text-center">
                   <div className="md:flex-shrink-0 flex justify-center">
-                    <a href="https://www.gitbook.com/" target="_blank">
+                    <a href="https://www.gitbook.com/" target="_blank" rel="noreferrer">
                       <div className="flex items-center justify-center ">
                         <img
                           src={gitbookSvg}
@@ -62,6 +62,7 @@ export default function Home1() {
                     <a
                       href="https://www.microsoft.com/en-us/startups"
                       target="_blank"
+                      rel="noreferrer"
                     >
                       <div className="flex items-center justify-center ">
                         <img
@@ -75,7 +76,7 @@ export default function Home1() {
                 </div>
                 <div className="text-center md:flex md:items-center md:justify-center  md:text-center">
                   <div className="md:flex-shrink-0 flex justify-center">
-                    <a href="https://msme.gov.in/" target="_blank">
+                    <a href="https://msme.gov.in/" target="_blank" rel="noreferrer">
                       <div className="flex items-center justify-center ">
                         <img src={MSMESvg} className=" w-2/4 max-w-md" alt="" />
                       </div>

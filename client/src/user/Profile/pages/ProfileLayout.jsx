@@ -1,8 +1,8 @@
 import React, { Suspense } from "react";
-import NewNavbar from "../../../components/NewNavbar";
+import NewNavbar from "../../../components/globals/NewNavbar";
 import { Outlet, useLoaderData, defer, Await } from "react-router-dom";
 import { getProfileData } from "../../../../api";
-import LoadingScreen from "../../../components/LoadingScreen";
+import LoadingScreen from "../../../components/globals/LoadingScreen";
 
 export async function loader({ params }) {
   const username = params.username;

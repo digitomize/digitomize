@@ -1,28 +1,26 @@
-import BgEllipse from "./BgEllipse";
-import Button from "./Button";
-import Card from "./Card";
+import BgEllipse from "./globals/BgEllipse";
+import Button from "./globals/Button";
+import Card from "./globals/Card";
 import Contests from "./Contests";
 import About from "./About";
 import CopyToClipboard from "./CopyToClipboard";
-import ErrorPage from "./error-page";
+import ErrorPage from "./globals/error-page";
 import Feedback from "./Feedback";
 import Home from "./Home";
-import HomePage1 from "./HomePage1";
-import HomePage2 from "./HomePage2";
-import IndividualCard from "./IndividualCard";
+import IndividualCard from "./globals/IndividualCard";
 import Layout from "./Layout";
 import Login from "./Login";
-import Logout from "./Logout";
-import MobNav from "./MobNav";
-import Navbar from "./Navbar";
-import NewHome from "./NewHome";
-import NewFooter from "./NewFooter";
+import Logout from "./globals/Logout";
+import MobNav from "./globals/MobNav";
+import Navbar from "./globals/Navbar";
+import Homepage from "../pages/home/Homepage";
+import Footer from "./globals/Footer";
 import NewLogin from "./NewLogin";
 import { loader as loginLoader } from "./Login";
-import { loader as signupLoader } from "./Signup";
-import NewNavbar from "./NewNavbar";
-import ScrollToTop from "./ScrollToTop";
-import Signup from "./Signup";
+import { loader as signupLoader } from "./globals/Signup";
+import NewNavbar from "./globals/NewNavbar";
+import ScrollToTop from "./globals/ScrollToTop";
+import Signup from "./globals/Signup";
 import Updates from "./Updates";
 export {
   BgEllipse,
@@ -34,16 +32,14 @@ export {
   ErrorPage,
   Feedback,
   Home,
-  HomePage1,
-  HomePage2,
   IndividualCard,
   Layout,
   Login,
   Logout,
   MobNav,
   Navbar,
-  NewHome,
-  NewFooter,
+  Homepage,
+  Footer,
   NewLogin,
   NewNavbar,
   ScrollToTop,

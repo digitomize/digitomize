@@ -4,10 +4,10 @@ import { Link, useLocation } from "react-router-dom";
 
 import MobNav from "./MobNav";
 
-import { logo } from "./AllAssets";
-import { useUserAuth } from "../context/UserAuthContext";
-import { useUserDetails } from "../context/UserContext";
-import { ROLE } from "../core/utils/const";
+import { logo } from "../AllAssets";
+import { useUserAuth } from "../../context/UserAuthContext";
+import { useUserDetails } from "../../context/UserContext";
+import { ROLE } from "../../core/utils/const";
 
 export default function NewNavbar({ position }) {
   const { user } = useUserAuth();

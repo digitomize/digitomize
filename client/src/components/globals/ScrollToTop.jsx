@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { KeyboardDoubleArrowUpOutlinedIcon } from "./MuiIcons";
+import { KeyboardDoubleArrowUpOutlinedIcon } from "../MuiIcons";
 
 import { Link } from "react-scroll";
 

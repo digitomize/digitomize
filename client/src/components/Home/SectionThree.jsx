@@ -1,9 +1,8 @@
 import { Element } from "react-scroll";
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import ContestCards from "./ContestCards";
+import ContestCards from "../ContestCards";
 
-export default function Home2() {
+export default function SectionThree() {
   return (
     <Element name="third">
       <div className="hero min-h-screen flex flex-row w-10/12 mx-auto">

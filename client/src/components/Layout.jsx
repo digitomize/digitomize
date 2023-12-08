@@ -1,6 +1,6 @@
-import NewNavbar from "./NewNavbar";
+import NewNavbar from "./globals/NewNavbar";
 import Alert from "@mui/material/Alert";
-import NewFooter from "./NewFooter";
+import Footer from "./globals/Footer";
 import { useState } from "react";
 
 import { Analytics } from "@vercel/analytics/react";

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./css/InstallPWAButton.css";
+import "/src/components/css/InstallPWAButton.css";
 
 function InstallPWAButton() {
   const [showInstallPrompt, setShowInstallPrompt] = useState(false);

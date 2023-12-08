@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import Card from "./Card";
+import Card from "./globals/Card";
 import "./css/Contests.css";
 import { Helmet } from "react-helmet";
 
