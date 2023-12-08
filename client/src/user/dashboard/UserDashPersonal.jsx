@@ -9,13 +9,13 @@ import axios from "axios";
 // import { toast } from "react-toastify";
 import DashboardNavbar from "../components/DashboardNavbar";
 import Checkbox from "../components/Checkbox";
-import NewNavbar from "../../components/NewNavbar";
+import NewNavbar from "../../components/globals/NewNavbar";
 import { ToastContainer, toast } from "react-toastify";
 
 import Chip from "@mui/material/Chip";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import { styled } from "@mui/material/styles";
-import Footer from "../../components/Footer";
+import Footer from "../../components/globals/Footer";
 import ImageUploader from "../../components/ImageUploader";
 
 const ListItem = styled("li")(({ theme }) => ({

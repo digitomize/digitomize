@@ -8,8 +8,8 @@ import {
   codechef,
   codeforces,
   atcoder,
-} from "./AllAssets";
-import ShareModel from "./share_model";
+} from "../AllAssets";
+import ShareModel from "../share_model";
 
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 const hostToSVGMap = {

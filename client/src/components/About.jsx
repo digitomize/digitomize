@@ -4,7 +4,7 @@ import {
   AiFillLinkedin,
 } from "react-icons/ai";
 import { Avatar, Skeleton } from "@mui/material";
-import Footer from "./Footer";
+import Footer from "./globals/Footer";
 import { Link } from "react-router-dom";
 import Contributors from "./Contributors";
 export default function About() {

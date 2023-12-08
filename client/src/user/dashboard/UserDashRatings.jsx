@@ -8,10 +8,10 @@ import { submitUserFormData, userDashboardDetails } from "../../../api";
 // import { useUserAuth } from '../../context/UserAuthContext'
 import { ToastContainer, toast } from "react-toastify";
 import { Skeleton } from "@mui/material";
-import NewNavbar from "../../components/NewNavbar";
+import NewNavbar from "../../components/globals/NewNavbar";
 import DashboardNavbar from "../components/DashboardNavbar";
-import Footer from "../../components/Footer";
-import LoadingScreen from "../../components/LoadingScreen";
+import Footer from "../../components/globals/Footer";
+import LoadingScreen from "../../components/globals/LoadingScreen";
 
 import leetcode from "../../assets/leetcode.svg";
 import codechef from "../../assets/codechef.svg";

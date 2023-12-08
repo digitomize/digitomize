@@ -6,9 +6,9 @@ import { userDashboardDetails, submitUserFormData } from "../../../api";
 import { toast } from "react-toastify";
 
 import Checkbox from "../components/Checkbox";
-import NewNavbar from "../../components/NewNavbar";
+import NewNavbar from "../../components/globals/NewNavbar";
 import DashboardNavbar from "../components/DashboardNavbar";
-import Footer from "../../components/Footer";
+import Footer from "../../components/globals/Footer";
 
 export async function loader() {
   try {

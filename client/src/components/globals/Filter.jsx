@@ -18,10 +18,10 @@ import {
   codechef,
   atcoder,
   codeforces,
-} from "./AllAssets";
-import Contests from "./Contests";
+} from "../AllAssets";
+import Contests from "../Contests";
 import { Element } from "react-scroll";
-import CustomSlider from "./CustomSlider";
+import CustomSlider from "../CustomSlider";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 const MenuProps = {
   PaperProps: {

@@ -5,7 +5,7 @@ import {
   useNavigate,
   useSearchParams,
 } from "react-router-dom";
-import NewNavbar from "../../components/NewNavbar";
+import NewNavbar from "../../components/globals/NewNavbar";
 import { leaderboardData, rankOnLeaderboard } from "../../../api";
 import { OpenInNew, WorkspacePremium, Info } from "@mui/icons-material";
 import {
