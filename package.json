@@ -1,29 +1,31 @@
 {
-    "name": "digitomize",
-    "version": "2.1.1",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "postinstall": "concurrently \"cd backend && npm i\" \"cd client && npm i\"",
-        "build": "concurrently \"cd backend && npm run start\" \"cd frontend && npm build\"",
-        "dev": "concurrently \"cd backend && npm run dev\" \"cd client && npm run dev\"",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/pranshugupta54/digitomize.git"
-    },
-    "author": "",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/pranshugupta54/digitomize/issues"
-    },
-    "homepage": "https://github.com/pranshugupta54/digitomize#readme",
-    "devDependencies": {
-        "all-contributors-cli": "^6.26.1",
-        "concurrently": "^8.2.1"
-    },
-    "dependencies": {
-        "vercel": "^32.2.2"
-    }
+  "name": "digitomize",
+  "version": "2.1.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "concurrently \"cd backend && npm i\" \"cd client && npm i\"",
+    "build": "concurrently \"cd backend && npm run start\" \"cd frontend && npm build\"",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd client && npm run dev\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pranshugupta54/digitomize.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pranshugupta54/digitomize/issues"
+  },
+  "homepage": "https://github.com/pranshugupta54/digitomize#readme",
+  "devDependencies": {
+    "all-contributors-cli": "^6.26.1",
+    "concurrently": "^8.2.1",
+    "prettier": "3.1.0"
+  },
+  "dependencies": {
+    "vercel": "^32.2.2"
+  }
 }

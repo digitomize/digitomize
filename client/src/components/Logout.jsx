@@ -1,19 +1,10 @@
+import { useEffect } from "react";
 
-import {
-  useEffect
-} from "react";
+import { useNavigate } from "react-router-dom";
 
-import {
-  useNavigate
-} from "react-router-dom";
+import { auth } from "../../firebase";
 
-import {
-  auth
-} from "../../firebase";
-
-import {
-  toast
-} from "react-toastify";
+import { toast } from "react-toastify";
 
 export default function Logout() {
   const navigate = useNavigate();
@@ -26,7 +17,6 @@ export default function Logout() {
   useEffect(() => {
     handleLogout();
   }, []);
-
 
   return <div>Logging out...</div>;
 }

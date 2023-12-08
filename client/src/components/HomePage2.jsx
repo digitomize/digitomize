@@ -24,7 +24,6 @@ import {
   atcoder,
 } from "./AllAssets";
 
-
 const gradientStyles = {
   background:
     "radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);",
@@ -90,7 +89,10 @@ export default function Home2() {
 
   return (
     <>
-      <Element name="second" className="hero min-h-screen bg-base-200 flex flex-col">
+      <Element
+        name="second"
+        className="hero min-h-screen bg-base-200 flex flex-col"
+      >
         <div className="hero-content flex-col sm:flex-row my-auto">
           <div className="left sm:w-[40%] text-center">
             <div className="sm:text-left max-sm:text-center">
@@ -198,7 +200,9 @@ export default function Home2() {
                       phone number
                       <Tooltip
                         title={
-                          formData.phoneNumber.showOnWebsite ? "showing on portfolio" : "not showing on portfolio"
+                          formData.phoneNumber.showOnWebsite
+                            ? "showing on portfolio"
+                            : "not showing on portfolio"
                         }
                         arrow
                         placement="top"
@@ -225,12 +229,13 @@ export default function Home2() {
                       bio
                       <Tooltip
                         title={
-                          formData.bio.showOnWebsite ? "showing on portfolio" : "not showing on portfolio"
+                          formData.bio.showOnWebsite
+                            ? "showing on portfolio"
+                            : "not showing on portfolio"
                         }
                         arrow
                         placement="top"
                       >
-
                         <Switch
                           size="small"
                           inputProps={{ "aria-label": "controlled" }}
@@ -251,7 +256,8 @@ export default function Home2() {
                 <div className="flex flex-col w-2/4">
                   <label className="label mx-2">
                     <span className="label-text">
-                      import "<span className="text-custom-blue">socials</span>";
+                      import "<span className="text-custom-blue">socials</span>
+                      ";
                     </span>
                   </label>
                   <Skeleton
@@ -263,7 +269,9 @@ export default function Home2() {
                   />
                   <label className="label mx-2">
                     <span className="label-text">
-                      fetch{`("`}<span className="text-custom-blue">ratings</span>{`");`}
+                      fetch{`("`}
+                      <span className="text-custom-blue">ratings</span>
+                      {`");`}
                     </span>
                   </label>
                   <Skeleton

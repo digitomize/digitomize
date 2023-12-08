@@ -20,7 +20,7 @@ router.get("/dashboard", addUID, handleUserDashboard);
 
 router.post("/dashboard", addUID, handleUpdateUserProfile);
 
-router.get("/signImageUpload",addUID, generateSignature)
+router.get("/signImageUpload", addUID, generateSignature);
 
 router.get("/profile/:username", handleUserProfilePreview);
 

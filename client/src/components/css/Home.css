@@ -2,16 +2,16 @@ html,
 body {
   background-color: black;
   color: rgba(255, 255, 255, 0.75);
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 on-container p {
-    color: rgba(255, 255, 255, 0.75);
-    text-align: center;
-    font-family: Outfit;
-    font-size: 1.563rem;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-    text-transform: lowercase;
-    margin-bottom:5%;
-} 
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  font-family: Outfit;
+  font-size: 1.563rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-transform: lowercase;
+  margin-bottom: 5%;
+}

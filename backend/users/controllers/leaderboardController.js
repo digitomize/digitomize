@@ -1,4 +1,4 @@
-import User from '../models/User.js';
+import User from "../models/User.js";
 
 const getLeaderboard = async (req, res) => {
   try {
@@ -13,14 +13,15 @@ const getLeaderboard = async (req, res) => {
 
     if (req.query.platform) {
       const platform = req.query.platform.toLowerCase();
-      users = await User.find({ [`${platform}.rating`]: { $exists: true, $ne: null } });
+      users = await User.find({
+        [`${platform}.rating`]: { $exists: true, $ne: null },
+      });
       totalUsers = users.length;
       users.sort((a, b) => {
         const aRating = a[platform] ? a[platform].rating || 0 : 0;
         const bRating = b[platform] ? b[platform].rating || 0 : 0;
         return bRating - aRating;
       });
-
     } else {
       users = await User.find();
       totalUsers = users.length;
@@ -28,7 +29,9 @@ const getLeaderboard = async (req, res) => {
     }
 
     const top3 = users.slice(0, 3).map((user) => {
-      const platformRating = user[req.query.platform] ? user[req.query.platform].rating : null;
+      const platformRating = user[req.query.platform]
+        ? user[req.query.platform].rating
+        : null;
 
       const userRatings = {
         codechef: user.codechef ? user.codechef.rating : null,
@@ -52,25 +55,38 @@ const getLeaderboard = async (req, res) => {
 
     if (req.query.username) {
       const username = req.query.username;
-      const user = allSortedUsers.find(user => user.username === username);
-      const userIndex = allSortedUsers.findIndex(user => user.username === username);
-      const userPosition = userIndex !== -1 ? (page - 1) * pageSize + userIndex + 1 : null;
+      const user = allSortedUsers.find((user) => user.username === username);
+      const userIndex = allSortedUsers.findIndex(
+        (user) => user.username === username,
+      );
+      const userPosition =
+        userIndex !== -1 ? (page - 1) * pageSize + userIndex + 1 : null;
       const userRatings = {
         codechef: user ? (user.codechef ? user.codechef.rating : null) : null,
         leetcode: user ? (user.leetcode ? user.leetcode.rating : null) : null,
-        codeforces: user ? (user.codeforces ? user.codeforces.rating : null) : null,
+        codeforces: user
+          ? user.codeforces
+            ? user.codeforces.rating
+            : null
+          : null,
         digitomize_rating: user ? user.digitomize_rating : null,
-        platform_rating: user ? (user[req.query.platform] ? user[req.query.platform].rating : null) : null,
+        platform_rating: user
+          ? user[req.query.platform]
+            ? user[req.query.platform].rating
+            : null
+          : null,
       };
       res.json({ user_position: userPosition, ratings: userRatings });
       return; // Return early if the username is provided
     }
 
-    const total_pages = Math.ceil((totalUsers-3) / pageSize);
+    const total_pages = Math.ceil((totalUsers - 3) / pageSize);
     const users_in_page = users.length;
 
     const leaderboard = users.map((user) => {
-      const platformRating = user[req.query.platform] ? user[req.query.platform].rating : null;
+      const platformRating = user[req.query.platform]
+        ? user[req.query.platform].rating
+        : null;
 
       const userRatings = {
         codechef: user.codechef ? user.codechef.rating : null,
@@ -108,7 +124,7 @@ const getLeaderboard = async (req, res) => {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: 'Server Error' });
+    res.status(500).json({ message: "Server Error" });
   }
 };
 

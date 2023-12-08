@@ -20,12 +20,12 @@ if (process.env.NODE_ENV === "production") {
   app.use(routeLogging);
 }
 
-//Handling uncaught exception 
-process.on('uncaughtException', err => {
+//Handling uncaught exception
+process.on("uncaughtException", (err) => {
   console.log(`Error: ${err.message}`);
-  console.log('Shutting down due to uncaught exception');
-  process.exit(1)
-})
+  console.log("Shutting down due to uncaught exception");
+  process.exit(1);
+});
 
 console.log(process.env.TEST);
 async function main() {
@@ -62,14 +62,17 @@ async function setupContestServer() {
   setInterval(contestSyncer.updateContests, 60 * 60 * 1000);
 
   // Pinging the server every 13 minutes
-  setInterval(async () => {
-    try {
-      await main();
-      console.log("<=======Sent GET request to AWAKE");
-    } catch (error) {
-      console.error("Error Pinging", error);
-    }
-  }, 13 * 60 * 1000);
+  setInterval(
+    async () => {
+      try {
+        await main();
+        console.log("<=======Sent GET request to AWAKE");
+      } catch (error) {
+        console.error("Error Pinging", error);
+      }
+    },
+    13 * 60 * 1000,
+  );
 
   // Set up contest routes
   app.use("/contests", contestRoutes);
@@ -91,9 +94,9 @@ async function startServersProduction() {
     await setupContestServer();
 
     //Handle unhandled routes
-    app.all('*', (req, res, next) => {
+    app.all("*", (req, res, next) => {
       res.status(404).json({ error: `${req.originalUrl} route not found` });
-    })
+    });
 
     const servers = [];
     servers.push("User");
@@ -135,9 +138,9 @@ async function startServersDev() {
     }
 
     //Handle unhandled routes
-    app.all('*', (req, res, next) => {
+    app.all("*", (req, res, next) => {
       res.status(404).json({ error: `${req.originalUrl} route not found` });
-    })
+    });
 
     console.log("┌──────────────────────────────────┐");
     if (servers.length > 0) {
@@ -165,11 +168,11 @@ if (process.env.NODE_ENV === "development") {
 }
 
 //Handling unhandled server errors
-process.on('unhandledRejection', (err) => {
-  console.log(`Error: ${err.message}`)
-  console.log('Shutting down the server due to Unhandled promise rejection')
+process.on("unhandledRejection", (err) => {
+  console.log(`Error: ${err.message}`);
+  console.log("Shutting down the server due to Unhandled promise rejection");
 
   server.close(() => {
-    process.exit(1)
-  })
-})
+    process.exit(1);
+  });
+});

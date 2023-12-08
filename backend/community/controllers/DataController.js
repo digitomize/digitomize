@@ -57,7 +57,7 @@ async function createCommunity(request, response) {
           community: updatedCommunityList,
         },
         $currentDate: { lastUpdated: true },
-      }
+      },
     );
 
     return success(savedCommunity, response, 200, "Community Created!!");
@@ -103,7 +103,7 @@ async function updateCommunity(request, response) {
           ...updatedCommunity,
         },
         $currentDate: { lastUpdated: true },
-      }
+      },
     );
     return success(updateCommunity, response, 200, "Community Updated!!");
   } catch (error) {

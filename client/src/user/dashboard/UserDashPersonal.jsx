@@ -1,10 +1,6 @@
 import { Form, useLoaderData } from "react-router-dom";
 
-import {
-  useState,
-  useEffect,
-  useRef
-} from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { submitUserFormData, userDashboardDetails } from "../../../api";
 
@@ -44,21 +40,20 @@ export default function UserDashPersonal() {
     personalData.skills.map((skill, index) => ({
       key: index, // Use the index as the key
       label: skill,
-    }))
+    })),
   );
 
   const handleDelete = (chipToDelete) => () => {
     setskillData((chips) =>
-      chips.filter((chip) => chip.key !== chipToDelete.key)
+      chips.filter((chip) => chip.key !== chipToDelete.key),
     );
   };
   const handleAdd = (e) => {
     e.preventDefault();
 
-
     if (newSkill.trim() !== "") {
       if (newSkill.length > 20) {
-        toast.error("Length exceeding 20 characters")
+        toast.error("Length exceeding 20 characters");
         return;
       }
       setskillData((prevSkills) => [
@@ -73,13 +68,12 @@ export default function UserDashPersonal() {
       setNewSkill("");
     }
   };
-  const btnRef = useRef()
+  const btnRef = useRef();
 
   useEffect(() => {
     // This code will run after setSkillData has completed
 
     if (skillData.length > 5) {
-
       toast.error("You cannot add more than 5 skills", {
         position: "top-left",
         autoClose: 1500,
@@ -89,10 +83,9 @@ export default function UserDashPersonal() {
         draggable: true,
         progress: undefined,
         theme: "colored",
-      })
-      skillData.pop()
+      });
+      skillData.pop();
       btnRef.current.disabled = true;
-
     } else {
       btnRef.current.disabled = false;
     }
@@ -200,7 +193,9 @@ export default function UserDashPersonal() {
       <div className="phone:mt-12 max-phone:mt-24 py-4 w-11/12 mx-auto">
         <div className="mockup-browser border bg-base-300">
           <div className="mockup-browser-toolbar">
-            <div className="input" style={{ marginLeft: '0' }}>{"#include {digitomize} > {personal}"}</div>
+            <div className="input" style={{ marginLeft: "0" }}>
+              {"#include {digitomize} > {personal}"}
+            </div>
           </div>
 
           <div className="bg-base-200 w-full p-8">
@@ -211,13 +206,17 @@ export default function UserDashPersonal() {
                     <span className="label-text"> name</span>
                   </label>
                   <div className="flex  items-center gap-3">
-                    <input type="text"
+                    <input
+                      type="text"
                       name="name"
-                      id="name" placeholder=" "
+                      id="name"
+                      placeholder=" "
                       value={formData.name}
                       maxLength={25}
                       onChange={handleInputChange}
-                      required className="input input-bordered w-full  " />
+                      required
+                      className="input input-bordered w-full  "
+                    />
                   </div>
                 </div>
               </div>
@@ -228,13 +227,17 @@ export default function UserDashPersonal() {
                     <span className="label-text"> Username</span>
                   </label>
                   <div className="flex  items-center gap-3">
-                    <input type="text"
+                    <input
+                      type="text"
                       name="username"
-                      id="username" placeholder=" "
+                      id="username"
+                      placeholder=" "
                       value={formData.username}
                       maxLength={15}
                       onChange={handleInputChange}
-                      required className="input input-bordered w-full" />
+                      required
+                      className="input input-bordered w-full"
+                    />
                   </div>
                 </div>
               </div>
@@ -247,11 +250,15 @@ export default function UserDashPersonal() {
                     <span className="label-text"> Phone number</span>
                   </label>
                   <div className="flex  items-center gap-3 ">
-                    <input type="tel"
+                    <input
+                      type="tel"
                       name="phoneNumber"
                       maxLength={15}
-                      id="phoneNumber" value={formData.phoneNumber.data}
-                      onChange={handleInputChangeObjData} className="input input-bordered w-full max-w-lg " />
+                      id="phoneNumber"
+                      value={formData.phoneNumber.data}
+                      onChange={handleInputChangeObjData}
+                      className="input input-bordered w-full max-w-lg "
+                    />
                     <Checkbox
                       isCheckedState={formData.phoneNumber.showOnWebsite}
                       setState={updateShowOnWebsite("phoneNumber")}
@@ -263,12 +270,18 @@ export default function UserDashPersonal() {
               <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
                 <div className="form-control w-full  ">
                   <label htmlFor="dateOfBirth" className="label">
-                    <span className="label-text">   Date of birth</span>
+                    <span className="label-text"> Date of birth</span>
                   </label>
                   <div className="flex  items-center gap-3">
-                    <input type="date" id="dateOfBirth"
-                      name="dateOfBirth" value={formData.dateOfBirth.data}
-                      onChange={handleInputChangeObjData} placeholder="Type here" className="input input-bordered w-full max-w-lg " />
+                    <input
+                      type="date"
+                      id="dateOfBirth"
+                      name="dateOfBirth"
+                      value={formData.dateOfBirth.data}
+                      onChange={handleInputChangeObjData}
+                      placeholder="Type here"
+                      className="input input-bordered w-full max-w-lg "
+                    />
                     <Checkbox
                       isCheckedState={formData.dateOfBirth.showOnWebsite}
                       setState={updateShowOnWebsite("dateOfBirth")}
@@ -285,10 +298,14 @@ export default function UserDashPersonal() {
                     <span className="label-text"> resume</span>
                   </label>
                   <div className="flex  items-center gap-3 ">
-                    <input type="tel"
+                    <input
+                      type="tel"
                       name="resume"
-                      id="resume" value={formData.resume}
-                      onChange={handleInputChange} className="input input-bordered w-full max-w-lg " />
+                      id="resume"
+                      value={formData.resume}
+                      onChange={handleInputChange}
+                      className="input input-bordered w-full max-w-lg "
+                    />
                   </div>
                 </div>
               </div>
@@ -300,14 +317,19 @@ export default function UserDashPersonal() {
                     <span className="label-text">Skills</span>
                   </label>
                   <div className="flex items-center gap-3">
-                    <input type="text"
+                    <input
+                      type="text"
                       name="skills"
-                      id="skills" className="input input-bordered  w-full max-w-lg" placeholder=""
+                      id="skills"
+                      className="input input-bordered  w-full max-w-lg"
+                      placeholder=""
                       value={newSkill}
                       maxLength={10}
-                      onChange={(e) => setNewSkill(e.target.value)} />
+                      onChange={(e) => setNewSkill(e.target.value)}
+                    />
                     <Form onSubmit={handleAdd}>
-                      <button ref={btnRef}
+                      <button
+                        ref={btnRef}
                         type="submit"
                         className="text-black bg-white font-medium rounded-lg text-sm md:text-lg sm:w-auto px-5 py-1.5 text-center "
                       >
@@ -325,7 +347,6 @@ export default function UserDashPersonal() {
 
                         return (
                           <div key={data.key} className="m-2 inline-block">
-
                             <Chip
                               variant="outlined"
                               color="primary"
@@ -337,12 +358,13 @@ export default function UserDashPersonal() {
                         );
                       })
                     ) : (
-                      <p className="font-semibold font-mono text-red-600">No skills added.</p>
+                      <p className="font-semibold font-mono text-red-600">
+                        No skills added.
+                      </p>
                     )}
                   </div>
                 </div>
               </div>
-
             </div>
             {/* </div> */}
 
@@ -353,17 +375,20 @@ export default function UserDashPersonal() {
                     <span className="label-text">Bio</span>
                   </label>
                   <div className="flex items-center gap-3">
-                    <textarea name="bio"
+                    <textarea
+                      name="bio"
                       maxLength={250}
-                      id="bio" className="textarea w-full textarea-bordered h-24 max-w-lg" placeholder=""
+                      id="bio"
+                      className="textarea w-full textarea-bordered h-24 max-w-lg"
+                      placeholder=""
                       value={formData.bio.data}
-                      onChange={handleInputChangeObjData}></textarea>
+                      onChange={handleInputChangeObjData}
+                    ></textarea>
                     <Checkbox
                       isCheckedState={formData.bio.showOnWebsite}
                       setState={updateShowOnWebsite("bio")}
                     />
                   </div>
-
                 </div>
               </div>
               {/* skills */}
@@ -371,25 +396,28 @@ export default function UserDashPersonal() {
               <div className="relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
                 <div className="form-control w-full">
                   <label className="label">
-                    <span className="label-text">Upload Profile Picture { "(automatically focuses on face)"}</span>
+                    <span className="label-text">
+                      Upload Profile Picture {"(automatically focuses on face)"}
+                    </span>
                   </label>
                   <div className="flex items-center gap-3">
-                    <ImageUploader image={formData.picture} setFormData={setFormData}></ImageUploader>
+                    <ImageUploader
+                      image={formData.picture}
+                      setFormData={setFormData}
+                    ></ImageUploader>
                   </div>
-
                 </div>
               </div>
-
             </div>
 
-
             <div className="flex w-full max-sm:justify-center md:justify-end md:pe-12">
-
               <button
                 onClick={handleSubmit}
                 disabled={isDisabled}
                 type="submit"
-                className={`text-black bg-white font-medium rounded-lg  text-xl  md:text-3xl   px-8 py-3 text-center ${isDisabled ? 'cursor-not-allowed opacity-20' : null}`}
+                className={`text-black bg-white font-medium rounded-lg  text-xl  md:text-3xl   px-8 py-3 text-center ${
+                  isDisabled ? "cursor-not-allowed opacity-20" : null
+                }`}
               >
                 {isDisabled ? "Updating..." : "Update"}
               </button>
@@ -398,17 +426,23 @@ export default function UserDashPersonal() {
         </div>
         <div className="mockup-browser border bg-base-300 mt-4">
           <div className="mockup-browser-toolbar">
-            <div className="input" style={{ marginLeft: '0' }}>{"#include {digitomize} > {socials}"}</div>
+            <div className="input" style={{ marginLeft: "0" }}>
+              {"#include {digitomize} > {socials}"}
+            </div>
           </div>
           <div className="flex justify-center px-4 py-16 bg-base-200">
             <div className="mockup-code">
-              <pre data-prefix="1"><code className="text-white">npm i socials</code></pre>
-              <pre data-prefix="2"><code className="text-success">installing...</code></pre>
-              <pre data-prefix="3" className="bg-warning text-warning-content"><code>coming soon!</code></pre>
+              <pre data-prefix="1">
+                <code className="text-white">npm i socials</code>
+              </pre>
+              <pre data-prefix="2">
+                <code className="text-success">installing...</code>
+              </pre>
+              <pre data-prefix="3" className="bg-warning text-warning-content">
+                <code>coming soon!</code>
+              </pre>
             </div>
-
           </div>
-
         </div>
       </div>
       <NewFooter />

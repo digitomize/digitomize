@@ -7,17 +7,15 @@ import NewFooter from "./NewFooter";
 import ScrollToTop from "./ScrollToTop";
 
 export default function NewHome() {
-
   return (
     <div>
-      <div id="home" >
+      <div id="home">
         <HomePage1 />
         <HomePage2 />
         <HomePage3 />
         <ScrollToTop toid={"home"} h={2} />
       </div>
       <NewFooter />
-
     </div>
   );
 }

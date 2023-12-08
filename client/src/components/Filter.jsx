@@ -30,8 +30,8 @@ const MenuProps = {
       width: 250,
       backgroundColor: "#252525",
       color: "white",
-      borderTopLeftRadius: "1px", 
-      borderTopRightRadius: "1px", 
+      borderTopLeftRadius: "1px",
+      borderTopRightRadius: "1px",
       borderBottomLeftRadius: "10px",
       borderBottomRightRadius: "10px",
     },
@@ -52,7 +52,7 @@ const platforms = [
   "geeksforgeeks",
   "codechef",
   "codeforces",
-  "atcoder"
+  "atcoder",
 ];
 function Filter() {
   const [contestsData, setContestsData] = useState([]);
@@ -85,7 +85,7 @@ function Filter() {
 
   const handleDelete = (value) => {
     let newSelectedParams = selectedPlatforms.filter(
-      (platform) => platform != value
+      (platform) => platform != value,
     );
     setSelectedPlatforms(newSelectedParams);
   };
