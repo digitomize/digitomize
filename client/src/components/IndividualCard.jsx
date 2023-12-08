@@ -22,7 +22,6 @@ import codeforces from "../assets/codeforces.svg";
 import atcoder from "../assets/atcoder.svg";
 import CopyToClipboard from "./CopyToClipboard";
 import { useUserAuth } from "../context/UserAuthContext";
-import microsoftLogo from "../public/png/MS_Startups_Celebration_Badge_Dark.png";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
@@ -168,8 +167,7 @@ function IndividualCard() {
         </div>
       )}
       {isMobile ? (
-        <>
-          <div className="py-8 ">
+        <div className="py-8 ">
             <div className="card_Navigation mx-4">
               <div className="card_nav_path">
                 <Link to="/">
@@ -411,7 +409,6 @@ function IndividualCard() {
               </div>
             </div>
           </div>
-        </>
       ) : (
         <>
           <div className="card_Navigation flex justify-center mt-8 text-2xl">

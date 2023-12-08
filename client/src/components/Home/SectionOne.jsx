@@ -1,7 +1,7 @@
 import { Element } from "react-scroll";
-import gitbookSvg from "../public/svg/GitBook.svg";
-import MSMESvg from "../public/svg/MSME.svg";
-import microsoftLogo from "../public/png/MS_Startups_Celebration_Badge_Dark.png";
+import gitbookSvg from "./svgs/GitBook.svg";
+import MSMESvg from "./svgs/MSME.svg";
+import microsoftLogo from "./pngs/MS_Startups_Celebration_Badge_Dark.png";
 
 export default function SectionOne() {
   return (
