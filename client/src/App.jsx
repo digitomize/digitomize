@@ -48,6 +48,11 @@ import ProfileLayout, {
 } from "./user/Profile/pages/ProfileLayout";
 // import ProtectedRoute from "./ProtectedRoute"
 import Leaderboard from "./user/leaderboard/Leaderboard";
+
+/*------------ DSA Sheets Import ------------ */
+import SheetLayout from "./dsaSheets/layout/SheetLayout";
+
+
 function DiscordRedirect() {
   window.location.href = "https://discord.gg/bsbBytBqBc";
   return (
