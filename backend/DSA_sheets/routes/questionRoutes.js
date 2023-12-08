@@ -4,8 +4,8 @@ import { createQuestions, getQuestionByQId, deleteQuestionByQId } from "../contr
 const router = express.Router();
 
 router.route('/')
-    .post(createQuestions)
-    .get(getQuestionByQId)
+    .post(createQuestions) // Create a new question
+    .get(getQuestionByQId) // Get a question by q_id
     .delete(deleteQuestionByQId);
 
 export default router;

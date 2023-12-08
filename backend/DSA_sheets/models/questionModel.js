@@ -5,6 +5,8 @@ const questionSchema = new mongoose.Schema({
   q_id: String,
   name: String,
   difficulty: String,
+  platform: String,
+  link: String,
   topics: [String],
 });
 
