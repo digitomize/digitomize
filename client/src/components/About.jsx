@@ -3,7 +3,6 @@ import {
   AiOutlineUsergroupAdd,
   AiFillLinkedin,
 } from "react-icons/ai";
-import { Avatar, Skeleton } from "@mui/material";
 import Footer from "./globals/Footer";
 import { Link } from "react-router-dom";
 import Contributors from "./Contributors";

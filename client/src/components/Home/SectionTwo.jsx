@@ -2,6 +2,7 @@ import { Element, Link as Linkto } from "react-scroll";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+
 // Importing all MUI icons here...
 import {
   Skeleton,
@@ -90,12 +91,12 @@ export default function SectionTwo() {
   return (
     <Element
         name="second"
-        className="hero min-h-screen bg-base-200 flex flex-col"
+        className="hero mt-72 flex flex-col"
       >
         <div className="hero-content flex-col sm:flex-row my-auto">
           <div className="left sm:w-[40%] text-center">
             <div className="sm:text-left max-sm:text-center">
-              <h1 className="sm:text-8xl max-smtext-5xl my-0 font-medium max-sm:min-h-[100px] sm:min-h-[300px]">
+              <h1 className="sm:text-8xl max-sm:text-5xl my-0 font-medium max-sm:min-h-[100px] sm:min-h-[300px]">
                 User <span className="text-custom-blue font-bold">Dynamic</span>{" "}
                 Portfolio
               </h1>
@@ -159,7 +160,7 @@ export default function SectionTwo() {
             <Link to="/signup">
               <button
                 data-theme="mytheme"
-                className="btn btn-outline text-custom-blue lowercase hover:bg-custom-blue hover:border-custom-blue mt-12 hover:animate-none hover:scale-110"
+                className="btn btn-outline text-custom-blue hover:bg-custom-blue hover:border-custom-blue mt-12 hover:animate-none hover:scale-110"
               >
                 Create now
               </button>

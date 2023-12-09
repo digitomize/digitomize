@@ -69,7 +69,6 @@ import UserListPage from "./pages/admin/UserListPage";
 import AdminPanelGuard from "./AdminPanelGuard";
 import ContestListPage from "./pages/admin/ContestListPage";
 import CommunityListPage from "./pages/admin/CommunityListPage";
-import { Diversity1 } from "@mui/icons-material";
 
 function Logout() {
   const navigate = useNavigate();
@@ -190,7 +189,7 @@ function App() {
     <UserAuthContextProvider>
       <UserContextProvider>
         <ToastContainer />
-        <div className="font-myFont text-[#9eb3bd]">
+        <div>
           <RouterProvider router={router} />
         </div>
       </UserContextProvider>
