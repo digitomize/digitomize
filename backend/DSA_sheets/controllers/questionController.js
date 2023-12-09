@@ -66,7 +66,6 @@ export const getQuestionByQId = async (req, res) => {
         message: 'Question not found.',
       });
     }
-
     // Send the found question in the response
     res.status(200).json(question);
   } catch (error) {

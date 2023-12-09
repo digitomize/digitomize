@@ -10,13 +10,15 @@ const router = express.Router();
 // router.use("/user", addUID);
 
 router.route("/")
-    .post(createSheet)
-    .get(getSheets)
-    .delete(removeSheet);
+    .post(createSheet) // Create a new sheet
+    .get(getSheets) // Get all sheets
+    .delete(removeSheet); // Delete a sheet
 
 router.route("/question")
-    .post(addQuestions)
-    .delete(removeQuestion);
+    .post(addQuestions) // Add questions to a sheet
+    .delete(removeQuestion); // Remove questions from a sheet
+
+
 // router.get("/user/solved", getUserSolved);
 // router.put("/user/fetchAll", fetchAllQuestions);
 // router.patch("/user/check", checkQuestionForUser);

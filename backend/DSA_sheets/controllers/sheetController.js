@@ -1,6 +1,6 @@
 // sheetController.js
 import SheetModel from '../models/sheetModel.js';
-import { getQuestionByQId } from './questionController.js';
+import QuestionModel from '../models/questionModel.js';
 
 // Controller function to create a new sheet
 export const createSheet = async (req, res) => {
@@ -94,7 +94,9 @@ export const getSheets = async (req, res) => {
       console.log(sheet);
 
       for (const questionId of sheet?.questions) {
-        const questionDetails = await getQuestionByQId({ params: { q_id: questionId } });
+        console.log(questionId);
+        const questionDetails = await QuestionModel.findOne({ q_id: questionId });
+        console.log(questionDetails);
         questionsWithDetails.push(questionDetails);
       }
 

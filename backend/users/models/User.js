@@ -83,12 +83,12 @@ const userSchema = new mongoose.Schema(
     },
     solved: [
       {
-        type: Number,
+        type: String,
       }
     ],
     bookmark: [
       {
-        type: Number,
+        type: String,
       }
     ],
     skills: [
