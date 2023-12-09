@@ -93,13 +93,13 @@ export default function SectionTwo() {
         name="second"
         className="hero mt-72 flex flex-col"
       >
-        <div className="hero-content flex-col sm:flex-row my-auto">
-          <div className="left sm:w-[40%] text-center">
+        <div className="hero-content flex-col my-auto">
+          <div className="left text-center">
             <div className="sm:text-left max-sm:text-center">
-              <h1 className="sm:text-8xl max-sm:text-5xl my-0 font-medium max-sm:min-h-[100px] sm:min-h-[300px]">
-                User <span className="text-custom-blue font-bold">Dynamic</span>{" "}
-                Portfolio
-              </h1>
+              <h2 className="text-6xl font-['Geist'] my-0 text-white font-semibold">
+                Build your   <span className="bg-digitomize-bg px-2">Dynamic</span>{" "}
+                Profile
+              </h2>
               <p className="py-6 font-['Source Code Pro'] text-xl">
                 Showcase your ratings, GitHub stats, personal info, skills,
                 education, and more. Climb the leaderboard while enjoying
@@ -157,14 +157,7 @@ export default function SectionTwo() {
                 </div>
               </div>
             </div>
-            <Link to="/signup">
-              <button
-                data-theme="mytheme"
-                className="btn btn-outline text-custom-blue hover:bg-custom-blue hover:border-custom-blue mt-12 hover:animate-none hover:scale-110"
-              >
-                Create now
-              </button>
-            </Link>
+
           </div>
           <div className="max-lg:hidden w-[60%] right items-end flex-col relative min-h-[65vh]">
             <div className="mockup-browser border bg-base-300 w-full absolute h-fit duration-500">
@@ -417,7 +410,15 @@ export default function SectionTwo() {
               </div>
             </div>
           </div>
-        </div>
+      </div>
+                  <Link to="/signup">
+              <button
+                data-theme="mytheme"
+                className="btn btn-outline text-custom-blue hover:bg-custom-blue hover:border-custom-blue mt-12 hover:animate-none hover:scale-110"
+              >
+                Create now
+              </button>
+            </Link>
         <Linkto to="third">
           <div className="lower text-center animate-bounce">
             <div className="indicator pt-4">
@@ -427,7 +428,8 @@ export default function SectionTwo() {
               <span></span>
             </div>
           </div>
-        </Linkto>
+      </Linkto>
+      
       </Element>
   );
 }

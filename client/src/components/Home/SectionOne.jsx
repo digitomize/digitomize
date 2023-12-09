@@ -11,7 +11,7 @@ export default function SectionOne() {
     <div className="font-['Geist'] xl:pt-8 max-md:pt-4 items-center flex flex-col text-center mt-20">
       <span className="flex justify-center border border-badge bg-badge text-badge-txt px-6 py-1 rounded-full">Contribute to Digitomize</span>
       <div className="-mt-5">
-        <h1 className="text-white text-6xl"><span>One place for all your</span><span className="block mt-6"><span className="bg-digitomize-bg px-2">coding platforms</span> needs</span> </h1>
+        <h1 className="text-white text-7xl"><span>One place for all your</span><span className="block mt-6"><span className="bg-digitomize-bg px-2">coding platforms</span> needs</span> </h1>
         <p className="text-paragraph text-xl mt-6">Elevate your coding and development journey with digitomize</p>
       </div>
       <div className="flex justify-center mt-16"><button className="px-5 py-2 bg-button-primary border-button-primary-helper text-lg text-white font-medium"><a href="/signup">Register Now</a></button></div>
