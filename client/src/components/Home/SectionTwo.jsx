@@ -95,7 +95,7 @@ export default function SectionTwo() {
               Build your <span className='bg-digitomize-bg px-2'>Dynamic</span>{" "}
               Profile
             </h2>
-            <p className="py-6 font-['Geist'] text-dynamicprofile text-xl">
+            <p className="py-6 font-['Geist'] text-description text-xl">
               Showcase your ratings, GitHub stats, personal info, skills,
               education, and more. Climb the leaderboard while enjoying friendly
               competition with friends in the coding community.

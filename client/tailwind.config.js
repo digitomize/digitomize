@@ -27,7 +27,7 @@ export default {
         paragraph: '#CCCCCC',
         'button-primary': '#1584FF',
         footer: '#131527',
-        dynamicprofile: '#B7B6FF',
+        description: '#B7B6FF',
         contestlist:
           'linear-gradient(180deg, #101025 0%, rgba(16, 16, 37, 0.46) 100%)',
         'button-primary-helper': '#6AB1FF',
