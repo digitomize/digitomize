@@ -1,4 +1,3 @@
-import { Element, Link as Linkto } from "react-scroll";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -89,77 +88,25 @@ export default function SectionTwo() {
   };
 
   return (
-    <Element
-        name="second"
-        className="hero mt-72 flex flex-col"
+    <div
+        className=" flex justify-center mt-56 p-4 mb-56 min-xs:flex-col"
       >
-        <div className="hero-content flex-col my-auto">
+        <div className=" dynamicprofile rounded-lg flex-col my-auto py-8 px-10 max-w-7xl">
           <div className="left text-center">
             <div className="sm:text-left max-sm:text-center">
               <h2 className="text-6xl font-['Geist'] my-0 text-white font-semibold">
                 Build your   <span className="bg-digitomize-bg px-2">Dynamic</span>{" "}
                 Profile
               </h2>
-              <p className="py-6 font-['Source Code Pro'] text-xl">
+              <p className="py-6 font-['Geist'] text-dynamicprofile text-xl">
                 Showcase your ratings, GitHub stats, personal info, skills,
                 education, and more. Climb the leaderboard while enjoying
                 friendly competition with friends in the coding community.
               </p>
             </div>
-            <div className="lg:hidden mx-auto card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-2">
-              <div className="">
-                <div className="mockup-browser border bg-base-300">
-                  <div className="mockup-browser-toolbar">
-                    <div
-                      className="input text-custom-blue"
-                      style={{ width: "fit-content" }}
-                    >
-                      /u/profile
-                    </div>
-                  </div>
-                  <div className="flex flex-row px-4 py-4 bg-base-200">
-                    <div className="flex flex-col w-2/4">
-                      <Avatar
-                        src="/src/assets/hacker.png"
-                        className="bg-custom-blue mb-2 self-center"
-                        sx={{ padding: "6%", width: 40, height: 40 }}
-                      />
-                      <Skeleton
-                        variant="text"
-                        sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
-                      />
-                      <Skeleton
-                        variant="text"
-                        sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
-                      />
-                      <Skeleton
-                        variant="text"
-                        sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
-                      />
-                    </div>
-                    <div className="flex flex-col w-2/4">
-                      <Skeleton
-                        variant="rounded"
-                        sx={{ bgcolor: "grey.600" }}
-                        width={"100%"}
-                        height={"60%"}
-                        className="mx-2"
-                      />
-                      <Skeleton
-                        variant="rounded"
-                        sx={{ bgcolor: "grey.600" }}
-                        width={"100%"}
-                        height={"70%"}
-                        className="mt-2 mx-2"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
           </div>
-          <div className="max-lg:hidden w-[60%] right items-end flex-col relative min-h-[65vh]">
+          {/* <div className="max-lg:hidden w-[60%] right items-end flex-col relative min-h-[65vh]">
             <div className="mockup-browser border bg-base-300 w-full absolute h-fit duration-500">
               <div className="mockup-browser-toolbar">
                 <div style={{ marginLeft: "0px" }} className="ml-0 input">
@@ -409,27 +356,69 @@ export default function SectionTwo() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
+        <div className="flex justify-end m-8">
+          <button className="px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75">
+            <a href="/signup">Create Now</a>
+          </button>
+        </div>
+
       </div>
-                  <Link to="/signup">
-              <button
-                data-theme="mytheme"
-                className="btn btn-outline text-custom-blue hover:bg-custom-blue hover:border-custom-blue mt-12 hover:animate-none hover:scale-110"
-              >
-                Create now
-              </button>
-            </Link>
-        <Linkto to="third">
-          <div className="lower text-center animate-bounce">
-            <div className="indicator pt-4">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-      </Linkto>
       
-      </Element>
+      </div>
   );
 }
+
+
+
+            // <div className="lg:hidden mx-auto card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-2">
+            //   <div className="">
+            //     <div className="mockup-browser border bg-base-300">
+            //       <div className="mockup-browser-toolbar">
+            //         <div
+            //           className="input text-custom-blue"
+            //           style={{ width: "fit-content" }}
+            //         >
+            //           /u/profile
+            //         </div>
+            //       </div>
+            //       <div className="flex flex-row px-4 py-4 bg-base-200">
+            //         <div className="flex flex-col w-2/4">
+            //           <Avatar
+            //             src="/src/assets/hacker.png"
+            //             className="bg-custom-blue mb-2 self-center"
+            //             sx={{ padding: "6%", width: 40, height: 40 }}
+            //           />
+            //           <Skeleton
+            //             variant="text"
+            //             sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
+            //           />
+            //           <Skeleton
+            //             variant="text"
+            //             sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
+            //           />
+            //           <Skeleton
+            //             variant="text"
+            //             sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
+            //           />
+            //         </div>
+            //         <div className="flex flex-col w-2/4">
+            //           <Skeleton
+            //             variant="rounded"
+            //             sx={{ bgcolor: "grey.600" }}
+            //             width={"100%"}
+            //             height={"60%"}
+            //             className="mx-2"
+            //           />
+            //           <Skeleton
+            //             variant="rounded"
+            //             sx={{ bgcolor: "grey.600" }}
+            //             width={"100%"}
+            //             height={"70%"}
+            //             className="mt-2 mx-2"
+            //           />
+            //         </div>
+            //       </div>
+            //     </div>
+            //   </div>
+            // </div>

@@ -14,7 +14,7 @@ export default function SectionOne() {
         <h1 className="text-white text-7xl"><span>One place for all your</span><span className="block mt-6"><span className="bg-digitomize-bg px-2">coding platforms</span> needs</span> </h1>
         <p className="text-paragraph text-xl mt-6">Elevate your coding and development journey with digitomize</p>
       </div>
-      <div className="flex justify-center mt-16"><button className="px-5 py-2 bg-button-primary border-button-primary-helper text-lg text-white font-medium"><a href="/signup">Register Now</a></button></div>
+      <div className="flex justify-center mt-16"><button className="px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75"><a href="/signup">Register Now</a></button></div>
       <div className="mt-14">
         <span><p className="text-lg text-powered">Powered By</p></span>
         <span className="flex flex-row space-x-3 mt-2 items-center">
