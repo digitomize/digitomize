@@ -51,6 +51,8 @@ async function setupUserServer() {
   // Set up user routes
   app.use("/user", userRoutes);
   app.use("/admin", adminRoutes);
+  app.use("/sheets", sheetRoutes);
+  app.use("/questions", questionRoutes);
 }
 
 async function setupContestServer() {

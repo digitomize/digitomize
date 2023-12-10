@@ -81,6 +81,16 @@ const userSchema = new mongoose.Schema(
       type: numberToggleSchema,
       default: { data: null, showOnWebsite: true },
     },
+    solved: [
+      {
+        type: Number,
+      }
+    ],
+    bookmark: [
+      {
+        type: Number,
+      }
+    ],
     skills: [
       {
         type: String,

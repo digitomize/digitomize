@@ -7,6 +7,7 @@ export default {
   ],
   theme: {
     screens: {
+      phonesm: '320px',
       phone: "435px", // Custom screen size for 'phone' below 400px
       sm: "640px", // Default 'sm' screen size
       md: "768px", // Default 'md' screen size
@@ -29,7 +30,7 @@ export default {
         footer: "#131527",
         description: "#B7B6FF",
         contestlist:
-          "linear-gradient(180deg, #101025 0%, rgba(16, 16, 37, 0.46) 100%)",
+        "linear-gradient(180deg, #101025 0%, rgba(16, 16, 37, 0.46) 100%)",
         "button-primary-helper": "#6AB1FF",
         "button-primary-hover": "#0079FF",
         powered: "#D2D2D2",
@@ -57,6 +58,7 @@ export default {
         "color-3": "hsl(240, 2%, 13%)",
         "gradient-onyx":
           "linear-gradient( to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97% )",
+        "grad-bg": "-webkit-linear-gradient(#eee, #333);",
       },
       shadowBlack: " hsla(0, 0%, 0%, 0.25);",
       keyframes: {
