@@ -1,10 +1,10 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom"
 
-import { requireAuth } from "../../utils";
+import { requireAuth } from "../../utils"
 
 export async function loader({ request }) {
-  await requireAuth();
-  return null;
+  await requireAuth()
+  return null
 }
 
 export default function UserLayout() {
@@ -12,5 +12,5 @@ export default function UserLayout() {
     <>
       <Outlet />
     </>
-  );
+  )
 }

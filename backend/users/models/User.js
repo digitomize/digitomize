@@ -1,15 +1,15 @@
-import mongoose from "mongoose";
-import { ROLE } from "../../core/const.js";
+import mongoose from 'mongoose'
+import { ROLE } from '../../core/const.js'
 
 const stringToggleSchema = new mongoose.Schema({
   data: String,
   showOnWebsite: Boolean,
-});
+})
 
 const numberToggleSchema = new mongoose.Schema({
   data: Number,
   showOnWebsite: Boolean,
-});
+})
 
 const contestToggleSchema = new mongoose.Schema({
   username: String,
@@ -18,30 +18,30 @@ const contestToggleSchema = new mongoose.Schema({
   fetchTime: Number,
   attendedContestsCount: Number,
   showOnWebsite: Boolean,
-});
+})
 
 const communitySchema = new mongoose.Schema({
   communityId: {
     type: String,
-    required: [true, "Community Id is required."],
+    required: [true, 'Community Id is required.'],
   },
-});
+})
 
 const userSchema = new mongoose.Schema(
   {
     uid: {
       type: String,
-      required: [true, "uid is required."],
+      required: [true, 'uid is required.'],
       unique: true,
     },
     username: {
       type: String,
-      required: [true, "username is required"],
+      required: [true, 'username is required'],
       unique: true,
     },
     role: {
       type: Number,
-      required: [true, "role is required"],
+      required: [true, 'role is required'],
       default: ROLE.USER,
     },
     name: {
@@ -155,44 +155,44 @@ const userSchema = new mongoose.Schema(
       },
     ],
   },
-  { timestamps: true },
-);
+  { timestamps: true }
+)
 
 userSchema.methods.updateCount = function () {
   try {
-    console.log("step1");
-    const today = new Date().toDateString();
+    console.log('step1')
+    const today = new Date().toDateString()
     const updateIndex = this.updatesToday.findIndex(
-      (update) => update.timestamp.toDateString() === today,
-    );
+      (update) => update.timestamp.toDateString() === today
+    )
 
     if (updateIndex === -1) {
-      console.log("step2");
-      console.log(this.updatesToday);
-      this.updatesToday.push({ timestamp: new Date(), count: 1 });
-      console.log(this.updatesToday);
+      console.log('step2')
+      console.log(this.updatesToday)
+      this.updatesToday.push({ timestamp: new Date(), count: 1 })
+      console.log(this.updatesToday)
     } else {
-      console.log("step3");
-      this.updatesToday[updateIndex].count += 1;
+      console.log('step3')
+      this.updatesToday[updateIndex].count += 1
     }
 
     // Check if it's a new day and reset the updatesToday array if needed
-    const now = new Date();
+    const now = new Date()
     const midnight = new Date(
       now.getFullYear(),
       now.getMonth(),
-      now.getDate() + 1,
-    );
+      now.getDate() + 1
+    )
     if (now >= midnight) {
-      console.log("step4");
-      this.updatesToday = [{ timestamp: now, count: 1 }];
+      console.log('step4')
+      this.updatesToday = [{ timestamp: now, count: 1 }]
     }
-    console.log(this.updatesToday);
+    console.log(this.updatesToday)
   } catch (error) {
-    throw new Error(`Error updating update count: ${error.message}`);
+    throw new Error(`Error updating update count: ${error.message}`)
   }
-};
+}
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model('User', userSchema)
 
-export default User;
+export default User

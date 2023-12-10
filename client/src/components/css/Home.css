@@ -1,19 +1,23 @@
 html,
 body {
-  background-color: #06090E;
+  background-color: #06090e;
   background-size: 70px 70px;
-  background-image: linear-gradient(to right, rgb(23, 33, 54) 0.5px, transparent 0.5px),
+  background-image: linear-gradient(
+      to right,
+      rgb(23, 33, 54) 0.5px,
+      transparent 0.5px
+    ),
     linear-gradient(to bottom, rgb(23, 33, 54) 0.5px, transparent 0.5px);
 }
 
 .dynamicprofile {
-border: 1px solid #1584FF;
-background: linear-gradient(180deg, #12274F 0%, rgba(28, 27, 64, 0.30) 100%);
+  border: 1px solid #1584ff;
+  background: linear-gradient(180deg, #12274f 0%, rgba(28, 27, 64, 0.3) 100%);
 }
 
 .contestlist {
   background: linear-gradient(180deg, #101025 0%, rgba(16, 16, 37, 0.46) 100%);
-  border-top: solid 0.5px #ABAAFF;
+  border-top: solid 0.5px #abaaff;
 }
 
 .indicator {

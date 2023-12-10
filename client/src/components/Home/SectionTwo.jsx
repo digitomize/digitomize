@@ -1,6 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-
+import { useState } from "react"
+import { Link } from "react-router-dom"
 
 // Importing all MUI icons here...
 import {
@@ -12,7 +11,7 @@ import {
   LinkedInIcon,
   InstagramIcon,
   GitHubIcon,
-} from "../MuiIcons";
+} from "../MuiIcons"
 
 // importing all the assets ...
 import {
@@ -22,13 +21,13 @@ import {
   codechef,
   codeforces,
   atcoder,
-} from "../AllAssets";
+} from "../AllAssets"
 
 const gradientStyles = {
   background:
     "radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);",
   color: "black",
-};
+}
 
 const platformsIcon = [
   leetcode,
@@ -37,7 +36,7 @@ const platformsIcon = [
   codechef,
   codeforces,
   atcoder,
-];
+]
 const platforms = [
   "leetcode",
   "codingninjas",
@@ -45,7 +44,7 @@ const platforms = [
   "codechef",
   "codeforces",
   "atcoder",
-];
+]
 
 export default function SectionTwo() {
   const [formData, setFormData] = useState({
@@ -58,55 +57,52 @@ export default function SectionTwo() {
       data: "heyy im pranshu",
       showOnWebsite: true,
     },
-  });
+  })
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value } = event.target
     setFormData((prevData) => ({
       ...prevData,
       [name]: value,
-    }));
-  };
+    }))
+  }
   const handleInputChangeObjData = (event) => {
-    const { name, value } = event.target;
+    const { name, value } = event.target
     setFormData((prevData) => ({
       ...prevData,
       [name]: {
         ...prevData[name],
         data: value,
       },
-    }));
-  };
+    }))
+  }
   const updateShowOnWebsite = (field) => (value) => {
-    value = value.target.checked;
+    value = value.target.checked
     setFormData((prevData) => ({
       ...prevData,
       [field]: {
         ...prevData[field],
         showOnWebsite: value,
       },
-    }));
-  };
+    }))
+  }
 
   return (
-    <div
-        className=" flex justify-center mt-56 p-4 mb-56 min-xs:flex-col"
-      >
-        <div className=" dynamicprofile rounded-lg flex-col my-auto py-8 px-10 max-w-7xl">
-          <div className="left text-center">
-            <div className="sm:text-left max-sm:text-center">
-              <h2 className="text-6xl font-['Geist'] my-0 text-white font-semibold">
-                Build your   <span className="bg-digitomize-bg px-2">Dynamic</span>{" "}
-                Profile
-              </h2>
-              <p className="py-6 font-['Geist'] text-dynamicprofile text-xl">
-                Showcase your ratings, GitHub stats, personal info, skills,
-                education, and more. Climb the leaderboard while enjoying
-                friendly competition with friends in the coding community.
-              </p>
-            </div>
-
+    <div className=' flex justify-center mt-56 p-4 mb-56 min-xs:flex-col'>
+      <div className=' dynamicprofile rounded-lg flex-col my-auto py-8 px-10 max-w-7xl'>
+        <div className='left text-center'>
+          <div className='sm:text-left max-sm:text-center'>
+            <h2 className="text-6xl font-['Geist'] my-0 text-white font-semibold">
+              Build your <span className='bg-digitomize-bg px-2'>Dynamic</span>{" "}
+              Profile
+            </h2>
+            <p className="py-6 font-['Geist'] text-dynamicprofile text-xl">
+              Showcase your ratings, GitHub stats, personal info, skills,
+              education, and more. Climb the leaderboard while enjoying friendly
+              competition with friends in the coding community.
+            </p>
           </div>
-          {/* <div className="max-lg:hidden w-[60%] right items-end flex-col relative min-h-[65vh]">
+        </div>
+        {/* <div className="max-lg:hidden w-[60%] right items-end flex-col relative min-h-[65vh]">
             <div className="mockup-browser border bg-base-300 w-full absolute h-fit duration-500">
               <div className="mockup-browser-toolbar">
                 <div style={{ marginLeft: "0px" }} className="ml-0 input">
@@ -357,68 +353,64 @@ export default function SectionTwo() {
               </div>
             </div>
           </div> */}
-        <div className="flex justify-end m-8">
-          <button className="px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75">
-            <a href="/signup">Create Now</a>
+        <div className='flex justify-end m-8'>
+          <button className='px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75'>
+            <a href='/signup'>Create Now</a>
           </button>
         </div>
-
       </div>
-      
-      </div>
-  );
+    </div>
+  )
 }
 
-
-
-            // <div className="lg:hidden mx-auto card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-2">
-            //   <div className="">
-            //     <div className="mockup-browser border bg-base-300">
-            //       <div className="mockup-browser-toolbar">
-            //         <div
-            //           className="input text-custom-blue"
-            //           style={{ width: "fit-content" }}
-            //         >
-            //           /u/profile
-            //         </div>
-            //       </div>
-            //       <div className="flex flex-row px-4 py-4 bg-base-200">
-            //         <div className="flex flex-col w-2/4">
-            //           <Avatar
-            //             src="/src/assets/hacker.png"
-            //             className="bg-custom-blue mb-2 self-center"
-            //             sx={{ padding: "6%", width: 40, height: 40 }}
-            //           />
-            //           <Skeleton
-            //             variant="text"
-            //             sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
-            //           />
-            //           <Skeleton
-            //             variant="text"
-            //             sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
-            //           />
-            //           <Skeleton
-            //             variant="text"
-            //             sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
-            //           />
-            //         </div>
-            //         <div className="flex flex-col w-2/4">
-            //           <Skeleton
-            //             variant="rounded"
-            //             sx={{ bgcolor: "grey.600" }}
-            //             width={"100%"}
-            //             height={"60%"}
-            //             className="mx-2"
-            //           />
-            //           <Skeleton
-            //             variant="rounded"
-            //             sx={{ bgcolor: "grey.600" }}
-            //             width={"100%"}
-            //             height={"70%"}
-            //             className="mt-2 mx-2"
-            //           />
-            //         </div>
-            //       </div>
-            //     </div>
-            //   </div>
-            // </div>
+// <div className="lg:hidden mx-auto card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-2">
+//   <div className="">
+//     <div className="mockup-browser border bg-base-300">
+//       <div className="mockup-browser-toolbar">
+//         <div
+//           className="input text-custom-blue"
+//           style={{ width: "fit-content" }}
+//         >
+//           /u/profile
+//         </div>
+//       </div>
+//       <div className="flex flex-row px-4 py-4 bg-base-200">
+//         <div className="flex flex-col w-2/4">
+//           <Avatar
+//             src="/src/assets/hacker.png"
+//             className="bg-custom-blue mb-2 self-center"
+//             sx={{ padding: "6%", width: 40, height: 40 }}
+//           />
+//           <Skeleton
+//             variant="text"
+//             sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
+//           />
+//           <Skeleton
+//             variant="text"
+//             sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
+//           />
+//           <Skeleton
+//             variant="text"
+//             sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
+//           />
+//         </div>
+//         <div className="flex flex-col w-2/4">
+//           <Skeleton
+//             variant="rounded"
+//             sx={{ bgcolor: "grey.600" }}
+//             width={"100%"}
+//             height={"60%"}
+//             className="mx-2"
+//           />
+//           <Skeleton
+//             variant="rounded"
+//             sx={{ bgcolor: "grey.600" }}
+//             width={"100%"}
+//             height={"70%"}
+//             className="mt-2 mx-2"
+//           />
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </div>

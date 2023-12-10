@@ -1,14 +1,14 @@
-import axios from "axios";
-import { isLoggedIn } from "../../../api";
-import { auth } from "../../../firebase";
-import { BACKEND_URL } from "../utils/const";
+import axios from 'axios'
+import { isLoggedIn } from '../../../api'
+import { auth } from '../../../firebase'
+import { BACKEND_URL } from '../utils/const'
 
 export const getCommunityList = async (body) => {
-  const loggedIn = await isLoggedIn();
+  const loggedIn = await isLoggedIn()
 
   if (loggedIn) {
-    const currentUser = auth.currentUser;
-    const accessToken = await currentUser.getIdToken();
+    const currentUser = auth.currentUser
+    const accessToken = await currentUser.getIdToken()
 
     if (accessToken) {
       try {
@@ -16,22 +16,22 @@ export const getCommunityList = async (body) => {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
-        });
+        })
       } catch (err) {
         return new Promise((resolve, reject) => {
-          reject({ err });
-        });
+          reject({ err })
+        })
       }
     }
   }
-};
+}
 
 export const createCommunity = async (body) => {
-  const loggedIn = await isLoggedIn();
+  const loggedIn = await isLoggedIn()
 
   if (loggedIn) {
-    const currentUser = auth.currentUser;
-    const accessToken = await currentUser.getIdToken();
+    const currentUser = auth.currentUser
+    const accessToken = await currentUser.getIdToken()
 
     if (accessToken) {
       try {
@@ -39,12 +39,12 @@ export const createCommunity = async (body) => {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
-        });
+        })
       } catch (err) {
         return new Promise((resolve, reject) => {
-          reject({ err });
-        });
+          reject({ err })
+        })
       }
     }
   }
-};
+}

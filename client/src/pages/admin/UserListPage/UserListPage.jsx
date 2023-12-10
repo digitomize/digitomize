@@ -1,9 +1,9 @@
-import { toast } from "react-toastify";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { getUserList, updateUserData } from "../../../core/api/user.api";
-import { getUserRoleOptions } from "../../../core/utils/options";
-import { deepOrange } from "@mui/material/colors";
+import { toast } from "react-toastify"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import { getUserList, updateUserData } from "../../../core/api/user.api"
+import { getUserRoleOptions } from "../../../core/utils/options"
+import { deepOrange } from "@mui/material/colors"
 import {
   Avatar,
   Container,
@@ -20,18 +20,18 @@ import {
   TableRow,
   Typography,
   Stack,
-} from "@mui/material";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import LaunchIcon from "@mui/icons-material/Launch";
-import { useUserAuth } from "../../../context/UserAuthContext";
-import { StyledTableCell, StyledTableRow } from "../../../index.styled";
-import { Footer } from "../../../components/CustomComponents";
-import AppDialog from "../../../core/components/AppModal";
-import CreateUser from "./CreateUser";
-import DeleteUser from "./DeleteUser";
+} from "@mui/material"
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
+import LaunchIcon from "@mui/icons-material/Launch"
+import { useUserAuth } from "../../../context/UserAuthContext"
+import { StyledTableCell, StyledTableRow } from "../../../index.styled"
+import { Footer } from "../../../components/CustomComponents"
+import AppDialog from "../../../core/components/AppModal"
+import CreateUser from "./CreateUser"
+import DeleteUser from "./DeleteUser"
 
 function formatCreatedAt(createdAtString) {
-  const createdAt = new Date(createdAtString);
+  const createdAt = new Date(createdAtString)
 
   const options = {
     day: "numeric",
@@ -40,60 +40,60 @@ function formatCreatedAt(createdAtString) {
     hour: "numeric",
     minute: "numeric",
     hour12: false, // Use 24-hour format
-  };
+  }
 
-  return createdAt.toLocaleDateString("en-US", options);
+  return createdAt.toLocaleDateString("en-US", options)
 }
 
-const roleOptions = getUserRoleOptions();
+const roleOptions = getUserRoleOptions()
 
 export default function UserListPage() {
-  const { user: currentUser } = useUserAuth();
-  const [userList, setUserList] = useState([]);
-  const [disableInput, setDisableInput] = useState(null);
-  const [selectedUser, setselectedUser] = useState(null);
+  const { user: currentUser } = useUserAuth()
+  const [userList, setUserList] = useState([])
+  const [disableInput, setDisableInput] = useState(null)
+  const [selectedUser, setselectedUser] = useState(null)
 
-  let key;
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  let key
+  const [open, setOpen] = useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
 
-  const [openDel, setOpenDel] = useState(false);
+  const [openDel, setOpenDel] = useState(false)
   // const handleOpenDel = () => setOpenDel(true);
-  const handleCloseDel = () => setOpenDel(false);
+  const handleCloseDel = () => setOpenDel(false)
 
   const handleOpenDel = (user) => {
-    setselectedUser(user);
+    setselectedUser(user)
     // console.log("SELECTED:", selectedUser);
     // console.log(`Deleting user: ${user}`);
-    setOpenDel(true);
-  };
+    setOpenDel(true)
+  }
 
   useEffect(() => {
     // Get all users
     getUserList()
       .then((response) => {
-        setUserList(response.data);
+        setUserList(response.data)
       })
       .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+        console.log(error)
+      })
+  }, [])
 
   const handleChange = (event, uid) => {
-    const { value: role } = event.target;
-    setDisableInput(uid);
+    const { value: role } = event.target
+    setDisableInput(uid)
     updateUserData({ uid, role })
       .then((response) => {
-        toast.success(response.data.message);
+        toast.success(response.data.message)
       })
       .catch((error) => {
-        toast.error(error.response.data.error);
+        toast.error(error.response.data.error)
       })
       .finally(() => {
-        setDisableInput(null);
-      });
-  };
+        setDisableInput(null)
+      })
+  }
 
   return (
     <>
@@ -109,14 +109,14 @@ export default function UserListPage() {
         <DeleteUser user={selectedUser} handleClose={handleCloseDel} />
       </AppDialog>
 
-      <Container class="w-10/12 m-auto my-10 max-phone:mt-24">
+      <Container class='w-10/12 m-auto my-10 max-phone:mt-24'>
         <Stack
           mb={2}
           direction={"row"}
           justifyContent={"space-between"}
           alignItems={"center"}
         >
-          <Typography variant="h4" fontWeight={500}>
+          <Typography variant='h4' fontWeight={500}>
             users
           </Typography>
           <Button onClick={handleOpen}>Create user</Button>
@@ -125,7 +125,7 @@ export default function UserListPage() {
         <TableContainer component={Paper}>
           <Table
             sx={{ minWidth: 700, overflowWrap: "anywhere" }}
-            aria-label="customized table"
+            aria-label='customized table'
           >
             <TableHead>
               <TableRow>
@@ -150,17 +150,17 @@ export default function UserListPage() {
                         src={user.picture}
                       />
                     </StyledTableCell>
-                    <StyledTableCell component="th" scope="row">
+                    <StyledTableCell component='th' scope='row'>
                       <Stack direction={"column"} columnGap={2}>
-                        <p className="text-xs">{user.uid}</p>
-                        <p className="text-xs">
+                        <p className='text-xs'>{user.uid}</p>
+                        <p className='text-xs'>
                           created: {formatCreatedAt(user.createdAt)}
                         </p>
                       </Stack>
                     </StyledTableCell>
                     <StyledTableCell>{user.name}</StyledTableCell>
                     <StyledTableCell>
-                      <Link to={"/u/" + user.username} target="_blank">
+                      <Link to={"/u/" + user.username} target='_blank'>
                         <LaunchIcon />
                         {user.username}
                       </Link>
@@ -174,14 +174,14 @@ export default function UserListPage() {
                             disableInput === user.uid
                           }
                           sx={{ background: "#fff" }}
-                          size="small"
+                          size='small'
                           defaultValue={user.role}
-                          label="Age"
+                          label='Age'
                           onChange={(event) => handleChange(event, user.uid)}
                         >
                           {roleOptions.map((option) => (
                             <MenuItem
-                              className="capitalize"
+                              className='capitalize'
                               value={option.value}
                             >
                               {option.label}
@@ -209,10 +209,10 @@ export default function UserListPage() {
                                   disableInput === user.uid
                                 )
                               ) {
-                                handleOpenDel(user);
+                                handleOpenDel(user)
                               }
                             }}
-                            title="delete user"
+                            title='delete user'
                             style={{
                               opacity:
                                 user.uid === currentUser.uid ||
@@ -238,5 +238,5 @@ export default function UserListPage() {
       </Container>
       <Footer />
     </>
-  );
+  )
 }

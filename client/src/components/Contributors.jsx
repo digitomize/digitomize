@@ -1,39 +1,39 @@
-import AspectRatio from "@mui/joy/AspectRatio";
-import Box from "@mui/joy/Box";
-import Typography from "@mui/joy/Typography";
-import Card from "@mui/joy/Card";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import { AiFillGithub } from "react-icons/ai";
+import AspectRatio from "@mui/joy/AspectRatio"
+import Box from "@mui/joy/Box"
+import Typography from "@mui/joy/Typography"
+import Card from "@mui/joy/Card"
+import { Autoplay, Pagination, Navigation } from "swiper/modules"
+import { AiFillGithub } from "react-icons/ai"
 
-import { useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles"
 // import Box from '@mui/material/Box';
 // import Card from '@mui/material/Card';
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import IconButton from "@mui/material/IconButton";
+import CardContent from "@mui/material/CardContent"
+import CardMedia from "@mui/material/CardMedia"
+import IconButton from "@mui/material/IconButton"
 // import Typography from '@mui/material/Typography';
-import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import SkipNextIcon from "@mui/icons-material/SkipNext";
+import SkipPreviousIcon from "@mui/icons-material/SkipPrevious"
+import PlayArrowIcon from "@mui/icons-material/PlayArrow"
+import SkipNextIcon from "@mui/icons-material/SkipNext"
 
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import axios from "axios";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.css";
+import React, { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import axios from "axios"
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/swiper-bundle.css"
 
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles"
 
-import { extendTheme, CssVarsProvider } from "@mui/joy/styles";
+import { extendTheme, CssVarsProvider } from "@mui/joy/styles"
 
 const theme = extendTheme({
   palette: {
     mode: "dark",
   },
-});
+})
 
 export default function Contributors() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([])
   const temp = [
     {
       login: "pranshugupta54",
@@ -273,7 +273,7 @@ export default function Contributors() {
       profile: "https://palsarthaak.wixsite.com/sarthaakpal/portfolio",
       contributions: ["design"],
     },
-  ];
+  ]
 
   const fetchData = async () => {
     try {
@@ -283,27 +283,27 @@ export default function Contributors() {
           headers: {
             Accept: "application/vnd.github.raw",
           },
-        },
-      );
+        }
+      )
 
       // Access the data from the response
-      const rawData = response.data.contributors;
+      const rawData = response.data.contributors
       // Set the data to state
-      setData(rawData);
+      setData(rawData)
     } catch (error) {
       // Handle errors
-      console.error("Error fetching data:", error.message);
+      console.error("Error fetching data:", error.message)
     }
-  };
+  }
   // fetchData();
   // useEffect(() => {
   // }, []);
   return (
     <>
-      <CssVarsProvider defaultMode="dark">
-        <div className="w-full p-2 flex flex-col gap-2">
-          <h1 className="m-0 p-0 max-phone:text-4xl">Contributors</h1>
-          <div className="flex flex-row">
+      <CssVarsProvider defaultMode='dark'>
+        <div className='w-full p-2 flex flex-col gap-2'>
+          <h1 className='m-0 p-0 max-phone:text-4xl'>Contributors</h1>
+          <div className='flex flex-row'>
             <Swiper
               spaceBetween={10}
               slidesPerView={5}
@@ -338,17 +338,17 @@ export default function Contributors() {
               }}
             >
               {temp.map((item) => (
-                <div className="w-full">
-                  <SwiperSlide key={item.name} className="w-fit">
+                <div className='w-full'>
+                  <SwiperSlide key={item.name} className='w-fit'>
                     <Link to={item.profile}>
                       <Card
-                        orientation="horizontal"
-                        className="w-fit my-2 hover:scale-105"
-                        size="sm"
+                        orientation='horizontal'
+                        className='w-fit my-2 hover:scale-105'
+                        size='sm'
                         key={item.title}
-                        variant="outlined"
+                        variant='outlined'
                       >
-                        <AspectRatio ratio="1" sx={{ minWidth: 60 }}>
+                        <AspectRatio ratio='1' sx={{ minWidth: 60 }}>
                           <img
                             srcSet={`${item.avatar_url}?h=120&fit=crop&auto=format&dpr=2 2x`}
                             src={`${item.avatar_url}?h=120&fit=crop&auto=format`}
@@ -357,31 +357,31 @@ export default function Contributors() {
                         </AspectRatio>
                         <Box
                           sx={{ whiteSpace: "nowrap", mx: 1 }}
-                          className="max-phone:hidden"
+                          className='max-phone:hidden'
                         >
-                          <Typography level="title-md">
+                          <Typography level='title-md'>
                             {item.name.slice(0, 15)}
                           </Typography>
-                          <div className="github flex flex-col gap-1">
-                            <div className="flex flex-row items-center">
+                          <div className='github flex flex-col gap-1'>
+                            <div className='flex flex-row items-center'>
                               <AiFillGithub />
-                              <Typography level="body-sm">
+                              <Typography level='body-sm'>
                                 {item.login}
                               </Typography>
                             </div>
-                            <div className="flex flex-row gap-1">
+                            <div className='flex flex-row gap-1'>
                               {item.contributions.map((contribution, index) => {
-                                let badgeColor = "";
+                                let badgeColor = ""
 
                                 // Determine color based on contribution type
                                 if (contribution === "code") {
-                                  badgeColor = "badge-primary"; // Set the class for code contributions
+                                  badgeColor = "badge-primary" // Set the class for code contributions
                                 } else if (contribution === "doc") {
-                                  badgeColor = "badge-secondary"; // Set the class for documentation contributions
+                                  badgeColor = "badge-secondary" // Set the class for documentation contributions
                                 } else if (contribution === "design") {
-                                  badgeColor = "badge-accent"; // Set the class for design contributions
+                                  badgeColor = "badge-accent" // Set the class for design contributions
                                 } else {
-                                  badgeColor = "badge-accent"; // Default color for other contributions (you can adjust this)
+                                  badgeColor = "badge-accent" // Default color for other contributions (you can adjust this)
                                 }
 
                                 return (
@@ -391,7 +391,7 @@ export default function Contributors() {
                                   >
                                     {contribution}
                                   </div>
-                                );
+                                )
                               })}
                             </div>
                           </div>
@@ -403,7 +403,7 @@ export default function Contributors() {
               ))}
             </Swiper>
           </div>
-          <div className="flex flex-row">
+          <div className='flex flex-row'>
             <Swiper
               spaceBetween={10}
               slidesPerView={4.5}
@@ -439,17 +439,17 @@ export default function Contributors() {
               }}
             >
               {temp.map((item) => (
-                <div className="w-full">
-                  <SwiperSlide key={item.name} className="w-fit">
+                <div className='w-full'>
+                  <SwiperSlide key={item.name} className='w-fit'>
                     <Link to={item.profile}>
                       <Card
-                        orientation="horizontal"
-                        className="w-fit my-2 hover:scale-105"
-                        size="sm"
+                        orientation='horizontal'
+                        className='w-fit my-2 hover:scale-105'
+                        size='sm'
                         key={item.title}
-                        variant="outlined"
+                        variant='outlined'
                       >
-                        <AspectRatio ratio="1" sx={{ minWidth: 60 }}>
+                        <AspectRatio ratio='1' sx={{ minWidth: 60 }}>
                           <img
                             srcSet={`${item.avatar_url}?h=120&fit=crop&auto=format&dpr=2 2x`}
                             src={`${item.avatar_url}?h=120&fit=crop&auto=format`}
@@ -458,31 +458,31 @@ export default function Contributors() {
                         </AspectRatio>
                         <Box
                           sx={{ whiteSpace: "nowrap", mx: 1 }}
-                          className="max-phone:hidden"
+                          className='max-phone:hidden'
                         >
-                          <Typography level="title-md">
+                          <Typography level='title-md'>
                             {item.name.slice(0, 20)}
                           </Typography>
-                          <div className="github flex flex-col gap-1">
-                            <div className="flex flex-row items-center">
+                          <div className='github flex flex-col gap-1'>
+                            <div className='flex flex-row items-center'>
                               <AiFillGithub />
-                              <Typography level="body-sm">
+                              <Typography level='body-sm'>
                                 {item.login}
                               </Typography>
                             </div>
-                            <div className="flex flex-row gap-1">
+                            <div className='flex flex-row gap-1'>
                               {item.contributions.map((contribution, index) => {
-                                let badgeColor = "";
+                                let badgeColor = ""
 
                                 // Determine color based on contribution type
                                 if (contribution === "code") {
-                                  badgeColor = "badge-primary"; // Set the class for code contributions
+                                  badgeColor = "badge-primary" // Set the class for code contributions
                                 } else if (contribution === "doc") {
-                                  badgeColor = "badge-secondary"; // Set the class for documentation contributions
+                                  badgeColor = "badge-secondary" // Set the class for documentation contributions
                                 } else if (contribution === "design") {
-                                  badgeColor = "badge-accent"; // Set the class for design contributions
+                                  badgeColor = "badge-accent" // Set the class for design contributions
                                 } else {
-                                  badgeColor = "badge-accent"; // Default color for other contributions (you can adjust this)
+                                  badgeColor = "badge-accent" // Default color for other contributions (you can adjust this)
                                 }
 
                                 return (
@@ -492,7 +492,7 @@ export default function Contributors() {
                                   >
                                     {contribution}
                                   </div>
-                                );
+                                )
                               })}
                             </div>
                           </div>
@@ -572,7 +572,7 @@ export default function Contributors() {
                     </div>
                 </div> */}
 
-        <div className="divider"></div>
+        <div className='divider'></div>
         {/* <div className="w-11/12">
                 <Box
                     sx={{
@@ -617,5 +617,5 @@ export default function Contributors() {
             </div> */}
       </CssVarsProvider>
     </>
-  );
+  )
 }

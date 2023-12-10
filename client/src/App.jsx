@@ -4,13 +4,10 @@ import {
   RouterProvider,
   Route,
   useNavigate,
-} from "react-router-dom";
-import {
-  UserAuthContextProvider,
-  useUserAuth,
-} from "./context/UserAuthContext";
-import { useState, useEffect } from "react";
-import "./App.css";
+} from "react-router-dom"
+import { UserAuthContextProvider, useUserAuth } from "./context/UserAuthContext"
+import { useState, useEffect } from "react"
+import "./App.css"
 
 // importing all the components ...
 
@@ -27,125 +24,125 @@ import {
   Homepage,
   Feedback,
   About,
-} from "./components/CustomComponents";
-import UserDashboard from "./user/dashboard/UserDashboard";
+} from "./components/CustomComponents"
+import UserDashboard from "./user/dashboard/UserDashboard"
 import UserDashPersonal, {
   loader as userDashPersonalLoader,
-} from "./user/dashboard/UserDashPersonal";
+} from "./user/dashboard/UserDashPersonal"
 import UserDashRatings, {
   loader as userDashRatingsLoader,
-} from "./user/dashboard/UserDashRatings";
+} from "./user/dashboard/UserDashRatings"
 import UserDashGithub, {
   loader as userDashGithubLoader,
-} from "./user/dashboard/UserDashGithub";
-import ProtectedRoute from "./ProtectedRoute";
-import NewUserProfile from "./user/Profile/NewUserProfile";
+} from "./user/dashboard/UserDashGithub"
+import ProtectedRoute from "./ProtectedRoute"
+import NewUserProfile from "./user/Profile/NewUserProfile"
 
-import ProfileRatingsPage from "./user/Profile/pages/ProfileRatingsPage";
-import PlatformRatings from "./user/Profile/components/PlatformRatings";
+import ProfileRatingsPage from "./user/Profile/pages/ProfileRatingsPage"
+import PlatformRatings from "./user/Profile/components/PlatformRatings"
 import ProfileLayout, {
   loader as profileLoader,
-} from "./user/Profile/pages/ProfileLayout";
+} from "./user/Profile/pages/ProfileLayout"
 // import ProtectedRoute from "./ProtectedRoute"
-import Leaderboard from "./user/leaderboard/Leaderboard";
+import Leaderboard from "./user/leaderboard/Leaderboard"
 function DiscordRedirect() {
-  window.location.href = "https://discord.gg/bsbBytBqBc";
+  window.location.href = "https://discord.gg/bsbBytBqBc"
   return (
-    <div className="flex flex-col justify-center items-center h-[60vh]">
-      <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
-      <h1 className="text-2xl ml-4">Redirecting to Discord</h1>
+    <div className='flex flex-col justify-center items-center h-[60vh]'>
+      <div className='animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2'></div>
+      <h1 className='text-2xl ml-4'>Redirecting to Discord</h1>
     </div>
-  );
+  )
 }
 // function ContributeRedirect() {
 //   window.location.href = "https://github.com/pranshugupta54/digitomize";
 //   return null;
 // }
 
-import { auth } from "../firebase";
-import { ToastContainer, toast } from "react-toastify";
-import { UserContextProvider } from "./context/UserContext";
-import UserListPage from "./pages/admin/UserListPage";
-import AdminPanelGuard from "./AdminPanelGuard";
-import ContestListPage from "./pages/admin/ContestListPage";
-import CommunityListPage from "./pages/admin/CommunityListPage";
+import { auth } from "../firebase"
+import { ToastContainer, toast } from "react-toastify"
+import { UserContextProvider } from "./context/UserContext"
+import UserListPage from "./pages/admin/UserListPage"
+import AdminPanelGuard from "./AdminPanelGuard"
+import ContestListPage from "./pages/admin/ContestListPage"
+import CommunityListPage from "./pages/admin/CommunityListPage"
 
 function Logout() {
-  const navigate = useNavigate();
-  const user = useUserAuth();
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const navigate = useNavigate()
+  const user = useUserAuth()
+  const [isLoggingOut, setIsLoggingOut] = useState(false)
 
   // Implement your logout logic here
   async function handleLogout() {
     try {
       // Assuming you have an `auth` object for authentication
-      await auth.signOut();
+      await auth.signOut()
       // Show a success message using toast
-      toast.success("Logged out successfully");
+      toast.success("Logged out successfully")
       // Redirect the user to the login page with a message
-      navigate("/login?message=Logged out successfully");
+      navigate("/login?message=Logged out successfully")
     } catch (error) {
       // Handle any errors that occur during logout
-      console.error("Logout error:", error);
+      console.error("Logout error:", error)
       // Optionally show an error message using toast or other means
-      toast.error("Logout failed");
+      toast.error("Logout failed")
       // Redirect to an appropriate page or handle the error as needed
-      navigate("/error"); // Example: Redirect to an error page
+      navigate("/error") // Example: Redirect to an error page
     } finally {
-      setIsLoggingOut(false);
+      setIsLoggingOut(false)
     }
   }
 
   useEffect(() => {
     if (user) {
-      handleLogout();
-      setIsLoggingOut(true);
+      handleLogout()
+      setIsLoggingOut(true)
     } else {
-      navigate("/login?message=You are not logged in");
+      navigate("/login?message=You are not logged in")
     }
-  }, isLoggingOut);
+  }, isLoggingOut)
 
   // Conditionally render content based on the isLoggingOut state
   return (
     <div>
       {isLoggingOut ? (
-        <div className="flex flex-col justify-center items-center h-[60vh]">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
-          <h1 className="text-2xl ml-4">Logging out..</h1>
+        <div className='flex flex-col justify-center items-center h-[60vh]'>
+          <div className='animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2'></div>
+          <h1 className='text-2xl ml-4'>Logging out..</h1>
         </div>
       ) : (
         <div>Logout completed.</div>
       )}
     </div>
-  );
+  )
 }
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route errorElement={<ErrorPage />}>
-      <Route path="/" element={<Layout />}>
+      <Route path='/' element={<Layout />}>
         <Route index element={<Homepage />} />
-        <Route path="login" element={<Login />} loader={loginLoader} />
-        <Route path="logout" element={<Logout />} />;
-        <Route path="signup" element={<Signup />} loader={signupLoader} />
-        <Route path="contests" element={<Home />} />
-        <Route path="updates" element={<Updates />} />
-        <Route path="home" element={<Homepage />} />
-        <Route path="feedback" element={<Feedback />} />
-        <Route path="contact" element={<About />} />
-        <Route path="about" element={<About />} />
-        <Route path="discord" element={<DiscordRedirect />} />
-        <Route path="contests/:vanity" element={<IndividualCard />} />
-        <Route path="404" element={<ErrorPage />} />
+        <Route path='login' element={<Login />} loader={loginLoader} />
+        <Route path='logout' element={<Logout />} />;
+        <Route path='signup' element={<Signup />} loader={signupLoader} />
+        <Route path='contests' element={<Home />} />
+        <Route path='updates' element={<Updates />} />
+        <Route path='home' element={<Homepage />} />
+        <Route path='feedback' element={<Feedback />} />
+        <Route path='contact' element={<About />} />
+        <Route path='about' element={<About />} />
+        <Route path='discord' element={<DiscordRedirect />} />
+        <Route path='contests/:vanity' element={<IndividualCard />} />
+        <Route path='404' element={<ErrorPage />} />
       </Route>
-      <Route path="/admin" element={<AdminPanelGuard />}>
-        <Route path="user" element={<UserListPage />}></Route>
-        <Route path="contest" element={<ContestListPage />}></Route>
-        <Route path="community" element={<CommunityListPage />}></Route>
+      <Route path='/admin' element={<AdminPanelGuard />}>
+        <Route path='user' element={<UserListPage />}></Route>
+        <Route path='contest' element={<ContestListPage />}></Route>
+        <Route path='community' element={<CommunityListPage />}></Route>
       </Route>
-      <Route path="/u" element={<ProtectedRoute />}>
+      <Route path='/u' element={<ProtectedRoute />}>
         {/* <Route path="dashboard" element={<UserDashboard/>}> */}
-        <Route path="dashboard">
+        <Route path='dashboard'>
           <Route
             index
             element={<UserDashboard />}
@@ -153,36 +150,36 @@ const router = createBrowserRouter(
             // loader={userDashPersonalLoader}
           />
           <Route
-            path="account"
+            path='account'
             element={<UserDashPersonal />}
             loader={userDashPersonalLoader}
           />
-          <Route path="ratings" element={<UserDashRatings />} />
+          <Route path='ratings' element={<UserDashRatings />} />
           <Route
-            path="github"
+            path='github'
             element={<UserDashGithub />}
             loader={userDashGithubLoader}
           />
         </Route>
       </Route>
       <Route
-        path="/u/:username"
+        path='/u/:username'
         element={<ProfileLayout />}
         loader={profileLoader}
       >
         <Route index element={<NewUserProfile />} />
-        <Route path="about" element={<div>User about</div>} />
+        <Route path='about' element={<div>User about</div>} />
         {/* <Route path="resume" element={<Resume />} /> */}
-        <Route path="socials" element={<div>Socials</div>} />
-        <Route path="github" element={<div>Github</div>} />
-        <Route path="ratings" element={<ProfileRatingsPage />}>
-          <Route path=":platform" element={<PlatformRatings />} />
+        <Route path='socials' element={<div>Socials</div>} />
+        <Route path='github' element={<div>Github</div>} />
+        <Route path='ratings' element={<ProfileRatingsPage />}>
+          <Route path=':platform' element={<PlatformRatings />} />
         </Route>
       </Route>
-      <Route path="/u/leaderboard" element={<Leaderboard />} />
-    </Route>,
-  ),
-);
+      <Route path='/u/leaderboard' element={<Leaderboard />} />
+    </Route>
+  )
+)
 
 function App() {
   return (
@@ -194,7 +191,7 @@ function App() {
         </div>
       </UserContextProvider>
     </UserAuthContextProvider>
-  );
+  )
 }
 
-export default App;
+export default App

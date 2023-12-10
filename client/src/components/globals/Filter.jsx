@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 import {
   Chip,
   Box,
@@ -10,7 +10,7 @@ import {
   ListItemText,
   ListItemIcon,
   Skeleton,
-} from "@mui/material";
+} from "@mui/material"
 import {
   geeksforgeeks,
   leetcode,
@@ -18,11 +18,11 @@ import {
   codechef,
   atcoder,
   codeforces,
-} from "../AllAssets";
-import Contests from "../Contests";
-import { Element } from "react-scroll";
-import CustomSlider from "../CustomSlider";
-const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+} from "../AllAssets"
+import Contests from "../Contests"
+import { Element } from "react-scroll"
+import CustomSlider from "../CustomSlider"
+const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL
 const MenuProps = {
   PaperProps: {
     style: {
@@ -36,7 +36,7 @@ const MenuProps = {
       borderBottomRightRadius: "10px",
     },
   },
-};
+}
 
 const platformsIcon = [
   leetcode,
@@ -45,7 +45,7 @@ const platformsIcon = [
   codechef,
   codeforces,
   atcoder,
-];
+]
 const platforms = [
   "leetcode",
   "codingninjas",
@@ -53,87 +53,87 @@ const platforms = [
   "codechef",
   "codeforces",
   "atcoder",
-];
+]
 function Filter() {
-  const [contestsData, setContestsData] = useState([]);
-  const [selectedPlatforms, setSelectedPlatforms] = useState([]);
-  const [open, setOpen] = useState(false);
-  const [range, setRange] = useState([0, 0]);
-  const [maxValue, setMaxValue] = useState(Number);
+  const [contestsData, setContestsData] = useState([])
+  const [selectedPlatforms, setSelectedPlatforms] = useState([])
+  const [open, setOpen] = useState(false)
+  const [range, setRange] = useState([0, 0])
+  const [maxValue, setMaxValue] = useState(Number)
   useEffect(() => {
     // Fetch data from the backend API
-    const selectedPlatformsParam = selectedPlatforms.join(",");
+    const selectedPlatformsParam = selectedPlatforms.join(",")
     const url = selectedPlatformsParam
       ? `${backendUrl}/contests?host=${selectedPlatformsParam}`
-      : `${backendUrl}/contests`;
+      : `${backendUrl}/contests`
 
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
         let maxDuration = data.results?.reduce((max, current) => {
           if (current && current.duration > max) {
-            return current.duration;
+            return current.duration
           } else {
-            return max;
+            return max
           }
-        }, data.results[0]?.duration);
-        setMaxValue(maxDuration);
-        setContestsData(data.results);
+        }, data.results[0]?.duration)
+        setMaxValue(maxDuration)
+        setContestsData(data.results)
       })
-      .catch((error) => console.error("Error fetching data:", error));
-  }, [selectedPlatforms]);
+      .catch((error) => console.error("Error fetching data:", error))
+  }, [selectedPlatforms])
 
   const handleDelete = (value) => {
     let newSelectedParams = selectedPlatforms.filter(
-      (platform) => platform != value,
-    );
-    setSelectedPlatforms(newSelectedParams);
-  };
+      (platform) => platform != value
+    )
+    setSelectedPlatforms(newSelectedParams)
+  }
   const handleChange = (e) => {
-    setSelectedPlatforms(e.target.value);
-    setOpen(!open);
-  };
+    setSelectedPlatforms(e.target.value)
+    setOpen(!open)
+  }
   return (
     <>
-      <div className="divider sticky" id="okk"></div>
+      <div className='divider sticky' id='okk'></div>
       <Element
-        name="allContests"
-        className="pt-24 flex md:flex-row flex-col justify-between"
+        name='allContests'
+        className='pt-24 flex md:flex-row flex-col justify-between'
       >
         <h2
           style={{ marginBottom: "3%", fontSize: "3.5rem" }}
-          className="text-white z-10 text-center lg:text-left"
+          className='text-white z-10 text-center lg:text-left'
         >
           {" "}
           Contests
         </h2>
       </Element>
-      <Element className=" flex md:flex-row flex-col justify-between mx-auto md:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
+      <Element className=' flex md:flex-row flex-col justify-between mx-auto md:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center'>
         {/* //checkmarks */}
         <div
           className={`filter-div w-fit self-center bg-cardsColor relative rounded-xl`}
         >
           <FormControl
-            variant="filled"
+            variant='filled'
             sx={{ m: 1, minWidth: 300 }}
             className={`filter bg-filter rounded-lg platform-container max-sm:justify-center`} // to make it fixed while scroll add class "fixed" on condition "isFixed"
           >
             <InputLabel
-              variant="filled"
-              id="platform-select-label"
+              variant='filled'
+              id='platform-select-label'
               shrink={selectedPlatforms.length == 0 ? false : true}
             >
               {selectedPlatforms.length == 0 ? "Platform" : ""}
             </InputLabel>
             <Select
-              labelId="platform-select-label"
-              id="platform-select"
+              labelId='platform-select-label'
+              id='platform-select'
               open={open}
               multiple
               value={selectedPlatforms}
               onClick={!open ? () => setOpen(true) : () => setOpen(false)}
               onChange={handleChange}
-              input={<OutlinedInput id="select-multiple-chip" label="" />}
+              input={<OutlinedInput id='select-multiple-chip' label='' />}
               renderValue={(selected) => (
                 <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                   {selected?.map((value) => (
@@ -153,7 +153,7 @@ function Filter() {
                   <ListItemIcon>
                     <img
                       src={platformsIcon[idx]}
-                      alt="a"
+                      alt='a'
                       style={{
                         width: "20px",
                         height: "20px",
@@ -169,31 +169,31 @@ function Filter() {
         </div>
         <CustomSlider setRange={setRange} maxValue={maxValue} />
       </Element>
-      <Element name="contests" className="contests-container z-[1]">
+      <Element name='contests' className='contests-container z-[1]'>
         {contestsData.length ? (
           <Contests contests={contestsData} range={range} />
         ) : (
-          <div className="m-auto flex sm:flex-row flex-col items-center w-4/5 my-12 ">
+          <div className='m-auto flex sm:flex-row flex-col items-center w-4/5 my-12 '>
             <Skeleton
-              variant="text"
+              variant='text'
               sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
-              className="mx-4 sm:w-80 w-full"
+              className='mx-4 sm:w-80 w-full'
             />
             <Skeleton
-              variant="text"
+              variant='text'
               sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
-              className="mx-4 sm:w-80 w-full"
+              className='mx-4 sm:w-80 w-full'
             />
             <Skeleton
-              variant="text"
+              variant='text'
               sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
-              className="mx-4 sm:w-80 w-full"
+              className='mx-4 sm:w-80 w-full'
             />
           </div>
         )}
       </Element>
     </>
-  );
+  )
 }
 
-export default Filter;
+export default Filter

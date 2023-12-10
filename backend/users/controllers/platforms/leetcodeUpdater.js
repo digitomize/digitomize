@@ -1,13 +1,13 @@
-import https from "https";
+import https from 'https'
 
 async function leetcode_u(handle) {
   if (!handle) {
-    return null;
+    return null
   }
-  const url = "https://leetcode.com/graphql";
+  const url = 'https://leetcode.com/graphql'
 
   const query = {
-    operationName: "getContentRankingData",
+    operationName: 'getContentRankingData',
     variables: { username: handle },
     query: `
       query getContentRankingData($username: String!) {
@@ -19,55 +19,55 @@ async function leetcode_u(handle) {
         }
       }
     `,
-  };
+  }
 
   return new Promise((resolve, reject) => {
     const options = {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-    };
+    }
 
     const request = https.request(url, options, (response) => {
-      let data = "";
+      let data = ''
 
-      response.on("data", (chunk) => {
-        data += chunk;
-      });
+      response.on('data', (chunk) => {
+        data += chunk
+      })
 
-      response.on("end", () => {
+      response.on('end', () => {
         try {
-          const userInfo = JSON.parse(data);
-          console.log("OKKKKKKKKK", userInfo);
+          const userInfo = JSON.parse(data)
+          console.log('OKKKKKKKKK', userInfo)
           if (userInfo.data?.userContestRanking == undefined) {
-            userInfo.data = userContestRanking;
+            userInfo.data = userContestRanking
             userInfo.data.userContestRanking = {
               attendedContestsCount: 0,
               rating: 0,
               globalRanking: 0,
-            };
+            }
           }
-          userInfo.data.userContestRanking.rank = "none";
-          userInfo.data.userContestRanking.handle = handle;
+          userInfo.data.userContestRanking.rank = 'none'
+          userInfo.data.userContestRanking.handle = handle
 
           //   console.log("HERRRREEEEE:",userInfo.data.userContestRanking);
-          resolve(userInfo.data.userContestRanking);
+          resolve(userInfo.data.userContestRanking)
         } catch (error) {
-          console.log("Error parsing JSON:", error);
-          resolve({});
+          console.log('Error parsing JSON:', error)
+          resolve({})
         }
-      });
-    });
+      })
+    })
 
-    request.on("error", (error) => {
-      console.log("Error getting user info:", error);
-      reject(error);
-    });
+    request.on('error', (error) => {
+      console.log('Error getting user info:', error)
+      reject(error)
+    })
 
-    request.write(JSON.stringify(query));
-    request.end();
-  });
+    request.write(JSON.stringify(query))
+    request.end()
+  })
 }
 
-export { leetcode_u };
+export { leetcode_u }
