@@ -61,6 +61,20 @@
 
   /* ------------ */
 }
+.text-gradient {
+  background: linear-gradient(
+    270deg,
+    #751c87 0%,
+    #8d41aa 10%,
+    #ba356c 20%,
+    #f22c30 35%,
+    #f8573a 60%,
+    #fcbb57 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .gradient-custom {
   background: linear-gradient(
