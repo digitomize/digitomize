@@ -1,1 +1,1 @@
-export { default } from './AppDialog'
+export { default } from "./AppDialog";

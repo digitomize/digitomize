@@ -1,6 +1,6 @@
-import { initializeApp } from 'firebase/app'
-import { getAuth } from 'firebase/auth'
-import { getAnalytics } from 'firebase/analytics'
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getAnalytics } from "firebase/analytics";
 
 // Firebase configurations
 const firebaseConfig = {
@@ -11,10 +11,10 @@ const firebaseConfig = {
   messagingSenderId: import.meta.env.VITE_REACT_APP_MESSAGING_SENDER_ID,
   appId: import.meta.env.VITE_REACT_APP_APP_ID,
   measurementId: import.meta.env.VITE_REACT_APP_MEASUREMENT_ID,
-}
+};
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig)
-const analytics = getAnalytics(app)
-export const auth = getAuth(app)
-export default app
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+export const auth = getAuth(app);
+export default app;

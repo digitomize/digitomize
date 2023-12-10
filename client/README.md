@@ -88,14 +88,14 @@ _Fill the empty fields by creating a demo firebase project._
 
   ```javascript
   const firebaseConfig = {
-    apiKey: 'IKNdsaKsdabdGL5iuywrfHUIKBubkjbJGDfIBHUGnkjVA',
-    authDomain: 'sample-u78nb.firebaseapp.com',
-    projectId: 'sample-u78nb',
-    storageBucket: 'sample-u78nb.appspot.com',
-    messagingSenderId: '872459742932',
-    appId: '9:872459742932:web:&8ufnhjbhbj89nu8b',
-    measurementId: 'G-YTUTY89kFT',
-  }
+    apiKey: "IKNdsaKsdabdGL5iuywrfHUIKBubkjbJGDfIBHUGnkjVA",
+    authDomain: "sample-u78nb.firebaseapp.com",
+    projectId: "sample-u78nb",
+    storageBucket: "sample-u78nb.appspot.com",
+    messagingSenderId: "872459742932",
+    appId: "9:872459742932:web:&8ufnhjbhbj89nu8b",
+    measurementId: "G-YTUTY89kFT",
+  };
   ```
 
 - Use these values to populate your .env file

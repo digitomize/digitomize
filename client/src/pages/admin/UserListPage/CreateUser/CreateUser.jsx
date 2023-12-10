@@ -1,48 +1,48 @@
-import { Button, DialogActions, DialogContent } from "@mui/material"
-import { CreateUserForm } from "./CreateUser.helper"
-import { createNewUser } from "../../../../core/api/user.api"
-import { toast } from "react-toastify"
-import { useState } from "react"
-import { useUserAuth } from "../../../../context/UserAuthContext"
+import { Button, DialogActions, DialogContent } from "@mui/material";
+import { CreateUserForm } from "./CreateUser.helper";
+import { createNewUser } from "../../../../core/api/user.api";
+import { toast } from "react-toastify";
+import { useState } from "react";
+import { useUserAuth } from "../../../../context/UserAuthContext";
 
 export default function CreateUser({ handleClose }) {
-  const [pending, setPending] = useState(false)
-  const { signUp } = useUserAuth()
+  const [pending, setPending] = useState(false);
+  const { signUp } = useUserAuth();
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
-    const { name, username, email, password } = event.target
+    event.preventDefault();
+    const { name, username, email, password } = event.target;
     const payload = {
       name: name.value,
       username: username.value,
       email: email.value,
       password: password.value,
-    }
+    };
 
     try {
       // const newUser = await signUp(payload.email, payload.password, payload.username, payload.name)
       // const token = newUser.token;
       // console.log(token);
       // if (token) {
-      setPending(true)
+      setPending(true);
       createNewUser(payload)
         .then((response) => {
-          handleClose()
-          toast.success(response.data.message)
+          handleClose();
+          toast.success(response.data.message);
         })
         .catch((error) => {
           // console.log(error);
-          toast.success(error.response.data.message)
+          toast.success(error.response.data.message);
         })
         .finally(() => {
-          setPending(false)
-        })
+          setPending(false);
+        });
       // }
     } catch (err) {
       // console.log(err);
-      toast.error(err.code)
+      toast.error(err.code);
     }
-  }
+  };
 
   return (
     <>
@@ -54,24 +54,24 @@ export default function CreateUser({ handleClose }) {
         >
           {CreateUserForm.map((item) => {
             return (
-              <div class='relative mb-3' data-te-input-wrapper-init>
+              <div class="relative mb-3" data-te-input-wrapper-init>
                 <label>{item.label}</label>
                 <input
                   required
-                  class='peer block min-h-[auto] w-full rounded  px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear'
+                  class="peer block min-h-[auto] w-full rounded  px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear"
                   {...item}
                 />
               </div>
-            )
+            );
           })}
         </DialogContent>
         <DialogActions sx={{ px: 3, pb: 2 }}>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button variant='contained' type='submit' disabled={pending}>
+          <Button variant="contained" type="submit" disabled={pending}>
             Create
           </Button>
         </DialogActions>
       </form>
     </>
-  )
+  );
 }

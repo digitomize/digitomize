@@ -1,4 +1,4 @@
-import { Box, Dialog, Modal, styled } from "@mui/material"
+import { Box, Dialog, Modal, styled } from "@mui/material";
 
 export const StyledDialog = styled(Dialog)(() => ({
   "& .MuiPaper-root": {
@@ -9,4 +9,4 @@ export const StyledDialog = styled(Dialog)(() => ({
   "& .MuiDialogTitle-root": {
     background: "#000",
   },
-}))
+}));

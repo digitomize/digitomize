@@ -1,33 +1,33 @@
-import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
-import { logo } from "../AllAssets"
-import { signOut } from "firebase/auth"
-import { auth } from "../../../firebase"
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { logo } from "../AllAssets";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../firebase";
 
 function Navbar() {
-  const [isMenuActive, setActive] = useState(false)
+  const [isMenuActive, setActive] = useState(false);
 
   const handleSignout = async () => {
     try {
-      await signOut(auth)
+      await signOut(auth);
     } catch (err) {
-      console.log(err.message)
+      console.log(err.message);
     }
-  }
+  };
 
   function toggleActive() {
     if (window.innerWidth < 768) {
       if (isMenuActive) {
-        setActive(false)
+        setActive(false);
       } else {
-        setActive(true)
+        setActive(true);
       }
     }
   }
 
   useEffect(() => {
-    document.body.className = isMenuActive ? "overflow-hidden" : ""
-  }, [isMenuActive])
+    document.body.className = isMenuActive ? "overflow-hidden" : "";
+  }, [isMenuActive]);
 
   //  for navlinks
 
@@ -48,14 +48,14 @@ function Navbar() {
       title: "Login",
       path: "/login",
     },
-  ]
+  ];
 
   return (
     <nav>
-      <div className='flex justify-between md:px-16 px-12 md:pt-12 items-center'>
-        <div className='w-56 max-sm:mt-8'>
-          <Link to='/'>
-            <img src={logo} alt='Logo' width='75%' />
+      <div className="flex justify-between md:px-16 px-12 md:pt-12 items-center">
+        <div className="w-56 max-sm:mt-8">
+          <Link to="/">
+            <img src={logo} alt="Logo" width="75%" />
           </Link>
         </div>
 
@@ -70,7 +70,7 @@ function Navbar() {
             <Link to={link.path} key={index}>
               <li
                 onClick={() => toggleActive()}
-                className='flex text-nav-text text-3xl font-light p-4 lowercase hover:white'
+                className="flex text-nav-text text-3xl font-light p-4 lowercase hover:white"
               >
                 {link.title}
               </li>
@@ -89,15 +89,15 @@ function Navbar() {
 
         <div
           onClick={() => toggleActive()}
-          className='md:hidden max-sm:block cursor-pointer'
+          className="md:hidden max-sm:block cursor-pointer"
         >
-          <span className='block w-6 h-0.5 my-1.5 bg-white mx-auto'></span>
-          <span className='block w-6 h-0.5 my-1.5 bg-white mx-auto'></span>
-          <span className='block w-6 h-0.5 my-1.5 bg-white mx-auto'></span>
+          <span className="block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
+          <span className="block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
+          <span className="block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

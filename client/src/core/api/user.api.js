@@ -1,14 +1,14 @@
-import axios from 'axios'
-import { isLoggedIn } from '../../../api'
-import { auth } from '../../../firebase'
-import { BACKEND_URL } from '../utils/const'
+import axios from "axios";
+import { isLoggedIn } from "../../../api";
+import { auth } from "../../../firebase";
+import { BACKEND_URL } from "../utils/const";
 
 export const getUserData = async () => {
-  const loggedIn = await isLoggedIn()
+  const loggedIn = await isLoggedIn();
 
   if (loggedIn) {
-    const currentUser = auth.currentUser
-    const accessToken = await currentUser.getIdToken()
+    const currentUser = auth.currentUser;
+    const accessToken = await currentUser.getIdToken();
 
     if (accessToken) {
       try {
@@ -16,25 +16,25 @@ export const getUserData = async () => {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
-        })
+        });
       } catch (err) {
         return new Promise((resolve, reject) => {
-          reject({ err })
-        })
+          reject({ err });
+        });
       }
     }
   }
   return new Promise((resolve, reject) => {
-    reject({ auth: false })
-  })
-}
+    reject({ auth: false });
+  });
+};
 
 export const getUserList = async () => {
-  const loggedIn = await isLoggedIn()
+  const loggedIn = await isLoggedIn();
 
   if (loggedIn) {
-    const currentUser = auth.currentUser
-    const accessToken = await currentUser.getIdToken()
+    const currentUser = auth.currentUser;
+    const accessToken = await currentUser.getIdToken();
 
     if (accessToken) {
       try {
@@ -42,25 +42,25 @@ export const getUserList = async () => {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
-        })
+        });
       } catch (err) {
         return new Promise((resolve, reject) => {
-          reject({ err })
-        })
+          reject({ err });
+        });
       }
     }
   }
   return new Promise((resolve, reject) => {
-    reject({ auth: false })
-  })
-}
+    reject({ auth: false });
+  });
+};
 
 export const updateUserData = async (body) => {
-  const loggedIn = await isLoggedIn()
+  const loggedIn = await isLoggedIn();
 
   if (loggedIn) {
-    const currentUser = auth.currentUser
-    const accessToken = await currentUser.getIdToken()
+    const currentUser = auth.currentUser;
+    const accessToken = await currentUser.getIdToken();
 
     if (accessToken) {
       try {
@@ -68,49 +68,49 @@ export const updateUserData = async (body) => {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
-        })
+        });
       } catch (err) {
         return new Promise((resolve, reject) => {
-          reject({ err })
-        })
+          reject({ err });
+        });
       }
     }
   }
   return new Promise((resolve, reject) => {
-    reject({ auth: false })
-  })
-}
+    reject({ auth: false });
+  });
+};
 
 export const createNewUser = async (body) => {
-  const loggedIn = await isLoggedIn()
+  const loggedIn = await isLoggedIn();
 
   if (loggedIn) {
-    const currentUser = auth.currentUser
-    const accessToken = await currentUser.getIdToken()
+    const currentUser = auth.currentUser;
+    const accessToken = await currentUser.getIdToken();
     if (accessToken) {
       try {
         return axios.post(`${BACKEND_URL}/admin/user`, body, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
           },
-        })
+        });
       } catch (err) {
         return new Promise((resolve, reject) => {
-          reject({ err })
-        })
+          reject({ err });
+        });
       }
     }
   }
-}
+};
 
 export const deleteUser = async (body) => {
-  const loggedIn = await isLoggedIn()
+  const loggedIn = await isLoggedIn();
 
-  console.log('HEREEEEE')
+  console.log("HEREEEEE");
   if (loggedIn) {
-    const currentUser = auth.currentUser
-    const accessToken = await currentUser.getIdToken()
-    console.log(accessToken)
+    const currentUser = auth.currentUser;
+    const accessToken = await currentUser.getIdToken();
+    console.log(accessToken);
     if (accessToken) {
       try {
         return axios.delete(`${BACKEND_URL}/admin/user`, {
@@ -118,7 +118,7 @@ export const deleteUser = async (body) => {
             Authorization: `Bearer ${accessToken}`,
           },
           data: body,
-        })
+        });
 
         // return axios.delete(`${BACKEND_URL}/admin/user`, body, {
         //   headers: {
@@ -127,9 +127,9 @@ export const deleteUser = async (body) => {
         // });
       } catch (err) {
         return new Promise((resolve, reject) => {
-          reject({ err })
-        })
+          reject({ err });
+        });
       }
     }
   }
-}
+};

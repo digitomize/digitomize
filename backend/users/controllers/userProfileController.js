@@ -1,54 +1,54 @@
-import { getUser } from '../services/getUser.js'
-import { codeforces_u } from './platforms/codeforcesUpdater.js'
-import { codechef_u } from './platforms/codechefUpdater.js' // Import your CodeChef updater function
-import { leetcode_u } from './platforms/leetcodeUpdater.js' // Import your LeetCode updater function
-import { updateUser } from '../services/updateUser.js'
-import { ROLE } from '../../core/const.js'
+import { getUser } from "../services/getUser.js";
+import { codeforces_u } from "./platforms/codeforcesUpdater.js";
+import { codechef_u } from "./platforms/codechefUpdater.js"; // Import your CodeChef updater function
+import { leetcode_u } from "./platforms/leetcodeUpdater.js"; // Import your LeetCode updater function
+import { updateUser } from "../services/updateUser.js";
+import { ROLE } from "../../core/const.js";
 
 // Mapping of platform names to their updater functions
 const platformUpdaters = {
   codeforces: codeforces_u,
   codechef: codechef_u, // Replace with your CodeChef updater function
   leetcode: leetcode_u, // Replace with your LeetCode updater function
-}
+};
 
 const handleUserPlatformUpdate = async (username, platform) => {
-  const updater = platformUpdaters[platform]
+  const updater = platformUpdaters[platform];
   if (updater) {
-    return await updater(username)
+    return await updater(username);
   }
-  return null // Handle unsupported platform case if needed
-}
+  return null; // Handle unsupported platform case if needed
+};
 
 const calculateDigitomizeRating = (user) => {
-  let maxDigitomizeRating = 0
+  let maxDigitomizeRating = 0;
 
-  ;['codeforces', 'codechef', 'leetcode'].forEach((platform) => {
-    const platformData = user[platform]
+  ["codeforces", "codechef", "leetcode"].forEach((platform) => {
+    const platformData = user[platform];
     if (platformData && platformData.rating) {
       const weightage = {
         codechef: 0.76,
         leetcode: 0.695,
         codeforces: 1,
-      }
-      const platformRating = platformData.rating * weightage[platform]
+      };
+      const platformRating = platformData.rating * weightage[platform];
       if (platformRating > maxDigitomizeRating) {
-        maxDigitomizeRating = platformRating
+        maxDigitomizeRating = platformRating;
       }
     }
-  })
+  });
 
-  return maxDigitomizeRating
-}
+  return maxDigitomizeRating;
+};
 
 // Updates user data in DB
 const handleUserDataUpdate = async (user) => {
-  const currentTime = new Date()
+  const currentTime = new Date();
 
-  let changes = false
-  for (const platformKey of ['codeforces', 'codechef', 'leetcode']) {
+  let changes = false;
+  for (const platformKey of ["codeforces", "codechef", "leetcode"]) {
     // for (const platformKey of ['codeforces']) {
-    const platformData = user[platformKey]
+    const platformData = user[platformKey];
     if (
       platformData.showOnWebsite &&
       platformData.fetchTime + 12 * 60 * 60 * 1000 < currentTime
@@ -56,42 +56,42 @@ const handleUserDataUpdate = async (user) => {
       const newData = await handleUserPlatformUpdate(
         platformData.username,
         platformKey
-      )
-      console.log('newData', newData)
+      );
+      console.log("newData", newData);
       if (newData) {
-        changes = true
-        platformData.attendedContestsCount = newData.attendedContestsCount
-        platformData.username = newData.handle
-        platformData.rating = parseInt(newData.rating)
-        platformData.badge = newData.rank
-        platformData.fetchTime = currentTime
+        changes = true;
+        platformData.attendedContestsCount = newData.attendedContestsCount;
+        platformData.username = newData.handle;
+        platformData.rating = parseInt(newData.rating);
+        platformData.badge = newData.rank;
+        platformData.fetchTime = currentTime;
       }
     }
   }
-  user.digitomize_rating = calculateDigitomizeRating(user)
+  user.digitomize_rating = calculateDigitomizeRating(user);
   // console.log("new:", user.digitomize_rating);
 
   // Save the updated user object in MongoDB
   if (changes) {
-    await updateUser(user)
+    await updateUser(user);
   }
-}
+};
 
 // Handle user profile preview route
 const handleUserProfilePreview = async (req, res) => {
   try {
-    const username = req.params.username
+    const username = req.params.username;
 
     // Fetch the user's data from the database
-    const user = await getUser(username)
+    const user = await getUser(username);
 
     if (!user) {
       return res
         .status(404)
-        .json({ message: 'User not found', error: 'User not found' })
+        .json({ message: "User not found", error: "User not found" });
     }
 
-    await handleUserDataUpdate(user)
+    await handleUserDataUpdate(user);
 
     // Prepare the public user data object
     const publicUserData = {
@@ -120,22 +120,22 @@ const handleUserProfilePreview = async (req, res) => {
       ratings: {
         digitomize_rating: user.digitomize_rating,
       },
-    }
+    };
 
     // Handle coding platforms
-    handleCodingPlatform(publicUserData.ratings, user.codechef, 'codechef')
-    handleCodingPlatform(publicUserData.ratings, user.leetcode, 'leetcode')
-    handleCodingPlatform(publicUserData.ratings, user.codeforces, 'codeforces')
+    handleCodingPlatform(publicUserData.ratings, user.codechef, "codechef");
+    handleCodingPlatform(publicUserData.ratings, user.leetcode, "leetcode");
+    handleCodingPlatform(publicUserData.ratings, user.codeforces, "codeforces");
 
-    res.status(200).json(publicUserData)
+    res.status(200).json(publicUserData);
   } catch (error) {
-    console.error('Error:', error)
+    console.error("Error:", error);
     res.status(500).json({
-      message: 'Error fetching user profile',
-      error: 'Error fetching user profile',
-    })
+      message: "Error fetching user profile",
+      error: "Error fetching user profile",
+    });
   }
-}
+};
 
 function handleCodingPlatform(targetObject, platform, platformKey) {
   if (platform.showOnWebsite) {
@@ -145,7 +145,7 @@ function handleCodingPlatform(targetObject, platform, platformKey) {
       attendedContestsCount: platform.attendedContestsCount || null,
       badge: platform.badge || null,
       fetchTime: platform.fetchTime || 0,
-    }
+    };
   } else {
     targetObject[platformKey] = {
       username: null,
@@ -153,8 +153,8 @@ function handleCodingPlatform(targetObject, platform, platformKey) {
       attendedContestsCount: null,
       badge: null,
       fetchTime: null,
-    }
+    };
   }
 }
 
-export { handleUserProfilePreview }
+export { handleUserProfilePreview };

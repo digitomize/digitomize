@@ -1,1 +1,1 @@
-export { default } from './ContestListPage'
+export { default } from "./ContestListPage";

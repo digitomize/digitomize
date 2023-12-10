@@ -1,95 +1,97 @@
-import https from 'https'
+import https from "https";
 
-import cheerio from 'cheerio'
+import cheerio from "cheerio";
 // const { parseISO, getTime } = require('date-fns');
 
 async function atcoder_c() {
-  const url = 'https://atcoder.jp/contests'
+  const url = "https://atcoder.jp/contests";
 
   const promise = new Promise((resolve, reject) => {
     https.get(url, function (response) {
       if (response.statusCode === 200) {
-        resolve(response)
+        resolve(response);
       } else {
-        reject(new Error('Error getting contests'))
+        reject(new Error("Error getting contests"));
       }
-    })
-  })
+    });
+  });
 
   const filteredContestsPromise = promise.then(function (response) {
-    let data = ''
-    response.on('data', function (chunk) {
-      data += chunk
-    })
+    let data = "";
+    response.on("data", function (chunk) {
+      data += chunk;
+    });
 
     return new Promise((resolve) => {
-      response.on('end', function () {
-        const $ = cheerio.load(data)
-        const upcomingContests = []
+      response.on("end", function () {
+        const $ = cheerio.load(data);
+        const upcomingContests = [];
 
-        $('#contest-table-upcoming tbody tr').each((index, element) => {
-          const contestInfo = {}
+        $("#contest-table-upcoming tbody tr").each((index, element) => {
+          const contestInfo = {};
 
-          const startTimeElement = $(element).find('.text-center a')
-          const startTimeLink = startTimeElement.attr('href')
-          const contestURL = $(element).find('td:nth-of-type(2) a').attr('href')
+          const startTimeElement = $(element).find(".text-center a");
+          const startTimeLink = startTimeElement.attr("href");
+          const contestURL = $(element)
+            .find("td:nth-of-type(2) a")
+            .attr("href");
           // const idkk = idk.attr('href');
-          const parts = contestURL.split('/')
-          const lastPart = parts[parts.length - 1]
+          const parts = contestURL.split("/");
+          const lastPart = parts[parts.length - 1];
           // console.log(lastPart);
-          const isoMatch = startTimeLink.match(/iso=([^&]+)/)
+          const isoMatch = startTimeLink.match(/iso=([^&]+)/);
           if (isoMatch) {
-            const iso = isoMatch[1]
+            const iso = isoMatch[1];
             // console.log(iso);
             // const date = parseISO(iso);
             // const unixTimestamp = !isNaN(getTime(date)) ? getTime(date) / 1000 : 'Invalid ISO';
-            const year = parseInt(iso.substring(0, 4))
-            const month = parseInt(iso.substring(4, 6)) - 1 // Months are zero-indexed in JavaScript
-            const day = parseInt(iso.substring(6, 8))
-            const hour = parseInt(iso.substring(9, 11))
-            const minute = parseInt(iso.substring(11, 13))
+            const year = parseInt(iso.substring(0, 4));
+            const month = parseInt(iso.substring(4, 6)) - 1; // Months are zero-indexed in JavaScript
+            const day = parseInt(iso.substring(6, 8));
+            const hour = parseInt(iso.substring(9, 11));
+            const minute = parseInt(iso.substring(11, 13));
 
             // Create a new Date object
-            const date = new Date(year, month, day, hour, minute)
-            const unixTimestamp = date.getTime() / 1000 - 9 * 60 * 60 //! issue for AtCoder timezone
+            const date = new Date(year, month, day, hour, minute);
+            const unixTimestamp = date.getTime() / 1000 - 9 * 60 * 60; //! issue for AtCoder timezone
             // console.log(unixTimestamp);
             // console.log(unixTimestamp);
             // console.log(unixTimestamps);
-            contestInfo.startTimeUnix = unixTimestamp
+            contestInfo.startTimeUnix = unixTimestamp;
           } else {
-            contestInfo.startTimeUnix = 'Invalid ISO'
+            contestInfo.startTimeUnix = "Invalid ISO";
           }
 
           contestInfo.name = $(element)
-            .find('td:nth-of-type(2) a')
+            .find("td:nth-of-type(2) a")
             .text()
-            .trim()
+            .trim();
           // const numberMatch = contestInfo.name.match(/(\d{3})\D*$/);
           // const contestNumber = numberMatch ? numberMatch[1] : 'N/A';
 
-          contestInfo.host = 'AtCoder'
-          contestInfo.vanity = `${lastPart}`
-          contestInfo.url = `https://atcoder.jp/contests/${lastPart}`
+          contestInfo.host = "AtCoder";
+          contestInfo.vanity = `${lastPart}`;
+          contestInfo.url = `https://atcoder.jp/contests/${lastPart}`;
 
           const durationText = $(element)
-            .find('td:nth-of-type(3)')
+            .find("td:nth-of-type(3)")
             .text()
-            .trim()
-          const [hours, minutes] = durationText.split(':').map(Number)
-          const totalMinutes = hours * 60 + minutes
+            .trim();
+          const [hours, minutes] = durationText.split(":").map(Number);
+          const totalMinutes = hours * 60 + minutes;
 
-          contestInfo.duration = totalMinutes
+          contestInfo.duration = totalMinutes;
 
-          upcomingContests.push(contestInfo)
-        })
+          upcomingContests.push(contestInfo);
+        });
 
-        resolve(upcomingContests)
-      })
-    })
-  })
+        resolve(upcomingContests);
+      });
+    });
+  });
 
-  return filteredContestsPromise
+  return filteredContestsPromise;
 }
 export default {
   atcoder_c,
-}
+};

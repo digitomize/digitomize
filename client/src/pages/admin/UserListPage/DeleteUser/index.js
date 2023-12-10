@@ -1,1 +1,1 @@
-export { default } from './DeleteUser'
+export { default } from "./DeleteUser";
