@@ -4,17 +4,15 @@ Welcome to the backend documentation for our open-source project. This document 
 
 ## Table of Contents
 
-- [Backend Documentation](#backend-documentation)
-  - [Table of Contents](#table-of-contents)
-  - [Folder Structure](#folder-structure)
-  - [Getting Started](#getting-started)
-    - [Installation](#installation)
-    - [Environment Variables](#environment-variables)
-      - [Example:](#example)
-  - [Creating a .env from the .example.env file template](#creating-a-env-from-the-exampleenv-file-template)
-  - [Firebase Credentials](#firebase-credentials)
-    - [Running the Server](#running-the-server)
-  - [API Routes](#api-routes)
+- [Folder Structure](#folder-structure)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Environment Variables](#environment-variables)
+    - [Example:](#example)
+- [Creating a .env from the .example.env file template](#creating-a-env-from-the-exampleenv-file-template)
+- [Firebase Credentials](#firebase-credentials)
+  - [Running the Server](#running-the-server)
+- [API Routes](#api-routes)
 
 ## Folder Structure
 

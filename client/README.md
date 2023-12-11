@@ -4,10 +4,8 @@ Welcome to the client-side documentation for Digitomize, an open-source platform
 
 ## Table of Contents
 
-- [Digitomize - Client](#digitomize---client)
-  - [Table of Contents](#table-of-contents)
-  - [Project Structure](#project-structure)
-  - [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Configuration](#configuration)
