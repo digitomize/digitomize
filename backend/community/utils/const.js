@@ -1,6 +1,6 @@
 const COMMUNITY_ROLE = {
-  ADMIN: "admin",
-  MEMBER: "member",
-};
+  ADMIN: 'admin',
+  MEMBER: 'member',
+}
 
-export { COMMUNITY_ROLE };
+export { COMMUNITY_ROLE }

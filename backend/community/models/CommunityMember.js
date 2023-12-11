@@ -1,16 +1,16 @@
-import mongoose from "mongoose";
-import { ROLE } from "../../core/const.js";
+import mongoose from 'mongoose'
+import { ROLE } from '../../core/const.js'
 
 //* Community Schema
 const communityMemberSchema = new mongoose.Schema(
   {
     communityId: {
       type: String,
-      required: [true, "Community Id is required."],
+      required: [true, 'Community Id is required.'],
     },
     uid: {
       type: String,
-      required: [true, "User Id is required."],
+      required: [true, 'User Id is required.'],
       lowercase: true,
     },
     role: {
@@ -18,13 +18,13 @@ const communityMemberSchema = new mongoose.Schema(
       default: ROLE.COMMUNITY_MEMBER,
     },
   },
-  { timestamps: true },
-);
+  { timestamps: true }
+)
 
 const CommunityMember = mongoose.model(
-  "CommunityMember",
+  'CommunityMember',
   communityMemberSchema,
-  "communityMember",
-);
+  'communityMember'
+)
 
-export default CommunityMember;
+export default CommunityMember

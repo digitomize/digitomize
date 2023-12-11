@@ -1,68 +1,68 @@
-import React, { useEffect, useState } from "react";
-import "/src/components/css/InstallPWAButton.css";
+import React, { useEffect, useState } from "react"
+import "/src/components/css/InstallPWAButton.css"
 
 function InstallPWAButton() {
-  const [showInstallPrompt, setShowInstallPrompt] = useState(false);
-  const [postponedPrompt, setPostponedPrompt] = useState(null);
+  const [showInstallPrompt, setShowInstallPrompt] = useState(false)
+  const [postponedPrompt, setPostponedPrompt] = useState(null)
 
   useEffect(() => {
     const hasUserDismissedPrompt = sessionStorage.getItem(
-      "user-dismissed-prompt",
-    );
-    const remindedLater = sessionStorage.getItem("remind-me-later");
+      "user-dismissed-prompt"
+    )
+    const remindedLater = sessionStorage.getItem("remind-me-later")
 
     if (hasUserDismissedPrompt || remindedLater) {
-      return;
+      return
     }
 
     const handleBeforeInstallPrompt = (e) => {
-      e.preventDefault();
-      setPostponedPrompt(e);
-      setShowInstallPrompt(true);
-    };
+      e.preventDefault()
+      setPostponedPrompt(e)
+      setShowInstallPrompt(true)
+    }
 
-    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt)
 
     return () => {
       window.removeEventListener(
         "beforeinstallprompt",
-        handleBeforeInstallPrompt,
-      );
-    };
-  }, []);
+        handleBeforeInstallPrompt
+      )
+    }
+  }, [])
 
   const onInstallClick = () => {
     if (postponedPrompt) {
-      setShowInstallPrompt(false);
-      postponedPrompt.prompt();
+      setShowInstallPrompt(false)
+      postponedPrompt.prompt()
 
       postponedPrompt.userChoice.then((choiceResult) => {
         if (choiceResult.outcome === "dismissed") {
-          sessionStorage.setItem("user-dismissed-prompt", "true");
+          sessionStorage.setItem("user-dismissed-prompt", "true")
         }
-        setPostponedPrompt(null);
-      });
+        setPostponedPrompt(null)
+      })
     }
-  };
+  }
 
   const onRemindLaterClick = () => {
-    setShowInstallPrompt(false);
-    sessionStorage.setItem("remind-me-later", "true");
-  };
+    setShowInstallPrompt(false)
+    sessionStorage.setItem("remind-me-later", "true")
+  }
 
   if (!showInstallPrompt) {
-    return null;
+    return null
   } else {
     return (
-      <div className="install-prompt">
+      <div className='install-prompt'>
         <p>Install our app for a better experience!</p>
-        <div className="installPromptButtonsDiv">
+        <div className='installPromptButtonsDiv'>
           <button onClick={onInstallClick}>Install</button>
           <button onClick={onRemindLaterClick}>Remind me later</button>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default InstallPWAButton;
+export default InstallPWAButton

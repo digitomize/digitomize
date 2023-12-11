@@ -5,4 +5,4 @@ export const ROLE = {
   COMMUNITY_ADMIN: 3,
   CONTRIBUTOR: 4,
   ADMIN: 5,
-};
+}

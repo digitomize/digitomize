@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react"
 
 const SheetDetail = () => {
-  return (
-    <main className=''>
-
-    </main>
-  )
+  return <main className=''></main>
 }
 
 export default SheetDetail
