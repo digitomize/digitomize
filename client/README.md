@@ -6,12 +6,14 @@ Welcome to the client-side documentation for Digitomize, an open-source platform
 
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Configuration](#configuration)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+  - [Creating a .env from the .example.env file template](#creating-a-env-from-the-exampleenv-file-template)
+      - [Creating New firebase project and setting up .env variables](#creating-new-firebase-project-and-setting-up-env-variables)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Project Structure
 
@@ -74,8 +76,13 @@ VITE_REACT_APP_MESSAGING_SENDER_ID=
 VITE_REACT_APP_APP_ID=
 VITE_REACT_APP_MEASUREMENT_ID=
 ```
-
 _Fill the empty fields by creating a demo firebase project._
+
+## Creating a .env from the .example.env file template
+
+- Create a new .env file in the client directory
+- Copy the .example.env in the the client directory and paste it's contents into your created .env file
+- Fill in the empty fields with the values from your firebase project (see below for instructions on how to create a firebase project)
 
 #### Creating New firebase project and setting up .env variables
 
