@@ -57,34 +57,35 @@ USERS=true
 NODE_ENV=development
 
 # Firebase Configuration
-FIREBASE_CREDENTIALS= # you need to add JSON for this 
+FIREBASE_CREDENTIALS= # you need to add JSON for this
 ```
 
 ## Firebase Credentials
 
-To get credentials you should first have a firebase project. If you don't know how to make one please check [Frontend Documentation](/client/README.md). 
+To get credentials you should first have a firebase project. If you don't know how to make one please check [Frontend Documentation](/client/README.md).
 
-* Select your project.
-* Go to "Project Settings" by clicking on the gear icon next to "Project Overview" in the top-left corner.
-* Navigate to the "Service accounts" tab.
-* If you haven't created a service account yet, click on "Generate new private key."
-* This will generate a new service account key and automatically download it as a JSON file (`serviceAccountKey.json`). it will look something like this
+- Select your project.
+- Go to "Project Settings" by clicking on the gear icon next to "Project Overview" in the top-left corner.
+- Navigate to the "Service accounts" tab.
+- If you haven't created a service account yet, click on "Generate new private key."
+- This will generate a new service account key and automatically download it as a JSON file (`serviceAccountKey.json`). it will look something like this
 
   ```json
   {
-  "type": "service_account",
-  "project_id": "your-project-id",
-  "private_key_id": "your-private-key-id",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nYourPrivateKey\n-----END PRIVATE KEY-----\n",
-  "client_email": "your-service-account-email@your-project-id.iam.gserviceaccount.com",
-  "client_id": "your-client-id",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-service-account-email%40your-project-id.iam.gserviceaccount.com"
+    "type": "service_account",
+    "project_id": "your-project-id",
+    "private_key_id": "your-private-key-id",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nYourPrivateKey\n-----END PRIVATE KEY-----\n",
+    "client_email": "your-service-account-email@your-project-id.iam.gserviceaccount.com",
+    "client_id": "your-client-id",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-service-account-email%40your-project-id.iam.gserviceaccount.com"
   }
   ```
-* copy this entire thing and set it as the value of FIREBASE_CREDENTIALS in your .env file. (Make sure the entire json is placed on a single line)
+
+- copy this entire thing and set it as the value of FIREBASE_CREDENTIALS in your .env file. (Make sure the entire json is placed on a single line)
 
 ### Running the Server
 

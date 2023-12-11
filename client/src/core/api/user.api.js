@@ -3,7 +3,6 @@ import { isLoggedIn } from "../../../api";
 import { auth } from "../../../firebase";
 import { BACKEND_URL } from "../utils/const";
 
-
 export const getUserData = async () => {
   const loggedIn = await isLoggedIn();
 
@@ -116,9 +115,9 @@ export const deleteUser = async (body) => {
       try {
         return axios.delete(`${BACKEND_URL}/admin/user`, {
           headers: {
-            Authorization: `Bearer ${accessToken}`
+            Authorization: `Bearer ${accessToken}`,
           },
-          data: body
+          data: body,
         });
 
         // return axios.delete(`${BACKEND_URL}/admin/user`, body, {

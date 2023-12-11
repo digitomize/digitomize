@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { logo } from "./AllAssets";
+import { logo } from "../AllAssets";
 import { signOut } from "firebase/auth";
-import { auth } from "../../firebase";
-
+import { auth } from "../../../firebase";
 
 function Navbar() {
-
   const [isMenuActive, setActive] = useState(false);
 
   const handleSignout = async () => {
@@ -62,10 +60,11 @@ function Navbar() {
         </div>
 
         <div
-          className={`${isMenuActive
-            ? "bg-black h-full flex justify-center inset-x-0 inset-y-0 z-50 fixed flex-col items-center"
-            : "hidden"
-            } md:flex`}
+          className={`${
+            isMenuActive
+              ? "bg-black h-full flex justify-center inset-x-0 inset-y-0 z-50 fixed flex-col items-center"
+              : "hidden"
+          } md:flex`}
         >
           {navLinks.map((link, index) => (
             <Link to={link.path} key={index}>
@@ -81,8 +80,9 @@ function Navbar() {
 
         <div
           onClick={() => toggleActive()}
-          className={`${isMenuActive ? "mx-6 my-2 block fixed right-5 z-50" : "hidden"
-            }`}
+          className={`${
+            isMenuActive ? "mx-6 my-2 block fixed right-5 z-50" : "hidden"
+          }`}
         >
           close
         </div>

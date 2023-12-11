@@ -19,8 +19,16 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
             path: "/discord",
         },
         {
+            title: "About",
+            path: "/about",
+        },
+        {
             title: "Leaderboard",
-            path: "/u/leaderboard"
+            path: "/u/leaderboard",
+        },
+        {
+            title: "DSA Sheets",
+            path: "/sheets",
         }
     ]
 

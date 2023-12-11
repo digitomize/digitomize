@@ -45,6 +45,10 @@ export default function NewNavbar({ position }) {
             title: "Leaderboard",
             path: "/u/leaderboard",
         },
+        {
+            title: "DSA Sheets",
+            path: "/sheets",
+        }
     ]
 
     const navLinksDashboard = [
