@@ -43,6 +43,7 @@
 - **User Profiles:** Create your developer portfolio by providing user handles for different coding platforms. The platform dynamically fetches and displays your updated ratings, achievements, and coding history.
 
 ## Getting Started
+**Hit the star :star:**
 
 ### Tech Stack
 
