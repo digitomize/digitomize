@@ -17,14 +17,12 @@ async function generateSignature(req, res) {
       options,
       process.env.CLOUDINARY_API_SECRET,
     );
-    res
-      .status(200)
-      .json({
-        message: "Signature generated successfully",
-        signature,
-        timestamp,
-        public_id,
-      });
+    res.status(200).json({
+      message: "Signature generated successfully",
+      signature,
+      timestamp,
+      public_id,
+    });
   } catch (err) {
     console.log("Failed to generate signature");
     console.log(err);

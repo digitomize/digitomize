@@ -46,7 +46,11 @@ export default function SectionOne() {
                 {/* map */}
                 <div className="text-center flex md:flex-col items-center md:justify-center  md:text-center">
                   <div className="md:flex-shrink-0 flex justify-center">
-                    <a href="https://www.gitbook.com/" target="_blank" rel="noreferrer">
+                    <a
+                      href="https://www.gitbook.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <div className="flex items-center justify-center ">
                         <img
                           src={gitbookSvg}
@@ -76,7 +80,11 @@ export default function SectionOne() {
                 </div>
                 <div className="text-center md:flex md:items-center md:justify-center  md:text-center">
                   <div className="md:flex-shrink-0 flex justify-center">
-                    <a href="https://msme.gov.in/" target="_blank" rel="noreferrer">
+                    <a
+                      href="https://msme.gov.in/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       <div className="flex items-center justify-center ">
                         <img src={MSMESvg} className=" w-2/4 max-w-md" alt="" />
                       </div>

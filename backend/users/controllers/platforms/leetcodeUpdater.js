@@ -41,7 +41,7 @@ async function leetcode_u(handle) {
           const userInfo = JSON.parse(data);
           console.log("OKKKKKKKKK", userInfo);
           if (userInfo.data?.userContestRanking == undefined) {
-            userInfo.data = userContestRanking;
+            // userInfo.data = userContestRanking;
             userInfo.data.userContestRanking = {
               attendedContestsCount: 0,
               rating: 0,

@@ -91,12 +91,10 @@ const handleUpdateUserProfile = async (req, res) => {
 
     // Check if updatedData is empty
     if (Object.keys(updatedData).length === 0) {
-      return res
-        .status(400)
-        .json({
-          message: "No data provided for update",
-          error: "No data provided for update",
-        });
+      return res.status(400).json({
+        message: "No data provided for update",
+        error: "No data provided for update",
+      });
     }
 
     // Get the existing user profile
@@ -115,12 +113,10 @@ const handleUpdateUserProfile = async (req, res) => {
       updateIndex !== -1 &&
       user.updatesToday[updateIndex].count >= maxUpdatesPerDay
     ) {
-      return res
-        .status(400)
-        .json({
-          message: "Maximum number of updates reached for today",
-          error: "Maximum number of updates reached for today",
-        });
+      return res.status(400).json({
+        message: "Maximum number of updates reached for today",
+        error: "Maximum number of updates reached for today",
+      });
     }
 
     try {
@@ -173,12 +169,10 @@ const handleUpdateUserProfile = async (req, res) => {
     }
   } catch (error) {
     console.error("Error:", error);
-    res
-      .status(500)
-      .json({
-        message: "Internal Server Error",
-        error: "Internal Server Error",
-      });
+    res.status(500).json({
+      message: "Internal Server Error",
+      error: "Internal Server Error",
+    });
   }
 };
 

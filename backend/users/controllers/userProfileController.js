@@ -130,12 +130,10 @@ const handleUserProfilePreview = async (req, res) => {
     res.status(200).json(publicUserData);
   } catch (error) {
     console.error("Error:", error);
-    res
-      .status(500)
-      .json({
-        message: "Error fetching user profile",
-        error: "Error fetching user profile",
-      });
+    res.status(500).json({
+      message: "Error fetching user profile",
+      error: "Error fetching user profile",
+    });
   }
 };
 

@@ -168,247 +168,247 @@ function IndividualCard() {
       )}
       {isMobile ? (
         <div className="py-8 ">
-            <div className="card_Navigation mx-4">
-              <div className="card_nav_path">
-                <Link to="/">
-                  <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                  Home
-                </Link>
-              </div>
-              <h3>&gt;</h3>
-              <div className="card_nav_path">
-                <Link to="/contests">
-                  <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                  Contests
-                </Link>
-              </div>
-              <h3>&gt;</h3>
-              <div className="card_nav_path">
-                <h3>
-                  <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                  {name}
-                </h3>
-              </div>
+          <div className="card_Navigation mx-4">
+            <div className="card_nav_path">
+              <Link to="/">
+                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                Home
+              </Link>
             </div>
-            <div
-              className="ic-mv"
-              key={vanity}
-              style={{ backgroundColor: colorTheme }}
-            >
-              <div className="ic-mv-child">
-                <div
-                  className="mv-date"
+            <h3>&gt;</h3>
+            <div className="card_nav_path">
+              <Link to="/contests">
+                <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                Contests
+              </Link>
+            </div>
+            <h3>&gt;</h3>
+            <div className="card_nav_path">
+              <h3>
+                <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                {name}
+              </h3>
+            </div>
+          </div>
+          <div
+            className="ic-mv"
+            key={vanity}
+            style={{ backgroundColor: colorTheme }}
+          >
+            <div className="ic-mv-child">
+              <div
+                className="mv-date"
+                style={{
+                  color: "black",
+                  fontWeight: "bold",
+                  backgroundColor: colorTheme,
+                }}
+              >
+                {startDate.getDate()} {monthName}' {startDate.getFullYear()}
+              </div>
+              <div className="ic-mv-child-first">
+                <img
+                  src={hostToSVGMap[host]}
+                  alt={host}
                   style={{
-                    color: "black",
-                    fontWeight: "bold",
-                    backgroundColor: colorTheme,
+                    maxHeight: "6.25rem",
+                    maxWidth: "6.25rem",
+                    margin: "auto",
+                    marginBottom: "0px",
                   }}
+                />
+                <div className="mv-siteName">{host}</div>
+              </div>
+              <div className="ic-mv-child-second">
+                <h2
+                  className="mv-contest-name"
+                  id="contest-title"
+                  style={{ margin: "auto", width: "28.125rem" }}
                 >
-                  {startDate.getDate()} {monthName}' {startDate.getFullYear()}
-                </div>
-                <div className="ic-mv-child-first">
-                  <img
-                    src={hostToSVGMap[host]}
-                    alt={host}
+                  {name}
+                </h2>
+              </div>
+              <div className="ic-mv-child-third">
+                <div className="ic-mv-child-third-first">
+                  <div
+                    className="mv-start-time-div"
                     style={{
-                      maxHeight: "6.25rem",
-                      maxWidth: "6.25rem",
-                      margin: "auto",
-                      marginBottom: "0px",
+                      backgroundColor: colorTheme,
+                      fontSize: "3.8vw",
+                      color: "black",
+                      fontWeight: "bold",
+                      padding: "1.5vw",
+                      display: "inline-block",
                     }}
-                  />
-                  <div className="mv-siteName">{host}</div>
-                </div>
-                <div className="ic-mv-child-second">
-                  <h2
-                    className="mv-contest-name"
-                    id="contest-title"
-                    style={{ margin: "auto", width: "28.125rem" }}
                   >
-                    {name}
-                  </h2>
-                </div>
-                <div className="ic-mv-child-third">
-                  <div className="ic-mv-child-third-first">
-                    <div
-                      className="mv-start-time-div"
-                      style={{
-                        backgroundColor: colorTheme,
-                        fontSize: "3.8vw",
-                        color: "black",
-                        fontWeight: "bold",
-                        padding: "1.5vw",
-                        display: "inline-block",
-                      }}
-                    >
-                      {startTimeIST}
-                    </div>
-                  </div>
-                  <div className="ic-mv-child-third-second">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="6"
-                      height="6"
-                      fill="currentColor"
-                      className="bi bi-square-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      {" "}
-                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="6"
-                      height="6"
-                      fill="currentColor"
-                      className="bi bi-square-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      {" "}
-                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="6"
-                      height="6"
-                      fill="currentColor"
-                      className="bi bi-square-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      {" "}
-                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="6"
-                      height="6"
-                      fill="currentColor"
-                      className="bi bi-square-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      {" "}
-                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                    </svg>
-                  </div>
-                  <div className="ic-mv-child-third-third">
-                    <div className="ic-mv-child-third-third-first">
-                      <div className="ic-mv-child-third-third-first-sub"></div>
-                    </div>
-                    <div
-                      className="ic-mv-child-third-third-second"
-                      style={{ fontSize: "3.8vw" }}
-                    >
-                      {durationFormatted}
-                    </div>
-                    <div className="ic-mv-child-third-third-third">
-                      <div className="ic-mv-child-third-third-third-sub"></div>
-                    </div>
-                  </div>
-                  <div className="ic-mv-child-third-fourth">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="6"
-                      height="6"
-                      fill="currentColor"
-                      className="bi bi-square-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      {" "}
-                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="6"
-                      height="6"
-                      fill="currentColor"
-                      className="bi bi-square-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      {" "}
-                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="6"
-                      height="6"
-                      fill="currentColor"
-                      className="bi bi-square-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      {" "}
-                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="6"
-                      height="6"
-                      fill="currentColor"
-                      className="bi bi-square-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      {" "}
-                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                    </svg>
-                  </div>
-                  <div className="ic-mv-child-third-fifth">
-                    <div
-                      className="mv-end-time-div"
-                      style={{
-                        backgroundColor: colorTheme,
-                        fontSize: "3.8vw",
-                        color: "black",
-                        fontWeight: "bold",
-                        padding: "1.5vw",
-                        display: "inline-block",
-                      }}
-                    >
-                      {endTimeIST}
-                    </div>
+                    {startTimeIST}
                   </div>
                 </div>
-                <div className="ic-mv-child-fourth">
+                <div className="ic-mv-child-third-second">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    style={{ display: "inline-block" }}
-                    width="20"
-                    height="20"
+                    width="6"
+                    height="6"
                     fill="currentColor"
-                    className="bi bi-alarm"
+                    className="bi bi-square-fill"
                     viewBox="0 0 16 16"
                   >
-                    <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z" />
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z" />
+                    {" "}
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
                   </svg>
-                  {remaningTime}
-                </div>
-                <div className="ic-mv-child-fifth">
-                  <a
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mv-btn-div"
-                    style={{ boxShadow: `0.5rem 0.5rem ${colorTheme}` }}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="6"
+                    height="6"
+                    fill="currentColor"
+                    className="bi bi-square-fill"
+                    viewBox="0 0 16 16"
                   >
-                    <button
-                      style={{
-                        color: "black",
-                        fontWeight: "bold",
-                        fontSize: "1.25rem",
-                        marginTop: "1.063rem",
-                      }}
-                    >
-                      participate
-                    </button>
-                  </a>
-                  <CopyToClipboard
-                    msg="share"
-                    className="mv-btn-div share-button-div share-button-container mv-btn-share-div"
-                    gradient={"mv-btn-div"}
-                  />
+                    {" "}
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="6"
+                    height="6"
+                    fill="currentColor"
+                    className="bi bi-square-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    {" "}
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="6"
+                    height="6"
+                    fill="currentColor"
+                    className="bi bi-square-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    {" "}
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
+                  </svg>
                 </div>
+                <div className="ic-mv-child-third-third">
+                  <div className="ic-mv-child-third-third-first">
+                    <div className="ic-mv-child-third-third-first-sub"></div>
+                  </div>
+                  <div
+                    className="ic-mv-child-third-third-second"
+                    style={{ fontSize: "3.8vw" }}
+                  >
+                    {durationFormatted}
+                  </div>
+                  <div className="ic-mv-child-third-third-third">
+                    <div className="ic-mv-child-third-third-third-sub"></div>
+                  </div>
+                </div>
+                <div className="ic-mv-child-third-fourth">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="6"
+                    height="6"
+                    fill="currentColor"
+                    className="bi bi-square-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    {" "}
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="6"
+                    height="6"
+                    fill="currentColor"
+                    className="bi bi-square-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    {" "}
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="6"
+                    height="6"
+                    fill="currentColor"
+                    className="bi bi-square-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    {" "}
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="6"
+                    height="6"
+                    fill="currentColor"
+                    className="bi bi-square-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    {" "}
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
+                  </svg>
+                </div>
+                <div className="ic-mv-child-third-fifth">
+                  <div
+                    className="mv-end-time-div"
+                    style={{
+                      backgroundColor: colorTheme,
+                      fontSize: "3.8vw",
+                      color: "black",
+                      fontWeight: "bold",
+                      padding: "1.5vw",
+                      display: "inline-block",
+                    }}
+                  >
+                    {endTimeIST}
+                  </div>
+                </div>
+              </div>
+              <div className="ic-mv-child-fourth">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ display: "inline-block" }}
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  className="bi bi-alarm"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z" />
+                  <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z" />
+                </svg>
+                {remaningTime}
+              </div>
+              <div className="ic-mv-child-fifth">
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mv-btn-div"
+                  style={{ boxShadow: `0.5rem 0.5rem ${colorTheme}` }}
+                >
+                  <button
+                    style={{
+                      color: "black",
+                      fontWeight: "bold",
+                      fontSize: "1.25rem",
+                      marginTop: "1.063rem",
+                    }}
+                  >
+                    participate
+                  </button>
+                </a>
+                <CopyToClipboard
+                  msg="share"
+                  className="mv-btn-div share-button-div share-button-container mv-btn-share-div"
+                  gradient={"mv-btn-div"}
+                />
               </div>
             </div>
           </div>
+        </div>
       ) : (
         <>
           <div className="card_Navigation flex justify-center mt-8 text-2xl">

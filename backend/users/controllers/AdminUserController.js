@@ -55,12 +55,10 @@ const createUserFirebase = async (req, res, next) => {
     })
     .catch((error) => {
       console.log("Error creating new user:", error);
-      return res
-        .status(404)
-        .json({
-          error: error,
-          message: `code:${error.errorInfo.code}, \n message:${error.errorInfo.message}`,
-        });
+      return res.status(404).json({
+        error: error,
+        message: `code:${error.errorInfo.code}, \n message:${error.errorInfo.message}`,
+      });
     });
 };
 
@@ -141,12 +139,10 @@ const deleteUserFirebase = async (req, res, next) => {
     })
     .catch((error) => {
       console.log("Error deleting user:", error);
-      return res
-        .status(404)
-        .json({
-          error: error,
-          message: `code:${error.errorInfo.code}, \n message:${error.errorInfo.message}`,
-        });
+      return res.status(404).json({
+        error: error,
+        message: `code:${error.errorInfo.code}, \n message:${error.errorInfo.message}`,
+      });
     });
 };
 

@@ -15,13 +15,11 @@ const addUID = async (request, response, next) => {
     request?.authorization;
   const authToken = authHeader && authHeader.split(" ")[1];
   if (!authToken) {
-    return response
-      .status(401)
-      .json({
-        message: "User Not Authorised",
-        error:
-          "Authentication required. Please include an 'Authorization' header with a valid Bearer token.",
-      }); // Redirect to the login page
+    return response.status(401).json({
+      message: "User Not Authorised",
+      error:
+        "Authentication required. Please include an 'Authorization' header with a valid Bearer token.",
+    }); // Redirect to the login page
   }
 
   try {

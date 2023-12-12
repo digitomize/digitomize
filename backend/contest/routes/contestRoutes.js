@@ -54,12 +54,10 @@ router.get("/", async (req, res) => {
     }
   } catch (err) {
     console.log("Error:", err);
-    res
-      .status(500)
-      .json({
-        error: "Internal server error",
-        message: "Internal server error",
-      });
+    res.status(500).json({
+      error: "Internal server error",
+      message: "Internal server error",
+    });
   }
 });
 
