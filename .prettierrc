@@ -1,14 +1,14 @@
 {
-  "semi": false,
-  "singleQuote": true,
+  "semi": true,
+  "DoubleQuote": true,
   "tabWidth": 2,
   "useTabs": false,
   "printWidth": 80,
-  "jsxSingleQuote": true,
+  "jsxDoubleQuote": true,
   "jsxBracketSameLine": false,
   "arrowParens": "always",
   "bracketSpacing": true,
-  "trailingComma": "es5",
+  "trailingComma": "all",
   "overrides": [
     {
       "files": "*.css",
