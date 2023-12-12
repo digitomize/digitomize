@@ -19,7 +19,7 @@ export default function SectionOne() {
             needs
           </span>{" "}
         </h1>
-        <p className="text-paragraph text-xl mt-6">
+        <p className="text-paragraph text-md md:text-xl mt-6">
           Elevate your coding and development journey with digitomize
         </p>
       </div>
