@@ -3,7 +3,7 @@ import Microsoft from "/src/assets/ms_startups_dark.png";
 
 export default function Footer() {
   return (
-    <footer className="pt-12 font-['Geist'] bg-footer footer p-10 text-base-content md:items-center max-md:grid-flow-col ">
+    <footer className="pt-12 font-['Geist'] bg-footer footer p-10 text-base-content md:items-center flex flex-col md:flex-row justify-center  ">
       <div className="footer justify-around">
         <aside className="flex flex-row">
           <img
@@ -28,25 +28,24 @@ export default function Footer() {
             />
           </div>
         </aside>
-        <nav className="flex justify-center items-center flex-col">
-          <header className="text-white font-medium text-2xl p-1">
-            Social
-          </header>
+      </div>
+      <div className="footer max-md:place-items-end justify-around md:self-start self-end">
+          <nav className="flex justify-center items-center flex-col">
+          <header className="text-white font-medium text-2xl">Social</header>
           <a
             href="https://www.linkedin.com/company/digitomize"
-            className="link link-hover hover:no-underline hover:text-custom-blue hover:scale-110 transition-all text-lg"
+            className="link hover:no-underline link-hover hover:text-custom-blue hover:scale-110 transition-all text-lg"
           >
             linkedin
           </a>
           <a
             href="/discord"
-            className="link link-hover hover:no-underline hover:text-custom-blue hover:scale-110 transition-all text-lg"
+            className="link hover:no-underline link-hover hover:text-custom-blue hover:scale-110 transition-all text-lg"
           >
             discord
           </a>
         </nav>
-      </div>
-      <div className="footer max-md:place-items-end justify-around md:self-start self-end">
+
         <nav className="flex justify-center items-center flex-col">
           <header className="text-white font-medium text-2xl">Company</header>
           <a

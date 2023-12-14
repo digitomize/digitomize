@@ -86,7 +86,7 @@ export default function SectionTwo() {
   };
 
   return (
-    <div className=" flex justify-center mt-96 p-4 mb-56 min-xs:flex-col">
+    <div className=" flex justify-center p-4 h-screen min-xs:flex-col overflow-auto m-2">
       <div className=" dynamicprofile rounded-lg flex-col my-auto py-8 px-10 max-w-7xl">
         <div className="left text-center">
           <div className="sm:text-left max-sm:text-center">
@@ -101,14 +101,14 @@ export default function SectionTwo() {
             </p>
           </div>
         </div>
-        <div className="max-lg:hidden flex flex-row justify-center gap-40 mt-10">
+        <div className="max-lg:hidden flex flex-col md:flex-row justify-center gap-20 md:gap-40 mt-10">
           <div className="mockup-browser bg-base-300 duration-500">
             <div className="mockup-browser-toolbar">
               <div style={{ marginLeft: "0px" }} className="ml-0 input">
                 https://digitomize.com/dashboard
               </div>
             </div>
-            <div className="flex justify-start px-4 pt-4">
+            <div className="flex-1 justify-start px-4 pt-4">
               <div className="form-control w-3/4 max-w-md">
                 <Avatar
                   src="/src/assets/hacker.png"
@@ -234,9 +234,9 @@ export default function SectionTwo() {
           </div>
           <div>
             <div>
-              <div className="w-fit">
-                <div className="justify-start max-w-[300px] artboard artboard-demo">
-                  <h2 className="-ml-40 pt-4 text-2xl">Preview</h2>
+              <div>
+                <div className="justify-center mx-auto max-w-lg artboard artboard-demo">
+                  <h2 className="pt-4 text-2xl">Preview</h2>
                   <div className="my-auto py-10 text-center flex flex-col justify-center items-center">
                     <Avatar
                       draggable="false"
