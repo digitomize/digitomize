@@ -1,4 +1,4 @@
-import User from "../../users/models/User.js";
+import User from '../../users/models/User.js';
 
 export const userAddCommunity = async (communityId, userId) => {
   try {
@@ -9,13 +9,13 @@ export const userAddCommunity = async (communityId, userId) => {
       { uid: userId },
       {
         $set: {
-          community: communityList,
+          community: communityList
         },
-        $currentDate: { lastUpdated: true },
-      },
+        $currentDate: { lastUpdated: true }
+      }
     );
   } catch (error) {
-    throw new Error("Something Went Wrong!");
+    throw new Error('Something Went Wrong!');
   }
 };
 
@@ -23,18 +23,18 @@ export const userRemoveCommunity = async (communityId, userId) => {
   try {
     const user = await User.findOne({ uid: userId });
     const communityList = user.community.filter(
-      (item) => item.communityId !== communityId,
+      (item) => item.communityId !== communityId
     );
     await User.updateOne(
       { uid: userId },
       {
         $set: {
-          community: communityList,
+          community: communityList
         },
-        $currentDate: { lastUpdated: true },
-      },
+        $currentDate: { lastUpdated: true }
+      }
     );
   } catch (error) {
-    throw new Error("Something Went Wrong!");
+    throw new Error('Something Went Wrong!');
   }
 };
