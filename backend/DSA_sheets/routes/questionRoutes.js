@@ -1,16 +1,16 @@
-import express from "express";
+import express from 'express'
 import {
   createQuestions,
   getQuestionByQId,
-  deleteQuestionByQId,
-} from "../controllers/questionController.js";
+  deleteQuestionByQId
+} from '../controllers/questionController.js'
 
-const router = express.Router();
+const router = express.Router()
 
 router
-  .route("/")
+  .route('/')
   .post(createQuestions)
   .get(getQuestionByQId)
-  .delete(deleteQuestionByQId);
+  .delete(deleteQuestionByQId)
 
-export default router;
+export default router

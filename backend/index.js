@@ -1,63 +1,63 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import mongoose from "mongoose";
-import dataSyncer from "./contest/controllers/DataSyncController.js";
-import contestSyncer from "./contest/controllers/contestController.js";
-import contestRoutes from "./contest/routes/contestRoutes.js";
-import communityRoutes from "./community/routes/communityRoutes.js";
-import userRoutes from "./users/routes/userRoutes.js";
-import adminRoutes from "./users/routes/adminRoutes.js";
-import sheetRoutes from "./DSA_sheets/routes/sheetRoutes.js";
-import questionRoutes from "./DSA_sheets/routes/questionRoutes.js";
-import bodyParser from "body-parser";
-import fetchContestsData from "./fetchContests.js";
-import admin from "firebase-admin";
-import { routeLogging } from "./users/middlewares/authMiddleware.js";
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+import dataSyncer from './contest/controllers/DataSyncController.js';
+import contestSyncer from './contest/controllers/contestController.js';
+import contestRoutes from './contest/routes/contestRoutes.js';
+import communityRoutes from './community/routes/communityRoutes.js';
+import userRoutes from './users/routes/userRoutes.js';
+import adminRoutes from './users/routes/adminRoutes.js';
+import sheetRoutes from './DSA_sheets/routes/sheetRoutes.js';
+import questionRoutes from './DSA_sheets/routes/questionRoutes.js';
+import bodyParser from 'body-parser';
+import fetchContestsData from './fetchContests.js';
+import admin from 'firebase-admin';
+import { routeLogging } from './users/middlewares/authMiddleware.js';
 
 dotenv.config();
 const app = express();
 
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === 'production') {
   app.use(routeLogging);
 }
 
-//Handling uncaught exception
-process.on("uncaughtException", (err) => {
+// Handling uncaught exception
+process.on('uncaughtException', (err) => {
   console.log(`Error: ${err.message}`);
-  console.log("Shutting down due to uncaught exception");
+  console.log('Shutting down due to uncaught exception');
   process.exit(1);
 });
 
 console.log(process.env.TEST);
-async function main() {
+async function main () {
   try {
-    console.log("Pinging...");
+    console.log('Pinging...');
     const contestsData = await fetchContestsData();
-    console.log("Pong!");
+    console.log('Pong!');
   } catch (error) {
-    console.error("Error pinging the server:", error);
+    console.error('Error pinging the server:', error);
   }
 }
 
-async function setupUserServer() {
+async function setupUserServer () {
   // console.log(process.env.FIREBASE_CREDENTIALS);
-  console.log("ok");
+  console.log('ok');
   // Get the Firebase service account JSON from the environment variable
   const firebaseCredentials = JSON.parse(process.env.FIREBASE_CREDENTIALS);
   // console.log(firebaseCredentials);
 
   admin.initializeApp({
-    credential: admin.credential.cert(firebaseCredentials),
+    credential: admin.credential.cert(firebaseCredentials)
   });
   // Set up user routes
-  app.use("/user", userRoutes);
-  app.use("/admin", adminRoutes);
-  app.use("/sheets", sheetRoutes);
-  app.use("/questions", questionRoutes);
+  app.use('/user', userRoutes);
+  app.use('/admin', adminRoutes);
+  app.use('/sheets', sheetRoutes);
+  app.use('/questions', questionRoutes);
 }
 
-async function setupContestServer() {
+async function setupContestServer () {
   await dataSyncer.syncContests();
   setInterval(dataSyncer.syncContests, 90 * 60 * 1000);
 
@@ -70,111 +70,112 @@ async function setupContestServer() {
     async () => {
       try {
         await main();
-        console.log("<=======Sent GET request to AWAKE");
+        console.log('<=======Sent GET request to AWAKE');
       } catch (error) {
-        console.error("Error Pinging", error);
+        console.error('Error Pinging', error);
       }
     },
-    13 * 60 * 1000,
+    13 * 60 * 1000
   );
 
   // Set up contest routes
-  app.use("/contests", contestRoutes);
+  app.use('/contests', contestRoutes);
 }
 
-async function setupCommunityServer() {
-  app.use("/community", communityRoutes);
+async function setupCommunityServer () {
+  app.use('/community', communityRoutes);
 }
 
-async function startServersProduction() {
+async function startServersProduction () {
   try {
     app.use(cors());
     app.use(bodyParser.json());
 
     await mongoose.connect(process.env.MONGODB_URL);
-    console.log("MongoDB Connected.");
+    console.log('MongoDB Connected.');
 
     await setupUserServer();
     await setupContestServer();
 
-    //Handle unhandled routes
-    app.all("*", (req, res, next) => {
+    // Handle unhandled routes
+    app.all('*', (req, res, next) => {
       res.status(404).json({ error: `${req.originalUrl} route not found` });
     });
 
     const servers = [];
-    servers.push("User");
-    servers.push("Contest");
+    servers.push('User');
+    servers.push('Contest');
 
-    console.log("┌──────────────────────────────────┐");
+    console.log('┌──────────────────────────────────┐');
     if (servers.length > 0) {
       for (const server of servers) {
-        console.log("│ Server active:", server.padEnd(18) + "│");
+        console.log('│ Server active:', server.padEnd(18) + '│');
       }
-      console.log("├──────────────────────────────────┤");
+      console.log('├──────────────────────────────────┤');
     }
     const port = process.env.PORT || 3000;
     app.listen(port, () => {
-      console.log(`│ Server listening on port ${port}`.padEnd(35) + "│");
-      console.log("└──────────────────────────────────┘");
+      console.log(`│ Server listening on port ${port}`.padEnd(35) + '│');
+      console.log('└──────────────────────────────────┘');
     });
   } catch (err) {
-    console.log("Error starting servers:", err);
+    console.log('Error starting servers:', err);
   }
 }
-async function startServersDev() {
+
+async function startServersDev () {
   try {
     app.use(cors());
     app.use(bodyParser.json());
 
     await mongoose.connect(process.env.MONGODB_URL);
-    console.log("MongoDB Connected.");
+    console.log('MongoDB Connected.');
     const servers = [];
-    if (process.env.USERS === "true") {
+    if (process.env.USERS === 'true') {
       await setupUserServer();
-      servers.push("User");
+      servers.push('User');
       await setupCommunityServer();
-      servers.push("Community");
+      servers.push('Community');
     }
-    if (process.env.CONTESTS === "true") {
+    if (process.env.CONTESTS === 'true') {
       await setupContestServer();
-      servers.push("Contest");
+      servers.push('Contest');
     }
 
-    //Handle unhandled routes
-    app.all("*", (req, res, next) => {
+    // Handle unhandled routes
+    app.all('*', (req, res, next) => {
       res.status(404).json({ error: `${req.originalUrl} route not found` });
     });
 
-    console.log("┌──────────────────────────────────┐");
+    console.log('┌──────────────────────────────────┐');
     if (servers.length > 0) {
       for (const server of servers) {
-        console.log("│ Server active:", server.padEnd(18) + "│");
+        console.log('│ Server active:', server.padEnd(18) + '│');
       }
-      console.log("├──────────────────────────────────┤");
+      console.log('├──────────────────────────────────┤');
     }
     const port = process.env.PORT || 3000;
     app.listen(port, () => {
-      console.log(`│ Server listening on port ${port}`.padEnd(35) + "│");
-      console.log("└──────────────────────────────────┘");
+      console.log(`│ Server listening on port ${port}`.padEnd(35) + '│');
+      console.log('└──────────────────────────────────┘');
     });
   } catch (err) {
-    console.log("Error starting servers:", err);
+    console.log('Error starting servers:', err);
   }
 }
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === 'development') {
   startServersDev();
-} else if (process.env.NODE_ENV === "production") {
+} else if (process.env.NODE_ENV === 'production') {
   startServersProduction();
 } else {
-  console.log("Error: NODE_ENV not set.");
+  console.log('Error: NODE_ENV not set.');
 }
 
-//Handling unhandled server errors
-process.on("unhandledRejection", (err) => {
+// Handling unhandled server errors
+process.on('unhandledRejection', (err) => {
   console.log(`Error: ${err.message}`);
-  console.log("Shutting down the server due to Unhandled promise rejection");
+  console.log('Shutting down the server due to Unhandled promise rejection');
 
   server.close(() => {
     process.exit(1);
