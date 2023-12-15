@@ -100,9 +100,68 @@ export default function SectionTwo() {
               competition with friends in the coding community.
             </p>
           </div>
+          <div className="lg:hidden mx-auto card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-2">
+            <div className="">
+              <div className="mockup-browser border bg-base-300">
+                <div className="mockup-browser-toolbar">
+                  <div
+                    className="input text-custom-blue"
+                    style={{ width: "fit-content" }}
+                  >
+                    /u/profile
+                  </div>
+                </div>
+                <div className="flex flex-row px-4 py-4 bg-base-200">
+                  <div className="flex flex-col w-2/4">
+                    <Avatar
+                      src="/src/assets/hacker.png"
+                      className="bg-custom-blue mb-2 self-center"
+                      sx={{ padding: "6%", width: 40, height: 40 }}
+                    />
+                    <Skeleton
+                      variant="text"
+                      sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
+                    />
+                    <Skeleton
+                      variant="text"
+                      sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
+                    />
+                    <Skeleton
+                      variant="text"
+                      sx={{ fontSize: "0.8rem", bgcolor: "grey.600" }}
+                    />
+                  </div>
+                  <div className="flex flex-col w-2/4">
+                    <Skeleton
+                      variant="rounded"
+                      sx={{ bgcolor: "grey.600" }}
+                      width={"100%"}
+                      height={"60%"}
+                      className="mx-2"
+                    />
+                    <Skeleton
+                      variant="rounded"
+                      sx={{ bgcolor: "grey.600" }}
+                      width={"100%"}
+                      height={"70%"}
+                      className="mt-2 mx-2"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <Link to="/signup">
+            <button
+              data-theme="mytheme"
+              className="btn btn-outline text-custom-blue lowercase hover:bg-custom-blue hover:border-custom-blue mt-12 hover:animate-none hover:scale-110"
+            >
+              Create now
+            </button>
+          </Link>
         </div>
-        <div className="max-lg:hidden flex flex-col md:flex-row justify-center gap-20 md:gap-40 mt-10">
-          <div className="mockup-browser bg-base-300 duration-500">
+        <div className="max-lg:hidden w-[60%] right items-end flex-col relative min-h-[65vh]">
+          <div className="mockup-browser border bg-base-300 w-full absolute h-fit duration-500">
             <div className="mockup-browser-toolbar">
               <div style={{ marginLeft: "0px" }} className="ml-0 input">
                 https://digitomize.com/dashboard

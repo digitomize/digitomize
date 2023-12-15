@@ -1,5 +1,5 @@
 // sheetModel.js
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const sheetSchema = new mongoose.Schema({
   name: String,
@@ -8,6 +8,6 @@ const sheetSchema = new mongoose.Schema({
   questions: [String], // Array of question IDs
 });
 
-const SheetModel = mongoose.model('Sheet', sheetSchema);
+const SheetModel = mongoose.model("Sheet", sheetSchema);
 
 export default SheetModel;

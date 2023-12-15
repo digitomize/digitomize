@@ -1,5 +1,5 @@
 // questionModel.js
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const questionSchema = new mongoose.Schema({
   q_id: String,
@@ -8,6 +8,6 @@ const questionSchema = new mongoose.Schema({
   topics: [String],
 });
 
-const QuestionModel = mongoose.model('Question', questionSchema);
+const QuestionModel = mongoose.model("Question", questionSchema);
 
 export default QuestionModel;
