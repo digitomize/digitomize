@@ -9,6 +9,8 @@
         "sourceType": "module"
     },
     "rules": {
-        "camelcase":"off"
+        "camelcase":"off",
+        "quotes": ["error", "double"],
+        "semi": ["error", "always"]
     }
 }

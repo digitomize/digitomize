@@ -1,4 +1,4 @@
-import express from 'express'
+import express from "express";
 // import { addUID } from '../middlewares/authMiddleware.js'
 import {
   getUserList, updateUser,
@@ -6,22 +6,22 @@ import {
   createUserDB,
   deleteUserFirebase,
   deleteUserDB
-} from '../controllers/AdminUserController.js'
+} from "../controllers/AdminUserController.js";
 // import { updateUser } from "../controllers/userController.js";
-import { addUID, dgmAdminCheck } from '../middlewares/authMiddleware.js'
+import { addUID, dgmAdminCheck } from "../middlewares/authMiddleware.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/user-list', [addUID, dgmAdminCheck], getUserList)
-router.put('/user', [addUID, dgmAdminCheck], updateUser)
+router.get("/user-list", [addUID, dgmAdminCheck], getUserList);
+router.put("/user", [addUID, dgmAdminCheck], updateUser);
 
 // CREATE User
-router.post('/user', [addUID, dgmAdminCheck], createUserFirebase, createUserDB)
+router.post("/user", [addUID, dgmAdminCheck], createUserFirebase, createUserDB);
 router.delete(
-  '/user',
+  "/user",
   [addUID, dgmAdminCheck],
   deleteUserFirebase,
   deleteUserDB
-)
+);
 
-export default router
+export default router;
