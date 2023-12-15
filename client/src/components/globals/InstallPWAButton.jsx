@@ -7,7 +7,7 @@ function InstallPWAButton() {
 
   useEffect(() => {
     const hasUserDismissedPrompt = sessionStorage.getItem(
-      "user-dismissed-prompt"
+      "user-dismissed-prompt",
     );
     const remindedLater = sessionStorage.getItem("remind-me-later");
 
@@ -26,7 +26,7 @@ function InstallPWAButton() {
     return () => {
       window.removeEventListener(
         "beforeinstallprompt",
-        handleBeforeInstallPrompt
+        handleBeforeInstallPrompt,
       );
     };
   }, []);

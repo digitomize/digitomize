@@ -85,7 +85,7 @@ function Filter() {
 
   const handleDelete = (value) => {
     let newSelectedParams = selectedPlatforms.filter(
-      (platform) => platform != value
+      (platform) => platform != value,
     );
     setSelectedPlatforms(newSelectedParams);
   };

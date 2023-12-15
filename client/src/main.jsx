@@ -29,7 +29,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </Helmet>
     <InstallPWAButton />
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 serviceWorkerRegistration.register();

@@ -26,7 +26,7 @@ const ShareModel = ({ close_model, copyToClipboard, contestLink, theme }) => {
   const handleWhatsAppClick = () => {
     const Message = `Check out this link: ${contestLink}`;
     const whatsappLink = `https://api.whatsapp.com/send?text=${encodeURIComponent(
-      Message
+      Message,
     )}`;
     try {
       window.open(whatsappLink);
@@ -38,7 +38,7 @@ const ShareModel = ({ close_model, copyToClipboard, contestLink, theme }) => {
   const handleTelegramClick = () => {
     const Message = `Check out this link: ${contestLink}`;
     const telegramLink = `https://telegram.me/share/url?url=${encodeURIComponent(
-      Message
+      Message,
     )}`;
     try {
       window.open(telegramLink);
@@ -50,7 +50,7 @@ const ShareModel = ({ close_model, copyToClipboard, contestLink, theme }) => {
   const handleLinkedinClick = () => {
     const Message = `Check out this link: ${contestLink}`;
     const linkedinLink = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-      contestLink
+      contestLink,
     )}`;
 
     try {
@@ -63,7 +63,7 @@ const ShareModel = ({ close_model, copyToClipboard, contestLink, theme }) => {
   const handleTwitterClick = () => {
     const Message = `Check out this link: ${contestLink}`;
     const linkedinLink = `https://twitter.com/share?url=${encodeURIComponent(
-      Message
+      Message,
     )}`;
     try {
       window.open(linkedinLink);
@@ -130,7 +130,7 @@ const ShareModel = ({ close_model, copyToClipboard, contestLink, theme }) => {
         </div>
       </div>
     </>,
-    document.getElementById("portal_div")
+    document.getElementById("portal_div"),
   );
 };
 

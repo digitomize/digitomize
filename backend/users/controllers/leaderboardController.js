@@ -57,7 +57,7 @@ const getLeaderboard = async (req, res) => {
       const username = req.query.username;
       const user = allSortedUsers.find((user) => user.username === username);
       const userIndex = allSortedUsers.findIndex(
-        (user) => user.username === username
+        (user) => user.username === username,
       );
       const userPosition =
         userIndex !== -1 ? (page - 1) * pageSize + userIndex + 1 : null;

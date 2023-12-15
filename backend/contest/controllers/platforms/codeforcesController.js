@@ -27,7 +27,7 @@ async function codeforces_c() {
         try {
           const contestList = JSON.parse(list.toString());
           const filteredContests = contestList.result.filter(
-            (contest) => contest.relativeTimeSeconds < 0
+            (contest) => contest.relativeTimeSeconds < 0,
           );
           // console.log("CF", filteredContests);
           const contestsWithHost = filteredContests.map((contest) => ({

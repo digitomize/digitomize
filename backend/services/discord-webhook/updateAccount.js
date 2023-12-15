@@ -53,7 +53,7 @@ function createEmbeds(titlePrefix, username, image, data) {
     {
       name: "username",
       value: `[${safeString(
-        data?.username
+        data?.username,
       )}](https://digitomize.com/u/${safeString(data?.username)})`,
       inline: true,
     },
@@ -88,21 +88,21 @@ function createEmbeds(titlePrefix, username, image, data) {
     {
       name: "codechef",
       value: safeString(
-        data?.codechef ? formatCodechef(data.codechef) : "Not Available"
+        data?.codechef ? formatCodechef(data.codechef) : "Not Available",
       ),
       inline: true,
     },
     {
       name: "leetcode",
       value: safeString(
-        data?.leetcode ? formatLeetCode(data.leetcode) : "Not Available"
+        data?.leetcode ? formatLeetCode(data.leetcode) : "Not Available",
       ),
       inline: true,
     },
     {
       name: "codeforces",
       value: safeString(
-        data?.codeforces ? formatCodeforces(data.codeforces) : "Not Available"
+        data?.codeforces ? formatCodeforces(data.codeforces) : "Not Available",
       ),
       inline: true,
     },
@@ -110,7 +110,7 @@ function createEmbeds(titlePrefix, username, image, data) {
       name: "digitomize_rating",
       value: safeString(data?.digitomize_rating),
       inline: true,
-    }
+    },
   );
 
   function safeString(value) {

@@ -32,13 +32,13 @@ async function addToDB(mappedContests, platform) {
       // Add to UpcomingContest collection
       await UpcomingContest.insertMany(mappedContests, { ordered: false });
       console.log(
-        `│ Updated upcoming contests for ${platform}`.padEnd(53) + "│"
+        `│ Updated upcoming contests for ${platform}`.padEnd(53) + "│",
       );
     } catch (upcomingErr) {
       if (upcomingErr.code === 11000) {
         console.log(
           `│ Some duplicate(s) in UpcomingContest for ${platform}`.padEnd(53) +
-            "│"
+            "│",
         );
       } else {
         throw upcomingErr;
@@ -52,7 +52,7 @@ async function addToDB(mappedContests, platform) {
     } catch (allErr) {
       if (allErr.code === 11000) {
         console.log(
-          `│ Some duplicate(s) in AllContest for ${platform}`.padEnd(53) + "│"
+          `│ Some duplicate(s) in AllContest for ${platform}`.padEnd(53) + "│",
         );
       } else {
         throw allErr;

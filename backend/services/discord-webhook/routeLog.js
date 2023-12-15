@@ -29,7 +29,7 @@ function sendRequestLog(req) {
           inline: false,
         },
         { name: "IP Address", value: req.ip, inline: true },
-        { name: "User Agent", value: req.get("User-Agent"), inline: true }
+        { name: "User Agent", value: req.get("User-Agent"), inline: true },
       )
       .setDescription(headersDescription);
 

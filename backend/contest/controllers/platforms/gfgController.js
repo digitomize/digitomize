@@ -37,16 +37,16 @@ async function geeksforgeeks_c() {
               // startTimeIST: formatStartTimeIST(contest.start_time),
               startTimeUnix: Math.floor(
                 new Date(
-                  new Date(contest.start_time).getTime() - 5.5 * 60 * 60 * 1000
-                ).getTime() / 1000
+                  new Date(contest.start_time).getTime() - 5.5 * 60 * 60 * 1000,
+                ).getTime() / 1000,
               ), //! issue for GFG
               //   endtime: Math.floor(new Date(contest.end_time).getTime() / 1000),
               duration:
                 Math.floor(new Date(contest.end_time).getTime() / (60 * 1000)) -
                 Math.floor(
-                  new Date(contest.start_time).getTime() / (60 * 1000)
+                  new Date(contest.start_time).getTime() / (60 * 1000),
                 ),
-            })
+            }),
           );
 
           resolve(filteredContests);

@@ -30,7 +30,7 @@ export default function Footer() {
         </aside>
       </div>
       <div className="footer max-md:place-items-end justify-around md:self-start self-end">
-          <nav className="flex justify-center items-center flex-col">
+        <nav className="flex justify-center items-center flex-col">
           <header className="text-white font-medium text-2xl">Social</header>
           <a
             href="https://www.linkedin.com/company/digitomize"

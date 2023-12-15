@@ -20,7 +20,7 @@ const createContact = async (email, firstName) => {
     const contactData = await contactsApi.createContact(createContactRequest);
     console.log(
       "Contact created successfully. Returned data: " +
-        JSON.stringify(contactData)
+        JSON.stringify(contactData),
     );
 
     return contactData;
@@ -68,7 +68,7 @@ const sendEmail = async (recipientEmail, recipientName) => {
 
     const data = await transactionalEmailsApi.sendTransacEmail(sendSmtpEmail);
     console.log(
-      "Email sent successfully. Returned data: " + JSON.stringify(data)
+      "Email sent successfully. Returned data: " + JSON.stringify(data),
     );
   } catch (error) {
     console.error("Error sending email:", error);

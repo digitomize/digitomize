@@ -13,7 +13,7 @@ async function updateContests() {
 
     // Fetch contests from MongoDB (without id, createdAt and updatedAt)
     const fetchedContests = await UpcomingContest.find().select(
-      `-_id -createdAt -updatedAt -__v`
+      `-_id -createdAt -updatedAt -__v`,
     );
 
     // Sorting contests
@@ -39,7 +39,7 @@ const getContestByVanity = async (vanity) => {
   try {
     // First, check the upcomingContestList in memory
     const contestInMemory = upcomingContestList.find(
-      (contest) => contest.vanity === vanity
+      (contest) => contest.vanity === vanity,
     );
     if (contestInMemory) {
       return contestInMemory;

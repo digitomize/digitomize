@@ -102,7 +102,7 @@ export default function Leaderboard() {
   async function fetchLoggedUserData() {
     try {
       const userData = await rankOnLeaderboard(
-        userDetails?.personal_data?.username
+        userDetails?.personal_data?.username,
       );
       setCurrentUserData(userData?.data);
       // console.log(currentUserData);

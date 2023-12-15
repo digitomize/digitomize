@@ -63,7 +63,7 @@ export async function userProfileDetails(username) {
 export async function leaderboardData(page = 1) {
   try {
     const response = await axios.get(
-      `${backendUrl}/user/leaderboard?page=${page}`
+      `${backendUrl}/user/leaderboard?page=${page}`,
     );
     return response;
   } catch (err) {
@@ -73,7 +73,7 @@ export async function leaderboardData(page = 1) {
 export async function rankOnLeaderboard(username) {
   try {
     const response = await axios.get(
-      `${backendUrl}/user/leaderboard?username=${username}`
+      `${backendUrl}/user/leaderboard?username=${username}`,
     );
     return response;
   } catch (err) {

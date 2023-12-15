@@ -23,7 +23,7 @@ router.delete(
   "/user",
   [addUID, dgmAdminCheck],
   deleteUserFirebase,
-  deleteUserDB
+  deleteUserDB,
 );
 
 export default router;

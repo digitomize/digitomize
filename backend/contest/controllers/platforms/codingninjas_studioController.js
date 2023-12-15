@@ -23,7 +23,7 @@ async function codingninjas_studio_c() {
           const contestList = JSON.parse(list.toString());
           const filteredContests = contestList.data.events.filter(
             (contest) =>
-              contest.event_start_time > Math.floor(Date.now() / 1000)
+              contest.event_start_time > Math.floor(Date.now() / 1000),
           );
           const contestsWithHost = filteredContests.map((contest) => ({
             host: "codingninjas",
@@ -34,7 +34,7 @@ async function codingninjas_studio_c() {
             // duration: 0
             // duration: Math.floor(contest.event_duration / 60)
             duration: Math.floor(
-              (contest.event_end_time - contest.event_start_time) / 60
+              (contest.event_end_time - contest.event_start_time) / 60,
             ),
           }));
           // console.log(contestsWithHost);

@@ -97,7 +97,7 @@ const dgmAdminCheck = async (request, response, next) => {
   const userId = decodedToken.uid;
   // Check If User has admin role
   const user = await User.findOne({ uid: userId }).select(
-    "-_id -password -createdAt -updatedAt -__v"
+    "-_id -password -createdAt -updatedAt -__v",
   );
 
   if (!user) {

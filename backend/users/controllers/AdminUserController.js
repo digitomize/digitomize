@@ -25,7 +25,7 @@ const updateUser = async (req, res) => {
           role: body.role,
         },
         $currentDate: { lastUpdated: true },
-      }
+      },
     );
     return res.status(200).json({
       message: "User Updated Successfully",

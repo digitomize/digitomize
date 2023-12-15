@@ -31,13 +31,13 @@ const contestSchema = new mongoose.Schema(
       required: [true, "Duration is required in min."],
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const UpcomingContest = mongoose.model(
   "UpcomingContest",
   contestSchema,
-  "upcomingcontests"
+  "upcomingcontests",
 );
 const AllContest = mongoose.model("AllContest", contestSchema, "allcontests");
 

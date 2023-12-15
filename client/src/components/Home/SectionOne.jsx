@@ -33,8 +33,18 @@ export default function SectionOne() {
           <p className="text-lg text-powered">Powered By</p>
         </span>
         <span className="flex flex-row space-x-3 mt-2 items-center">
-          <img className="w-15 sm:w-25 md:w-30" src={gitbook} draggable={false} alt="gitbook" />
-          <img className="w-15 sm:w-25 md:w-30" src={msme} draggable={false} alt="msme" />
+          <img
+            className="w-15 sm:w-25 md:w-30"
+            src={gitbook}
+            draggable={false}
+            alt="gitbook"
+          />
+          <img
+            className="w-15 sm:w-25 md:w-30"
+            src={msme}
+            draggable={false}
+            alt="msme"
+          />
           <img
             className="w-30"
             src={microsoft}

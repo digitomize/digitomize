@@ -13,7 +13,7 @@ const updatePlatformData = (platform, userData, existingData) => {
       platformData.showOnWebsite === undefined
     ) {
       throw new Error(
-        `Both 'username' and 'showOnWebsite' properties are required for the '${platform}' platform.`
+        `Both 'username' and 'showOnWebsite' properties are required for the '${platform}' platform.`,
       );
     }
 
@@ -43,7 +43,7 @@ const updateDataField = (field, userData, existingData) => {
     };
   } else if (userData[field] !== undefined) {
     throw new Error(
-      `Both 'data' and 'showOnWebsite' properties are required for the '${field}' field.`
+      `Both 'data' and 'showOnWebsite' properties are required for the '${field}' field.`,
     );
   }
 };
@@ -107,7 +107,7 @@ const handleUpdateUserProfile = async (req, res) => {
     }
     const today = new Date().toDateString();
     const updateIndex = user.updatesToday.findIndex(
-      (update) => update.timestamp.toDateString() === today
+      (update) => update.timestamp.toDateString() === today,
     );
     if (
       updateIndex !== -1 &&

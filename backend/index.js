@@ -73,7 +73,7 @@ async function setupContestServer() {
         console.error("Error Pinging", error);
       }
     },
-    13 * 60 * 1000
+    13 * 60 * 1000,
   );
 
   // Set up contest routes

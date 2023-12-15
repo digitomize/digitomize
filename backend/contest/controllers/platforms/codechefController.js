@@ -35,7 +35,7 @@ async function codechef_c() {
             url: "https://www.codechef.com/" + contest.contest_code,
             // startTimeIST: formatStartTimeIST(contest.contest_start_date_iso),
             startTimeUnix: Math.floor(
-              new Date(contest.contest_start_date_iso).getTime() / 1000
+              new Date(contest.contest_start_date_iso).getTime() / 1000,
             ),
             duration: contest.contest_duration,
           }));

@@ -40,12 +40,12 @@ export default function UserDashPersonal() {
     personalData.skills.map((skill, index) => ({
       key: index, // Use the index as the key
       label: skill,
-    }))
+    })),
   );
 
   const handleDelete = (chipToDelete) => () => {
     setskillData((chips) =>
-      chips.filter((chip) => chip.key !== chipToDelete.key)
+      chips.filter((chip) => chip.key !== chipToDelete.key),
     );
   };
   const handleAdd = (e) => {

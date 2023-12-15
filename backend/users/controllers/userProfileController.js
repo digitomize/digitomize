@@ -55,7 +55,7 @@ const handleUserDataUpdate = async (user) => {
     ) {
       const newData = await handleUserPlatformUpdate(
         platformData.username,
-        platformKey
+        platformKey,
       );
       console.log("newData", newData);
       if (newData) {

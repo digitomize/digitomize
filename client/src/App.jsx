@@ -185,8 +185,8 @@ const router = createBrowserRouter(
         </Route>
       </Route>
       <Route path="/u/leaderboard" element={<Leaderboard />} />
-    </Route>
-  )
+    </Route>,
+  ),
 );
 
 function App() {

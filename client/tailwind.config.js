@@ -30,7 +30,7 @@ export default {
         footer: "#131527",
         description: "#B7B6FF",
         contestlist:
-        "linear-gradient(180deg, #101025 0%, rgba(16, 16, 37, 0.46) 100%)",
+          "linear-gradient(180deg, #101025 0%, rgba(16, 16, 37, 0.46) 100%)",
         "button-primary-helper": "#6AB1FF",
         "button-primary-hover": "#0079FF",
         powered: "#D2D2D2",

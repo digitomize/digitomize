@@ -15,7 +15,7 @@ async function generateSignature(req, res) {
     };
     let signature = cloudinary.utils.api_sign_request(
       options,
-      process.env.CLOUDINARY_API_SECRET
+      process.env.CLOUDINARY_API_SECRET,
     );
     res.status(200).json({
       message: "Signature generated successfully",
