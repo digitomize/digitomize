@@ -100,3 +100,13 @@ Start the server: `npm start`
 ## API Routes
 
 - https://digitomize.stoplight.io/docs/digitomize-api
+
+## Linting
+
+Before committing changes, make sure to run linting checks:
+
+- To check for linting errors: `npm run lint`
+- To automatically fix linting errors: `npm run lint-fix`
+
+These commands ensure code consistency and adherence to coding standards before pushing changes.
+
