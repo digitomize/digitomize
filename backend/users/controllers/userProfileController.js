@@ -1,9 +1,9 @@
-import { getUser, } from "../services/getUser.js";
-import { codeforces_u, } from "./platforms/codeforcesUpdater.js";
-import { codechef_u, } from "./platforms/codechefUpdater.js"; // Import your CodeChef updater function
-import { leetcode_u, } from "./platforms/leetcodeUpdater.js"; // Import your LeetCode updater function
-import { updateUser, } from "../services/updateUser.js";
-import { ROLE, } from "../../core/const.js";
+import { getUser } from "../services/getUser.js";
+import { codeforces_u } from "./platforms/codeforcesUpdater.js";
+import { codechef_u } from "./platforms/codechefUpdater.js"; // Import your CodeChef updater function
+import { leetcode_u } from "./platforms/leetcodeUpdater.js"; // Import your LeetCode updater function
+import { updateUser } from "../services/updateUser.js";
+import { ROLE } from "../../core/const.js";
 
 // Mapping of platform names to their updater functions
 const platformUpdaters = {
@@ -12,18 +12,18 @@ const platformUpdaters = {
   leetcode: leetcode_u, // Replace with your LeetCode updater function
 };
 
-const handleUserPlatformUpdate = async (username, platform,) => {
+const handleUserPlatformUpdate = async (username, platform) => {
   const updater = platformUpdaters[platform];
   if (updater) {
-    return await updater(username,);
+    return await updater(username);
   }
   return null; // Handle unsupported platform case if needed
 };
 
-const calculateDigitomizeRating = (user,) => {
+const calculateDigitomizeRating = (user) => {
   let maxDigitomizeRating = 0;
 
-  ["codeforces", "codechef", "leetcode",].forEach((platform,) => {
+  ["codeforces", "codechef", "leetcode"].forEach((platform) => {
     const platformData = user[platform];
     if (platformData && platformData.rating) {
       const weightage = {
@@ -36,17 +36,17 @@ const calculateDigitomizeRating = (user,) => {
         maxDigitomizeRating = platformRating;
       }
     }
-  },);
+  });
 
   return maxDigitomizeRating;
 };
 
 // Updates user data in DB
-const handleUserDataUpdate = async (user,) => {
+const handleUserDataUpdate = async (user) => {
   const currentTime = new Date();
 
   let changes = false;
-  for (const platformKey of ["codeforces", "codechef", "leetcode",]) {
+  for (const platformKey of ["codeforces", "codechef", "leetcode"]) {
     // for (const platformKey of ['codeforces']) {
     const platformData = user[platformKey];
     if (
@@ -57,41 +57,41 @@ const handleUserDataUpdate = async (user,) => {
         platformData.username,
         platformKey,
       );
-      console.log("newData", newData,);
+      console.log("newData", newData);
       if (newData) {
         changes = true;
         platformData.attendedContestsCount = newData.attendedContestsCount;
         platformData.username = newData.handle;
-        platformData.rating = parseInt(newData.rating,);
+        platformData.rating = parseInt(newData.rating);
         platformData.badge = newData.rank;
         platformData.fetchTime = currentTime;
       }
     }
   }
-  user.digitomize_rating = calculateDigitomizeRating(user,);
+  user.digitomize_rating = calculateDigitomizeRating(user);
   // console.log("new:", user.digitomize_rating);
 
   // Save the updated user object in MongoDB
   if (changes) {
-    await updateUser(user,);
+    await updateUser(user);
   }
 };
 
 // Handle user profile preview route
-const handleUserProfilePreview = async (req, res,) => {
+const handleUserProfilePreview = async (req, res) => {
   try {
     const username = req.params.username;
 
     // Fetch the user's data from the database
-    const user = await getUser(username,);
+    const user = await getUser(username);
 
     if (!user) {
       return res
-        .status(404,)
-        .json({ message: "User not found", error: "User not found", },);
+        .status(404)
+        .json({ message: "User not found", error: "User not found" });
     }
 
-    await handleUserDataUpdate(user,);
+    await handleUserDataUpdate(user);
 
     // Prepare the public user data object
     const publicUserData = {
@@ -123,21 +123,21 @@ const handleUserProfilePreview = async (req, res,) => {
     };
 
     // Handle coding platforms
-    handleCodingPlatform(publicUserData.ratings, user.codechef, "codechef",);
-    handleCodingPlatform(publicUserData.ratings, user.leetcode, "leetcode",);
-    handleCodingPlatform(publicUserData.ratings, user.codeforces, "codeforces",);
+    handleCodingPlatform(publicUserData.ratings, user.codechef, "codechef");
+    handleCodingPlatform(publicUserData.ratings, user.leetcode, "leetcode");
+    handleCodingPlatform(publicUserData.ratings, user.codeforces, "codeforces");
 
-    res.status(200,).json(publicUserData,);
+    res.status(200).json(publicUserData);
   } catch (error) {
-    console.error("Error:", error,);
-    res.status(500,).json({
+    console.error("Error:", error);
+    res.status(500).json({
       message: "Error fetching user profile",
       error: "Error fetching user profile",
-    },);
+    });
   }
 };
 
-function handleCodingPlatform (targetObject, platform, platformKey,) {
+function handleCodingPlatform (targetObject, platform, platformKey) {
   if (platform.showOnWebsite) {
     targetObject[platformKey] = {
       username: platform.username || null,
@@ -157,4 +157,4 @@ function handleCodingPlatform (targetObject, platform, platformKey,) {
   }
 }
 
-export { handleUserProfilePreview, };
+export { handleUserProfilePreview };

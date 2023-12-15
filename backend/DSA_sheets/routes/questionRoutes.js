@@ -8,9 +8,9 @@ import {
 const router = express.Router();
 
 router
-  .route("/",)
-  .post(createQuestions,)
-  .get(getQuestionByQId,)
-  .delete(deleteQuestionByQId,);
+  .route("/")
+  .post(createQuestions)
+  .get(getQuestionByQId)
+  .delete(deleteQuestionByQId);
 
 export default router;

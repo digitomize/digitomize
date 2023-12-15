@@ -5,9 +5,9 @@ const sheetSchema = new mongoose.Schema({
   name: String,
   s_id: String,
   desc: String,
-  questions: [String,], // Array of question IDs
-},);
+  questions: [String], // Array of question IDs
+});
 
-const SheetModel = mongoose.model("Sheet", sheetSchema,);
+const SheetModel = mongoose.model("Sheet", sheetSchema);
 
 export default SheetModel;

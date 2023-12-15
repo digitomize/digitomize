@@ -1,33 +1,33 @@
 import https from "https";
 
-async function codechef_u (username,) {
+async function codechef_u (username) {
   if (!username) {
     return null;
   }
   try {
     const profileUrl = `https://www.codechef.com/users/${username}`;
 
-    const response = await new Promise((resolve, reject,) => {
+    const response = await new Promise((resolve, reject) => {
       https
-        .get(profileUrl, (res,) => {
+        .get(profileUrl, (res) => {
           let data = "";
-          res.on("data", (chunk,) => {
+          res.on("data", (chunk) => {
             data += chunk;
-          },);
+          });
           res.on("end", () => {
-            resolve(data,);
-          },);
-        },)
-        .on("error", (error,) => {
-          reject(error,);
-        },);
-    },);
+            resolve(data);
+          });
+        })
+        .on("error", (error) => {
+          reject(error);
+        });
+    });
 
     const regex = /jQuery.extend\(Drupal\.settings,\s*({[^;]+})\);/;
-    const match = regex.exec(response,);
+    const match = regex.exec(response);
     if (match) {
-      const jsonString = match[1].replace(/\/\/.*/g, "",); // Remove single-line comments
-      const userInfo = JSON.parse(jsonString,);
+      const jsonString = match[1].replace(/\/\/.*/g, ""); // Remove single-line comments
+      const userInfo = JSON.parse(jsonString);
 
       if (
         userInfo.date_versus_rating &&
@@ -35,7 +35,7 @@ async function codechef_u (username,) {
         userInfo.date_versus_rating.all.length > 0
       ) {
         const allContests = userInfo.date_versus_rating.all;
-        console.log("LENGTH::", allContests.length,);
+        console.log("LENGTH::", allContests.length);
         const lastContest = allContests[allContests.length - 1];
         const lastContestRating = lastContest.rating;
 
@@ -63,15 +63,15 @@ async function codechef_u (username,) {
           rank: `${stars} star`,
         };
       } else {
-        throw new Error("User has no contest data",);
+        throw new Error("User has no contest data");
       }
     } else {
-      throw new Error("User info not found on the page",);
+      throw new Error("User info not found on the page");
     }
   } catch (error) {
-    console.error("Error fetching user info:", error.message,);
+    console.error("Error fetching user info:", error.message);
     return null;
   }
 }
 
-export { codechef_u, };
+export { codechef_u };

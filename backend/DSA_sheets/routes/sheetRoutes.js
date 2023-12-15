@@ -15,9 +15,9 @@ const router = express.Router();
 
 // router.use("/user", addUID);
 
-router.route("/",).post(createSheet,).get(getSheets,).delete(removeSheet,);
+router.route("/").post(createSheet).get(getSheets).delete(removeSheet);
 
-router.route("/question",).post(addQuestions,).delete(removeQuestion,);
+router.route("/question").post(addQuestions).delete(removeQuestion);
 // router.get("/user/solved", getUserSolved);
 // router.put("/user/fetchAll", fetchAllQuestions);
 // router.patch("/user/check", checkQuestionForUser);

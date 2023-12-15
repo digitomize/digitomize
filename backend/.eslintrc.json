@@ -12,7 +12,7 @@
         "camelcase":"off",
         "quotes": ["error", "double"],
         "semi": ["error", "always"],
-        "comma-dangle": ["error", "always"]
+        "comma-dangle": ["error", "always-multiline"]
     },
     "plugins": ["@stylistic/eslint-plugin"]
 

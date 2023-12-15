@@ -1,6 +1,6 @@
 import User from "../models/User.js";
 
-const handleUserDashboard = async (req, res,) => {
+const handleUserDashboard = async (req, res) => {
   try {
     // Check if user is logged in using the checkAuth middleware
     // if (!req.userId) {
@@ -10,15 +10,15 @@ const handleUserDashboard = async (req, res,) => {
 
     // User is logged in, fetch user data from the database
     const userId = req.decodedToken.uid;
-    const user = await User.findOne({ uid: userId, },).select(
+    const user = await User.findOne({ uid: userId }).select(
       "-_id -password -createdAt -updatedAt -__v",
     );
 
     if (!user) {
       // User not found, redirect to the login page
       return res
-        .status(404,)
-        .json({ message: "User not found", error: "User not found", },);
+        .status(404)
+        .json({ message: "User not found", error: "User not found" });
     }
 
     // Construct the JSON response with all fields
@@ -70,12 +70,12 @@ const handleUserDashboard = async (req, res,) => {
     };
     // console.log(jsonResponse.education);
     // Send the JSON response to the client
-    res.status(200,).json(jsonResponse,);
+    res.status(200).json(jsonResponse);
   } catch (error) {
-    console.error("Error:", error,);
+    console.error("Error:", error);
     // Internal server error, send a 500 Internal Server Error status
-    res.status(500,).json({ error: "Internal server error", },);
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 
-export { handleUserDashboard, };
+export { handleUserDashboard };

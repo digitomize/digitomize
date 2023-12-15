@@ -1,15 +1,15 @@
 import mongoose from "mongoose";
-import { ROLE, } from "../../core/const.js";
+import { ROLE } from "../../core/const.js";
 
 const stringToggleSchema = new mongoose.Schema({
   data: String,
   showOnWebsite: Boolean,
-},);
+});
 
 const numberToggleSchema = new mongoose.Schema({
   data: Number,
   showOnWebsite: Boolean,
-},);
+});
 
 const contestToggleSchema = new mongoose.Schema({
   username: String,
@@ -18,30 +18,30 @@ const contestToggleSchema = new mongoose.Schema({
   fetchTime: Number,
   attendedContestsCount: Number,
   showOnWebsite: Boolean,
-},);
+});
 
 const communitySchema = new mongoose.Schema({
   communityId: {
     type: String,
-    required: [true, "Community Id is required.",],
+    required: [true, "Community Id is required."],
   },
-},);
+});
 
 const userSchema = new mongoose.Schema(
   {
     uid: {
       type: String,
-      required: [true, "uid is required.",],
+      required: [true, "uid is required."],
       unique: true,
     },
     username: {
       type: String,
-      required: [true, "username is required",],
+      required: [true, "username is required"],
       unique: true,
     },
     role: {
       type: Number,
-      required: [true, "role is required",],
+      required: [true, "role is required"],
       default: ROLE.USER,
     },
     name: {
@@ -62,7 +62,7 @@ const userSchema = new mongoose.Schema(
     email: {
       type: String,
       // required: [true, "Email is required."]
-      unique: { value: true, caseInsensitive: true, },
+      unique: { value: true, caseInsensitive: true },
       lowercase: true,
     },
     email_show: {
@@ -71,15 +71,15 @@ const userSchema = new mongoose.Schema(
     },
     bio: {
       type: stringToggleSchema,
-      default: { data: null, showOnWebsite: false, },
+      default: { data: null, showOnWebsite: false },
     },
     dateOfBirth: {
       type: stringToggleSchema,
-      default: { data: null, showOnWebsite: true, },
+      default: { data: null, showOnWebsite: true },
     },
     phoneNumber: {
       type: numberToggleSchema,
-      default: { data: null, showOnWebsite: true, },
+      default: { data: null, showOnWebsite: true },
     },
     solved: [
       {
@@ -114,12 +114,12 @@ const userSchema = new mongoose.Schema(
       },
     ],
     community: {
-      type: [communitySchema,],
+      type: [communitySchema],
       default: [],
     },
     github: {
       type: stringToggleSchema,
-      default: { data: null, showOnWebsite: true, },
+      default: { data: null, showOnWebsite: true },
     },
     codechef: {
       type: contestToggleSchema,
@@ -160,29 +160,29 @@ const userSchema = new mongoose.Schema(
     },
     updatesToday: [
       {
-        timestamp: { type: Date, default: Date.now, },
-        count: { type: Number, default: 1, },
+        timestamp: { type: Date, default: Date.now },
+        count: { type: Number, default: 1 },
       },
     ],
   },
-  { timestamps: true, },
+  { timestamps: true },
 );
 
 userSchema.methods.updateCount = function () {
   try {
-    console.log("step1",);
+    console.log("step1");
     const today = new Date().toDateString();
     const updateIndex = this.updatesToday.findIndex(
-      (update,) => update.timestamp.toDateString() === today,
+      (update) => update.timestamp.toDateString() === today,
     );
 
     if (updateIndex === -1) {
-      console.log("step2",);
-      console.log(this.updatesToday,);
-      this.updatesToday.push({ timestamp: new Date(), count: 1, },);
-      console.log(this.updatesToday,);
+      console.log("step2");
+      console.log(this.updatesToday);
+      this.updatesToday.push({ timestamp: new Date(), count: 1 });
+      console.log(this.updatesToday);
     } else {
-      console.log("step3",);
+      console.log("step3");
       this.updatesToday[updateIndex].count += 1;
     }
 
@@ -194,15 +194,15 @@ userSchema.methods.updateCount = function () {
       now.getDate() + 1,
     );
     if (now >= midnight) {
-      console.log("step4",);
-      this.updatesToday = [{ timestamp: now, count: 1, },];
+      console.log("step4");
+      this.updatesToday = [{ timestamp: now, count: 1 }];
     }
-    console.log(this.updatesToday,);
+    console.log(this.updatesToday);
   } catch (error) {
-    throw new Error(`Error updating update count: ${error.message}`,);
+    throw new Error(`Error updating update count: ${error.message}`);
   }
 };
 
-const User = mongoose.model("User", userSchema,);
+const User = mongoose.model("User", userSchema);
 
 export default User;
