@@ -11,6 +11,9 @@
     "rules": {
         "camelcase":"off",
         "quotes": ["error", "double"],
-        "semi": ["error", "always"]
-    }
+        "semi": ["error", "always"],
+        "comma-dangle": ["error", "always"]
+    },
+    "plugins": ["@stylistic/eslint-plugin"]
+
 }

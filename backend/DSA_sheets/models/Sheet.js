@@ -4,16 +4,16 @@ const questionSchema = new mongoose.Schema({
   q_id: String,
   name: String,
   difficulty: String,
-  topics: [String]
-});
+  topics: [String,],
+},);
 
 const sheetSchema = new mongoose.Schema({
   name: String,
   s_id: String,
   desc: String,
-  questions: [questionSchema]
-});
+  questions: [questionSchema,],
+},);
 
-const SheetModel = mongoose.model("Sheet", sheetSchema);
+const SheetModel = mongoose.model("Sheet", sheetSchema,);
 
 export default SheetModel;

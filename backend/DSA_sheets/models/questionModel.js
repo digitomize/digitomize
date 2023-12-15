@@ -5,9 +5,9 @@ const questionSchema = new mongoose.Schema({
   q_id: String,
   name: String,
   difficulty: String,
-  topics: [String]
-});
+  topics: [String,],
+},);
 
-const QuestionModel = mongoose.model("Question", questionSchema);
+const QuestionModel = mongoose.model("Question", questionSchema,);
 
 export default QuestionModel;

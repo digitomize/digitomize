@@ -5,23 +5,23 @@ import {
   createUserFirebase,
   createUserDB,
   deleteUserFirebase,
-  deleteUserDB
+  deleteUserDB,
 } from "../controllers/AdminUserController.js";
 // import { updateUser } from "../controllers/userController.js";
-import { addUID, dgmAdminCheck } from "../middlewares/authMiddleware.js";
+import { addUID, dgmAdminCheck, } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
-router.get("/user-list", [addUID, dgmAdminCheck], getUserList);
-router.put("/user", [addUID, dgmAdminCheck], updateUser);
+router.get("/user-list", [addUID, dgmAdminCheck,], getUserList,);
+router.put("/user", [addUID, dgmAdminCheck,], updateUser,);
 
 // CREATE User
-router.post("/user", [addUID, dgmAdminCheck], createUserFirebase, createUserDB);
+router.post("/user", [addUID, dgmAdminCheck,], createUserFirebase, createUserDB,);
 router.delete(
   "/user",
-  [addUID, dgmAdminCheck],
+  [addUID, dgmAdminCheck,],
   deleteUserFirebase,
-  deleteUserDB
+  deleteUserDB,
 );
 
 export default router;

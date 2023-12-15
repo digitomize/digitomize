@@ -1,10 +1,10 @@
-import { Router } from "express";
+import { Router, } from "express";
 import contestController from "../controllers/contestController.js";
 
 const router = Router();
 
 // GET route for contests
-router.get("/", async (req, res) => {
+router.get("/", async (req, res,) => {
   try {
     let host = req.query.host;
     let vanity = req.query.vanity;
@@ -17,47 +17,47 @@ router.get("/", async (req, res) => {
       vanity = vanity.toLowerCase();
     }
 
-    const platformArray = host ? host.split(",") : [];
+    const platformArray = host ? host.split(",",) : [];
     // const vanityArray = vanity ? vanity.split(',') : []
 
     const contests = await contestController.getContestList();
 
     if (vanity) {
       const contestByVanity =
-        await contestController.getContestByVanity(vanity);
+        await contestController.getContestByVanity(vanity,);
       if (contestByVanity) {
-        res.status(200).json({
+        res.status(200,).json({
           total: 1,
-          results: [contestByVanity]
-        });
+          results: [contestByVanity,],
+        },);
       } else {
-        res.status(200).json({
+        res.status(200,).json({
           total: 0,
-          results: []
-        });
+          results: [],
+        },);
       }
     } else if (host) {
-      const filteredContests = contests.filter((contest) => {
-        return platformArray.includes(contest.host);
-      });
+      const filteredContests = contests.filter((contest,) => {
+        return platformArray.includes(contest.host,);
+      },);
 
-      res.status(200).json({
+      res.status(200,).json({
         total: filteredContests.length,
-        results: filteredContests
-      });
+        results: filteredContests,
+      },);
     } else {
-      res.status(200).json({
+      res.status(200,).json({
         total: contests.length,
-        results: contests
-      });
+        results: contests,
+      },);
     }
   } catch (err) {
-    console.log("Error:", err);
-    res.status(500).json({
+    console.log("Error:", err,);
+    res.status(500,).json({
       error: "Internal server error",
-      message: "Internal server error"
-    });
+      message: "Internal server error",
+    },);
   }
-});
+},);
 
 export default router;
