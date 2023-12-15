@@ -3,7 +3,7 @@
 # Digitomize
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/digitomize)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-36-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-37-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
@@ -145,6 +145,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/mhgarry"><img src="https://avatars.githubusercontent.com/u/125699551?v=4?s=100" width="100px;" alt="Matthew Garry"/><br /><sub><b>Matthew Garry</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=mhgarry" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://mukund4s.live"><img src="https://avatars.githubusercontent.com/u/114515612?v=4?s=100" width="100px;" alt="Mukund Solanki"/><br /><sub><b>Mukund Solanki</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=mukundsolanki" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
