@@ -44,19 +44,7 @@ async function setupUserServer () {
   // console.log(process.env.FIREBASE_CREDENTIALS);
   console.log('ok');
   // Get the Firebase service account JSON from the environment variable
-  const firebaseCredentials = {
-    "type": "service_account",
-    "project_id": "digitomize-34727",
-    "private_key_id": "fef27af3e03e01cfe87a2c66eeff3fb850b561e4",
-    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCcgak/Juqb7UBF\nSpt+tXMcchdGvrDOcej559IGAE9Zio2aCBYKRwwwPYNEu5RqQ016/SUGwVzDvJW+\nCab5yDOJeB0kPaTD1NuVxarTQOwcBPm1TApToQjqrNk+Dc+DuV3bTZgKU5mct2xB\ngrpOk5ZwdJONX8fAq4vDBF1kczObKWwId3EyI+q5FuamqaJyO3UpjZeoqbDmAmcC\nmk0OdhnFpdAf0KJiWfV12zd8j19CKWP8hX944UNDoHHokX3yBvWcd/gxFmJyld4o\n3UfES5msy8YPq3KpHtOhE9nokxnveQQOdJrcYiIqzrOVbklXbBdS3ZxU9p6sVaNM\nlA6l8cY/AgMBAAECggEACDSUFweHTV2G/RsIRABnZJpmtgLRakF2oYOR81aY0mz9\nN5Is9aT78puHAleDVH7q1QPoqQ4COxDsGOaQpo/kg9SUUo4Y0Vubl6Khbin9Nwrb\nvLGb6P6MZSFi0moO8y0IyrKqwf/YEetb9aNQ+UWroYG7KrJW2rcjwLm928JedkgE\nqd6CKlgtgI7zznRLb2k4BLthvaIk1eIKraJnp7cKhykqCYAj8/ZNhoP8/91JJMTW\nkjO0VlbeKA7L8hqJB4CUWlEGp7kMCs2BVHnpNp3iQ8IH4BVWK0UTyQJGzfdtgzHX\nxUDn3nQaApvqQGAwHLTmoiN8qevfccJuatKqfa36QQKBgQDSnjiIPFpQnF4ViobG\nrVK/IvAW9wClLMlUKvafVNUN63IvgjmoWzg6MpB37zU+dkhyGhtcandFDDDaFqJt\nu/lhG7cRIHaTq4D9U/hgY6w34mekuAJDBbP3ls+jEmrPPPZVptmatUgWEf78/wEE\nrs6rmE0ZqY9TJ/4vdo1zSCr/xwKBgQC+Op/DpNlolfuL3T8HmaWy5nlCCLDojhfz\nkwOLl8B4Kv0AFO8VI98peDoYX5WoPivMG3cPiF0kJS+ErfyJ8y0uXS+xqdRG5Cwd\nLqevAxx8MS+0tI2ZsEnZgCEPxxcLnpdSYjDSTiUKG1miAKN4vuQZ2DVnviOK37G9\nWpB+Im91yQKBgHde5XuReT6m4UwkLy77nSJnktvxMpRrRdBGaXD0i6xP/W+fxz38\nNWoGrorLMMouD/FbipZeYSrpNeblXToEh9rZ8m/qjkozse/iX6uB0mH6F/Prtpx1\n5wI0n4o1LgQ28QaqgjqE9E5N9M8/WDxnNwtaTph02Z6v1AjikFj+ViCRAoGAWw7e\n6RzhAQJCTfoTMMUonxFZ2/UjEb7q0ip+WPTEKgGR59cddsYcDdLCJGak0cso1eQT\nwviodSPjsiRCrZoc94Odz/KWbXTNdQ6fL9RSb1RwHJUM7xOG1jlSGiZX7rT0hHgC\nHLlRW5wp9LVPiv39XC21qrpGczSO9TAD2I0NQ5kCgYBRRBr5/pmw5532OIvt/fOs\nFPj8AcEgxO5FCgQ/mx2TiganxTRbgkwd+fVQE8OWgXJv1u2FjqH1nOM20mfUW6Fx\nncbRc4Q7sF4CaHtTb/nHsewwKUmmI+nKNMrnqO4kt0Yzr94N/CAl1bOo89BQLNWj\nm3dXSE9aaW15GIwHwsIF+w==\n-----END PRIVATE KEY-----\n",
-    "client_email": "firebase-adminsdk-7swq8@digitomize-34727.iam.gserviceaccount.com",
-    "client_id": "109064874300502805255",
-    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-    "token_uri": "https://oauth2.googleapis.com/token",
-    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-7swq8%40digitomize-34727.iam.gserviceaccount.com",
-    "universe_domain": "googleapis.com"
-  }
+  const firebaseCredentials = JSON.parse(process.env.FIREBASE_CREDENTIALS);
   // console.log(firebaseCredentials);
 
   admin.initializeApp({
