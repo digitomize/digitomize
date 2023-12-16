@@ -1,9 +1,10 @@
 {
   "semi": true,
-  "singleQuote": false,
+  "doubleQuotes": false,
   "tabWidth": 2,
   "useTabs": false,
   "printWidth": 80,
+  "jsxDoubleQuote": true,
   "jsxBracketSameLine": false,
   "arrowParens": "always",
   "bracketSpacing": true,
