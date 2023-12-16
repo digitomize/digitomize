@@ -2,7 +2,7 @@ import { EmojiEvents, OpenInNew } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import boy from "../../../assets/boyV7.png";
 
-const Rank = ({ color, pt = 8, user }) => {
+const Rank = ({ top, color, pt = 8, user }) => {
   return (
     <div className={`pt-${pt}`}>
       <Link to={"/u/" + (user?.username || "loading")}>
