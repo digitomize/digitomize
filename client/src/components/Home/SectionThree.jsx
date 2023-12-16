@@ -5,11 +5,14 @@ export default function SectionThree() {
     <div className="font-['Geist'] mt-36 pb-36">
       <div className="hero flex flex-col">
         <div className="">
-          <div className="my-24 mx-auto">
-            <h1 className="text-6xl my-0 font-['Geist'] text-white font-semibold text-center">
-              Upcoming <span className="block mt-4">Contest List</span>
+          <div className="my-24 mx-auto w-4/5">
+            <h1 className="text-white max-md:text-4xl md:text-7xl text-center">
+              <span className="block mt-1 md:mt-6">
+                <span className="bg-digitomize-bg px-2">Discover</span>{" "}
+                the perfect coding competition for you
+              </span>{" "}
             </h1>
-            <p className="text-center mt-8 text-description max-w-2xl mx-auto">
+            <p className="max-md:text-sm text-center mt-8 text-description max-w-2xl mx-auto">
               filter contests based on various criteria and view contest details
               such as remaining time, duration, and more.
             </p>
@@ -19,8 +22,8 @@ export default function SectionThree() {
               </button>
             </div>
           </div>
-          <div>
-                                      <ContestCards />
+          <div className="w-screen">
+            <ContestCards />
 
           </div>
         </div>
