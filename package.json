@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "concurrently \"cd backend && npm i\" \"cd client && npm i\"",
-    "build": "concurrently \"cd backend && npm run start\" \"cd frontend && npm build\"",
+    "build": "concurrently \"cd backend && npm run start\" \"cd client && npm build\"",
     "dev": "concurrently \"cd backend && npm run dev\" \"cd client && npm run dev\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format:write": "prettier --write ."
@@ -26,7 +26,6 @@
     "prettier": "3.1.0"
   },
   "dependencies": {
-    "react-fast-marquee": "^1.6.2",
     "vercel": "^32.2.2"
   }
 }
