@@ -11,7 +11,7 @@ export default function About() {
   return (
     <>
       <div className="container w-11/12 mx-auto text-center mt-4">
-        <div className="sm:hero">
+        <div className="sm:grid place-items-center  w-full">
           <div className="hero-content flex-col sm:flex-row">
             <div className="left text-center flex flex-col justify-center items-center">
               <div className="text-center w-fit">
