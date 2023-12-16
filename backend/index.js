@@ -12,6 +12,8 @@ import bodyParser from "body-parser";
 import fetchContestsData from "./fetchContests.js";
 import admin from "firebase-admin";
 import { routeLogging } from "./users/middlewares/authMiddleware.js";
+import sheetRoutes from "./DSA_sheets/routes/sheetRoutes.js";
+import questionRoutes from "./DSA_sheets/routes/questionRoutes.js";
 
 dotenv.config();
 const app = express();
