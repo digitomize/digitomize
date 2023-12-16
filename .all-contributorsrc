@@ -259,6 +259,15 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/125699551?v=4",
       "profile": "https://github.com/mhgarry",
       "contributions": ["doc"]
+    },
+    {
+      "login": "mukundsolanki",
+      "name": "Mukund Solanki",
+      "avatar_url": "https://avatars.githubusercontent.com/u/114515612?v=4",
+      "profile": "http://mukund4s.live",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

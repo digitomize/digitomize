@@ -1,10 +1,11 @@
 import { EmojiEvents, OpenInNew } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import boy from "../../../assets/boyV7.png";
+
 const Rank = ({ color, pt = 8, user }) => {
   return (
     <div className={`pt-${pt}`}>
-      <Link to={"/u/" + user?.username}>
+      <Link to={"/u/" + (user?.username || "loading")}>
         <div className="relative flex justify-center">
           {/* Profile Picture */}
           <img
@@ -23,10 +24,14 @@ const Rank = ({ color, pt = 8, user }) => {
         </div>
         <div className="name">
           <div className="flex flex-row pt-4 justify-center">
-            <h2 className="text-center text-light-blue">{user?.name}</h2>
+            <h2 className="text-center text-light-blue">
+              {user?.name || "loading..."}
+            </h2>
             <OpenInNew fontSize="small" />
           </div>
-          <p className="text-center text-light-blue text-xs max-phone:hidden">{`(@${user?.username})`}</p>
+          <p className="text-center text-light-blue text-xs max-phone:hidden">
+            {`(@${user?.username || "loading..."})`}
+          </p>
         </div>
       </Link>
     </div>
