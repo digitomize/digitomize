@@ -2,7 +2,7 @@ import { useState, useEffect, memo } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { Link, useParams } from 'react-router-dom';
 // import {HomeIcon, WhatshotIcon, GrainIcon} from '@mui/icons-material';
-import { Home as HomeIcon, Whatshot as WhatshotIcon, Grain as GrainIcon, OpenInNew, PanTool, Celebration } from "@mui/icons-material";
+import { Home as HomeIcon, Whatshot as WhatshotIcon, Grain as GrainIcon, OpenInNew, PanTool, Celebration, Star } from "@mui/icons-material";
 import { NewFooter } from "./CustomComponents";
 import { Helmet } from "react-helmet";
 import './css/IndividualCard.css'
@@ -120,11 +120,11 @@ function IndividualCard() {
       </Helmet>
       {true &&
         <div className="mx-auto w-fit mt-4">
-          <Alert severity="error" className="w-fit" icon={<Celebration className="animate-ping"/>}>
-            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7135350446415564800" target="_blank">
+          <Alert severity="warning" className="w-fit" icon={<Star className="animate-ping"/>}>
+            <a href="https://github.com/digitomize/digitomize" target="_blank">
               <AlertTitle>
-                <strong>🎉 digitomize</strong>
-                <span className="normal-case"> is now a part of <strong>Microsoft for Startups Founders Hub </strong>🎉 
+                {/* <strong>🎉 digitomize</strong> */}
+                <span className="normal-case"> Thank you for <strong>100+ stars</strong> on GitHub 🎉🎉 
                 </span>
               </AlertTitle>
             </a>
