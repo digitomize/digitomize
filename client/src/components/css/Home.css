@@ -1,19 +1,23 @@
 html,
 body {
-  background-color: black;
-  color: rgba(255, 255, 255, 0.75);
-  font-family: "Outfit", sans-serif;
+  background-color: #06090e;
+  background-size: 70px 70px;
+  background-image: linear-gradient(
+      to right,
+      rgb(23, 33, 54) 0.5px,
+      transparent 0.5px
+    ),
+    linear-gradient(to bottom, rgb(23, 33, 54) 0.5px, transparent 0.5px);
 }
-on-container p {
-  color: rgba(255, 255, 255, 0.75);
-  text-align: center;
-  font-family: Outfit;
-  font-size: 1.563rem;
-  font-style: normal;
-  font-weight: 300;
-  line-height: normal;
-  text-transform: lowercase;
-  margin-bottom: 5%;
+
+.dynamicprofile {
+  border: 1px solid #1584ff;
+  background: linear-gradient(180deg, #12274f 0%, rgba(28, 27, 64, 0.3) 100%);
+}
+
+.contestlist {
+  background: linear-gradient(180deg, #101025 0%, rgba(16, 16, 37, 0.46) 100%);
+  border-top: solid 0.5px #abaaff;
 }
 
 .indicator {
@@ -78,7 +82,6 @@ on-container p {
 
 .title-container {
   line-height: 1;
-  font-weight: 800;
   letter-spacing: -0.06em;
 }
 
@@ -228,51 +231,6 @@ on-container p {
   bottom: 0;
   left: 0;
   z-index: 0;
-}
-
-.animated-ship,
-.ship:before {
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding-left: 0.05em;
-  padding-right: 0.05em;
-}
-
-.animated-ship {
-  filter: contrast(1.2);
-  position: relative;
-  z-index: 1;
-}
-
-.animated-ship,
-.ship-shadow {
-  background-image: linear-gradient(90deg, #ff4d4d, #f9cb28);
-  animation: animationFade-ship 8s ease infinite normal none running;
-  animation-delay: 0s;
-}
-
-.ship-shadow {
-  position: absolute;
-  bottom: 50px;
-  filter: blur(50px);
-  height: 20px;
-  width: 100%;
-  padding-left: 0.05em;
-  padding-right: 0.05em;
-  position: relative;
-  z-index: 0;
-}
-@keyframes animationFade-develop {
-  0%,
-  16.667%,
-  to {
-    opacity: 1;
-  }
-
-  33.333%,
-  83.333% {
-    opacity: 0;
-  }
 }
 
 @keyframes animationFade-preview {

@@ -1,13 +1,10 @@
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Link, useParams } from "react-router-dom";
-// import {HomeIcon, WhatshotIcon, GrainIcon} from '@mui/icons-material';
 import {
   Home as HomeIcon,
   Whatshot as WhatshotIcon,
   Grain as GrainIcon,
-  OpenInNew,
-  PanTool,
   Celebration,
 } from "@mui/icons-material";
 import { Footer } from "../CustomComponents";

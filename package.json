@@ -8,7 +8,7 @@
     "build": "concurrently \"cd backend && npm run start\" \"cd frontend && npm build\"",
     "dev": "concurrently \"cd backend && npm run dev\" \"cd client && npm run dev\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "prettier --write ."
+    "format:write": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "prettier": "3.1.0"
   },
   "dependencies": {
+    "react-fast-marquee": "^1.6.2",
     "vercel": "^32.2.2"
   }
 }
