@@ -49,7 +49,7 @@ const addUID = async (request, response, next) => {
 };
 
 const checkAuth = async (request, response, next) => {
-  const authHeader = request.headers["authorization"];
+  const authHeader = request.headers.authorization;
   const authToken = authHeader && authHeader.split(" ")[1]; // Get the token part after 'Bearer'
 
   if (!authToken) {

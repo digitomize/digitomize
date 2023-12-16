@@ -1,6 +1,6 @@
 import https from "https";
 
-async function leetcode_u(handle) {
+async function leetcode_u (handle) {
   if (!handle) {
     return null;
   }

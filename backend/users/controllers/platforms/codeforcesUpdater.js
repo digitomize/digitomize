@@ -1,6 +1,6 @@
 import https from "https";
 
-async function codeforces_u(handle) {
+async function codeforces_u (handle) {
   if (!handle) {
     return null;
   }
@@ -34,7 +34,7 @@ async function codeforces_u(handle) {
   });
 }
 
-async function resolveUserInfo(userInfo, resolve, reject) {
+async function resolveUserInfo (userInfo, resolve, reject) {
   if (userInfo.status === "OK" && userInfo.result.length > 0) {
     const handle = userInfo.result[0].handle;
     const rating = userInfo.result[0].rating;

@@ -1,6 +1,6 @@
 import { setUser } from "../services/setUser.js";
 
-//? returns JSON message with Status Code
+// ? returns JSON message with Status Code
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
 const handleUserSignup = async (req, res) => {
   let {

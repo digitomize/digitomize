@@ -1,6 +1,5 @@
-import express from "express";
+import express, { Router } from "express";
 import contestController from "../controllers/contestController.js";
-import { Router } from "express";
 
 const router = Router();
 

@@ -3,7 +3,7 @@ import { sendEmail } from "../../services/email/createAccount.js";
 import { sendWebhook_createAccount } from "../../services/discord-webhook/createAccount.js";
 
 // Utility function to create default contest object
-function createDefaultContestObject(platformData) {
+function createDefaultContestObject (platformData) {
   const commonDefaults = {
     rating: null,
     badge: null,
@@ -51,7 +51,7 @@ const setUser = async (userData) => {
     }
     // Finds if the username with same name is already registered.
     const checkForDuplicateUsername = await User.findOne({
-      username: username,
+      username,
     });
 
     const newUser = new User({

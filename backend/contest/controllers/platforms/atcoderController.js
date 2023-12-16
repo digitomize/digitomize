@@ -3,7 +3,7 @@ import https from "https";
 import cheerio from "cheerio";
 // const { parseISO, getTime } = require('date-fns');
 
-async function atcoder_c() {
+async function atcoder_c () {
   const url = "https://atcoder.jp/contests";
 
   const promise = new Promise((resolve, reject) => {

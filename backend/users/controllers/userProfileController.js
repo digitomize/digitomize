@@ -137,7 +137,7 @@ const handleUserProfilePreview = async (req, res) => {
   }
 };
 
-function handleCodingPlatform(targetObject, platform, platformKey) {
+function handleCodingPlatform (targetObject, platform, platformKey) {
   if (platform.showOnWebsite) {
     targetObject[platformKey] = {
       username: platform.username || null,
