@@ -29,8 +29,13 @@ export default {
         "button-primary": "#1584FF",
         footer: "#131527",
         description: "#B7B6FF",
+        window: "#3B398F",
+        toolbar: "#181757",
         contestlist:
           "linear-gradient(180deg, #101025 0%, rgba(16, 16, 37, 0.46) 100%)",
+        contest: "rgba(114, 113, 178, 1)",
+        contestborder: "#7271B2",
+        contestlogo: "#5D5CBF",
         "button-primary-helper": "#6AB1FF",
         "button-primary-hover": "#0079FF",
         powered: "#D2D2D2",

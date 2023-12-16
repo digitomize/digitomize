@@ -12,7 +12,7 @@ export default function SectionOne() {
         Contribute to Digitomize
       </span>
       <div className="-mt-5">
-        <h1 className="text-white text-2xl sm:text-4xl md:text-7xl">
+        <h1 className="text-white md:text-7xl">
           <span>One place for all your</span>
           <span className="block mt-1 md:mt-6">
             <span className="bg-digitomize-bg px-2">coding platforms</span>{" "}

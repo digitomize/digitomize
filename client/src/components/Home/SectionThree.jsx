@@ -2,7 +2,7 @@ import ContestCards from "../ContestCards";
 
 export default function SectionThree() {
   return (
-    <div className="contestlist font-['Geist'] mt-36 pb-36">
+    <div className="font-['Geist'] mt-36 pb-36">
       <div className="hero flex flex-col">
         <div className="">
           <div className="my-24 mx-auto">
@@ -18,11 +18,10 @@ export default function SectionThree() {
                 <a href="/contests">Explore Contests</a>
               </button>
             </div>
-            <div className="flex justify-center">
-              <div className="max-phone:hidden mt-24 max-w-[30vw]">
-                <ContestCards />
-              </div>
-            </div>
+          </div>
+          <div>
+                                      <ContestCards />
+
           </div>
         </div>
       </div>

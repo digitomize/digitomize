@@ -1,4 +1,16 @@
-/* Card.css */
+.contestcard {
+border-radius: 12px;
+border: 1px solid #7271B2;
+background: linear-gradient(180deg, #1C406B 0%, rgba(34, 78, 191, 0.30) 100%);
+}
 
-@media (max-width: 768px) {
+.contestbtn {
+    border-radius: 12px;
+border: 0.5px solid #8F8ECC;
+background: #3C3B86;
+transition: 90ms;
+}
+
+.contestbtn:hover {
+    background: #313073;
 }

@@ -26,6 +26,7 @@
     "prettier": "3.1.0"
   },
   "dependencies": {
+    "react-fast-marquee": "^1.6.2",
     "vercel": "^32.2.2"
   }
 }
