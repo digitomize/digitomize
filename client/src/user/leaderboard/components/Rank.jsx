@@ -23,14 +23,15 @@ const Rank3 = () => {
 const Rank = ({ rank, color, user }) => {
   console.log(rank, user)
   return (
-    <Link to={"/u/" + (user?.username || "loading")}>
+    <Link to={"/u/" + (user?.username || "loading")} className={[2,3].includes(rank)?"mt-16":""}>
       <div className="flex flex-col items-center justify-center">
         {rank == 1 && <Rank1 />}
         {rank == 2 && <Rank2 />}
         {rank == 3 && <Rank3 />}
-        {user && (<div className="bg-gray-800 w-28 rounded-lg flex flex-col items-center justify-center relative mt-20 pt-16">
+        {user && (<div className="bg-gray-800 w-28 rounded-lg flex flex-col items-center justify-center relative mt-20 pt-16 p-2">
           <img src={user.picture || ""} className={`absolute top-[-4rem] w-28 h-28 rounded-full ring ring-[${color}]`} />
-          {user.name}
+          <p>{user.name}</p>
+          <p>{user.digitomize_rating}</p>
         </div>)}
       </div>
     </Link>
