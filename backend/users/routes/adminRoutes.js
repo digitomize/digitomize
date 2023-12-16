@@ -1,13 +1,13 @@
 import express from "express";
-import { addUID } from "../middlewares/authMiddleware.js";
-import { getUserList, updateUser ,
+import { addUID, dgmAdminCheck } from "../middlewares/authMiddleware.js";
+import {
+  getUserList, updateUser,
   createUserFirebase,
   createUserDB,
-,
   deleteUserFirebase,
-  deleteUserDB} from "../controllers/AdminUserController.js";
+  deleteUserDB,
+} from "../controllers/AdminUserController.js";
 // import { updateUser } from "../controllers/userController.js";
-import { dgmAdminCheck } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 

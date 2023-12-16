@@ -1,4 +1,4 @@
-import express, { Router } from "express";
+import { Router } from "express";
 import contestController from "../controllers/contestController.js";
 
 const router = Router();
@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
     }
 
     const platformArray = host ? host.split(",") : [];
-    const vanityArray = vanity ? vanity.split(",") : [];
+    // const vanityArray = vanity ? vanity.split(",") : [];
 
     const contests = await contestController.getContestList();
 

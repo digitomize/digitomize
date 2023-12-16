@@ -6,7 +6,7 @@ async function codeforces_u (handle) {
   }
 
   const url = `https://codeforces.com/api/user.info?handles=${handle}`;
-  const url2 = `https://codeforces.com/api/user.rating?handle=${handle}`;
+  // const url2 = `https://codeforces.com/api/user.rating?handle=${handle}`;
 
   return new Promise((resolve, reject) => {
     const request = https.get(url, (response) => {

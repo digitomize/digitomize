@@ -61,18 +61,18 @@ async function geeksforgeeks_c () {
   return filteredContestsPromise;
 }
 
-function formatStartTimeIST (start_time) {
-  const date = new Date(start_time);
-  const options = {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-  };
-  const startTimeIST = date.toLocaleString("en-US", options);
-  return startTimeIST;
-}
+// function formatStartTimeIST (start_time) {
+//   const date = new Date(start_time);
+//   const options = {
+//     month: "long",
+//     day: "numeric",
+//     year: "numeric",
+//     hour: "numeric",
+//     minute: "numeric",
+//   };
+//   const startTimeIST = date.toLocaleString("en-US", options);
+//   return startTimeIST;
+// }
 
 export default {
   geeksforgeeks_c,

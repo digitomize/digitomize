@@ -114,10 +114,12 @@ const setUser = async (userData) => {
       console.log(error);
       const key = Object.keys(error.keyValue)[0];
       const message = `User with this ${key} already exists`;
-      throw { status: 200, message }; // Throw custom error object
+      const customError = new Error(message);
+      customError.status = 200;
+      throw customError;// Throw custom error object
     }
     console.error("Error:", error);
-    throw { status: 500, message: "Error creating user" }; // Throw custom error object
+    throw new Error("Error creating user"); // Throw custom error object
   }
 };
 

@@ -37,7 +37,7 @@ async function getContestList () {
 
 const getContestByVanity = async (vanity) => {
   try {
-    // First, check the upcomingContestList in memory
+  // First, check the upcomingContestList in memory
     const contestInMemory = upcomingContestList.find(
       (contest) => contest.vanity === vanity,
     );
@@ -48,14 +48,15 @@ const getContestByVanity = async (vanity) => {
     // If not found in memory, query MongoDB
     const contestFromDB = await AllContest.findOne({ vanity });
     if (contestFromDB) {
-      // Add the contest to memory for future access
-      // upcomingContestList.push(contestFromDB);
+    // Add the contest to memory for future access
+    // upcomingContestList.push(contestFromDB);
       return contestFromDB;
     }
 
-    return null; // Contest not found
+    throw new Error("Contest not found");
   } catch (error) {
-    throw error;
+    console.error(error);
+    return error;
   }
 };
 

@@ -93,7 +93,7 @@ const checkUserOwnership = async (req, res, next) => {
 };
 
 const dgmAdminCheck = async (request, response, next) => {
-  const { body, decodedToken } = request;
+  const { decodedToken } = request;
   const userId = decodedToken.uid;
   // Check If User has admin role
   const user = await User.findOne({ uid: userId }).select(
@@ -116,18 +116,6 @@ const dgmAdminCheck = async (request, response, next) => {
   next();
 };
 const routeLogging = async (req, response, next) => {
-  const logData = {
-    method: req.method,
-    url: req.originalUrl,
-    headers: req.headers,
-    query: req.query,
-    body: req.body,
-    ip: req.ip,
-    userAgent: req.get("User-Agent"),
-    cookies: req.cookies,
-    timestamp: new Date().toISOString(),
-  };
-
   try {
     sendRequestLog(req);
   } catch (error) {
