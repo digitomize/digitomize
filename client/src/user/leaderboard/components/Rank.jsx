@@ -28,8 +28,8 @@ const Rank = ({ rank, color, user }) => {
         {rank == 1 && <Rank1 />}
         {rank == 2 && <Rank2 />}
         {rank == 3 && <Rank3 />}
-        {user && (<div className="bg-gray-800 w-28 rounded-lg flex flex-col items-center justify-center relative mt-20 pt-16 pb-2">
-          <img src={user.picture || ""} className={`absolute top-[-4rem] w-28 h-28 rounded-full ring ring-[${color}]`} />
+        {user && (<div className="bg-gray-800 w-28 rounded-lg flex flex-col items-center justify-center relative mt-20 pt-16 pb-2 text-center">
+          <img src={user.picture || ""} className={`absolute top-[-4rem] w-28 h-28 rounded-full ring ${rank==1?"ring-yellow-400":rank==2?"ring-gray-500":"ring-orange-950"}`} />
           <p>{user.name}</p>
           <p>{user.digitomize_rating}</p>
         </div>)}
