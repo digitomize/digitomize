@@ -351,7 +351,7 @@ export default function SectionTwo() {
           </div>
         </div>
         <div className="flex justify-center m-8">
-          <button className="px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75">
+          <button className="px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border border-[#9E9CEF]">
             <a href="/signup">Create Now</a>
           </button>
         </div>

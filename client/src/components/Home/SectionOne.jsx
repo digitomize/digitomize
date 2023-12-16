@@ -25,7 +25,7 @@ export default function SectionOne() {
         </p>
       </div>
       <div className="flex justify-center phone:mt-16 mt-8">
-        <button className="px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75">
+        <button className="px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border border-[#9E9CEF]">
           <a href="/signup">Register Now</a>
         </button>
       </div>

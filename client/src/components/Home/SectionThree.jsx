@@ -17,7 +17,7 @@ export default function SectionThree() {
               such as remaining time, duration, and more.
             </p>
             <div className="flex justify-center m-8">
-              <button className="px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75">
+              <button className="px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border border-[#9E9CEF]">
                 <a href="/contests">Explore Contests</a>
               </button>
             </div>
