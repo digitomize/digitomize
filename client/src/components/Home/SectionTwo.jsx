@@ -269,9 +269,9 @@ export default function SectionTwo() {
                 />
                 <label className="label mx-2">
                   <span className="label-text">
-                    fetch{`("`}
+                    fetch{"(\""}
                     <span className="text-custom-blue">ratings</span>
-                    {`");`}
+                    {"\");"}
                   </span>
                 </label>
                 <Skeleton

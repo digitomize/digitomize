@@ -6,7 +6,7 @@ import { Helmet } from "react-helmet";
 export default function ErrorPage() {
   const error = useRouteError();
   console.error(error);
-  const contentDescription = `ERROR 404`.toLowerCase();
+  const contentDescription = "ERROR 404".toLowerCase();
   return (
     <>
       <Helmet>

@@ -198,7 +198,7 @@ export default function About() {
                   Read the docs
                 </h4>
                 <p className="mt-2 text-base font-book leading-snug text-gray-9">
-                  Start by reading digitomize's{" "}
+                  Start by reading digitomize&apos;s{" "}
                   <a
                     className="text-primary"
                     href="https://github.com/digitomize/digitomize/blob/main/CONTRIBUTING.md"

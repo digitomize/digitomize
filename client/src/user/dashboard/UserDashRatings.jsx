@@ -247,7 +247,7 @@ export default function UserDashRatings() {
                           <div className="join">
                             <a
                               href="https://codeforces.com/profile"
-                              target="_blank"
+                              target="_blank" rel="noreferrer"
                             >
                               <div className="w-8 h-6 input-bordered join-item bg-cardsHover">
                                 <img
@@ -297,7 +297,7 @@ export default function UserDashRatings() {
                           <div className="join">
                             <a
                               href="https://www.codechef.com/dashboard"
-                              target="_blank"
+                              target="_blank" rel="noreferrer"
                             >
                               <div className="w-8 h-6 input-bordered join-item bg-cardsHover">
                                 <img
@@ -344,7 +344,7 @@ export default function UserDashRatings() {
                       <li>
                         <a>
                           <div className="join">
-                            <a href="https://leetcode.com/" target="_blank">
+                            <a href="https://leetcode.com/" target="_blank" rel="noreferrer">
                               <div className="w-8 h-6 input-bordered join-item bg-cardsHover">
                                 <img
                                   src={platformsIcon[0]}
