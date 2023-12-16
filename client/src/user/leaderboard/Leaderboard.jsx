@@ -48,6 +48,10 @@ export default function Leaderboard() {
     },
   }));
 
+  const [username, setUsername] = useState("")
+  const [platform, setPlatform] = useState("")
+  //CodeChef,LeetCode,CodeForces
+
   const CustomTooltip = () => {
     return (
       <HtmlTooltip
