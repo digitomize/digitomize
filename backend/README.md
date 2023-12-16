@@ -97,6 +97,14 @@ To get credentials you should first have a firebase project. If you don't know h
 
 Start the server: `npm start`
 
+## Contributing
+
+Contributions to the Digitomize project are welcome! If you would like to contribute to the client-side codebase, please refer to the [CONTRIBUTING.md](../CONTRIBUTING.md) file for details on how to contribute.
+
+### Linting
+- Run `npm run lint` to check for errors using the linter.
+- Run `npm run lint-fix` to have the linter automatically fix errors where possible.
+
 ## API Routes
 
 - https://digitomize.stoplight.io/docs/digitomize-api

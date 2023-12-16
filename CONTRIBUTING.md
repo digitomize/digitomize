@@ -46,6 +46,7 @@ Please ensure your code adheres to the [Coding Guidelines](#coding-guidelines).
 - Follow the established coding style and conventions.
 - Write clear and concise code with meaningful comments when necessary.
 - Test your changes thoroughly before submitting a pull request.
+- Run `npm run eslint` to make sure your contributions are in line with our coding guidelines
 - Document new features, changes, or important concepts as needed.
 
 ## License
