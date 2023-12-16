@@ -15,7 +15,7 @@ export default function About() {
           <div className="hero-content flex-col sm:flex-row">
             <div className="left text-center flex flex-col justify-center items-center">
               <div className="text-center w-fit">
-                <h1 className="lg:text-8xl sm:text-7xl  max-sm:text-5xl my-0 font-medium flex phone:flex-row max-phone:flex-col mx-auto w-full">
+                <h1 className="lg:text-[85px] sm:text-[50px] md:text-[65px]  max-sm:text-5xl my-0 font-medium flex phone:flex-row max-phone:flex-col mx-auto w-full">
                   An{" "}
                   <span className="text-custom-blue font-bold mx-2 flex flex-row">
                     Open Source
