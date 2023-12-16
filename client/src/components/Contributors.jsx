@@ -305,6 +305,7 @@ export default function Contributors() {
           <h1 className="m-0 p-0 max-phone:text-4xl">Contributors</h1>
           <div className="flex flex-row">
             <Swiper
+            speed={800}
               spaceBetween={10}
               slidesPerView={5}
               modules={[Autoplay]}
@@ -405,6 +406,7 @@ export default function Contributors() {
           </div>
           <div className="flex flex-row">
             <Swiper
+            speed={800}
               spaceBetween={10}
               slidesPerView={4.5}
               modules={[Autoplay]}
