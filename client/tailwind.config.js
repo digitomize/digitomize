@@ -29,7 +29,7 @@ export default {
         "button-primary": "#1584FF",
         footer: "#131527",
         // description: "#B7B6FF",
-        description:"#9eb3bd",
+        description: "#9eb3bd",
         window: "#3B398F",
         toolbar: "#181757",
         contestlist:

@@ -269,17 +269,14 @@ export default function SectionTwo() {
                 <p className="font-thin">
                   {formData.phoneNumber.showOnWebsite ? (
                     <>
-                      <CallIcon fontSize="small" />{" "}
-                      {formData.phoneNumber.data}
+                      <CallIcon fontSize="small" /> {formData.phoneNumber.data}
                     </>
                   ) : (
                     " "
                   )}
                 </p>
 
-                <p>
-                  {formData.bio.showOnWebsite ? formData.bio.data : " "}
-                </p>
+                <p>{formData.bio.showOnWebsite ? formData.bio.data : " "}</p>
                 <div className="socials space-x-3">
                   <LinkedInIcon sx={{ color: "#0077b5" }} />
                   <InstagramIcon sx={gradientStyles} fontSize="small" />
@@ -294,8 +291,7 @@ export default function SectionTwo() {
                       </div>
                     </div>
                     <p>
-                      15XX |{" "}
-                      <span style={{ color: "cyan" }}>specialist</span>
+                      15XX | <span style={{ color: "cyan" }}>specialist</span>
                     </p>
                   </div>
                   <div className="flex flex-row items-center">
@@ -326,9 +322,7 @@ export default function SectionTwo() {
                   <p>issues: 15</p>
                   <p>commits: 100</p>
                 </div>
-                <div className="my-2 divider text-custom-blue">
-                  projects
-                </div>
+                <div className="my-2 divider text-custom-blue">projects</div>
                 <div className="projects flex-wrap justify-center flex">
                   <Skeleton
                     variant="rounded"

@@ -10,7 +10,7 @@ export default function SectionOne() {
   return (
     <div className="font-['Geist'] xl:pt-8 max-md:pt-4 items-center flex flex-col text-center phone:mt-16">
       <span className="flex justify-center items-center border border-badge bg-badge text-badge-txt px-6 py-1 rounded-full text-xs">
-        We're open source | Star Now! <Star fontSize="small"/>
+        We're open source | Star Now! <Star fontSize="small" />
       </span>
       <div className="w-10/12">
         <h1 className="mt-2 text-white max-md:text-4xl md:text-7xl">
