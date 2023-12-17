@@ -87,7 +87,7 @@ export default function SectionTwo() {
   };
 
   return (
-    <div className="mt-24 flex justify-center p-2 min-h-screen min-xs:flex-col mx-auto w-11/12">
+    <div className="max-md:mt-2 md:mt-24 flex justify-center p-2 min-h-screen min-xs:flex-col mx-auto w-11/12">
       <div className="h-5/6 dynamicprofile rounded-lg flex-col my-auto py-4 px-4 max-w-7xl lg:w-10/12">
         <div className="left text-center">
           <div className="sm:text-center max-sm:text-center">
