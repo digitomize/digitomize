@@ -2,7 +2,7 @@ import ContestCards from "../ContestCards";
 
 export default function SectionThree() {
   return (
-    <div className="font-['Geist'] md:mt-24 pb-36">
+    <div className="font-['Geist'] md:mt-24 pb-36 min-h-screen">
       <div className="hero flex flex-col">
         <div className="">
           <div className="md:my-24 mx-auto w-4/5">

@@ -22,9 +22,11 @@ import NewNavbar from "./globals/NewNavbar";
 import ScrollToTop from "./globals/ScrollToTop";
 import Signup from "./globals/Signup";
 import Updates from "./Updates";
+import ContestPage from "./Contests/ContestPage";
 export {
   BgEllipse,
   Button,
+  ContestPage,
   Card,
   Contests,
   About,

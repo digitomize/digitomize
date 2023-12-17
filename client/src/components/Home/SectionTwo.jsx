@@ -87,15 +87,15 @@ export default function SectionTwo() {
   };
 
   return (
-    <div className="mt-24 flex justify-center p-2 h-screen min-xs:flex-col mx-auto w-11/12">
-      <div className="dynamicprofile rounded-lg flex-col my-auto py-8 px-4 max-w-7xl lg:w-10/12">
+    <div className="mt-24 flex justify-center p-2 min-h-screen min-xs:flex-col mx-auto w-11/12">
+      <div className="h-5/6 dynamicprofile rounded-lg flex-col my-auto py-4 px-4 max-w-7xl lg:w-10/12">
         <div className="left text-center">
           <div className="sm:text-center max-sm:text-center">
             <h2 className="max-md:text-4xl md:text-6xl font-['Geist'] my-0 text-white font-semibold">
               Build your <span className="bg-digitomize-bg px-2">Dynamic</span>{" "}
               Profile
             </h2>
-            <p className="py-6 font-['Geist'] text-description max-md:text-sm md:text-xl">
+            <p className="py-2 font-['Geist'] text-description max-md:text-sm md:text-xl">
               Showcase your ratings, GitHub stats, personal info, skills,
               education, and more. Climb the leaderboard while enjoying friendly
               competition with friends in the coding community.
@@ -155,19 +155,19 @@ export default function SectionTwo() {
         </div>
         <div className="max-lg:hidden">
           <div className="flex flex-col md:flex-row">
-            <div className="mx-3 h-fit w-4/6 bg-window duration-500 rounded-xl pb-12">
+            <div className="mx-3 h-fit w-4/6 bg-window duration-500 rounded-xl pb-4">
               <div>
                 <div className="flex flex-row bg-toolbar rounded-t-lg">
-                  <div className="flex gap-2 py-2 px-4 my-4">
+                  <div className="flex gap-2 py-2 px-4 my-2">
                     <span className="rounded-full p-2 bg-[#C6B1FF]"></span>
                     <span className="rounded-full p-2 bg-[#AE92FF]"></span>
                     <span className="rounded-full p-2 bg-[#8D65FF]"></span>
                   </div>
 
-                  <div className="bg-window text-[#B7B6FF] rounded-full text-sm tracking-wide flex justify-center w-full py-0.5 my-4 items-center">
+                  <div className="bg-window text-[#B7B6FF] rounded-full text-sm tracking-wide flex justify-center w-full py-0.5 my-2 items-center">
                     <p className="py-1">https://digitomize.com/u/dashboard</p>
                   </div>
-                  <div className="bg-window rounded-lg mx-2 my-4 px-1 py-1">
+                  <div className="bg-window rounded-lg mx-2 my-2 px-1 py-1">
                     <p>+</p>
                   </div>
                 </div>
@@ -255,8 +255,8 @@ export default function SectionTwo() {
               </div>
             </div>
             <div className="mx-3 w-2/6 bg-window rounded-xl">
-              <h2 className="pt-4 pl-4 text-2xl text-['#E7E7FF']">Preview</h2>
-              <div className="my-auto py-5 text-center flex flex-col justify-center items-center">
+              <h2 className="pt-2 pl-4 text-2xl text-['#E7E7FF']">Preview</h2>
+              <div className="my-auto py-2 text-center flex flex-col justify-center items-center">
                 <Avatar
                   draggable="false"
                   src="/src/assets/hacker.png"
@@ -350,7 +350,7 @@ export default function SectionTwo() {
             </div>
           </div>
         </div>
-        <div className="flex justify-center m-8">
+        <div className="flex justify-center m-4">
           <button className="px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border border-[#9E9CEF]">
             <a href="/signup">Create Now</a>
           </button>

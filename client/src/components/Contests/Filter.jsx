@@ -95,10 +95,9 @@ function Filter() {
   };
   return (
     <>
-      <div className="divider sticky" id="okk"></div>
       <Element
         name="allContests"
-        className="pt-24 flex md:flex-row flex-col justify-between"
+        className="flex md:flex-row flex-col justify-between"
       >
         <h2
           style={{ marginBottom: "3%", fontSize: "3.5rem" }}

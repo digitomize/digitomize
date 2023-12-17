@@ -16,7 +16,7 @@ import "./App.css";
 
 import {
   Layout,
-  Home,
+  ContestPage,
   Login,
   loginLoader,
   Signup,
@@ -133,7 +133,7 @@ const router = createBrowserRouter(
         <Route path="login" element={<Login />} loader={loginLoader} />
         <Route path="logout" element={<Logout />} />;
         <Route path="signup" element={<Signup />} loader={signupLoader} />
-        <Route path="contests" element={<Home />} />
+        <Route path="contests" element={<ContestPage />} />
         <Route path="updates" element={<Updates />} />
         <Route path="home" element={<Homepage />} />
         <Route path="feedback" element={<Feedback />} />
@@ -154,8 +154,8 @@ const router = createBrowserRouter(
           <Route
             index
             element={<UserDashboard />}
-            // loader={userDashPersonalLoader}
-            // loader={userDashPersonalLoader}
+          // loader={userDashPersonalLoader}
+          // loader={userDashPersonalLoader}
           />
           <Route
             path="account"
