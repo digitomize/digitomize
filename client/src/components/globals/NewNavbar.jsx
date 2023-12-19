@@ -27,7 +27,7 @@ export default function NewNavbar({ position }) {
     },
     {
       title: "Contests",
-      path: "/contests#list",
+      path: "/contests",
     },
     {
       title: "About",
