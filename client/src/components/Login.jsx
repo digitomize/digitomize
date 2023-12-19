@@ -121,7 +121,7 @@ export default function Login() {
                       <p>
                         <span className="label-text">{"import"}</span>
                         <span className="label-text text-custom-blue">
-                          {' "password";'}
+                          {" \"password\";"}
                         </span>
                       </p>
                     </label>

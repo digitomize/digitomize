@@ -5,7 +5,7 @@ import { UpcomingContest, AllContest } from "../models/Contest.js";
 let upcomingContestList = []; // Variable to store contests in memory
 
 //* Function to fetch contests from MongoDB and update the upcomingContestList variable
-async function updateContests() {
+async function updateContests () {
   try {
     console.log("┌──────────────────────────────────┐");
     console.log("│ Retrieving Data | MongoDB to App".padEnd(35) + "│");
@@ -13,7 +13,7 @@ async function updateContests() {
 
     // Fetch contests from MongoDB (without id, createdAt and updatedAt)
     const fetchedContests = await UpcomingContest.find().select(
-      `-_id -createdAt -updatedAt -__v`,
+      "-_id -createdAt -updatedAt -__v",
     );
 
     // Sorting contests
@@ -31,13 +31,13 @@ async function updateContests() {
 }
 
 //* Function to return upcomingContestList
-async function getContestList() {
+async function getContestList () {
   return await upcomingContestList;
 }
 
 const getContestByVanity = async (vanity) => {
   try {
-    // First, check the upcomingContestList in memory
+  // First, check the upcomingContestList in memory
     const contestInMemory = upcomingContestList.find(
       (contest) => contest.vanity === vanity,
     );
@@ -46,16 +46,17 @@ const getContestByVanity = async (vanity) => {
     }
 
     // If not found in memory, query MongoDB
-    const contestFromDB = await AllContest.findOne({ vanity: vanity });
+    const contestFromDB = await AllContest.findOne({ vanity });
     if (contestFromDB) {
-      // Add the contest to memory for future access
-      // upcomingContestList.push(contestFromDB);
+    // Add the contest to memory for future access
+    // upcomingContestList.push(contestFromDB);
       return contestFromDB;
     }
 
-    return null; // Contest not found
+    throw new Error("Contest not found");
   } catch (error) {
-    throw error;
+    console.error(error);
+    return error;
   }
 };
 

@@ -181,6 +181,7 @@ export default function UserListPage() {
                         >
                           {roleOptions.map((option) => (
                             <MenuItem
+                            key={option.value}
                               className="capitalize"
                               value={option.value}
                             >

@@ -20,7 +20,7 @@ function Home() {
             options={{ loop: true, delay: 100 }}
             onInit={(typewriter) => {
               typewriter
-                .typeString(`#include "contests/upcoming"`)
+                .typeString("#include \"contests/upcoming\"")
                 .pauseFor(10000)
 
                 .start();

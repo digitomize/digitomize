@@ -1,6 +1,6 @@
 import https from "https";
 
-async function codechef_u(username) {
+async function codechef_u (username) {
   if (!username) {
     return null;
   }

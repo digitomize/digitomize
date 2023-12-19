@@ -1,12 +1,12 @@
 import https from "https";
 
-async function codeforces_u(handle) {
+async function codeforces_u (handle) {
   if (!handle) {
     return null;
   }
 
   const url = `https://codeforces.com/api/user.info?handles=${handle}`;
-  const url2 = `https://codeforces.com/api/user.rating?handle=${handle}`;
+  // const url2 = `https://codeforces.com/api/user.rating?handle=${handle}`;
 
   return new Promise((resolve, reject) => {
     const request = https.get(url, (response) => {
@@ -34,7 +34,7 @@ async function codeforces_u(handle) {
   });
 }
 
-async function resolveUserInfo(userInfo, resolve, reject) {
+async function resolveUserInfo (userInfo, resolve, reject) {
   if (userInfo.status === "OK" && userInfo.result.length > 0) {
     const handle = userInfo.result[0].handle;
     const rating = userInfo.result[0].rating;

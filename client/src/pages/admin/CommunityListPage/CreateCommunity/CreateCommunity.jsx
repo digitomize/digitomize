@@ -41,10 +41,10 @@ export default function CreateCommunity({ handleClose }) {
         >
           {CreateCommunityForm.map((item) => {
             return (
-              <div class="relative mb-3" data-te-input-wrapper-init>
+              <div key={item.name} className="relative mb-3" data-te-input-wrapper-init>
                 <label>{item.label}</label>
                 <input
-                  class="peer block min-h-[auto] w-full rounded  px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear"
+                  className="peer block min-h-[auto] w-full rounded  px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear"
                   {...item}
                 />
               </div>

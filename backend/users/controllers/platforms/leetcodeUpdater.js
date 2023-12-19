@@ -1,6 +1,6 @@
 import https from "https";
 
-async function leetcode_u(handle) {
+async function leetcode_u (handle) {
   if (!handle) {
     return null;
   }
@@ -40,7 +40,7 @@ async function leetcode_u(handle) {
         try {
           const userInfo = JSON.parse(data);
           console.log("OKKKKKKKKK", userInfo);
-          if (userInfo.data?.userContestRanking == undefined) {
+          if (userInfo.data?.userContestRanking === undefined) {
             // userInfo.data = userContestRanking;
             userInfo.data.userContestRanking = {
               attendedContestsCount: 0,
