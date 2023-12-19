@@ -3,7 +3,7 @@ import { getAuth } from "firebase-admin/auth";
 import User from "../models/User.js";
 import { ROLE } from "../../core/const.js";
 import { sendRequestLog } from "../../services/discord-webhook/routeLog.js";
-// const { admin } = require("../../firebase-config.json"); // Update the path accordingly
+import  admin  from "firebase-admin";
 
 const addUID = async (request, response, next) => {
   const authHeader =
