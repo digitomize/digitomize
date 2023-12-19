@@ -15,7 +15,6 @@ const getLeaderboard = async (req, res) => {
       const platform = req.query.platform.toLowerCase();
       users = await User.find({
         [`${platform}.rating`]: { $exists: true, $ne: null },
-        digitomize_rating: { $gt: 0 },
       });
       totalUsers = users.length;
       users.sort((a, b) => {
