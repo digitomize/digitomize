@@ -15,6 +15,7 @@ const getLeaderboard = async (req, res) => {
       const platform = req.query.platform.toLowerCase();
       users = await User.find({
         [`${platform}.rating`]: { $exists: true, $ne: null },
+        digitomize_rating: { $gt: 0 },
       });
       totalUsers = users.length;
       users.sort((a, b) => {
@@ -23,7 +24,7 @@ const getLeaderboard = async (req, res) => {
         return bRating - aRating;
       });
     } else {
-      users = await User.find();
+      users = await User.find({ digitomize_rating: { $gt: 0 } });
       totalUsers = users.length;
       users.sort((a, b) => b.digitomize_rating - a.digitomize_rating);
     }
