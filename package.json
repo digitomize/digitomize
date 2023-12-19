@@ -7,6 +7,8 @@
     "postinstall": "concurrently \"cd backend && npm i\" \"cd client && npm i\"",
     "build": "concurrently \"cd backend && npm run start\" \"cd client && npm build\"",
     "dev": "concurrently \"cd backend && npm run dev\" \"cd client && npm run dev\"",
+    "eslint": "concurrently \"cd backend && npm run lint\" \"cd client && npm run lint\"",
+    "eslint-fix": "concurrently \"cd backend && npm run lint-fix\" \"cd client && npm run lint-fix\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format:write": "prettier --write ."
   },

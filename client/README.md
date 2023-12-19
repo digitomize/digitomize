@@ -122,6 +122,10 @@ This command will start the development server. You can then access and interact
 
 Contributions to the Digitomize project are welcome! If you would like to contribute to the client-side codebase, please refer to the [CONTRIBUTING.md](../CONTRIBUTING.md) file for details on how to contribute.
 
+### Linting
+- Run `npm run lint` to check for errors using the linter.
+- Run `npm run lint-fix` to have the linter automatically fix errors where possible.
+
 ## License
 
 This project is licensed under the [MIT License](../LICENSE).

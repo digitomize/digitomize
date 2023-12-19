@@ -97,6 +97,10 @@ To get credentials you should first have a firebase project. If you don't know h
 
 Start the server: `npm start`
 
+### Linting
+- Run `npm run lint` to check for errors using the linter.
+- Run `npm run lint-fix` to have the linter automatically fix errors where possible.
+
 ## API Routes
 
 - https://digitomize.stoplight.io/docs/digitomize-api
