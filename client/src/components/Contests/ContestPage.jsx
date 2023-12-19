@@ -1,10 +1,29 @@
 
 import * as React from 'react';
 import Filter from "./Filter";
+import { LockOutlined, TrendingUp } from '@mui/icons-material';
 
+
+function ComingSoon({value}) {
+  return (
+    <>
+      <div>
+        <div className="flex flex-col justify-center items-center">
+          <h1 className="my-0 text-white text-4xl text-center capitalize">
+            <span style={{ textShadow: '5px 5px 5px rgba(21, 132, 255, 0.9)' }}>
+              {value} {''}
+            </span>
+            Coming Soon
+          </h1>
+          <progress className="progress w-56 mt-12"></progress>
+        </div>
+      </div>
+    </>
+  )
+}
 
 export default function ContestPage() {
-  const [value, setValue] = React.useState('one');
+  const [value, setValue] = React.useState('contests');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -21,21 +40,35 @@ export default function ContestPage() {
         </h1>
 
       </div>
-
-      <div role="tablist" className="tabs tabs-lifted tabs-lg">
-        <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Tab 1" checked />
-        <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
-          <div>
-            <Filter />
-          </div>
-        </div>
-
-        <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Tab 2" />
-        <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">Tab content 2</div>
-
-        <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Tab 3" />
-        <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">Tab content 3</div>
+      <div className="buttons flex gap-4 justify-center my-8 flex-wrap">
+        <button className={`btn ${value !== 'contests' ? 'btn-outline' : 'bg-custom-blue text-white'}`} onClick={(event) => handleChange(event, 'contests')}>
+          Contests
+          <TrendingUp />
+        </button>
+        <button className={`btn ${value !== 'hackathons' ? 'btn-outline' : 'bg-custom-blue text-white'}`} onClick={(event) => handleChange(event, 'hackathons')}>
+          Hackathons
+          <LockOutlined />
+        </button>
+        <button className={`btn ${value !== 'internships' ? 'btn-outline' : 'bg-custom-blue text-white'}`} onClick={(event) => handleChange(event, 'internships')}>
+          Internships
+          <LockOutlined />
+        </button>
+        <button className={`btn ${value !== 'jobs' ? 'btn-outline' : 'bg-custom-blue text-white'}`} onClick={(event) => handleChange(event, 'jobs')}>
+          Jobs
+          <LockOutlined />
+        </button>
       </div>
+
+      <div className="">
+        {value === 'contests' && <Filter />}
+        {value === 'hackathons' && <ComingSoon value={value} />}
+        {value === 'internships' && <ComingSoon value={value} />}
+        {value === 'jobs' && <ComingSoon value={value} />}
+      </div>
+
+
+
+
     </div>
   )
 }

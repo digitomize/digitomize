@@ -97,15 +97,8 @@ function Filter() {
     <>
       <Element
         name="allContests"
-        className="flex md:flex-row flex-col justify-between"
+        className="flex md:flex-row flex-col justify-between mt-12"
       >
-        <h2
-          style={{ marginBottom: "3%", fontSize: "3.5rem" }}
-          className="text-white z-10 text-center lg:text-left"
-        >
-          {" "}
-          Contests
-        </h2>
       </Element>
       <Element className=" flex md:flex-row flex-col justify-between mx-auto md:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
         {/* //checkmarks */}
@@ -137,11 +130,24 @@ function Filter() {
                 <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                   {selected?.map((value) => (
                     <Chip
-                      key={value}
-                      label={value}
-                      onDelete={() => handleDelete(value)}
-                    />
-                  ))}
+                    key={value}
+                    label={
+                      <span style={{ display: "flex", alignItems: "center" }}>
+                        <img
+                          src={platformsIcon[platforms.indexOf(value)]}
+                          alt={value}
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            marginRight: "5%",
+                          }}
+                        />
+                        {value}
+                      </span>
+                    }
+                    onDelete={() => handleDelete(value)}
+                  />
+                ))}
                 </Box>
               )}
               MenuProps={MenuProps}
