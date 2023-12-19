@@ -11,11 +11,11 @@ export default function About() {
   return (
     <>
       <div className="container w-11/12 mx-auto text-center mt-4">
-        <div className="hero">
+        <div className="sm:grid place-items-center  w-full">
           <div className="hero-content flex-col sm:flex-row">
             <div className="left text-center flex flex-col justify-center items-center">
               <div className="text-center w-fit">
-                <h1 className="sm:text-8xl max-sm:text-5xl my-0 font-medium flex phone:flex-row max-phone:flex-col mx-auto w-full">
+                <h1 className="lg:text-[85px] sm:text-[50px] md:text-[65px] phone:text-[30px]  max-phone:text-5xl my-0 font-medium flex phone:flex-row max-phone:flex-col mx-auto w-full">
                   An{" "}
                   <span className="text-custom-blue font-bold mx-2 flex flex-row">
                     Open Source
@@ -32,23 +32,23 @@ export default function About() {
                                 </p>
                             </div> */}
               <div className="divider phone:w-2/5 max-phone:w-3/5 mx-auto"></div>
-              <div className="flex flex-col phone:w-3/5">
-                <div className="one flex phone:flex-row max-phone:flex-col">
-                  <div className="left phone:w-2/5">
-                    <h1 className="m-0 phone:text-left">contests</h1>
+              <div className="flex flex-col md:w-4/5 lg:w-3/5  phone:w-3/5">
+                <div className="one flex md:flex-row max-md:flex-col">
+                  <div className="left md:w-2/5">
+                    <h1 className="m-0 md:text-left">contests</h1>
                   </div>
-                  <div className="right phone:w-3/5 phone:text-left">
+                  <div className="right md:w-3/5 md:text-left">
                     Explore upcoming coding contests from platforms like
                     LeetCode, Codeforces, CodeChef, and more. Filter contests
                     based on various criteria and view contest details such as
                     remaining time, duration, and more
                   </div>
                 </div>
-                <div className="two flex phone:flex-row max-phone:flex-col mt-4">
-                  <div className="left phone:w-2/5">
-                    <h1 className="m-0 phone:text-left">portfolio</h1>
+                <div className="two flex md:flex-row max-md:flex-col mt-4">
+                  <div className="left md:w-2/5">
+                    <h1 className="m-0 md:text-left">portfolio</h1>
                   </div>
-                  <div className="right phone:w-3/5 phone:text-left">
+                  <div className="right md:w-3/5 md:text-left">
                     Create your developer portfolio by providing user handles
                     for different coding platforms. The platform dynamically
                     fetches and displays your updated ratings, achievements, and
@@ -180,10 +180,10 @@ export default function About() {
             </div>
           </Link>
         </div>
-        <div className="phone:w-10/12 mx-auto">
+        <div className="sm:w-10/12 mx-auto">
           <h1 className="w-full text-left py-2">How to contribute</h1>
-          <div className="parts flex phone:flex-row text-left max-phone:flex-col">
-            <div className="phone:w-1/3 flex phone:flex-col max-phone:flex-row">
+          <div className="parts flex sm:flex-row text-left max-sm:flex-col">
+            <div className="sm:w-1/3  phone:space-x-2 sm:space-x-0  flex sm:flex-col max-sm:flex-row">
               <div>
                 <div
                   className="radial-progress text-primary"
@@ -193,7 +193,7 @@ export default function About() {
                   1
                 </div>
               </div>
-              <div className="p-2 phone:mt-4">
+              <div className="p-2 sm:mt-4">
                 <h4 className="text-2xl font-medium leading-tight">
                   Read the docs
                 </h4>
@@ -220,7 +220,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="phone:w-1/3 flex phone:flex-col max-phone:flex-row">
+            <div className="sm:w-1/3  phone:space-x-2 sm:space-x-0  flex sm:flex-col max-sm:flex-row">
               <div>
                 <div
                   className="radial-progress text-primary"
@@ -230,7 +230,7 @@ export default function About() {
                   2
                 </div>
               </div>
-              <div className="p-2 phone:mt-4">
+              <div className="p-2 sm:mt-4">
                 <h4 className="text-2xl font-medium leading-tight">
                   Pick an issue
                 </h4>
@@ -257,7 +257,7 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="phone:w-1/3 flex phone:flex-col max-phone:flex-row">
+            <div className="sm:w-1/3 phone:space-x-2 sm:space-x-0 flex sm:flex-col max-sm:flex-row">
               <div>
                 <div
                   className="radial-progress text-primary"
@@ -267,7 +267,7 @@ export default function About() {
                   3
                 </div>
               </div>
-              <div className="p-2 phone:mt-4">
+              <div className="p-2 sm:mt-4">
                 <h4 className="text-2xl font-medium leading-tight">Fix it</h4>
                 <p className="mt-2 text-base font-book leading-snug text-gray-9">
                   Solve the issue and create a Pull Request. Join us on{" "}
