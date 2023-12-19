@@ -92,7 +92,7 @@ export default function SectionTwo() {
         <div className="left text-center">
           <div className="sm:text-center max-sm:text-center">
             <h2 className="max-md:text-4xl md:text-6xl font-['Geist'] my-0 text-white font-semibold">
-              Build your <span className="bg-digitomize-bg px-2">Dynamic</span>{" "}
+              Build your <span className="bg-digitomize-bg px-2 rounded-md">Dynamic</span>{" "}
               Profile
             </h2>
             <p className="py-2 font-['Geist'] text-description max-md:text-sm md:text-xl">
@@ -351,9 +351,9 @@ export default function SectionTwo() {
           </div>
         </div>
         <div className="flex justify-center m-4">
-          <button className="px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border border-[#9E9CEF]">
-            <a href="/signup">Create Now</a>
-          </button>
+          <Link to="/signup" className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border ">
+            Create Now
+          </Link>
         </div>
       </div>
     </div>
