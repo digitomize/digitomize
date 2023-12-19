@@ -95,15 +95,14 @@ function Filter() {
   };
   return (
     <>
+      <div className="divider sticky" id="okk"></div>
       <Element
         name="allContests"
-        className="flex md:flex-row flex-col justify-between"
+        className="pt-24 flex md:flex-row flex-col justify-between lg:px-20 md:px-12 "
       >
         <h2
-          style={{ marginBottom: "3%", fontSize: "3.5rem" }}
-          className="text-white z-10 text-center lg:text-left"
+          className="text-white z-10 text-center lg:text-left text-6xl py-4 capitalize"
         >
-          {" "}
           Contests
         </h2>
       </Element>
@@ -137,11 +136,24 @@ function Filter() {
                 <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                   {selected?.map((value) => (
                     <Chip
-                      key={value}
-                      label={value}
-                      onDelete={() => handleDelete(value)}
-                    />
-                  ))}
+                    key={value}
+                    label={
+                      <span style={{ display: "flex", alignItems: "center" }}>
+                        <img
+                          src={platformsIcon[platforms.indexOf(value)]}
+                          alt={value}
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            marginRight: "5%",
+                          }}
+                        />
+                        {value}
+                      </span>
+                    }
+                    onDelete={() => handleDelete(value)}
+                  />
+                ))}
                 </Box>
               )}
               MenuProps={MenuProps}
