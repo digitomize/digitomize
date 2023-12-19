@@ -4,7 +4,7 @@ import boy from "../../../assets/boyV7.png";
 import { Skeleton } from "@mui/material";
 
 const Rank = ({ color, pt = 8, user }) => {
-  console.log(user)
+  console.log(user);
   return (
     <div className={`pt-${pt}`}>
       {user?.username && user?.name ?

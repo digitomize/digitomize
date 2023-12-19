@@ -7,7 +7,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint contest/** core/** DSA_sheets/** services/** users/**",
+    "lint-fix": "npx eslint contest/** core/** DSA_sheets/** services/** users/** --fix"
   },
   "author": "",
   "license": "MIT",
@@ -24,6 +26,12 @@
     "mongoose": "^7.4.1"
   },
   "devDependencies": {
+    "@stylistic/eslint-plugin": "^1.5.1",
+    "eslint": "^8.56.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.4.0",
+    "eslint-plugin-promise": "^6.1.1",
     "nodemon": "^3.0.1"
   }
 }

@@ -20,7 +20,7 @@ const updatePlatformData = (platform, userData, existingData) => {
     existingData.showOnWebsite = platformData.showOnWebsite || false;
 
     // If username is provided in userData, set ratings, badge, and fetchTime to null
-    if (platformData.username != existingData.username) {
+    if (platformData.username !== existingData.username) {
       existingData.username = platformData.username || "";
       existingData.rating = null;
       existingData.attendedContestsCount = null;

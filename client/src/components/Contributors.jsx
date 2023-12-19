@@ -338,7 +338,7 @@ export default function Contributors() {
               }}
             >
               {temp.map((item) => (
-                <div className="w-full">
+                <div key={item.name} className="w-full">
                   <SwiperSlide key={item.name} className="w-fit">
                     <Link to={item.profile}>
                       <Card
@@ -439,7 +439,7 @@ export default function Contributors() {
               }}
             >
               {temp.map((item) => (
-                <div className="w-full">
+                <div key={item.name} className="w-full">
                   <SwiperSlide key={item.name} className="w-fit">
                     <Link to={item.profile}>
                       <Card

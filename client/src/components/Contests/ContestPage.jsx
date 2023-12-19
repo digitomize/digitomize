@@ -1,7 +1,7 @@
 
-import * as React from 'react';
+import * as React from "react";
 import Filter from "./Filter";
-import { LockOutlined, TrendingUp } from '@mui/icons-material';
+import { LockOutlined, TrendingUp } from "@mui/icons-material";
 
 
 function ComingSoon({value}) {
@@ -10,8 +10,8 @@ function ComingSoon({value}) {
       <div>
         <div className="flex flex-col justify-center items-center">
           <h1 className="my-0 text-white text-4xl text-center capitalize">
-            <span style={{ textShadow: '5px 5px 5px rgba(21, 132, 255, 0.9)' }}>
-              {value} {''}
+            <span style={{ textShadow: "5px 5px 5px rgba(21, 132, 255, 0.9)" }}>
+              {value} {""}
             </span>
             Coming Soon
           </h1>
@@ -19,11 +19,11 @@ function ComingSoon({value}) {
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default function ContestPage() {
-  const [value, setValue] = React.useState('contests');
+  const [value, setValue] = React.useState("contests");
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -41,34 +41,34 @@ export default function ContestPage() {
 
       </div>
       <div className="buttons flex gap-4 justify-center my-8 flex-wrap">
-        <button className={`btn ${value !== 'contests' ? 'btn-outline' : 'bg-custom-blue text-white'}`} onClick={(event) => handleChange(event, 'contests')}>
+        <button className={`btn ${value !== "contests" ? "btn-outline" : "bg-custom-blue text-white"}`} onClick={(event) => handleChange(event, "contests")}>
           Contests
           <TrendingUp />
         </button>
-        <button className={`btn ${value !== 'hackathons' ? 'btn-outline' : 'bg-custom-blue text-white'}`} onClick={(event) => handleChange(event, 'hackathons')}>
+        <button className={`btn ${value !== "hackathons" ? "btn-outline" : "bg-custom-blue text-white"}`} onClick={(event) => handleChange(event, "hackathons")}>
           Hackathons
           <LockOutlined />
         </button>
-        <button className={`btn ${value !== 'internships' ? 'btn-outline' : 'bg-custom-blue text-white'}`} onClick={(event) => handleChange(event, 'internships')}>
+        <button className={`btn ${value !== "internships" ? "btn-outline" : "bg-custom-blue text-white"}`} onClick={(event) => handleChange(event, "internships")}>
           Internships
           <LockOutlined />
         </button>
-        <button className={`btn ${value !== 'jobs' ? 'btn-outline' : 'bg-custom-blue text-white'}`} onClick={(event) => handleChange(event, 'jobs')}>
+        <button className={`btn ${value !== "jobs" ? "btn-outline" : "bg-custom-blue text-white"}`} onClick={(event) => handleChange(event, "jobs")}>
           Jobs
           <LockOutlined />
         </button>
       </div>
 
       <div className="">
-        {value === 'contests' && <Filter />}
-        {value === 'hackathons' && <ComingSoon value={value} />}
-        {value === 'internships' && <ComingSoon value={value} />}
-        {value === 'jobs' && <ComingSoon value={value} />}
+        {value === "contests" && <Filter />}
+        {value === "hackathons" && <ComingSoon value={value} />}
+        {value === "internships" && <ComingSoon value={value} />}
+        {value === "jobs" && <ComingSoon value={value} />}
       </div>
 
 
 
 
     </div>
-  )
+  );
 }

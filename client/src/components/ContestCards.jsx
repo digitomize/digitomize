@@ -79,7 +79,7 @@ export default function ContestCards() {
       <div className="mt-12 md:hidden">
         <Marquee speed={100}>
           {platforms.map((item) => (
-            <div className="flex justify-center">
+            <div key={item.name} className="flex justify-center">
               <span className="bg-cardsColor p-4 mx-4 rounded-xl">
                 <img
                   className="w-20 h-20"
@@ -95,7 +95,7 @@ export default function ContestCards() {
       <div className="w-screen max-md:hidden">
         <Marquee speed={200} className="flex flex-row" pauseOnHover={true}>
           {platforms.map((item) => (
-            <div className="contestcard font-['Geist'] border border-contestborder py-10 px-4 w-4/5">
+            <div key={item.name} className="contestcard font-['Geist'] border border-contestborder py-10 px-4 w-4/5">
               <div className="flex justify-center">
                 <span className="bg-contestlogo p-4 rounded-full">
                   <img
