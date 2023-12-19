@@ -59,12 +59,12 @@ NODE_ENV=development
 # Firebase Configuration
 FIREBASE_CREDENTIALS= # you need to add JSON for this
 ```
+
 ## Creating a .env from the .example.env file template
 
 - Create a new .env file in the backend directory
 - Copy the contents of the .example.env in the the backend directory and paste them into your created .env file
 - Fill in the FIREBASE_CREDENTIALS= variable in JSON with the JSON credentials generated from your created firebase project (see below for instructions on how to get these credentials)
-
 
 ## Firebase Credentials
 

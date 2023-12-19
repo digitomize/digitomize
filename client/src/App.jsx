@@ -16,7 +16,7 @@ import "./App.css";
 
 import {
   Layout,
-  Home,
+  ContestPage,
   Login,
   loginLoader,
   Signup,
@@ -47,6 +47,7 @@ import ProfileLayout, {
   loader as profileLoader,
 } from "./user/Profile/pages/ProfileLayout";
 // import ProtectedRoute from "./ProtectedRoute"
+
 import Leaderboard from "./user/leaderboard/Leaderboard";
 
 /*------------ DSA Sheets Import ------------ */
@@ -73,7 +74,6 @@ import UserListPage from "./pages/admin/UserListPage";
 import AdminPanelGuard from "./AdminPanelGuard";
 import ContestListPage from "./pages/admin/ContestListPage";
 import CommunityListPage from "./pages/admin/CommunityListPage";
-import { Diversity1 } from "@mui/icons-material";
 
 function Logout() {
   const navigate = useNavigate();
@@ -133,7 +133,7 @@ const router = createBrowserRouter(
         <Route path="login" element={<Login />} loader={loginLoader} />
         <Route path="logout" element={<Logout />} />;
         <Route path="signup" element={<Signup />} loader={signupLoader} />
-        <Route path="contests" element={<Home />} />
+        <Route path="contests" element={<ContestPage />} />
         <Route path="updates" element={<Updates />} />
         <Route path="home" element={<Homepage />} />
         <Route path="feedback" element={<Feedback />} />
@@ -154,8 +154,8 @@ const router = createBrowserRouter(
           <Route
             index
             element={<UserDashboard />}
-            // loader={userDashPersonalLoader}
-            // loader={userDashPersonalLoader}
+          // loader={userDashPersonalLoader}
+          // loader={userDashPersonalLoader}
           />
           <Route
             path="account"
@@ -194,7 +194,7 @@ function App() {
     <UserAuthContextProvider>
       <UserContextProvider>
         <ToastContainer />
-        <div className="font-myFont text-[#9eb3bd]">
+        <div>
           <RouterProvider router={router} />
         </div>
       </UserContextProvider>

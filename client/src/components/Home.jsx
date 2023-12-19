@@ -2,7 +2,7 @@ import { Link } from "react-scroll";
 
 import Typewriter from "typewriter-effect";
 
-import Filter from "./globals/Filter";
+import Filter from "./Contests/Filter";
 import ScrollToTop from "./globals/ScrollToTop";
 
 function Home() {
