@@ -2,9 +2,10 @@
 import * as React from 'react';
 import Filter from "./Filter";
 import { LockOutlined, TrendingUp } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 
-function ComingSoon({value}) {
+function ComingSoon({ value }) {
   return (
     <>
       <div>
@@ -24,9 +25,10 @@ function ComingSoon({value}) {
 
 export default function ContestPage() {
   const [value, setValue] = React.useState('contests');
-
+  const navigate = useNavigate();
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    navigate(`/${newValue}`)
   };
   return (
     <div className="w-11/12 mx-auto">
