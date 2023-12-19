@@ -74,6 +74,8 @@ import UserListPage from "./pages/admin/UserListPage";
 import AdminPanelGuard from "./AdminPanelGuard";
 import ContestListPage from "./pages/admin/ContestListPage";
 import CommunityListPage from "./pages/admin/CommunityListPage";
+import ContestPageLayout from "./components/Contests/ContestPageLayout";
+import Filter from "./components/Contests/Filter";
 
 function Logout() {
   const navigate = useNavigate();
@@ -133,10 +135,12 @@ const router = createBrowserRouter(
         <Route path="login" element={<Login />} loader={loginLoader} />
         <Route path="logout" element={<Logout />} />;
         <Route path="signup" element={<Signup />} loader={signupLoader} />
-        <Route path="contests" element={<ContestPage />} />
-        <Route path="hackathons" element={<div>Hackathons</div>} />
-        <Route path="internships" element={<div>Internships</div>} />
-        <Route path="jobs" element={<div>Jobs</div>} />
+        <Route element={<ContestPageLayout />}>
+          <Route path="contests" element={<Filter />} />
+          <Route path="hackathons" element={<div>Hackathons</div>} />
+          <Route path="internships" element={<div>Internships</div>} />
+          <Route path="jobs" element={<div>Jobs</div>} />
+        </Route>
         <Route path="updates" element={<Updates />} />
         <Route path="home" element={<Homepage />} />
         <Route path="feedback" element={<Feedback />} />
