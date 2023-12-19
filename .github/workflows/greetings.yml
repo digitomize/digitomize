@@ -1,16 +1,19 @@
-name: Greetings
-
-on: [pull_request_target, issues]
+on:
+  fork:
+  push:
+    branches: [main]
+  issues:
+    types: [opened]
+  pull_request_target:
+    types: [opened]
 
 jobs:
-  greeting:
+  welcome:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
     steps:
-    - uses: actions/first-interaction@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: "Hello @${{ github.actor }}! 🌟 Thanks a bunch for creating an issue. Your input is invaluable, and we're eager to collaborate with you to address the matter. Keep up the fantastic work! \n Join us on [Discord](https://digitomize.com/discord) for any further discussion."
-        pr-message: "Greetings @${{ github.actor }}! 🚀 Awesome job on your first pull request. Your efforts are making our project better, and we're grateful for your contributions. Keep the momentum going! \n Join us on [Discord](https://digitomize.com/discord) for any further discussion."
+      - uses: actions/checkout@v1
+      - uses: EddieHubCommunity/gh-action-community/src/welcome@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          issue-message: "Hello @${{ github.actor }}! 🌟 Thanks a bunch for creating an issue. Your input is invaluable, and we're eager to collaborate with you to address the matter. Keep up the fantastic work! \n Join us on [Discord](https://digitomize.com/discord) for any further discussion."
+          pr-message: "Greetings @${{ github.actor }}! 🚀 Awesome job on your first pull request. Your efforts are making our project better, and we're grateful for your contributions. Keep the momentum going! \n Join us on [Discord](https://digitomize.com/discord) for any further discussion."
