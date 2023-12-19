@@ -3,7 +3,7 @@
 # Digitomize
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/digitomize)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-40-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-41-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
@@ -149,6 +149,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/im-vedant"><img src="https://avatars.githubusercontent.com/u/115912707?v=4?s=100" width="100px;" alt="im-vedant"/><br /><sub><b>im-vedant</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=im-vedant" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/awezmirza"><img src="https://avatars.githubusercontent.com/u/97522955?v=4?s=100" width="100px;" alt="Awez Mirza"/><br /><sub><b>Awez Mirza</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=awezmirza" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Ayusht777"><img src="https://avatars.githubusercontent.com/u/106388215?v=4?s=100" width="100px;" alt="Ayush Talesara"/><br /><sub><b>Ayush Talesara</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Ayusht777" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/tushar-daiya"><img src="https://avatars.githubusercontent.com/u/108505673?v=4?s=100" width="100px;" alt="Tushar Daiya"/><br /><sub><b>Tushar Daiya</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=tushar-daiya" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
