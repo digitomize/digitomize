@@ -27,7 +27,7 @@ const navlinks = [
 
 const ContestPageLayout = () => {
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="w-11/12 mx-auto antialiased">
             <div className="heading w-4/5 mx-auto text-center my-4">
                 <h1 className="text-white max-md:text-4xl md:text-6xl flex flex-row mx-auto justify-center">
                     <span>All at</span>

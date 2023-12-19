@@ -55,7 +55,7 @@ import SheetLayout from "./dsaSheets/layout/SheetLayout";
 function DiscordRedirect() {
   window.location.href = "https://discord.gg/bsbBytBqBc";
   return (
-    <div className="flex flex-col justify-center items-center h-[60vh]">
+    <div className="flex flex-col justify-center items-center h-[60vh] antialiased">
       <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
       <h1 className="text-2xl ml-4">Redirecting to Discord</h1>
     </div>
@@ -141,7 +141,7 @@ const router = createBrowserRouter(
           <Route path="internships" element={<CommingSoonLoader value='Internships' />} />
           <Route path="jobs" element={<CommingSoonLoader value='Jobs' />} />
         </Route>
-        <Route path="updates" element={<Updates />} />
+        {/* <Route path="updates" element={<Updates />} /> */}
         <Route path="home" element={<Homepage />} />
         <Route path="feedback" element={<Feedback />} />
         <Route path="contact" element={<About />} />

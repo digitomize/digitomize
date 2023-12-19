@@ -9,7 +9,7 @@ import ScrollToTop from "../../components/globals/ScrollToTop";
 export default function Homepage() {
   return (
     <div>
-      <div id="home">
+      <div id="home" className="antialiased">
         <SectionOne />
         <SectionTwo />
         <SectionThree />
