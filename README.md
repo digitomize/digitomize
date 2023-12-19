@@ -166,4 +166,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ### Discord
 
-Join Our [Discord Community](https://v2.digitomize.com/discord) for any help and troubleshooting.
+Join Our [Discord Community](https://digitomize.com/discord) for any help and troubleshooting.
