@@ -11,6 +11,33 @@ const numberToggleSchema = new mongoose.Schema({
   showOnWebsite: Boolean,
 });
 
+const rewind2023Schema = new mongoose.Schema({
+  avgSolved: Number,
+  bestRanking: Number,
+  worstRanking: Number,
+  attendedContests2023Count: Number,
+  maxStreak2023: Number,
+  activeDays2023: Number,
+  totalSubmissions2023: Number,
+  mostActiveDayTimestamp2023: Number,
+  mostActiveMonth2023: String,
+  attendedContests2023: [
+    {
+      attended: Boolean,
+      contest: [{
+        title: String,
+        startTime: Number,
+      }],
+      trendDirection: String,
+      problemsSolved: Number,
+      totalProblems: Number,
+      finishTimeInSeconds: Number,
+      rating: Number,
+      ranking: Number,
+    },
+  ],
+});
+
 const contestToggleSchema = new mongoose.Schema({
   username: String,
   rating: Number,
@@ -18,6 +45,7 @@ const contestToggleSchema = new mongoose.Schema({
   fetchTime: Number,
   attendedContestsCount: Number,
   showOnWebsite: Boolean,
+  rewind2023: rewind2023Schema,
 });
 
 const communitySchema = new mongoose.Schema({

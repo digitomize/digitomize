@@ -26,6 +26,7 @@ const updatePlatformData = (platform, userData, existingData) => {
       existingData.attendedContestsCount = null;
       existingData.badge = null;
       existingData.fetchTime = 0;
+      existingData.rewind2023 = null;
     }
     // You can similarly update other properties specific to each platform
   }

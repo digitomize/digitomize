@@ -229,11 +229,10 @@ async function leetcode_u(handle) {
           console.log("Most Active Day (Unix Timestamp):", mostActiveDayTimestamp2023);
           console.log("Most Active Month:", mostActiveMonth2023);
 
-
-
-
-
-          const result = { ...userInfo.data.userContestRanking, attendedContests2023, avgSolved, bestRanking, worstRanking, maxRating, attendedContests2023Count: attendedContests2023.length, maxStreak2023, activeDays2023, totalSubmissions2023, mostActiveDayTimestamp2023, mostActiveMonth2023 };
+          const rewind2023 = {
+            attendedContests2023, avgSolved, bestRanking, worstRanking, maxRating, attendedContests2023Count: attendedContests2023.length, maxStreak2023, activeDays2023, totalSubmissions2023, mostActiveDayTimestamp2023, mostActiveMonth2023
+          };
+          const result = { ...userInfo.data.userContestRanking, rewind2023};
           console.log("result", result);
           // console.log(attendedRankingsPositive.map(contest => contest.ranking));
 
@@ -254,5 +253,5 @@ async function leetcode_u(handle) {
     request.end();
   });
 }
-leetcode_u("pranshgupta54")
+// leetcode_u("pranshgupta54")
 export { leetcode_u };

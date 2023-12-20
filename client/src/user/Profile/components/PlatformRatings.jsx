@@ -48,6 +48,7 @@ function PlatformRatings() {
     },
   };
   var platformData = data.ratings[platform];
+  console.log("platformData", platformData);
   // if (platformData.username == null || platformData.rating == null) {
   //     platformData = null;
   // }

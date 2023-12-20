@@ -65,6 +65,7 @@ const handleUserDataUpdate = async (user) => {
         platformData.rating = parseInt(newData.rating);
         platformData.badge = newData.rank;
         platformData.fetchTime = currentTime;
+        platformData.rewind2023 = newData.rewind2023;
       }
     }
   }
@@ -145,6 +146,7 @@ function handleCodingPlatform(targetObject, platform, platformKey) {
       attendedContestsCount: platform.attendedContestsCount || null,
       badge: platform.badge || null,
       fetchTime: platform.fetchTime || 0,
+      rewind2023: platform.rewind2023 || null,
     };
   } else {
     targetObject[platformKey] = {
@@ -153,6 +155,7 @@ function handleCodingPlatform(targetObject, platform, platformKey) {
       attendedContestsCount: null,
       badge: null,
       fetchTime: null,
+      rewind2023: null,
     };
   }
 }
