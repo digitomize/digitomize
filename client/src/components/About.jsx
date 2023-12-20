@@ -3,14 +3,13 @@ import {
   AiOutlineUsergroupAdd,
   AiFillLinkedin,
 } from "react-icons/ai";
-import { Avatar, Skeleton } from "@mui/material";
 import Footer from "./globals/Footer";
 import { Link } from "react-router-dom";
 import Contributors from "./Contributors";
 export default function About() {
   return (
     <>
-      <div className="container w-11/12 mx-auto text-center mt-4">
+      <div className="container w-11/12 mx-auto text-center mt-4 antialiased">
         <div className="hero">
           <div className="hero-content flex-col sm:flex-row">
             <div className="left text-center flex flex-col justify-center items-center">
@@ -135,7 +134,7 @@ export default function About() {
               </svg>
             </div>
             <div className="stat-title">total views</div>
-            <div className="stat-value text-secondary">16k+</div>
+            <div className="stat-value text-secondary">22k+</div>
             {/* <div className="stat-desc">21% more than last month</div> */}
           </div>
           <Link
@@ -148,7 +147,7 @@ export default function About() {
                 <AiFillLinkedin className="w-8 h-8" />
               </div>
               <div className="stat-title">linkedin followers</div>
-              <div className="stat-value text-secondary">550+</div>
+              <div className="stat-value text-secondary">750+</div>
               {/* <div className="stat-desc">21% more than last month</div> */}
             </div>
           </Link>
@@ -162,7 +161,7 @@ export default function About() {
                 <AiFillStar className="w-8 h-8" />
               </div>
               <div className="stat-title">Github Stars</div>
-              <div className="stat-value text-secondary">80+</div>
+              <div className="stat-value text-secondary">150+</div>
               {/* <div className="stat-desc">21% more than last month</div> */}
             </div>
           </Link>

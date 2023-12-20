@@ -95,18 +95,12 @@ function Filter() {
   };
   return (
     <>
-      <div className="divider sticky" id="okk"></div>
       <Element
         name="allContests"
-        className="pt-24 flex md:flex-row flex-col justify-between lg:px-20 md:px-12 "
+        className="flex md:flex-row flex-col justify-between mt-12"
       >
-        <h2
-          className="text-white z-10 text-center lg:text-left text-6xl py-4 capitalize"
-        >
-          Contests
-        </h2>
       </Element>
-      <Element className=" flex md:flex-row flex-col justify-between mx-auto md:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
+      <Element className=" flex lg:flex-row max-lg:flex-col justify-between mx-auto lg:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
         {/* //checkmarks */}
         <div
           className={`filter-div w-fit self-center bg-cardsColor relative rounded-xl`}
@@ -180,7 +174,7 @@ function Filter() {
         </div>
         <CustomSlider setRange={setRange} maxValue={maxValue} />
       </Element>
-      <Element name="contests" className="contests-container z-[1]">
+      <Element name="contests" className="container mx-auto contests-container z-[1]">
         {contestsData.length ? (
           <Contests contests={contestsData} range={range} />
         ) : (
