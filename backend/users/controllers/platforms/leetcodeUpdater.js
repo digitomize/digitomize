@@ -233,7 +233,7 @@ async function leetcode_u(handle) {
 
 
 
-          const result = { ...userInfo.data.userContestRanking, avgSolved, bestRanking, worstRanking, maxRating, attendedContests2023Count: attendedContests2023.length, maxStreak2023, activeDays2023, totalSubmissions2023, mostActiveDayTimestamp2023, mostActiveMonth2023 };
+          const result = { ...userInfo.data.userContestRanking, attendedContests2023, avgSolved, bestRanking, worstRanking, maxRating, attendedContests2023Count: attendedContests2023.length, maxStreak2023, activeDays2023, totalSubmissions2023, mostActiveDayTimestamp2023, mostActiveMonth2023 };
           console.log("result", result);
           // console.log(attendedRankingsPositive.map(contest => contest.ranking));
 
