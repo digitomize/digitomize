@@ -26,8 +26,5 @@
     "all-contributors-cli": "^6.26.1",
     "concurrently": "^8.2.1",
     "prettier": "3.1.0"
-  },
-  "dependencies": {
-    "vercel": "^32.2.2"
   }
 }
