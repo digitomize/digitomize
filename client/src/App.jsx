@@ -16,7 +16,6 @@ import "./App.css";
 
 import {
   Layout,
-  ContestPage,
   Login,
   loginLoader,
   Signup,
@@ -56,7 +55,7 @@ import SheetLayout from "./dsaSheets/layout/SheetLayout";
 function DiscordRedirect() {
   window.location.href = "https://discord.gg/bsbBytBqBc";
   return (
-    <div className="flex flex-col justify-center items-center h-[60vh]">
+    <div className="flex flex-col justify-center items-center h-[60vh] antialiased">
       <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
       <h1 className="text-2xl ml-4">Redirecting to Discord</h1>
     </div>
@@ -74,6 +73,9 @@ import UserListPage from "./pages/admin/UserListPage";
 import AdminPanelGuard from "./AdminPanelGuard";
 import ContestListPage from "./pages/admin/ContestListPage";
 import CommunityListPage from "./pages/admin/CommunityListPage";
+import ContestPageLayout from "./components/Contests/ContestPageLayout";
+import Filter from "./components/Contests/Filter";
+import CommingSoonLoader from "./components/Contests/CommingSoonLoader";
 
 function Logout() {
   const navigate = useNavigate();
@@ -133,8 +135,13 @@ const router = createBrowserRouter(
         <Route path="login" element={<Login />} loader={loginLoader} />
         <Route path="logout" element={<Logout />} />;
         <Route path="signup" element={<Signup />} loader={signupLoader} />
-        <Route path="contests" element={<ContestPage />} />
-        <Route path="updates" element={<Updates />} />
+        <Route element={<ContestPageLayout />}>
+          <Route path="contests" element={<Filter />} />
+          <Route path="hackathons" element={<CommingSoonLoader value='Hackathon' />} />
+          <Route path="internships" element={<CommingSoonLoader value='Internships' />} />
+          <Route path="jobs" element={<CommingSoonLoader value='Jobs' />} />
+        </Route>
+        {/* <Route path="updates" element={<Updates />} /> */}
         <Route path="home" element={<Homepage />} />
         <Route path="feedback" element={<Feedback />} />
         <Route path="contact" element={<About />} />

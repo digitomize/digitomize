@@ -65,7 +65,7 @@ export default function Login() {
   return (
     <>
       <ToastContainer />
-      <div className="phone:mt-12">
+      <div className="phone:mt-12 antialiased">
         {error && <h3 className="text-[#cc0000] text-center">{error}</h3>}
         <div className="outer w-11/12 flex flex-row mx-auto my-auto phone:border-2 rounded-xl border-jet">
           <div className="left md:w-2/4 max-md:w-full phone:px-12">
