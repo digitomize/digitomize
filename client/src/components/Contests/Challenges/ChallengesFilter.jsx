@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import {
   tublian,
-  quine
+  quine,
 } from "../../AllAssets";
 import Contests from "../../Contests";
 import { Element } from "react-scroll";
@@ -36,11 +36,11 @@ const MenuProps = {
 
 const platformsIcon = [
   tublian,  
-  quine
+  quine,
 ];
 const platforms = [
   "tublian",
-  "quine"
+  "quine",
 ];
 function ChallengesFilter() {
   const [contestsData, setContestsData] = useState([]);

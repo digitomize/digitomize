@@ -1,34 +1,34 @@
-import React from 'react'
-import { LockOutlined, TrendingUp } from '@mui/icons-material';
-import { NavLink, Outlet } from 'react-router-dom';
+import React from "react";
+import { LockOutlined, TrendingUp } from "@mui/icons-material";
+import { NavLink, Outlet } from "react-router-dom";
 
 const navlinks = [
     {
-        name: 'Contests',
+        name: "Contests",
         icon: <TrendingUp />,
-        link: '/contests'
+        link: "/contests",
     },
     {
-        name: 'Challenges',
+        name: "Challenges",
         icon: <LockOutlined />,
-        link: '/challenges'
+        link: "/challenges",
     },
     {
-        name: 'Hackathons',
+        name: "Hackathons",
         icon: <LockOutlined />,
-        link: '/hackathons'
+        link: "/hackathons",
     },
     {
-        name: 'Internships',
+        name: "Internships",
         icon: <LockOutlined />,
-        link: '/internships'
+        link: "/internships",
     },
     {
-        name: 'Jobs',
+        name: "Jobs",
         icon: <LockOutlined />,
-        link: '/jobs'
-    }
-]
+        link: "/jobs",
+    },
+];
 
 const ContestPageLayout = () => {
     return (
@@ -47,17 +47,17 @@ const ContestPageLayout = () => {
                 {
                     navlinks.map((link, idx) => {
                         return (
-                            <NavLink key={idx} to={link.link} className={({ isActive }) => isActive ? 'btn bg-custom-blue text-white' : 'btn btn-outline'} >
+                            <NavLink key={idx} to={link.link} className={({ isActive }) => isActive ? "btn bg-custom-blue text-white" : "btn btn-outline"} >
                                 {link.name}
                                 {link.icon}
                             </NavLink>
-                        )
+                        );
                     })
                 }
             </div>
             <Outlet />
         </div>
-    )
-}
+    );
+};
 
-export default ContestPageLayout
+export default ContestPageLayout;
