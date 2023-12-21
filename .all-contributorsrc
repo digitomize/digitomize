@@ -379,6 +379,25 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "amal-qb",
+      "name": "Amal Mathew",
+      "avatar_url": "https://avatars.githubusercontent.com/u/122610766?v=4",
+      "profile": "https://github.com/amal-qb",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "mendacium-a11y",
+      "name": "Saksham Saha",
+      "avatar_url": "https://avatars.githubusercontent.com/u/110321699?v=4",
+      "profile": "http://mendacium-a11y.github.io",
+      "contributions": [
+        "a11y",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

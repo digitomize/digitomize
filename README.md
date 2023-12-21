@@ -1,9 +1,9 @@
-# [Digitomize LIVE](https://digitomize.com)
 
-# Digitomize
+# Digitomize - [Website](https://digitomize.com)
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/digitomize)
+[![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=db7dbc698e16&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-41-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-43-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
@@ -15,8 +15,9 @@
 
 ## Supported by:
 
-<img src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" width="30%">
-<img src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" width="30%">
+<a ahref="https://m.do.co/c/db7dbc698e16" target="_blank"><img align="center" src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" height="150" width="300"></a> 
+ <img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" height="auto" width="300">
+<img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" height="auto" width="300">
 
 ## Table of Contents
 
@@ -150,6 +151,10 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/awezmirza"><img src="https://avatars.githubusercontent.com/u/97522955?v=4?s=100" width="100px;" alt="Awez Mirza"/><br /><sub><b>Awez Mirza</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=awezmirza" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Ayusht777"><img src="https://avatars.githubusercontent.com/u/106388215?v=4?s=100" width="100px;" alt="Ayush Talesara"/><br /><sub><b>Ayush Talesara</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Ayusht777" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/tushar-daiya"><img src="https://avatars.githubusercontent.com/u/108505673?v=4?s=100" width="100px;" alt="Tushar Daiya"/><br /><sub><b>Tushar Daiya</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=tushar-daiya" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/amal-qb"><img src="https://avatars.githubusercontent.com/u/122610766?v=4?s=100" width="100px;" alt="Amal Mathew"/><br /><sub><b>Amal Mathew</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=amal-qb" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="http://mendacium-a11y.github.io"><img src="https://avatars.githubusercontent.com/u/110321699?v=4?s=100" width="100px;" alt="Saksham Saha"/><br /><sub><b>Saksham Saha</b></sub></a><br /><a href="#a11y-mendacium-a11y" title="Accessibility">️️️️♿️</a> <a href="https://github.com/digitomize/digitomize/commits?author=mendacium-a11y" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
@@ -165,4 +170,4 @@ This project is licensed under the [MIT License](LICENSE).
 
 ### Discord
 
-Join Our [Discord Community](https://v2.digitomize.com/discord) for any help and troubleshooting.
+Join Our [Discord Community](https://digitomize.com/discord) for any help and troubleshooting.

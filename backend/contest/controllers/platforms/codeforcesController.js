@@ -2,7 +2,7 @@
 
 import https from "https";
 
-async function codeforces_c() {
+async function codeforces_c () {
   const url = "https://codeforces.com/api/contest.list";
 
   const promise = new Promise((resolve, reject) => {

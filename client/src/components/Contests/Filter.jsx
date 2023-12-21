@@ -103,12 +103,12 @@ function Filter() {
       <Element className=" flex lg:flex-row max-lg:flex-col justify-between mx-auto lg:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
         {/* //checkmarks */}
         <div
-          className={`filter-div w-fit self-center bg-cardsColor relative rounded-xl`}
+          className={"filter-div w-fit self-center bg-cardsColor relative rounded-xl"}
         >
           <FormControl
             variant="filled"
             sx={{ m: 1, minWidth: 300 }}
-            className={`filter bg-filter rounded-lg platform-container max-sm:justify-center`} // to make it fixed while scroll add class "fixed" on condition "isFixed"
+            className={"filter bg-filter rounded-lg platform-container max-sm:justify-center"} // to make it fixed while scroll add class "fixed" on condition "isFixed"
           >
             <InputLabel
               variant="filled"
