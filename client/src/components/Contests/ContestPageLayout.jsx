@@ -25,7 +25,6 @@ const inactiveLinks = [
         name: "Hackathons",
         icon: (
             <>
-                <LockOutlined />
                 <div className="badge badge-error">soon</div>
             </>
         ),
@@ -35,7 +34,6 @@ const inactiveLinks = [
         name: "Internships",
         icon: (
             <>
-                <LockOutlined />
                 <div className="badge badge-error">soon</div>
             </>
         ),
@@ -45,7 +43,6 @@ const inactiveLinks = [
         name: "Jobs",
         icon: (
             <>
-                <LockOutlined />
                 <div className="badge badge-error">soon</div>
             </>
         ),
@@ -80,7 +77,7 @@ const ContestPageLayout = () => {
                 {
                     inactiveLinks.map((link, idx) => {
                         return (
-                            <NavLink aria-disabled key={idx} to={link.link} className={({ isActive }) => isActive ? "btn bg-custom-blue text-white" : "btn btn-outline btn-disabled"} >
+                            <NavLink aria-disabled key={idx} to={link.link} className={({ isActive }) => isActive ? "btn bg-custom-blue text-gray-700" : "btn btn-outline btn-disabled"} style={{color:"#7a7a7a"}}>
                                 {link.name}
                                 {link.icon}
                             </NavLink>
