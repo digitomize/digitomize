@@ -1,9 +1,9 @@
 // import { Element } from "react-scroll";
 
 import { Link } from "react-router-dom";
-import gitbook from "./svgs/GitBook.svg";
+import gitbook from "./svgs/GitBookLight.svg";
 import msme from "./svgs/MSME.svg";
-import microsoft from "./svgs/microsoft.svg";
+import microsoft from "./svgs/microsoft4strp.svg";
 import "/src/components/css/globals.css";
 import { Star } from "@mui/icons-material";
 
@@ -32,11 +32,11 @@ export default function SectionOne() {
       </div>
       <div className="mt-14">
         <span>
-          <p className="text-lg text-powered">Powered By</p>
+          <p className="text-lg text-powered">Supported By</p>
         </span>
-        <span className="flex flex-row flex-wrap space-x-7 space-y-3 mt-2 items-center justify-center">
+        <span className="flex flex-row flex-wrap gap-4 items-center justify-center">
           <img
-            className="w-15 sm:w-25 md:w-30"
+            className="max-md:w-32 md:w-40"
             src={gitbook}
             draggable={false}
             alt="gitbook"
@@ -48,8 +48,14 @@ export default function SectionOne() {
             alt="msme"
           />
           <img
-            className="w-30"
+            className="max-md:w-32 md:w-40"
             src={microsoft}
+            draggable={false}
+            alt="microsoft"
+          />
+          <img
+            className="max-md:w-36 md:w-44"
+            src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/SVG/DO_Logo_horizontal_white.svg"
             draggable={false}
             alt="microsoft"
           />
