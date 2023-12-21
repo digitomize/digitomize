@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import Button from "./Button";
 import {
   tublian,
-  quine
+  quine,
 } from "../../AllAssets";
 // import ShareModel from "../share_model";
-import { EmojiEvents } from '@mui/icons-material';
+import { EmojiEvents } from "@mui/icons-material";
 import { Tooltip } from "@mui/material";
 
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 const hostToSVGMap = {
   tublian: tublian,
-  quine: quine
+  quine: quine,
   // Add other hosts and their corresponding SVG variables here
 };
 

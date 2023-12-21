@@ -7,7 +7,7 @@ import atcoder from "../assets/atcoder.svg";
 import logo from "../assets/logo.png";
 import logodgm from "../assets/digitomizeLogo.png";
 import tublian from "../assets/tublian.svg";
-import quine from "../assets/quine.png"
+import quine from "../assets/quine.png";
 // import loginSvg from "../assets/fingerprint-animate.svg"
 import loginSvg from "../assets/authentication-animate.svg";
 
