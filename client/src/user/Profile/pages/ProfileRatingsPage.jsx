@@ -18,26 +18,26 @@ function ProfileRatingsPage() {
   const personal_data = profileData.personal_data;
   const contestLinks = useMemo(() => [
     {
-      name: 'Codeforces',
-      link: 'codeforces',
+      name: "Codeforces",
+      link: "codeforces",
       img: codeforces,
       username: profileData.ratings.codeforces.username,
       rating: profileData.ratings.codeforces.rating,
     },
     {
-      name: 'Codechef',
-      link: 'codechef',
+      name: "Codechef",
+      link: "codechef",
       img: codechef,
       username: profileData.ratings.codechef.username,
       rating: profileData.ratings.codechef.rating,
     },
     {
-      name: 'Leetcode',
-      link: 'leetcode',
+      name: "Leetcode",
+      link: "leetcode",
       img: leetcode,
       username: profileData.ratings.leetcode.username,
       rating: profileData.ratings.leetcode.rating,
-    }
+    },
   ], [profileData.ratings.codeforces.rating, profileData.ratings.codechef.rating, profileData.ratings.leetcode.rating]);
 
   React.useEffect(() => {
