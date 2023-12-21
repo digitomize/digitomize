@@ -52,6 +52,16 @@ import Leaderboard from "./user/leaderboard/Leaderboard";
 /*------------ DSA Sheets Import ------------ */
 import SheetLayout from "./dsaSheets/layout/SheetLayout";
 
+
+import formbricks from "@formbricks/js";
+
+if (typeof window !== "undefined") {
+  formbricks.init({
+    environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_API_KEY,
+    apiHost: "https://app.formbricks.com",
+  });
+}
+
 function DiscordRedirect() {
   window.location.href = "https://discord.gg/bsbBytBqBc";
   return (
@@ -75,6 +85,7 @@ import ContestListPage from "./pages/admin/ContestListPage";
 import CommunityListPage from "./pages/admin/CommunityListPage";
 import ContestPageLayout from "./components/Contests/ContestPageLayout";
 import Filter from "./components/Contests/Filter";
+import Challenges from "./components/Contests/Challenges/Challenges";
 import ComingSoonLoader from "./components/Contests/ComingSoonLoader";
 
 function Logout() {
@@ -137,7 +148,7 @@ const router = createBrowserRouter(
         <Route path="signup" element={<Signup />} loader={signupLoader} />
         <Route element={<ContestPageLayout />}>
           <Route path="contests" element={<Filter />} />
-          <Route path="challenges" element={<ComingSoonLoader value='Challenges' />} />
+          <Route path="challenges" element={<Challenges />} />
           <Route path="hackathons" element={<ComingSoonLoader value='Hackathons' />} />
           <Route path="internships" element={<ComingSoonLoader value='Internships' />} />
           <Route path="jobs" element={<ComingSoonLoader value='Jobs' />} />

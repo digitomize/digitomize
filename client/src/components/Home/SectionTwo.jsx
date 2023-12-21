@@ -165,7 +165,7 @@ export default function SectionTwo() {
                   </div>
 
                   <div className="bg-window text-[#B7B6FF] rounded-full text-sm tracking-wide flex justify-center w-full py-0.5 my-2 items-center">
-                    <p className="py-1">https://digitomize.com/u/dashboard</p>
+                    <a className="py-1" href="/u/dashboard">https://digitomize.com/u/dashboard</a>
                   </div>
                   <div className="bg-window rounded-lg mx-2 my-2 px-1 py-1">
                     <p>+</p>

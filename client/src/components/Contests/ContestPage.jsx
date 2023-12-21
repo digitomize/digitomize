@@ -3,7 +3,6 @@ import * as React from "react";
 import Filter from "./Filter";
 import { LockOutlined, TrendingUp } from "@mui/icons-material";
 
-
 function ComingSoon({value}) {
   return (
     <>
