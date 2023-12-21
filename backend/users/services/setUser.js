@@ -60,7 +60,7 @@ const setUser = async (userData) => {
       name: name || "Digitomize User",
       picture:
         picture ||
-        "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png",
+        "https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg",
       resume,
       email,
       email_verified,
