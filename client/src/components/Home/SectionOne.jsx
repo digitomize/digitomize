@@ -35,6 +35,20 @@ export default function SectionOne() {
           <p className="text-lg text-powered">Supported By</p>
         </span>
         <span className="flex flex-row flex-wrap gap-4 items-center justify-center">
+          <a href="https://m.do.co/c/db7dbc698e16">
+            <img
+              className="max-md:w-36 md:w-44"
+              src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/SVG/DO_Logo_horizontal_white.svg"
+              draggable={false}
+              alt="microsoft"
+            />
+          </a>
+          <img
+            className="max-md:w-32 md:w-40"
+            src={microsoft}
+            draggable={false}
+            alt="microsoft"
+          />
           <img
             className="max-md:w-32 md:w-40"
             src={gitbook}
@@ -47,20 +61,8 @@ export default function SectionOne() {
             draggable={false}
             alt="msme"
           />
-          <img
-            className="max-md:w-32 md:w-40"
-            src={microsoft}
-            draggable={false}
-            alt="microsoft"
-          />
-          <a href="https://m.do.co/c/db7dbc698e16">
-          <img
-            className="max-md:w-36 md:w-44"
-            src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/SVG/DO_Logo_horizontal_white.svg"
-            draggable={false}
-            alt="microsoft"
-            />
-            </a>
+
+
         </span>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { LockOutlined, TrendingUp } from "@mui/icons-material";
 import { NavLink, Outlet } from "react-router-dom";
 import { Swords } from "lucide-react";
 
-const navlinks = [
+const activeLinks = [
     {
         name: "Contests",
         icon: <TrendingUp />,
@@ -17,6 +17,10 @@ const navlinks = [
             </>),
         link: "/challenges",
     },
+
+];
+
+const inactiveLinks = [
     {
         name: "Hackathons",
         icon: (
@@ -64,9 +68,19 @@ const ContestPageLayout = () => {
             </div>
             <div className="buttons flex gap-4 justify-center my-8 flex-wrap">
                 {
-                    navlinks.map((link, idx) => {
+                    activeLinks.map((link, idx) => {
                         return (
                             <NavLink key={idx} to={link.link} className={({ isActive }) => isActive ? "btn bg-custom-blue text-white" : "btn btn-outline"} >
+                                {link.name}
+                                {link.icon}
+                            </NavLink>
+                        );
+                    })
+                }
+                {
+                    inactiveLinks.map((link, idx) => {
+                        return (
+                            <NavLink aria-disabled key={idx} to={link.link} className={({ isActive }) => isActive ? "btn bg-custom-blue text-white" : "btn btn-outline btn-disabled"} >
                                 {link.name}
                                 {link.icon}
                             </NavLink>
