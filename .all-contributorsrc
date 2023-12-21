@@ -325,6 +325,79 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "mhgarry",
+      "name": "Matthew Garry",
+      "avatar_url": "https://avatars.githubusercontent.com/u/125699551?v=4",
+      "profile": "https://github.com/mhgarry",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "mukundsolanki",
+      "name": "Mukund Solanki",
+      "avatar_url": "https://avatars.githubusercontent.com/u/114515612?v=4",
+      "profile": "http://mukund4s.live",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "im-vedant",
+      "name": "im-vedant",
+      "avatar_url": "https://avatars.githubusercontent.com/u/115912707?v=4",
+      "profile": "https://github.com/im-vedant",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "awezmirza",
+      "name": "Awez Mirza",
+      "avatar_url": "https://avatars.githubusercontent.com/u/97522955?v=4",
+      "profile": "https://github.com/awezmirza",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Ayusht777",
+      "name": "Ayush Talesara",
+      "avatar_url": "https://avatars.githubusercontent.com/u/106388215?v=4",
+      "profile": "https://github.com/Ayusht777",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "tushar-daiya",
+      "name": "Tushar Daiya",
+      "avatar_url": "https://avatars.githubusercontent.com/u/108505673?v=4",
+      "profile": "https://github.com/tushar-daiya",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "amal-qb",
+      "name": "Amal Mathew",
+      "avatar_url": "https://avatars.githubusercontent.com/u/122610766?v=4",
+      "profile": "https://github.com/amal-qb",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "mendacium-a11y",
+      "name": "Saksham Saha",
+      "avatar_url": "https://avatars.githubusercontent.com/u/110321699?v=4",
+      "profile": "http://mendacium-a11y.github.io",
+      "contributions": [
+        "a11y",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

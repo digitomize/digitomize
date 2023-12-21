@@ -1,9 +1,7 @@
-
 .share-button-container {
   position: relative;
   display: inline-block;
   height: 100px;
-
 }
 
 .share-button {
@@ -12,7 +10,6 @@
   cursor: pointer;
   padding: 0;
   outline: none;
-  
 }
 
 .tooltip {
@@ -32,16 +29,13 @@
 .share-button:hover .tooltip {
   visibility: visible;
 }
-span p{
-  display:inline;
-  position:relative;
-  bottom:6px;
+span p {
+  display: inline;
+  position: relative;
+  bottom: 6px;
 }
-@media (max-width:768px) {
-    .ic-inner-lower {
-      align-self: flex-start;
+@media (max-width: 768px) {
+  .ic-inner-lower {
+    align-self: flex-start;
   }
-
-
-
 }

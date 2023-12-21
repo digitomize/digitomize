@@ -1,63 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="dark">
+  <head class="scroll-smooth">
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-BY8B08J7V0"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-<head class="scroll-smooth">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BY8B08J7V0"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+      gtag("config", "G-BY8B08J7V0");
+    </script>
+    <meta property="og:title" content="Digitomize" />
+    <meta
+      property="og:image"
+      content="https://res.cloudinary.com/dsazw0r59/image/upload/c_fit,q_100,w_250/v1693023476/logo_bg_y5ixum.jpg"
+    />
+    <meta property="description" content="Upcoming Contests List" />
+    <meta property="og:description" content="Upcoming Contests List" />
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="src/assets/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.20/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <title>Digitomize</title>
+    <style>
+      html,
+      body {
+        background-color: #090d0e;
+      }
+    </style>
+    <meta name="theme-color" content="#1582ff" />
+    <link rel="manifest" href="/manifest.json" />
 
-    gtag('config', 'G-BY8B08J7V0');
-  </script>
-  <meta property="og:title" content="Digitomize">
-  <meta property="og:image"
-    content="https://res.cloudinary.com/dsazw0r59/image/upload/c_fit,q_100,w_250/v1693023476/logo_bg_y5ixum.jpg">
-  <meta property="description" content="Upcoming Contests List" />
-  <meta property="og:description" content="Upcoming Contests List" />
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="src/assets/logo.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" /> -->
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
-  <title>Digitomize</title>
-  <style>
-    html,
-    body {
-      background-color: #090D0E;
-      color: rgba(255, 255, 255, 0.75);
-      /* color: #171C1C; */
-      font-family: 'Outfit', sans-serif;
-    }
-  </style>
-  <meta name="theme-color" content="#1582ff" />
-  <link rel="manifest" href="/manifest.json">
+    <!-- Brevo Conversations {literal} -->
+    <script>
+      (function (d, w, c) {
+        w.BrevoConversationsID = "654a140f4b767640330ee777";
+        w[c] =
+          w[c] ||
+          function () {
+            (w[c].q = w[c].q || []).push(arguments);
+          };
+        var s = d.createElement("script");
+        s.async = true;
+        s.src = "https://conversations-widget.brevo.com/brevo-conversations.js";
+        if (d.head) d.head.appendChild(s);
+      })(document, window, "BrevoConversations");
+    </script>
+    <!-- /Brevo Conversations {/literal} -->
+  </head>
 
-  <!-- Brevo Conversations {literal} -->
-  <script>
-    (function (d, w, c) {
-      w.BrevoConversationsID = '654a140f4b767640330ee777';
-      w[c] = w[c] || function () {
-        (w[c].q = w[c].q || []).push(arguments);
-      };
-      var s = d.createElement('script');
-      s.async = true;
-      s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
-      if (d.head) d.head.appendChild(s);
-    })(document, window, 'BrevoConversations');
-  </script>
-  <!-- /Brevo Conversations {/literal} -->
-</head>
-
-
-<body>
-  <div id="root"></div>
-  <div id="portal_div"></div>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
-
+  <body>
+    <div id="root"></div>
+    <div id="portal_div"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

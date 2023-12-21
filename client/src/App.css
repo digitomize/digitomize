@@ -2,10 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-#root{
-    min-height: 100vh;
-    text-transform: lowercase;
+#root {
+  min-height: 100vh;
 }
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }

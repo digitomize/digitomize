@@ -1,11 +1,11 @@
-//? APIs to MongoDB
+// ? APIs to MongoDB
 
 import { error, success } from "../../core/api/response.api.js";
 import { ROLE } from "../../core/const.js";
 import CommunityMember from "../models/CommunityMember.js";
 import { userAddCommunity, userRemoveCommunity } from "../services/user.js";
 
-async function getCommunityMemberList(request, response) {
+async function getCommunityMemberList (request, response) {
   try {
     const { body } = request;
     if (!body.communityId) {
@@ -21,14 +21,14 @@ async function getCommunityMemberList(request, response) {
   }
   return null;
 }
-async function updateCommunityMember(request, response) {
+async function updateCommunityMember (request, response) {
   try {
     const { communityId, uid, role } = request.body;
     if (!communityId) {
       return error(response, 400, "Community ID cannot be null");
     }
     const communityMember = await CommunityMember.findOne({
-      communityId: communityId,
+      communityId,
       uid,
     });
     if (!communityMember) {
@@ -45,20 +45,20 @@ async function updateCommunityMember(request, response) {
           ...updatedCommunityMember,
         },
         $currentDate: { lastUpdated: true },
-      }
+      },
     );
     return success(
       updatedCommunityMember._doc,
       response,
       200,
-      "Community Member Updated!!"
+      "Community Member Updated!!",
     );
   } catch (error) {
     response.status(500).json({ message: "Something went wrong!!" });
   }
 }
 
-async function addCommunityMember(request, response) {
+async function addCommunityMember (request, response) {
   try {
     const { communityId, uid, role } = request.body;
     if (!communityId) {
@@ -83,7 +83,7 @@ async function addCommunityMember(request, response) {
       newCommunityMember,
       response,
       200,
-      "Community Member Added!!"
+      "Community Member Added!!",
     );
   } catch (error) {
     console.log(error);
@@ -91,7 +91,7 @@ async function addCommunityMember(request, response) {
   }
 }
 
-async function deleteCommunityMember(request, response) {
+async function deleteCommunityMember (request, response) {
   try {
     const { communityId, uid } = request.body;
     if (!communityId) {

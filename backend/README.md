@@ -8,11 +8,11 @@ Welcome to the backend documentation for our open-source project. This document 
 - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Environment Variables](#environment-variables)
+    - [Example:](#example)
+- [Creating a .env from the .example.env file template](#creating-a-env-from-the-exampleenv-file-template)
+- [Firebase Credentials](#firebase-credentials)
   - [Running the Server](#running-the-server)
 - [API Routes](#api-routes)
-- [Contributing](../CONTRIBUTING.md)
-- [Code of Conduct](../CODE_OF_CONDUCT.md)
-- [License](../LICENSE)
 
 ## Folder Structure
 
@@ -57,38 +57,49 @@ USERS=true
 NODE_ENV=development
 
 # Firebase Configuration
-FIREBASE_CREDENTIALS= # you need to add JSON for this 
+FIREBASE_CREDENTIALS= # you need to add JSON for this
 ```
+
+## Creating a .env from the .example.env file template
+
+- Create a new .env file in the backend directory
+- Copy the contents of the .example.env in the the backend directory and paste them into your created .env file
+- Fill in the FIREBASE_CREDENTIALS= variable in JSON with the JSON credentials generated from your created firebase project (see below for instructions on how to get these credentials)
 
 ## Firebase Credentials
 
-To get credentials you should first have a firebase project. If you don't know how to make one please check [Frontend Documentation](/client/README.md). 
+To get credentials you should first have a firebase project. If you don't know how to make one please check [Frontend Documentation](/client/README.md).
 
-* Select your project.
-* Go to "Project Settings" by clicking on the gear icon next to "Project Overview" in the top-left corner.
-* Navigate to the "Service accounts" tab.
-* If you haven't created a service account yet, click on "Generate new private key."
-* This will generate a new service account key and automatically download it as a JSON file (`serviceAccountKey.json`). it will look something like this
+- Select your project.
+- Go to "Project Settings" by clicking on the gear icon next to "Project Overview" in the top-left corner.
+- Navigate to the "Service accounts" tab.
+- If you haven't created a service account yet, click on "Generate new private key."
+- This will generate a new service account key and automatically download it as a JSON file (`serviceAccountKey.json`). it will look something like this
 
   ```json
   {
-  "type": "service_account",
-  "project_id": "your-project-id",
-  "private_key_id": "your-private-key-id",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nYourPrivateKey\n-----END PRIVATE KEY-----\n",
-  "client_email": "your-service-account-email@your-project-id.iam.gserviceaccount.com",
-  "client_id": "your-client-id",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-service-account-email%40your-project-id.iam.gserviceaccount.com"
+    "type": "service_account",
+    "project_id": "your-project-id",
+    "private_key_id": "your-private-key-id",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nYourPrivateKey\n-----END PRIVATE KEY-----\n",
+    "client_email": "your-service-account-email@your-project-id.iam.gserviceaccount.com",
+    "client_id": "your-client-id",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-service-account-email%40your-project-id.iam.gserviceaccount.com"
   }
   ```
-* copy this entire thing and set it as the value of FIREBASE_CREDENTIALS in your .env file. (Make sure the entire json is placed on a single line)
+
+- copy this entire thing and set it as the value of FIREBASE_CREDENTIALS in your .env file. (Make sure the entire json is placed on a single line)
 
 ### Running the Server
 
 Start the server: `npm start`
+
+### Linting
+- Run `npm run lint` to check for errors using the linter.
+- Run `npm run lint-fix` to have the linter automatically fix errors where possible.
 
 ## API Routes
 

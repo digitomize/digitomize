@@ -13,15 +13,14 @@ const updatePlatformData = (platform, userData, existingData) => {
       platformData.showOnWebsite === undefined
     ) {
       throw new Error(
-        `Both 'username' and 'showOnWebsite' properties are required for the '${platform}' platform.`
+        `Both 'username' and 'showOnWebsite' properties are required for the '${platform}' platform.`,
       );
     }
-
 
     existingData.showOnWebsite = platformData.showOnWebsite || false;
 
     // If username is provided in userData, set ratings, badge, and fetchTime to null
-    if (platformData.username != existingData.username) {
+    if (platformData.username !== existingData.username) {
       existingData.username = platformData.username || "";
       existingData.rating = null;
       existingData.attendedContestsCount = null;
@@ -44,7 +43,7 @@ const updateDataField = (field, userData, existingData) => {
     };
   } else if (userData[field] !== undefined) {
     throw new Error(
-      `Both 'data' and 'showOnWebsite' properties are required for the '${field}' field.`
+      `Both 'data' and 'showOnWebsite' properties are required for the '${field}' field.`,
     );
   }
 };
@@ -92,26 +91,32 @@ const handleUpdateUserProfile = async (req, res) => {
 
     // Check if updatedData is empty
     if (Object.keys(updatedData).length === 0) {
-      return res.status(400).json({ message: "No data provided for update", error: "No data provided for update" });
+      return res.status(400).json({
+        message: "No data provided for update",
+        error: "No data provided for update",
+      });
     }
 
     // Get the existing user profile
     const user = await User.findOne({ uid: userId });
 
     if (!user) {
-      return res.status(404).json({ message: "User not found", error: "User not found" });
+      return res
+        .status(404)
+        .json({ message: "User not found", error: "User not found" });
     }
     const today = new Date().toDateString();
     const updateIndex = user.updatesToday.findIndex(
-      (update) => update.timestamp.toDateString() === today
+      (update) => update.timestamp.toDateString() === today,
     );
     if (
       updateIndex !== -1 &&
       user.updatesToday[updateIndex].count >= maxUpdatesPerDay
     ) {
-      return res
-        .status(400)
-        .json({ message: "Maximum number of updates reached for today", error: "Maximum number of updates reached for today" });
+      return res.status(400).json({
+        message: "Maximum number of updates reached for today",
+        error: "Maximum number of updates reached for today",
+      });
     }
 
     try {
@@ -132,7 +137,7 @@ const handleUpdateUserProfile = async (req, res) => {
           newUsername: user.username,
           oldData: userDataBeforeUpdate,
           newData: user,
-        })
+        });
       }
 
       // Compare the updated user data with the data before update
@@ -164,8 +169,16 @@ const handleUpdateUserProfile = async (req, res) => {
     }
   } catch (error) {
     console.error("Error:", error);
-    res.status(500).json({ message: "Internal Server Error", error: "Internal Server Error" });
+    res.status(500).json({
+      message: "Internal Server Error",
+      error: "Internal Server Error",
+    });
   }
 };
 
-export { updatePlatformData, updateDataField, updateUserData, handleUpdateUserProfile };
+export {
+  updatePlatformData,
+  updateDataField,
+  updateUserData,
+  handleUpdateUserProfile,
+};

@@ -1,0 +1,26 @@
+{
+  "semi": true,
+  "DoubleQuote": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "printWidth": 80,
+  "jsxDoubleQuote": true,
+  "jsxBracketSameLine": false,
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "trailingComma": "all",
+  "overrides": [
+    {
+      "files": "*.css",
+      "options": {
+        "singleQuote": false
+      }
+    },
+    {
+      "files": "*.jsx",
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+}

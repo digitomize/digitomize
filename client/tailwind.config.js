@@ -7,6 +7,7 @@ export default {
   ],
   theme: {
     screens: {
+      phonesm: "320px",
       phone: "435px", // Custom screen size for 'phone' below 400px
       sm: "640px", // Default 'sm' screen size
       md: "768px", // Default 'md' screen size
@@ -23,9 +24,28 @@ export default {
         myFont: ["myFont", "Outfit"],
       },
       colors: {
+        "digitomize-bg": "#1584FF",
+        paragraph: "#CCCCCC",
+        "button-primary": "#1584FF",
+        footer: "#131527",
+        // description: "#B7B6FF",
+        description: "#9eb3bd",
+        window: "#3B398F",
+        toolbar: "#181757",
+        contestlist:
+          "linear-gradient(180deg, #101025 0%, rgba(16, 16, 37, 0.46) 100%)",
+        contest: "rgba(114, 113, 178, 1)",
+        contestborder: "#7271B2",
+        contestlogo: "#5D5CBF",
+        "button-primary-helper": "#6AB1FF",
+        "button-primary-hover": "#0079FF",
+        powered: "#D2D2D2",
+        badge: "rgba(0, 76, 228, 0.33)",
+        badgeborder: "#25478B",
+        "badge-txt": "#C3E2FF",
         "custom-border": "#30363d",
         "custom-bg": "#0a0a0a",
-        "light-blue":"#9eb3bd",
+        "light-blue": "#9eb3bd",
         "light-font": "#888888",
         "nav-text": "rgba(255, 255, 255, 0.50)",
         "card-text": "rgba(255, 255, 255, 0.75)",
@@ -44,6 +64,7 @@ export default {
         "color-3": "hsl(240, 2%, 13%)",
         "gradient-onyx":
           "linear-gradient( to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97% )",
+        "grad-bg": "-webkit-linear-gradient(#eee, #333);",
       },
       shadowBlack: " hsla(0, 0%, 0%, 0.25);",
       keyframes: {

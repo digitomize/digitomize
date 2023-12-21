@@ -1,67 +1,118 @@
 @tailwind base;
-@layer base {
-  html {
-    @apply text-neutral-800;
-  }
-  html.dark {
-    @apply text-neutral-50;
-    @apply bg-neutral-800;
-  }
-}
 @tailwind components;
 @tailwind utilities;
-@font-face {
-  font-family: "myFont";
-  src: url("../src/assets/myFont.ttf");
+
+@layer base {
+  /* Geist font with different weights */
+
+  /* Light */
+
+  @font-face {
+    font-family: "Geist";
+    src: url("/src/assets/fonts/Geist-Light.otf") format("truetype");
+    font-weight: 300;
+    font-display: swap;
+  }
+
+  /* Regular */
+
+  @font-face {
+    font-family: "Geist";
+    src: url("/src/assets/fonts/Geist-Regular.otf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  /* Medium */
+
+  @font-face {
+    font-family: "Geist";
+    src: url("/src/assets/fonts/Geist-Medium.otf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  /* SemiBold */
+
+  @font-face {
+    font-family: "Geist";
+    src: url("/src/assets/fonts/Geist-SemiBold.otf") format("truetype");
+    font-weight: 600;
+    font-display: swap;
+  }
+
+  /* Bold */
+
+  @font-face {
+    font-family: "Geist";
+    src: url("/src/assets/fonts/Geist-Bold.otf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+  }
+
+  /* ExtraBold */
+
+  @font-face {
+    font-family: "Geist";
+    src: url("/src/assets/fonts/Geist-Black.otf") format("truetype");
+    font-weight: 800;
+    font-display: swap;
+  }
+
+  /* ------------ */
+}
+.text-gradient {
+  background: linear-gradient(
+    270deg,
+    #751c87 0%,
+    #8d41aa 10%,
+    #ba356c 20%,
+    #f22c30 35%,
+    #f8573a 60%,
+    #fcbb57 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .gradient-custom {
-    background: linear-gradient(
-      270deg,
-      #751c87 0%,
-      #8D41AA 10%,
-      #BA356C 20%,
-      #F22C30 35%,
-      #F8573A 60%,
-      #FCBB57 100%
-    );
-  }
+  background: linear-gradient(
+    270deg,
+    #751c87 0%,
+    #8d41aa 10%,
+    #ba356c 20%,
+    #f22c30 35%,
+    #f8573a 60%,
+    #fcbb57 100%
+  );
+}
 
 .gradient-custom-onHover:hover {
   background: linear-gradient(
-      270deg,
-      #751c87 0%,
-      #8D41AA 10%,
-      #BA356C 20%,
-      #F22C30 35%,
-      #F8573A 60%,
-      #FCBB57 100%
-    );
-  
-  }
+    270deg,
+    #751c87 0%,
+    #8d41aa 10%,
+    #ba356c 20%,
+    #f22c30 35%,
+    #f8573a 60%,
+    #fcbb57 100%
+  );
+}
 
-
-
-  .gradient-custom-border {
+.gradient-custom-border {
   border-image: linear-gradient(
     270deg,
     #751c87 0%,
-    #8D41AA 10%,
-    #BA356C 20%,
-    #F22C30 35%,
-    #F8573A 60%,
-    #FCBB57 100%
+    #8d41aa 10%,
+    #ba356c 20%,
+    #f22c30 35%,
+    #f8573a 60%,
+    #fcbb57 100%
   );
   border-image-slice: 1;
 }
 
-
-
-
-
-
 .cardsBg {
-    background: #191919;
+  background: #191919;
 }
-    
-  

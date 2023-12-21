@@ -1,9 +1,8 @@
 // ? API to mongodb function
 
-import https from 'https';
+import https from "https";
 
-
-async function codeforces_c() {
+async function codeforces_c () {
   const url = "https://codeforces.com/api/contest.list";
 
   const promise = new Promise((resolve, reject) => {
@@ -28,16 +27,16 @@ async function codeforces_c() {
         try {
           const contestList = JSON.parse(list.toString());
           const filteredContests = contestList.result.filter(
-            (contest) => contest.relativeTimeSeconds < 0
+            (contest) => contest.relativeTimeSeconds < 0,
           );
-            // console.log("CF", filteredContests);
-            const contestsWithHost = filteredContests.map((contest) => ({
-                host: "codeforces",
-                name: contest.name,
-                vanity: contest.id,
-                url: "https://codeforces.com/contest/" + contest.id,
-                startTimeUnix: contest.startTimeSeconds,
-                duration: Math.floor(contest.durationSeconds / 60)
+          // console.log("CF", filteredContests);
+          const contestsWithHost = filteredContests.map((contest) => ({
+            host: "codeforces",
+            name: contest.name,
+            vanity: contest.id,
+            url: "https://codeforces.com/contest/" + contest.id,
+            startTimeUnix: contest.startTimeSeconds,
+            duration: Math.floor(contest.durationSeconds / 60),
           }));
 
           resolve(contestsWithHost);

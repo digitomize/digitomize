@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getUserList, updateUserData } from "../../../core/api/user.api";
 import { getUserRoleOptions } from "../../../core/utils/options";
-import { deepOrange } from '@mui/material/colors';
+import { deepOrange } from "@mui/material/colors";
 import {
   Avatar,
   Container,
@@ -21,11 +21,11 @@ import {
   Typography,
   Stack,
 } from "@mui/material";
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import LaunchIcon from '@mui/icons-material/Launch';
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import LaunchIcon from "@mui/icons-material/Launch";
 import { useUserAuth } from "../../../context/UserAuthContext";
 import { StyledTableCell, StyledTableRow } from "../../../index.styled";
-import { NewFooter } from "../../../components/CustomComponents";
+import { Footer } from "../../../components/CustomComponents";
 import AppDialog from "../../../core/components/AppModal";
 import CreateUser from "./CreateUser";
 import DeleteUser from "./DeleteUser";
@@ -34,18 +34,16 @@ function formatCreatedAt(createdAtString) {
   const createdAt = new Date(createdAtString);
 
   const options = {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-    hour12: false  // Use 24-hour format
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: false, // Use 24-hour format
   };
 
-  return createdAt.toLocaleDateString('en-US', options);
+  return createdAt.toLocaleDateString("en-US", options);
 }
-
-
 
 const roleOptions = getUserRoleOptions();
 
@@ -70,7 +68,6 @@ export default function UserListPage() {
     // console.log(`Deleting user: ${user}`);
     setOpenDel(true);
   };
-
 
   useEffect(() => {
     // Get all users
@@ -100,13 +97,8 @@ export default function UserListPage() {
 
   return (
     <>
-
       {/* Dialogs */}
-      <AppDialog
-        open={open}
-        handleClose={handleClose}
-        title={"Create User"}
-      >
+      <AppDialog open={open} handleClose={handleClose} title={"Create User"}>
         <CreateUser handleClose={handleClose} />
       </AppDialog>
       <AppDialog
@@ -116,7 +108,6 @@ export default function UserListPage() {
       >
         <DeleteUser user={selectedUser} handleClose={handleCloseDel} />
       </AppDialog>
-
 
       <Container class="w-10/12 m-auto my-10 max-phone:mt-24">
         <Stack
@@ -129,11 +120,13 @@ export default function UserListPage() {
             users
           </Typography>
           <Button onClick={handleOpen}>Create user</Button>
-
         </Stack>
 
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 700, overflowWrap: "anywhere" }} aria-label="customized table">
+          <Table
+            sx={{ minWidth: 700, overflowWrap: "anywhere" }}
+            aria-label="customized table"
+          >
             <TableHead>
               <TableRow>
                 <StyledTableCell>Photo</StyledTableCell>
@@ -151,17 +144,18 @@ export default function UserListPage() {
                   {/* {console.log(user)} */}
                   <StyledTableRow key={user.uid}>
                     <StyledTableCell>
-                      <Avatar sx={{ bgcolor: deepOrange[500] }} alt={user.name} src={user.picture} />
+                      <Avatar
+                        sx={{ bgcolor: deepOrange[500] }}
+                        alt={user.name}
+                        src={user.picture}
+                      />
                     </StyledTableCell>
                     <StyledTableCell component="th" scope="row">
                       <Stack direction={"column"} columnGap={2}>
-                        <p className="text-xs">
-                          {user.uid}
-                        </p>
+                        <p className="text-xs">{user.uid}</p>
                         <p className="text-xs">
                           created: {formatCreatedAt(user.createdAt)}
                         </p>
-
                       </Stack>
                     </StyledTableCell>
                     <StyledTableCell>{user.name}</StyledTableCell>
@@ -173,7 +167,7 @@ export default function UserListPage() {
                     </StyledTableCell>
                     <StyledTableCell>{user.email}</StyledTableCell>
                     <StyledTableCell>
-                      <FormControl fullWidth >
+                      <FormControl fullWidth>
                         <Select
                           disabled={
                             user.uid === currentUser.uid ||
@@ -186,7 +180,11 @@ export default function UserListPage() {
                           onChange={(event) => handleChange(event, user.uid)}
                         >
                           {roleOptions.map((option) => (
-                            <MenuItem className="capitalize" value={option.value}>
+                            <MenuItem
+                            key={option.value}
+                              className="capitalize"
+                              value={option.value}
+                            >
                               {option.label}
                             </MenuItem>
                           ))}
@@ -198,23 +196,33 @@ export default function UserListPage() {
                         <Box
                           sx={{
                             cursor:
-                              user.uid === currentUser.uid || disableInput === user.uid
+                              user.uid === currentUser.uid ||
+                              disableInput === user.uid
                                 ? "not-allowed"
                                 : "pointer",
                           }}
                         >
                           <DeleteForeverIcon
                             onClick={() => {
-                              if (!(user.uid === currentUser.uid || disableInput === user.uid)) {
+                              if (
+                                !(
+                                  user.uid === currentUser.uid ||
+                                  disableInput === user.uid
+                                )
+                              ) {
                                 handleOpenDel(user);
                               }
                             }}
                             title="delete user"
                             style={{
                               opacity:
-                                user.uid === currentUser.uid || disableInput === user.uid ? 0.5 : 1,
+                                user.uid === currentUser.uid ||
+                                disableInput === user.uid
+                                  ? 0.5
+                                  : 1,
                               pointerEvents:
-                                user.uid === currentUser.uid || disableInput === user.uid
+                                user.uid === currentUser.uid ||
+                                disableInput === user.uid
                                   ? "none"
                                   : "auto",
                             }}
@@ -229,7 +237,7 @@ export default function UserListPage() {
           </Table>
         </TableContainer>
       </Container>
-      <NewFooter />
+      <Footer />
     </>
   );
 }

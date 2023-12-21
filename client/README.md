@@ -6,12 +6,14 @@ Welcome to the client-side documentation for Digitomize, an open-source platform
 
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Configuration](#configuration)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+  - [Creating a .env from the .example.env file template](#creating-a-env-from-the-exampleenv-file-template)
+    - [Creating New firebase project and setting up .env variables](#creating-new-firebase-project-and-setting-up-env-variables)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Project Structure
 
@@ -77,19 +79,34 @@ VITE_REACT_APP_MEASUREMENT_ID=
 
 _Fill the empty fields by creating a demo firebase project._
 
+## Creating a .env from the .example.env file template
+
+- Create a new .env file in the client directory
+- Copy the .example.env in the the client directory and paste it's contents into your created .env file
+- Fill in the empty fields with the values from your firebase project (see below for instructions on how to create a firebase project)
+
 #### Creating New firebase project and setting up .env variables
 
-* go to [https://firebase.google.com/](Firebase)
-* Create an account if you don't have one and click on get started
-* Add a project
-* Add an app and select web as the platform
-* Once you register your app you'll get a prompt to add firebase SDK to your app
-* In that propt you'll see a const variable called firebaseConfig which will contain all your config info it will look something like this. (these are just dummy values)
+- Go to [Firebase](https://firebase.google.com/)
+- Create an account if you don't have one and click on get started
+- Add a project
+- Add an app and select web as the platform
+- Once you register your app you'll get a prompt to add firebase SDK to your app
+- In that propt you'll see a const variable called firebaseConfig which will contain all your config info it will look something like this. (these are just dummy values)
 
   ```javascript
-  const firebaseConfig = {  apiKey: "IKNdsaKsdabdGL5iuywrfHUIKBubkjbJGDfIBHUGnkjVA",  authDomain: "sample-u78nb.firebaseapp.com",  projectId: "sample-u78nb",  storageBucket: "sample-u78nb.appspot.com",  messagingSenderId: "872459742932",  appId: "9:872459742932:web:&8ufnhjbhbj89nu8b",  measurementId: "G-YTUTY89kFT"};
+  const firebaseConfig = {
+    apiKey: "IKNdsaKsdabdGL5iuywrfHUIKBubkjbJGDfIBHUGnkjVA",
+    authDomain: "sample-u78nb.firebaseapp.com",
+    projectId: "sample-u78nb",
+    storageBucket: "sample-u78nb.appspot.com",
+    messagingSenderId: "872459742932",
+    appId: "9:872459742932:web:&8ufnhjbhbj89nu8b",
+    measurementId: "G-YTUTY89kFT",
+  };
   ```
-* Use these values to populate your .env file
+
+- Use these values to populate your .env file
 
 # Usage
 
@@ -104,6 +121,10 @@ This command will start the development server. You can then access and interact
 ## Contributing
 
 Contributions to the Digitomize project are welcome! If you would like to contribute to the client-side codebase, please refer to the [CONTRIBUTING.md](../CONTRIBUTING.md) file for details on how to contribute.
+
+### Linting
+- Run `npm run lint` to check for errors using the linter.
+- Run `npm run lint-fix` to have the linter automatically fix errors where possible.
 
 ## License
 
