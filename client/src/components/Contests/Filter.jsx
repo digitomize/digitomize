@@ -1,4 +1,10 @@
 import { useState, useEffect } from "react";
+import formbricks from "@formbricks/js";
+
+const handleClick = () => {
+  formbricks.track("test-01");
+};
+
 import {
   Chip,
   Box,
@@ -130,24 +136,24 @@ function Filter() {
                 <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                   {selected?.map((value) => (
                     <Chip
-                    key={value}
-                    label={
-                      <span style={{ display: "flex", alignItems: "center" }}>
-                        <img
-                          src={platformsIcon[platforms.indexOf(value)]}
-                          alt={value}
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            marginRight: "5%",
-                          }}
-                        />
-                        {value}
-                      </span>
-                    }
-                    onDelete={() => handleDelete(value)}
-                  />
-                ))}
+                      key={value}
+                      label={
+                        <span style={{ display: "flex", alignItems: "center" }}>
+                          <img
+                            src={platformsIcon[platforms.indexOf(value)]}
+                            alt={value}
+                            style={{
+                              width: "20px",
+                              height: "20px",
+                              marginRight: "5%",
+                            }}
+                          />
+                          {value}
+                        </span>
+                      }
+                      onDelete={() => handleDelete(value)}
+                    />
+                  ))}
                 </Box>
               )}
               MenuProps={MenuProps}
@@ -176,7 +182,15 @@ function Filter() {
       </Element>
       <Element name="contests" className="container mx-auto contests-container z-[1]">
         {contestsData.length ? (
-          <Contests contests={contestsData} range={range} />
+          <>
+            <p className="mx-auto text-center mt-4 text-xl">
+              Have a favorite contest platform we're missing? {" "} Join our <a href="https://digitomize.com/discord" target="_blank" rel="noopener noreferrer" className="text-digitomize-bg">Discord</a> or <button className="text-digitomize-bg" onClick={handleClick}>
+              click here
+            </button> and let us know!
+            </p>
+            
+            <Contests contests={contestsData} range={range} />
+          </>
         ) : (
           <div className="m-auto flex sm:flex-row flex-col items-center w-4/5 my-12 ">
             <Skeleton

@@ -2,6 +2,12 @@ import { useMemo } from "react";
 import Card from "./Card";
 import "../../css/Contests.css";
 import { Helmet } from "react-helmet";
+import formbricks from "@formbricks/js";
+import query from "./query.json";
+
+const handleClick = () => {
+  formbricks.track("test-01");
+};
 
 function Contests({ contests, range }) {
   const contentDescription =
@@ -11,27 +17,7 @@ function Contests({ contests, range }) {
   //     if (data.duration >= range[0] && data.duration <= range[1]) return true;
   //   });
   // }, [range, contests]);
-  const queryData = [
-    {
-      "host": "quine",
-      "name": "Quest 005: Developer Tools",
-      "vanity": "quest005",
-      "url": "https://quine.sh/quests/creator?questId=5&utm_source=digitomize&ref=digitomize",
-      "startTimeUnix": 1702987200,
-      "duration": 50400,
-      "prize":"Total Prize Pot: 2048 USD",
-    },
-    {
-      "host": "tublian",
-      "name": "Build a RAG application using LLM",
-      "vanity": "tublian-303",
-      "url": "https://www.tublian.com/challenge/303",
-      "startTimeUnix": 1703026800,
-      "duration": 43200,
-      "prize":"Special Prize + Tublian Merch",
-    },
-    
-  ]
+  const queryData = query;
 
   return (
     <>
@@ -52,7 +38,9 @@ function Contests({ contests, range }) {
           ))}
         </div>
         <p className="mx-auto text-center mt-4 text-xl">
-              Want challenges from more platforms?{" "} Join our <a href="https://digitomize.com/discord" target="_blank" rel="noopener noreferrer" className="text-blue-500">Discord</a> and let us know!
+              Want challenges from more platforms?{" "} Join our <a href="https://digitomize.com/discord" target="_blank" rel="noopener noreferrer" className="text-digitomize-bg">Discord</a> or <button className="text-digitomize-bg" onClick={handleClick}>
+              click here
+            </button> and let us know!
           </p>
       </div>
     </>
