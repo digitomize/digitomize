@@ -9,6 +9,11 @@ const navlinks = [
         link: '/contests'
     },
     {
+        name: 'Challenges',
+        icon: <LockOutlined />,
+        link: '/challenges'
+    },
+    {
         name: 'Hackathons',
         icon: <LockOutlined />,
         link: '/hackathons'

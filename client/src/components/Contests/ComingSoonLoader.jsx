@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CommingSoonLoader = ({ value }) => {
+const ComingSoonLoader = ({ value }) => {
     return (
         <div>
             <div className="flex flex-col justify-center items-center antialiased">
@@ -10,10 +10,10 @@ const CommingSoonLoader = ({ value }) => {
                     </span>
                     Coming Soon
                 </h1>
-                <progress className="progress w-56 mt-12"></progress>
+                {/* <progress className="progress w-56 mt-12"></progress> */}
             </div>
         </div>
     )
 }
 
-export default CommingSoonLoader
+export default ComingSoonLoader

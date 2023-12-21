@@ -75,7 +75,7 @@ import ContestListPage from "./pages/admin/ContestListPage";
 import CommunityListPage from "./pages/admin/CommunityListPage";
 import ContestPageLayout from "./components/Contests/ContestPageLayout";
 import Filter from "./components/Contests/Filter";
-import CommingSoonLoader from "./components/Contests/CommingSoonLoader";
+import ComingSoonLoader from "./components/Contests/ComingSoonLoader";
 
 function Logout() {
   const navigate = useNavigate();
@@ -137,9 +137,10 @@ const router = createBrowserRouter(
         <Route path="signup" element={<Signup />} loader={signupLoader} />
         <Route element={<ContestPageLayout />}>
           <Route path="contests" element={<Filter />} />
-          <Route path="hackathons" element={<CommingSoonLoader value='Hackathon' />} />
-          <Route path="internships" element={<CommingSoonLoader value='Internships' />} />
-          <Route path="jobs" element={<CommingSoonLoader value='Jobs' />} />
+          <Route path="challenges" element={<ComingSoonLoader value='Challenges' />} />
+          <Route path="hackathons" element={<ComingSoonLoader value='Hackathons' />} />
+          <Route path="internships" element={<ComingSoonLoader value='Internships' />} />
+          <Route path="jobs" element={<ComingSoonLoader value='Jobs' />} />
         </Route>
         {/* <Route path="updates" element={<Updates />} /> */}
         <Route path="home" element={<Homepage />} />

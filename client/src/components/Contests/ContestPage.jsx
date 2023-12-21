@@ -32,7 +32,7 @@ export default function ContestPage() {
     <div className="w-11/12 mx-auto">
       <div className="heading w-4/5 mx-auto text-center my-4">
         <h1 className="text-white max-md:text-4xl md:text-6xl flex flex-row mx-auto justify-center">
-          <span>All at</span>
+          <span>All att</span>
           <span className="block mt-1 md:mt-6">
             <span className="bg-digitomize-bg mx-2 px-1">one</span>
             place
@@ -44,6 +44,10 @@ export default function ContestPage() {
         <button className={`btn ${value !== "contests" ? "btn-outline" : "bg-custom-blue text-white"}`} onClick={(event) => handleChange(event, "contests")}>
           Contests
           <TrendingUp />
+        </button>
+        <button className={`btn ${value !== "challenges" ? "btn-outline" : "bg-custom-blue text-white"}`} onClick={(event) => handleChange(event, "challenges")}>
+          Challenges
+          <LockOutlined />
         </button>
         <button className={`btn ${value !== "hackathons" ? "btn-outline" : "bg-custom-blue text-white"}`} onClick={(event) => handleChange(event, "hackathons")}>
           Hackathons
