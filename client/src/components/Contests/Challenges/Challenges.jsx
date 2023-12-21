@@ -28,6 +28,11 @@ function Contests({ contests, range }) {
         <meta name="description" content={contentDescription} />
       </Helmet>
       <div className="allContests scroll-smooth">
+        <p className="mx-auto text-center mt-4 text-xl">
+              Want challenges from more platforms?{" "} Join our <a href="https://digitomize.com/discord" target="_blank" rel="noopener noreferrer" className="text-digitomize-bg">Discord</a> or <button className="text-digitomize-bg" onClick={handleClick}>
+              click here
+            </button> and let us know!
+          </p>
         <div
           className="allContests lg:justify-evenly md:justify-evenly sm:justify-center px-4"
           style={{ display: "flex", flexWrap: "wrap" }}
@@ -37,11 +42,6 @@ function Contests({ contests, range }) {
             <Card key={contest.vanity} contest={contest} />
           ))}
         </div>
-        <p className="mx-auto text-center mt-4 text-xl">
-              Want challenges from more platforms?{" "} Join our <a href="https://digitomize.com/discord" target="_blank" rel="noopener noreferrer" className="text-digitomize-bg">Discord</a> or <button className="text-digitomize-bg" onClick={handleClick}>
-              click here
-            </button> and let us know!
-          </p>
       </div>
     </>
   );

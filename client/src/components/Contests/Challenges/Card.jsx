@@ -5,7 +5,7 @@ import {
   tublian,
   quine,
 } from "../../AllAssets";
-// import ShareModel from "../share_model";
+import ShareModel from "../../share_model";
 import { EmojiEvents } from "@mui/icons-material";
 import { Tooltip } from "@mui/material";
 
@@ -43,14 +43,15 @@ function Card({ contest }) {
     };
   }, [startTimeUnix]);
 
-  // const main_model = (
-  //   <ShareModel
-  //     close_model={close_model}
-  //     contestLink={`${frontendUrl}/contests/${vanity}`}
-  //     //theme={colorTheme}
-  //     theme=""
-  //   />
-  // );
+  const main_model = (
+    <ShareModel
+      close_model={close_model}
+      // contestLink={`${frontendUrl}/contests/${vanity}`}
+      contestLink={url}
+      //theme={colorTheme}
+      theme=""
+    />
+  );
 
   return (
     <div
@@ -69,7 +70,7 @@ function Card({ contest }) {
           </Tooltip>
       </div>
       {/* <Link to={`/contests/${vanity}`} className="my-auto pb-6"> */}
-      <Link to={url} className="my-auto pb-6">
+      <Link to={url} className="my-auto pb-6" target="_blank">
         <h2 className="text-3xl pb-0">{name}</h2>
         <p className="flex flex-row">
         <EmojiEvents/>
@@ -101,7 +102,7 @@ function Card({ contest }) {
               ></path>
             </svg>
           </button>
-          {/* {show && main_model} */}
+          {show && main_model}
         </div>
         <Button url={url} />
       </div>

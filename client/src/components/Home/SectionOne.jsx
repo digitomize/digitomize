@@ -53,12 +53,14 @@ export default function SectionOne() {
             draggable={false}
             alt="microsoft"
           />
+          <a href="https://m.do.co/c/db7dbc698e16">
           <img
             className="max-md:w-36 md:w-44"
             src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/SVG/DO_Logo_horizontal_white.svg"
             draggable={false}
             alt="microsoft"
-          />
+            />
+            </a>
         </span>
       </div>
     </div>
