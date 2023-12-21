@@ -75,7 +75,7 @@ function Card({ contest }) {
         <p className="flex flex-row items-center">
           <EmojiEvents />
           <div className="badge badge-success">
-            <h3>{prize}</h3>
+            <h3 className="max-phone:text-xs">{prize}</h3>
             </div>
         </p>
       </Link>
