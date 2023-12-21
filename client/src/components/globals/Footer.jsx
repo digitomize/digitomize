@@ -1,5 +1,5 @@
 import { logo } from "../AllAssets";
-import Microsoft from "/src/assets/ms_startups_dark.png";
+import GitHubButton from 'react-github-btn'
 
 export default function Footer() {
   return (
@@ -15,10 +15,12 @@ export default function Footer() {
           />
           <div>
             <h2 className="text-2xl">Digitomize</h2>
-            <p className="text-base-content text-md max-w-[230px] text-[#797FBC] mt-1">
+
+            <p className="text-base-content text-md max-w-[230px] text-[#797FBC] my-1">
               explore upcoming coding contests and dynamically create developer
               portfolios
             </p>
+            <GitHubButton href="https://github.com/digitomize/digitomize" data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: light;" data-size="large" data-show-count="true" aria-label="Star digitomize/digitomize on GitHub">Star</GitHubButton>
             {/* <img
               className="mt-4"
               src={Microsoft}
@@ -32,6 +34,12 @@ export default function Footer() {
       <div className="footer max-md:place-items-center justify-around md:self-start self-end">
         <nav className="flex justify-center items-center flex-col">
           <header className="text-white font-medium text-2xl">Social</header>
+          <a
+            href="https://instagram.com/digitomize"
+            className="link hover:no-underline link-hover hover:text-custom-blue hover:scale-110 transition-all text-lg"
+          >
+            instagram
+          </a>
           <a
             href="https://www.linkedin.com/company/digitomize"
             className="link hover:no-underline link-hover hover:text-custom-blue hover:scale-110 transition-all text-lg"
@@ -50,21 +58,22 @@ export default function Footer() {
           >
             twitter
           </a>
-          <a
-            href="https://instagram.com/digitomize"
-            className="link hover:no-underline link-hover hover:text-custom-blue hover:scale-110 transition-all text-lg"
-          >
-            instagram
-          </a>
+
         </nav>
 
         <nav className="flex justify-center items-center flex-col">
           <header className="text-white font-medium text-2xl">Company</header>
-          <a
+          {/* <a
             href="#"
             className="link hover:no-underline link-hover hover:text-custom-blue hover:scale-110 transition-all text-lg"
           >
             updates
+          </a> */}
+          <a
+            href="https://github.com/digitomize/digitomize/blob/main/LICENSE"
+            className="link link-hover hover:no-underline hover:text-custom-blue hover:scale-110 transition-all text-lg"
+          >
+            license
           </a>
           <a
             href="/about"
@@ -72,12 +81,7 @@ export default function Footer() {
           >
             about
           </a>
-          <a
-            href="https://github.com/digitomize/digitomize/blob/main/LICENSE"
-            className="link link-hover hover:no-underline hover:text-custom-blue hover:scale-110 transition-all text-lg"
-          >
-            license
-          </a>
+          
           {/* <a className="link link-hover hover:text-custom-blue hover:no-underline hover:scale-110 transition-all text-lg">
             Jobs
           </a> */}
