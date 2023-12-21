@@ -19,13 +19,13 @@ export default function Footer() {
               explore upcoming coding contests and dynamically create developer
               portfolios
             </p>
-            <img
+            {/* <img
               className="mt-4"
               src={Microsoft}
               width={180}
               draggable={false}
               alt="microsoft"
-            />
+            /> */}
           </div>
         </aside>
       </div>
@@ -44,30 +44,48 @@ export default function Footer() {
           >
             discord
           </a>
+          <a
+            href="https://twitter.com/intent/follow?screen_name=digitomize&tw_p=followbutton"
+            className="link hover:no-underline link-hover hover:text-custom-blue hover:scale-110 transition-all text-lg"
+          >
+            twitter
+          </a>
+          <a
+            href="https://instagram.com/digitomize"
+            className="link hover:no-underline link-hover hover:text-custom-blue hover:scale-110 transition-all text-lg"
+          >
+            instagram
+          </a>
         </nav>
 
         <nav className="flex justify-center items-center flex-col">
           <header className="text-white font-medium text-2xl">Company</header>
           <a
-            href="/updates"
+            href="#"
             className="link hover:no-underline link-hover hover:text-custom-blue hover:scale-110 transition-all text-lg"
           >
-            Updates
+            updates
           </a>
           <a
-            href="/contact"
+            href="/about"
             className="link hover:no-underline link-hover hover:text-custom-blue hover:scale-110 transition-all text-lg"
           >
-            Contact
+            about
           </a>
-          <a className="link link-hover hover:text-custom-blue hover:no-underline hover:scale-110 transition-all text-lg">
+          <a
+            href="https://github.com/digitomize/digitomize/blob/main/LICENSE"
+            className="link link-hover hover:no-underline hover:text-custom-blue hover:scale-110 transition-all text-lg"
+          >
+            license
+          </a>
+          {/* <a className="link link-hover hover:text-custom-blue hover:no-underline hover:scale-110 transition-all text-lg">
             Jobs
-          </a>
-          <a className="link link-hover hover:text-custom-blue hover:no-underline hover:scale-110 transition-all text-lg">
+          </a> */}
+          {/* <a className="link link-hover hover:text-custom-blue hover:no-underline hover:scale-110 transition-all text-lg">
             Press kit
-          </a>
+          </a> */}
         </nav>
-        <nav className="flex justify-center items-center flex-col mr-2">
+        {/* <nav className="flex justify-center items-center flex-col mr-2">
           <header className="text-white font-medium text-2xl">Legal</header>
           <a className="link link-hover hover:no-underline hover:text-custom-blue hover:scale-110 transition-all text-lg">
             Terms of use
@@ -76,12 +94,12 @@ export default function Footer() {
             href="https://github.com/digitomize/digitomize/blob/main/LICENSE"
             className="link link-hover hover:no-underline hover:text-custom-blue hover:scale-110 transition-all text-lg"
           >
-            License
+            license
           </a>
           <a className="link link-hover hover:hover:no-underline hover:text-custom-blue hover:scale-110 transition-all text-lg">
             Cookie policy
           </a>
-        </nav>
+        </nav> */}
       </div>
     </footer>
   );
