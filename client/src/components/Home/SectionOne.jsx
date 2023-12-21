@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import gitbook from "./svgs/GitBookLight.svg";
 import msme from "./svgs/MSME.svg";
 import microsoft from "./svgs/microsoft4strp.svg";
+import digitalOcean from "./svgs/digitalOcean.svg";
 import "/src/components/css/globals.css";
 import { Star } from "@mui/icons-material";
 
@@ -38,7 +39,7 @@ export default function SectionOne() {
           <a href="https://m.do.co/c/db7dbc698e16">
             <img
               className="max-md:w-36 md:w-44"
-              src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/SVG/DO_Logo_horizontal_white.svg"
+              src={digitalOcean}
               draggable={false}
               alt="microsoft"
             />
