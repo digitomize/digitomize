@@ -83,11 +83,6 @@ function ChallengesFilter() {
   };
   return (
     <>
-      <Element
-        name="allContests"
-        className="flex md:flex-row flex-col justify-between mt-12"
-      >
-      </Element>
       <Element className=" flex lg:flex-row max-lg:flex-col justify-between mx-auto lg:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
         {/* //checkmarks */}
         <div

@@ -63,7 +63,7 @@ const ContestPageLayout = () => {
                 </h1>
 
             </div>
-            <div className="buttons flex gap-4 justify-center my-8 flex-wrap">
+            <div className="buttons flex gap-4 justify-center mt-8 flex-wrap">
                 {
                     activeLinks.map((link, idx) => {
                         return (
@@ -77,7 +77,7 @@ const ContestPageLayout = () => {
                 {
                     inactiveLinks.map((link, idx) => {
                         return (
-                            <NavLink aria-disabled key={idx} to={link.link} className={({ isActive }) => isActive ? "btn bg-custom-blue text-gray-700" : "btn btn-outline btn-disabled"} style={{color:"#7a7a7a"}}>
+                            <NavLink aria-disabled key={idx} to={link.link} className={({ isActive }) => isActive ? "btn bg-custom-blue text-gray-700 max-sm:hidden" : "btn btn-outline btn-disabled max-sm:hidden"} style={{color:"#7a7a7a"}}>
                                 {link.name}
                                 {link.icon}
                             </NavLink>
