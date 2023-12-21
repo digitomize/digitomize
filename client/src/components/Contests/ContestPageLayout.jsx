@@ -11,22 +11,40 @@ const navlinks = [
     },
     {
         name: "Challenges",
-        icon: <Swords />,
+        icon: (
+            <>
+                <Swords /> <div className="badge badge-warning">new</div>
+            </>),
         link: "/challenges",
     },
     {
         name: "Hackathons",
-        icon: <LockOutlined />,
+        icon: (
+            <>
+                <LockOutlined />
+                <div className="badge badge-error">soon</div>
+            </>
+        ),
         link: "/hackathons",
     },
     {
         name: "Internships",
-        icon: <LockOutlined />,
+        icon: (
+            <>
+                <LockOutlined />
+                <div className="badge badge-error">soon</div>
+            </>
+        ),
         link: "/internships",
     },
     {
         name: "Jobs",
-        icon: <LockOutlined />,
+        icon: (
+            <>
+                <LockOutlined />
+                <div className="badge badge-error">soon</div>
+            </>
+        ),
         link: "/jobs",
     },
 ];

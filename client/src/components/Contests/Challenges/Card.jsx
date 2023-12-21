@@ -72,9 +72,11 @@ function Card({ contest }) {
       {/* <Link to={`/contests/${vanity}`} className="my-auto pb-6"> */}
       <Link to={url} className="my-auto pb-6" target="_blank">
         <h2 className="text-3xl pb-0">{name}</h2>
-        <p className="flex flex-row">
-        <EmojiEvents/>
-        <h3>{prize}</h3>
+        <p className="flex flex-row items-center">
+          <EmojiEvents />
+          <div className="badge badge-success">
+            <h3>{prize}</h3>
+            </div>
         </p>
       </Link>
       <div className="flex justify-between items-end">
