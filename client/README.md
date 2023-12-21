@@ -87,7 +87,7 @@ _Fill the empty fields by creating a demo firebase project._
 
 #### Creating New firebase project and setting up .env variables
 
-- go to [https://firebase.google.com/](Firebase)
+- Go to [Firebase](https://firebase.google.com/)
 - Create an account if you don't have one and click on get started
 - Add a project
 - Add an app and select web as the platform
