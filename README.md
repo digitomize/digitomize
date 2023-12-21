@@ -15,11 +15,31 @@
 
 ## Supported by:
 
+<!-- <table style="border: 0">
+<tbody>
+<tr><td>
 <a href="https://m.do.co/c/db7dbc698e16" target="_blank">
     <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" width="30%">
-  </a>
-<img src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" width="30%">
-<img src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" width="30%">
+  </a></td>
+  </tr>
+  <tr><td>
+<img src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" width="30%"></td></tr>
+<tr><td><img src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" width="30%"></td></tr>
+</tbody>
+</table> -->
+
+<!-- | |
+| --- |
+| <a href="https://m.do.co/c/db7dbc698e16" target="_blank"><img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" height="150" width="300"></a> |
+| <img src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" height="auto" width="300"> |
+| <img src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" height="auto" width="300"> | -->
+
+
+<a ahref="https://m.do.co/c/db7dbc698e16" target="_blank"><img align="center" src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" height="150" width="300"></a> 
+ <img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" height="auto" width="300">
+<img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" height="auto" width="300">
+
+
 
 
 
