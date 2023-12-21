@@ -8,8 +8,8 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "npx eslint contest/** core/** DSA_sheets/** services/** users/**",
-    "lint-fix": "npx eslint contest/** core/** DSA_sheets/** services/** users/** --fix"
+    "lint":"eslint . --ext js --report-unused-disable-directives --max-warnings 0",
+    "lint-fix":"eslint . --ext js --report-unused-disable-directives --max-warnings 0 --fix"
   },
   "author": "",
   "license": "MIT",

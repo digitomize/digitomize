@@ -1,4 +1,4 @@
-//? APIs to MongoDB
+// ? APIs to MongoDB
 
 import { ROLE } from "../../core/const.js";
 import User from "../../users/models/User.js";
@@ -7,7 +7,7 @@ import Community from "../models/Community.js";
 import { error, success } from "../../core/api/response.api.js";
 import CommunityMember from "../models/CommunityMember.js";
 
-async function getCommunityList() {
+async function getCommunityList () {
   try {
     const communityList = await Community.find();
     return communityList;
@@ -17,7 +17,7 @@ async function getCommunityList() {
   return null;
 }
 
-async function createCommunity(request, response) {
+async function createCommunity (request, response) {
   try {
     const { body, decodedToken } = request;
     const userId = decodedToken.uid;
@@ -34,7 +34,7 @@ async function createCommunity(request, response) {
         error: "You don't have sufficient permission",
       });
     }
-    let cmAdminUser = body.cmAdmin ? await getUser(body.cmAdmin) : user;
+    const cmAdminUser = body.cmAdmin ? await getUser(body.cmAdmin) : user;
     if (!cmAdminUser) {
       return error(response, 400, "User not found!");
     }
@@ -85,7 +85,7 @@ const updateCommunityHelper = (community, body) => {
   return updatedCommunity;
 };
 
-async function updateCommunity(request, response) {
+async function updateCommunity (request, response) {
   try {
     const { body } = request;
     if (!body.communityId) {
@@ -111,7 +111,7 @@ async function updateCommunity(request, response) {
   }
 }
 
-async function deleteCommunity(request, response) {
+async function deleteCommunity (request, response) {
   try {
     const { communityId } = request.body;
     if (!communityId) {
