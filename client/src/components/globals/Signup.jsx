@@ -59,7 +59,6 @@ export default function Signup() {
       }
       navigate("/login");
     } catch (err) {
-      setbtnState(true);
       toast.error(err.code, {
         position: "top-right",
         autoClose: 5000,
@@ -70,6 +69,7 @@ export default function Signup() {
         progress: undefined,
         theme: "colored",
       });
+      setbtnState(false);
       setError(err.code);
     }
   };
