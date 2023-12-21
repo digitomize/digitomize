@@ -1,6 +1,7 @@
 import React from "react";
 import { LockOutlined, TrendingUp } from "@mui/icons-material";
 import { NavLink, Outlet } from "react-router-dom";
+import { Swords } from "lucide-react";
 
 const navlinks = [
     {
@@ -10,7 +11,7 @@ const navlinks = [
     },
     {
         name: "Challenges",
-        icon: <LockOutlined />,
+        icon: <Swords />,
         link: "/challenges",
     },
     {
