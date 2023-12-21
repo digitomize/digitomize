@@ -16,33 +16,29 @@ function ProfileRatingsPage() {
   const navigate = useNavigate();
   const profileData = useOutletContext();
   const personal_data = profileData.personal_data;
-  const contestLinks = useMemo(
-    () => [
-      {
-        name: "Codeforces",
-        link: "codeforces",
-        img: codeforces,
-        rating: profileData.ratings.codeforces.rating,
-      },
-      {
-        name: "Codechef",
-        link: "codechef",
-        img: codechef,
-        rating: profileData.ratings.codechef.rating,
-      },
-      {
-        name: "Leetcode",
-        link: "leetcode",
-        img: leetcode,
-        rating: profileData.ratings.leetcode.rating,
-      },
-    ],
-    [
-      profileData.ratings.codeforces.rating,
-      profileData.ratings.codechef.rating,
-      profileData.ratings.leetcode.rating,
-    ],
-  );
+  const contestLinks = useMemo(() => [
+    {
+      name: 'Codeforces',
+      link: 'codeforces',
+      img: codeforces,
+      username: profileData.ratings.codeforces.username,
+      rating: profileData.ratings.codeforces.rating,
+    },
+    {
+      name: 'Codechef',
+      link: 'codechef',
+      img: codechef,
+      username: profileData.ratings.codechef.username,
+      rating: profileData.ratings.codechef.rating,
+    },
+    {
+      name: 'Leetcode',
+      link: 'leetcode',
+      img: leetcode,
+      username: profileData.ratings.leetcode.username,
+      rating: profileData.ratings.leetcode.rating,
+    }
+  ], [profileData.ratings.codeforces.rating, profileData.ratings.codechef.rating, profileData.ratings.leetcode.rating]);
 
   React.useEffect(() => {
     const platformWithRating = contestLinks.find(
@@ -61,8 +57,8 @@ function ProfileRatingsPage() {
     <>
       <div className="phone:w-10/12 mx-auto py-4">
         <div className="flex max-sm:flex-col max-phone:flex-col max-phone:mt-4">
-          <div className="flex flex-col justify-center phone:w-2/4 max-phone:w-11/12 mx-auto">
-            <div className="phone:w-11/12">
+          <div className='flex flex-col justify-center sm:w-2/4 max-phone:w-11/12 mx-auto'>
+            <div className="phone:w-11/12 mx-auto">
               <Link to="..">
                 <UserCard
                   username={personal_data.username}
@@ -76,16 +72,15 @@ function ProfileRatingsPage() {
             </div>
           </div>
           <div className="flex w-full justify-center">
-            <div className="phone:w-11/12 pt-12 max-phone:pt-4">
-              <div className="m-auto bg-eerie-black-2 h-full w-full rounded-2xl max-phone:rounded-tr-none max-phone:rounded-tl-none shadow-md border border-jet">
-                {contestLinks.some(
-                  (contestLink) => contestLink.rating !== null,
-                ) ? (
+            <div className="w-11/12 pt-12 max-phone:pt-4">
+              <div className='m-auto bg-eerie-black-2 h-full w-full rounded-2xl max-phone:rounded-tr-none max-phone:rounded-tl-none shadow-md border border-jet'>
+
+                {contestLinks.some(contestLink => contestLink.username !== null) ? (
                   <div className="flex flex-col items-end w-full">
                     <nav className="navbar bg-eerie-black-1 backdrop-blur-md border border-jet phone:w-max rounded-tr-2xl rounded-bl-2xl max-phone:rounded-br-2xl max-phone:rounded-tr-none shadow-none py-0 px-6">
                       <ul className="navbar-list flex gap-4 py-0 px-6">
                         {contestLinks
-                          .filter((contestLink) => contestLink.rating !== null)
+                          .filter(contestLink => contestLink.username !== null)
                           .map((contestLink, index) => (
                             <NavLink
                               to={`${contestLink.link}`}
