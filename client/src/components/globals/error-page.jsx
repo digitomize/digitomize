@@ -2,6 +2,7 @@ import { useRouteError, Link } from "react-router-dom";
 import "/src/components/css/error-page.css";
 import Navbar from "./NewNavbar";
 import { Helmet } from "react-helmet";
+import { MetaData } from "../CustomComponents";
 
 export default function ErrorPage() {
   const error = useRouteError();
@@ -9,12 +10,7 @@ export default function ErrorPage() {
   const contentDescription = "ERROR 404".toLowerCase();
   return (
     <>
-      <Helmet>
-        <title>error | digitomize</title>
-        <meta property="og:title" content="error | digitomize" />
-        <meta property="og:description" content={contentDescription} />
-        <meta name="description" content={contentDescription} />
-      </Helmet>
+      <MetaData path="error" />
       <Navbar />
       <div className="error-container">
         <div className="error-page">

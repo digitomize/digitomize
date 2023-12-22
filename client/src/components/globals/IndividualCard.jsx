@@ -125,11 +125,30 @@ function IndividualCard() {
   return (
     <>
       <Helmet>
-        <title> {pageTitle} </title>
-        <meta property="og:title" content={contentTitle} />
-        <meta property="og:description" content={contentDescription} />
-        <meta name="description" content={contentDescription} />
-      </Helmet>
+                <title>{pageTitle}</title>
+                
+                {/* Page Description */}
+                <meta name="description" content={contentDescription} />
+
+                {/* Robots Meta Tag */}
+                <meta name="robots" content="index, follow" />
+
+                {/* Open Graph Tags (Facebook) */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={url} />
+                <meta property="og:title" content={contentTitle} />
+                <meta property="og:description" content={contentDescription} />
+                <meta property="og:image" content={hostToSVGMap[host]} />
+                <meta property="og:url" content={url} />
+
+                {/* Twitter Meta Tags */}
+                <meta name="twitter:title" content={pageTitle} />
+                <meta name="twitter:description" content={contentDescription} />
+                <meta name="twitter:image" content={hostToSVGMap[host]} />
+
+                {/* Canonical URL */}
+                <link rel="canonical" href={url} />
+            </Helmet>
       {true && (
         <div className="mx-auto w-fit mt-4">
           <Alert

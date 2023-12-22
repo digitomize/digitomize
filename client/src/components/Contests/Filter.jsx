@@ -4,7 +4,7 @@ import formbricks from "@formbricks/js";
 const handleClick = () => {
   formbricks.track("test-01");
 };
-
+import { MetaData } from "../CustomComponents";
 import {
   Chip,
   Box,
@@ -101,6 +101,7 @@ function Filter() {
   };
   return (
     <>
+      <MetaData path="contests" />
       <Element className="phone:mt-8 flex lg:flex-row max-lg:flex-col justify-between mx-auto lg:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
         {/* //checkmarks */}
         <div

@@ -36,6 +36,7 @@ import ShareModel from "../../components/share_model.jsx";
 import UserCard from "../Profile/components/UserCard.jsx";
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 // import logo from "../assets/logo.png";
+import { MetaData } from "../../components/CustomComponents.jsx";
 
 export default function UserDashboard() {
   const navigate = useNavigate();
@@ -112,6 +113,8 @@ export default function UserDashboard() {
   if (!loading) {
     return (
       <>
+        
+        <MetaData path="u/dashboard" />
         <ToastContainer />
         <NewNavbar />
 

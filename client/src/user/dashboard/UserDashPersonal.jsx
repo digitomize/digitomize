@@ -11,7 +11,7 @@ import DashboardNavbar from "../components/DashboardNavbar";
 import Checkbox from "../components/Checkbox";
 import NewNavbar from "../../components/globals/NewNavbar";
 import { ToastContainer, toast } from "react-toastify";
-
+import { MetaData } from "../../components/CustomComponents";
 import Chip from "@mui/material/Chip";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import { styled } from "@mui/material/styles";
@@ -187,6 +187,7 @@ export default function UserDashPersonal() {
 
   return (
     <>
+      <MetaData path="u/dashboard/account" />
       <ToastContainer />
       <DashboardNavbar />
       {/* <div className="px-8 md:ps-12 py-12 pt-24 w-11/12 mx-auto"> */}
