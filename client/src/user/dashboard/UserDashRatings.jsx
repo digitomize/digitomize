@@ -587,7 +587,7 @@ export default function UserDashRatings() {
         <div className="flex justify-center py-12">
           <div className="divider w-3/5"></div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </>
     );
   }

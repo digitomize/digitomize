@@ -132,7 +132,7 @@ export default function UserDashGithub() {
           {svgImage()}
         </div> */}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

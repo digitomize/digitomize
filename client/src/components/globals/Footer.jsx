@@ -1,5 +1,5 @@
 import { logo } from "../AllAssets";
-import GitHubButton from 'react-github-btn'
+import GitHubButton from "react-github-btn";
 
 export default function Footer() {
   return (

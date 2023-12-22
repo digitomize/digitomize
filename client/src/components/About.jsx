@@ -284,7 +284,7 @@ export default function About() {
         </div>
       </div>
       <div className="divider w-0"></div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
