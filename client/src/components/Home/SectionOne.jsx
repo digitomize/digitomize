@@ -7,10 +7,45 @@ import microsoft from "./svgs/microsoft4strp.svg";
 import digitalOcean from "./svgs/digitalOcean.svg";
 import "/src/components/css/globals.css";
 import { Star } from "@mui/icons-material";
+import React, { useState, useEffect, useRef } from "react";
+import BIRDS from "vanta/dist/vanta.birds.min";
+import * as THREE from "three";
 
 export default function SectionOne() {
+
+  const [vantaEffect, setVantaEffect] = useState(0);
+  const vantaRef = useRef(null);
+
+  useEffect(() => {
+    if (!vantaEffect) {
+      setVantaEffect(
+        BIRDS({
+          el: vantaRef.current,
+          THREE: THREE,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 600.0,
+          minWidth: 600.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          backgroundColor: 0x06090e,
+          backgroundAlpha: 0.1,
+          quantity: 3.00,
+          birdSize: 1.40,
+          wingSpan: 35.00,
+          speedLimit: 3.00,
+          separation: 100.00,
+        })
+      );
+    }
+    return () => {
+      if (vantaEffect) vantaEffect.destroy();
+    };
+  }, [vantaEffect]);
+
   return (
-    <div className="font-['Geist'] xl:pt-8 max-md:pt-4 items-center flex flex-col text-center phone:mt-16">
+    <div ref={vantaRef} className="bg-image-remove font-['Geist'] xl:pt-8 max-md:pt-4 items-center flex flex-col text-center phone:mt-16">
       <Link to="https://github.com/digitomize/digitomize" className="flex justify-center items-center border border-badge bg-badge text-badge-txt px-6 py-1 rounded-full text-xs">
         We're open source | Star Now! <Star fontSize="small" />
       </Link>
