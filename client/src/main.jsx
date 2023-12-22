@@ -20,13 +20,13 @@ const defaultDesc = "Empowering Coders and Developers Worldwide";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Helmet>
+    {/* <Helmet>
       <title>{currentPageData?.title || defaultTitle}</title>
       <meta
         name="description"
         content={currentPageData?.description || defaultDesc}
       />
-    </Helmet>
+    </Helmet> */}
     <InstallPWAButton />
     <App />
   </React.StrictMode>,
