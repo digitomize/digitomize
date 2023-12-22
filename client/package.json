@@ -42,8 +42,10 @@
     "swiper": "^11.0.4",
     "tailwind-merge": "^2.1.0",
     "tailwindcss-animate": "^1.0.7",
+    "three": "^0.121.0",
     "tw-elements-react": "^1.0.0-alpha1",
-    "typewriter-effect": "^2.20.1"
+    "typewriter-effect": "^2.20.1",
+    "vanta": "^0.5.24"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
