@@ -38,6 +38,7 @@
     "react-responsive": "^9.0.2",
     "react-router-dom": "^6.15.0",
     "react-scroll": "^1.8.9",
+    "react-snowfall": "^1.2.1",
     "react-toastify": "^9.1.3",
     "swiper": "^11.0.4",
     "tailwind-merge": "^2.1.0",
