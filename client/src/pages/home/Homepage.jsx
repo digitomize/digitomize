@@ -9,55 +9,50 @@ import ScrollToTop from "../../components/globals/ScrollToTop";
 
 import snowFlakesImages from "../../assets/snowflake.svg";
 
-const SnowFlakes = ({ x, y }) => {
-  const treeStyle = {
+const SnowFlakes = ({ onClick, position }) => {
+  const snowflakeStyle = {
     position: "absolute",
-    left: `${x}px`,
-    top: `${y}px`,
-    width: "100px",
-    height: "100px",
+    width: "80px",
+    height: "80px",
     backgroundImage: `url(${snowFlakesImages})`,
     backgroundSize: "cover",
   };
 
-  return <div className="snowflakes" style={treeStyle}></div>;
+  if (position === "top-left") {
+    snowflakeStyle.left = "100px";
+    snowflakeStyle.top = "50px";
+  } else if (position === "bottom-right") {
+    snowflakeStyle.right = "100px";
+    snowflakeStyle.bottom = "0";
+  }
+
+  return <div className="snowflakes" style={snowflakeStyle} onClick={onClick}></div>;
 };
 
 export default function Homepage() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [treePositions, setTreePositions] = useState([
-    { x: 100, y: 550 },
-    { x: 1150, y: 200 },
-    { x: 300, y: 100 },
-    { x: 1290, y: 450 },
-  ]);
+  const [isSnowfallActive, setSnowfallActive] = useState(false);
 
-  const handleMouseMove = (e) => {
-    setMousePosition({ x: e.clientX, y: e.clientY });
-
-    // Update tree positions based on mouse movement
-    setTreePositions((prevPositions) =>
-      prevPositions.map((pos) => ({
-        x: pos.x + (e.clientX - mousePosition.x) * 0.02,
-        y: pos.y + (e.clientY - mousePosition.y) * 0.02,
-      }))
-    );
+  const toggleSnowfall = () => {
+    setSnowfallActive(!isSnowfallActive);
   };
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, [mousePosition]);
+    if (isSnowfallActive) {
+      // Automatically disable snowfall after 5 seconds
+      const timeoutId = setTimeout(() => {
+        setSnowfallActive(false);
+      }, 5000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [isSnowfallActive]);
 
   return (
     <div>
       <div id="home" className="antialiased">
-        <Snowfall snowflakeCount={150} />
-        {treePositions.map((pos, index) => (
-          <SnowFlakes key={index} x={pos.x} y={pos.y} />
-        ))}
+        {isSnowfallActive && <Snowfall snowflakeCount={150} />}
+        <SnowFlakes onClick={toggleSnowfall} position="top-left" />
+        <SnowFlakes onClick={toggleSnowfall} position="bottom-right" />
         <SectionOne />
         <SectionTwo />
         <SectionThree />
