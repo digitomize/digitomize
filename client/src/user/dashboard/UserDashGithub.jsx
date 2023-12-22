@@ -6,7 +6,7 @@ import Checkbox from "../components/Checkbox";
 import NewNavbar from "../../components/globals/NewNavbar";
 import DashboardNavbar from "../components/DashboardNavbar";
 import Footer from "../../components/globals/Footer";
-
+import { MetaData } from "../../components/CustomComponents";
 export async function loader() {
   try {
     const res = await userDashboardDetails();
@@ -95,6 +95,7 @@ export default function UserDashGithub() {
 
   return (
     <>
+      <MetaData path="user/dashboard/github" />
       <DashboardNavbar />
       <div className="px-8 mt-24 py-4 w-11/12 mx-auto">
         <Form className="flex flex-col items-center" onSubmit={handleSubmit}>

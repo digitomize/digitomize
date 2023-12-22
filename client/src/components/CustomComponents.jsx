@@ -22,7 +22,9 @@ import NewNavbar from "./globals/NewNavbar";
 import ScrollToTop from "./globals/ScrollToTop";
 import Signup from "./globals/Signup";
 import Updates from "./Updates";
+import MetaData from "./globals/MetaData";
 export {
+  MetaData,
   BgEllipse,
   Button,
   Card,

@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import loginIcon from "../assets/fingerprint-animate-blue.svg";
 import { useState } from "react";
-
+import { MetaData } from "./CustomComponents";
 import { useUserAuth } from "../context/UserAuthContext";
 
 import { isLoggedIn } from "../../api";
@@ -64,6 +64,7 @@ export default function Login() {
   };
   return (
     <>
+      <MetaData path={"login"} />
       <ToastContainer />
       <div className="phone:mt-12 antialiased">
         {error && <h3 className="text-[#cc0000] text-center">{error}</h3>}

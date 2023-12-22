@@ -3,12 +3,13 @@ import {
   AiOutlineUsergroupAdd,
   AiFillLinkedin,
 } from "react-icons/ai";
-import Footer from "./globals/Footer";
+import { MetaData } from "./CustomComponents";
 import { Link } from "react-router-dom";
 import Contributors from "./Contributors";
 export default function About() {
   return (
     <>
+      <MetaData path="about" />
       <div className="container w-11/12 mx-auto text-center mt-4 antialiased">
         <div className="hero">
           <div className="hero-content flex-col sm:flex-row">
