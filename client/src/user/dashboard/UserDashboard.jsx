@@ -359,7 +359,7 @@ export default function UserDashboard() {
           </div>*/}
           </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </>
     );
   }

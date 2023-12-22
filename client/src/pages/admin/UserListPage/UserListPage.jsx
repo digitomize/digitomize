@@ -237,7 +237,7 @@ export default function UserListPage() {
           </Table>
         </TableContainer>
       </Container>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

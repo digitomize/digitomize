@@ -15,7 +15,7 @@ export default function Homepage() {
         <SectionThree />
         <ScrollToTop toid={"home"} h={2} />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

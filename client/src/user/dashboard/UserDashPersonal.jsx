@@ -445,7 +445,7 @@ export default function UserDashPersonal() {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

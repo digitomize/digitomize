@@ -26,6 +26,7 @@ import {
   Homepage,
   Feedback,
   About,
+  Footer,
 } from "./components/CustomComponents";
 import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashPersonal, {
@@ -210,14 +211,17 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <UserAuthContextProvider>
-      <UserContextProvider>
-        <ToastContainer />
-        <div>
-          <RouterProvider router={router} />
-        </div>
-      </UserContextProvider>
-    </UserAuthContextProvider>
+    <>
+      <UserAuthContextProvider>
+        <UserContextProvider>
+          <ToastContainer />
+          <div>
+            <RouterProvider router={router} />
+          </div>
+        </UserContextProvider>
+      </UserAuthContextProvider>
+      <Footer />
+    </>
   );
 }
 
