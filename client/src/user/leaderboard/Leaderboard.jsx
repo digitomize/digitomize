@@ -26,8 +26,7 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  ListItemIcon,
-  ListItemText,
+  TextField
 } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -54,7 +53,7 @@ export default function Leaderboard() {
   const [selectedPlatform, setSelectedPlatform] = useState(
     searchParams.get("platform") || "",
   );
-
+  const [name, setName] = useState("");
   const platforms = ["leetcode", "codechef", "codeforces"];
   const platformsIcon = [leetcode, codechef, codeforces];
   // console.log("USERERER", userDetails);
@@ -162,7 +161,6 @@ export default function Leaderboard() {
     fetchLbData();
     fetchLoggedUserData();
   }, [currentPage,selectedPlatform]);
-
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
     if (selectedPlatform.length != 0)
@@ -173,6 +171,7 @@ export default function Leaderboard() {
   const getRank = (index) => {
     return index + 4 + (currentPage - 1) * 5;
   };
+ 
   return (
     <>
       <NewNavbar position="static" />
@@ -205,15 +204,37 @@ export default function Leaderboard() {
         <Rank color="#FFD700" pt="0" user={top3[0]} />
         <Rank color="#CD7F32" user={top3[2]} />
       </div>
-      <div className="phone:w-4/6 w-11/12 mx-auto mt-8">
+      <div className="phone:w-4/6 w-11/12 mx-auto flex flex-row justify-between items-center mt-8">
+        <div> 
+        <Box className={"bg-[#474748] w-[180px] rounded-[8px] max-sm:hidden"}
+      component="form"
+      sx={{
+        '& > :not(style)': {},
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <TextField
+        id="outlined-controlled"
+        label="username"
+        value={name}
+        onChange={(event) => {
+          setName(event.target.value);
+        }}
+        onKeyDown={(event)=>{
+          if(event.key==="Enter")
+          event.preventDefault()
+        }}
+        />
+    </Box>
+        </div>
         <FormControl
           variant="filled"
-          sx={{ m: 1, width: 180 }}
-          className={"bg-[#474748] rounded-t-[8px] w-full text-[16px] pb-1"}
+          className={"bg-[#474748] rounded-[8px]  text-[16px] max-sm:hidden "}
         >
           <InputLabel
             id="demo-simple-select-filled-label"
-            className={"w-full text-white text-[16px] "}
+            className={"w-full text-white text-[16px] max-sm:hiddennp"}
           >
             select platform
           </InputLabel>
@@ -221,7 +242,7 @@ export default function Leaderboard() {
             labelId="demo-simple-select-filled-label"
             id="demo-simple-select-filled"
             value={selectedPlatform}
-            className={"bg-[#474748] text-white mt-1"}
+            className={"bg-[#474748] text-white"}
             onChange={handleChange}
           >
             <MenuItem value="">
@@ -330,7 +351,7 @@ export default function Leaderboard() {
               <tbody>
                 {/* rows */}
                 {data &&
-                  data.map((row, index) => (
+                  data.filter(obj=>obj.username.includes(name)).map((row, index) => (
                     <tr key={index}>
                       <td>{getRank(index)}</td>
                       <td>
