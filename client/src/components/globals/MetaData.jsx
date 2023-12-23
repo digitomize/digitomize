@@ -10,6 +10,11 @@ const getPageMetadata = (path) => {
             description:
                 "Discover upcoming coding contests on Digitomize and stay in the loop with the latest challenges. Join us, take part, and put your coding skills to the test!",
         },
+        "challenges": {
+            title: "Challenges",
+            description:
+                "Discover upcoming coding challenges on Digitomize and stay in the loop with the latest contests. Join us, take part, and put your coding skills to the test!",
+        },
         "contact": {
             title: "Contact Us",
             description: "Get in touch with us.",
@@ -95,7 +100,7 @@ const MetaData = ({ path = "null" }) => {
         <>
             <Helmet>
                 <title>{getPageMetadata(path).title}</title>
-                
+
                 {/* Page Description */}
                 <meta name="description" content={getPageMetadata(path).description} />
 
