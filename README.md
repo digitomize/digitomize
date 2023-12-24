@@ -3,7 +3,7 @@
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/digitomize)
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=db7dbc698e16&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-43-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-44-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
@@ -15,9 +15,10 @@
 
 ## Supported by:
 
-<a ahref="https://m.do.co/c/db7dbc698e16" target="_blank"><img align="center" src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" height="150" width="300"></a> 
- <img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" height="auto" width="300">
-<img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" height="auto" width="300">
+<a href="https://m.do.co/c/db7dbc698e16" target="_blank"><img align="center" src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" alt="DigitalOcean Logo" height="150" width="300"></a> 
+<img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" alt="GitBook Logo" height="auto" width="300">
+<img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" alt="Microsoft for Startups Logo" height="auto" width="300">
+<img align="center" src="https://github.com/krushnarout/digitomize/assets/129386740/3f224853-cf4b-4318-ba27-8285d1c9a0fe" alt="MSME Logo" height="auto" width="220">
 
 ## Table of Contents
 
@@ -155,6 +156,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="http://mendacium-a11y.github.io"><img src="https://avatars.githubusercontent.com/u/110321699?v=4?s=100" width="100px;" alt="Saksham Saha"/><br /><sub><b>Saksham Saha</b></sub></a><br /><a href="#a11y-mendacium-a11y" title="Accessibility">️️️️♿️</a> <a href="https://github.com/digitomize/digitomize/commits?author=mendacium-a11y" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.biodrop.io/krushnarout"><img src="https://avatars.githubusercontent.com/u/129386740?v=4?s=100" width="100px;" alt="Krushna Kanta Rout"/><br /><sub><b>Krushna Kanta Rout</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=krushnarout" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
