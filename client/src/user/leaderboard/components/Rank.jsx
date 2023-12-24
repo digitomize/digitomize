@@ -35,11 +35,22 @@ const Rank = ({ color, pt = 8, user }) => {
                 alt="Profile"
               />
             </div>
-
-            <div className="bg-[#252525] rounded-[12px] text-center gap-x-[8px] sm:h-[150px] sm:w-[110px] h-[70px] w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
-              <h2 className="text-[#fff]">{user?.name}</h2>
-              <h2 style={{ color: color }}>{user.digitomize_rating}</h2>
-            </div>
+            {color == "#FFD700" ? (
+              <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[102px] sm:h-[182px] sm:w-[110px] max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
+                <h2 className="text-[#fff]">{user?.name}</h2>
+                <h2 style={{ color: color }}>{user.digitomize_rating}</h2>
+              </div>
+            ) : color == "#C0C0C0" ? (
+              <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[85px] sm:h-[167px] sm:w-[110px]  max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
+                <h2 className="text-[#fff]">{user?.name}</h2>
+                <h2 style={{ color: color }}>{user.digitomize_rating}</h2>
+              </div>
+            ) : (
+              <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[70px] sm:h-[150px] sm:w-[110px]  max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
+                <h2 className="text-[#fff]">{user?.name}</h2>
+                <h2 style={{ color: color }}>{user.digitomize_rating}</h2>
+              </div>
+            )}
           </div>
         </Link>
       ) : (
