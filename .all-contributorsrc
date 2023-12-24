@@ -398,6 +398,15 @@
         "a11y",
         "code"
       ]
+    },
+    {
+      "login": "krushnarout",
+      "name": "Krushna Kanta Rout",
+      "avatar_url": "https://avatars.githubusercontent.com/u/129386740?v=4",
+      "profile": "https://www.biodrop.io/krushnarout",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
