@@ -212,7 +212,7 @@ const router = createBrowserRouter(
     </Route>,
   ),
 );
-
+import Snowfall from "react-snowfall";
 function App() {
   return (
     <>
@@ -220,6 +220,7 @@ function App() {
         <UserContextProvider>
           <ToastContainer />
           <div>
+          <Snowfall snowflakeCount={100} speed={[0.2, 2]} wind={[0, 2]} style={{position:"fixed"}}/>
             <RouterProvider router={router} />
           </div>
         </UserContextProvider>

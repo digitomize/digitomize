@@ -33,8 +33,6 @@ import Pagination from "@mui/material/Pagination";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { useUserDetails } from "../../context/UserContext";
 import Rank from "./components/Rank";
-import Snowfall from "react-snowfall";
-import SnowFlakes from "../../components/Home/components/SnowFlakes";
 
 const theme = createTheme({
   palette: {
@@ -62,7 +60,6 @@ export default function Leaderboard() {
   const platformsIcon = [leetcode, codechef, codeforces];
   const ratings = ["digitomize", "codechef", "leetcode", "codeforces"];
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
-  const [isSnowfallActive, setSnowfallActive] = useState(true);
 
   function getCurrentDimension() {
     return {
@@ -202,9 +199,6 @@ export default function Leaderboard() {
 
   return (
     <>
-      {isSnowfallActive && <Snowfall snowflakeCount={70} speed={[0, 0.7]} wind={[0, 0.5]} />}
-      <SnowFlakes onClick={() => setSnowfallActive(!isSnowfallActive)} position="top-left" />
-      <SnowFlakes onClick={() => setSnowfallActive(!isSnowfallActive)} position="bottom-right" />
       <NewNavbar position="static" />
       <div className="text-white text-center my-4  flex flex-col items-center justify-center">
         <h1 className="max-sm:text-[20px] max-sm:leading-6 leading-[60px]">

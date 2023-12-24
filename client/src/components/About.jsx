@@ -7,16 +7,11 @@ import {
 import { MetaData } from "./CustomComponents";
 import { Link } from "react-router-dom";
 import Contributors from "./Contributors";
-import Snowfall from "react-snowfall";
-import SnowFlakes from "./Home/components/SnowFlakes";
 
 export default function About() {
   const [isSnowfallActive, setSnowfallActive] = React.useState(true);
   return (
     <>
-      {isSnowfallActive && <Snowfall snowflakeCount={70} speed={[0, 0.7]} wind={[0, 0.5]} />}
-      <SnowFlakes onClick={() => setSnowfallActive(!isSnowfallActive)} position="top-left" />
-      <SnowFlakes onClick={() => setSnowfallActive(!isSnowfallActive)} position="bottom-right" />
       <MetaData path="about" />
       <div className="container w-11/12 mx-auto text-center mt-4 antialiased">
         <div className="hero">

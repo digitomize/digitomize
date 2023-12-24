@@ -2,8 +2,6 @@ import React from "react";
 import { LockOutlined, TrendingUp } from "@mui/icons-material";
 import { NavLink, Outlet } from "react-router-dom";
 import { Swords } from "lucide-react";
-import Snowfall from "react-snowfall";
-import SnowFlakes from "../Home/components/SnowFlakes";
 
 const activeLinks = [
     {
@@ -56,9 +54,6 @@ const ContestPageLayout = () => {
     const [isSnowfallActive, setSnowfallActive] = React.useState(true);
     return (
         <>
-            {isSnowfallActive && <Snowfall snowflakeCount={70} speed={[0, 0.7]} wind={[0, 0.5]} />}
-            <SnowFlakes onClick={() => setSnowfallActive(!isSnowfallActive)} position="top-left" />
->
             <div className="w-11/12 mx-auto antialiased">
                 <div className="heading w-4/5 mx-auto text-center my-4">
                     <h1 className="text-white max-md:text-4xl md:text-6xl flex flex-row mx-auto justify-center">
