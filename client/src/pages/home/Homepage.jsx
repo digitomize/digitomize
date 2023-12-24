@@ -10,34 +10,11 @@ import { MetaData } from "../../components/CustomComponents";
 
 import ScrollToTop from "../../components/globals/ScrollToTop";
 
-import snowFlakesImages from "../../assets/snowflake.svg";
+import SnowFlakes from "../../components/Home/components/SnowFlakes";
 
-const SnowFlakes = ({ onClick, position }) => {
-  const snowflakeStyle = {
-    position: "absolute",
-    width: "80px",
-    height: "80px",
-    backgroundImage: `url(${snowFlakesImages})`,
-    backgroundSize: "cover",
-  };
-
-  if (position === "top-left") {
-    snowflakeStyle.left = "100px";
-    snowflakeStyle.top = "50px";
-  } else if (position === "bottom-right") {
-    snowflakeStyle.right = "100px";
-    snowflakeStyle.bottom = "0";
-  }
-
-  return <div className="snowflakes" style={snowflakeStyle} onClick={onClick}></div>;
-};
 
 export default function Homepage() {
   const [isSnowfallActive, setSnowfallActive] = useState(true);
-
-  const toggleSnowfall = () => {
-    setSnowfallActive(!isSnowfallActive);
-  };
 
   // useEffect(() => {
   //   if (isSnowfallActive) {
@@ -56,8 +33,8 @@ export default function Homepage() {
       <div>
         <div id="home" className="antialiased">
           {isSnowfallActive && <Snowfall snowflakeCount={70} speed={[0, 0.7]} wind={[0, 0.5]} />}
-          <SnowFlakes onClick={toggleSnowfall} position="top-left" />
-          <SnowFlakes onClick={toggleSnowfall} position="bottom-right" />
+          <SnowFlakes onClick={() => setSnowfallActive(!isSnowfallActive)} position="top-left" />
+          <SnowFlakes onClick={() => setSnowfallActive(!isSnowfallActive)} position="bottom-right" />
           <SectionOne />
           <SectionTwo />
           <SectionThree />

@@ -33,6 +33,8 @@ import Pagination from "@mui/material/Pagination";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { useUserDetails } from "../../context/UserContext";
 import Rank from "./components/Rank";
+import Snowfall from "react-snowfall";
+import SnowFlakes from "../../components/Home/components/SnowFlakes";
 
 const theme = createTheme({
   palette: {
@@ -60,6 +62,8 @@ export default function Leaderboard() {
   const platformsIcon = [leetcode, codechef, codeforces];
   const ratings = ["digitomize", "codechef", "leetcode", "codeforces"];
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
+  const [isSnowfallActive, setSnowfallActive] = useState(true);
+
   function getCurrentDimension() {
     return {
       width: window.innerWidth,
@@ -198,6 +202,9 @@ export default function Leaderboard() {
 
   return (
     <>
+      {isSnowfallActive && <Snowfall snowflakeCount={70} speed={[0, 0.7]} wind={[0, 0.5]} />}
+      <SnowFlakes onClick={() => setSnowfallActive(!isSnowfallActive)} position="top-left" />
+      <SnowFlakes onClick={() => setSnowfallActive(!isSnowfallActive)} position="bottom-right" />
       <NewNavbar position="static" />
       <div className="text-white text-center my-4  flex flex-col items-center justify-center">
         <h1 className="max-sm:text-[20px] max-sm:leading-6 leading-[60px]">
@@ -341,9 +348,8 @@ export default function Leaderboard() {
       <div className="phone:w-4/6 w-[95%] mx-auto mt-4 text-center text-white">
         <div className=" rounded-[20px] max-phone:overflow-x-hidden overflow-x-scroll">
           <table
-            className={`table  ${
-              screenSize.width <= 435 ? "table-xs" : ""
-            }  bg-[#252525]  w-full`}
+            className={`table  ${screenSize.width <= 435 ? "table-xs" : ""
+              }  bg-[#252525]  w-full`}
           >
             {/* head */}
             <thead className="bg-[#474747] text-white text-center max-sm:text-[12px]">
