@@ -157,4 +157,4 @@ function handleCodingPlatform (targetObject, platform, platformKey) {
   }
 }
 
-export { handleUserProfilePreview };
+export { handleUserProfilePreview, handleUserDataUpdate };

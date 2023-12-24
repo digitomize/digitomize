@@ -1,10 +1,10 @@
 import User from "../models/User.js";
 import { sendWebhook_updateAccount } from "../../services/discord-webhook/updateAccount.js";
-
+import { handleUserDataUpdate } from "./userProfileController.js";
 const maxUpdatesPerDay = 50;
 
 // Helper function to update platform-specific data
-const updatePlatformData = (platform, userData, existingData) => {
+const updatePlatformData = (platform, userData, existingData, user) => {
   const platformData = userData[platform];
   // console.log(platformData);
   if (platformData) {
@@ -26,6 +26,7 @@ const updatePlatformData = (platform, userData, existingData) => {
       existingData.attendedContestsCount = null;
       existingData.badge = null;
       existingData.fetchTime = 0;
+      user.digitomize_rating = 0;
     }
     // You can similarly update other properties specific to each platform
   }
@@ -49,7 +50,7 @@ const updateDataField = (field, userData, existingData) => {
 };
 
 // Helper function to update user data, including platform-specific data
-const updateUserData = (userData, existingData) => {
+const updateUserData = async (userData, existingData) => {
   // Update general user data (firstName, lastName, etc.)
   const generalFields = ["username", "picture", "resume", "name", "email_show"];
   generalFields.forEach((field) => {
@@ -67,7 +68,7 @@ const updateUserData = (userData, existingData) => {
   // Update platform-specific data for CodeChef, LeetCode, and CodeForces
   const platforms = ["codechef", "leetcode", "codeforces"];
   platforms.forEach((platform) => {
-    updatePlatformData(platform, userData, existingData[platform]);
+    updatePlatformData(platform, userData, existingData[platform], existingData);
   });
 
   const skills = userData.skills;
@@ -88,6 +89,7 @@ const handleUpdateUserProfile = async (req, res) => {
     const userId = req.decodedToken.uid;
     const updatedData = req.body;
     console.log("UpdatedData:", updatedData);
+    
 
     // Check if updatedData is empty
     if (Object.keys(updatedData).length === 0) {
@@ -123,11 +125,28 @@ const handleUpdateUserProfile = async (req, res) => {
       // Clone the user's data before updating
       const userDataBeforeUpdate = JSON.parse(JSON.stringify(user));
 
+
+      if (
+        Object.keys(updatedData).every(
+          (field) => {
+            const oldValue = JSON.stringify(userDataBeforeUpdate[field].username);
+            const newValue = JSON.stringify(updatedData[field].username);
+            // console.log(`Comparing ${field}: oldValue=${oldValue}, newValue=${newValue}`);
+            return oldValue === newValue;
+          }
+        )
+      ) {
+        return res
+          .status(404)
+          .json({ error: "No changes were applied to the user profile", message: "No changes were applied to the user profile" });
+      }
       // Update user data, including platform-specific data
-      updateUserData(updatedData, user);
+      await updateUserData(updatedData, user);
 
       // Save the updated user profile
       await user.save();
+      console.log("UPDATING USERRRRRHEREEEEEEE");
+      handleUserDataUpdate(user);
 
       if (process.env.NODE_ENV === "production") {
         sendWebhook_updateAccount({
