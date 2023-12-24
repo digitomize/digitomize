@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useRef} from "react";
 import {
   useLocation,
   Link,
@@ -33,7 +33,7 @@ import Pagination from "@mui/material/Pagination";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { useUserDetails } from "../../context/UserContext";
 import Rank from "./components/Rank";
-
+import ShareModel from "../../components/share_model";
 const theme = createTheme({
   palette: {
     mode: "dark",
@@ -60,6 +60,8 @@ export default function Leaderboard() {
   const platformsIcon = [leetcode, codechef, codeforces];
   const ratings = ["digitomize", "codechef", "leetcode", "codeforces"];
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
+   const close_model = () => setShow(false);
+   const [show, setShow] = useState(false);
   function getCurrentDimension() {
     return {
       width: window.innerWidth,
@@ -189,13 +191,23 @@ export default function Leaderboard() {
     console.log(event.target.value);
     setSelectedPlatform(event.target.value);
     if (event.target.value.length !== 0)
-      setSearchParams({ platform: event.target.value, page: currentPage });
+      {
+        setSearchParams({ platform: event.target.value, page: 1 })
+      }
     else {
       searchParams.delete("platform");
       setSearchParams(searchParams);
     }
+    setCurrentPage(1)
   };
-
+  const main_model = (
+    <ShareModel
+      close_model={close_model}
+      contestLink={window.location.href}
+      //theme={colorTheme}
+      theme=""
+    />
+  )
   return (
     <>
       <NewNavbar position="static" />
@@ -208,7 +220,7 @@ export default function Leaderboard() {
             &nbsp;Coding Battles&nbsp;
           </span>
         </h1>
-        <div className="border border-[#25478B] max-sm:text-[14px] bg-[#004CE454] rounded-lg w-fit px-4 py-1 mt-3 flex flex-row items-center justify-center">
+        {/* <div className="border border-[#25478B] max-sm:text-[14px] bg-[#004CE454] rounded-lg w-fit px-4 py-1 mt-3 flex flex-row items-center justify-center">
           Share the board now
           <svg
             className="ml-2 cursor-pointer max-sm:hidden"
@@ -223,9 +235,31 @@ export default function Leaderboard() {
               fill="white"
             />
           </svg>
+        </div> */}
+        <div
+        
+         className="flex justify-center items-center border mt-3 border-badge bg-badge text-badge-txt px-6 py-1 font-['Geist'] rounded-full text-xs">
+        Share the board now 
+        <div className="h-8 ml-1 max-md:w-12 clip flex items-center justify-center">
+          <button onClick={() => setShow(true)}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              viewBox="0 0 24 24"
+              id="Share"
+            >
+              <path
+                d="M18,14a4,4,0,0,0-3.08,1.48l-5.1-2.35a3.64,3.64,0,0,0,0-2.26l5.1-2.35A4,4,0,1,0,14,6a4.17,4.17,0,0,0,.07.71L8.79,9.14a4,4,0,1,0,0,5.72l5.28,2.43A4.17,4.17,0,0,0,14,18a4,4,0,1,0,4-4ZM18,4a2,2,0,1,1-2,2A2,2,0,0,1,18,4ZM6,14a2,2,0,1,1,2-2A2,2,0,0,1,6,14Zm12,6a2,2,0,1,1,2-2A2,2,0,0,1,18,20Z"
+                fill="#ffffff"
+                className="color000000 svgShape"
+              ></path>
+            </svg>
+          </button>
+          {show && main_model}
         </div>
       </div>
-      <div className="flex justify-center max-phone:gap-6 phone:gap-12 phone:w-4/6 w-11/12 mx-auto mt-8 h-fit">
+      </div>
+      <div className="flex justify-center max-phone:gap-6 phone:gap-12 phone:w-4/6 w-11/12 mx-auto  h-fit">
         <Rank
           color="#C0C0C0"
           pt="4"
@@ -490,7 +524,8 @@ export default function Leaderboard() {
                                   <OpenInNew style={{ fontSize: "10px" }} />{" "}
                                 </div>
                                 <div className="  sm:text-[11px] text-[8px] font-light text-left">
-                                  @{row.username}
+                                  @{ screenSize.width<=350 ? row.username.length<=15 ? row.username : row.username.slice(0,15)+"..." : row.username
+                                  }
                                 </div>
                                 {/* You can display more userDetails details here if needed */}
                               </Link>
