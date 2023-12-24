@@ -33,45 +33,48 @@ const SnowFlakes = ({ onClick, position }) => {
 };
 
 export default function Homepage() {
-  const [isSnowfallActive, setSnowfallActive] = useState(false);
+  const [isSnowfallActive, setSnowfallActive] = useState(true);
 
   const toggleSnowfall = () => {
     setSnowfallActive(!isSnowfallActive);
   };
 
-  useEffect(() => {
-    if (isSnowfallActive) {
-      // Automatically disable snowfall after 5 seconds
-      const timeoutId = setTimeout(() => {
-        setSnowfallActive(false);
-      }, 5000);
+  // useEffect(() => {
+  //   if (isSnowfallActive) {
+  //     // Automatically disable snowfall after 5 seconds
+  //     const timeoutId = setTimeout(() => {
+  //       setSnowfallActive(false);
+  //     }, 5000);
 
-      return () => clearTimeout(timeoutId);
-    }
-  }, [isSnowfallActive]);
+  //     return () => clearTimeout(timeoutId);
+  //   }
+  // }, [isSnowfallActive]);
 
   return (
 
     <div>
       <div id="home" className="antialiased">
-        {isSnowfallActive && <Snowfall snowflakeCount={150} />}
+        {isSnowfallActive && <Snowfall snowflakeCount={70} speed={[0, 0.7]} wind={[-0.5, 0.5]} />}
         <SnowFlakes onClick={toggleSnowfall} position="top-left" />
         <SnowFlakes onClick={toggleSnowfall} position="bottom-right" />
         <SectionOne />
         <SectionTwo />
         <SectionThree />
         <ScrollToTop toid={"home"} h={2} />
-    <>
-      <MetaData path="home" />
-      <div>
-        <div id="home" className="antialiased">
-          <SectionOne />
-          <SectionTwo />
-          <SectionThree />
-          <ScrollToTop toid={"home"} h={2} />
-        </div>
-        {/* <Footer /> */}
+        <>
+          <MetaData path="home" />
+          <div>
+            <div id="home" className="antialiased">
+              <SectionOne />
+              <SectionTwo />
+              <SectionThree />
+              <ScrollToTop toid={"home"} h={2} />
+            </div>
+            {/* <Footer /> */}
+          </div>
+        </>
       </div>
-    </>
+    </div>
+
   );
 }
