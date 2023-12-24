@@ -27,7 +27,7 @@ import {
   Feedback,
   About,
   Footer,
-  MetaData
+  MetaData,
 } from "./components/CustomComponents";
 import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashPersonal, {
@@ -220,7 +220,7 @@ function App() {
         <UserContextProvider>
           <ToastContainer />
           <div>
-          <Snowfall snowflakeCount={100} speed={[0.2, 2]} wind={[0, 2]} style={{position:"fixed"}}/>
+          <Snowfall snowflakeCount={100} speed={[0.2, 1]} wind={[0, 1]} style={{position:"fixed"}}/>
             <RouterProvider router={router} />
           </div>
         </UserContextProvider>

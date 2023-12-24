@@ -89,7 +89,6 @@ const handleUpdateUserProfile = async (req, res) => {
     const userId = req.decodedToken.uid;
     const updatedData = req.body;
     console.log("UpdatedData:", updatedData);
-    
 
     // Check if updatedData is empty
     if (Object.keys(updatedData).length === 0) {
@@ -125,7 +124,6 @@ const handleUpdateUserProfile = async (req, res) => {
       // Clone the user's data before updating
       const userDataBeforeUpdate = JSON.parse(JSON.stringify(user));
 
-
       if (
         Object.keys(updatedData).every(
           (field) => {
@@ -133,7 +131,7 @@ const handleUpdateUserProfile = async (req, res) => {
             const newValue = JSON.stringify(updatedData[field].username);
             // console.log(`Comparing ${field}: oldValue=${oldValue}, newValue=${newValue}`);
             return oldValue === newValue;
-          }
+          },
         )
       ) {
         return res
