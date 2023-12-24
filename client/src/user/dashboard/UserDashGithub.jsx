@@ -95,7 +95,7 @@ export default function UserDashGithub() {
 
   return (
     <>
-      <MetaData path="user/dashboard/github" />
+      <MetaData path="u/dashboard/github" />
       <DashboardNavbar />
       <div className="px-8 mt-24 py-4 w-11/12 mx-auto">
         <Form className="flex flex-col items-center" onSubmit={handleSubmit}>
