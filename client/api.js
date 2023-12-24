@@ -60,12 +60,26 @@ export async function userProfileDetails(username) {
   }
 }
 
-export async function leaderboardData(page = 1) {
+export async function leaderboardData(page = 1,platform) {
   try {
+    console.log(platform.length)
+    if(platform.length!=0)
+   {
     const response = await axios.get(
-      `${backendUrl}/user/leaderboard?page=${page}`,
+      `${backendUrl}/user/leaderboard?page=${page}&platform=${platform}`
     );
+    console.log(response.data)
     return response;
+   }
+   else
+   {
+    
+    const response = await axios.get(
+      `${backendUrl}/user/leaderboard?page=${page}`
+    );
+    console.log(response.data)
+    return response;
+   }
   } catch (err) {
     console.log(err);
   }
