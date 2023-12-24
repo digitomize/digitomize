@@ -30,7 +30,7 @@ import {
   TextField,
 } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
-import { createTheme, ThemeProvider,useTheme } from "@mui/material/styles";
+import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { useUserDetails } from "../../context/UserContext";
 import Rank from "./components/Rank";
 
@@ -40,9 +40,7 @@ const theme = createTheme({
   },
 });
 
-
 export default function Leaderboard() {
- 
   const location = useLocation();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
@@ -60,8 +58,25 @@ export default function Leaderboard() {
   const [selectedRating, setSelectedRating] = useState("digitomize");
   const platforms = ["leetcode", "codechef", "codeforces"];
   const platformsIcon = [leetcode, codechef, codeforces];
-  const Icons = [logo, codechef, leetcode, codeforces];
   const ratings = ["digitomize", "codechef", "leetcode", "codeforces"];
+  const [screenSize, setScreenSize] = useState(getCurrentDimension());
+  function getCurrentDimension() {
+    return {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  }
+
+  useEffect(() => {
+    const updateDimension = () => {
+      setScreenSize(getCurrentDimension());
+    };
+    window.addEventListener("resize", updateDimension);
+
+    return () => {
+      window.removeEventListener("resize", updateDimension);
+    };
+  }, [screenSize]);
   // console.log("USERERER", userDetails);
   const HtmlTooltip = styled(({ className, ...props }) => (
     <Tooltip className="custom-bg" {...props} classes={{ popper: className }} />
@@ -119,17 +134,7 @@ export default function Leaderboard() {
       </HtmlTooltip>
     );
   };
-  const handleChange = (event) => {
-    console.log(event.target.value);
-    setSelectedPlatform(event.target.value);
-    if (event.target.value.length != 0)
-      setSearchParams({ platform: event.target.value, page: currentPage });
-    else {
-      searchParams.delete("platform");
-      setSearchParams(searchParams);
-    }
-    fetchLbData();
-  };
+
   useEffect(() => {
     fetchLoggedUserData();
   }, [userDetails]);
@@ -180,26 +185,17 @@ export default function Leaderboard() {
   const handleRatingChange = (event) => {
     setSelectedRating(event.target.value);
   };
-  const [screenSize, setScreenSize] = useState(getCurrentDimension());
+  const handleChange = (event) => {
+    console.log(event.target.value);
+    setSelectedPlatform(event.target.value);
+    if (event.target.value.length !== 0)
+      setSearchParams({ platform: event.target.value, page: currentPage });
+    else {
+      searchParams.delete("platform");
+      setSearchParams(searchParams);
+    }
+  };
 
-  	function getCurrentDimension(){
-    	return {
-      		width: window.innerWidth,
-      		height: window.innerHeight
-    	}
-  	}
-  
-  	useEffect(() => {
-    		const updateDimension = () => {
-      			setScreenSize(getCurrentDimension())
-    		}
-    		window.addEventListener('resize', updateDimension);
-    
-		
-    		return(() => {
-        		window.removeEventListener('resize', updateDimension);
-    		})
-  	}, [screenSize])
   return (
     <>
       <NewNavbar position="static" />
@@ -230,77 +226,90 @@ export default function Leaderboard() {
         </div>
       </div>
       <div className="flex justify-center max-phone:gap-6 phone:gap-12 phone:w-4/6 w-11/12 mx-auto mt-8 h-fit">
-        <Rank color="#C0C0C0" pt="4" user={top3[1]} />
-        <Rank color="#FFD700" pt="0" user={top3[0]} />
-        <Rank color="#CD7F32" user={top3[2]} />
+        <Rank
+          color="#C0C0C0"
+          pt="4"
+          user={top3[1]}
+          selectedPlatform={selectedPlatform}
+        />
+        <Rank
+          color="#FFD700"
+          pt="0"
+          user={top3[0]}
+          selectedPlatform={selectedPlatform}
+        />
+        <Rank
+          color="#CD7F32"
+          user={top3[2]}
+          selectedPlatform={selectedPlatform}
+        />
       </div>
       <div className="phone:w-4/6 w-11/12 mx-auto flex flex-row justify-between items-center mt-8">
-        <div className="text-white !important">
-       
+        <div>
           <Box
             className={"bg-[#474748] w-[230px] rounded-[8px] max-sm:hidden "}
             component="form"
             sx={{
-              color: '#fff',
-              fontSize : 16
+              color: "#fff",
+              fontSize: 16,
             }}
           >
-             
             <TextField
-          id="filled-search"
-          label="username "
-          type="search"
-          variant="filled"
-          value={name}
-          onChange={(event) => {
-            setName(event.target.value);
-          }}
-          fullWidth
-          onKeyDown={(event) => {
-            if (event.key === "Enter") event.preventDefault();
-          }}
-          sx={{
-            color: '#fff',
-            fontSize : 16,
-          }}
-          InputLabelProps={{
-            style: { color: 'white' }, // Change 'green' to your desired label color
-          }}
-          InputProps={{
-            style: { color: 'white' }, // Change 'lightblue' to your desired background color
-          }}
-        />
-      
+              id="filled-search"
+              label="username "
+              type="search"
+              variant="filled"
+              value={name}
+              onChange={(event) => {
+                setName(event.target.value);
+              }}
+              fullWidth
+              onKeyDown={(event) => {
+                if (event.key === "Enter") event.preventDefault();
+              }}
+              sx={{
+                color: "#fff",
+                fontSize: 16,
+              }}
+              InputLabelProps={{
+                style: { color: "white" }, // Change 'green' to your desired label color
+              }}
+              InputProps={{
+                style: { color: "white" }, // Change 'lightblue' to your desired background color
+              }}
+            />
           </Box>
         </div>
         <div>
           <FormControl
             variant="filled"
-            className={"bg-[#474748] rounded-[8px] sm:w-[165px] w-[135px] sm:text-[16px] text-[12px]"}
+            className={
+              "bg-[#474748] rounded-[8px] sm:w-[165px] w-[135px] sm:text-[16px] text-[12px]"
+            }
           >
             <InputLabel
               id="demo-simple-select-filled-label"
               sx={{
-                color: '#fff',
-                fontSize : 16,
-                fontWeight : 500
+                color: "#fff",
+                fontSize: 16,
+                fontWeight: 500,
               }}
               className={"w-full"}
             >
               select platform
             </InputLabel>
             <Select
-             InputLabelProps={{
-              style: { color: 'white' }, // Change 'green' to your desired label color
-            }}
+              InputLabelProps={{
+                style: { color: "white" }, // Change 'green' to your desired label color
+              }}
               labelId="demo-simple-select-filled-label"
               id="demo-simple-select-filled"
               value={selectedPlatform}
               className={"bg-[#474748] text-white"}
               onChange={handleChange}
               sx={{
-                color: '#fff',
-                fontSize : 16
+                color: "#fff",
+                fontSize: 16,
               }}
             >
               <MenuItem value="">
@@ -319,7 +328,9 @@ export default function Leaderboard() {
                         }}
                       />
                     </span>
-                    <span className="sm:text-[16px] text-[12px]">{platform}</span>
+                    <span className="sm:text-[16px] text-[12px]">
+                      {platform}
+                    </span>
                   </div>
                 </MenuItem>
               ))}
@@ -329,7 +340,11 @@ export default function Leaderboard() {
       </div>
       <div className="phone:w-4/6 w-[95%] mx-auto mt-4 text-center text-white">
         <div className=" rounded-[20px] max-phone:overflow-x-hidden overflow-x-scroll">
-          <table className={`table ${screenSize.width<=435 ? "table-xs" : ""} bg-[#252525]  w-full`}>
+          <table
+            className={`table  ${
+              screenSize.width <= 435 ? "table-xs" : ""
+            }  bg-[#252525]  w-full`}
+          >
             {/* head */}
             <thead className="bg-[#474747] text-white text-center max-sm:text-[12px]">
               <tr className="">
@@ -346,18 +361,21 @@ export default function Leaderboard() {
                 </th>
                 <th className="sm:hidden">
                   <FormControl fullWidth variant="filled">
-                    <InputLabel  sx={{
-    color: '#fff',
-    fontSize : 12,
-    fontWeight : 600
-  }} id="demo-simple-select-label" >
+                    <InputLabel
+                      sx={{
+                        color: "#fff",
+                        fontSize: 12,
+                        fontWeight: 600,
+                      }}
+                      id="demo-simple-select-label"
+                    >
                       Rating
                     </InputLabel>
                     <Select
-                    sx={{
-                      color: '#fff',
-                      fontWeight : 600
-                    }}
+                      sx={{
+                        color: "#fff",
+                        fontWeight: 600,
+                      }}
                       className="text-white"
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
@@ -367,9 +385,7 @@ export default function Leaderboard() {
                     >
                       {ratings.map((rating, idx) => (
                         <MenuItem key={rating} value={rating}>
-                          <div
-                            style={{fontSize:12}}
-                          >
+                          <div style={{ fontSize: 12 }}>
                             <span className="sm:text-[16px] text-[12px] ">
                               {rating}
                             </span>

@@ -1,10 +1,18 @@
 import { EmojiEvents, OpenInNew } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import boy from "../../../assets/boyV7.png";
-import { Skeleton } from "@mui/material";
+import { Skeleton, selectClasses } from "@mui/material";
 
-const Rank = ({ color, pt = 8, user }) => {
+const Rank = ({ color, pt = 8, user, selectedPlatform }) => {
   console.log(user);
+  let rating;
+  if (user) {
+    if (selectedPlatform.length == 0) rating = user.digitomize_rating;
+    else if (selectedPlatform === "leetcode") rating = user.leetcode;
+    else if (selectedPlatform === "codechef") rating = user.codechef;
+    else rating = user.codeforces;
+  }
+
   return (
     <div className={`pt-${pt}`}>
       {user?.username && user?.name ? (
@@ -28,27 +36,25 @@ const Rank = ({ color, pt = 8, user }) => {
               {/* Profile Picture */}
               <img
                 className="rounded-full sm:w-[108px] sm:h-[108px] w-[50px] h-[50px] mask mask-circle"
-                style={
-                  color == "#FFD700" ? { border: "3px solid #FFD700" } : {}
-                }
+                style={{ border: `3px solid ${color}` }}
                 src={user?.picture || boy} // Replace with the actual source of your profile picture
                 alt="Profile"
               />
             </div>
-            {color == "#FFD700" ? (
+            {color === "#FFD700" ? (
               <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[102px] sm:h-[182px] sm:w-[110px] max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
                 <h2 className="text-[#fff]">{user?.name}</h2>
-                <h2 style={{ color: color }}>{user.digitomize_rating}</h2>
+                <h2 style={{ color: color }}>{rating}</h2>
               </div>
-            ) : color == "#C0C0C0" ? (
+            ) : color === "#C0C0C0" ? (
               <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[85px] sm:h-[167px] sm:w-[110px]  max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
                 <h2 className="text-[#fff]">{user?.name}</h2>
-                <h2 style={{ color: color }}>{user.digitomize_rating}</h2>
+                <h2 style={{ color: color }}>{rating}</h2>
               </div>
             ) : (
               <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[70px] sm:h-[150px] sm:w-[110px]  max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
                 <h2 className="text-[#fff]">{user?.name}</h2>
-                <h2 style={{ color: color }}>{user.digitomize_rating}</h2>
+                <h2 style={{ color: color }}>{rating}</h2>
               </div>
             )}
           </div>
