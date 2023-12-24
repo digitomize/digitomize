@@ -172,7 +172,7 @@ export default function UserDashRatings() {
   if (data) {
     return (
       <>
-        <MetaData path="user/dashboard/ratings" />
+        <MetaData path="u/dashboard/ratings" />
         <ToastContainer />
         <DashboardNavbar />
         {/* <div className="max-phone:hidden">

@@ -8,6 +8,7 @@ import {
 import NewNavbar from "../../components/globals/NewNavbar";
 import { leaderboardData, rankOnLeaderboard } from "../../../api";
 import { OpenInNew, WorkspacePremium, Info } from "@mui/icons-material";
+import { MetaData } from "../../components/CustomComponents";
 import {
   Skeleton,
   Stack,
@@ -50,6 +51,8 @@ export default function Leaderboard() {
 
   const CustomTooltip = () => {
     return (
+      <>
+      <MetaData path="u/leaderboard" />
       <HtmlTooltip
         title={
           <React.Fragment>
@@ -91,7 +94,8 @@ export default function Leaderboard() {
         <button>
           <Info fontSize="small" />
         </button>
-      </HtmlTooltip>
+        </HtmlTooltip>
+      </>
     );
   };
 
