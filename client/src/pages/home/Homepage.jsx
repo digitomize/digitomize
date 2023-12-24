@@ -51,30 +51,29 @@ export default function Homepage() {
   // }, [isSnowfallActive]);
 
   return (
-
-    <div>
-      <div id="home" className="antialiased">
-        {isSnowfallActive && <Snowfall snowflakeCount={70} speed={[0, 0.7]} wind={[-0.5, 0.5]} />}
-        <SnowFlakes onClick={toggleSnowfall} position="top-left" />
-        <SnowFlakes onClick={toggleSnowfall} position="bottom-right" />
-        <SectionOne />
-        <SectionTwo />
-        <SectionThree />
-        <ScrollToTop toid={"home"} h={2} />
-        <>
-          <MetaData path="home" />
-          <div>
-            <div id="home" className="antialiased">
-              <SectionOne />
-              <SectionTwo />
-              <SectionThree />
-              <ScrollToTop toid={"home"} h={2} />
-            </div>
-            {/* <Footer /> */}
-          </div>
-        </>
+    <>
+      <MetaData path="home" />
+      <div>
+        <div id="home" className="antialiased">
+          {isSnowfallActive && <Snowfall snowflakeCount={70} speed={[0, 0.7]} wind={[0, 0.5]} />}
+          <SnowFlakes onClick={toggleSnowfall} position="top-left" />
+          <SnowFlakes onClick={toggleSnowfall} position="bottom-right" />
+          <SectionOne />
+          <SectionTwo />
+          <SectionThree />
+          <ScrollToTop toid={"home"} h={2} />
+        </div>
+        {/* <Footer /> */}
       </div>
-    </div>
-
+    </>
+    // <div id="home" className="antialiased">
+    //   {isSnowfallActive && <Snowfall snowflakeCount={70} speed={[0, 0.7]} wind={[-0.5, 0.5]} />}
+    //   <SnowFlakes onClick={toggleSnowfall} position="top-left" />
+    //   <SnowFlakes onClick={toggleSnowfall} position="bottom-right" />
+    //   <SectionOne />
+    //   <SectionTwo />
+    //   <SectionThree />
+    //   <ScrollToTop toid={"home"} h={2} />
+    // </div>
   );
 }
