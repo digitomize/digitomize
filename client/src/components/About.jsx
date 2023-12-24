@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import Contributors from "./Contributors";
 
 export default function About() {
-  const [isSnowfallActive, setSnowfallActive] = React.useState(true);
   return (
     <>
       <MetaData path="about" />

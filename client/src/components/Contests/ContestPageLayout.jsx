@@ -51,7 +51,6 @@ const inactiveLinks = [
 ];
 
 const ContestPageLayout = () => {
-    const [isSnowfallActive, setSnowfallActive] = React.useState(true);
     return (
         <>
             <div className="w-11/12 mx-auto antialiased">
