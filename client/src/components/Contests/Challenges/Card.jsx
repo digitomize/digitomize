@@ -66,7 +66,7 @@ function Card({ contest }) {
           ends: {endTimeIST}
         </p>
         <Tooltip title={host} placement="bottom" arrow>
-          <img src={hostToSVGMap[host]} alt={host} width="13%" />
+          <img src={hostToSVGMap[host]} alt={host} width="13%"  className="object-contain"/>
           </Tooltip>
       </div>
       {/* <Link to={`/contests/${vanity}`} className="my-auto pb-6"> */}

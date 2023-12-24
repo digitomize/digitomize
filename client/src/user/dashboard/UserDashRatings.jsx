@@ -18,6 +18,7 @@ import codechef from "../../assets/codechef.svg";
 import codeforces from "../../assets/codeforces.svg";
 import geeksforgeeks from "../../assets/geeksforgeeks.svg";
 import codingninjas from "../../assets/codingninjas.png";
+import { MetaData } from "../../components/CustomComponents";
 
 const platformsIcon = [
   leetcode,
@@ -171,6 +172,7 @@ export default function UserDashRatings() {
   if (data) {
     return (
       <>
+        <MetaData path="u/dashboard/ratings" />
         <ToastContainer />
         <DashboardNavbar />
         {/* <div className="max-phone:hidden">
@@ -587,7 +589,7 @@ export default function UserDashRatings() {
         <div className="flex justify-center py-12">
           <div className="divider w-3/5"></div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </>
     );
   }

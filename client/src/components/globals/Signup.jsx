@@ -10,7 +10,7 @@ import { useState } from "react";
 import { isLoggedIn } from "../../../api";
 import { auth } from "../../../firebase";
 import { useUserAuth } from "../../context/UserAuthContext";
-
+import { MetaData } from "../CustomComponents";
 import GoogleAuthButton from "../AuthButtons/GoogleAuthButton";
 import GithubAuthButton from "../AuthButtons/GithubAuthButton";
 import { ToastContainer, toast } from "react-toastify";
@@ -76,6 +76,7 @@ export default function Signup() {
 
   return (
     <>
+      <MetaData path={"signup"} />
       <ToastContainer />
       <div className="phone:pt-4 pb-12 antialiased">
         {error && <h3 className="text-[#cc0000] text-center">{error}</h3>}

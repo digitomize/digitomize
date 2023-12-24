@@ -4,6 +4,7 @@ import "../../css/Contests.css";
 import { Helmet } from "react-helmet";
 import formbricks from "@formbricks/js";
 import query from "./query.json";
+import { MetaData } from "../../CustomComponents";
 
 const handleClick = () => {
   formbricks.track("test-01");
@@ -21,12 +22,7 @@ function Contests({ contests, range }) {
 
   return (
     <>
-      <Helmet>
-        <title>contests | digitomize</title>
-        <meta property="og:title" content="contests | digitomize" />
-        <meta property="og:description" content={contentDescription} />
-        <meta name="description" content={contentDescription} />
-      </Helmet>
+      <MetaData path="challenges" />
       <div className="allContests scroll-smooth">
         <p className="mx-auto text-center mt-4 text-xl">
               Want challenges from more platforms?{" "} Join our <a href="https://digitomize.com/discord" target="_blank" rel="noopener noreferrer" className="text-digitomize-bg">Discord</a> or <button className="text-digitomize-bg" onClick={handleClick}>

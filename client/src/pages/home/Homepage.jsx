@@ -5,6 +5,9 @@ import SectionOne from "../../components/Home/SectionOne";
 import SectionTwo from "../../components/Home/SectionTwo";
 import SectionThree from "../../components/Home/SectionThree";
 import Footer from "../../components/globals/Footer";
+
+import { MetaData } from "../../components/CustomComponents";
+
 import ScrollToTop from "../../components/globals/ScrollToTop";
 
 import snowFlakesImages from "../../assets/snowflake.svg";
@@ -48,6 +51,7 @@ export default function Homepage() {
   }, [isSnowfallActive]);
 
   return (
+
     <div>
       <div id="home" className="antialiased">
         {isSnowfallActive && <Snowfall snowflakeCount={150} />}
@@ -57,8 +61,17 @@ export default function Homepage() {
         <SectionTwo />
         <SectionThree />
         <ScrollToTop toid={"home"} h={2} />
+    <>
+      <MetaData path="home" />
+      <div>
+        <div id="home" className="antialiased">
+          <SectionOne />
+          <SectionTwo />
+          <SectionThree />
+          <ScrollToTop toid={"home"} h={2} />
+        </div>
+        {/* <Footer /> */}
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }

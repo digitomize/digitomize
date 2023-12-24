@@ -7,7 +7,6 @@ import {
   Grain as GrainIcon,
   Celebration,
 } from "@mui/icons-material";
-import { Footer } from "../CustomComponents";
 import { Helmet } from "react-helmet";
 import "/src/components/css/IndividualCard.css";
 import { Alert, AlertTitle } from "@mui/material";
@@ -56,10 +55,19 @@ function IndividualCard() {
 
   const [remaningTime, setRemainingTime] = useState("0");
   if (contest === null) {
-    return <div>Loading...</div>;
+    return <div className="min-h-[40vh]">Loading...</div>;
+  }
+if (contest?.host === undefined) {
+    return <div className="min-h-[40vh] text-center">
+      <h1>
+        404 <br /> Contest not found
+      </h1>
+      <Link to="/contests">Go back to contests</Link>
+    </div>;
   }
 
   const { host, name, url, startTimeUnix, duration } = contest;
+  console.log(contest.length);
   const durationInMilliseconds = duration * 60 * 1000;
   const endTimeUnix = startTimeUnix + durationInMilliseconds / 1000;
   const startDate = new Date(startTimeUnix * 1000);
@@ -122,28 +130,48 @@ function IndividualCard() {
   const contentDescription = `${name} | ${startTimeIST} (IST)`.toLowerCase();
   const contentTitle = `${host} | Digitomize`.toLowerCase();
   const pageTitle = `${name} | Digitomize`.toLowerCase();
-  return (
+  if (contest) return (
     <>
       <Helmet>
-        <title> {pageTitle} </title>
-        <meta property="og:title" content={contentTitle} />
-        <meta property="og:description" content={contentDescription} />
-        <meta name="description" content={contentDescription} />
-      </Helmet>
+                <title>{pageTitle}</title>
+                
+                {/* Page Description */}
+                <meta name="description" content={contentDescription} />
+
+                {/* Robots Meta Tag */}
+                <meta name="robots" content="index, follow" />
+
+                {/* Open Graph Tags (Facebook) */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={url} />
+                <meta property="og:title" content={contentTitle} />
+                <meta property="og:description" content={contentDescription} />
+                <meta property="og:image" content={hostToSVGMap[host]} />
+                <meta property="og:url" content={url} />
+
+                {/* Twitter Meta Tags */}
+                <meta name="twitter:title" content={pageTitle} />
+                <meta name="twitter:description" content={contentDescription} />
+                <meta name="twitter:image" content={hostToSVGMap[host]} />
+
+                {/* Canonical URL */}
+                <link rel="canonical" href={url} />
+            </Helmet>
       {true && (
         <div className="mx-auto w-fit mt-4">
           <Alert
-            severity="error"
+            severity="success"
             className="w-fit"
             icon={<Celebration className="animate-ping" />}
           >
-            <Link to="/home#supporters">
+            <Link to="/challenges">
               <AlertTitle>
-                <strong>🎉 digitomize</strong>
+              We just added 
+                <strong> challenges</strong>!!
                 <span className="normal-case">
                   {" "}
-                  is now a part of{" "}
-                  <strong>Microsoft for Startups Founders Hub </strong>🎉
+                  Prize worth{" "}
+                  <strong>$ 2048+</strong>🎉
                 </span>
               </AlertTitle>
             </Link>
@@ -906,7 +934,6 @@ function IndividualCard() {
               </div>
             </div>
           </div>
-          <Footer />
         </>
       )}
     </>
