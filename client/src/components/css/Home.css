@@ -262,3 +262,10 @@ body {
     opacity: 1;
   }
 }
+
+/* Media query to hide snowflakes on mobile devices */
+@media only screen and (max-width: 768px) {
+  .snowflakes{
+    display: none !important;
+  }
+}
