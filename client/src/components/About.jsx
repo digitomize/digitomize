@@ -1,3 +1,4 @@
+import React from "react";
 import {
   AiFillStar,
   AiOutlineUsergroupAdd,
@@ -6,6 +7,7 @@ import {
 import { MetaData } from "./CustomComponents";
 import { Link } from "react-router-dom";
 import Contributors from "./Contributors";
+
 export default function About() {
   return (
     <>
