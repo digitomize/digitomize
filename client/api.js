@@ -2,6 +2,7 @@ import axios from "axios";
 import { redirect } from "react-router-dom";
 import { auth } from "./firebase";
 import { updateProfile } from "firebase/auth";
+import { PlaySquare } from "lucide-react";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export async function loginUser({ username, password }) {
@@ -60,12 +61,25 @@ export async function userProfileDetails(username) {
   }
 }
 
-export async function leaderboardData(page = 1) {
+export async function leaderboardData(page = 1,platform) {
   try {
+  console.log(platform)
+    if(platform &&platform.length!=0)
+   {
     const response = await axios.get(
-      `${backendUrl}/user/leaderboard?page=${page}`,
+      `${backendUrl}/user/leaderboard?page=${page}&platform=${platform}`
     );
+   
     return response;
+   }
+   else
+   {
+    const response = await axios.get(
+      `${backendUrl}/user/leaderboard?page=${page}`
+    );
+   
+    return response;
+   }
   } catch (err) {
     console.log(err);
   }
