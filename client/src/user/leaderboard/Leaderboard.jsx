@@ -488,7 +488,7 @@ export default function Leaderboard() {
                               <Link to={"/u/" + row.username}>
                                 <div className="font-semibold text-left sm:text-[14px] text-[12px] ">
                                   {row.name.toLowerCase()}{" "}
-                                  <OpenInNew style={{ fontSize: "10px" }} />{" "}
+                                  <OpenInNew style={{ fontSize: "15px" }} />{" "}
                                 </div>
                                 <div className="  sm:text-[11px] text-[8px] font-light text-left">
                                   @{ screenSize.width<=350 ? row.username.length<=15 ? row.username : row.username.slice(0,15)+"..." : row.username
@@ -520,7 +520,7 @@ export default function Leaderboard() {
                 {currentUserData && userDetails && (
                   <tr
                     key={currentUserData.user_position}
-                    className="bg-[#323131] text-center"
+                    className="bg-[#252525] text-center"
                   >
                     <td>{"#"+currentUserData.user_position || "Not ranked"}</td>
                     <td>
@@ -544,7 +544,7 @@ export default function Leaderboard() {
                           <Link to={"/u/" + userDetails.personal_data.username}>
                             <div className="font-semibold text-left sm:text-[14px] text-[12px]">
                               {userDetails.personal_data.name}
-                              {"(YOU)"} <OpenInNew fontSize="small" />{" "}
+                              {"(YOU)"} <OpenInNew  style={{ fontSize: "15px" }} />{" "}
                             </div>
                             <div className=" sm:text-[11px] text-[8px] font-light text-left">
                               @{

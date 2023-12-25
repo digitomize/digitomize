@@ -79,18 +79,18 @@ const Rank = ({ color, pt = 6, user, selectedPlatform }) => {
               {/* Profile Picture */}
               <Skeleton
                 variant="circular"
-                width={"108px"}
-                height={"108px"}
+                width={"88px"}
+                height={"88px"}
                 sx={{ bgcolor: "grey.600" }}
                 className="my-2"
               />
             </div>
           </div>
-          <div className="bg-[#252525] rounded-[12px] text-center gap-x-[8px] h-[150px] w-[110px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] text-[14px]">
+          <div className="bg-[#252525] rounded-[12px] text-center gap-x-[8px] h-[120px] w-[110px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] text-[14px]">
             <Skeleton
               variant="rounded"
               width={"full"}
-              height={"150px"}
+              height={"120px"}
               sx={{ bgcolor: "grey.600" }}
               className="my-2"
             />
