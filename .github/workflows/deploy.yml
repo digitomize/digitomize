@@ -1,21 +1,54 @@
-name: Build & Deploy
+name: Build and Deploy
+
 on:
-  push:
-    branches: [develop]
+    push: 
+        branches: 
+         - "main"
+    pull_request: 
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-        name: Deploy NodeJS app
-        uses: appleboy/ssh-action@v0.1.2
-        with:
-          host: ${{secrets.SSH_HOST}}
-          key: ${{secrets.SSH_KEY}}
-          username: ${{secrets.SSH_USERNAME}}
+    build:
+        name: "building docker image"
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3 
 
-          script: |
-            mkdir test
-            cd test #enter or cd into the folder
-            git clone git@github.com:digitomize/digitomize.git
-            echo 'Deployment Successful to DigitalOcean'
+            - name: Set outputs
+              id: vars
+              run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+
+            - name: Check outputs
+              run: echo ${{ steps.vars.outputs.sha_short }}
+
+            - name: find and replace docker image version
+              uses: jacobtomlinson/gha-find-replace@v3
+              with: 
+                find: "latest"
+                replace: "${{ steps.vars.outputs.sha_short }}"
+                include: "service.yaml"
+                regex: true
+
+            - name: "build image"
+              run: |
+                docker build -t pranshugupta54/frontend:${{ steps.vars.outputs.sha_short }} -f frontend.Dockerfile .
+                docker build -t pranshugupta54/backend:${{ steps.vars.outputs.sha_short }} -f backend.Dockerfile .
+            - name: push
+              if: github.ref == 'refs/heads/main' 
+              run: |
+                echo "${{ secrets.DOCKER_HUB_PASS }}" | docker login -u "pranshugupta54" --password-stdin
+                docker push pranshugupta54/frontend:${{ steps.vars.outputs.sha_short }}
+                docker push pranshugupta54/backend:${{ steps.vars.outputs.sha_short }}
+
+            - name: replace service file for meltcd
+              if: github.ref == 'refs/heads/main' 
+              uses: dmnemec/copy_file_to_another_repo_action@main
+              env:
+                API_TOKEN_GITHUB: ${{ secrets.GH_PERM }}
+                BUILD_VERSION: ${{ steps.vars.outputs.sha_short }}
+              with:
+                source_file: 'service.yaml'
+                destination_repo: 'digitomize/digitomize'
+                destination_branch: 'main'
+                user_email: 'pranshgupta54@gmail.com'
+                user_name: 'pranshugupta54'
+                commit_message: 'Update docker image version for MeltCD'
