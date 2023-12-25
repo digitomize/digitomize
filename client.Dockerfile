@@ -2,9 +2,7 @@ FROM node:21-alpine3.18
 
 WORKDIR /digitomize
 
-COPY client client
-
-RUN cd client
+COPY client .
 
 RUN npm install
 

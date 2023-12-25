@@ -2,9 +2,7 @@ FROM node:21-alpine3.18
 
 WORKDIR /digitomize
 
-COPY backend backend
-
-RUN cd backend
+COPY backend .
 
 RUN npm install
 
