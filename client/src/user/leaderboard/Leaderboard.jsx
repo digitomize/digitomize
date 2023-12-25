@@ -520,7 +520,7 @@ export default function Leaderboard() {
                 {currentUserData && userDetails && (
                   <tr
                     key={currentUserData.user_position}
-                    className="bg-[#252525] text-center"
+                    className="bg-[#323131] text-center"
                   >
                     <td>{"#"+currentUserData.user_position || "Not ranked"}</td>
                     <td>
@@ -530,10 +530,10 @@ export default function Leaderboard() {
                             to={"/u/" + userDetails.personal_data.username}
                             target="_blank"
                           >
-                            <div className="mask mask-squircle w-12 h-12 ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <div className="mask mask-circle sm:w-[30px] sm:h-[30px] w-[25px] h-[25px] ring ring-primary ring-offset-base-100 ring-offset-2">
                               {/* You can set the image source dynamically */}
                               <img
-                                className="mask mask-hexagon"
+                                className="mask mask-circle"
                                 src={userDetails.personal_data.picture}
                                 alt="Avatar Tailwind CSS Component"
                               />
@@ -542,24 +542,41 @@ export default function Leaderboard() {
                         </div>
                         <div>
                           <Link to={"/u/" + userDetails.personal_data.username}>
-                            <div className="font-bold">
+                            <div className="font-semibold text-left sm:text-[14px] text-[12px]">
                               {userDetails.personal_data.name}
                               {"(YOU)"} <OpenInNew fontSize="small" />{" "}
                             </div>
-                            <div className="text-sm opacity-50 text-left">
-                              @{userDetails.personal_data.username}
+                            <div className=" sm:text-[11px] text-[8px] font-light text-left">
+                              @{
+                                screenSize.width<=350 ? userDetails.personal_data.username.length<=15 ? userDetails.personal_data.username : userDetails.personal_data.username.slice(0,15)+"..." : userDetails.personal_data.username
+                              }
                             </div>
                             {/* You can display more userDetails details here if needed */}
                           </Link>
                         </div>
                       </div>
                     </td>
-                    <td>{currentUserData.ratings.codechef || 0}</td>
+                    {/* <td>{currentUserData.ratings.codechef || 0}</td>
                     <td>{currentUserData.ratings.leetcode || 0}</td>
                     <td>{currentUserData.ratings.codeforces || 0}</td>
                     <td>
                       {Math.floor(currentUserData.ratings.digitomize_rating)}
-                    </td>
+                    </td> */}
+                     <td className="max-sm:hidden">{currentUserData.ratings.codechef || 0}</td>
+                        <td className="max-sm:hidden">{currentUserData.ratings.leetcode || 0}</td>
+                        <td className="max-sm:hidden">{currentUserData.ratings.codeforces || 0}</td>
+                        <td className="max-sm:hidden">
+                          {Math.floor(currentUserData.ratings.digitomize_rating)}
+                        </td>
+                        <td className="sm:hidden">
+                          {selectedRating === "digitomize"
+                            ? Math.floor(currentUserData.ratings.digitomize_rating)
+                            : selectedRating === "leetcode"
+                              ? currentUserData.ratings.leetcode
+                              : selectedRating === "codechef"
+                                ? currentUserData.ratings.codechef
+                                : currentUserData.ratings.codeforces}
+                        </td>
                     {/* <td>{userDetails.platform_rating}</td> */}
                   </tr>
                 )}
