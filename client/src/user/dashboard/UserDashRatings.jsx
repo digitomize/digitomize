@@ -154,7 +154,7 @@ export default function UserDashRatings() {
         });
       })
       .catch((err) => {
-        toast.error(err.response.data.message, {
+        toast.error(err.response? err.response.data.error : err.message, {
           position: "top-left",
           autoClose: 1500,
           hideProgressBar: false,

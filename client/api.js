@@ -143,6 +143,17 @@ export async function submitUserFormData(formData) {
   if (!loggedIn) {
     throw redirect("/login");
   }
+
+  const platformsList = ["leetcode.com","codeforces.com","codechef.com"];
+  /* Throw an error if the username is an URL. */
+  Object.keys(formData).forEach((key) => {
+    if(formData[key]){
+      if(platformsList.some((platform) => formData[key].username.includes(platform))){
+        throw new Error("Invalid Username. Please do not enter profile links.");
+      }
+    }
+  });
+
   const currentUser = auth.currentUser;
   console.log(currentUser);
   const accessToken = await currentUser.getIdToken();
