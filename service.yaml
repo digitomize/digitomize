@@ -2,7 +2,7 @@ version: '3.0'
 
 services:
   frontend:
-    image: pranshugupta54/client:56da0ac
+    image: pranshugupta54/client:cf52fbd
     restart: always
     deploy:
       mode: replicated
@@ -15,7 +15,7 @@ services:
 
 
   backend:
-    image: pranshugupta54/backend:56da0ac
+    image: pranshugupta54/backend:cf52fbd
     restart: always
     ports:
       - "4001:4001"
