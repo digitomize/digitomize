@@ -143,6 +143,14 @@ export async function submitUserFormData(formData) {
   if (!loggedIn) {
     throw redirect("/login");
   }
+
+  /* Throw an error if the username is an URL. */
+  Object.keys(formData).forEach((key) => {
+    if(formData[key]?.username.includes(".com")){
+      throw new Error("Invalid Username.");
+    }
+  });
+
   const currentUser = auth.currentUser;
   console.log(currentUser);
   const accessToken = await currentUser.getIdToken();

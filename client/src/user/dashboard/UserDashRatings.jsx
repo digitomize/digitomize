@@ -154,7 +154,7 @@ export default function UserDashRatings() {
         });
       })
       .catch((err) => {
-        toast.error(err.response.data.message, {
+        toast.error(err.message=="Invalid Username." ? err.message + " Please don't enter profile URL's.":err.response.data.message , {
           position: "top-left",
           autoClose: 1500,
           hideProgressBar: false,
