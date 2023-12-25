@@ -19,7 +19,7 @@ export default function SectionOne() {
         <h1 className="mt-2 text-white max-md:text-4xl md:text-7xl">
           <span>One place for all your</span>
           <span className="block mt-1 md:mt-6 relative">
-            <span className="bg-digitomize-bg px-2 relative">
+            <span className="bg-digitomize-bg px-2 relative rounded-md">
               <span className="relative z-10">
                 {/* <img src={santaHat} className="absolute -rotate-45 transform h-16 w-16 -left-2 top-[-10%]" alt="Santa Hat" /> */}
                 coding platforms

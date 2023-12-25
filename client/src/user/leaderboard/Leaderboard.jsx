@@ -220,7 +220,7 @@ export default function Leaderboard() {
           One Scoreboard for
           <br />
           All Your{" "}
-          <span className="bg-[#1584FF] py-[1px] sm:py-1">
+          <span className="bg-[#1584FF] py-[1px] sm:py-1 rounded-md">
             &nbsp;Coding Battles&nbsp;
           </span>
         </h1>
