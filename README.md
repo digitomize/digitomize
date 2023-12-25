@@ -3,7 +3,7 @@
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/digitomize)
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=db7dbc698e16&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-45-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-46-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
@@ -158,6 +158,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://mendacium-a11y.github.io"><img src="https://avatars.githubusercontent.com/u/110321699?v=4?s=100" width="100px;" alt="Saksham Saha"/><br /><sub><b>Saksham Saha</b></sub></a><br /><a href="#a11y-mendacium-a11y" title="Accessibility">️️️️♿️</a> <a href="https://github.com/digitomize/digitomize/commits?author=mendacium-a11y" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://www.biodrop.io/krushnarout"><img src="https://avatars.githubusercontent.com/u/129386740?v=4?s=100" width="100px;" alt="Krushna Kanta Rout"/><br /><sub><b>Krushna Kanta Rout</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=krushnarout" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/surafelmuluye"><img src="https://avatars.githubusercontent.com/u/79900267?v=4?s=100" width="100px;" alt="Surafel Muluye"/><br /><sub><b>Surafel Muluye</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=surafelmuluye" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/iSubhamMani"><img src="https://avatars.githubusercontent.com/u/134488182?v=4?s=100" width="100px;" alt="Subham Mani"/><br /><sub><b>Subham Mani</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=iSubhamMani" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
