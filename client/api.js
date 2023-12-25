@@ -144,10 +144,13 @@ export async function submitUserFormData(formData) {
     throw redirect("/login");
   }
 
+  const platformsList = ["leetcode.com","codeforces.com","codechef.com"];
   /* Throw an error if the username is an URL. */
   Object.keys(formData).forEach((key) => {
-    if(formData[key]?.username.includes(".com")){
-      throw new Error("Invalid Username.");
+    if(formData[key]){
+      if(platformsList.some((platform) => formData[key].username.includes(platform))){
+        throw new Error("Invalid Username. Please do not enter profile links.");
+      }
     }
   });
 
@@ -158,7 +161,7 @@ export async function submitUserFormData(formData) {
 
   await uploadPictureToCloudinary(formData, accessToken, currentUser.uid);
   console.log(formData.picture);
-  const res = await axios.post(`${backendUrl}/user/dashboard`, formData, {
+  const res = await axios.post(`${backendUrl}/user/dashoard`, formData, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
