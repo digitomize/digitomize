@@ -3,6 +3,7 @@ import Button from "./globals/Button";
 import Card from "./globals/Card";
 import Contests from "./Contests";
 import About from "./About";
+import OSSFriendsPage from "./OSS-friends/SectionOne";
 import CopyToClipboard from "./CopyToClipboard";
 import ErrorPage from "./globals/error-page";
 import Feedback from "./Feedback";
@@ -30,6 +31,7 @@ export {
   Card,
   Contests,
   About,
+  OSSFriendsPage,
   CopyToClipboard,
   ErrorPage,
   Feedback,
