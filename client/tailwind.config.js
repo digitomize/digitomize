@@ -83,13 +83,6 @@ export default {
       },
     },
     darkMode: "class",
-    plugins: [
-      require("daisyui"),
-      require("flowbite/plugin")({
-        charts: true,
-      }),
-      require("tw-elements-react/dist/plugin.cjs"),
-    ],
     daisyui: {
       themes: [
         {
@@ -100,4 +93,11 @@ export default {
       ],
     },
   },
+  plugins: [
+    require("daisyui"),
+    require("flowbite/plugin")({
+      charts: true,
+    }),
+    require("tw-elements-react/dist/plugin.cjs"),
+  ],
 };
