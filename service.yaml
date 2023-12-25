@@ -2,7 +2,7 @@ version: '3.0'
 
 services:
   frontend:
-    image: pranshugupta54/frontend:0463048
+    image: pranshugupta54/client:0463048
     restart: always
     deploy:
       mode: replicated
