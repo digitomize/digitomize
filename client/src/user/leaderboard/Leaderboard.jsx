@@ -1,4 +1,4 @@
-import React, { useEffect, useState ,useRef} from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   useLocation,
   Link,
@@ -61,8 +61,8 @@ export default function Leaderboard() {
   const platformsIcon = [leetcode, codechef, codeforces];
   const ratings = ["digitomize", "codechef", "leetcode", "codeforces"];
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
-   const close_model = () => setShow(false);
-   const [show, setShow] = useState(false);
+  const close_model = () => setShow(false);
+  const [show, setShow] = useState(false);
   function getCurrentDimension() {
     return {
       width: window.innerWidth,
@@ -191,17 +191,16 @@ export default function Leaderboard() {
   const handleChange = (event) => {
     console.log(event.target.value);
     setSelectedPlatform(event.target.value);
-    if (event.target.value.length !== 0)
-      {
-        setSearchParams({ platform: event.target.value, page: 1 });
-      }
+    if (event.target.value.length !== 0) {
+      setSearchParams({ platform: event.target.value, page: 1 });
+    }
     else {
       searchParams.delete("platform");
       setSearchParams(searchParams);
     }
     setCurrentPage(1);
-    if(screenSize.width<=640)
-    setSelectedRating(event.target.value);
+    if (screenSize.width <= 640)
+      setSelectedRating(event.target.value);
   };
   const main_model = (
     <ShareModel
@@ -224,8 +223,8 @@ export default function Leaderboard() {
             &nbsp;Coding Battles&nbsp;
           </span>
         </h1>
-        
-       
+
+
       </div>
       <div className="flex justify-center max-phone:gap-6 phone:gap-12 phone:w-4/6 w-11/12 mx-auto  h-fit">
         <Rank
@@ -491,7 +490,7 @@ export default function Leaderboard() {
                                   <OpenInNew style={{ fontSize: "10px" }} />{" "}
                                 </div>
                                 <div className="  sm:text-[11px] text-[8px] font-light text-left">
-                                  @{ screenSize.width<=350 ? row.username.length<=15 ? row.username : row.username.slice(0,15)+"..." : row.username
+                                  @{screenSize.width <= 350 ? row.username.length <= 15 ? row.username : row.username.slice(0, 15) + "..." : row.username
                                   }
                                 </div>
                                 {/* You can display more userDetails details here if needed */}
@@ -522,7 +521,7 @@ export default function Leaderboard() {
                     key={currentUserData.user_position}
                     className="bg-[#252525] text-center"
                   >
-                    <td>{"#"+currentUserData.user_position || "Not ranked"}</td>
+                    <td>{"#" + currentUserData.user_position || "Not ranked"}</td>
                     <td>
                       <div className="flex items-center space-x-3">
                         <div className="avatar">
@@ -568,10 +567,9 @@ export default function Leaderboard() {
             {/* foot */}
           </table>
         </div>
-        <div className="flex sm:hidden justify-center w-fit ml-auto items-center mt-3  text-white px-6 py-1 font-['Geist'] rounded-full text-xs">
-        Share the board now 
-        <div className="h-8 ml-1 max-md:w-12 clip flex items-center justify-center">
-          <button onClick={() => setShow(true)}>
+        <button onClick={() => setShow(true)} className="flex sm:hidden justify-center w-fit ml-auto items-center mt-3 border border-badge bg-badge  text-badge-txt px-6 py-1 font-['Geist'] rounded-full text-sm">
+          Share the board now
+          <div className="h-8 ml-1 max-md:w-12 clip flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="14"
@@ -584,10 +582,9 @@ export default function Leaderboard() {
                 className="color000000 svgShape"
               ></path>
             </svg>
-          </button>
-          {show && main_model}
-        </div> 
-      </div>
+            {show && main_model}
+          </div>
+        </button>
         {/* <div className="join my-8 mx-auto">
                     {Array.from({ length: totalPages }, (_, i) => (
                         <>

@@ -98,6 +98,5 @@ export default {
     require("flowbite/plugin")({
       charts: true,
     }),
-    require("tw-elements-react/dist/plugin.cjs"),
   ],
 };
