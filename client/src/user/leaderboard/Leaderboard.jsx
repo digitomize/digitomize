@@ -518,9 +518,9 @@ export default function Leaderboard() {
                 {currentUserData && userDetails && (
                   <tr
                     key={currentUserData.user_position}
-                    className="bg-[#252525]"
+                    className="bg-[#252525] text-center"
                   >
-                    <td>{currentUserData.user_position || "Not ranked"}</td>
+                    <td>{"#"+currentUserData.user_position || "Not ranked"}</td>
                     <td>
                       <div className="flex items-center space-x-3">
                         <div className="avatar">
@@ -544,7 +544,7 @@ export default function Leaderboard() {
                               {userDetails.personal_data.name}
                               {"(YOU)"} <OpenInNew fontSize="small" />{" "}
                             </div>
-                            <div className="text-sm opacity-50">
+                            <div className="text-sm opacity-50 text-left">
                               @{userDetails.personal_data.username}
                             </div>
                             {/* You can display more userDetails details here if needed */}
