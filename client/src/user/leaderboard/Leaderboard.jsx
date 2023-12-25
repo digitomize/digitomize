@@ -11,6 +11,7 @@ import {
   codeforces,
   logo,
 } from "../../components/AllAssets";
+import { MetaData } from "../../components/CustomComponents";
 import NewNavbar from "../../components/globals/NewNavbar";
 import { leaderboardData, rankOnLeaderboard } from "../../../api";
 import { OpenInNew, Info } from "@mui/icons-material";
@@ -212,6 +213,7 @@ export default function Leaderboard() {
   )
   return (
     <>
+      <MetaData path="u/leaderboard" />
       <NewNavbar position="static" />
       <div className="text-white text-center flex flex-col items-center justify-center">
         <h1 className="max-sm:text-[20px] max-sm:leading-6 mt-5 leading-[60px]">
