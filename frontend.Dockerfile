@@ -2,7 +2,7 @@ FROM node:21-alpine3.18
 
 WORKDIR /digitomize
 
-COPY frontend frontend
+COPY client client
 
 RUN npm install
 
