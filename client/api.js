@@ -144,15 +144,17 @@ export async function submitUserFormData(formData) {
     throw redirect("/login");
   }
 
-  const platformsList = ["leetcode.com","codeforces.com","codechef.com"];
-  /* Throw an error if the username is an URL. */
-  Object.keys(formData).forEach((key) => {
-    if(formData[key]){
-      if(platformsList.some((platform) => formData[key].username.includes(platform))){
-        throw new Error("Invalid Username. Please do not enter profile links.");
-      }
-    }
-  });
+  /* Throw an error if the entered username is an URL. */
+  const urlPattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+  '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+  '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+  '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+  '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+  '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+  
+  if(Object.keys(formData).some((platform) => urlPattern.test(formData[platform]?.username))){
+    throw new Error("Invalid Username. Usernames should not be URLs.");
+  }
 
   const currentUser = auth.currentUser;
   console.log(currentUser);
