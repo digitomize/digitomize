@@ -4,6 +4,8 @@ WORKDIR /digitomize
 
 COPY backend backend
 
+RUN cd backend
+
 RUN npm install
 
 ENV NODE_ENV=production

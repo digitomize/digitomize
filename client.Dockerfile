@@ -4,6 +4,8 @@ WORKDIR /digitomize
 
 COPY client client
 
+RUN cd client
+
 RUN npm install
 
 ENV NODE_ENV=production
