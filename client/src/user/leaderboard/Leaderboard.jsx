@@ -199,6 +199,8 @@ export default function Leaderboard() {
       setSearchParams(searchParams);
     }
     setCurrentPage(1)
+    if(screenSize.width<=640)
+    setSelectedRating(event.target.value)
   };
   const main_model = (
     <ShareModel
@@ -211,8 +213,8 @@ export default function Leaderboard() {
   return (
     <>
       <NewNavbar position="static" />
-      <div className="text-white text-center my-4  flex flex-col items-center justify-center">
-        <h1 className="max-sm:text-[20px] max-sm:leading-6 leading-[60px]">
+      <div className="text-white text-center flex flex-col items-center justify-center">
+        <h1 className="max-sm:text-[20px] max-sm:leading-6 mt-5 leading-[60px]">
           One Scoreboard for
           <br />
           All Your{" "}
@@ -220,49 +222,13 @@ export default function Leaderboard() {
             &nbsp;Coding Battles&nbsp;
           </span>
         </h1>
-        {/* <div className="border border-[#25478B] max-sm:text-[14px] bg-[#004CE454] rounded-lg w-fit px-4 py-1 mt-3 flex flex-row items-center justify-center">
-          Share the board now
-          <svg
-            className="ml-2 cursor-pointer max-sm:hidden"
-            xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
-            viewBox="0 0 12 12"
-            fill="#fff"
-          >
-            <path
-              d="M10 12C9.44444 12 8.97222 11.825 8.58333 11.475C8.19444 11.125 8 10.7 8 10.2C8 10.13 8.00556 10.0574 8.01667 9.9822C8.02778 9.907 8.04445 9.8396 8.06667 9.78L3.36667 7.32C3.17778 7.47 2.96667 7.5876 2.73333 7.6728C2.5 7.758 2.25556 7.8004 2 7.8C1.44444 7.8 0.972222 7.625 0.583333 7.275C0.194444 6.925 0 6.5 0 6C0 5.5 0.194444 5.075 0.583333 4.725C0.972222 4.375 1.44444 4.2 2 4.2C2.25556 4.2 2.5 4.2426 2.73333 4.3278C2.96667 4.413 3.17778 4.5304 3.36667 4.68L8.06667 2.22C8.04445 2.16 8.02778 2.0926 8.01667 2.0178C8.00556 1.943 8 1.8704 8 1.8C8 1.3 8.19444 0.875 8.58333 0.525C8.97222 0.175 9.44444 0 10 0C10.5556 0 11.0278 0.175 11.4167 0.525C11.8056 0.875 12 1.3 12 1.8C12 2.3 11.8056 2.725 11.4167 3.075C11.0278 3.425 10.5556 3.6 10 3.6C9.74444 3.6 9.5 3.5576 9.26667 3.4728C9.03333 3.388 8.82222 3.2704 8.63333 3.12L3.93333 5.58C3.95556 5.64 3.97222 5.7076 3.98333 5.7828C3.99444 5.858 4 5.9304 4 6C4 6.07 3.99444 6.1426 3.98333 6.2178C3.97222 6.293 3.95556 6.3604 3.93333 6.42L8.63333 8.88C8.82222 8.73 9.03333 8.6126 9.26667 8.5278C9.5 8.443 9.74444 8.4004 10 8.4C10.5556 8.4 11.0278 8.575 11.4167 8.925C11.8056 9.275 12 9.7 12 10.2C12 10.7 11.8056 11.125 11.4167 11.475C11.0278 11.825 10.5556 12 10 12Z"
-              fill="white"
-            />
-          </svg>
-        </div> */}
-        <div
         
-         className="flex justify-center items-center border mt-3 border-badge bg-badge text-badge-txt px-6 py-1 font-['Geist'] rounded-full text-xs">
-        Share the board now 
-        <div className="h-8 ml-1 max-md:w-12 clip flex items-center justify-center">
-          <button onClick={() => setShow(true)}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              viewBox="0 0 24 24"
-              id="Share"
-            >
-              <path
-                d="M18,14a4,4,0,0,0-3.08,1.48l-5.1-2.35a3.64,3.64,0,0,0,0-2.26l5.1-2.35A4,4,0,1,0,14,6a4.17,4.17,0,0,0,.07.71L8.79,9.14a4,4,0,1,0,0,5.72l5.28,2.43A4.17,4.17,0,0,0,14,18a4,4,0,1,0,4-4ZM18,4a2,2,0,1,1-2,2A2,2,0,0,1,18,4ZM6,14a2,2,0,1,1,2-2A2,2,0,0,1,6,14Zm12,6a2,2,0,1,1,2-2A2,2,0,0,1,18,20Z"
-                fill="#ffffff"
-                className="color000000 svgShape"
-              ></path>
-            </svg>
-          </button>
-          {show && main_model}
-        </div>
-      </div>
+       
       </div>
       <div className="flex justify-center max-phone:gap-6 phone:gap-12 phone:w-4/6 w-11/12 mx-auto  h-fit">
         <Rank
           color="#C0C0C0"
-          pt="4"
+          pt="3"
           user={top3[1]}
           selectedPlatform={selectedPlatform}
         />
@@ -600,7 +566,26 @@ export default function Leaderboard() {
             {/* foot */}
           </table>
         </div>
-
+        <div className="flex sm:hidden justify-center w-fit ml-auto items-center mt-3  text-white px-6 py-1 font-['Geist'] rounded-full text-xs">
+        Share the board now 
+        <div className="h-8 ml-1 max-md:w-12 clip flex items-center justify-center">
+          <button onClick={() => setShow(true)}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              viewBox="0 0 24 24"
+              id="Share"
+            >
+              <path
+                d="M18,14a4,4,0,0,0-3.08,1.48l-5.1-2.35a3.64,3.64,0,0,0,0-2.26l5.1-2.35A4,4,0,1,0,14,6a4.17,4.17,0,0,0,.07.71L8.79,9.14a4,4,0,1,0,0,5.72l5.28,2.43A4.17,4.17,0,0,0,14,18a4,4,0,1,0,4-4ZM18,4a2,2,0,1,1-2,2A2,2,0,0,1,18,4ZM6,14a2,2,0,1,1,2-2A2,2,0,0,1,6,14Zm12,6a2,2,0,1,1,2-2A2,2,0,0,1,18,20Z"
+                fill="#ffffff"
+                className="color000000 svgShape"
+              ></path>
+            </svg>
+          </button>
+          {show && main_model}
+        </div> 
+      </div>
         {/* <div className="join my-8 mx-auto">
                     {Array.from({ length: totalPages }, (_, i) => (
                         <>

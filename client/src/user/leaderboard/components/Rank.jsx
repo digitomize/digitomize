@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import boy from "../../../assets/boyV7.png";
 import { Skeleton, selectClasses } from "@mui/material";
 
-const Rank = ({ color, pt = 8, user, selectedPlatform }) => {
+const Rank = ({ color, pt = 6, user, selectedPlatform }) => {
   console.log(user);
   let rating;
   if (user) {
@@ -18,7 +18,7 @@ const Rank = ({ color, pt = 8, user, selectedPlatform }) => {
       {user?.username && user?.name ? (
         <Link to={"/u/" + user?.username}>
           <div className="relative flex justify-center flex-col items-center">
-            <div className="flex z-[10] flex-col items-center justify-center sm:translate-y-10 translate-y-4">
+            <div className="flex z-[10] flex-col items-center justify-center sm:translate-y-7 translate-y-4">
               {/* Badge */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -42,17 +42,17 @@ const Rank = ({ color, pt = 8, user, selectedPlatform }) => {
               />
             </div>
             {color === "#FFD700" ? (
-              <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[102px] sm:h-[172px] sm:w-[110px] max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
+              <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[102px] sm:h-[132px] sm:w-[110px] max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
                 <h2 className="text-[#fff]">{user?.name}</h2>
                 <h2 style={{ color: color }}>{Math.floor(rating)}</h2>
               </div>
             ) : color === "#C0C0C0" ? (
-              <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[85px] sm:h-[157px] sm:w-[110px]  max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
+              <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[85px] sm:h-[117px] sm:w-[110px]  max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
                 <h2 className="text-[#fff]">{user?.name}</h2>
                 <h2 style={{ color: color }}>{Math.floor(rating)}</h2>
               </div>
             ) : (
-              <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[70px] sm:h-[140px] sm:w-[110px]  max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
+              <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[70px] sm:h-[107px] sm:w-[110px]  max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
                 <h2 className="text-[#fff]">{user?.name}</h2>
                 <h2 style={{ color: color }}>{Math.floor(rating)}</h2>
               </div>
