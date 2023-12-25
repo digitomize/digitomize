@@ -20,11 +20,19 @@ jobs:
             - name: Check outputs
               run: echo ${{ steps.vars.outputs.sha_short }}
 
-            - name: find and replace docker image version
+            - name: find and replace client docker image version
               uses: jacobtomlinson/gha-find-replace@v3
               with: 
-                find: "latest"
-                replace: "${{ steps.vars.outputs.sha_short }}"
+                find: "client:......."
+                replace: "client:${{ steps.vars.outputs.sha_short }}"
+                include: "service.yaml"
+                regex: true
+
+            - name: find and replace backend docker image version
+              uses: jacobtomlinson/gha-find-replace@v3
+              with: 
+                find: "backend:......."
+                replace: "backend:${{ steps.vars.outputs.sha_short }}"
                 include: "service.yaml"
                 regex: true
 
