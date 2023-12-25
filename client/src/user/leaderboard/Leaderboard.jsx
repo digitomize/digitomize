@@ -193,15 +193,15 @@ export default function Leaderboard() {
     setSelectedPlatform(event.target.value);
     if (event.target.value.length !== 0)
       {
-        setSearchParams({ platform: event.target.value, page: 1 })
+        setSearchParams({ platform: event.target.value, page: 1 });
       }
     else {
       searchParams.delete("platform");
       setSearchParams(searchParams);
     }
-    setCurrentPage(1)
+    setCurrentPage(1);
     if(screenSize.width<=640)
-    setSelectedRating(event.target.value)
+    setSelectedRating(event.target.value);
   };
   const main_model = (
     <ShareModel
@@ -210,7 +210,7 @@ export default function Leaderboard() {
       //theme={colorTheme}
       theme=""
     />
-  )
+  );
   return (
     <>
       <MetaData path="u/leaderboard" />
