@@ -18,13 +18,16 @@ export default function SectionOne() {
       <div className="w-10/12">
         <h1 className="mt-2 text-white max-md:text-4xl md:text-7xl">
           <span>One place for all your</span>
-          <span className="block mt-1 md:mt-6">
+          <span className="block mt-1 md:mt-6 relative">
             <span className="bg-digitomize-bg px-2 relative">
-              <img src={santaHat} className="absolute -left-5 -rotate-12 transform -scale-x-100 h-16 w-16 " />
-              <span className="relative z-10">coding platforms</span>
+              <span className="relative z-10">
+                {/* <img src={santaHat} className="absolute -rotate-45 transform h-16 w-16 -left-2 top-[-10%]" alt="Santa Hat" /> */}
+                coding platforms
+              </span>
             </span>{" "}
             needs
-          </span>{" "}
+          </span>
+          {" "}
         </h1>
         <p className="text-description max-sm:text-sm sm:text-md md:text-xl mt-6">
           Elevate your coding and development journey with digitomize
