@@ -7,6 +7,7 @@ import microsoft from "./svgs/microsoft4strp.svg";
 import digitalOcean from "./svgs/digitalOcean.svg";
 import "/src/components/css/globals.css";
 import { Star } from "@mui/icons-material";
+import santaHat from "./svgs/santaHat.svg";
 
 export default function SectionOne() {
   return (
@@ -18,7 +19,10 @@ export default function SectionOne() {
         <h1 className="mt-2 text-white max-md:text-4xl md:text-7xl">
           <span>One place for all your</span>
           <span className="block mt-1 md:mt-6">
-            <span className="bg-digitomize-bg px-2 rounded-md">coding platforms</span>{" "}
+            <span className="bg-digitomize-bg px-2 relative">
+              <img src={santaHat} className="absolute -left-5 -rotate-12 transform -scale-x-100 h-16 w-16 " />
+              <span className="relative z-10">coding platforms</span>
+            </span>{" "}
             needs
           </span>{" "}
         </h1>

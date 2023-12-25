@@ -341,9 +341,8 @@ export default function Leaderboard() {
       <div className="phone:w-4/6 w-[95%] mx-auto mt-4 text-center text-white">
         <div className=" rounded-[20px] max-phone:overflow-x-hidden overflow-x-scroll">
           <table
-            className={`table  ${
-              screenSize.width <= 435 ? "table-xs" : ""
-            }  bg-[#252525]  w-full`}
+            className={`table  ${screenSize.width <= 435 ? "table-xs" : ""
+              }  bg-[#252525]  w-full`}
           >
             {/* head */}
             <thead className="bg-[#474747] text-white text-center max-sm:text-[12px]">

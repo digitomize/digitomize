@@ -168,7 +168,7 @@ export default function UserDashPersonal() {
         setIsDisabled(false);
       })
       .catch((err) => {
-        toast.error("error updating", {
+        toast.error(err.response.data.message, {
           position: "top-left",
           autoClose: 1500,
           hideProgressBar: false,

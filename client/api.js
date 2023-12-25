@@ -63,11 +63,11 @@ export async function userProfileDetails(username) {
 
 export async function leaderboardData(page = 1,platform) {
   try {
-  console.log(platform)
+  console.log(platform);
     if(platform &&platform.length!=0)
    {
     const response = await axios.get(
-      `${backendUrl}/user/leaderboard?page=${page}&platform=${platform}`
+      `${backendUrl}/user/leaderboard?page=${page}&platform=${platform}`,
     );
    
     return response;
@@ -75,7 +75,7 @@ export async function leaderboardData(page = 1,platform) {
    else
    {
     const response = await axios.get(
-      `${backendUrl}/user/leaderboard?page=${page}`
+      `${backendUrl}/user/leaderboard?page=${page}`,
     );
    
     return response;

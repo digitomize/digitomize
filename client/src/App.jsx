@@ -27,7 +27,7 @@ import {
   Feedback,
   About,
   Footer,
-  MetaData
+  MetaData,
 } from "./components/CustomComponents";
 import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashPersonal, {
@@ -212,7 +212,7 @@ const router = createBrowserRouter(
     </Route>,
   ),
 );
-
+import Snowfall from "react-snowfall";
 function App() {
   return (
     <>
@@ -220,6 +220,7 @@ function App() {
         <UserContextProvider>
           <ToastContainer />
           <div>
+          <Snowfall snowflakeCount={100} speed={[0.2, 1]} wind={[0, 1]} style={{position:"fixed"}}/>
             <RouterProvider router={router} />
           </div>
         </UserContextProvider>
