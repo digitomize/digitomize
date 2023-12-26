@@ -32,7 +32,7 @@ export default function Footer() {
           </div>
         </aside>
         <div className="lg:flex-1 flex flex-col sm:flex-row sm:flex-wrap mx-auto justify-between gap-8 mb-4 sm:mb-0">
-          <nav className="flex justify-center items-center sm:!items-start flex-col gap-3">
+          <nav className="flex justify-center items-center sm:!items-start flex-col gap-3 w-full sm:!w-[45%] xl:!w-fit">
             <header className="text-white font-medium text-2xl mb-2">
               Competitions
             </header>
@@ -49,7 +49,7 @@ export default function Footer() {
               Challenges
             </a>
           </nav>
-          <nav className="flex justify-center items-center sm:!items-start flex-col gap-3">
+          <nav className="flex justify-center items-center sm:!items-start flex-col gap-3 w-full sm:!w-[45%] xl:!w-fit">
             <header className="text-white font-medium text-2xl mb-2">
               Opportunities
             </header>
@@ -66,7 +66,7 @@ export default function Footer() {
               Jobs
             </a>
           </nav>
-          <nav className="flex justify-center items-center sm:!items-start flex-col gap-3">
+          <nav className="flex justify-center items-center sm:!items-start flex-col gap-3 w-full sm:!w-[45%] xl:!w-fit">
             <header className="text-white font-medium text-2xl mb-2">
               Connect
             </header>
@@ -95,11 +95,11 @@ export default function Footer() {
               Join our Discord
             </a>
           </nav>
-          <nav className="flex justify-center items-center sm:!items-start flex-col gap-3">
+          <nav className="flex justify-center items-center sm:!items-start flex-col gap-3 w-full sm:!w-[45%] xl:!w-fit">
             <header className="text-white font-medium text-2xl mb-2">
               Social
             </header>
-            <div className="flex gap-3">
+            <div className="flex gap-8 lg:gap-3">
               <a
                 href="https://www.linkedin.com/company/digitomize"
                 className="link hover:no-underline link-hover hover:text-custom-blue hover:scale-110 transition-all text-lg m-auto"
@@ -128,25 +128,26 @@ export default function Footer() {
                 rel="noopener noreferrer"
               >
                 <svg
-                  width="32"
-                  height="33"
-                  viewBox="0 0 32 33"
+                  width="26"
+                  height="27"
+                  viewBox="0 0 26 27"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                   className="fill-white hover:fill-custom-blue"
                 >
                   <g>
                     <path
-                      d="M19.0475 13.5627L30.9621 0H28.1397L17.7899 11.7739L9.5296 0H0L12.4939 17.8059L0 32.0267H2.8224L13.7451 19.5904L22.4704 32.0267H32M3.84107 2.08427H8.17707L28.1376 30.0448H23.8005"
+                      d="M15.4761 11.0197L25.1567 0H22.8635L14.4543 9.56627L7.7428 0H0L10.1513 14.4673L0 26.0217H2.2932L11.1679 15.9172L18.2572 26.0217H26M3.12087 1.69347H6.64387L22.8618 24.4114H19.3379"
                       fill="inherit"
                     />
                   </g>
                   <defs>
                     <clipPath id="clip0_376_19">
-                      <rect width="32" height="32.0268" fill="white" />
+                      <rect width="26" height="26.0218" fill="white" />
                     </clipPath>
                   </defs>
                 </svg>
+
                 <span className="sr-only">twitter link</span>
               </a>
               <a
