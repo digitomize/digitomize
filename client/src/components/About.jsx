@@ -12,12 +12,12 @@ export default function About() {
   return (
     <>
       <MetaData path="about" />
-      <div className="container w-11/12 mx-auto text-center mt-4 antialiased">
+      <div className=" w-11/12 mx-auto text-center mt-4 antialiased">
         <div className="hero">
           <div className="hero-content flex-col sm:flex-row">
             <div className="left text-center flex flex-col justify-center items-center">
               <div className="text-center w-fit">
-                <h1 className="lg:text-[85px] sm:text-[50px] md:text-[65px] phone:text-[30px]  max-phone:text-5xl my-0 font-medium flex phone:flex-row max-phone:flex-col mx-auto w-full">
+                <h1 className="lg:text-[85px] sm:text-[50px] md:text-[61px] phone:text-[30px]  max-phone:text-5xl my-0 font-medium flex phone:flex-row max-phone:flex-col mx-auto w-full">
                   An{" "}
                   <span className="text-custom-blue font-bold mx-2 flex flex-row">
                     Open Source
