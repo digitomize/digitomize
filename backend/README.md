@@ -26,14 +26,14 @@ The backend folder is organized into several directories, each serving a specifi
     /models        # Database models for community and community members
     /routes        # API route definitions for community and community members
     /services      # Reusable services specific to community members
-    /utils         # Utilitfy file 
+    /utils         # Utility file defining constants for user roles
   /contest
     /controllers   # Logic for handling API requests related to contests
       /platforms   # APIs for fetching the upcoming contests on each of the coding platforms
     /models        # Database models for contests
     /routes        # API route definitions for contests
   /core
-    /api           # File defining custom error and success handler objects for responses. 
+    /api           # File defining custom error and success handler objects for responses
   /DSA_sheets
     /controllers   # Logic for handling API requests realted to DSA sheets and DSA questions
     /models        # Database models for DSA sheets and questions
