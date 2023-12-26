@@ -3,6 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineFastBackward, AiOutlineShareAlt } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
 import ShareModel from "../../../components/share_model";
+import linkedinSVG from "../../../assets/linkedin.svg";
+import insatgramSVG from "../../../assets/instagram.svg";
+import twitterSVG from "../../../assets/twitter.svg";
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 
 function UserCard({
@@ -12,6 +15,9 @@ function UserCard({
   bio,
   phoneNumber,
   role,
+  twitter,
+  linkedin,
+  instagram,
   skills = [],
 }) {
   const navigate = useNavigate();
@@ -95,6 +101,17 @@ function UserCard({
             </>
           </button>
         )}
+        <div className="pt-8 flex justify-center gap-3">
+          <a href="#linkedin">
+            <img src={linkedinSVG} alt="linkedin" className="h-10 w-10" />
+          </a>
+          <a href="#insatgram">
+            <img src={insatgramSVG} alt="instagram" className="h-10 w-10" />
+          </a>
+          <a href="#twitter">
+            <img src={twitterSVG} alt="twitter" className="h-10 w-10"/>
+          </a>
+        </div>
         {!isUserProfile && !isUserDashboard && (
           <button className="bg-blue-500 flex gap-1 w-fit items-center justify-center text-white px-4 py-2 rounded-full mt-4 hover:opacity-80">
             <>
