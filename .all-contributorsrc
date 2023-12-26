@@ -436,6 +436,15 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "c4coderandcreator",
+      "name": "Coder And Creator",
+      "avatar_url": "https://avatars.githubusercontent.com/u/70572678?v=4",
+      "profile": "https://github.com/c4coderandcreator",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
