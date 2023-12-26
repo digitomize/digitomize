@@ -12,13 +12,13 @@
 [![Forks on Github](https://img.shields.io/github/forks/digitomize/digitomize)](https://github.com/digitomize/digitomize/forks)
 [![Star on GitHub](https://img.shields.io/github/stars/digitomize/digitomize.svg?style=social)](https://github.com/digitomize/digitomize/stargazers)
 
-## Supported by:
+# Supported by:
 
 <img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" alt="GitBook Logo" height="auto" width="200">
 <img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" alt="Microsoft for Startups Logo" height="auto" width="200">
 <img align="center" src="https://github.com/krushnarout/digitomize/assets/129386740/3f224853-cf4b-4318-ba27-8285d1c9a0fe" alt="MSME Logo" height="auto" width="200">
 
-## Table of Contents
+# Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
@@ -32,17 +32,17 @@
 - [License](#license)
 - [Discord](#discord)
 
-## Introduction
+# Introduction
 
 **Digitomize** is designed to provide developers with a comprehensive platform for exploring coding contests and creating dynamic portfolios that showcase their coding skills and achievements.
 
-## Features
+# Features
 
 - **Contests Section:** Explore upcoming coding contests from platforms like LeetCode, Codeforces, CodeChef, and more. Filter contests based on various criteria and view contest details such as remaining time, duration, and more.
 
 - **User Profiles:** Create your developer portfolio by providing user handles for different coding platforms. The platform dynamically fetches and displays your updated ratings, achievements, and coding history.
 
-## Getting Started
+# Getting Started
 **Hit the star :star:**
 
 ### Tech Stack
@@ -71,7 +71,7 @@
 
 4. Start the development environment: `npm run dev` (This command, defined in your project's package.json, starts both the backend server and the client using the concurrently library. It's a convenient way to run both parts of your application concurrently during development.)
 
-## Usage
+# Usage
 
 ### Contests Section
 
@@ -85,11 +85,11 @@
 - The platform dynamically fetches and displays your latest ratings, achievements, and contest history.
 - Customize your portfolio to display the information you want to share with others.
 
-## Contributing
+# Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
 
-## Contributors ✨
+# Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -167,14 +167,14 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-## License
+# License
 
 This project is licensed under the [MIT License](LICENSE).
 
-## Discord
+# Discord
 
 Join Our [Discord Community](https://digitomize.com/discord) for any help and troubleshooting.
 
-## Buy me Coffee ☕
+# Buy me Coffee ☕
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/digitomize)
