@@ -219,7 +219,7 @@ export default function Leaderboard() {
           One Scoreboard for
           <br />
           All Your{" "}
-          <span className="bg-[#1584FF] py-[1px] sm:py-1 rounded-md">
+          <span className="bg-digitomize-bg py-[1px] sm:py-1 rounded-md">
             &nbsp;Coding Battles&nbsp;
           </span>
         </h1>
@@ -340,7 +340,7 @@ export default function Leaderboard() {
         </div>
       </div>
       <div className="phone:w-4/6 w-[95%] mx-auto mt-4 text-center text-white">
-        <div className=" rounded-[20px] max-phone:overflow-x-hidden overflow-x-scroll">
+        <div className=" rounded-[20px] max-phone:overflow-x-hidden overflow-x-auto">
           <table
             className={`table  ${screenSize.width <= 435 ? "table-xs" : ""
               }  bg-[#252525]  w-full`}
