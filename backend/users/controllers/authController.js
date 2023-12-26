@@ -39,13 +39,13 @@ const handleUserSignup = async (req, res) => {
     return res.status(400).json({ error: "Missing required fields" });
   }
 
-  if (twitter && twitterUrlPattern.test(twitter)) {
+  if (twitter && !twitterUrlPattern.test(twitter)) {
     return res.status(400).json({ error: "Missing required fields" });
   }
-  if (linkedin && linkedInUrlPattern.test(linkedin)) {
+  if (linkedin && !linkedInUrlPattern.test(linkedin)) {
     return res.status(400).json({ error: "Missing required fields" });
   }
-  if (instagram && instagramUrlPattern.test(instagram)) {
+  if (instagram && !instagramUrlPattern.test(instagram)) {
     return res.status(400).json({ error: "Missing required fields" });
   }
   // console.log(uid);
