@@ -24,14 +24,29 @@ The client directory is organized into several main directories and components:
   /src
     /assets         # Static assets like images and fonts
     /components     # Reusable React components
-    /routes         # Frontend route definitions
+    /context        # State management contexts
+    /core           # API services, app modal & utilities
+    /dsaSheets      # Components and services for dsa content
+    /lib            # Additional libraries or utility functions
+    /pages          # Components for different pages
+    /user           # User-specific components, services or data
 ```
 
 assets: This directory contains static assets such as images, fonts, and other files used in your application's user interface.
 
 components: Reusable React components are stored here. These components can be used throughout your application to maintain consistency and modularity.
 
-routes: Frontend route definitions are defined in this directory. It specifies how different URLs map to specific components and views.
+context: This directory contains context providers and related utility functions for state management.
+
+core: Houses core functionalities or services used throughout your application like API services, modals or other essential utilities.
+
+dsaSheets: Contains components, implementations, or utilities related to DSA content.
+
+lib: This directory stores additional libraries or utility functions that are used across your application.
+
+pages: Organized React components that represent different pages or views in your application.
+
+user: Contains components and functionality related to user profiles.
 
 ## Getting Started
 
