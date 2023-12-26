@@ -43,7 +43,7 @@
 # Getting Started
 **Hit the star :star:**
 
-### Tech Stack
+## Tech Stack
 
 ### Frontend
 
