@@ -1,0 +1,48 @@
+version: '3.0'
+
+services:
+  frontend:
+    build: 
+      context: .
+      dockerfile: client.Dockerfile
+    restart: always
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_REACT_APP_BACKEND_URL=http://localhost:4001
+      - VITE_REACT_APP_FRONTEND_URL=https://www.digitomize.com
+      - VITE_REACT_APP_CLOUDINARY_API_KEY=
+      - VITE_REACT_APP_CLOUDINARY_CLOUD_NAME=
+      - VITE_REACT_APP_API_KEY=
+      - VITE_REACT_APP_AUTH_DOMAIN=
+      - VITE_REACT_APP_PROJECT_ID=
+      - VITE_REACT_APP_STORAGE_BUCKET=
+      - VITE_REACT_APP_MESSAGING_SENDER_ID=
+      - VITE_REACT_APP_APP_ID=
+      - VITE_REACT_APP_MEASUREMENT_ID=
+      - VITE_REACT_APP_VAPID_KEY=
+      - VITE_REACT_APP_FORMBRICKS_API_KEY=
+
+  backend:
+    build: 
+      context: .
+      dockerfile: backend.Dockerfile
+    restart: always
+    ports:
+      - "4001:4001"
+    environment:
+      - MONGODB_URL=mongodb://localhost:27017/digitomize
+      - PORT=4001
+      - BACKEND_URL=http://localhost:4001
+      - CONTESTS=true
+      - USERS=true
+      - NODE_ENV=development
+      - COMMUNITY=true
+      - BREVO_API=
+      - FRONTEND_URL=
+      - DC_WH_CREATE=
+      - DC_WH_UPDATE=
+      - DC_WH_ROUTE=
+      - DC_WH_ERROR=
+      - CLOUDINARY_API_SECRET=
+      - FIREBASE_CREDEfNTIALS=

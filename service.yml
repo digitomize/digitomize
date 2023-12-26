@@ -1,0 +1,12 @@
+version: '3.0'
+
+services:
+  backend:
+    image: pranshugupta54/backend:latest
+    ports:
+      - "4001:4001"
+    deploy:
+      mode: replicated
+      replicas: 1
+    env_file:
+      - ~/secrets/backend

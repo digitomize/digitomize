@@ -105,7 +105,7 @@ const MetaData = ({ path = "null" }) => {
                 <meta name="description" content={getPageMetadata(path).description} />
 
                 {/* Keywords */}
-                <meta name="keywords" content={getPageMetadata(path).keywords.join(', ')} />
+                <meta name="keywords" content={getPageMetadata(path).keywords.join(", ")} />
 
                 {/* Robots Meta Tag */}
                 <meta name="robots" content="index, follow" />
