@@ -1,5 +1,9 @@
 import { setUser } from "../services/setUser.js";
 
+const twitterUrlPattern = /^(?:https?:\/\/)?(?:www\.)?twitter\.com\/(?:#!\/)?[a-zA-Z0-9_]{1,15}(?:\/)?$/;
+const linkedInUrlPattern = /^(?:https?:\/\/)?(?:www\.)?linkedin\.com\/in\/[a-zA-Z0-9-]{5,30}\/?$/;
+const instagramUrlPattern = /^(?:https?:\/\/)?(?:www\.)?instagram\.com\/[a-zA-Z0-9_]{1,30}\/?$/;
+
 // ? returns JSON message with Status Code
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
 const handleUserSignup = async (req, res) => {
@@ -16,6 +20,9 @@ const handleUserSignup = async (req, res) => {
     dateOfBirth,
     phoneNumber,
     github,
+    linkedin,
+    instagram,
+    twitter,
     codechef,
     leetcode,
     codeforces,
@@ -29,6 +36,16 @@ const handleUserSignup = async (req, res) => {
   }
   // Validate required fields
   if (!uid) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+
+  if (twitter && twitterUrlPattern.test(twitter)) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+  if (linkedin && linkedInUrlPattern.test(linkedin)) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+  if (instagram && instagramUrlPattern.test(instagram)) {
     return res.status(400).json({ error: "Missing required fields" });
   }
   // console.log(uid);
@@ -46,6 +63,9 @@ const handleUserSignup = async (req, res) => {
       dateOfBirth,
       phoneNumber,
       github,
+      linkedin,
+      instagram,
+      twitter,
       codechef,
       leetcode,
       codeforces,

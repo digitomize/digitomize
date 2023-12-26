@@ -40,7 +40,7 @@ async function main () {
   }
 }
 
-async function setupUserServer () {
+async function setupUserServer() {
   // console.log(process.env.FIREBASE_CREDENTIALS);
   console.log("ok");
   // Get the Firebase service account JSON from the environment variable
@@ -57,7 +57,7 @@ async function setupUserServer () {
   app.use("/questions", questionRoutes);
 }
 
-async function setupContestServer () {
+async function setupContestServer() {
   await dataSyncer.syncContests();
   setInterval(dataSyncer.syncContests, 90 * 60 * 1000);
 
@@ -82,11 +82,11 @@ async function setupContestServer () {
   app.use("/contests", contestRoutes);
 }
 
-async function setupCommunityServer () {
+async function setupCommunityServer() {
   app.use("/community", communityRoutes);
 }
 
-async function startServersProduction () {
+async function startServersProduction() {
   try {
     app.use(cors());
     app.use(bodyParser.json());
@@ -122,7 +122,7 @@ async function startServersProduction () {
     console.log("Error starting servers:", err);
   }
 }
-async function startServersDev () {
+async function startServersDev() {
   try {
     app.use(cors());
     app.use(bodyParser.json());
