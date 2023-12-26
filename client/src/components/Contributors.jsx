@@ -2,7 +2,6 @@ import AspectRatio from "@mui/joy/AspectRatio";
 import Box from "@mui/joy/Box";
 import Typography from "@mui/joy/Typography";
 import Card from "@mui/joy/Card";
-import { Autoplay } from "swiper/modules";
 import { AiFillGithub } from "react-icons/ai";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
