@@ -58,7 +58,7 @@
 - NPM
 - MongoDB
 
-### Installation Guide
+## Installation Guide
 
 1. Clone the repository: `git clone https://github.com/pranshugupta54/digitomize.git`
 2. Install project dependencies and start the development environment: <br>
