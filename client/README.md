@@ -24,12 +24,36 @@ The client directory is organized into several main directories and components:
   /src
     /assets         # Static assets like images and fonts
     /components     # Reusable React components
+      /AuthButtons
+      /Contests
+        /Challenges
+      /Home
+      /css
+      /globals
     /context        # State management contexts
     /core           # API services, app modal & utilities
+      /api
+      /components
+        /AppModal
+      /utils
     /dsaSheets      # Components and services for dsa content
+      /components
+      /layout
+      /pages
     /lib            # Additional libraries or utility functions
     /pages          # Components for different pages
+      /admin
+        /CommunityListPage
+        /ContestListPage
+        /UserListPage
+      /home
     /user           # User-specific components, services or data
+      /Profile
+        /components
+        /pages
+      /components
+      /dashboard
+      /leaderboard
 ```
 
 assets: This directory contains static assets such as images, fonts, and other files used in your application's user interface.
