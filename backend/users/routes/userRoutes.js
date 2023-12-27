@@ -25,7 +25,7 @@ router.get("/signImageUpload", addUID, generateSignature);
 
 router.get("/profile/:username", handleUserProfilePreview);
 
-router.get('/stats', stats);
+router.get("/stats", stats);
 
 // router.post('/profile/:username', addUID, checkUserOwnership, handleUpdateUserProfile);
 
