@@ -4,7 +4,7 @@ Thank you for your interest in [Digitomize](https://github.com/digitomize/digito
 
 ## Issues
 
-If you encounter any bugs, have feature requests, or want to suggest improvements, please open an issue on our [open an issue](../../issues) page. Please provide detailed information about the problem. Include steps to reproduce the issue, expected and actual results, and any relevant logs or screenshots.
+If you encounter any bugs, have feature requests, or want to suggest improvements, please [open an issue](../../issues) on our issues page. Please provide detailed information about the problem. Include steps to reproduce the issue, expected and actual results, and any relevant logs or screenshots.
 
 ## Discussion and Support
 
