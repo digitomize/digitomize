@@ -5,6 +5,7 @@ import gitbook from "./svgs/GitBookLight.svg";
 import msme from "./svgs/MSME.svg";
 import microsoft from "./svgs/microsoft4strp.svg";
 import digitalOcean from "./svgs/digitalOcean.svg";
+import meltcd from "../../assets/meltcd.png";
 import "/src/components/css/globals.css";
 import { Star } from "@mui/icons-material";
 import santaHat from "./svgs/santaHat.svg";
@@ -68,6 +69,12 @@ export default function SectionOne() {
             src={msme}
             draggable={false}
             alt="msme"
+          />
+          <img
+            className="max-md:w-32 md:w-40"
+            src={meltcd}
+            draggable={false}
+            alt="meltcd"
           />
 
 
