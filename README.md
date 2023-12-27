@@ -29,6 +29,7 @@
 - [Contributing](#contributing)
 - [License](#license)
 - [Discord](#discord)
+- [Contact](#contact-information)
 
 # Introduction
 
@@ -173,6 +174,10 @@ This project is licensed under the [MIT License](LICENSE).
 # Discord
 
 Join Our [Discord Community](https://digitomize.com/discord) for any help and troubleshooting.
+
+# Contact Information
+
+For more ways to get in touch, refer to our [CONTACT.md](CONTACT.md).
 
 # Buy me a Coffee ☕
 
