@@ -11,7 +11,7 @@ export default function Footer() {
             height="100"
             src={logo}
             alt="logo"
-            className="rounded-ful m-auto sm:!ml-0 sm:-my-6"
+            className="rounded-full m-auto sm:!ml-0 sm:-my-6"
           />
           <div>
             <h2 className="text-2xl my-3">Digitomize</h2>
