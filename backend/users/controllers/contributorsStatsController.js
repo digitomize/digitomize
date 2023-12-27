@@ -22,9 +22,16 @@ const fetchGitHubInfo = async () => {
   try {
     const apiUrl = "https://api.github.com/repos/digitomize/digitomize";
     const response = await fetch(apiUrl);
+
+    if (response.status === 403) {
+      // GitHub API rate limit exceeded
+      console.error("GitHub API rate limit exceeded. Please try again later.");
+      return null;
+    }
+
     const data = await response.json();
 
-    if(!data) throw new Error("No data found");
+    if (!data) throw new Error("No data found");
 
     return data;
   } catch (error) {
@@ -33,19 +40,29 @@ const fetchGitHubInfo = async () => {
   }
 };
 
+
 // Function to update contributors and statistics
-async function updateContributorsAndStats () {
+async function updateContributorsAndStats() {
   try {
     const githubInfo = await fetchGitHubInfo();
     const allContributors = await fetchContributorsFromFile();
 
-    if(!(githubInfo && allContributors)) throw new Error("Error occured in fetching data");
+    if (!(githubInfo && allContributors)) {
+      throw new Error("Error occurred in fetching data");
+    }
 
     return { githubInfo, allContributors };
   } catch (error) {
-    throw new Error("Error occured in fetching updated data", error);
+    console.error("Error occurred in fetching updated data", error);
+
+    // Returning a meaningful response or throwing a new error
+    // depending on your use case
+    return { error: "Error occurred in fetching updated data" };
+    // OR
+    // throw new Error("Error occurred in fetching updated data");
   }
 }
+
 
 // Schedule the update every 12 hours
 cron.schedule("0 */12 * * *", () => {
@@ -54,15 +71,23 @@ cron.schedule("0 */12 * * *", () => {
 
 // main controller
 export const stats = async (req, res) => {
-  const { githubInfo, allContributors } = await updateContributorsAndStats();
+  try {
+    const { githubInfo, allContributors, error } = await updateContributorsAndStats();
 
-  res
-    .status(200)
-    .json({
+    if (error) {
+      console.error("Error in updating contributors and stats:", error);
+      return res.status(500).json({ error: "Internal Server Error" });
+    }
+
+    res.status(200).json({
       star: githubInfo.stargazers_count,
       contributorsInfo: allContributors,
       totalNumberOfContributors: allContributors.length,
       linkedInFollowers: "750+",
       totalViews: "27k+",
     });
+  } catch (catchError) {
+    console.error("Unexpected error in stats endpoint:", catchError);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 };
