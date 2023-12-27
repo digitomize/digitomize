@@ -20,9 +20,7 @@ const handleUserSignup = async (req, res) => {
     dateOfBirth,
     phoneNumber,
     github,
-    linkedin,
-    instagram,
-    twitter,
+    social,
     codechef,
     leetcode,
     codeforces,
@@ -39,13 +37,13 @@ const handleUserSignup = async (req, res) => {
     return res.status(400).json({ error: "Missing required fields" });
   }
 
-  if (twitter && !twitterUrlPattern.test(twitter)) {
+  if (social.twitter && !twitterUrlPattern.test(social.twitter)) {
     return res.status(400).json({ error: "Missing required fields" });
   }
-  if (linkedin && !linkedInUrlPattern.test(linkedin)) {
+  if (social.linkedin && !linkedInUrlPattern.test(social.linkedin)) {
     return res.status(400).json({ error: "Missing required fields" });
   }
-  if (instagram && !instagramUrlPattern.test(instagram)) {
+  if (social.instagram && !instagramUrlPattern.test(social.instagram)) {
     return res.status(400).json({ error: "Missing required fields" });
   }
   // console.log(uid);
@@ -63,9 +61,7 @@ const handleUserSignup = async (req, res) => {
       dateOfBirth,
       phoneNumber,
       github,
-      linkedin,
-      instagram,
-      twitter,
+      social,
       codechef,
       leetcode,
       codeforces,

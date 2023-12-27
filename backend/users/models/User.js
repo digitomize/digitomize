@@ -121,18 +121,22 @@ const userSchema = new mongoose.Schema(
       type: stringToggleSchema,
       default: { data: null, showOnWebsite: true },
     },
-    linkedin: {
-      type: stringToggleSchema,
-      default: { data: null, showOnWebsite: false },
-    },
-    instagram: {
-      type: stringToggleSchema,
-      default: { data: null, showOnWebsite: false },
-    },
-    twitter: {
-      type: stringToggleSchema,
-      default: { data: null, showOnWebsite: false },
-    },
+    social: [
+      {
+        linkedin: {
+          type: String,
+          default: null,
+        },
+        insatgram: {
+          type: String,
+          default: null,
+        },
+        twitter: {
+          type: String,
+          default: null,
+        },
+      },
+    ],
     codechef: {
       type: contestToggleSchema,
       default: {

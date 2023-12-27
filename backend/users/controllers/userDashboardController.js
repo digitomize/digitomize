@@ -52,17 +52,10 @@ const handleUserDashboard = async (req, res) => {
         data: user.github.data || null,
         showOnWebsite: user.github.showOnWebsite,
       },
-      linkedin: {
-        data: user.linkedin.data || null,
-        showOnWebsite: user.linkedin.showOnWebsite,
-      },
-      instagram: {
-        data: user.instagram.data || null,
-        showOnWebsite: user.instagram.showOnWebsite,
-      },
-      twitter: {
-        data: user.twitter.data || null,
-        showOnWebsite: user.twitter.showOnWebsite,
+      social: {
+        linkedin: user.social.linkedin || null,
+        instagram: user.social.instagram || null,
+        twitter: user.social.twitter || null,
       },
       ratings: {
         codeforces: {
