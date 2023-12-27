@@ -2,6 +2,9 @@ import User from "../models/User.js";
 import { sendWebhook_updateAccount } from "../../services/discord-webhook/updateAccount.js";
 import { handleUserDataUpdate } from "./userProfileController.js";
 const maxUpdatesPerDay = 50;
+const twitterUrlPattern = /^(?:https?:\/\/)?(?:www\.)?twitter\.com\/(?:#!\/)?[a-zA-Z0-9_]{1,15}(?:\/)?$/;
+const linkedInUrlPattern = /^(?:https?:\/\/)?(?:www\.)?linkedin\.com\/in\/[a-zA-Z0-9-]{5,30}\/?$/;
+const instagramUrlPattern = /^(?:https?:\/\/)?(?:www\.)?instagram\.com\/[a-zA-Z0-9_]{1,30}\/?$/;
 
 // Helper function to update platform-specific data
 const updatePlatformData = (platform, userData, existingData, user) => {
@@ -49,6 +52,21 @@ const updateDataField = (field, userData, existingData) => {
   }
 };
 
+function validateSocialUrls (social) {
+  const patterns = {
+    twitter: twitterUrlPattern,
+    linkedin: linkedInUrlPattern,
+    instagram: instagramUrlPattern,
+  };
+
+  for (const [platform, url] of Object.entries(social)) {
+    if (url && !patterns[platform].test(url)) {
+      return { error: `Invalid ${platform} URL` };
+    }
+  }
+  return null;
+}
+
 // Helper function to update user data, including platform-specific data
 const updateUserData = async (userData, existingData) => {
   // Update general user data (firstName, lastName, etc.)
@@ -72,6 +90,10 @@ const updateUserData = async (userData, existingData) => {
   });
 
   if (userData.social) {
+    const validationError = validateSocialUrls(userData.social);
+    if (validationError) {
+      throw new Error(validationError.error);
+    }
     const socialFields = Object.keys(userData.social);
     socialFields.forEach((field) => {
       if (existingData.social && existingData.social[field] !== undefined) {

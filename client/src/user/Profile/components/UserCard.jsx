@@ -4,7 +4,7 @@ import { AiOutlineFastBackward, AiOutlineShareAlt } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
 import ShareModel from "../../../components/share_model";
 import linkedinSVG from "../../../assets/linkedin.svg";
-import insatgramSVG from "../../../assets/instagram.svg";
+import instagramSVG from "../../../assets/instagram.svg";
 import twitterSVG from "../../../assets/twitter.svg";
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 
@@ -104,7 +104,7 @@ function UserCard({
             <img src={linkedinSVG} alt="linkedin" className="h-10 w-10" />
           </a>
           <a className={social.insatgram ? "" : "hidden"} href={social.instagram}>
-            <img src={insatgramSVG} alt="instagram" className="h-10 w-10" />
+            <img src={instagramSVG} alt="instagram" className="h-10 w-10" />
           </a>
           <a className={social.twitter ? "" : "hidden"} href={social.twitter}>
             <img src={twitterSVG} alt="twitter" className="h-10 w-10"/>
