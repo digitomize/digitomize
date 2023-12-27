@@ -71,6 +71,15 @@ const updateUserData = async (userData, existingData) => {
     updatePlatformData(platform, userData, existingData[platform], existingData);
   });
 
+  if (userData.social) {
+    const socialFields = Object.keys(userData.social);
+    socialFields.forEach((field) => {
+      if (existingData.social && existingData.social[field] !== undefined) {
+        existingData.social[field] = userData.social[field];
+      }
+    });
+  }
+
   const skills = userData.skills;
   if (skills) {
     existingData.skills = skills;
@@ -127,8 +136,8 @@ const handleUpdateUserProfile = async (req, res) => {
       if (
         Object.keys(updatedData).every(
           (field) => {
-            const oldValue = JSON.stringify(userDataBeforeUpdate[field].username);
-            const newValue = JSON.stringify(updatedData[field].username);
+            const oldValue = JSON.stringify(userDataBeforeUpdate[field]);
+            const newValue = JSON.stringify(updatedData[field]);
             // console.log(`Comparing ${field}: oldValue=${oldValue}, newValue=${newValue}`);
             return oldValue === newValue;
           },

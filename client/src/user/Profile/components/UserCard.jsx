@@ -15,9 +15,7 @@ function UserCard({
   bio,
   phoneNumber,
   role,
-  twitter,
-  linkedin,
-  instagram,
+  social,
   skills = [],
 }) {
   const navigate = useNavigate();
@@ -101,14 +99,14 @@ function UserCard({
             </>
           </button>
         )}
-        <div className="pt-8 flex justify-center gap-3">
-          <a href="#linkedin">
+        <div className={`pt-8 flex justify-center gap-3 ${social ? "" : hidden}`}>
+          <a className={social.linkedin ? "" : "hidden"} href={social.linkedin}>
             <img src={linkedinSVG} alt="linkedin" className="h-10 w-10" />
           </a>
-          <a href="#insatgram">
+          <a className={social.insatgram ? "" : "hidden"} href={social.instagram}>
             <img src={insatgramSVG} alt="instagram" className="h-10 w-10" />
           </a>
-          <a href="#twitter">
+          <a className={social.twitter ? "" : "hidden"} href={social.twitter}>
             <img src={twitterSVG} alt="twitter" className="h-10 w-10"/>
           </a>
         </div>
