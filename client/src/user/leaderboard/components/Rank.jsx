@@ -42,13 +42,13 @@ const Rank = ({ color, pt = 6, user, selectedPlatform }) => {
               />
             </div>
             {color === "#FFD700" ? (
-              <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[102px] sm:h-[132px] sm:w-[110px] max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
+              <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[94px] sm:h-[132px] sm:w-[110px] max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
                 <h2 className="text-[#fff]">{user?.name}</h2>
                 <h2 style={{ color: color }}>{Math.floor(rating)}</h2>
                 <h2 style={{ color: color }} className="absolute bottom-3">#1</h2>
               </div>
             ) : color === "#C0C0C0" ? (
-              <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[85px] sm:h-[117px] sm:w-[110px]  max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
+              <div className="bg-[#252525]  rounded-[12px] text-center gap-x-[8px] max-sm:h-[82px] sm:h-[117px] sm:w-[110px]  max-sm:w-[55px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] sm:text-[14px] text-[10px]">
                 <h2 className="text-[#fff]">{user?.name}</h2>
                 <h2 style={{ color: color }}>{Math.floor(rating)}</h2>
                 <h2 style={{ color: color }} className="absolute bottom-3">#2</h2>
@@ -84,18 +84,18 @@ const Rank = ({ color, pt = 6, user, selectedPlatform }) => {
               {/* Profile Picture */}
               <Skeleton
                 variant="circular"
-                width={"108px"}
-                height={"108px"}
+                width={"88px"}
+                height={"88px"}
                 sx={{ bgcolor: "grey.600" }}
                 className="my-2"
               />
             </div>
           </div>
-          <div className="bg-[#252525] rounded-[12px] text-center gap-x-[8px] h-[150px] w-[110px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] text-[14px]">
+          <div className="bg-[#252525] rounded-[12px] text-center gap-x-[8px] h-[120px] w-[110px] flex flex-col items-center justify-center font-semibold tracking-[0.42px] text-[14px]">
             <Skeleton
               variant="rounded"
               width={"full"}
-              height={"150px"}
+              height={"120px"}
               sx={{ bgcolor: "grey.600" }}
               className="my-2"
             />
