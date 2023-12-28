@@ -19,8 +19,8 @@ import SkipNextIcon from "@mui/icons-material/SkipNext";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
+import Marquee from "react-fast-marquee";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -304,42 +304,9 @@ export default function Contributors() {
         <div className="w-full p-2 flex flex-col gap-2">
           <h1 className="m-0 p-0 max-phone:text-4xl">Contributors</h1>
           <div className="flex flex-row">
-            <Swiper
-              spaceBetween={10}
-              slidesPerView={5}
-              modules={[Autoplay]}
-              autoplay={{
-                delay: 1500,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              loop={true}
-              breakpoints={{
-                100: {
-                  slidesPerView: 1,
-                  spaceBetween: 30,
-                },
-                250: {
-                  slidesPerView: 2.8,
-                  spaceBetween: 30,
-                },
-                640: {
-                  slidesPerView: 3.7,
-                  spaceBetween: 30,
-                },
-                768: {
-                  slidesPerView: 4.2,
-                  spaceBetween: 30,
-                },
-                1024: {
-                  slidesPerView: 4.8,
-                  spaceBetween: 50,
-                },
-              }}
-            >
+              <Marquee>
               {temp.map((item) => (
-                <div key={item.name} className="w-full">
-                  <SwiperSlide key={item.name} className="w-fit">
+                <div key={item.name} className="w-full px-2">
                     <Link to={item.profile}>
                       <Card
                         orientation="horizontal"
@@ -398,53 +365,18 @@ export default function Contributors() {
                         </Box>
                       </Card>
                     </Link>
-                  </SwiperSlide>
                 </div>
               ))}
-            </Swiper>
+              </Marquee>
           </div>
           <div className="flex flex-row">
-            <Swiper
-              spaceBetween={10}
-              slidesPerView={4.5}
-              modules={[Autoplay]}
-              autoplay={{
-                delay: 1500,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-                reverseDirection: true,
-              }}
-              loop={true}
-              breakpoints={{
-                100: {
-                  slidesPerView: 1,
-                  spaceBetween: 30,
-                },
-                250: {
-                  slidesPerView: 2.8,
-                  spaceBetween: 30,
-                },
-                640: {
-                  slidesPerView: 3.7,
-                  spaceBetween: 30,
-                },
-                768: {
-                  slidesPerView: 4.2,
-                  spaceBetween: 30,
-                },
-                1024: {
-                  slidesPerView: 4.8,
-                  spaceBetween: 50,
-                },
-              }}
-            >
+              <Marquee direction="right">
               {temp.map((item) => (
-                <div key={item.name} className="w-full">
-                  <SwiperSlide key={item.name} className="w-fit">
+                <div key={item.name} className="w-full px-2">
                     <Link to={item.profile}>
                       <Card
                         orientation="horizontal"
-                        className="w-fit my-2 hover:scale-105"
+                        className="w-fit my-2 hover:scale-105 "
                         size="sm"
                         key={item.title}
                         variant="outlined"
@@ -499,10 +431,9 @@ export default function Contributors() {
                         </Box>
                       </Card>
                     </Link>
-                  </SwiperSlide>
                 </div>
               ))}
-            </Swiper>
+              </Marquee>
           </div>
         </div>
         {/* <div className="w-full px-2 max-phone:flex flex-col phone:hidden">
