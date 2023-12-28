@@ -3,7 +3,7 @@
 
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-48-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-49-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/125b14c1-ebbe-46d7-97db-c3e97674e36e/deploy-status)](https://app.netlify.com/sites/digitomize/deploys)
@@ -15,6 +15,7 @@
 <a href="https://m.do.co/c/db7dbc698e16" target="_blank"><img align="center" src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" alt="DigitalOcean Logo" height="150" width="200"></a> 
 <img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" alt="GitBook Logo" height="auto" width="200">
 <img align="center" src="https://github.com/krushnarout/digitomize/assets/129386740/3f224853-cf4b-4318-ba27-8285d1c9a0fe" alt="MSME Logo" height="auto" width="200">
+<img align="center" src="https://cdn.discordapp.com/attachments/1188587123608129577/1189497551804698694/S3kHtNI.png?ex=659e60ec&is=658bebec&hm=5507e6d101bdcf548ec97a16ee721800b8b8f880f7092045045a3368465a1fb3&" alt="MELT CD Logo" height="auto" width="200">
 
 # Table of Contents
 
@@ -158,6 +159,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/iSubhamMani"><img src="https://avatars.githubusercontent.com/u/134488182?v=4?s=100" width="100px;" alt="Subham Mani"/><br /><sub><b>Subham Mani</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=iSubhamMani" title="Code">💻</a> <a href="https://github.com/digitomize/digitomize/commits?author=iSubhamMani" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Chakit22"><img src="https://avatars.githubusercontent.com/u/118890138?v=4?s=100" width="100px;" alt="Chakit Bhandari"/><br /><sub><b>Chakit Bhandari</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Chakit22" title="Code">💻</a> <a href="https://github.com/digitomize/digitomize/commits?author=Chakit22" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/c4coderandcreator"><img src="https://avatars.githubusercontent.com/u/70572678?v=4?s=100" width="100px;" alt="Coder And Creator"/><br /><sub><b>Coder And Creator</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=c4coderandcreator" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://kunalsin9h.com"><img src="https://avatars.githubusercontent.com/u/82411321?v=4?s=100" width="100px;" alt="Kunal Singh"/><br /><sub><b>Kunal Singh</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=KunalSin9h" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
