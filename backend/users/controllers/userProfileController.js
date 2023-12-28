@@ -117,6 +117,11 @@ const handleUserProfilePreview = async (req, res) => {
       github: {
         data: user.github.showOnWebsite ? user.github.data : null,
       },
+      social: {
+        linkedin: user.social.linkedin,
+        instagram: user.social.instagram,
+        twitter: user.social.twitter,
+      },
       ratings: {
         digitomize_rating: user.digitomize_rating,
       },

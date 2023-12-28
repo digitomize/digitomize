@@ -12,7 +12,7 @@ import WarningIcon from "@mui/icons-material/Warning";
 import CustomLinkCard from "./components/CustomLinkCard";
 
 function NewUserProfile() {
-  const { personal_data } = useOutletContext();
+  const { personal_data, social } = useOutletContext();
   const contentDescription = `${
     personal_data?.bio?.length > 30
       ? personal_data.bio.substring(0, 30) + "..."
@@ -53,6 +53,7 @@ function NewUserProfile() {
             phoneNumber={personal_data.phoneNumber}
             role={personal_data.role}
             skills={personal_data.skills}
+            social={social}
           />
         </div>
 
