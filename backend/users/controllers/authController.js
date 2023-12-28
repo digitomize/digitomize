@@ -15,7 +15,7 @@ function validateSocialUrls (social) {
 
   for (const [platform, url] of Object.entries(social)) {
     if (url && !patterns[platform].test(url)) {
-      return { error: `Invalid ${platform} URL` };
+      return { error: `Invalid ${platform} URL`, message: `Invalid ${platform} URL` };
     }
   }
   return null;

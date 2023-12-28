@@ -15,11 +15,8 @@ import { MetaData } from "../../components/CustomComponents";
 import Chip from "@mui/material/Chip";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import { styled } from "@mui/material/styles";
-import Footer from "../../components/globals/Footer";
 import ImageUploader from "../../components/ImageUploader";
-import instagramSVG from "../../assets/instagram.svg";
-import linkedinSVG from "../../assets/linkedin.svg";
-import twitterSVG from "../../assets/twitter.svg";
+import { FaXTwitter, FaLinkedin, FaInstagram } from "react-icons/fa6";
 
 const ListItem = styled("li")(({ theme }) => ({
   margin: theme.spacing(0.5),
@@ -434,38 +431,38 @@ export default function UserDashPersonal() {
             </div>
 
             <div className="flex flex-col gap-4 pb-8">
-              <div className="flex gap-4">
-                <img src={instagramSVG} alt="" className="h-12 w-12" />
+              <div className="flex gap-4 items-center">
+                <FaInstagram size={40} />
                 <input
                   type="text"
                   name="instagram"
                   value={formData.social.instagram}
-                  placeholder="Instagram"
+                  placeholder="Instagram URL"
                   onChange={handleSocialChange}
-                  className="input input-bordered sm:w-2/6 md:w-1/5"
+                  className="input input-bordered sm:w-2/6 md:w-2/5"
                 />
 
               </div>
-              <div className="flex gap-4">
-                <img src={linkedinSVG} alt="" className="h-12 w-12" />
+              <div className="flex gap-4 items-center">
+                <FaLinkedin size={40} />
                 <input
                   type="text"
                   name="linkedin"
                   value={formData.social.linkedin}
-                  placeholder="LinkedIn"
+                  placeholder="Linkedin URL"
                   onChange={handleSocialChange}
-                  className="input input-bordered sm:w-2/6 md:w-1/5"
+                  className="input input-bordered sm:w-2/6 md:w-2/5"
                 />
               </div>
-              <div className="flex gap-4">
-                <img src={twitterSVG} alt="" className="h-12 w-12" />
+              <div className="flex gap-4 items-center">
+                <FaXTwitter size={40} />
                 <input
                   type="text"
                   name="twitter"
                   value={formData.social.twitter}
-                  placeholder="Twitter"
+                  placeholder="Twitter URL"
                   onChange={handleSocialChange}
-                  className="input input-bordered sm:w-2/6 md:w-1/5"
+                  className="input input-bordered sm:w-2/6 md:w-2/5"
                 />
               </div>
             </div>
@@ -483,7 +480,7 @@ export default function UserDashPersonal() {
             </div>
           </div>
         </div>
-        <div className="mockup-browser border bg-base-300 mt-4">
+        {/* <div className="mockup-browser border bg-base-300 mt-4">
           <div className="mockup-browser-toolbar">
             <div className="input" style={{ marginLeft: "0" }}>
               {"#include {digitomize} > {socials}"}
@@ -502,7 +499,7 @@ export default function UserDashPersonal() {
               </pre>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       {/* <Footer /> */}
     </>

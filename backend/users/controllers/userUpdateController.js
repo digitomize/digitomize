@@ -61,7 +61,7 @@ function validateSocialUrls (social) {
 
   for (const [platform, url] of Object.entries(social)) {
     if (url && !patterns[platform].test(url)) {
-      return { error: `Invalid ${platform} URL` };
+      return { error: `Invalid ${platform} URL`, message: `Invalid ${platform} URL` };
     }
   }
   return null;
@@ -92,7 +92,7 @@ const updateUserData = async (userData, existingData) => {
   if (userData.social) {
     const validationError = validateSocialUrls(userData.social);
     if (validationError) {
-      throw new Error(validationError.error);
+      throw validationError;
     }
     const socialFields = Object.keys(userData.social);
     socialFields.forEach((field) => {
@@ -213,7 +213,7 @@ const handleUpdateUserProfile = async (req, res) => {
     } catch (error) {
       // Handle the error thrown by updateUserData
       console.log(error);
-      res.status(400).json({ error: error.message }); // Send the error message to the client
+      res.status(400).json({ error: error.error, message:error.message }); // Send the error message to the client
     }
   } catch (error) {
     console.error("Error:", error);
