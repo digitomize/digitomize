@@ -1,6 +1,5 @@
 import { promises as fsPromises } from "fs";
 import path from "path";
-import cron from "node-cron";
 
 // fetch contributors from file
 const fetchContributorsFromFile = async () => {
