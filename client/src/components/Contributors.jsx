@@ -327,7 +327,7 @@ export default function Contributors() {
                           className="max-phone:hidden"
                         >
                           <Typography level="title-md">
-                            {item.name.slice(0, 15)}
+                            {item.name.slice(0, 20)}
                           </Typography>
                           <div className="github flex flex-col gap-1">
                             <div className="flex flex-row items-center">
