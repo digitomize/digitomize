@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineFastBackward, AiOutlineShareAlt } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
 import ShareModel from "../../../components/share_model";
+import { FaXTwitter, FaLinkedin, FaInstagram } from "react-icons/fa6";
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 
 function UserCard({
@@ -12,6 +13,7 @@ function UserCard({
   bio,
   phoneNumber,
   role,
+  social,
   skills = [],
 }) {
   const navigate = useNavigate();
@@ -95,6 +97,17 @@ function UserCard({
             </>
           </button>
         )}
+        <div className={`pt-8 flex justify-center gap-3 ${social ? "" : "hidden"}`}>
+          <a className={social?.linkedin ? "" : "hidden"} href={social?.linkedin} target="_blank">
+            <FaLinkedin size={30} color="white"/>
+          </a>
+          <a className={social?.instagram ? "" : "hidden"} href={social?.instagram} target="_blank">
+            <FaInstagram size={30} color="white"/>
+          </a>
+          <a className={social?.twitter ? "" : "hidden"} href={social?.twitter} target="_blank">
+            <FaXTwitter size={30} color="white"/>
+          </a>
+        </div>
         {!isUserProfile && !isUserDashboard && (
           <button className="bg-blue-500 flex gap-1 w-fit items-center justify-center text-white px-4 py-2 rounded-full mt-4 hover:opacity-80">
             <>
