@@ -6,7 +6,7 @@ import { handleUpdateUserProfile } from "../controllers/userUpdateController.js"
 import { addUID } from "../middlewares/authMiddleware.js";
 import { getLeaderboard } from "../controllers/leaderboardController.js";
 import { generateSignature } from "../controllers/cloudinaryUploadController.js";
-import { stats } from "../controllers/contributorsStatsController.js";
+import { stats } from "../services/contributorsStatsController.js";
 
 const router = express.Router();
 

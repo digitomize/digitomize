@@ -5,7 +5,7 @@ import cron from "node-cron";
 // fetch contributors from file
 const fetchContributorsFromFile = async () => {
   try {
-    const filename = path.join("users", "./../../.all-contributorsrc");
+    const filename = path.join("services", "./../../.all-contributorsrc");
     const filedata = await fsPromises.readFile(filename, "utf8");
 
     const data = JSON.parse(filedata);
