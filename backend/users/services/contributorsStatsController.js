@@ -63,11 +63,26 @@ async function updateContributorsAndStats() {
   }
 }
 
-
 // Schedule the update every 12 hours
-cron.schedule("0 */12 * * *", () => {
-  updateContributorsAndStats();
-});
+const scheduleUpdate = async () => {
+  try {
+    const { githubInfo, allContributors, error } = await updateContributorsAndStats();
+
+    if (error) {
+      console.error("Error in updating contributors and stats:", error);
+      return;
+    }
+
+    // Reschedule the update after 12 hours
+    setTimeout(scheduleUpdate, 12 * 60 * 60 * 1000);
+  } catch (catchError) {
+    console.error("Unexpected error in stats endpoint:", catchError);
+  }
+};
+
+// Schedule the first update
+setTimeout(scheduleUpdate, 0);
+
 
 // main controller
 export const stats = async (req, res) => {
