@@ -1,4 +1,4 @@
-import React, { useEffect, useState ,useRef} from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   useLocation,
   Link,
@@ -61,8 +61,8 @@ export default function Leaderboard() {
   const platformsIcon = [leetcode, codechef, codeforces];
   const ratings = ["digitomize", "codechef", "leetcode", "codeforces"];
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
-   const close_model = () => setShow(false);
-   const [show, setShow] = useState(false);
+  const close_model = () => setShow(false);
+  const [show, setShow] = useState(false);
   function getCurrentDimension() {
     return {
       width: window.innerWidth,
@@ -191,17 +191,16 @@ export default function Leaderboard() {
   const handleChange = (event) => {
     console.log(event.target.value);
     setSelectedPlatform(event.target.value);
-    if (event.target.value.length !== 0)
-      {
-        setSearchParams({ platform: event.target.value, page: 1 })
-      }
+    if (event.target.value.length !== 0) {
+      setSearchParams({ platform: event.target.value, page: 1 });
+    }
     else {
       searchParams.delete("platform");
       setSearchParams(searchParams);
     }
-    setCurrentPage(1)
-    if(screenSize.width<=640)
-    setSelectedRating(event.target.value)
+    setCurrentPage(1);
+    if (screenSize.width <= 640)
+      setSelectedRating(event.target.value);
   };
   const main_model = (
     <ShareModel
@@ -210,7 +209,7 @@ export default function Leaderboard() {
       //theme={colorTheme}
       theme=""
     />
-  )
+  );
   return (
     <>
       <MetaData path="u/leaderboard" />
@@ -220,12 +219,12 @@ export default function Leaderboard() {
           One Scoreboard for
           <br />
           All Your{" "}
-          <span className="bg-[#1584FF] py-[1px] sm:py-1">
+          <span className="bg-digitomize-bg py-[1px] sm:py-1 rounded-md">
             &nbsp;Coding Battles&nbsp;
           </span>
         </h1>
-        
-       
+
+
       </div>
       <div className="flex justify-center max-phone:gap-6 phone:gap-12 phone:w-4/6 w-11/12 mx-auto  h-fit">
         <Rank
@@ -341,7 +340,7 @@ export default function Leaderboard() {
         </div>
       </div>
       <div className="phone:w-4/6 w-[95%] mx-auto mt-4 text-center text-white">
-        <div className=" rounded-[20px] max-phone:overflow-x-hidden overflow-x-scroll">
+        <div className=" rounded-[20px] max-phone:overflow-x-hidden overflow-x-auto">
           <table
             className={`table  ${screenSize.width <= 435 ? "table-xs" : ""
               }  bg-[#252525]  w-full`}
@@ -488,10 +487,10 @@ export default function Leaderboard() {
                               <Link to={"/u/" + row.username}>
                                 <div className="font-semibold text-left sm:text-[14px] text-[12px] ">
                                   {row.name.toLowerCase()}{" "}
-                                  <OpenInNew style={{ fontSize: "10px" }} />{" "}
+                                  <OpenInNew style={{ fontSize: "15px" }} />{" "}
                                 </div>
                                 <div className="  sm:text-[11px] text-[8px] font-light text-left">
-                                  @{ screenSize.width<=350 ? row.username.length<=15 ? row.username : row.username.slice(0,15)+"..." : row.username
+                                  @{screenSize.width <= 350 ? row.username.length <= 15 ? row.username : row.username.slice(0, 15) + "..." : row.username
                                   }
                                 </div>
                                 {/* You can display more userDetails details here if needed */}
@@ -522,7 +521,7 @@ export default function Leaderboard() {
                     key={currentUserData.user_position}
                     className="bg-[#252525] text-center"
                   >
-                    <td>{"#"+currentUserData.user_position || "Not ranked"}</td>
+                    <td>{"#" + currentUserData.user_position || "Not ranked"}</td>
                     <td>
                       <div className="flex items-center space-x-3">
                         <div className="avatar">
@@ -530,10 +529,10 @@ export default function Leaderboard() {
                             to={"/u/" + userDetails.personal_data.username}
                             target="_blank"
                           >
-                            <div className="mask mask-squircle w-12 h-12 ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <div className="mask mask-circle sm:w-[30px] sm:h-[30px] w-[25px] h-[25px] ring ring-primary ring-offset-base-100 ring-offset-2">
                               {/* You can set the image source dynamically */}
                               <img
-                                className="mask mask-hexagon"
+                                className="mask mask-circle"
                                 src={userDetails.personal_data.picture}
                                 alt="Avatar Tailwind CSS Component"
                               />
@@ -542,24 +541,41 @@ export default function Leaderboard() {
                         </div>
                         <div>
                           <Link to={"/u/" + userDetails.personal_data.username}>
-                            <div className="font-bold">
+                            <div className="font-semibold text-left sm:text-[14px] text-[12px]">
                               {userDetails.personal_data.name}
-                              {"(YOU)"} <OpenInNew fontSize="small" />{" "}
+                              {"(YOU)"} <OpenInNew  style={{ fontSize: "15px" }} />{" "}
                             </div>
-                            <div className="text-sm opacity-50 text-left">
-                              @{userDetails.personal_data.username}
+                            <div className=" sm:text-[11px] text-[8px] font-light text-left">
+                              @{
+                                screenSize.width<=350 ? userDetails.personal_data.username.length<=15 ? userDetails.personal_data.username : userDetails.personal_data.username.slice(0,15)+"..." : userDetails.personal_data.username
+                              }
                             </div>
                             {/* You can display more userDetails details here if needed */}
                           </Link>
                         </div>
                       </div>
                     </td>
-                    <td>{currentUserData.ratings.codechef || 0}</td>
+                    {/* <td>{currentUserData.ratings.codechef || 0}</td>
                     <td>{currentUserData.ratings.leetcode || 0}</td>
                     <td>{currentUserData.ratings.codeforces || 0}</td>
                     <td>
                       {Math.floor(currentUserData.ratings.digitomize_rating)}
-                    </td>
+                    </td> */}
+                     <td className="max-sm:hidden">{currentUserData.ratings.codechef || 0}</td>
+                        <td className="max-sm:hidden">{currentUserData.ratings.leetcode || 0}</td>
+                        <td className="max-sm:hidden">{currentUserData.ratings.codeforces || 0}</td>
+                        <td className="max-sm:hidden">
+                          {Math.floor(currentUserData.ratings.digitomize_rating)}
+                        </td>
+                        <td className="sm:hidden">
+                          {selectedRating === "digitomize"
+                            ? Math.floor(currentUserData.ratings.digitomize_rating)
+                            : selectedRating === "leetcode"
+                              ? currentUserData.ratings.leetcode
+                              : selectedRating === "codechef"
+                                ? currentUserData.ratings.codechef
+                                : currentUserData.ratings.codeforces}
+                        </td>
                     {/* <td>{userDetails.platform_rating}</td> */}
                   </tr>
                 )}
@@ -568,10 +584,9 @@ export default function Leaderboard() {
             {/* foot */}
           </table>
         </div>
-        <div className="flex sm:hidden justify-center w-fit ml-auto items-center mt-3  text-white px-6 py-1 font-['Geist'] rounded-full text-xs">
-        Share the board now 
-        <div className="h-8 ml-1 max-md:w-12 clip flex items-center justify-center">
-          <button onClick={() => setShow(true)}>
+        <button onClick={() => setShow(true)} className="flex sm:hidden justify-center w-fit ml-auto items-center mt-3 border border-badge bg-badge  text-badge-txt px-6 py-1 font-['Geist'] rounded-full text-sm">
+          Share the board now
+          <div className="h-8 ml-1 max-md:w-12 clip flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="14"
@@ -584,10 +599,9 @@ export default function Leaderboard() {
                 className="color000000 svgShape"
               ></path>
             </svg>
-          </button>
-          {show && main_model}
-        </div> 
-      </div>
+            {show && main_model}
+          </div>
+        </button>
         {/* <div className="join my-8 mx-auto">
                     {Array.from({ length: totalPages }, (_, i) => (
                         <>

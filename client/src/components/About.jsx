@@ -12,16 +12,23 @@ export default function About() {
   return (
     <>
       <MetaData path="about" />
-      <div className="container w-11/12 mx-auto text-center mt-4 antialiased">
+      <div className=" w-11/12 mx-auto text-center mt-4 antialiased font-['Geist'] ">
         <div className="hero">
           <div className="hero-content flex-col sm:flex-row">
             <div className="left text-center flex flex-col justify-center items-center">
               <div className="text-center w-fit">
-                <h1 className="lg:text-[85px] sm:text-[50px] md:text-[65px] phone:text-[30px]  max-phone:text-5xl my-0 font-medium flex phone:flex-row max-phone:flex-col mx-auto w-full">
+                <h1 className="lg:text-[83px] sm:text-[50px] md:text-[61px] phone:text-[30px] items-center text-white justify-center  max-phone:text-5xl my-0 font-medium flex phone:flex-row max-phone:flex-col mx-auto w-full">
                   An{" "}
-                  <span className="text-custom-blue font-bold mx-2 flex flex-row">
+                  <span className="bg-digitomize-bg phone:hidden py-[2px] sm:py-1 rounded-md font-bold sm:ml-2 w-fit">
+                    Open
+                  </span> <span className="bg-digitomize-bg phone:hidden py-[2px] sm:py-1 my-1 rounded-md font-bold sm:mr-2 w-fit">
+                    Source
+                  </span>
+                  <span className="bg-digitomize-bg max-phone:hidden py-[2px] sm:py-1 rounded-md font-bold mx-2">
                     Open Source
-                  </span>{" "}
+                  </span>
+                  {" "}
+
                   project
                 </h1>
                 <p className="py-6 font-['Source Code Pro'] phone:text-4xl phone:text-right text-xl">
@@ -188,7 +195,7 @@ export default function About() {
             <div className="sm:w-1/3  phone:space-x-2 sm:space-x-0  flex sm:flex-col max-sm:flex-row">
               <div>
                 <div
-                  className="radial-progress text-primary"
+                  className="radial-progress text-digitomize-bg"
                   style={{ "--value": 33 }}
                   role="progressbar"
                 >
@@ -202,7 +209,7 @@ export default function About() {
                 <p className="mt-2 text-base font-book leading-snug text-gray-9">
                   Start by reading digitomize's{" "}
                   <a
-                    className="text-primary"
+                    className="text-digitomize-bg"
                     href="https://github.com/digitomize/digitomize/blob/main/CONTRIBUTING.md"
                     target="_blank"
                     rel="noreferrer"
@@ -211,7 +218,7 @@ export default function About() {
                   </a>{" "}
                   and{" "}
                   <a
-                    className="text-primary"
+                    className="text-digitomize-bg"
                     href="https://github.com/digitomize/digitomize/blob/main/README.md"
                     target="_blank"
                     rel="noreferrer"
@@ -225,7 +232,7 @@ export default function About() {
             <div className="sm:w-1/3  phone:space-x-2 sm:space-x-0  flex sm:flex-col max-sm:flex-row">
               <div>
                 <div
-                  className="radial-progress text-primary"
+                  className="radial-progress text-digitomize-bg"
                   style={{ "--value": 66 }}
                   role="progressbar"
                 >
@@ -239,7 +246,7 @@ export default function About() {
                 <p className="mt-2 text-base font-book leading-snug text-gray-9">
                   Head over to{" "}
                   <a
-                    className="text-primary"
+                    className="text-digitomize-bg"
                     href="https://github.com/digitomize/digitomize/issues"
                     target="_blank"
                     rel="noreferrer"
@@ -248,7 +255,7 @@ export default function About() {
                   </a>{" "}
                   or open a{" "}
                   <a
-                    className="text-primary"
+                    className="text-digitomize-bg"
                     href="https://github.com/digitomize/digitomize/issues/new"
                     target="_blank"
                     rel="noreferrer"
@@ -262,7 +269,7 @@ export default function About() {
             <div className="sm:w-1/3 phone:space-x-2 sm:space-x-0 flex sm:flex-col max-sm:flex-row">
               <div>
                 <div
-                  className="radial-progress text-primary"
+                  className="radial-progress text-digitomize-bg"
                   style={{ "--value": 100 }}
                   role="progressbar"
                 >
@@ -274,7 +281,7 @@ export default function About() {
                 <p className="mt-2 text-base font-book leading-snug text-gray-9">
                   Solve the issue and create a Pull Request. Join us on{" "}
                   <a
-                    className="text-primary"
+                    className="text-digitomize-bg"
                     href="https://digitomize.com/discord"
                   >
                     Discord

@@ -50,6 +50,10 @@ Please ensure your code adheres to the [Coding Guidelines](#coding-guidelines).
 - Test your changes thoroughly before submitting a pull request.
 - Document new features, changes, or important concepts as needed.
 
+# Contact Information
+
+For more ways to get in touch, refer to our [CONTACT.md](CONTACT.md).
+
 ## License
 
 By contributing to this project, you agree that your contributions will be licensed under the [MIT License](../LICENSE).

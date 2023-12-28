@@ -5,6 +5,7 @@ import gitbook from "./svgs/GitBookLight.svg";
 import msme from "./svgs/MSME.svg";
 import microsoft from "./svgs/microsoft4strp.svg";
 import digitalOcean from "./svgs/digitalOcean.svg";
+import meltcd from "../../assets/meltcd.png";
 import "/src/components/css/globals.css";
 import { Star } from "@mui/icons-material";
 import santaHat from "./svgs/santaHat.svg";
@@ -19,7 +20,7 @@ export default function SectionOne() {
         <h1 className="mt-2 text-white max-md:text-4xl md:text-7xl">
           <span>One place for all your</span>
           <span className="block mt-1 md:mt-6 relative">
-            <span className="bg-digitomize-bg px-2 relative">
+            <span className="bg-digitomize-bg px-2 relative rounded-md">
               <span className="relative z-10">
                 {/* <img src={santaHat} className="absolute -rotate-45 transform h-16 w-16 -left-2 top-[-10%]" alt="Santa Hat" /> */}
                 coding platforms
@@ -68,6 +69,12 @@ export default function SectionOne() {
             src={msme}
             draggable={false}
             alt="msme"
+          />
+          <img
+            className="max-md:w-32 md:w-40"
+            src={meltcd}
+            draggable={false}
+            alt="meltcd"
           />
 
 

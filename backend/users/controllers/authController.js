@@ -1,7 +1,26 @@
 import { setUser } from "../services/setUser.js";
 
+const twitterUrlPattern = /^(?:https?:\/\/)?(?:www\.)?twitter\.com\/(?:#!\/)?[a-zA-Z0-9_]{1,15}(?:\/)?$/;
+const linkedInUrlPattern = /^(?:https?:\/\/)?(?:www\.)?linkedin\.com\/in\/[a-zA-Z0-9-]{5,30}\/?$/;
+const instagramUrlPattern = /^(?:https?:\/\/)?(?:www\.)?instagram\.com\/[a-zA-Z0-9_]{1,30}\/?$/;
+
 // ? returns JSON message with Status Code
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
+function validateSocialUrls (social) {
+  const patterns = {
+    twitter: twitterUrlPattern,
+    linkedin: linkedInUrlPattern,
+    instagram: instagramUrlPattern,
+  };
+
+  for (const [platform, url] of Object.entries(social)) {
+    if (url && !patterns[platform].test(url)) {
+      return { error: `Invalid ${platform} URL`, message: `Invalid ${platform} URL` };
+    }
+  }
+  return null;
+}
+
 const handleUserSignup = async (req, res) => {
   let {
     uid,
@@ -16,6 +35,7 @@ const handleUserSignup = async (req, res) => {
     dateOfBirth,
     phoneNumber,
     github,
+    social,
     codechef,
     leetcode,
     codeforces,
@@ -30,6 +50,13 @@ const handleUserSignup = async (req, res) => {
   // Validate required fields
   if (!uid) {
     return res.status(400).json({ error: "Missing required fields" });
+  }
+
+  if (social) {
+    const validationError = validateSocialUrls(social);
+    if (validationError) {
+      return res.status(400).json(validationError);
+    }
   }
   // console.log(uid);
   try {
@@ -46,6 +73,7 @@ const handleUserSignup = async (req, res) => {
       dateOfBirth,
       phoneNumber,
       github,
+      social,
       codechef,
       leetcode,
       codeforces,

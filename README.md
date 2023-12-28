@@ -1,26 +1,23 @@
 
 # Digitomize - [Website](https://digitomize.com)
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/digitomize)
-[![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=db7dbc698e16&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-44-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
+**Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-49-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/125b14c1-ebbe-46d7-97db-c3e97674e36e/deploy-status)](https://app.netlify.com/sites/digitomize/deploys)
 [![Forks on Github](https://img.shields.io/github/forks/digitomize/digitomize)](https://github.com/digitomize/digitomize/forks)
 [![Star on GitHub](https://img.shields.io/github/stars/digitomize/digitomize.svg?style=social)](https://github.com/digitomize/digitomize/stargazers)
 
-**Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios.
+# Supported by:
+<img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" alt="Microsoft for Startups Logo" height="auto" width="200">
+<a href="https://m.do.co/c/db7dbc698e16" target="_blank"><img align="center" src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" alt="DigitalOcean Logo" height="150" width="200"></a> 
+<img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" alt="GitBook Logo" height="auto" width="200">
+<img align="center" src="https://github.com/krushnarout/digitomize/assets/129386740/3f224853-cf4b-4318-ba27-8285d1c9a0fe" alt="MSME Logo" height="auto" width="200">
+<img align="center" src="https://cdn.discordapp.com/attachments/1188587123608129577/1189497551804698694/S3kHtNI.png?ex=659e60ec&is=658bebec&hm=5507e6d101bdcf548ec97a16ee721800b8b8f880f7092045045a3368465a1fb3&" alt="MELT CD Logo" height="auto" width="200">
 
-## Supported by:
-
-<a href="https://m.do.co/c/db7dbc698e16" target="_blank"><img align="center" src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" alt="DigitalOcean Logo" height="150" width="300"></a> 
-<img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" alt="GitBook Logo" height="auto" width="300">
-<img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" alt="Microsoft for Startups Logo" height="auto" width="300">
-<img align="center" src="https://github.com/krushnarout/digitomize/assets/129386740/3f224853-cf4b-4318-ba27-8285d1c9a0fe" alt="MSME Logo" height="auto" width="220">
-
-## Table of Contents
+# Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
@@ -33,21 +30,22 @@
 - [Contributing](#contributing)
 - [License](#license)
 - [Discord](#discord)
+- [Contact](#contact-information)
 
-## Introduction
+# Introduction
 
 **Digitomize** is designed to provide developers with a comprehensive platform for exploring coding contests and creating dynamic portfolios that showcase their coding skills and achievements.
 
-## Features
+# Features
 
 - **Contests Section:** Explore upcoming coding contests from platforms like LeetCode, Codeforces, CodeChef, and more. Filter contests based on various criteria and view contest details such as remaining time, duration, and more.
 
 - **User Profiles:** Create your developer portfolio by providing user handles for different coding platforms. The platform dynamically fetches and displays your updated ratings, achievements, and coding history.
 
-## Getting Started
+# Getting Started
 **Hit the star :star:**
 
-### Tech Stack
+## Tech Stack
 
 ### Frontend
 
@@ -62,7 +60,7 @@
 - NPM
 - MongoDB
 
-### Installation Guide
+## Installation Guide
 
 1. Clone the repository: `git clone https://github.com/pranshugupta54/digitomize.git`
 2. Install project dependencies and start the development environment: <br>
@@ -73,7 +71,7 @@
 
 4. Start the development environment: `npm run dev` (This command, defined in your project's package.json, starts both the backend server and the client using the concurrently library. It's a convenient way to run both parts of your application concurrently during development.)
 
-## Usage
+# Usage
 
 ### Contests Section
 
@@ -87,11 +85,11 @@
 - The platform dynamically fetches and displays your latest ratings, achievements, and contest history.
 - Customize your portfolio to display the information you want to share with others.
 
-## Contributing
+# Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
 
-## Contributors ✨
+# Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -157,6 +155,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="http://mendacium-a11y.github.io"><img src="https://avatars.githubusercontent.com/u/110321699?v=4?s=100" width="100px;" alt="Saksham Saha"/><br /><sub><b>Saksham Saha</b></sub></a><br /><a href="#a11y-mendacium-a11y" title="Accessibility">️️️️♿️</a> <a href="https://github.com/digitomize/digitomize/commits?author=mendacium-a11y" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://www.biodrop.io/krushnarout"><img src="https://avatars.githubusercontent.com/u/129386740?v=4?s=100" width="100px;" alt="Krushna Kanta Rout"/><br /><sub><b>Krushna Kanta Rout</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=krushnarout" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/surafelmuluye"><img src="https://avatars.githubusercontent.com/u/79900267?v=4?s=100" width="100px;" alt="Surafel Muluye"/><br /><sub><b>Surafel Muluye</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=surafelmuluye" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/iSubhamMani"><img src="https://avatars.githubusercontent.com/u/134488182?v=4?s=100" width="100px;" alt="Subham Mani"/><br /><sub><b>Subham Mani</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=iSubhamMani" title="Code">💻</a> <a href="https://github.com/digitomize/digitomize/commits?author=iSubhamMani" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Chakit22"><img src="https://avatars.githubusercontent.com/u/118890138?v=4?s=100" width="100px;" alt="Chakit Bhandari"/><br /><sub><b>Chakit Bhandari</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Chakit22" title="Code">💻</a> <a href="https://github.com/digitomize/digitomize/commits?author=Chakit22" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/c4coderandcreator"><img src="https://avatars.githubusercontent.com/u/70572678?v=4?s=100" width="100px;" alt="Coder And Creator"/><br /><sub><b>Coder And Creator</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=c4coderandcreator" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://kunalsin9h.com"><img src="https://avatars.githubusercontent.com/u/82411321?v=4?s=100" width="100px;" alt="Kunal Singh"/><br /><sub><b>Kunal Singh</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=KunalSin9h" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
@@ -166,10 +169,18 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-## License
+# License
 
 This project is licensed under the [MIT License](LICENSE).
 
-### Discord
+# Discord
 
 Join Our [Discord Community](https://digitomize.com/discord) for any help and troubleshooting.
+
+# Contact Information
+
+For more ways to get in touch, refer to our [CONTACT.md](CONTACT.md).
+
+# Buy me a Coffee ☕
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/digitomize)

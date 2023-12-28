@@ -2,28 +2,11 @@ import AspectRatio from "@mui/joy/AspectRatio";
 import Box from "@mui/joy/Box";
 import Typography from "@mui/joy/Typography";
 import Card from "@mui/joy/Card";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { AiFillGithub } from "react-icons/ai";
-
-import { useTheme } from "@mui/material/styles";
-// import Box from '@mui/material/Box';
-// import Card from '@mui/material/Card';
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import IconButton from "@mui/material/IconButton";
-// import Typography from '@mui/material/Typography';
-import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import SkipNextIcon from "@mui/icons-material/SkipNext";
-
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.css";
-
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-
+import Marquee from "react-fast-marquee";
 import { extendTheme, CssVarsProvider } from "@mui/joy/styles";
 
 const theme = extendTheme({
@@ -304,42 +287,13 @@ export default function Contributors() {
         <div className="w-full p-2 flex flex-col gap-2">
           <h1 className="m-0 p-0 max-phone:text-4xl">Contributors</h1>
           <div className="flex flex-row">
-            <Swiper
-              spaceBetween={10}
-              slidesPerView={5}
-              modules={[Autoplay]}
-              autoplay={{
-                delay: 1500,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-              }}
-              loop={true}
-              breakpoints={{
-                100: {
-                  slidesPerView: 1,
-                  spaceBetween: 30,
-                },
-                250: {
-                  slidesPerView: 2.8,
-                  spaceBetween: 30,
-                },
-                640: {
-                  slidesPerView: 3.7,
-                  spaceBetween: 30,
-                },
-                768: {
-                  slidesPerView: 4.2,
-                  spaceBetween: 30,
-                },
-                1024: {
-                  slidesPerView: 4.8,
-                  spaceBetween: 50,
-                },
-              }}
+            <Marquee
+              pauseOnHover={true}
+              speed={100}
             >
               {temp.map((item) => (
-                <div key={item.name} className="w-full">
-                  <SwiperSlide key={item.name} className="w-fit">
+                <div key={item.name} className="w-full phone:mx-3 max-phone:mx-2">
+                  <div key={item.name} className="w-fit">
                     <Link to={item.profile}>
                       <Card
                         orientation="horizontal"
@@ -398,223 +352,83 @@ export default function Contributors() {
                         </Box>
                       </Card>
                     </Link>
-                  </SwiperSlide>
+                  </div>
                 </div>
               ))}
-            </Swiper>
+            </Marquee>
           </div>
           <div className="flex flex-row">
-            <Swiper
-              spaceBetween={10}
-              slidesPerView={4.5}
-              modules={[Autoplay]}
-              autoplay={{
-                delay: 1500,
-                disableOnInteraction: false,
-                pauseOnMouseEnter: true,
-                reverseDirection: true,
-              }}
-              loop={true}
-              breakpoints={{
-                100: {
-                  slidesPerView: 1,
-                  spaceBetween: 30,
-                },
-                250: {
-                  slidesPerView: 2.8,
-                  spaceBetween: 30,
-                },
-                640: {
-                  slidesPerView: 3.7,
-                  spaceBetween: 30,
-                },
-                768: {
-                  slidesPerView: 4.2,
-                  spaceBetween: 30,
-                },
-                1024: {
-                  slidesPerView: 4.8,
-                  spaceBetween: 50,
-                },
-              }}
+            <Marquee
+              pauseOnHover={true}
+              speed={100}
+              direction="right"
             >
               {temp.map((item) => (
-                <div key={item.name} className="w-full">
-                  <SwiperSlide key={item.name} className="w-fit">
-                    <Link to={item.profile}>
-                      <Card
-                        orientation="horizontal"
-                        className="w-fit my-2 hover:scale-105"
-                        size="sm"
-                        key={item.title}
-                        variant="outlined"
+                <div key={item.name} className="w-full phone:mx-3 max-phone:mx-2">
+                  <Link to={item.profile}>
+                    <Card
+                      orientation="horizontal"
+                      className="w-fit my-2 hover:scale-105"
+                      size="sm"
+                      key={item.title}
+                      variant="outlined"
+                    >
+                      <AspectRatio ratio="1" sx={{ minWidth: 60 }}>
+                        <img
+                          srcSet={`${item.avatar_url}?h=120&fit=crop&auto=format&dpr=2 2x`}
+                          src={`${item.avatar_url}?h=120&fit=crop&auto=format`}
+                          alt={item.name}
+                        />
+                      </AspectRatio>
+                      <Box
+                        sx={{ whiteSpace: "nowrap", mx: 1 }}
+                        className="max-phone:hidden"
                       >
-                        <AspectRatio ratio="1" sx={{ minWidth: 60 }}>
-                          <img
-                            srcSet={`${item.avatar_url}?h=120&fit=crop&auto=format&dpr=2 2x`}
-                            src={`${item.avatar_url}?h=120&fit=crop&auto=format`}
-                            alt={item.name}
-                          />
-                        </AspectRatio>
-                        <Box
-                          sx={{ whiteSpace: "nowrap", mx: 1 }}
-                          className="max-phone:hidden"
-                        >
-                          <Typography level="title-md">
-                            {item.name.slice(0, 20)}
-                          </Typography>
-                          <div className="github flex flex-col gap-1">
-                            <div className="flex flex-row items-center">
-                              <AiFillGithub />
-                              <Typography level="body-sm">
-                                {item.login}
-                              </Typography>
-                            </div>
-                            <div className="flex flex-row gap-1">
-                              {item.contributions.map((contribution, index) => {
-                                let badgeColor = "";
-
-                                // Determine color based on contribution type
-                                if (contribution === "code") {
-                                  badgeColor = "badge-primary"; // Set the class for code contributions
-                                } else if (contribution === "doc") {
-                                  badgeColor = "badge-secondary"; // Set the class for documentation contributions
-                                } else if (contribution === "design") {
-                                  badgeColor = "badge-accent"; // Set the class for design contributions
-                                } else {
-                                  badgeColor = "badge-accent"; // Default color for other contributions (you can adjust this)
-                                }
-
-                                return (
-                                  <div
-                                    key={index}
-                                    className={`badge ${badgeColor}`}
-                                  >
-                                    {contribution}
-                                  </div>
-                                );
-                              })}
-                            </div>
+                        <Typography level="title-md">
+                          {item.name.slice(0, 20)}
+                        </Typography>
+                        <div className="github flex flex-col gap-1">
+                          <div className="flex flex-row items-center">
+                            <AiFillGithub />
+                            <Typography level="body-sm">
+                              {item.login}
+                            </Typography>
                           </div>
-                        </Box>
-                      </Card>
-                    </Link>
-                  </SwiperSlide>
+                          <div className="flex flex-row gap-1">
+                            {item.contributions.map((contribution, index) => {
+                              let badgeColor = "";
+
+                              // Determine color based on contribution type
+                              if (contribution === "code") {
+                                badgeColor = "badge-primary"; // Set the class for code contributions
+                              } else if (contribution === "doc") {
+                                badgeColor = "badge-secondary"; // Set the class for documentation contributions
+                              } else if (contribution === "design") {
+                                badgeColor = "badge-accent"; // Set the class for design contributions
+                              } else {
+                                badgeColor = "badge-accent"; // Default color for other contributions (you can adjust this)
+                              }
+
+                              return (
+                                <div
+                                  key={index}
+                                  className={`badge ${badgeColor}`}
+                                >
+                                  {contribution}
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </Box>
+                    </Card>
+                  </Link>
                 </div>
               ))}
-            </Swiper>
+            </Marquee>
           </div>
         </div>
-        {/* <div className="w-full px-2 max-phone:flex flex-col phone:hidden">
-                    <div className="flex flex-row">
-                        <Swiper
-                            spaceBetween={10}
-                            slidesPerView={3.5}
-                            modules={[Autoplay]}
-                            autoplay={{ delay: 500, disableOnInteraction: false, pauseOnMouseEnter: true, reverseDirection:true }}
-                            loop={true}
-                        >
-                            {temp.map((item) => (
-                                <div className="w-full">
-                                    <SwiperSlide key={item.name} className="w-fit">
-                                        <Card orientation="horizontal" className="w-fit" size="sm" key={item.title} variant="outlined">
-                                            <AspectRatio ratio="1" sx={{ minWidth: 60 }}>
-                                                <img
-                                                    srcSet={`${item.avatar_url}?h=120&fit=crop&auto=format&dpr=2 2x`}
-                                                    src={`${item.avatar_url}?h=120&fit=crop&auto=format`}
-                                                    alt={item.name}
-                                                />
-                                            </AspectRatio>
-                                            <Box sx={{ whiteSpace: 'nowrap', mx: 1 }} className="max-phone:hidden">
-                                                <Typography level="title-md">{item.name.slice(0, 20)}</Typography>
-                                                <div className="github flex flex-row items-center gap-1">
-                                                    <AiFillGithub />
-                                                    <Typography level="body-sm">{item.login}</Typography>
-                                                </div>
-                                            </Box>
-                                        </Card>
-                                    </SwiperSlide>
-                                </div>
-                            ))}
-                        </Swiper>
-                    </div>
-                    <div className="flex flex-row">
-                        <Swiper
-                            spaceBetween={10}
-                            slidesPerView={3.5}
-                            modules={[Autoplay]}
-                            autoplay={{ delay: 500, disableOnInteraction: false, pauseOnMouseEnter: true }}
-                            loop={true}
-                        >
-                            {temp.map((item) => (
-                                <div className="w-full">
-                                    <SwiperSlide key={item.name} className="w-fit">
-                                        <Card orientation="horizontal" className="w-fit" size="sm" key={item.title} variant="outlined">
-                                            <AspectRatio ratio="1" sx={{ minWidth: 60 }}>
-                                                <img
-                                                    srcSet={`${item.avatar_url}?h=120&fit=crop&auto=format&dpr=2 2x`}
-                                                    src={`${item.avatar_url}?h=120&fit=crop&auto=format`}
-                                                    alt={item.name}
-                                                />
-                                            </AspectRatio>
-                                            <Box sx={{ whiteSpace: 'nowrap', mx: 1 }} className="max-phone:hidden">
-                                                <Typography level="title-md">{item.name.slice(0, 20)}</Typography>
-                                                <div className="github flex flex-row items-center gap-1">
-                                                    <AiFillGithub />
-                                                    <Typography level="body-sm">{item.login}</Typography>
-                                                </div>
-                                            </Box>
-                                        </Card>
-                                    </SwiperSlide>
-                                </div>
-                            ))}
-                        </Swiper>
-                    </div>
-                </div> */}
-
         <div className="divider"></div>
-        {/* <div className="w-11/12">
-                <Box
-                    sx={{
-                        display: 'flex',
-                        gap: 1,
-                        py: 1,
-                        overflow: 'auto',
-                        width: '90vw',
-                        scrollSnapType: 'x mandatory',
-                        '& > *': {
-                            scrollSnapAlign: 'center',
-                        },
-                        '::-webkit-scrollbar': { display: 'none' },
-                    }}
-                >
-                    <Swiper
-                        spaceBetween={10}
-                        slidesPerView={2}
-                        modules={[Autoplay]}
-                        // autoplay={{ delay: 500, disableOnInteraction: false, pauseOnMouseEnter: true }}
-                        loop={true}
-                    >
-                        {data.map((item) => (
-                            <SwiperSlide key={item.name}>
-                                <Card orientation="horizontal" size="sm" key={item.title} variant="outlined">
-                                    <AspectRatio ratio="1" sx={{ minWidth: 60 }}>
-                                        <img
-                                            srcSet={`${item.avatar_url}?h=120&fit=crop&auto=format&dpr=2 2x`}
-                                            src={`${item.avatar_url}?h=120&fit=crop&auto=format`}
-                                            alt={item.name}
-                                        />
-                                    </AspectRatio>
-                                    <Box sx={{ whiteSpace: 'nowrap', mx: 1 }}>
-                                        <Typography level="title-md">{item.name}</Typography>
-                                        <Typography level="body-sm">{item.login}</Typography>
-                                    </Box>
-                                </Card>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                </Box>
-            </div> */}
       </CssVarsProvider>
     </>
   );

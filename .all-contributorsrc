@@ -407,6 +407,53 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "surafelmuluye",
+      "name": "Surafel Muluye",
+      "avatar_url": "https://avatars.githubusercontent.com/u/79900267?v=4",
+      "profile": "https://github.com/surafelmuluye",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "iSubhamMani",
+      "name": "Subham Mani",
+      "avatar_url": "https://avatars.githubusercontent.com/u/134488182?v=4",
+      "profile": "https://github.com/iSubhamMani",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "Chakit22",
+      "name": "Chakit Bhandari",
+      "avatar_url": "https://avatars.githubusercontent.com/u/118890138?v=4",
+      "profile": "https://github.com/Chakit22",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "c4coderandcreator",
+      "name": "Coder And Creator",
+      "avatar_url": "https://avatars.githubusercontent.com/u/70572678?v=4",
+      "profile": "https://github.com/c4coderandcreator",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "KunalSin9h",
+      "name": "Kunal Singh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/82411321?v=4",
+      "profile": "https://kunalsin9h.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

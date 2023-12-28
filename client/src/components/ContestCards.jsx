@@ -1,10 +1,5 @@
 import React, { useRef, useState } from "react";
-// Import Swiper React components
-import { Swiper } from "swiper/react";
 import { Link } from "react-router-dom";
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/effect-cards";
 import CardActions from "@mui/material/CardActions";
 import "/src/components/css/Card.css";
 import Marquee from "react-fast-marquee";
