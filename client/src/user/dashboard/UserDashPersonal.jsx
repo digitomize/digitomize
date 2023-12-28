@@ -115,9 +115,9 @@ export default function UserDashPersonal() {
     skills: skillData.map((data) => data.label) || [],
     education: personal_data.education || [],
     social: {
-      linkedin: social.linkedin,
-      twitter: social.twitter,
-      instagram: social.instagram,
+      linkedin: social?.linkedin || null,
+      twitter: social?.twitter || null,
+      instagram: social?.instagram || null,
 
     },
   });
