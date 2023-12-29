@@ -156,19 +156,22 @@ const handleUpdateUserProfile = async (req, res) => {
       const userDataBeforeUpdate = JSON.parse(JSON.stringify(user));
 
       if (
-        Object.keys(updatedData).every(
-          (field) => {
-            const oldValue = JSON.stringify(userDataBeforeUpdate[field]);
-            const newValue = JSON.stringify(updatedData[field]);
-            // console.log(`Comparing ${field}: oldValue=${oldValue}, newValue=${newValue}`);
-            return oldValue === newValue;
-          },
-        )
+        Object.keys(updatedData).every((field) => {
+          // console.log(field);
+          const oldUsername = userDataBeforeUpdate[field]?.username;
+          const newUsername = updatedData[field]?.username;
+          // console.log(`Comparing ${field}: oldUsername=${oldUsername}, newUsername=${newUsername}`);
+          return oldUsername === newUsername;
+        })
       ) {
         return res
           .status(404)
-          .json({ error: "No changes were applied to the user profile", message: "No changes were applied to the user profile" });
+          .json({
+            error: "No changes were applied to the user profile",
+            message: "No changes were applied to the user profile",
+          });
       }
+      
       // Update user data, including platform-specific data
       await updateUserData(updatedData, user);
 
