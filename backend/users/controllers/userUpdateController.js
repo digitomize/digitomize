@@ -2,6 +2,9 @@ import User from "../models/User.js";
 import { sendWebhook_updateAccount } from "../../services/discord-webhook/updateAccount.js";
 import { handleUserDataUpdate } from "./userProfileController.js";
 const maxUpdatesPerDay = 50;
+const twitterUrlPattern = /^(?:https?:\/\/)?(?:www\.)?twitter\.com\/(?:#!\/)?[a-zA-Z0-9_]{1,15}(?:\/)?$/;
+const linkedInUrlPattern = /^(?:https?:\/\/)?(?:www\.)?linkedin\.com\/in\/[a-zA-Z0-9-]{5,30}\/?$/;
+const instagramUrlPattern = /^(?:https?:\/\/)?(?:www\.)?instagram\.com\/[a-zA-Z0-9_]{1,30}\/?$/;
 
 // Helper function to update platform-specific data
 const updatePlatformData = (platform, userData, existingData, user) => {
@@ -49,6 +52,21 @@ const updateDataField = (field, userData, existingData) => {
   }
 };
 
+function validateSocialUrls (social) {
+  const patterns = {
+    twitter: twitterUrlPattern,
+    linkedin: linkedInUrlPattern,
+    instagram: instagramUrlPattern,
+  };
+
+  for (const [platform, url] of Object.entries(social)) {
+    if (url && !patterns[platform].test(url)) {
+      return { error: `Invalid ${platform} URL`, message: `Invalid ${platform} URL` };
+    }
+  }
+  return null;
+}
+
 // Helper function to update user data, including platform-specific data
 const updateUserData = async (userData, existingData) => {
   // Update general user data (firstName, lastName, etc.)
@@ -70,6 +88,19 @@ const updateUserData = async (userData, existingData) => {
   platforms.forEach((platform) => {
     updatePlatformData(platform, userData, existingData[platform], existingData);
   });
+
+  if (userData.social) {
+    const validationError = validateSocialUrls(userData.social);
+    if (validationError) {
+      throw validationError;
+    }
+    const socialFields = Object.keys(userData.social);
+    socialFields.forEach((field) => {
+      if (existingData.social && existingData.social[field] !== undefined) {
+        existingData.social[field] = userData.social[field];
+      }
+    });
+  }
 
   const skills = userData.skills;
   if (skills) {
@@ -125,19 +156,22 @@ const handleUpdateUserProfile = async (req, res) => {
       const userDataBeforeUpdate = JSON.parse(JSON.stringify(user));
 
       if (
-        Object.keys(updatedData).every(
-          (field) => {
-            const oldValue = JSON.stringify(userDataBeforeUpdate[field].username);
-            const newValue = JSON.stringify(updatedData[field].username);
-            // console.log(`Comparing ${field}: oldValue=${oldValue}, newValue=${newValue}`);
-            return oldValue === newValue;
-          },
-        )
+        Object.keys(updatedData).every((field) => {
+          // console.log(field);
+          const oldUsername = userDataBeforeUpdate[field]?.username;
+          const newUsername = updatedData[field]?.username;
+          // console.log(`Comparing ${field}: oldUsername=${oldUsername}, newUsername=${newUsername}`);
+          return oldUsername === newUsername;
+        })
       ) {
         return res
           .status(404)
-          .json({ error: "No changes were applied to the user profile", message: "No changes were applied to the user profile" });
+          .json({
+            error: "No changes were applied to the user profile",
+            message: "No changes were applied to the user profile",
+          });
       }
+      
       // Update user data, including platform-specific data
       await updateUserData(updatedData, user);
 
@@ -182,7 +216,7 @@ const handleUpdateUserProfile = async (req, res) => {
     } catch (error) {
       // Handle the error thrown by updateUserData
       console.log(error);
-      res.status(400).json({ error: error.message }); // Send the error message to the client
+      res.status(400).json({ error: error.error, message:error.message }); // Send the error message to the client
     }
   } catch (error) {
     console.error("Error:", error);

@@ -445,6 +445,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "KunalSin9h",
+      "name": "Kunal Singh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/82411321?v=4",
+      "profile": "https://kunalsin9h.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

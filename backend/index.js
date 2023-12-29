@@ -40,7 +40,7 @@ async function main () {
   }
 }
 
-async function setupUserServer () {
+async function setupUserServer() {
   // console.log(process.env.FIREBASE_CREDENTIALS);
   console.log("ok");
   // Get the Firebase service account JSON from the environment variable
