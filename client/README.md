@@ -21,15 +21,15 @@ The client directory is organized into several main directories and components:
 
 ```bash
 - __client__
-   - [README.md](README.md)
-   - [api.js](api.js)
-   - [firebase.js](firebase.js)
-   - [index.html](index.html)
-   - [manifest.json](manifest.json)
-   - [netlify.toml](netlify.toml)
-   - [package\-lock.json](package-lock.json)
-   - [package.json](package.json)
-   - [postcss.config.js](postcss.config.js)
+   - [README.md]
+   - [api.js]
+   - [firebase.js]
+   - [index.html]
+   - [manifest.json]
+   - [netlify.toml]
+   - [package\-lock.json]
+   - [package.json]
+   - [postcss.config.js]
    - __src__
      - __assets__   # Static assets like images and fonts 
      - __components__  # Reusable React components 
@@ -61,11 +61,11 @@ The client directory is organized into several main directories and components:
        - __dashboard__
        - __leaderboard__
          - __components__
-   - [tailwind.config.js](tailwind.config.js)
-   - [utils.js](utils.js)
-   - [vercel.json](vercel.json)
-   - [vite.config.js](vite.config.js)
-   - [vite.config.js.timestamp\-1696584442930\-043e5b095871b.mjs](vite.config.js.timestamp-1696584442930-043e5b095871b.mjs)
+   - [tailwind.config.js]
+   - [utils.js]
+   - [vercel.json]
+   - [vite.config.js]
+   - [vite.config.js.timestamp\-1696584442930\-043e5b095871b.mjs]
 ```
 
 assets: This directory contains static assets such as images, fonts, and other files used in your application's user interface.
