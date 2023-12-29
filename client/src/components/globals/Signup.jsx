@@ -15,6 +15,9 @@ import GoogleAuthButton from "../AuthButtons/GoogleAuthButton";
 import GithubAuthButton from "../AuthButtons/GithubAuthButton";
 import { ToastContainer, toast } from "react-toastify";
 import loginIcon from "/src/assets/fingerprint-animate-blue.svg";
+import eyeOpen from "../../assets/eye_open.svg";
+import eyeClosed from "../../assets/eye_closed.svg";
+
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 import SignoutButton from "../../user/components/SignoutButton";
@@ -37,6 +40,11 @@ export default function Signup() {
   const navigate = useNavigate();
   const { signUp } = useUserAuth();
   const [btnState, setbtnState] = useState(false);
+  const [passwordShow, setPasswordShow] = useState(false);
+
+  const passwordToggle = () =>{
+    setPasswordShow(!passwordShow);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -173,13 +181,16 @@ export default function Signup() {
                         </span>
                       </p>
                     </label>
-                    <input
-                      type="password"
-                      className="input input-bordered w-full bg-black border-2 border-jet"
-                      onChange={(e) => setPassword(e.target.value)}
-                      placeholder="***************"
-                      required
-                    />
+                    <div className="flex flex-row justify-between p-0 items-center input relative input-bordered w-full bg-black border-2 border-jet">
+                      <input
+                        type={passwordShow ? "text" : "password"}
+                        className="bg-transparent border-none w-full input input-bordered"
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="***************"
+                        required
+                      />
+                      <img onClick={passwordToggle} className="w-10 h-10 absolute z-50 left-100 right-2" src={passwordShow ? eyeClosed : eyeOpen} alt="" />
+                    </div>
                     <label className="label">
                       <span className="label-text-alt"></span>
                       {/* // ! TO ADD */}
