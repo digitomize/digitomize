@@ -20,52 +20,41 @@ Welcome to the client-side documentation for Digitomize, an open-source platform
 The client directory is organized into several main directories and components:
 
 ```bash
-- __client__
-   - [README.md]
-   - [api.js]
-   - [firebase.js]
-   - [index.html]
-   - [manifest.json]
-   - [netlify.toml]
-   - [package\-lock.json]
-   - [package.json]
-   - [postcss.config.js]
-   - __src__
-     - __assets__   # Static assets like images and fonts 
-     - __components__  # Reusable React components 
-     - __context__  # State management contexts
-     - __core__ # API services, app modal & utilities
-       - __api__
-       - __components__
-         - __AppModal__
-       - __utils__
-     - __dsaSheets__  # Components and services for dsa content
-       - __components__
-       - __layout__
-       - __pages__
-     - __lib__  # Additional libraries or utility functions
-     - __pages__ # Components for different pages
-       - __admin__
-         - __CommunityListPage__
-           - __CreateCommunity__
-         - __ContestListPage__
-         - __UserListPage__
-           - __CreateUser__
-           - __DeleteUser_
-       - __home__
-     - __user__ # User-specific components, services or data
-       - __Profile__
-         - __components__
-         - __pages__
-       - __components__
-       - __dashboard__
-       - __leaderboard__
-         - __components__
-   - [tailwind.config.js]
-   - [utils.js]
-   - [vercel.json]
-   - [vite.config.js]
-   - [vite.config.js.timestamp\-1696584442930\-043e5b095871b.mjs]
+.
+└── /client/
+    └── /src/
+        ├── /assets         # Static assets like images and fonts
+        ├── /components     # Reusable React components/
+        │   ├── /AuthButtons
+        │   ├── /Contests/
+        │   │   └── /Challenges
+        │   ├── /Home
+        │   ├── /css
+        │   └── /globals
+        ├── /context        # State management contexts
+        ├── /core           # API services, app modal & utilities/
+        │   ├── /api
+        │   ├── /components/
+        │   │   └── /AppModal
+        │   └── /utils
+        ├── /dsaSheets      # Components and services for dsa content/
+        │   ├── /components
+        │   ├── /layout
+        │   └── /pages
+        ├── /lib            # Additional libraries or utility functions
+        ├── /pages          # Components for different pages/
+        │   ├── /admin/
+        │   │   ├── /CommunityListPage
+        │   │   ├── /ContestListPage
+        │   │   └── /UserListPage
+        │   └── /home
+        └── /user           # User-specific components, services or data/
+            ├── /Profile/
+            │   ├── /components
+            │   └── /pages
+            ├── /components
+            ├── /dashboard
+            └── /leaderboard        
 ```
 
 assets: This directory contains static assets such as images, fonts, and other files used in your application's user interface.
