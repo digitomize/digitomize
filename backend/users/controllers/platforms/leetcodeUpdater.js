@@ -52,7 +52,7 @@ async function leetcode_u (handle) {
               globalRanking: 0,
             };
           }
-          userInfo.data.userContestRanking.rank = userInfo.data.userContestRanking.badge.name;
+          userInfo.data.userContestRanking.rank = userInfo.data.userContestRanking.badge?.name || "none";
           userInfo.data.userContestRanking.handle = handle;
 
           //   console.log("HERRRREEEEE:",userInfo.data.userContestRanking);
