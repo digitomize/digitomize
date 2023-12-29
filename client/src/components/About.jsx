@@ -7,16 +7,17 @@ import {
 import { MetaData } from "./CustomComponents";
 import { Link } from "react-router-dom";
 import Contributors from "./Contributors";
-
+import { logo } from "./AllAssets";
+import MuiTimeline from "./Timeline";
 export default function About() {
   return (
     <>
       <MetaData path="about" />
-      <div className=" w-11/12 mx-auto text-center mt-4 antialiased font-['Geist'] ">
+      <div className=" w-11/12 mx-auto text-center mt-4 antialiased font-outfit ">
         <div className="hero">
           <div className="hero-content flex-col sm:flex-row">
             <div className="left text-center flex flex-col justify-center items-center">
-              <div className="text-center w-fit">
+              {/* <div className="text-center w-fit">
                 <h1 className="lg:text-[83px] sm:text-[50px] md:text-[61px] phone:text-[30px] items-center text-white justify-center  max-phone:text-5xl my-0 font-medium flex phone:flex-row max-phone:flex-col mx-auto w-full">
                   An{" "}
                   <span className="bg-digitomize-bg phone:hidden py-[2px] sm:py-1 rounded-md font-bold sm:ml-2 w-fit">
@@ -34,14 +35,95 @@ export default function About() {
                 <p className="py-6 font-['Source Code Pro'] phone:text-4xl phone:text-right text-xl">
                   by and for the coders
                 </p>
-              </div>
+              </div> */}
               {/* <div>
                                 <p className="text-xl my-4 w-3/5 mx-auto">
                                     Digitomize is designed to provide developers with a comprehensive platform for exploring coding contests and creating dynamic portfolios that showcase their coding skills and achievements.
                                 </p>
                             </div> */}
-              <div className="divider phone:w-2/5 max-phone:w-3/5 mx-auto"></div>
-              <div className="flex flex-col md:w-4/5 lg:w-3/5  phone:w-3/5">
+              <div className="w-full flex flex-row justify-between  text-white mt-[80px]">
+                <div className="flex flex-col max-w-[50%] text-left">
+                  <div className="mb-[50px]">
+                    <h2 className="mb-[50px] font-semibold text-5xl">
+                      Digitomize’s Platform
+                    </h2>
+                    <p className="text-[20px]">
+                      At Digitomize, we believe coding isn't just a skill, it's
+                      a superpower. It's the language of innovation, the key to
+                      unlocking countless possibilities, and the fuel that
+                      drives the digital world. We're here to empower coders of
+                      all levels to take control of their coding journey,
+                      showcase their talent, and achieve their full potential.
+                    </p>
+                  </div>
+                  <div className="">
+                    <h2 className="mb-[18px] font-semibold text-5xl">
+                      Our Mission
+                    </h2>
+                    <p className="text-[20px]">
+                      Our mission is simple: to be the ultimate coder's
+                      companion, providing the tools and resources you need to
+                      level up your skills, compete with the best, and build a
+                      career you love.
+                    </p>
+                  </div>
+                </div>
+                <div className="w-[460px] h-[460px] bg-[#D9D9D9]"></div>
+              </div>
+              <div className="mt-[70px]">
+                <h2 className="font-semibold text-5xl text-left  text-white">
+                  {" "}
+                  What we do
+                </h2>
+                <div className="flex flex-row justify-between mt-[50px] space-x-[25px] ">
+                  <div className="border-[1px] flex-1 border-solid border-white bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
+                    <h3 className="font-semibold text-2xl mb-[20px]">
+                      Contests
+                    </h3>
+                    <p className="text-[1rem]">
+                      Explore a curated selection of upcoming coding contests
+                      from renowned platforms like LeetCode, Codeforces,
+                      CodeChef, and more. Filter contests based on your skill
+                      level, preferred format, and available time. Dive into
+                      detailed contest descriptions, track leaderboards, and
+                      stay ahead of the competition.
+                    </p>
+                  </div>
+
+                  <div className="border-[1px] flex-1 border-solid border-white bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
+                    <h3 className="font-semibold text-2xl mb-[20px]">
+                      Portfolio
+                    </h3>
+                    <p className="text-[1rem]">
+                      Forget manual updates and tedious formatting. Simply
+                      connect your user handles from different platforms, and
+                      watch your portfolio blossom with your latest ratings,
+                      achievements, and coding history. Impress potential
+                      employers, collaborators, and the tech community with your
+                      dynamic skill showcase.
+                    </p>
+                  </div>
+                  <div className="border-[1px] flex-1 border-solid border-white bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
+                    <h3 className="font-semibold text-2xl mb-[20px]">
+                      Open Source
+                    </h3>
+                    <p className="text-[1rem]">
+                      We believe in the power of collaboration. Digitomize is an
+                      open-source project, meaning anyone can contribute to its
+                      growth and evolution. Share your ideas, code, and
+                      expertise to make it an even more powerful resource for
+                      coders worldwide.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-[70px]">
+                <h2 className="font-[500] text-5xl text-center mb-[75px] text-white">
+                  Milestones of Digitomize
+                </h2>
+                <MuiTimeline></MuiTimeline>
+              </div>
+              {/* <div className="flex flex-col md:w-4/5 lg:w-3/5  phone:w-3/5">
                 <div className="one flex md:flex-row max-md:flex-col">
                   <div className="left md:w-2/5">
                     <h1 className="m-0 md:text-left">contests</h1>
@@ -64,7 +146,7 @@ export default function About() {
                     coding history.
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className="divider phone:w-2/5 max-phone:w-3/5 mx-auto"></div>
               <div className="w-[80vw]">
