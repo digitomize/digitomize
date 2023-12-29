@@ -19,9 +19,7 @@ import SignoutButton from "../user/components/SignoutButton";
 
 import GoogleAuthButton from "./AuthButtons/GoogleAuthButton";
 import GithubAuthButton from "./AuthButtons/GithubAuthButton";
-import eyeOpen from "../assets/eye_open.svg";
-import eyeClosed from "../assets/eye_closed.svg";
-
+import { Eye, EyeOff } from "lucide-react";
 
 export async function loader({ request }) {
   const message = new URL(request.url).searchParams.get("message");
@@ -37,7 +35,7 @@ export default function Login() {
   const message = useLoaderData();
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(null);
   const [error, setError] = useState("");
   const { logIn } = useUserAuth();
   const navigate = useNavigate();
@@ -142,7 +140,9 @@ export default function Login() {
                         placeholder="***************"
                         required
                       />
-                      <img onClick={passwordToggle} className="w-10 h-10 absolute z-50 left-100 right-2" src={passwordShow ? eyeClosed : eyeOpen} alt="" />
+                      {password && (passwordShow ?
+                      <EyeOff onClick={passwordToggle} className="w-10 h-10 absolute z-50 left-100 right-2"/> :
+                      <Eye onClick={passwordToggle} className="w-10 h-10 absolute z-50 left-100 right-2"/>)}
                     </div>
                     <label className="label">
                       <span className="label-text-alt"></span>

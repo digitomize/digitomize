@@ -15,9 +15,7 @@ import GoogleAuthButton from "../AuthButtons/GoogleAuthButton";
 import GithubAuthButton from "../AuthButtons/GithubAuthButton";
 import { ToastContainer, toast } from "react-toastify";
 import loginIcon from "/src/assets/fingerprint-animate-blue.svg";
-import eyeOpen from "../../assets/eye_open.svg";
-import eyeClosed from "../../assets/eye_closed.svg";
-
+import { Eye, EyeOff } from "lucide-react";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 import SignoutButton from "../../user/components/SignoutButton";
@@ -35,7 +33,7 @@ export default function Signup() {
   const [firstName, setFirstName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(null);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const { signUp } = useUserAuth();
@@ -189,7 +187,9 @@ export default function Signup() {
                         placeholder="***************"
                         required
                       />
-                      <img onClick={passwordToggle} className="w-10 h-10 absolute z-50 left-100 right-2" src={passwordShow ? eyeClosed : eyeOpen} alt="" />
+                      {password && (passwordShow ?
+                      <EyeOff onClick={passwordToggle} className="w-10 h-10 absolute z-50 left-100 right-2"/> :
+                      <Eye onClick={passwordToggle} className="w-10 h-10 absolute z-50 left-100 right-2"/>)}
                     </div>
                     <label className="label">
                       <span className="label-text-alt"></span>
