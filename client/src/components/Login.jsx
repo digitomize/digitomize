@@ -19,6 +19,7 @@ import SignoutButton from "../user/components/SignoutButton";
 
 import GoogleAuthButton from "./AuthButtons/GoogleAuthButton";
 import GithubAuthButton from "./AuthButtons/GithubAuthButton";
+import { Eye, EyeOff } from "lucide-react";
 
 export async function loader({ request }) {
   const message = new URL(request.url).searchParams.get("message");
@@ -34,11 +35,16 @@ export default function Login() {
   const message = useLoaderData();
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState(null);
   const [error, setError] = useState("");
   const { logIn } = useUserAuth();
   const navigate = useNavigate();
   const [btnState, setbtnState] = useState(false); // disable feature
+  const [passwordShow, setPasswordShow] = useState(false);
+
+  const passwordToggle = () =>{
+    setPasswordShow(!passwordShow);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -126,13 +132,18 @@ export default function Login() {
                         </span>
                       </p>
                     </label>
-                    <input
-                      type="password"
-                      className="input input-bordered w-full bg-black border-2 border-jet"
-                      onChange={(e) => setPassword(e.target.value)}
-                      placeholder="***************"
-                      required
-                    />
+                    <div className="flex flex-row justify-between p-0 items-center input relative input-bordered w-full bg-black border-2 border-jet">
+                      <input
+                        type={passwordShow ? "text" : "password"}
+                        className="bg-transparent border-none w-full input input-bordered"
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="***************"
+                        required
+                      />
+                      {password && (passwordShow ?
+                      <EyeOff onClick={passwordToggle} className="w-6 h-6 absolute z-50 left-100 right-2"/> :
+                      <Eye onClick={passwordToggle} className="w-6 h-6 absolute z-50 left-100 right-2"/>)}
+                    </div>
                     <label className="label">
                       <span className="label-text-alt"></span>
                       {/* // ! TO ADD */}
