@@ -15,7 +15,6 @@ import MobNav from "./globals/MobNav";
 import Navbar from "./globals/Navbar";
 import Homepage from "../pages/home/Homepage";
 import Footer from "./globals/Footer";
-import NewLogin from "./NewLogin";
 import { loader as loginLoader } from "./Login";
 import { loader as signupLoader } from "./globals/Signup";
 import NewNavbar from "./globals/NewNavbar";
@@ -42,7 +41,6 @@ export {
   Navbar,
   Homepage,
   Footer,
-  NewLogin,
   NewNavbar,
   ScrollToTop,
   Signup,

@@ -543,11 +543,11 @@ export default function Leaderboard() {
                           <Link to={"/u/" + userDetails.personal_data.username}>
                             <div className="font-semibold text-left sm:text-[14px] text-[12px]">
                               {userDetails.personal_data.name}
-                              {"(YOU)"} <OpenInNew  style={{ fontSize: "15px" }} />{" "}
+                              {"(YOU)"} <OpenInNew style={{ fontSize: "15px" }} />{" "}
                             </div>
                             <div className=" sm:text-[11px] text-[8px] font-light text-left">
                               @{
-                                screenSize.width<=350 ? userDetails.personal_data.username.length<=15 ? userDetails.personal_data.username : userDetails.personal_data.username.slice(0,15)+"..." : userDetails.personal_data.username
+                                screenSize.width <= 350 ? userDetails.personal_data.username.length <= 15 ? userDetails.personal_data.username : userDetails.personal_data.username.slice(0, 15) + "..." : userDetails.personal_data.username
                               }
                             </div>
                             {/* You can display more userDetails details here if needed */}
@@ -561,21 +561,21 @@ export default function Leaderboard() {
                     <td>
                       {Math.floor(currentUserData.ratings.digitomize_rating)}
                     </td> */}
-                     <td className="max-sm:hidden">{currentUserData.ratings.codechef || 0}</td>
-                        <td className="max-sm:hidden">{currentUserData.ratings.leetcode || 0}</td>
-                        <td className="max-sm:hidden">{currentUserData.ratings.codeforces || 0}</td>
-                        <td className="max-sm:hidden">
-                          {Math.floor(currentUserData.ratings.digitomize_rating)}
-                        </td>
-                        <td className="sm:hidden">
-                          {selectedRating === "digitomize"
-                            ? Math.floor(currentUserData.ratings.digitomize_rating)
-                            : selectedRating === "leetcode"
-                              ? currentUserData.ratings.leetcode
-                              : selectedRating === "codechef"
-                                ? currentUserData.ratings.codechef
-                                : currentUserData.ratings.codeforces}
-                        </td>
+                    <td className="max-sm:hidden">{currentUserData.ratings.codechef || 0}</td>
+                    <td className="max-sm:hidden">{currentUserData.ratings.leetcode || 0}</td>
+                    <td className="max-sm:hidden">{currentUserData.ratings.codeforces || 0}</td>
+                    <td className="max-sm:hidden">
+                      {Math.floor(currentUserData.ratings.digitomize_rating)}
+                    </td>
+                    <td className="sm:hidden">
+                      {selectedRating === "digitomize"
+                        ? Math.floor(currentUserData.ratings.digitomize_rating)
+                        : selectedRating === "leetcode"
+                          ? currentUserData.ratings.leetcode
+                          : selectedRating === "codechef"
+                            ? currentUserData.ratings.codechef
+                            : currentUserData.ratings.codeforces}
+                    </td>
                     {/* <td>{userDetails.platform_rating}</td> */}
                   </tr>
                 )}
@@ -599,9 +599,9 @@ export default function Leaderboard() {
                 className="color000000 svgShape"
               ></path>
             </svg>
-            {show && main_model}
           </div>
         </button>
+        {show && main_model}
         {/* <div className="join my-8 mx-auto">
                     {Array.from({ length: totalPages }, (_, i) => (
                         <>
