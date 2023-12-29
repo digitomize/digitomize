@@ -141,8 +141,8 @@ export default function Login() {
                         required
                       />
                       {password && (passwordShow ?
-                      <EyeOff onClick={passwordToggle} className="w-10 h-10 absolute z-50 left-100 right-2"/> :
-                      <Eye onClick={passwordToggle} className="w-10 h-10 absolute z-50 left-100 right-2"/>)}
+                      <EyeOff onClick={passwordToggle} className="w-6 h-6 absolute z-50 left-100 right-2"/> :
+                      <Eye onClick={passwordToggle} className="w-6 h-6 absolute z-50 left-100 right-2"/>)}
                     </div>
                     <label className="label">
                       <span className="label-text-alt"></span>
