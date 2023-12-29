@@ -95,7 +95,7 @@ const getPageMetadata = (path) => {
 
 
 const MetaData = ({ path = "null" }) => {
-    console.log(getPageMetadata(path).keywords);
+    // console.log(getPageMetadata(path).keywords);
     return (
         <>
             <Helmet>
