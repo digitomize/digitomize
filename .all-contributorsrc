@@ -454,6 +454,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "LevisNgigi",
+      "name": "Levis Mbote",
+      "avatar_url": "https://avatars.githubusercontent.com/u/111055098?v=4",
+      "profile": "https://github.com/LevisNgigi",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
