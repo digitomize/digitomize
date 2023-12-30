@@ -120,8 +120,8 @@ function normalizeValue(value) {
 }
 
 function compareUserProfile(oldPlatformData, newPlatformData) {
-  console.log("Old Platform Data:", oldPlatformData);
-  console.log("New Platform Data:", newPlatformData);
+  // console.log("Old Platform Data:", oldPlatformData);
+  // console.log("New Platform Data:", newPlatformData);
 
   if (oldPlatformData && newPlatformData) {
     // Check direct fields (username, name, resume, picture)
@@ -178,7 +178,7 @@ const handleUpdateUserProfile = async (req, res) => {
     // const { userId } = req;
     const userId = req.decodedToken.uid;
     const updatedData = req.body;
-    console.log("UpdatedData:", updatedData);
+    // console.log("UpdatedData:", updatedData);
 
     // Check if updatedData is empty
     if (Object.keys(updatedData).length === 0) {
@@ -227,7 +227,7 @@ const handleUpdateUserProfile = async (req, res) => {
 
       // Save the updated user profile
       await user.save();
-      console.log("UPDATING USERRRRRHEREEEEEEE");
+      // console.log("UPDATING USERRRRRHEREEEEEEE");
       handleUserDataUpdate(user);
 
       if (process.env.NODE_ENV === "production") {

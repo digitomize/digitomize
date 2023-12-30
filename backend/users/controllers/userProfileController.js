@@ -57,7 +57,7 @@ const handleUserDataUpdate = async (user) => {
         platformData.username,
         platformKey,
       );
-      console.log("newData", newData);
+      // console.log("newData", newData);
       if (newData) {
         changes = true;
         platformData.attendedContestsCount = newData.attendedContestsCount;
