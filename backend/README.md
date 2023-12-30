@@ -51,6 +51,34 @@ The backend folder is organized into several directories, each serving a specifi
     │   └── /services      # Reusable services and utilities specific to users
     └── index.js         # Main server file
 ```
+- `backend`: Main folder for the backend.
+  - `community`: Controllers, middlewares, models, routes, services, and utils for community members. 
+     - `controllers`: Logic for handling API requests related to Communities and it's members
+     - `middlewares`: Middleware functions for verifying admin and member status
+     - `models`: Database models for community and community members
+    - `routes`: API route definitions for community and community members
+    - `services`: Reusable services specific to community members
+     - `utils`: Utility file defining constants for user roles
+  - `contest`: Controllers, models, and routes for contests.
+    - `controllers`: Logic for handling API requests related to contests
+      - `platforms`: APIs for fetching the upcoming contests on each of the coding platforms
+    - `models`: Database models for contests
+    - `routes`: API route definitions for contests
+  - `core`: File defining custom error and success handler objects for responses
+    - `api`: File defining custom error and success handler objects for responses
+  - `DSA_sheets`: Controllers, models, and routes for DSA sheets and questions.
+    - `controllers`: Logic for handling API requests realted to DSA sheets and DSA questions
+    - `models`: Database models for DSA sheets and questions
+    - `routes`: API route definitions for DSA sheets and questions
+  - `services`: Reusable services and utilities specific to users
+  - `users`: Controllers, middlewares, models, routes, services, and utils for users.
+    - `controllers`: Logic for handling API requests related to users
+      - `platforms`: Logic for fetching user's info on different coding platforms
+    - `middlewares`: Custom middleware functions specific to users
+    - `models`: Database models for users
+    - `routes`: API route definitions for users
+    - `services`: Reusable services and utilities specific to users
+  - `index.js`: Main server file
 
 ## Getting Started
 
