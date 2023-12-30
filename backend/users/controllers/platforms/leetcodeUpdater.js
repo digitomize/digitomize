@@ -44,7 +44,7 @@ async function leetcode_u (handle) {
           const userInfo = JSON.parse(data);
           // console.log("OKKKKKKKKK", userInfo);
           // console.log(userInfo.data.userContestRanking.badge);
-          if (userInfo.data?.userContestRanking === undefined) {
+          if (userInfo.data?.userContestRanking === undefined || userInfo.data?.userContestRanking === null) {
             // userInfo.data = userContestRanking;
             userInfo.data.userContestRanking = {
               attendedContestsCount: 0,
@@ -52,7 +52,8 @@ async function leetcode_u (handle) {
               globalRanking: 0,
             };
           }
-          userInfo.data.userContestRanking.rank = userInfo.data.userContestRanking.badge?.name || "none";
+          // console.log(userInfo)
+          userInfo.data.userContestRanking.rank = userInfo.data.userContestRanking?.badge?.name || "none";
           userInfo.data.userContestRanking.handle = handle;
 
           //   console.log("HERRRREEEEE:",userInfo.data.userContestRanking);
