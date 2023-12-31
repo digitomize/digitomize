@@ -28,6 +28,7 @@ import {
   About,
   Footer,
   MetaData,
+  OSSFriendsPage
 } from "./components/CustomComponents";
 import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashPersonal, {
@@ -163,6 +164,7 @@ const router = createBrowserRouter(
         <Route path="feedback" element={<Feedback />} />
         <Route path="contact" element={<About />} />
         <Route path="about" element={<About />} />
+        <Route path="oss-friends" element={<OSSFriendsPage />} />
         <Route path="discord" element={<DiscordRedirect />} />
         <Route path="contests/:vanity" element={<IndividualCard />} />
         <Route path="404" element={<ErrorPage />} />
