@@ -61,25 +61,22 @@ export async function userProfileDetails(username) {
   }
 }
 
-export async function leaderboardData(page = 1,platform) {
+export async function leaderboardData(page = 1, platform) {
   try {
-  console.log(platform);
-    if(platform &&platform.length!=0)
-   {
-    const response = await axios.get(
-      `${backendUrl}/user/leaderboard?page=${page}&platform=${platform}`,
-    );
-   
-    return response;
-   }
-   else
-   {
-    const response = await axios.get(
-      `${backendUrl}/user/leaderboard?page=${page}`,
-    );
-   
-    return response;
-   }
+    console.log(platform);
+    if (platform && platform.length != 0) {
+      const response = await axios.get(
+        `${backendUrl}/user/leaderboard?page=${page}&platform=${platform}`,
+      );
+
+      return response;
+    } else {
+      const response = await axios.get(
+        `${backendUrl}/user/leaderboard?page=${page}`,
+      );
+
+      return response;
+    }
   } catch (err) {
     console.log(err);
   }
@@ -145,14 +142,21 @@ export async function submitUserFormData(formData) {
   }
 
   /* Throw an error if the entered username is an URL. */
-  const urlPattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-  '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-  '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-  '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-  '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-  '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
-  
-  if(Object.keys(formData).some((platform) => urlPattern.test(formData[platform]?.username))){
+  const urlPattern = new RegExp(
+    "^(https?:\\/\\/)?" + // protocol
+      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+      "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+      "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+      "(\\#[-a-z\\d_]*)?$",
+    "i",
+  ); // fragment locator
+
+  if (
+    Object.keys(formData).some((platform) =>
+      urlPattern.test(formData[platform]?.username),
+    )
+  ) {
     throw new Error("Invalid Username. Usernames should not be URLs.");
   }
 

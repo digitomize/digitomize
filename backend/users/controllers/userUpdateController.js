@@ -52,7 +52,7 @@ const updateDataField = (field, userData, existingData) => {
   }
 };
 
-function validateSocialUrls (social) {
+function validateSocialUrls(social) {
   const patterns = {
     twitter: twitterUrlPattern,
     linkedin: linkedInUrlPattern,
@@ -114,12 +114,71 @@ const updateUserData = async (userData, existingData) => {
   // You can similarly update other general properties as needed
 };
 
+function normalizeValue(value) {
+  // Treat null and '' as equal
+  return value === null ? '' : value;
+}
+
+function compareUserProfile(oldPlatformData, newPlatformData) {
+  // console.log("Old Platform Data:", oldPlatformData);
+  // console.log("New Platform Data:", newPlatformData);
+
+  if (oldPlatformData && newPlatformData) {
+    // Check direct fields (username, name, resume, picture)
+    const directFields = ["username", "name", "resume", "picture"];
+    const notEqualDirectFields = directFields
+      .filter(field => newPlatformData[field] !== undefined && String(normalizeValue(oldPlatformData[field])) !== String(normalizeValue(newPlatformData[field])));
+
+    if (notEqualDirectFields.length > 0) {
+      // console.log(`Direct fields "${notEqualDirectFields.join(', ')}" not equal`);
+      return false;
+    }
+
+    // Check fields with nested data (phoneNumber, bio, dateOfBirth)
+    const nestedFields = ["phoneNumber", "bio", "dateOfBirth"];
+    const notEqualNestedFields = nestedFields
+      .filter(field => newPlatformData[field] !== undefined && String(normalizeValue(oldPlatformData[field]?.data)) !== String(normalizeValue(newPlatformData[field]?.data)));
+
+    if (notEqualNestedFields.length > 0) {
+      // console.log(`Nested fields "${notEqualNestedFields.join(', ')}" not equal`);
+      // console.log(normalizeValue(oldPlatformData.phoneNumber?.data), normalizeValue(newPlatformData.phoneNumber?.data))
+      return false;
+    }
+
+    // Check social fields (linkedin, twitter, instagram)
+    const socialFields = ["linkedin", "twitter", "instagram"];
+    const notEqualSocialFields = socialFields
+      .filter(field => newPlatformData?.social !== undefined && String(normalizeValue(oldPlatformData?.social[field])) !== String(normalizeValue(newPlatformData?.social[field])));
+
+    if (notEqualSocialFields.length > 0) {
+      // console.log(`Social fields "${notEqualSocialFields.join(', ')}" not equal`);
+      return false;
+    }
+
+    // Check contest platforms (codeforces, codechef, leetcode) for username
+    const contestFields = ["codeforces", "codechef", "leetcode"];
+    const notEqualContestFields = contestFields
+      .filter(field => newPlatformData[field] && String(normalizeValue(oldPlatformData[field]?.username)) !== String(normalizeValue(newPlatformData[field]?.username)));
+
+    if (notEqualContestFields.length > 0) {
+      // console.log(`Contest fields "${notEqualContestFields.join(', ')}" not equal`);
+      return false;
+    }
+  } else {
+    // console.log("One or both platform data is undefined or null");
+    return false;
+  }
+
+  // console.log("All fields are equal");
+  return true;
+}
+
 const handleUpdateUserProfile = async (req, res) => {
   try {
     // const { userId } = req;
     const userId = req.decodedToken.uid;
     const updatedData = req.body;
-    console.log("UpdatedData:", updatedData);
+    // console.log("UpdatedData:", updatedData);
 
     // Check if updatedData is empty
     if (Object.keys(updatedData).length === 0) {
@@ -155,29 +214,20 @@ const handleUpdateUserProfile = async (req, res) => {
       // Clone the user's data before updating
       const userDataBeforeUpdate = JSON.parse(JSON.stringify(user));
 
-      if (
-        Object.keys(updatedData).every((field) => {
-          // console.log(field);
-          const oldUsername = userDataBeforeUpdate[field]?.username;
-          const newUsername = updatedData[field]?.username;
-          // console.log(`Comparing ${field}: oldUsername=${oldUsername}, newUsername=${newUsername}`);
-          return oldUsername === newUsername;
-        })
-      ) {
-        return res
-          .status(404)
-          .json({
-            error: "No changes were applied to the user profile",
-            message: "No changes were applied to the user profile",
-          });
+      if (compareUserProfile(userDataBeforeUpdate, updatedData)) {
+        return res.status(400).json({
+          message: "No changes were applied to the user profile",
+          error: "No changes were applied to the user profile",
+        });
       }
-      
+
+
       // Update user data, including platform-specific data
       await updateUserData(updatedData, user);
 
       // Save the updated user profile
       await user.save();
-      console.log("UPDATING USERRRRRHEREEEEEEE");
+      // console.log("UPDATING USERRRRRHEREEEEEEE");
       handleUserDataUpdate(user);
 
       if (process.env.NODE_ENV === "production") {
@@ -216,7 +266,7 @@ const handleUpdateUserProfile = async (req, res) => {
     } catch (error) {
       // Handle the error thrown by updateUserData
       console.log(error);
-      res.status(400).json({ error: error.error, message:error.message }); // Send the error message to the client
+      res.status(400).json({ error: error.error, message: error.message }); // Send the error message to the client
     }
   } catch (error) {
     console.error("Error:", error);
