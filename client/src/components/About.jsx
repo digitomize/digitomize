@@ -7,7 +7,7 @@ import {
 import { MetaData } from "./CustomComponents";
 import { Link } from "react-router-dom";
 import Contributors from "./Contributors";
-import { logo } from "./AllAssets";
+import { about_us, logo } from "./AllAssets";
 import MuiTimeline from "./Timeline";
 export default function About() {
   return (
@@ -42,7 +42,7 @@ export default function About() {
                                 </p>
                             </div> */}
               <div className="w-full flex flex-row justify-between  text-white mt-[80px]">
-                <div className="flex flex-col max-w-[50%] text-left">
+                <div className="flex flex-col lg:max-w-[50%] text-left">
                   <div className="mb-[50px]">
                     <h2 className="mb-[50px] font-semibold text-5xl">
                       Digitomize’s Platform
@@ -68,15 +68,15 @@ export default function About() {
                     </p>
                   </div>
                 </div>
-                <div className="w-[460px] h-[460px] bg-[#D9D9D9]"></div>
+                <div className="w-full h-full hidden lg:block "><img src={about_us} className="object-contain max-h-[525px]" alt="" /></div>
               </div>
               <div className="mt-[70px]">
                 <h2 className="font-semibold text-5xl text-left  text-white">
                   {" "}
                   What we do
                 </h2>
-                <div className="flex flex-row justify-between mt-[50px] space-x-[25px] ">
-                  <div className="border-[1px] flex-1 border-solid border-white bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
+                <div className="flex flex-row justify-between mt-[50px] flex-wrap gap-y-[25px] gap-x-[25px] ">
+                  <div className="border-[1px] flex-1 border-solid border-white bg-[#0e0f10] min-w-[225px] text-white rounded-[12px] py-[30px] px-[25px] text-center">
                     <h3 className="font-semibold text-2xl mb-[20px]">
                       Contests
                     </h3>
@@ -90,7 +90,7 @@ export default function About() {
                     </p>
                   </div>
 
-                  <div className="border-[1px] flex-1 border-solid border-white bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
+                  <div className="border-[1px] flex-1 border-solid border-white min-w-[225px] bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
                     <h3 className="font-semibold text-2xl mb-[20px]">
                       Portfolio
                     </h3>
@@ -103,7 +103,7 @@ export default function About() {
                       dynamic skill showcase.
                     </p>
                   </div>
-                  <div className="border-[1px] flex-1 border-solid border-white bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
+                  <div className="border-[1px] flex-1  border-solid border-white min-w-[225px] bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
                     <h3 className="font-semibold text-2xl mb-[20px]">
                       Open Source
                     </h3>
