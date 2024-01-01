@@ -151,6 +151,7 @@ const router = createBrowserRouter(
         <Route path="login" element={<Login />} loader={loginLoader} />
         <Route path="logout" element={<Logout />} />;
         <Route path="signup" element={<Signup />} loader={signupLoader} />
+        <Route path="forgot-password" element={<ForgotPass/>}/>
         <Route element={<ContestPageLayout />}>
           <Route path="contests" element={<Filter />} />
           <Route path="challenges" element={<Challenges />} />
@@ -213,6 +214,7 @@ const router = createBrowserRouter(
   ),
 );
 import Snowfall from "react-snowfall";
+import ForgotPass from "./components/ForgotPassword";
 function App() {
   return (
     <>
