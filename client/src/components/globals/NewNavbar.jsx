@@ -1,9 +1,6 @@
-import { useState, useEffect } from "react";
-
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-
 import MobNav from "./MobNav";
-
 import { logo } from "../AllAssets";
 import { useUserAuth } from "../../context/UserAuthContext";
 import { useUserDetails } from "../../context/UserContext";
@@ -14,11 +11,14 @@ export default function NewNavbar({ position }) {
   const { userDetails } = useUserDetails();
   const location = useLocation();
 
-  const navbarStyle = {
-    opacity: 1,
-    transform: "none",
-  };
+  const [scrollPos, setScrollPos] = useState(0);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isMenuActive, setActive] = useState(false);
+  const [navbarStyle, setNavbarStyle] = useState({
+    opacity: 1,
+    transform: "translateY(0)",
+    transition: "opacity 0.3s ease-out, transform 0.3s ease-out",
+  });
 
   const navLinks = [
     {
@@ -54,19 +54,90 @@ export default function NewNavbar({ position }) {
     },
   ];
 
-  function toggleActive() {
+  const toggleActive = () => {
     if (window.innerWidth < 768) {
-      if (isMenuActive) {
-        setActive(false);
-      } else {
-        setActive(true);
-      }
+      setActive((prevActive) => !prevActive);
     }
-  }
+  };
+
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+
+    setScrollPos(currentScrollPos);
+
+    // Check the scroll direction
+    if (currentScrollPos > prevScrollPos && currentScrollPos > 50) {
+      // Scrolling down, hide the navbar
+      setNavbarStyle({
+        opacity: 0,
+        transform: "translateY(-100%)",
+        transition: "opacity 0.3s ease-out, transform 0.3s ease-out",
+      });
+    } else {
+      // Scrolling up or at the top, show the navbar
+      setNavbarStyle({
+        opacity: 1,
+        transform: "translateY(0)",
+        transition: "opacity 0.3s ease-out, transform 0.3s ease-out",
+      });
+    }
+
+    setPrevScrollPos(currentScrollPos);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isMenuActive, prevScrollPos]);
 
   useEffect(() => {
     document.body.className = isMenuActive ? "overflow-hidden" : "";
   }, [isMenuActive]);
+
+  const renderAdminLink = () => {
+    if (
+      userDetails &&
+      userDetails.personal_data.role === ROLE.ADMIN
+    ) {
+      return (
+        <Link
+          to="/admin/user"
+          className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
+            location.pathname.includes("/admin")
+              ? "bg-zinc-400 text-zinc-950"
+              : ""
+          } hover:bg-zinc-200`}
+        >
+          <div className="dropdown  dropdown-bottom">
+            <label tabIndex={0}>Admin</label>
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[1] menu p-2 shadow text-zinc-300 bg-base-100 rounded-box w-52 mt-2"
+            >
+              <li>
+                <Link to={"/admin/user"}>
+                  <span>Users</span>
+                </Link>
+              </li>
+              <li>
+                <Link to={"/admin/contest"}>
+                  <span>Contests</span>
+                </Link>
+              </li>
+              <li>
+                <Link to={"/admin/community"}>
+                  <span>Community</span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </Link>
+      );
+    }
+  };
 
   return (
     <>
@@ -75,7 +146,7 @@ export default function NewNavbar({ position }) {
         className={`${
           position ? position : "sticky"
         } inset-x-0 top-0 z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto`}
-        style={navbarStyle}
+        style={{ ...navbarStyle }}
       >
         <div className="flex cursor-pointer items-center gap-4 rounded-full bg-white p-2">
           <Link to="/">
@@ -101,41 +172,7 @@ export default function NewNavbar({ position }) {
                 {navLink.title}
               </Link>
             ))}
-            {userDetails && userDetails.personal_data.role === ROLE.ADMIN && (
-              <Link
-                to="/admin/user"
-                className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
-                  location.pathname.includes("/admin")
-                    ? "bg-zinc-400 text-zinc-950"
-                    : ""
-                } hover:bg-zinc-200`}
-              >
-                <div className="dropdown  dropdown-bottom">
-                  {/* <div>Admin</div> */}
-                  <label tabIndex={0}>Admin</label>
-                  <ul
-                    tabIndex={0}
-                    className="dropdown-content z-[1] menu p-2 shadow text-zinc-300 bg-base-100 rounded-box w-52 mt-2"
-                  >
-                    <li>
-                      <Link to={"/admin/user"}>
-                        <span>Users</span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={"/admin/contest"}>
-                        <span>Contests</span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to={"/admin/community"}>
-                        <span>Community</span>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </Link>
-            )}
+            {renderAdminLink()}
           </div>
           <div className="flex justify-end">
             {user ? (
@@ -179,6 +216,6 @@ export default function NewNavbar({ position }) {
           </div>
         </div>
       </div>
-    </>
-  );
+    </>
+  );
 }
