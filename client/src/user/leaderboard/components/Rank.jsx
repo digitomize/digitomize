@@ -4,7 +4,7 @@ import { Skeleton } from "@mui/material";
 import{ useMediaQuery} from "@mui/material";
 const Rank = ({ color, pt = 6, user, selectedPlatform }) => {
   const isSmallScreen = useMediaQuery('(max-width:640px)');
-  console.log(user);
+ 
   let rating;
   if (user) {
     if (selectedPlatform.length == 0) rating = user.digitomize_rating;
