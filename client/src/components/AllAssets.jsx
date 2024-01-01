@@ -11,13 +11,7 @@ import quine from "../assets/quine.png";
 // import loginSvg from "../assets/fingerprint-animate.svg"
 import loginSvg from "../assets/authentication-animate.svg";
 import ms_startups from '../assets/ms_startups_dark.png'
-import ms_startup_new from '../assets/ms_startup_new.svg'
-import digitalocean from '../assets/digitalocean.svg'
-import about_us from '../assets/about_us.svg'
 export {
-  about_us,
-  ms_startup_new,
-  digitalocean,
   geeksforgeeks,
   leetcode,
   codingninjas,

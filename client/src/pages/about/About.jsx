@@ -4,10 +4,10 @@ import {
   AiOutlineUsergroupAdd,
   AiFillLinkedin,
 } from "react-icons/ai";
-import { MetaData } from "./CustomComponents";
+import { MetaData } from "../../components/CustomComponents";
 import { Link } from "react-router-dom";
 import Contributors from "./Contributors";
-import { about_us, logo } from "./AllAssets";
+import { about_us, } from "./assets/assets";
 import MuiTimeline from "./Timeline";
 export default function About() {
   return (

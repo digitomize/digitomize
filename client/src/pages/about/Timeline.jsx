@@ -6,10 +6,9 @@ import {
   TimelineConnector,
   TimelineContent,
   TimelineDot,
-  timelineItemClasses
 } from "@mui/lab";
 import { useMediaQuery } from "@mui/material";
-import { ms_startup_new, digitalocean } from "./AllAssets";
+import { ms_startup_new, digitalocean } from "./assets/assets";
 import TimelineComponent from "./TimelineComponent";
 const data = [
   {
