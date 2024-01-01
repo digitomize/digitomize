@@ -162,9 +162,9 @@ export default function Leaderboard() {
       setTotalPages(res.data.total_pages);
       setData(res.data.leaderboard);
       setTop3(res.data.top3);
-      console.log(res.data);
-      console.log(res.data.leaderboard);
-      console.log(top3[0]);
+      // console.log(res.data);
+      // console.log(res.data.leaderboard);    
+      // console.log(top3[0]);
     } catch (err) {
       console.log(err);
     } finally {
