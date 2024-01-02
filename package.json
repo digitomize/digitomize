@@ -26,5 +26,8 @@
     "all-contributors-cli": "^6.26.1",
     "concurrently": "^8.2.1",
     "prettier": "3.1.0"
+  },
+  "dependencies": {
+    "moment-timezone": "^0.5.44"
   }
 }
