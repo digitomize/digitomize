@@ -18,6 +18,7 @@ import {
   Layout,
   Login,
   ForgotPassword,
+  Forgotpasswordloader,
   loginLoader,
   Signup,
   signupLoader,
@@ -152,7 +153,7 @@ const router = createBrowserRouter(
         <Route path="login" element={<Login />} loader={loginLoader} />
         <Route path="logout" element={<Logout />} />;
         <Route path="signup" element={<Signup />} loader={signupLoader} />
-        <Route path="forgot-password" element={<ForgotPassword/>}/>
+        <Route path="forgot-password" element={<ForgotPassword/>} loader={Forgotpasswordloader}/>
         <Route element={<ContestPageLayout />}>
           <Route path="contests" element={<Filter />} />
           <Route path="challenges" element={<Challenges />} />

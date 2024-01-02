@@ -17,6 +17,7 @@ import Homepage from "../pages/home/Homepage";
 import Footer from "./globals/Footer";
 import { loader as loginLoader } from "./Login";
 import { loader as signupLoader } from "./globals/Signup";
+import {loader as Forgotpasswordloader} from "./ForgotPassword"
 import NewNavbar from "./globals/NewNavbar";
 import ScrollToTop from "./globals/ScrollToTop";
 import Signup from "./globals/Signup";
@@ -49,4 +50,5 @@ export {
   loginLoader,
   signupLoader,
   ForgotPassword,
+  Forgotpasswordloader
 };
