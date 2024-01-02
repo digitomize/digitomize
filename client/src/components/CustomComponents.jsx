@@ -22,6 +22,7 @@ import ScrollToTop from "./globals/ScrollToTop";
 import Signup from "./globals/Signup";
 import Updates from "./Updates";
 import MetaData from "./globals/MetaData";
+import ForgotPassword from "./ForgotPassword";
 export {
   MetaData,
   BgEllipse,
@@ -47,4 +48,5 @@ export {
   Updates,
   loginLoader,
   signupLoader,
+  ForgotPassword,
 };
