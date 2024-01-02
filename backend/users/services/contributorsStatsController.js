@@ -34,7 +34,7 @@ const fetchGitHubInfo = async () => {
     if (response.status === 403) {
       // GitHub API rate limit exceeded
       console.error("GitHub API rate limit exceeded. Please try again later.");
-      return null;
+      return new Error(403, "GitHub API rate limit exceeded. Please try again later.");
     }
 
     const data = await response.json();
