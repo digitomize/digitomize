@@ -20,57 +20,58 @@ Welcome to the client-side documentation for Digitomize, an open-source platform
 The client directory is organized into several main directories and components:
 
 ```bash
-/client
-  /src
-    /assets         # Static assets like images and fonts
-    /components     # Reusable React components
-      /AuthButtons
-      /Contests
-        /Challenges
-      /Home
-      /css
-      /globals
-    /context        # State management contexts
-    /core           # API services, app modal & utilities
-      /api
-      /components
-        /AppModal
-      /utils
-    /dsaSheets      # Components and services for dsa content
-      /components
-      /layout
-      /pages
-    /lib            # Additional libraries or utility functions
-    /pages          # Components for different pages
-      /admin
-        /CommunityListPage
-        /ContestListPage
-        /UserListPage
-      /home
-    /user           # User-specific components, services or data
-      /Profile
-        /components
-        /pages
-      /components
-      /dashboard
-      /leaderboard
+.
+└── /client/
+    └── /src/
+        ├── /assets         # Static assets like images and fonts
+        ├── /components     # Reusable React components/
+        │   ├── /AuthButtons
+        │   ├── /Contests/
+        │   │   └── /Challenges
+        │   ├── /Home
+        │   ├── /css
+        │   └── /globals
+        ├── /context        # State management contexts
+        ├── /core           # API services, app modal & utilities/
+        │   ├── /api
+        │   ├── /components/
+        │   │   └── /AppModal
+        │   └── /utils
+        ├── /dsaSheets      # Components and services for dsa content/
+        │   ├── /components
+        │   ├── /layout
+        │   └── /pages
+        ├── /lib            # Additional libraries or utility functions
+        ├── /pages          # Components for different pages/
+        │   ├── /admin/
+        │   │   ├── /CommunityListPage
+        │   │   ├── /ContestListPage
+        │   │   └── /UserListPage
+        │   └── /home
+        └── /user           # User-specific components, services or data/
+            ├── /Profile/
+            │   ├── /components
+            │   └── /pages
+            ├── /components
+            ├── /dashboard
+            └── /leaderboard        
 ```
 
-assets: This directory contains static assets such as images, fonts, and other files used in your application's user interface.
+- `assets`: This directory contains static assets such as images, fonts, and other files used in your application's user interface.
 
-components: Reusable React components are stored here. These components can be used throughout your application to maintain consistency and modularity.
+- `components`: Reusable React components are stored here. These components can be used throughout your application to maintain consistency and modularity.
 
-context: This directory contains context providers and related utility functions for state management.
+- `context`: This directory contains context providers and related utility functions for state management.
 
-core: Houses core functionalities or services used throughout your application like API services, modals or other essential utilities.
+- `core`: Houses core functionalities or services used throughout your application like API services, modals or other essential utilities.
 
-dsaSheets: Contains components, implementations, or utilities related to DSA content.
+- `dsaSheets`: Contains components, implementations, or utilities related to DSA content.
 
-lib: This directory stores additional libraries or utility functions that are used across your application.
+- `lib`: This directory stores additional libraries or utility functions that are used across your application.
 
-pages: Organized React components that represent different pages or views in your application.
+- `pages`: Organized React components that represent different pages or views in your application.
 
-user: Contains components and functionality related to user profiles.
+- `user`: Contains components and functionality related to user profiles.
 
 ## Getting Started
 
