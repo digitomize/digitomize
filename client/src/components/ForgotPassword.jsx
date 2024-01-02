@@ -16,13 +16,11 @@ import SignoutButton from "../user/components/SignoutButton";
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 export async function loader({ request }) {
-  const message = new URL(request.url).searchParams.get("message");
   const loggedIn = await isLoggedIn();
   if (loggedIn) {
     return redirect("/u/dashboard");
   }
-
-  return message;
+  return null;
 }
 
 export default function ForgotPassword() {
@@ -106,7 +104,7 @@ export default function ForgotPassword() {
                       backgroundColor="bg-[#4285f4]"
                     />
                   </div>
-                
+
                   <div className="new-user text-center mb-4">
                     {linkSent && (
                       <Link to="/login">
