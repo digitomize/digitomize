@@ -53,13 +53,13 @@ const fetchGitHubInfo = async () => {
 async function updateContributorsAndStats() {
   try {
     const githubInfo = await fetchGitHubInfo();
-    const contributors = await fetchContributorsFromFile();
+    const allContributors = await fetchContributorsFromFile();
 
-    if (!(githubInfo && contributors)) {
+    if (!(githubInfo && allContributors)) {
       throw new Error("Error occurred in fetching data");
     }
 
-    return { githubInfo, contributors };
+    return { githubInfo, allContributors };
   } catch (error) {
     console.error("Error occurred in fetching updated data", error);
 
@@ -74,7 +74,7 @@ async function updateContributorsAndStats() {
 // Schedule the update every 12 hours
 const scheduleUpdate = async () => {
   try {
-    const { githubInfo, contributor, error } = await updateContributorsAndStats();
+    const { githubInfo, allContributors, error } = await updateContributorsAndStats();
 
     if (error) {
       console.error("Error in updating contributors and stats:", error);
@@ -95,7 +95,7 @@ setTimeout(scheduleUpdate, 0);
 // main controller
 export const stats = async (req, res) => {
   try {
-    const { githubInfo, contributors, error } = await updateContributorsAndStats();
+    const { githubInfo, allContributors, error } = await updateContributorsAndStats();
 
     if (error) {
       console.error("Error in updating contributors and stats:", error);
@@ -104,8 +104,8 @@ export const stats = async (req, res) => {
 
     res.status(200).json({
       star: githubInfo.stargazers_count,
-      contributors,
-      totalNumberOfContributors: contributors.contributors.length,
+      allContributors: allContributors.contributors,
+      totalNumberOfContributors: allContributors.contributors.length,
       linkedInFollowers: "750+",
       totalViews: "27k+",
     });
