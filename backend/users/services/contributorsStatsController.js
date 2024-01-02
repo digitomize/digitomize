@@ -1,15 +1,24 @@
-import { promises as fsPromises } from "fs";
-import path from "path";
-
 // fetch contributors from file
 const fetchContributorsFromFile = async () => {
   try {
-    const filename = path.join("services", "./../../.all-contributorsrc");
-    const filedata = await fsPromises.readFile(filename, "utf8");
+    const fileData = await fetch("https://raw.githubusercontent.com/digitomize/digitomize/main/.all-contributorsrc");
 
-    const data = JSON.parse(filedata);
+    if (!fileData) throw new Error("No data found");
+
+    const data = await fileData.json();
+
     const contributors = data.contributors;
-    return contributors;
+
+    if (!contributors) throw new Error("No data found");
+    
+    return {
+      contributors: contributors.map((contributor) => ({
+        name: contributor.name,
+        avatar: contributor.avatar_url,
+        profile: contributor.profile,
+        contributions: contributor.contributions,
+      })),
+    };
   } catch (error) {
     console.error("Error reading file or parsing JSON:", error);
     return null;
@@ -44,13 +53,13 @@ const fetchGitHubInfo = async () => {
 async function updateContributorsAndStats() {
   try {
     const githubInfo = await fetchGitHubInfo();
-    const allContributors = await fetchContributorsFromFile();
+    const contributors = await fetchContributorsFromFile();
 
-    if (!(githubInfo && allContributors)) {
+    if (!(githubInfo && contributors)) {
       throw new Error("Error occurred in fetching data");
     }
 
-    return { githubInfo, allContributors };
+    return { githubInfo, contributors };
   } catch (error) {
     console.error("Error occurred in fetching updated data", error);
 
@@ -65,7 +74,7 @@ async function updateContributorsAndStats() {
 // Schedule the update every 12 hours
 const scheduleUpdate = async () => {
   try {
-    const { githubInfo, allContributors, error } = await updateContributorsAndStats();
+    const { githubInfo, contributor, error } = await updateContributorsAndStats();
 
     if (error) {
       console.error("Error in updating contributors and stats:", error);
@@ -86,7 +95,7 @@ setTimeout(scheduleUpdate, 0);
 // main controller
 export const stats = async (req, res) => {
   try {
-    const { githubInfo, allContributors, error } = await updateContributorsAndStats();
+    const { githubInfo, contributors, error } = await updateContributorsAndStats();
 
     if (error) {
       console.error("Error in updating contributors and stats:", error);
@@ -95,8 +104,8 @@ export const stats = async (req, res) => {
 
     res.status(200).json({
       star: githubInfo.stargazers_count,
-      contributorsInfo: allContributors,
-      totalNumberOfContributors: allContributors.length,
+      contributors,
+      totalNumberOfContributors: contributors.contributors.length,
       linkedInFollowers: "750+",
       totalViews: "27k+",
     });
