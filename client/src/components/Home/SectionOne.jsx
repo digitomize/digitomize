@@ -49,7 +49,7 @@ export default function SectionOne() {
               className="max-md:w-36 md:w-44"
               src={digitalOcean}
               draggable={false}
-              alt="microsoft"
+              alt="microsoft" width={`max-md:w-36 md:w-44`}
             />
           </a>
           <img
@@ -57,12 +57,14 @@ export default function SectionOne() {
             src={microsoft}
             draggable={false}
             alt="microsoft"
+            width={`max-md:w-32 md:w-40`}
           />
           <img
             className="max-md:w-32 md:w-40"
             src={gitbook}
             draggable={false}
             alt="gitbook"
+            width={`max-md:w-32 md:w-40`}
           />
           <img
             className="w-15 sm:w-25 md:w-30"
@@ -75,6 +77,7 @@ export default function SectionOne() {
             src={meltcd}
             draggable={false}
             alt="meltcd"
+            width={`className="max-md:w-32 md:w-40"`}
           />
 
 
