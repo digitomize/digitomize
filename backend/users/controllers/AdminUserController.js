@@ -50,7 +50,7 @@ const createUserFirebase = async (req, res, next) => {
     .then((userRecord) => {
       // See the UserRecord reference doc for the contents of userRecord.
       req.user = userRecord;
-      console.log("Successfully created new user:", userRecord);
+      // console.log("Successfully created new user:", userRecord);
       next();
     })
     .catch((error) => {
@@ -134,7 +134,7 @@ const deleteUserFirebase = async (req, res, next) => {
     .then((userRecord) => {
       // See the UserRecord reference doc for the contents of userRecord.
       // req.user = userRecord;
-      console.log("Successfully deleted user!");
+      // console.log("Successfully deleted user!");
       next();
     })
     .catch((error) => {
@@ -148,9 +148,9 @@ const deleteUserFirebase = async (req, res, next) => {
 
 const deleteUserDB = async (request, response) => {
   try {
-    console.log(request.body);
+    // console.log(request.body);
     const { uid } = request.body;
-    console.log(uid);
+    // console.log(uid);
     if (!uid) {
       return error(response, 400, "User ID cannot be null");
     }

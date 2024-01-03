@@ -43,8 +43,8 @@ function createEmbeds (titlePrefix, username, image, data) {
     .setColor("#00FFFF") // You can customize the color
     .setThumbnail(image)
     .setTimestamp();
-  console.log(typeof data);
-  console.log(data?.bio?.data);
+  // console.log(typeof data);
+  // console.log(data?.bio?.data);
   // Add fields for old or new data here
   // Add fields for old or new data here
   currentEmbed.addFields(

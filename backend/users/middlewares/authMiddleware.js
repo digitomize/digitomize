@@ -78,7 +78,7 @@ const checkUserOwnership = async (req, res, next) => {
   const usernameFromRequest = req.params.username; // Make sure to adjust this based on your route
 
   const userFromRequest = await getUser(usernameFromRequest);
-  console.log(userFromRequest);
+  // console.log(userFromRequest);
   const userUIDFromRequest = userFromRequest.uid.toString(); // Convert to string
 
   // console.log("From token:", userIdFromToken);

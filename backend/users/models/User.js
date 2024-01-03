@@ -184,19 +184,19 @@ const userSchema = new mongoose.Schema(
 
 userSchema.methods.updateCount = function () {
   try {
-    console.log("step1");
+    // console.log("step1");
     const today = new Date().toDateString();
     const updateIndex = this.updatesToday.findIndex(
       (update) => update.timestamp.toDateString() === today,
     );
 
     if (updateIndex === -1) {
-      console.log("step2");
-      console.log(this.updatesToday);
+      // console.log("step2");
+      // console.log(this.updatesToday);
       this.updatesToday.push({ timestamp: new Date(), count: 1 });
-      console.log(this.updatesToday);
+      // console.log(this.updatesToday);
     } else {
-      console.log("step3");
+      // console.log("step3");
       this.updatesToday[updateIndex].count += 1;
     }
 
@@ -208,10 +208,10 @@ userSchema.methods.updateCount = function () {
       now.getDate() + 1,
     );
     if (now >= midnight) {
-      console.log("step4");
+      // console.log("step4");
       this.updatesToday = [{ timestamp: now, count: 1 }];
     }
-    console.log(this.updatesToday);
+    // console.log(this.updatesToday);
   } catch (error) {
     throw new Error(`Error updating update count: ${error.message}`);
   }

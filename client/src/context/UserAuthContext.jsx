@@ -29,9 +29,9 @@ export function UserAuthContextProvider({ children }) {
         await updateProfile(user, {
           displayName: name,
         })
-          .then(() => {
-            console.log("Profile updated successfully.");
-          })
+          // .then(() => {
+          //   console.log("Profile updated successfully.");
+          // })
           .catch((error) => {
             console.error("Error updating profile:", error);
           });
