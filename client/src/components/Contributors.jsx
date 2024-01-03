@@ -212,7 +212,7 @@ export default function Contributors() {
             headers: {
               Accept: "application/vnd.github.raw",
             },
-          }
+          },
         );
 
         // Access the data from the response
