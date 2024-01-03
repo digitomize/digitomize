@@ -51,7 +51,7 @@ export default function Footer() {
               Challenges
             </a>
           </nav>
-          <nav className="flex justify-center items-center sm:!items-start flex-col gap-3 w-full sm:!w-[45%] xl:!w-fit">
+          <nav className="hidden sm:!flex justify-center items-center sm:!items-start flex-col gap-3 w-full sm:!w-[45%] xl:!w-fit">
             <header className="text-white font-medium text-2xl mb-2">
               Opportunities
             </header>
