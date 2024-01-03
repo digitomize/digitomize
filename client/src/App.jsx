@@ -17,6 +17,8 @@ import "./App.css";
 import {
   Layout,
   Login,
+  ForgotPassword,
+  forgotPasswordLoader,
   loginLoader,
   Signup,
   signupLoader,
@@ -151,6 +153,7 @@ const router = createBrowserRouter(
         <Route path="login" element={<Login />} loader={loginLoader} />
         <Route path="logout" element={<Logout />} />;
         <Route path="signup" element={<Signup />} loader={signupLoader} />
+        <Route path="forgot-password" element={<ForgotPassword />} loader={forgotPasswordLoader} />
         <Route element={<ContestPageLayout />}>
           <Route path="contests" element={<Filter />} />
           <Route path="challenges" element={<Challenges />} />
@@ -220,7 +223,7 @@ function App() {
         <UserContextProvider>
           <ToastContainer />
           <div>
-          <Snowfall snowflakeCount={100} speed={[0.2, 1]} wind={[0, 1]} style={{position:"fixed"}}/>
+            <Snowfall snowflakeCount={100} speed={[0.2, 1]} wind={[0, 1]} style={{ position: "fixed" }} />
             <RouterProvider router={router} />
           </div>
         </UserContextProvider>

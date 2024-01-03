@@ -3,7 +3,7 @@ import boy from "../../../assets/boyV7.png";
 import { Skeleton } from "@mui/material";
 import{ useMediaQuery} from "@mui/material";
 const Rank = ({ color, pt = 6, user, selectedPlatform }) => {
-  const isSmallScreen = useMediaQuery('(max-width:640px)');
+  const isSmallScreen = useMediaQuery("(max-width:640px)");
   console.log(user);
   let rating;
   if (user) {
