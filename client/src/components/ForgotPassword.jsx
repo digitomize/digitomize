@@ -13,7 +13,9 @@ import { ToastContainer, toast } from "react-toastify";
 import SignoutButton from "../user/components/SignoutButton";
 
 // for forgot password
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../../firebase";
+import { sendPasswordResetEmail } from "firebase/auth";
+const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 
 export async function loader({ request }) {
   const loggedIn = await isLoggedIn();
@@ -30,9 +32,8 @@ export default function ForgotPassword() {
   const [btnState, setbtnState] = useState(false); // disable feature
 
   // for forgot password
-  const auth = getAuth();
   const actionCodeSettings = {
-    url: "https://digitomize.com/login", // Replace with your actual login page URL
+    url: `${frontendUrl}/login`,
   };
 
   const handleSubmit = async (e) => {
@@ -41,12 +42,29 @@ export default function ForgotPassword() {
     setbtnState(true);
 
     try {
-      await sendPasswordResetEmail(auth, email,actionCodeSettings);
+      await sendPasswordResetEmail(auth, email, actionCodeSettings);
       setLinkSent(true);
       setError("Password reset email sent! Check your inbox.");
+      toast.success("Password reset email sent! Check your inbox.", {
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     } catch (error) {
       toast.error(error.message, {
-        // ...your toast options
+        position: "top-right",
+        autoClose: 1500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
       });
       setbtnState(false);
     } finally {
