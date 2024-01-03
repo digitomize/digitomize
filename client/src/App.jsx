@@ -21,7 +21,7 @@ import {
   Signup,
   signupLoader,
   ErrorPage,
-  IndividualCard,
+  // IndividualCard,
   Updates,
   Homepage,
   Feedback,
@@ -87,7 +87,7 @@ import { UserContextProvider } from "./context/UserContext";
 import UserListPage from "./pages/admin/UserListPage";
 import AdminPanelGuard from "./AdminPanelGuard";
 import ContestListPage from "./pages/admin/ContestListPage";
-import CommunityListPage from "./pages/admin/CommunityListPage";
+// import CommunityListPage from "./pages/admin/CommunityListPage";
 import ContestPageLayout from "./components/Contests/ContestPageLayout";
 import Filter from "./components/Contests/Filter";
 import Challenges from "./components/Contests/Challenges/Challenges";
@@ -164,13 +164,13 @@ const router = createBrowserRouter(
         <Route path="contact" element={<About />} />
         <Route path="about" element={<About />} />
         <Route path="discord" element={<DiscordRedirect />} />
-        <Route path="contests/:vanity" element={<IndividualCard />} />
+        {/* <Route path="contests/:vanity" element={<IndividualCard />} /> */}
         <Route path="404" element={<ErrorPage />} />
       </Route>
       <Route path="/admin" element={<AdminPanelGuard />}>
         <Route path="user" element={<UserListPage />}></Route>
         <Route path="contest" element={<ContestListPage />}></Route>
-        <Route path="community" element={<CommunityListPage />}></Route>
+        {/* <Route path="community" element={<CommunityListPage />}></Route> */}
       </Route>
       <Route path="/u" element={<ProtectedRoute />}>
         {/* <Route path="dashboard" element={<UserDashboard/>}> */}
