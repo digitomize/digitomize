@@ -31,6 +31,9 @@ export default function ForgotPassword() {
 
   // for forgot password
   const auth = getAuth();
+  const actionCodeSettings = {
+    url: "https://digitomize.com/login", // Replace with your actual login page URL
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,7 +41,7 @@ export default function ForgotPassword() {
     setbtnState(true);
 
     try {
-      await sendPasswordResetEmail(auth, email);
+      await sendPasswordResetEmail(auth, email,actionCodeSettings);
       setLinkSent(true);
       setError("Password reset email sent! Check your inbox.");
     } catch (error) {
