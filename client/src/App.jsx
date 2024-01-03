@@ -1,3 +1,4 @@
+import React, { lazy, Suspense } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -13,22 +14,22 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 // importing all the components ...
+import {Homepage , MetaData ,loginLoader ,signupLoader} from "./components/CustomComponents";
 
-import {
-  Layout,
-  Login,
-  loginLoader,
-  Signup,
-  signupLoader,
-  ErrorPage,
-  IndividualCard,
-  Updates,
-  Homepage,
-  Feedback,
-  About,
-  Footer,
-  MetaData,
-} from "./components/CustomComponents";
+
+// why lazy load ? lazy load only loads the elements those are needed enabling dynamic import of non-server side rendering elements
+const Layout = lazy(() => import("./components/Layout"));
+const Login = lazy(() => import("./components/Login"));
+
+const Signup = lazy(() => import("./components/globals/Signup"));
+
+const ErrorPage = lazy(() => import("./components/globals/error-page"));
+
+const Updates = lazy(() => import("./components/Updates"));
+const Feedback = lazy(() => import("./components/Feedback"));
+const About = lazy(() => import("./components/About"));
+const Footer = lazy(() => import("./components/globals/Footer"));
+
 import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashPersonal, {
   loader as userDashPersonalLoader,
@@ -84,14 +85,17 @@ function DiscordRedirect() {
 import { auth } from "../firebase";
 import { ToastContainer, toast } from "react-toastify";
 import { UserContextProvider } from "./context/UserContext";
-import UserListPage from "./pages/admin/UserListPage";
-import AdminPanelGuard from "./AdminPanelGuard";
-import ContestListPage from "./pages/admin/ContestListPage";
-import CommunityListPage from "./pages/admin/CommunityListPage";
+const UserListPage = lazy(() => import("./pages/admin/UserListPage"));
+const AdminPanelGuard = lazy(() => import("./AdminPanelGuard"));
+const ContestListPage = lazy(() => import("./pages/admin/ContestListPage"));
+// import CommunityListPage from "./pages/admin/CommunityListPage";
 import ContestPageLayout from "./components/Contests/ContestPageLayout";
 import Filter from "./components/Contests/Filter";
-import Challenges from "./components/Contests/Challenges/Challenges";
-import ComingSoonLoader from "./components/Contests/ComingSoonLoader";
+
+const Challenges = lazy(() => import("./components/Contests/Challenges/Challenges"));
+
+const ComingSoonLoader = lazy(() => import("./components/Contests/ComingSoonLoader"));
+
 
 function Logout() {
   const navigate = useNavigate();
@@ -164,13 +168,13 @@ const router = createBrowserRouter(
         <Route path="contact" element={<About />} />
         <Route path="about" element={<About />} />
         <Route path="discord" element={<DiscordRedirect />} />
-        <Route path="contests/:vanity" element={<IndividualCard />} />
+        {/* <Route path="contests/:vanity" element={<IndividualCard />} /> */}
         <Route path="404" element={<ErrorPage />} />
       </Route>
       <Route path="/admin" element={<AdminPanelGuard />}>
         <Route path="user" element={<UserListPage />}></Route>
         <Route path="contest" element={<ContestListPage />}></Route>
-        <Route path="community" element={<CommunityListPage />}></Route>
+        {/* <Route path="community" element={<CommunityListPage />}></Route> */}
       </Route>
       <Route path="/u" element={<ProtectedRoute />}>
         {/* <Route path="dashboard" element={<UserDashboard/>}> */}

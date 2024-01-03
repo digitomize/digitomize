@@ -162,9 +162,9 @@ export default function Leaderboard() {
       setTotalPages(res.data.total_pages);
       setData(res.data.leaderboard);
       setTop3(res.data.top3);
-      console.log(res.data);
-      console.log(res.data.leaderboard);
-      console.log(top3[0]);
+      // console.log(res.data);
+      // console.log(res.data.leaderboard);    
+      // console.log(top3[0]);
     } catch (err) {
       console.log(err);
     } finally {
@@ -272,7 +272,7 @@ export default function Leaderboard() {
                 color: "#fff",
                 fontSize: 16,
               }}
-              InputLabelProps={{
+              inputlabelprops={{
                 style: { color: "white" }, // Change 'green' to your desired label color
               }}
               InputProps={{
@@ -300,7 +300,7 @@ export default function Leaderboard() {
               select platform
             </InputLabel>
             <Select
-              InputLabelProps={{
+              inputlabelprops={{
                 style: { color: "white" }, // Change 'green' to your desired label color
               }}
               labelId="demo-simple-select-filled-label"
