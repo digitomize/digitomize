@@ -154,19 +154,26 @@ export default function UserDashRatings() {
         });
       })
       .catch((err) => {
-        toast.error(err.response ? err.response.data.error : (err.request ? err.request : err.message), {
-          position: "top-left",
-          autoClose: 1500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
+        toast.error(
+          err.response
+            ? err.response.data.error
+            : err.request
+              ? err.request
+              : err.message,
+          {
+            position: "top-left",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          },
+        );
         console.log(err);
       });
-    console.log(res);
+    // console.log(res);
   }
 
   if (data) {
@@ -249,7 +256,8 @@ export default function UserDashRatings() {
                           <div className="join">
                             <a
                               href="https://codeforces.com/profile"
-                              target="_blank" rel="noreferrer"
+                              target="_blank"
+                              rel="noreferrer"
                             >
                               <div className="w-8 h-6 input-bordered join-item bg-cardsHover">
                                 <img
@@ -299,7 +307,8 @@ export default function UserDashRatings() {
                           <div className="join">
                             <a
                               href="https://www.codechef.com/dashboard"
-                              target="_blank" rel="noreferrer"
+                              target="_blank"
+                              rel="noreferrer"
                             >
                               <div className="w-8 h-6 input-bordered join-item bg-cardsHover">
                                 <img
@@ -346,7 +355,11 @@ export default function UserDashRatings() {
                       <li>
                         <a>
                           <div className="join">
-                            <a href="https://leetcode.com/" target="_blank" rel="noreferrer">
+                            <a
+                              href="https://leetcode.com/"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
                               <div className="w-8 h-6 input-bordered join-item bg-cardsHover">
                                 <img
                                   src={platformsIcon[0]}

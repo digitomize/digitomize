@@ -40,7 +40,7 @@ export default function Signup() {
   const [btnState, setbtnState] = useState(false);
   const [passwordShow, setPasswordShow] = useState(false);
 
-  const passwordToggle = () =>{
+  const passwordToggle = () => {
     setPasswordShow(!passwordShow);
   };
 
@@ -60,7 +60,7 @@ export default function Signup() {
               Authorization: `Bearer ${token}`,
             },
           })
-          .then((res) => console.log(res))
+          // .then((res) => console.log(res))
           .catch((err) => setError(err.code));
       }
       navigate("/login");
@@ -175,7 +175,7 @@ export default function Signup() {
                       <p>
                         <span className="label-text">{"import"}</span>
                         <span className="label-text text-custom-blue">
-                          {" \"password\";"}
+                          {' "password";'}
                         </span>
                       </p>
                     </label>
@@ -187,9 +187,18 @@ export default function Signup() {
                         placeholder="***************"
                         required
                       />
-                      {password && (passwordShow ?
-                      <EyeOff onClick={passwordToggle} className="w-6 h-6 absolute z-50 left-100 right-2"/> :
-                      <Eye onClick={passwordToggle} className="w-6 h-6 absolute z-50 left-100 right-2"/>)}
+                      {password &&
+                        (passwordShow ? (
+                          <EyeOff
+                            onClick={passwordToggle}
+                            className="w-6 h-6 absolute z-50 left-100 right-2"
+                          />
+                        ) : (
+                          <Eye
+                            onClick={passwordToggle}
+                            className="w-6 h-6 absolute z-50 left-100 right-2"
+                          />
+                        ))}
                     </div>
                     <label className="label">
                       <span className="label-text-alt"></span>

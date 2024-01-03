@@ -63,7 +63,7 @@ export async function userProfileDetails(username) {
 
 export async function leaderboardData(page = 1, platform) {
   try {
-    console.log(platform);
+    // console.log(platform);
     if (platform && platform.length != 0) {
       const response = await axios.get(
         `${backendUrl}/user/leaderboard?page=${page}&platform=${platform}`,
@@ -119,8 +119,8 @@ async function uploadPictureToCloudinary(formData, accessToken, uid) {
   await axios
     .post(url, cloudinaryformData)
     .then((res) => {
-      console.log(timestamp);
-      console.log(res.data);
+      // console.log(timestamp);
+      // console.log(res.data);
       const photo = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/ar_1.0,c_fill,g_face/f_auto/r_max/v${res.data.version}/users/${uid}.${res.data.format}`;
       formData.picture = photo;
       updateProfile(auth.currentUser, {
@@ -161,19 +161,19 @@ export async function submitUserFormData(formData) {
   }
 
   const currentUser = auth.currentUser;
-  console.log(currentUser);
+  // console.log(currentUser);
   const accessToken = await currentUser.getIdToken();
   // console.log(jwtToken);
 
   await uploadPictureToCloudinary(formData, accessToken, currentUser.uid);
-  console.log(formData.picture);
+  // console.log(formData.picture);
   const res = await axios.post(`${backendUrl}/user/dashboard`, formData, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
   });
-  console.log("RESPONSE ----> ", res);
-  console.log(res.status);
+  // console.log("RESPONSE ----> ", res);
+  // console.log(res.status);
 }
 
 export async function getProfileData(username) {

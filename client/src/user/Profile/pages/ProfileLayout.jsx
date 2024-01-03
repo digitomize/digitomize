@@ -24,35 +24,76 @@ function ProfileLayout() {
       <Suspense fallback={<LoadingScreen logout={false} />}>
         <Await resolve={loaderData.profileData}>
           {(loadedProfileData) => {
-            console.log(loadedProfileData);
+            // console.log(loadedProfileData);
             return (
               <>
                 <Helmet>
-                  <title>{loadedProfileData.personal_data.name} | Digitomize</title>
+                  <title>
+                    {loadedProfileData.personal_data.name} | Digitomize
+                  </title>
 
                   {/* Page Description */}
-                  <meta name="description" content={loadedProfileData.personal_data.bio?.slice(0, 25) || loadedProfileData.personal_data.name} />
+                  <meta
+                    name="description"
+                    content={
+                      loadedProfileData.personal_data.bio?.slice(0, 25) ||
+                      loadedProfileData.personal_data.name
+                    }
+                  />
 
                   {/* Robots Meta Tag */}
                   <meta name="robots" content="index, follow" />
 
                   {/* Open Graph Tags (Facebook) */}
                   <meta property="og:type" content="website" />
-                  <meta property="og:url" content={`/u/${loadedProfileData.personal_data.username}`} />
-                  <meta property="og:title" content={loadedProfileData.personal_data.name} />
-                  <meta property="og:description" content={loadedProfileData.personal_data.bio?.slice(0, 25) || loadedProfileData.personal_data.name} />
+                  <meta
+                    property="og:url"
+                    content={`/u/${loadedProfileData.personal_data.username}`}
+                  />
+                  <meta
+                    property="og:title"
+                    content={loadedProfileData.personal_data.name}
+                  />
+                  <meta
+                    property="og:description"
+                    content={
+                      loadedProfileData.personal_data.bio?.slice(0, 25) ||
+                      loadedProfileData.personal_data.name
+                    }
+                  />
                   {/* <meta property="og:description" content={loadedProfileData.personal_data.bio?.slice(0, 25) ?? loadedProfileData.personal_data.name ?? ''} /> */}
 
-                  <meta property="og:image" content={loadedProfileData.personal_data.picture} />
-                  <meta property="og:url" content={`/u/${loadedProfileData.personal_data.username}`} />
+                  <meta
+                    property="og:image"
+                    content={loadedProfileData.personal_data.picture}
+                  />
+                  <meta
+                    property="og:url"
+                    content={`/u/${loadedProfileData.personal_data.username}`}
+                  />
 
                   {/* Twitter Meta Tags */}
-                  <meta name="twitter:title" content={loadedProfileData.personal_data.name} />
-                  <meta name="twitter:description" content={loadedProfileData.personal_data.bio?.slice(0, 25) || loadedProfileData.personal_data.name} />
-                  <meta name="twitter:image" content={loadedProfileData.personal_data.picture} />
+                  <meta
+                    name="twitter:title"
+                    content={loadedProfileData.personal_data.name}
+                  />
+                  <meta
+                    name="twitter:description"
+                    content={
+                      loadedProfileData.personal_data.bio?.slice(0, 25) ||
+                      loadedProfileData.personal_data.name
+                    }
+                  />
+                  <meta
+                    name="twitter:image"
+                    content={loadedProfileData.personal_data.picture}
+                  />
 
                   {/* Canonical URL */}
-                  <link rel="canonical" href={`/u/${loadedProfileData.personal_data.username}`} />
+                  <link
+                    rel="canonical"
+                    href={`/u/${loadedProfileData.personal_data.username}`}
+                  />
                 </Helmet>
                 <Outlet context={loadedProfileData} />
               </>
