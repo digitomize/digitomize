@@ -344,7 +344,6 @@ export default function UserDashPersonal() {
                       className="input input-bordered  w-full max-w-lg"
                       placeholder=""
                       value={newSkill}
-                      maxLength={10}
                       onChange={(e) => setNewSkill(e.target.value)}
                     />
                     <Form onSubmit={handleAdd}>
