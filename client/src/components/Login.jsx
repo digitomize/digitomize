@@ -146,8 +146,10 @@ export default function Login() {
                     </div>
                     <label className="label">
                       <span className="label-text-alt"></span>
-                      {/* // ! TO ADD */}
-                      {/* <span className="label-text-alt text-custom-blue">forgot password?</span> */}
+                      {/* // ! TO ADD being added by nakul30*/}
+                      <Link to="/forgot-password" >
+                      <span className="label-text-alt text-custom-blue">forgot password?</span>
+                      </Link>
                     </label>
                   </div>
                 </div>

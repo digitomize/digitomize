@@ -193,8 +193,10 @@ export default function Signup() {
                     </div>
                     <label className="label">
                       <span className="label-text-alt"></span>
-                      {/* // ! TO ADD */}
-                      {/* <span className="label-text-alt text-custom-blue">forgot password?</span> */}
+                      <Link to="/forgot-password" >
+                      <span className="label-text-alt text-custom-blue">forgot password?</span>
+                      </Link>
+                      
                     </label>
                   </div>
                 </div>
