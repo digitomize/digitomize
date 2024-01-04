@@ -52,8 +52,8 @@ export default function UserDashPersonal() {
     e.preventDefault();
 
     if (newSkill.trim() !== "") {
-      if (newSkill.length > 20) {
-        toast.error("Length exceeding 20 characters");
+      if (newSkill.length > 25) {
+        toast.error("Length exceeding 25 characters");
         return;
       }
       setskillData((prevSkills) => [
@@ -343,7 +343,7 @@ export default function UserDashPersonal() {
                       className="input input-bordered  w-full max-w-lg"
                       placeholder=""
                       value={newSkill}
-                      maxLength={10}
+                      maxLength={25}
                       onChange={(e) => setNewSkill(e.target.value)}
                     />
                     <Form onSubmit={handleAdd}>
