@@ -1,6 +1,6 @@
 import https from "https";
 
-async function codechef_u (username) {
+async function codechef_u(username) {
   if (!username) {
     return null;
   }
@@ -35,7 +35,7 @@ async function codechef_u (username) {
         userInfo.date_versus_rating.all.length > 0
       ) {
         const allContests = userInfo.date_versus_rating.all;
-        console.log("LENGTH::", allContests.length);
+        // console.log("LENGTH::", allContests.length);
         const lastContest = allContests[allContests.length - 1];
         const lastContestRating = lastContest.rating;
 

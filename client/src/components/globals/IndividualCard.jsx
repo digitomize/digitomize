@@ -57,17 +57,19 @@ function IndividualCard() {
   if (contest === null) {
     return <div className="min-h-[40vh]">Loading...</div>;
   }
-if (contest?.host === undefined) {
-    return <div className="min-h-[40vh] text-center">
-      <h1>
-        404 <br /> Contest not found
-      </h1>
-      <Link to="/contests">Go back to contests</Link>
-    </div>;
+  if (contest?.host === undefined) {
+    return (
+      <div className="min-h-[40vh] text-center">
+        <h1>
+          404 <br /> Contest not found
+        </h1>
+        <Link to="/contests">Go back to contests</Link>
+      </div>
+    );
   }
 
   const { host, name, url, startTimeUnix, duration } = contest;
-  console.log(contest.length);
+  // console.log(contest.length);
   const durationInMilliseconds = duration * 60 * 1000;
   const endTimeUnix = startTimeUnix + durationInMilliseconds / 1000;
   const startDate = new Date(startTimeUnix * 1000);
@@ -130,56 +132,56 @@ if (contest?.host === undefined) {
   const contentDescription = `${name} | ${startTimeIST} (IST)`.toLowerCase();
   const contentTitle = `${host} | Digitomize`.toLowerCase();
   const pageTitle = `${name} | Digitomize`.toLowerCase();
-  if (contest) return (
-    <>
-      <Helmet>
-                <title>{pageTitle}</title>
-                
-                {/* Page Description */}
-                <meta name="description" content={contentDescription} />
+  if (contest)
+    return (
+      <>
+        <Helmet>
+          <title>{pageTitle}</title>
 
-                {/* Robots Meta Tag */}
-                <meta name="robots" content="index, follow" />
+          {/* Page Description */}
+          <meta name="description" content={contentDescription} />
 
-                {/* Open Graph Tags (Facebook) */}
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content={url} />
-                <meta property="og:title" content={contentTitle} />
-                <meta property="og:description" content={contentDescription} />
-                <meta property="og:image" content={hostToSVGMap[host]} />
-                <meta property="og:url" content={url} />
+          {/* Robots Meta Tag */}
+          <meta name="robots" content="index, follow" />
 
-                {/* Twitter Meta Tags */}
-                <meta name="twitter:title" content={pageTitle} />
-                <meta name="twitter:description" content={contentDescription} />
-                <meta name="twitter:image" content={hostToSVGMap[host]} />
+          {/* Open Graph Tags (Facebook) */}
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content={url} />
+          <meta property="og:title" content={contentTitle} />
+          <meta property="og:description" content={contentDescription} />
+          <meta property="og:image" content={hostToSVGMap[host]} />
+          <meta property="og:url" content={url} />
 
-                {/* Canonical URL */}
-                <link rel="canonical" href={url} />
-            </Helmet>
-      {true && (
-        <div className="mx-auto w-fit mt-4">
-          <Alert
-            severity="success"
-            className="w-fit"
-            icon={<Celebration className="animate-ping" />}
-          >
-            <Link to="/challenges">
-              <AlertTitle>
-              We just added 
-                <strong> challenges</strong>!!
-                <span className="normal-case">
-                  {" "}
-                  Prize worth{" "}
-                  <strong>$ 2048+</strong>🎉
-                </span>
-              </AlertTitle>
-            </Link>
-          </Alert>
-          {/* <div className="w-full flex md:flex-row-reverse -right-8 -top-4 md:relative max-md:justify-center max-md:mt-4">
+          {/* Twitter Meta Tags */}
+          <meta name="twitter:title" content={pageTitle} />
+          <meta name="twitter:description" content={contentDescription} />
+          <meta name="twitter:image" content={hostToSVGMap[host]} />
+
+          {/* Canonical URL */}
+          <link rel="canonical" href={url} />
+        </Helmet>
+        {true && (
+          <div className="mx-auto w-fit mt-4">
+            <Alert
+              severity="success"
+              className="w-fit"
+              icon={<Celebration className="animate-ping" />}
+            >
+              <Link to="/challenges">
+                <AlertTitle>
+                  We just added
+                  <strong> challenges</strong>!!
+                  <span className="normal-case">
+                    {" "}
+                    Prize worth <strong>$ 2048+</strong>🎉
+                  </span>
+                </AlertTitle>
+              </Link>
+            </Alert>
+            {/* <div className="w-full flex md:flex-row-reverse -right-8 -top-4 md:relative max-md:justify-center max-md:mt-4">
           <img src={ microsoftLogo} alt="" className="w-40"/>
           </div> */}
-          {/* <Alert severity="error" className="w-fit" icon={<PanTool className="animate-ping"/>}>
+            {/* <Alert severity="error" className="w-fit" icon={<PanTool className="animate-ping"/>}>
             <Link to="/signup?utm_source=contests">
               <AlertTitle>
                 <strong>One-Stop Ratings!</strong> -
@@ -189,709 +191,209 @@ if (contest?.host === undefined) {
               stop checking ratings <strong>one by one</strong>; see them all at <strong>once</strong>!
             </Link>
           </Alert> */}
-        </div>
-      )}
-      {isMobile ? (
-        <div className="py-8 ">
-          <div className="card_Navigation mx-4">
-            <div className="card_nav_path">
-              <Link to="/">
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                Home
-              </Link>
-            </div>
-            <h3>&gt;</h3>
-            <div className="card_nav_path">
-              <Link to="/contests">
-                <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                Contests
-              </Link>
-            </div>
-            <h3>&gt;</h3>
-            <div className="card_nav_path">
-              <h3>
-                <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                {name}
-              </h3>
-            </div>
           </div>
-          <div
-            className="ic-mv"
-            key={vanity}
-            style={{ backgroundColor: colorTheme }}
-          >
-            <div className="ic-mv-child">
-              <div
-                className="mv-date"
-                style={{
-                  color: "black",
-                  fontWeight: "bold",
-                  backgroundColor: colorTheme,
-                }}
-              >
-                {startDate.getDate()} {monthName}' {startDate.getFullYear()}
+        )}
+        {isMobile ? (
+          <div className="py-8 ">
+            <div className="card_Navigation mx-4">
+              <div className="card_nav_path">
+                <Link to="/">
+                  <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                  Home
+                </Link>
               </div>
-              <div className="ic-mv-child-first">
-                <img
-                  src={hostToSVGMap[host]}
-                  alt={host}
-                  style={{
-                    maxHeight: "6.25rem",
-                    maxWidth: "6.25rem",
-                    margin: "auto",
-                    marginBottom: "0px",
-                  }}
-                />
-                <div className="mv-siteName">{host}</div>
+              <h3>&gt;</h3>
+              <div className="card_nav_path">
+                <Link to="/contests">
+                  <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                  Contests
+                </Link>
               </div>
-              <div className="ic-mv-child-second">
-                <h2
-                  className="mv-contest-name"
-                  id="contest-title"
-                  style={{ margin: "auto", width: "28.125rem" }}
-                >
+              <h3>&gt;</h3>
+              <div className="card_nav_path">
+                <h3>
+                  <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                   {name}
-                </h2>
-              </div>
-              <div className="ic-mv-child-third">
-                <div className="ic-mv-child-third-first">
-                  <div
-                    className="mv-start-time-div"
-                    style={{
-                      backgroundColor: colorTheme,
-                      fontSize: "3.8vw",
-                      color: "black",
-                      fontWeight: "bold",
-                      padding: "1.5vw",
-                      display: "inline-block",
-                    }}
-                  >
-                    {startTimeIST}
-                  </div>
-                </div>
-                <div className="ic-mv-child-third-second">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="6"
-                    height="6"
-                    fill="currentColor"
-                    className="bi bi-square-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    {" "}
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="6"
-                    height="6"
-                    fill="currentColor"
-                    className="bi bi-square-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    {" "}
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="6"
-                    height="6"
-                    fill="currentColor"
-                    className="bi bi-square-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    {" "}
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="6"
-                    height="6"
-                    fill="currentColor"
-                    className="bi bi-square-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    {" "}
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                  </svg>
-                </div>
-                <div className="ic-mv-child-third-third">
-                  <div className="ic-mv-child-third-third-first">
-                    <div className="ic-mv-child-third-third-first-sub"></div>
-                  </div>
-                  <div
-                    className="ic-mv-child-third-third-second"
-                    style={{ fontSize: "3.8vw" }}
-                  >
-                    {durationFormatted}
-                  </div>
-                  <div className="ic-mv-child-third-third-third">
-                    <div className="ic-mv-child-third-third-third-sub"></div>
-                  </div>
-                </div>
-                <div className="ic-mv-child-third-fourth">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="6"
-                    height="6"
-                    fill="currentColor"
-                    className="bi bi-square-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    {" "}
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="6"
-                    height="6"
-                    fill="currentColor"
-                    className="bi bi-square-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    {" "}
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="6"
-                    height="6"
-                    fill="currentColor"
-                    className="bi bi-square-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    {" "}
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="6"
-                    height="6"
-                    fill="currentColor"
-                    className="bi bi-square-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    {" "}
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
-                  </svg>
-                </div>
-                <div className="ic-mv-child-third-fifth">
-                  <div
-                    className="mv-end-time-div"
-                    style={{
-                      backgroundColor: colorTheme,
-                      fontSize: "3.8vw",
-                      color: "black",
-                      fontWeight: "bold",
-                      padding: "1.5vw",
-                      display: "inline-block",
-                    }}
-                  >
-                    {endTimeIST}
-                  </div>
-                </div>
-              </div>
-              <div className="ic-mv-child-fourth">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{ display: "inline-block" }}
-                  width="20"
-                  height="20"
-                  fill="currentColor"
-                  className="bi bi-alarm"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z" />
-                  <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z" />
-                </svg>
-                {remaningTime}
-              </div>
-              <div className="ic-mv-child-fifth">
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mv-btn-div"
-                  style={{ boxShadow: `0.5rem 0.5rem ${colorTheme}` }}
-                >
-                  <button
-                    style={{
-                      color: "black",
-                      fontWeight: "bold",
-                      fontSize: "1.25rem",
-                      marginTop: "1.063rem",
-                    }}
-                  >
-                    participate
-                  </button>
-                </a>
-                <CopyToClipboard
-                  msg="share"
-                  className="mv-btn-div share-button-div share-button-container mv-btn-share-div"
-                  gradient={"mv-btn-div"}
-                />
+                </h3>
               </div>
             </div>
-          </div>
-        </div>
-      ) : (
-        <>
-          <div className="card_Navigation flex justify-center mt-8 text-2xl">
-            <div className="card_nav_path">
-              <Link to="/">
-                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                Home
-              </Link>
-            </div>
-            <h3>&gt;</h3>
-            <div className="card_nav_path">
-              <Link to="/contests">
-                <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                Contests
-              </Link>
-            </div>
-            <h3>&gt;</h3>
-            <div className="card_nav_path">
-              <h3>
-                <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                {name}
-              </h3>
-            </div>
-          </div>
-          <div
-            className="ic py-8"
-            key={vanity}
-            style={{ backgroundColor: colorTheme }}
-          >
-            <div className="ic-child">
-              <div
-                className="date"
-                style={{
-                  color: "black",
-                  fontWeight: "bold",
-                  backgroundColor: colorTheme,
-                }}
-              >
-                {startDate.getDate()} {monthName}' {startDate.getFullYear()}
-              </div>
-              <div
-                style={{ position: "absolute", left: "350px", top: "530px" }}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="40"
-                  height="40"
-                  fill="currentColor"
-                  className="bi bi-scissors"
-                  viewBox="0 0 16 16"
+            <div
+              className="ic-mv"
+              key={vanity}
+              style={{ backgroundColor: colorTheme }}
+            >
+              <div className="ic-mv-child">
+                <div
+                  className="mv-date"
+                  style={{
+                    color: "black",
+                    fontWeight: "bold",
+                    backgroundColor: colorTheme,
+                  }}
                 >
-                  <path d="M3.5 3.5c-.614-.884-.074-1.962.858-2.5L8 7.226 11.642 1c.932.538 1.472 1.616.858 2.5L8.81 8.61l1.556 2.661a2.5 2.5 0 1 1-.794.637L8 9.73l-1.572 2.177a2.5 2.5 0 1 1-.794-.637L7.19 8.61 3.5 3.5zm2.5 10a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0zm7 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z" />
-                </svg>
-              </div>
-              <div
-                style={{
-                  position: "absolute",
-                  left: "348px",
-                  top: "10px",
-                  transform: "rotate(-180deg)",
-                }}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="40"
-                  height="40"
-                  fill="currentColor"
-                  className="bi bi-scissors"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M3.5 3.5c-.614-.884-.074-1.962.858-2.5L8 7.226 11.642 1c.932.538 1.472 1.616.858 2.5L8.81 8.61l1.556 2.661a2.5 2.5 0 1 1-.794.637L8 9.73l-1.572 2.177a2.5 2.5 0 1 1-.794-.637L7.19 8.61 3.5 3.5zm2.5 10a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0zm7 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z" />
-                </svg>
-              </div>
-              <div className="ic-child-left">
-                <div className="ic-child-left-zeroth"></div>
-                <div className="ic-child-left-first">
-                  <div
-                    className="ic-child-left-first-inner"
-                    style={{ backgroundColor: colorTheme }}
-                  >
-                    <p
-                      style={{
-                        fontSize: "20px",
-                        marginLeft: "30px",
-                        color: "black",
-                        fontWeight: "bold",
-                        paddingTop: "5px",
-                        display: "inline-block",
-                      }}
-                    >
-                      {startTimeIST}
-                    </p>
-                  </div>
+                  {startDate.getDate()} {monthName}' {startDate.getFullYear()}
                 </div>
-                <div className="ic-child-left-second">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="5"
-                    height="5"
-                    fill="currentColor"
-                    className="bi bi-square-fill left-filled-box"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="5"
-                    height="5"
-                    fill="currentColor"
-                    className="bi bi-square-fill left-filled-box"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="5"
-                    height="5"
-                    fill="currentColor"
-                    className="bi bi-square-fill left-filled-box"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="5"
-                    height="5"
-                    fill="currentColor"
-                    className="bi bi-square-fill left-filled-box"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="5"
-                    height="5"
-                    fill="currentColor"
-                    className="bi bi-square-fill left-filled-box"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="5"
-                    height="5"
-                    fill="currentColor"
-                    className="bi bi-square-fill left-filled-box"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="5"
-                    height="5"
-                    fill="currentColor"
-                    className="bi bi-square-fill left-filled-box"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                  </svg>
-                </div>
-                <div className="ic-child-left-third"></div>
-                <div className="ic-child-left-fourth">
-                  <p
-                    style={{
-                      marginLeft: "125px",
-                      marginTop: "8px",
-                      fontSize: "20px",
-                      display: "inline-block",
-                    }}
-                  >
-                    {durationFormatted}
-                  </p>
-                </div>
-                <div className="ic-child-left-fifth"></div>
-                <div className="ic-child-left-sixth">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="5"
-                    height="5"
-                    fill="currentColor"
-                    className="bi bi-square-fill left-filled-box"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="5"
-                    height="5"
-                    fill="currentColor"
-                    className="bi bi-square-fill left-filled-box"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="5"
-                    height="5"
-                    fill="currentColor"
-                    className="bi bi-square-fill left-filled-box"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="5"
-                    height="5"
-                    fill="currentColor"
-                    className="bi bi-square-fill left-filled-box"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="5"
-                    height="5"
-                    fill="currentColor"
-                    className="bi bi-square-fill left-filled-box"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="5"
-                    height="5"
-                    fill="currentColor"
-                    className="bi bi-square-fill left-filled-box"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                  </svg>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="5"
-                    height="5"
-                    fill="currentColor"
-                    className="bi bi-square-fill left-filled-box"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                  </svg>
-                </div>
-                <div className="ic-child-left-seventh">
-                  <div
-                    className="ic-child-left-seventh-inner"
-                    style={{ backgroundColor: colorTheme }}
-                  >
-                    <p
-                      style={{
-                        fontSize: "20px",
-                        marginLeft: "30px",
-                        color: "black",
-                        fontWeight: "bold",
-                        paddingTop: "5px",
-                        display: "inline-block",
-                      }}
-                    >
-                      {endTimeIST}
-                    </p>
-                  </div>
-                </div>
-                <div className="ic-child-left-eight"></div>
-              </div>
-              <div className="ic-child-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill first-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill center-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill center-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill center-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill center-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill center-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill center-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill center-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill center-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill center-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill center-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill center-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill center-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill center-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill center-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="12"
-                  height="12"
-                  fill="currentColor"
-                  className="bi bi-square-fill center-filled-box"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
-                </svg>
-              </div>
-              <div className="ic-child-right">
-                <div className="ic-child-right-first">
+                <div className="ic-mv-child-first">
                   <img
                     src={hostToSVGMap[host]}
                     alt={host}
                     style={{
-                      maxHeight: "100px",
-                      maxWidth: "100px",
+                      maxHeight: "6.25rem",
+                      maxWidth: "6.25rem",
                       margin: "auto",
+                      marginBottom: "0px",
                     }}
                   />
-                  <div className="siteName">{host}</div>
+                  <div className="mv-siteName">{host}</div>
                 </div>
-                <div className="ic-child-right-second">
+                <div className="ic-mv-child-second">
                   <h2
-                    className="contest-name"
+                    className="mv-contest-name"
                     id="contest-title"
-                    style={{ margin: "auto", width: "450px" }}
+                    style={{ margin: "auto", width: "28.125rem" }}
                   >
                     {name}
                   </h2>
                 </div>
-                <div className="ic-child-right-third">
+                <div className="ic-mv-child-third">
+                  <div className="ic-mv-child-third-first">
+                    <div
+                      className="mv-start-time-div"
+                      style={{
+                        backgroundColor: colorTheme,
+                        fontSize: "3.8vw",
+                        color: "black",
+                        fontWeight: "bold",
+                        padding: "1.5vw",
+                        display: "inline-block",
+                      }}
+                    >
+                      {startTimeIST}
+                    </div>
+                  </div>
+                  <div className="ic-mv-child-third-second">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="6"
+                      height="6"
+                      fill="currentColor"
+                      className="bi bi-square-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      {" "}
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="6"
+                      height="6"
+                      fill="currentColor"
+                      className="bi bi-square-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      {" "}
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="6"
+                      height="6"
+                      fill="currentColor"
+                      className="bi bi-square-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      {" "}
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="6"
+                      height="6"
+                      fill="currentColor"
+                      className="bi bi-square-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      {" "}
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
+                    </svg>
+                  </div>
+                  <div className="ic-mv-child-third-third">
+                    <div className="ic-mv-child-third-third-first">
+                      <div className="ic-mv-child-third-third-first-sub"></div>
+                    </div>
+                    <div
+                      className="ic-mv-child-third-third-second"
+                      style={{ fontSize: "3.8vw" }}
+                    >
+                      {durationFormatted}
+                    </div>
+                    <div className="ic-mv-child-third-third-third">
+                      <div className="ic-mv-child-third-third-third-sub"></div>
+                    </div>
+                  </div>
+                  <div className="ic-mv-child-third-fourth">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="6"
+                      height="6"
+                      fill="currentColor"
+                      className="bi bi-square-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      {" "}
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="6"
+                      height="6"
+                      fill="currentColor"
+                      className="bi bi-square-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      {" "}
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="6"
+                      height="6"
+                      fill="currentColor"
+                      className="bi bi-square-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      {" "}
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="6"
+                      height="6"
+                      fill="currentColor"
+                      className="bi bi-square-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      {" "}
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
+                    </svg>
+                  </div>
+                  <div className="ic-mv-child-third-fifth">
+                    <div
+                      className="mv-end-time-div"
+                      style={{
+                        backgroundColor: colorTheme,
+                        fontSize: "3.8vw",
+                        color: "black",
+                        fontWeight: "bold",
+                        padding: "1.5vw",
+                        display: "inline-block",
+                      }}
+                    >
+                      {endTimeIST}
+                    </div>
+                  </div>
+                </div>
+                <div className="ic-mv-child-fourth">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     style={{ display: "inline-block" }}
@@ -906,20 +408,20 @@ if (contest?.host === undefined) {
                   </svg>
                   {remaningTime}
                 </div>
-                <div className="ic-child-right-fourth">
+                <div className="ic-mv-child-fifth">
                   <a
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-div"
-                    style={{ boxShadow: `8px 8px ${colorTheme}` }}
+                    className="mv-btn-div"
+                    style={{ boxShadow: `0.5rem 0.5rem ${colorTheme}` }}
                   >
                     <button
                       style={{
                         color: "black",
                         fontWeight: "bold",
-                        fontSize: "20px",
-                        marginTop: "17px",
+                        fontSize: "1.25rem",
+                        marginTop: "1.063rem",
                       }}
                     >
                       participate
@@ -927,17 +429,517 @@ if (contest?.host === undefined) {
                   </a>
                   <CopyToClipboard
                     msg="share"
-                    className="share-button-container share-button-div-phone"
-                    gradient={"btn-div"}
+                    className="mv-btn-div share-button-div share-button-container mv-btn-share-div"
+                    gradient={"mv-btn-div"}
                   />
                 </div>
               </div>
             </div>
           </div>
-        </>
-      )}
-    </>
-  );
+        ) : (
+          <>
+            <div className="card_Navigation flex justify-center mt-8 text-2xl">
+              <div className="card_nav_path">
+                <Link to="/">
+                  <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                  Home
+                </Link>
+              </div>
+              <h3>&gt;</h3>
+              <div className="card_nav_path">
+                <Link to="/contests">
+                  <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                  Contests
+                </Link>
+              </div>
+              <h3>&gt;</h3>
+              <div className="card_nav_path">
+                <h3>
+                  <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                  {name}
+                </h3>
+              </div>
+            </div>
+            <div
+              className="ic py-8"
+              key={vanity}
+              style={{ backgroundColor: colorTheme }}
+            >
+              <div className="ic-child">
+                <div
+                  className="date"
+                  style={{
+                    color: "black",
+                    fontWeight: "bold",
+                    backgroundColor: colorTheme,
+                  }}
+                >
+                  {startDate.getDate()} {monthName}' {startDate.getFullYear()}
+                </div>
+                <div
+                  style={{ position: "absolute", left: "350px", top: "530px" }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    className="bi bi-scissors"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M3.5 3.5c-.614-.884-.074-1.962.858-2.5L8 7.226 11.642 1c.932.538 1.472 1.616.858 2.5L8.81 8.61l1.556 2.661a2.5 2.5 0 1 1-.794.637L8 9.73l-1.572 2.177a2.5 2.5 0 1 1-.794-.637L7.19 8.61 3.5 3.5zm2.5 10a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0zm7 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z" />
+                  </svg>
+                </div>
+                <div
+                  style={{
+                    position: "absolute",
+                    left: "348px",
+                    top: "10px",
+                    transform: "rotate(-180deg)",
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    fill="currentColor"
+                    className="bi bi-scissors"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M3.5 3.5c-.614-.884-.074-1.962.858-2.5L8 7.226 11.642 1c.932.538 1.472 1.616.858 2.5L8.81 8.61l1.556 2.661a2.5 2.5 0 1 1-.794.637L8 9.73l-1.572 2.177a2.5 2.5 0 1 1-.794-.637L7.19 8.61 3.5 3.5zm2.5 10a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0zm7 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z" />
+                  </svg>
+                </div>
+                <div className="ic-child-left">
+                  <div className="ic-child-left-zeroth"></div>
+                  <div className="ic-child-left-first">
+                    <div
+                      className="ic-child-left-first-inner"
+                      style={{ backgroundColor: colorTheme }}
+                    >
+                      <p
+                        style={{
+                          fontSize: "20px",
+                          marginLeft: "30px",
+                          color: "black",
+                          fontWeight: "bold",
+                          paddingTop: "5px",
+                          display: "inline-block",
+                        }}
+                      >
+                        {startTimeIST}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="ic-child-left-second">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="5"
+                      height="5"
+                      fill="currentColor"
+                      className="bi bi-square-fill left-filled-box"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="5"
+                      height="5"
+                      fill="currentColor"
+                      className="bi bi-square-fill left-filled-box"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="5"
+                      height="5"
+                      fill="currentColor"
+                      className="bi bi-square-fill left-filled-box"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="5"
+                      height="5"
+                      fill="currentColor"
+                      className="bi bi-square-fill left-filled-box"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="5"
+                      height="5"
+                      fill="currentColor"
+                      className="bi bi-square-fill left-filled-box"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="5"
+                      height="5"
+                      fill="currentColor"
+                      className="bi bi-square-fill left-filled-box"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="5"
+                      height="5"
+                      fill="currentColor"
+                      className="bi bi-square-fill left-filled-box"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                    </svg>
+                  </div>
+                  <div className="ic-child-left-third"></div>
+                  <div className="ic-child-left-fourth">
+                    <p
+                      style={{
+                        marginLeft: "125px",
+                        marginTop: "8px",
+                        fontSize: "20px",
+                        display: "inline-block",
+                      }}
+                    >
+                      {durationFormatted}
+                    </p>
+                  </div>
+                  <div className="ic-child-left-fifth"></div>
+                  <div className="ic-child-left-sixth">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="5"
+                      height="5"
+                      fill="currentColor"
+                      className="bi bi-square-fill left-filled-box"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="5"
+                      height="5"
+                      fill="currentColor"
+                      className="bi bi-square-fill left-filled-box"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="5"
+                      height="5"
+                      fill="currentColor"
+                      className="bi bi-square-fill left-filled-box"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="5"
+                      height="5"
+                      fill="currentColor"
+                      className="bi bi-square-fill left-filled-box"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="5"
+                      height="5"
+                      fill="currentColor"
+                      className="bi bi-square-fill left-filled-box"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="5"
+                      height="5"
+                      fill="currentColor"
+                      className="bi bi-square-fill left-filled-box"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                    </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="5"
+                      height="5"
+                      fill="currentColor"
+                      className="bi bi-square-fill left-filled-box"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                    </svg>
+                  </div>
+                  <div className="ic-child-left-seventh">
+                    <div
+                      className="ic-child-left-seventh-inner"
+                      style={{ backgroundColor: colorTheme }}
+                    >
+                      <p
+                        style={{
+                          fontSize: "20px",
+                          marginLeft: "30px",
+                          color: "black",
+                          fontWeight: "bold",
+                          paddingTop: "5px",
+                          display: "inline-block",
+                        }}
+                      >
+                        {endTimeIST}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="ic-child-left-eight"></div>
+                </div>
+                <div className="ic-child-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill first-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill center-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill center-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill center-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill center-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill center-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill center-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill center-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill center-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill center-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill center-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill center-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill center-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill center-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill center-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    fill="currentColor"
+                    className="bi bi-square-fill center-filled-box"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
+                  </svg>
+                </div>
+                <div className="ic-child-right">
+                  <div className="ic-child-right-first">
+                    <img
+                      src={hostToSVGMap[host]}
+                      alt={host}
+                      style={{
+                        maxHeight: "100px",
+                        maxWidth: "100px",
+                        margin: "auto",
+                      }}
+                    />
+                    <div className="siteName">{host}</div>
+                  </div>
+                  <div className="ic-child-right-second">
+                    <h2
+                      className="contest-name"
+                      id="contest-title"
+                      style={{ margin: "auto", width: "450px" }}
+                    >
+                      {name}
+                    </h2>
+                  </div>
+                  <div className="ic-child-right-third">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{ display: "inline-block" }}
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      className="bi bi-alarm"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z" />
+                      <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z" />
+                    </svg>
+                    {remaningTime}
+                  </div>
+                  <div className="ic-child-right-fourth">
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-div"
+                      style={{ boxShadow: `8px 8px ${colorTheme}` }}
+                    >
+                      <button
+                        style={{
+                          color: "black",
+                          fontWeight: "bold",
+                          fontSize: "20px",
+                          marginTop: "17px",
+                        }}
+                      >
+                        participate
+                      </button>
+                    </a>
+                    <CopyToClipboard
+                      msg="share"
+                      className="share-button-container share-button-div-phone"
+                      gradient={"btn-div"}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+      </>
+    );
 }
 
 export const getColorTheme = (host) => {

@@ -34,7 +34,7 @@ export default function GoogleAuthButton({
                   Authorization: `Bearer ${idToken}`,
                 },
               })
-              .then((res) => console.log(res))
+              // .then((res) => console.log(res))
               .catch((err) => console.log(err));
           });
           navigate("/u/dashboard");
