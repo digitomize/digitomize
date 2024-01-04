@@ -52,7 +52,7 @@ const updateDataField = (field, userData, existingData) => {
   }
 };
 
-function validateSocialUrls(social) {
+function validateSocialUrls (social) {
   const patterns = {
     twitter: twitterUrlPattern,
     linkedin: linkedInUrlPattern,
@@ -114,12 +114,12 @@ const updateUserData = async (userData, existingData) => {
   // You can similarly update other general properties as needed
 };
 
-function normalizeValue(value) {
+function normalizeValue (value) {
   // Treat null and '' as equal
-  return value === null ? '' : value;
+  return value === null ? "" : value;
 }
 
-function compareUserProfile(oldPlatformData, newPlatformData) {
+function compareUserProfile (oldPlatformData, newPlatformData) {
   // console.log("Old Platform Data:", oldPlatformData);
   // console.log("New Platform Data:", newPlatformData);
 
@@ -220,7 +220,6 @@ const handleUpdateUserProfile = async (req, res) => {
           error: "No changes were applied to the user profile",
         });
       }
-
 
       // Update user data, including platform-specific data
       await updateUserData(updatedData, user);

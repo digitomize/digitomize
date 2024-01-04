@@ -1,10 +1,13 @@
-
 # Digitomize - [Website](https://digitomize.com)
 
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-49-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-52-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
+Website: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9g.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
+
+V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9j.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
+
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/125b14c1-ebbe-46d7-97db-c3e97674e36e/deploy-status)](https://app.netlify.com/sites/digitomize/deploys)
 [![Forks on Github](https://img.shields.io/github/forks/digitomize/digitomize)](https://github.com/digitomize/digitomize/forks)
@@ -160,6 +163,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Chakit22"><img src="https://avatars.githubusercontent.com/u/118890138?v=4?s=100" width="100px;" alt="Chakit Bhandari"/><br /><sub><b>Chakit Bhandari</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Chakit22" title="Code">💻</a> <a href="https://github.com/digitomize/digitomize/commits?author=Chakit22" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/c4coderandcreator"><img src="https://avatars.githubusercontent.com/u/70572678?v=4?s=100" width="100px;" alt="Coder And Creator"/><br /><sub><b>Coder And Creator</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=c4coderandcreator" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://kunalsin9h.com"><img src="https://avatars.githubusercontent.com/u/82411321?v=4?s=100" width="100px;" alt="Kunal Singh"/><br /><sub><b>Kunal Singh</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=KunalSin9h" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/LevisNgigi"><img src="https://avatars.githubusercontent.com/u/111055098?v=4?s=100" width="100px;" alt="Levis Mbote"/><br /><sub><b>Levis Mbote</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=LevisNgigi" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/nakul30"><img src="https://avatars.githubusercontent.com/u/96560834?v=4?s=100" width="100px;" alt="Nakul Garg"/><br /><sub><b>Nakul Garg</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=nakul30" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://biodrop.io/harmeetsingh11"><img src="https://avatars.githubusercontent.com/u/130365071?v=4?s=100" width="100px;" alt="Harmeet Singh"/><br /><sub><b>Harmeet Singh</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=harmeetsingh11" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
