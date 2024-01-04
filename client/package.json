@@ -21,7 +21,6 @@
     "@radix-ui/themes": "^2.0.2",
     "axios": "^1.4.0",
     "class-variance-authority": "^0.7.0",
-    "clipboard": "^2.0.11",
     "clsx": "^2.0.0",
     "firebase": "^10.3.0",
     "flowbite": "^1.8.1",

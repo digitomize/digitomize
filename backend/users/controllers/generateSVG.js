@@ -1,4 +1,7 @@
 import { getUser } from "../services/getUser.js";
+import { leetcodeSVG } from "../utils/leetcodeSVG.js";
+import { codechefSVG } from "../utils/codechefSVG.js";
+import { codeforcesSVG } from "../utils/codeforcesSVG.js";
 
 const generateSVG = async (req, res) => {
   try {
@@ -13,21 +16,36 @@ const generateSVG = async (req, res) => {
       if (platforms.includes(e) && queries[e] === "1") toReturn.push(e);
 
     console.log(toReturn);
-    let cards = ``
 
-    try {
-      toReturn.forEach((e) => {
-        let data = user[e];
-        let card = "lets see";
-        cards += `${card}`;
-      });
-    } catch (error) {
-      console.error("Error:", error);
-      res.status(500).json({
-        message: "Error creating user card",
-        error: "Error creating user card",
-      });
-    }
+    let cards = `<svg width="100%" height="100%" version="1.1"
+    xmlns="http://www.w3.org/2000/svg">`;
+      try {
+        let width=100/toReturn.length, height="50%",x=0;
+        toReturn.forEach((e,i) => {
+          let data = user[e];
+          let card = ``;
+          if (e === "leetcode") {
+            card += leetcodeSVG(data,width+"%",height,x+"%");
+          }
+          if (e === "codechef") {
+            card += codechefSVG(data,width+"%",height,x+"%");
+          }
+          if (e === "codeforces") {
+            card += codeforcesSVG(data,width+"%",height,x+"%");
+          }
+          cards += `${card}`;
+          x += 100/toReturn.length;
+        });
+      } catch (error) {
+        console.error("Error:", error);
+        res.status(500).json({
+          message: "Error creating user card",
+          error: "Error creating user card",
+        });
+        return;
+      }
+    cards += `</svg>`;
+    res.set("Content-Type", "image/svg+xml");
     res.status(200).end(cards);
   } catch (error) {
     console.error("Error:", error);
@@ -37,5 +55,9 @@ const generateSVG = async (req, res) => {
     });
   }
 };
+
+const addGTag = (x) => {
+  return `<g transform="translate(${x},0)">`
+}
 
 export { generateSVG };
