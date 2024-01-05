@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import { sendErrorLog } from "./error.js";
 dotenv.config();
 
-function sendWebhook_createAccount ({
+function sendWebhook_createAccount({
   imageURL,
   title,
   description,
@@ -12,9 +12,9 @@ function sendWebhook_createAccount ({
   username,
 }) {
   const webhookClient = new WebhookClient({ url: process.env.DC_WH_CREATE });
-  console.log("imageURL:", imageURL);
-  console.log("title:", title);
-  console.log("description:", description);
+  // console.log("imageURL:", imageURL);
+  // console.log("title:", title);
+  // console.log("description:", description);
 
   try {
     const embed = new EmbedBuilder()
