@@ -41,10 +41,17 @@ body:
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
       render: shell
   - type: checkboxes
+    id: checks
+    attributes:
+      label: Are you interested in contributing?
+      options:
+        - label: I'd like to work on this issue
+  - type: checkboxes
     id: terms
     attributes:
       label: Code of Conduct
       description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/digitomize/digitomize/blob/main/CODE_OF_CONDUCT.md)
       options:
+        - label: I have used the search function to check if an issue already exists
         - label: I agree to follow this project's Code of Conduct
           required: true
