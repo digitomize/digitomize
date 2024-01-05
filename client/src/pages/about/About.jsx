@@ -17,12 +17,18 @@ export default function About() {
         <div className="hero">
           <div className="hero-content flex-col sm:flex-row">
             <div className="left text-center flex flex-col justify-center items-center">
-              <div className="w-full flex flex-row justify-between  text-white mt-[80px]">
+              <div className="w-full flex flex-row justify-between  text-white phone:mt-[80px] max-phone:mt-4">
                 <div className="flex flex-col lg:max-w-[50%] text-left">
                   <div className="mb-[50px]">
-                    <h2 className="mb-[50px] font-semibold text-5xl">
-                      Digitomize’s Platform
-                    </h2>
+                    <div className="heading mb-8 w-fit">
+
+                      <h1 className="mt-2 text-white max-md:text-4xl md:text-6xl">
+                        <span>Digitomize’s Platform</span>
+                      </h1>
+                      <h3 className="text-left text-custom-blue">
+                        Your Gateway to Coding Success!
+                      </h3>
+                    </div>
                     <p className="text-[20px]">
                       At Digitomize, we believe coding isn't just a skill, it's
                       a superpower. It's the language of innovation, the key to
@@ -44,7 +50,7 @@ export default function About() {
                     </p>
                   </div>
                 </div>
-                <div className="w-full h-full hidden lg:block "><img src={about_us} className="object-contain max-h-[525px]" alt="" /></div>
+                <div className="lg:w-[50%] h-full lg:flex justify-end max-lg:hidden"><img src={about_us} className="object-contain h-[525px]" alt="" /></div>
               </div>
               <div className="mt-[70px]">
                 <h2 className="font-semibold text-5xl text-left  text-white">
@@ -94,12 +100,18 @@ export default function About() {
                 </div>
               </div>
               <div className="mt-[70px]">
-                <h2 className="font-[500] text-5xl text-center mb-[75px] text-white">
+                {/* <h2 className="font-[500] text-5xl text-center mb-[75px] text-white">
                   Milestones of Digitomize
-                </h2>
+                </h2> */}
+                <h1 className="my-4 py-4 text-white max-md:text-4xl md:text-6xl flex flex-row mx-auto justify-center">
+                        <span className="block mt-1 md:mt-6">
+                            <span className="bg-digitomize-bg mx-2 px-1 rounded-lg">Milestones</span>
+                            of Digitomize
+                        </span>
+                    </h1>
                 <MuiTimeline></MuiTimeline>
               </div>
-             
+
 
               <div className="divider phone:w-2/5 max-phone:w-3/5 mx-auto"></div>
               <div className="w-[80vw]">
@@ -127,7 +139,7 @@ export default function About() {
               </svg>
             </div>
             <div className="stat-title">total views</div>
-            <div className="stat-value text-secondary">32k+</div>
+            <div className="stat-value text-secondary">38k+</div>
             {/* <div className="stat-desc">21% more than last month</div> */}
           </div>
           <Link
@@ -140,7 +152,7 @@ export default function About() {
                 <AiFillLinkedin className="w-8 h-8" />
               </div>
               <div className="stat-title">linkedin followers</div>
-              <div className="stat-value text-secondary">800+</div>
+              <div className="stat-value text-secondary">850+</div>
               {/* <div className="stat-desc">21% more than last month</div> */}
             </div>
           </Link>
@@ -154,7 +166,7 @@ export default function About() {
                 <AiFillStar className="w-8 h-8" />
               </div>
               <div className="stat-title">Github Stars</div>
-              <div className="stat-value text-secondary">200+</div>
+              <div className="stat-value text-secondary">222+</div>
               {/* <div className="stat-desc">21% more than last month</div> */}
             </div>
           </Link>

@@ -57,7 +57,7 @@ function TimelineComponent({ data, index }) {
           <img
             src={data.img}
             alt=""
-            className={`${
+            className={`w-24 ${
               index % 2 === 0 || matches ? "" : "hidden "
             } max-sm:hidden`}
           />
@@ -67,7 +67,7 @@ function TimelineComponent({ data, index }) {
           <img
             src={data.img}
             alt=""
-            className={`${
+            className={`w-24 ${
               index % 2 !== 0 && !matches ? "" : "hidden"
             } max-sm:hidden`}
           />
