@@ -90,7 +90,7 @@ export const getSheets = async (req, res) => {
 
     for (const sheet of sheets) {
       const questionsWithDetails = [];
-      console.log(sheet);
+      // console.log(sheet);
 
       for (const questionId of sheet?.questions) {
         const questionDetails = await getQuestionByQId({

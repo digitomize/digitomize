@@ -36,7 +36,7 @@ export default function GithubAuthButton({
               Authorization: `Bearer ${user.accessToken}`,
             },
           })
-          .then((res) => console.log(res))
+          // .then((res) => console.log(res))
           .catch((err) => console.log(err));
         navigate("/u/dashboard/account");
       })

@@ -17,11 +17,13 @@ import Homepage from "../pages/home/Homepage";
 import Footer from "./globals/Footer";
 import { loader as loginLoader } from "./Login";
 import { loader as signupLoader } from "./globals/Signup";
+import {loader as forgotPasswordLoader} from "./ForgotPassword";
 import NewNavbar from "./globals/NewNavbar";
 import ScrollToTop from "./globals/ScrollToTop";
 import Signup from "./globals/Signup";
 import Updates from "./Updates";
 import MetaData from "./globals/MetaData";
+import ForgotPassword from "./ForgotPassword";
 export {
   MetaData,
   BgEllipse,
@@ -47,4 +49,6 @@ export {
   Updates,
   loginLoader,
   signupLoader,
+  ForgotPassword,
+  forgotPasswordLoader,
 };

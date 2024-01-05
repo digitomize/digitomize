@@ -162,9 +162,9 @@ export default function Leaderboard() {
       setTotalPages(res.data.total_pages);
       setData(res.data.leaderboard);
       setTop3(res.data.top3);
-      console.log(res.data);
-      console.log(res.data.leaderboard);
-      console.log(top3[0]);
+      // console.log(res.data);
+      // console.log(res.data.leaderboard);
+      // console.log(top3[0]);
     } catch (err) {
       console.log(err);
     } finally {
@@ -189,18 +189,16 @@ export default function Leaderboard() {
     setSelectedRating(event.target.value);
   };
   const handleChange = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     setSelectedPlatform(event.target.value);
     if (event.target.value.length !== 0) {
       setSearchParams({ platform: event.target.value, page: 1 });
-    }
-    else {
+    } else {
       searchParams.delete("platform");
       setSearchParams(searchParams);
     }
     setCurrentPage(1);
-    if (screenSize.width <= 640)
-      setSelectedRating(event.target.value);
+    if (screenSize.width <= 640) setSelectedRating(event.target.value);
   };
   const main_model = (
     <ShareModel
@@ -223,8 +221,6 @@ export default function Leaderboard() {
             &nbsp;Coding Battles&nbsp;
           </span>
         </h1>
-
-
       </div>
       <div className="flex justify-center max-phone:gap-6 phone:gap-12 phone:w-4/6 w-11/12 mx-auto  h-fit">
         <Rank
@@ -342,8 +338,9 @@ export default function Leaderboard() {
       <div className="phone:w-4/6 w-[95%] mx-auto mt-4 text-center text-white">
         <div className=" rounded-[20px] max-phone:overflow-x-hidden overflow-x-auto">
           <table
-            className={`table  ${screenSize.width <= 435 ? "table-xs" : ""
-              }  bg-[#252525]  w-full`}
+            className={`table  ${
+              screenSize.width <= 435 ? "table-xs" : ""
+            }  bg-[#252525]  w-full`}
           >
             {/* head */}
             <thead className="bg-[#474747] text-white text-center max-sm:text-[12px]">
@@ -490,8 +487,12 @@ export default function Leaderboard() {
                                   <OpenInNew style={{ fontSize: "15px" }} />{" "}
                                 </div>
                                 <div className="  sm:text-[11px] text-[8px] font-light text-left">
-                                  @{screenSize.width <= 350 ? row.username.length <= 15 ? row.username : row.username.slice(0, 15) + "..." : row.username
-                                  }
+                                  @
+                                  {screenSize.width <= 350
+                                    ? row.username.length <= 15
+                                      ? row.username
+                                      : row.username.slice(0, 15) + "..."
+                                    : row.username}
                                 </div>
                                 {/* You can display more userDetails details here if needed */}
                               </Link>
@@ -521,7 +522,9 @@ export default function Leaderboard() {
                     key={currentUserData.user_position}
                     className="bg-[#252525] text-center"
                   >
-                    <td>{"#" + currentUserData.user_position || "Not ranked"}</td>
+                    <td>
+                      {"#" + currentUserData.user_position || "Not ranked"}
+                    </td>
                     <td>
                       <div className="flex items-center space-x-3">
                         <div className="avatar">
@@ -543,12 +546,20 @@ export default function Leaderboard() {
                           <Link to={"/u/" + userDetails.personal_data.username}>
                             <div className="font-semibold text-left sm:text-[14px] text-[12px]">
                               {userDetails.personal_data.name}
-                              {"(YOU)"} <OpenInNew style={{ fontSize: "15px" }} />{" "}
+                              {"(YOU)"}{" "}
+                              <OpenInNew style={{ fontSize: "15px" }} />{" "}
                             </div>
                             <div className=" sm:text-[11px] text-[8px] font-light text-left">
-                              @{
-                                screenSize.width <= 350 ? userDetails.personal_data.username.length <= 15 ? userDetails.personal_data.username : userDetails.personal_data.username.slice(0, 15) + "..." : userDetails.personal_data.username
-                              }
+                              @
+                              {screenSize.width <= 350
+                                ? userDetails.personal_data.username.length <=
+                                  15
+                                  ? userDetails.personal_data.username
+                                  : userDetails.personal_data.username.slice(
+                                      0,
+                                      15,
+                                    ) + "..."
+                                : userDetails.personal_data.username}
                             </div>
                             {/* You can display more userDetails details here if needed */}
                           </Link>
@@ -561,9 +572,15 @@ export default function Leaderboard() {
                     <td>
                       {Math.floor(currentUserData.ratings.digitomize_rating)}
                     </td> */}
-                    <td className="max-sm:hidden">{currentUserData.ratings.codechef || 0}</td>
-                    <td className="max-sm:hidden">{currentUserData.ratings.leetcode || 0}</td>
-                    <td className="max-sm:hidden">{currentUserData.ratings.codeforces || 0}</td>
+                    <td className="max-sm:hidden">
+                      {currentUserData.ratings.codechef || 0}
+                    </td>
+                    <td className="max-sm:hidden">
+                      {currentUserData.ratings.leetcode || 0}
+                    </td>
+                    <td className="max-sm:hidden">
+                      {currentUserData.ratings.codeforces || 0}
+                    </td>
                     <td className="max-sm:hidden">
                       {Math.floor(currentUserData.ratings.digitomize_rating)}
                     </td>
@@ -584,7 +601,10 @@ export default function Leaderboard() {
             {/* foot */}
           </table>
         </div>
-        <button onClick={() => setShow(true)} className="flex sm:hidden justify-center w-fit ml-auto items-center mt-3 border border-badge bg-badge  text-badge-txt px-6 py-1 font-['Geist'] rounded-full text-sm">
+        <button
+          onClick={() => setShow(true)}
+          className="flex sm:hidden justify-center w-fit ml-auto items-center mt-3 border border-badge bg-badge  text-badge-txt px-6 py-1 font-['Geist'] rounded-full text-sm"
+        >
           Share the board now
           <div className="h-8 ml-1 max-md:w-12 clip flex items-center justify-center">
             <svg

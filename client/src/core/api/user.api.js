@@ -106,11 +106,11 @@ export const createNewUser = async (body) => {
 export const deleteUser = async (body) => {
   const loggedIn = await isLoggedIn();
 
-  console.log("HEREEEEE");
+  // console.log("HEREEEEE");
   if (loggedIn) {
     const currentUser = auth.currentUser;
     const accessToken = await currentUser.getIdToken();
-    console.log(accessToken);
+    // console.log(accessToken);
     if (accessToken) {
       try {
         return axios.delete(`${BACKEND_URL}/admin/user`, {

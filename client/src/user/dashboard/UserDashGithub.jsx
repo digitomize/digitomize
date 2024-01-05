@@ -89,7 +89,7 @@ export default function UserDashGithub() {
         });
         console.log(err);
       });
-    console.log(res);
+    // console.log(res);
     svgImage();
   }
 

@@ -52,8 +52,8 @@ export default function UserDashPersonal() {
     e.preventDefault();
 
     if (newSkill.trim() !== "") {
-      if (newSkill.length > 20) {
-        toast.error("Length exceeding 20 characters");
+      if (newSkill.length > 25) {
+        toast.error("Length exceeding 25 characters");
         return;
       }
       setskillData((prevSkills) => [
@@ -118,7 +118,6 @@ export default function UserDashPersonal() {
       linkedin: social?.linkedin || null,
       twitter: social?.twitter || null,
       instagram: social?.instagram || null,
-
     },
   });
   const handleInputChange = (event) => {
@@ -201,7 +200,7 @@ export default function UserDashPersonal() {
         setIsDisabled(false);
       });
 
-    console.log(res);
+    // console.log(res);
   }
 
   return (
@@ -344,7 +343,7 @@ export default function UserDashPersonal() {
                       className="input input-bordered  w-full max-w-lg"
                       placeholder=""
                       value={newSkill}
-                      maxLength={10}
+                      maxLength={25}
                       onChange={(e) => setNewSkill(e.target.value)}
                     />
                     <Form onSubmit={handleAdd}>
@@ -441,7 +440,6 @@ export default function UserDashPersonal() {
                   onChange={handleSocialChange}
                   className="input input-bordered sm:w-2/6 md:w-2/5"
                 />
-
               </div>
               <div className="flex gap-4 items-center">
                 <FaLinkedin size={40} />
@@ -472,8 +470,9 @@ export default function UserDashPersonal() {
                 onClick={handleSubmit}
                 disabled={isDisabled}
                 type="submit"
-                className={`text-black bg-white font-medium rounded-lg  text-xl  md:text-3xl   px-8 py-3 text-center ${isDisabled ? "cursor-not-allowed opacity-20" : null
-                  }`}
+                className={`text-black bg-white font-medium rounded-lg  text-xl  md:text-3xl   px-8 py-3 text-center ${
+                  isDisabled ? "cursor-not-allowed opacity-20" : null
+                }`}
               >
                 {isDisabled ? "Updating..." : "Update"}
               </button>

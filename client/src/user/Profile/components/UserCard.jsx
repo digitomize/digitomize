@@ -98,13 +98,13 @@ function UserCard({
           </button>
         )}
         <div className={`pt-8 flex justify-center gap-3 ${social ? "" : "hidden"}`}>
-          <a className={social?.linkedin ? "" : "hidden"} href={social?.linkedin} target="_blank">
+          <a className={social?.linkedin ? "" : "hidden"} href={social?.linkedin} target="_blank" rel="noreferrer">
             <FaLinkedin size={30} color="white"/>
           </a>
-          <a className={social?.instagram ? "" : "hidden"} href={social?.instagram} target="_blank">
+          <a className={social?.instagram ? "" : "hidden"} href={social?.instagram} target="_blank" rel="noreferrer">
             <FaInstagram size={30} color="white"/>
           </a>
-          <a className={social?.twitter ? "" : "hidden"} href={social?.twitter} target="_blank">
+          <a className={social?.twitter ? "" : "hidden"} href={social?.twitter} target="_blank" rel="noreferrer">
             <FaXTwitter size={30} color="white"/>
           </a>
         </div>

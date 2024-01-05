@@ -463,6 +463,24 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "nakul30",
+      "name": "Nakul Garg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/96560834?v=4",
+      "profile": "https://github.com/nakul30",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "harmeetsingh11",
+      "name": "Harmeet Singh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/130365071?v=4",
+      "profile": "http://biodrop.io/harmeetsingh11",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
