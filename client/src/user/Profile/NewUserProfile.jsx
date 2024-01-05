@@ -10,7 +10,6 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import WarningIcon from "@mui/icons-material/Warning";
 import CustomLinkCard from "./components/CustomLinkCard";
-import ClipboardJS from "clipboard";
 
 function NewUserProfile() {
   const { personal_data, social } = useOutletContext();
@@ -27,7 +26,6 @@ function NewUserProfile() {
     const fileIdMatch = link?.match(/\/d\/(.+?)\//);
     return fileIdMatch ? fileIdMatch[1] : null;
   };
-  const clipboard = new ClipboardJS('.apiBtn');
   const generateEmbedUrl = () => {
     const fileId = getDriveFileId(personal_data.resume);
     if (fileId) {
@@ -143,10 +141,6 @@ function NewUserProfile() {
               title="contest ratings &#10024;"
               textColor="text-[#ffc552de]"
             />
-            <input type="text" hidden value={`${VITE_REACT_APP_BACKEND_URL}`+"/user/ratings/"+`${personal_data.username}`} />
-            <button className="apiBtn">
-              Click me to copy your api
-            </button>
           </div>
 
           {/* Second Row */}

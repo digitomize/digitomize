@@ -145,6 +145,7 @@ function PlatformRatings() {
                 >
                   Share
                 </button>
+                {/* <CopyToClipboard msg={"hi"} /> */}
                 {show && main_model}
               </div>
             </div>
