@@ -163,20 +163,19 @@ function IndividualCard() {
         {true && (
           <div className="mx-auto w-fit mt-4">
             <Alert
-              severity="success"
+              severity="info"
               className="w-fit"
               icon={<Celebration className="animate-ping" />}
             >
-              <Link to="/challenges">
+              <a href="https://code-kshetra.devfolio.co/?ref=f9a3e0c023" target="_blank">
                 <AlertTitle>
-                  We just added
-                  <strong> challenges</strong>!!
+                  <strong>Hackathon!!!</strong>
                   <span className="normal-case">
                     {" "}
-                    Prize worth <strong>$ 2048+</strong>🎉
+                    300k+ INR Prize Pool -<strong> register today</strong>🎉
                   </span>
                 </AlertTitle>
-              </Link>
+              </a>
             </Alert>
             {/* <div className="w-full flex md:flex-row-reverse -right-8 -top-4 md:relative max-md:justify-center max-md:mt-4">
           <img src={ microsoftLogo} alt="" className="w-40"/>
