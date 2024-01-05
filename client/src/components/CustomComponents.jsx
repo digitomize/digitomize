@@ -2,7 +2,7 @@ import BgEllipse from "./globals/BgEllipse";
 import Button from "./globals/Button";
 import Card from "./globals/Card";
 import Contests from "./Contests";
-import About from "./About";
+import About from "../pages/about/About";
 import CopyToClipboard from "./CopyToClipboard";
 import ErrorPage from "./globals/error-page";
 import Feedback from "./Feedback";
