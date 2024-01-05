@@ -272,7 +272,7 @@ export default function Leaderboard() {
                 color: "#fff",
                 fontSize: 16,
               }}
-              inputLabelprops={{
+              InputLabelProps={{
                 style: { color: "white" }, // Change 'green' to your desired label color
               }}
               InputProps={{
@@ -300,7 +300,7 @@ export default function Leaderboard() {
               select platform
             </InputLabel>
             <Select
-              inputLabelprops={{
+              InputLabelProps={{
                 style: { color: "white" }, // Change 'green' to your desired label color
               }}
               labelId="demo-simple-select-filled-label"
