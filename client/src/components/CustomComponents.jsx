@@ -7,7 +7,7 @@ import CopyToClipboard from "./CopyToClipboard";
 import ErrorPage from "./globals/error-page";
 import Feedback from "./Feedback";
 import Home from "./Home";
-// import IndividualCard from "./globals/IndividualCard";   no use cases found 
+import IndividualCard from "./globals/IndividualCard"; 
 import Layout from "./Layout";
 import Login from "./Login";
 import Logout from "./globals/Logout";
@@ -33,7 +33,7 @@ export {
   ErrorPage,
   Feedback,
   Home,
-  // IndividualCard,
+  IndividualCard,
   Layout,
   Login,
   Logout,
