@@ -1,0 +1,64 @@
+---
+name: 🛠️ Feature Request
+description: Suggest an idea to help us improve digitomize.
+title: "[Feature]: "
+labels:
+  - "feature_request"
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Thanks :heart: for taking the time to fill out this feature request report!**
+        We kindly ask that you search to see if an issue [already exists](https://github.com/digitomize/digitomize/issues) for your feature.
+
+        We are also happy to accept contributions from our users. For more details see [here](https://github.com/digitomize/digitomize/blob/main/CONTRIBUTING.md)
+
+  - type: textarea
+    attributes:
+      label: Is your feature request related to a problem? Please describe.
+      description: |
+        A clear and concise description of the feature you're interested in.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Describe the solution you'd like
+      description: |
+       A clear and concise description of what you want to happen.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Alternatives
+      description: |
+        Describe alternatives you've considered.
+        A clear and concise description of any alternative solutions or features you've considered.
+    validations:
+      required: false
+
+  - type: textarea
+    attributes:
+      label: Additional Context
+      description: |
+        Add any other context or screenshots about the feature request here.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Are you interested in contributing?
+      options:
+        - label: I'd like to work on this issue
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/digitomize/digitomize/blob/main/CODE_OF_CONDUCT.md)
+      options:
+        - label: I have used the search function to check if an issue already exists
+        - label: I agree to follow this project's Code of Conduct
+          required: true
