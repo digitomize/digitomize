@@ -167,13 +167,12 @@ function IndividualCard() {
               className="w-fit"
               icon={<Celebration className="animate-ping" />}
             >
-              <a href="https://blogs.digitomize.com" target="_blank">
+              <a href="https://code-kshetra.devfolio.co/?ref=f9a3e0c023" target="_blank">
                 <AlertTitle>
-                  We just added
-                  <strong> blogs</strong>!!
+                  <strong>Hackathon!!!</strong>
                   <span className="normal-case">
                     {" "}
-                    checkout coding journey <strong> here </strong>🎉
+                    300k+ INR Prize Pool -<strong> register today</strong>🎉
                   </span>
                 </AlertTitle>
               </a>
