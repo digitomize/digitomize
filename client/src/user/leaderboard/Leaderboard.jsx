@@ -272,7 +272,7 @@ export default function Leaderboard() {
                 color: "#fff",
                 fontSize: 16,
               }}
-              inputlabelprops={{
+              inputLabelprops={{
                 style: { color: "white" }, // Change 'green' to your desired label color
               }}
               InputProps={{
