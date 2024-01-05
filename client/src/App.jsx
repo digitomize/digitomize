@@ -14,7 +14,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 // importing all the components ...
-import {Homepage , MetaData ,loginLoader ,signupLoader} from "./components/CustomComponents";
+import {Homepage , MetaData ,loginLoader ,signupLoader ,} from "./components/CustomComponents";
 
 
 // why lazy load ? lazy load only loads the elements those are needed enabling dynamic import of non-server side rendering elements
@@ -29,6 +29,7 @@ const Updates = lazy(() => import("./components/Updates"));
 const Feedback = lazy(() => import("./components/Feedback"));
 const About = lazy(() => import("./components/About"));
 const Footer = lazy(() => import("./components/globals/Footer"));
+const IndividualCard=lazy(()=> import("./components/globals/IndividualCard"))
 
 import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashPersonal, {
@@ -168,7 +169,7 @@ const router = createBrowserRouter(
         <Route path="contact" element={<About />} />
         <Route path="about" element={<About />} />
         <Route path="discord" element={<DiscordRedirect />} />
-        {/* <Route path="contests/:vanity" element={<IndividualCard />} /> */}
+        <Route path="contests/:vanity" element={<IndividualCard />} />
         <Route path="404" element={<ErrorPage />} />
       </Route>
       <Route path="/admin" element={<AdminPanelGuard />}>
