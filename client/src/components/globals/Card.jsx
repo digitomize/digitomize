@@ -24,35 +24,42 @@ const hostToSVGMap = {
 };
 const LOCATION_ID_UTC = 1440;
 
+const generateTimeAndDateURL = (startTimeUnix) => {
+
+    // Convert the Unix timestamp to a datetime in the UTC timezone
+    const utcDateAndTime = moment.unix(startTimeUnix).utc();
+
+    // Get the respective Date and Time Values.
+    const utcStartMonth = utcDateAndTime.format('MM');
+    const utcStartDate = utcDateAndTime.format('DD');
+    const utcStartYear = utcDateAndTime.format('YYYY');
+    const utcStartTime = utcDateAndTime.format('HH:mm:ss');
+    const utcStartHour = utcStartTime.split(":")[0];
+    const utcStartMin = utcStartTime.split(":")[1];
+    const utcStartSec = utcStartTime.split(":")[2];
+  
+    // Form the URL to be directed to when clicked on time.
+    const timeAndDateURL = new URL("https://timeanddate.com/worldclock/fixedtime.html");
+    const params = {
+      day:utcStartDate,
+      month:utcStartMonth,
+      year:utcStartYear,
+      hour:utcStartHour,
+      min:utcStartMin,
+      sec:utcStartSec,
+      p1:LOCATION_ID_UTC,
+    };
+  
+    // Append the respective parameter's to timeanddate's URL.
+    timeAndDateURL.search = new URLSearchParams(params).toString();
+    return timeAndDateURL.href;
+}
+
 function Card({ contest }) {
   const { name, startTimeUnix, url, duration, host, vanity } = contest;
 
-  // Convert the Unix timestamp to a datetime in the UTC timezone
-  const utcDateAndTime = moment.unix(startTimeUnix).utc();
-
-  // Get the respective Date and Time Values.
-  const utcStartMonth = utcDateAndTime.format('MM');
-  const utcStartDate = utcDateAndTime.format('DD');
-  const utcStartYear = utcDateAndTime.format('YYYY');
-  const utcStartTime = utcDateAndTime.format('HH:mm:ss');
-  const utcStartHour = utcStartTime.split(":")[0];
-  const utcStartMin = utcStartTime.split(":")[1];
-  const utcStartSec = utcStartTime.split(":")[2];
-
-  // Form the URL to be directed to when clicked on time.
-  const timeAndDateURL = new URL("https://timeanddate.com/worldclock/fixedtime.html");
-  const params = {
-    day:utcStartDate,
-    month:utcStartMonth,
-    year:utcStartYear,
-    hour:utcStartHour,
-    min:utcStartMin,
-    sec:utcStartSec,
-    p1:LOCATION_ID_UTC,
-  };
-
-  // Append the respective parameter's to timeanddate's URL.
-  timeAndDateURL.search = new URLSearchParams(params).toString();
+  // Get the timeAndDateURL
+  const timeAndDateURL = generateTimeAndDateURL(startTimeUnix);
 
   // Get the current User's timezone
   const userTimezone = moment.tz.guess(true);
@@ -99,7 +106,7 @@ function Card({ contest }) {
           id="startTime"
           className="text-card-text font-light leading-tight lowercase text-lg max-md:text-sm"
         >
-          <Link to={timeAndDateURL.href} style={{textDecoration:"underline"}} className="my-auto" target="_blank">
+          <Link to={timeAndDateURL} style={{textDecoration:"underline"}} className="my-auto" target="_blank" rel="noopener noreferrer">
             {`${startMonth} ${startDate}, ${startYear} ${startTime}`}
           </Link>
         </p>
