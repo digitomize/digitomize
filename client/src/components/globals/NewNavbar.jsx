@@ -145,7 +145,7 @@ export default function NewNavbar({ position }) {
       <div
         className={`${
           position ? position : "sticky"
-        } inset-x-0 top-0 z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto`}
+        } inset-x-0 top-0 relative z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto`}
         style={{ ...navbarStyle }}
       >
         <div className="flex cursor-pointer items-center gap-4 rounded-full bg-white p-2">
@@ -189,7 +189,7 @@ export default function NewNavbar({ position }) {
                 </a>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   {navLinksDashboard.map((navLinkDashboard, index) => (
                     <li key={index}>
@@ -216,6 +216,6 @@ export default function NewNavbar({ position }) {
           </div>
         </div>
       </div>
-    </>
-  );
+</>
+);
 }
