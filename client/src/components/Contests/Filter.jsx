@@ -88,6 +88,25 @@ function Filter() {
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, [selectedPlatforms]);
+  useEffect(() => {
+    // Fetch query params from url
+    const params = new URLSearchParams(window.location.search);
+    let platformsFromQuery = params.get("platform");
+
+    // Split the query params into array and setSelectedPlatforms
+    if (platformsFromQuery) {
+      platformsFromQuery = platformsFromQuery.split(",");
+
+      // Select only the valid platforms
+      const validPlatforms = platformsFromQuery.filter((platform) =>
+        platforms.includes(platform),
+      );
+
+      if (validPlatforms) {
+        setSelectedPlatforms(validPlatforms);
+      }
+    }
+  }, []);
 
   const handleDelete = (value) => {
     let newSelectedParams = selectedPlatforms.filter(
