@@ -164,6 +164,15 @@ function Card({ contest }) {
         timeZone: "Asia/Kolkata",
       },
       description: `Contest details: ${url}`,
+      "reminders": {
+        "useDefault": false,
+        "overrides": [
+          {
+            "method": "popup",
+            "minutes": 10
+          }
+        ]
+      },
     };
 
     try {
