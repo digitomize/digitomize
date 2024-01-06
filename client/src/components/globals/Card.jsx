@@ -10,7 +10,7 @@ import {
   atcoder,
 } from "../AllAssets";
 import ShareModel from "../share_model";
-import calendarIcons from "../../assets/calendar.png";
+import { IoCalendarNumberOutline } from "react-icons/io5";
 
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 const hostToSVGMap = {
@@ -63,22 +63,26 @@ function Card({ contest }) {
 
   const CLIENT_ID = import.meta.env.VITE_REACT_APP_CLIENT_ID;
   const API_KEY = import.meta.env.VITE_REACT_APP_CALENDAR_API;
-  const DISCOVERY_DOC = 'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest';
+  const DISCOVERY_DOC = "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest";
   const SCOPES = "https://www.googleapis.com/auth/calendar";
 
-  const accessToken = localStorage.getItem('access_token');
-  const expiresIn = localStorage.getItem('expires_in');
+  const accessToken = localStorage.getItem("access_token");
+  const expiresIn = localStorage.getItem("expires_in");
 
   let gapiInited = false, gisInited = false, tokenClient;
 
   useEffect(() => {
     //const expiryTime = new Date().getTime() + expiresIn * 1000;
-    gapiLoaded()
-    gisLoaded()
-  }, [])
+    const initializeGoogleAPIs = async () => {
+        gapiLoaded();
+        gisLoaded();
+    };
+    initializeGoogleAPIs();
+}, []);
+
 
   function gapiLoaded() {
-    gapi.load('client', initializeGapiClient);
+    gapi.load("client", initializeGapiClient);
   }
 
   async function initializeGapiClient() {
@@ -100,7 +104,7 @@ function Card({ contest }) {
     tokenClient = google.accounts.oauth2.initTokenClient({
       client_id: CLIENT_ID,
       scope: SCOPES,
-      callback: '', // defined later
+      callback: "", // defined later
     });
 
     gisInited = true;
@@ -118,17 +122,17 @@ function Card({ contest }) {
         throw (resp);
       }
       const { access_token, expires_in } = gapi.client.getToken();
-      localStorage.setItem('access_token', access_token);
-      localStorage.setItem('expires_in', expires_in)
+      localStorage.setItem("access_token", access_token);
+      localStorage.setItem("expires_in", expires_in);
 
       addEventToGoogleCalendar();
     };
 
     if (!(accessToken && expiresIn)) {
-      tokenClient.requestAccessToken({ prompt: 'consent' });
+      tokenClient.requestAccessToken({ prompt: "consent" });
     } else {
       // Skip display of account chooser and consent dialog for an existing session.
-      tokenClient.requestAccessToken({ prompt: '' });
+      tokenClient.requestAccessToken({ prompt: "" });
     }
   }
 
@@ -153,24 +157,24 @@ function Card({ contest }) {
       summary: name,
       start: {
         dateTime: startTimeIST,
-        timeZone: 'Asia/Kolkata',
+        timeZone: "Asia/Kolkata",
       },
       end: {
         dateTime: endTimeIST,
-        timeZone: 'Asia/Kolkata',
+        timeZone: "Asia/Kolkata",
       },
       description: `Contest details: ${url}`,
     };
 
     try {
       const response = await gapi.client.calendar.events.insert({
-        calendarId: 'primary',
+        calendarId: "primary",
         resource: event,
       });
 
-      console.log('Event added to Google Calendar:', response);
+      console.log("Event added to Google Calendar:", response);
     } catch (error) {
-      console.error('Error adding event to Google Calendar:', error);
+      console.error("Error adding event to Google Calendar:", error);
     }
   }
 
@@ -218,7 +222,7 @@ function Card({ contest }) {
           </button>
 
           <button id="authorize_button" onClick={handleAuthClick}>
-            <img src={calendarIcons} width={25} alt="Calendar Icon" style={{ marginLeft: '10px' }} />
+            <IoCalendarNumberOutline className="w-7 h-7 ml-4" />
           </button>
 
           {/* <button id="authorize_button" onClick={addEventToGoogleCalendar}>
