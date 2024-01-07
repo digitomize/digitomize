@@ -50,7 +50,7 @@ export default function UserDashPersonal() {
   };
   const handleSkillsChange = (e) => {
     if(e.target.value.length > 25){
-      toast.error("Length exceeding 25 characters");
+      toast.error("Skill cannot exceed 25 characters. Please shorten your input.");
       return;
     }
     setNewSkill(e.target.value);
