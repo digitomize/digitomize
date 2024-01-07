@@ -23,6 +23,7 @@
     "axios": "^1.4.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "dotenv": "^16.3.1",
     "firebase": "^10.3.0",
     "flowbite": "^1.8.1",
     "flowbite-react": "^0.5.0",
