@@ -135,6 +135,10 @@ const userSchema = new mongoose.Schema(
         default: null,
       },
     },
+    deviceID: {
+      type: String,
+      default: null,
+    },
     codechef: {
       type: contestToggleSchema,
       default: {
