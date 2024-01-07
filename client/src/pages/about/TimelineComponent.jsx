@@ -20,7 +20,7 @@ function TimelineComponent({ data, index }) {
     setIsExpanded(!isExpanded);
   };
 
-  const truncatedText = isExpanded ? text : text.slice(0, 100)
+  const truncatedText = isExpanded ? text : text.slice(0, 100);
   return (
     <TimelineItem>
       <TimelineOppositeContent

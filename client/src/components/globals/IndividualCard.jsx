@@ -167,7 +167,7 @@ function IndividualCard() {
               className="w-fit"
               icon={<Celebration className="animate-ping" />}
             >
-              <a href="https://code-kshetra.devfolio.co/?ref=f9a3e0c023" target="_blank">
+              <a href="https://code-kshetra.devfolio.co/?ref=f9a3e0c023" target="_blank" rel="noreferrer">
                 <AlertTitle>
                   <strong>Hackathon!!!</strong>
                   <span className="normal-case">
