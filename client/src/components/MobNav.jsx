@@ -20,7 +20,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
     },
     {
       title: "About",
-      path: "/about",
+      path: "https://blogs.digitomize.com/",
     },
     {
       title: "Leaderboard",

@@ -29,7 +29,7 @@ export default function DashboardNavbar() {
     },
     {
       title: "about",
-      path: "/about",
+      path: "https://blogs.digitomize.com/",
     },
     {
       title: "Discord",

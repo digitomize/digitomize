@@ -17,7 +17,7 @@ const MobileNav = ({ isMenuActive, toggleActive }) => {
     },
     {
       title: "About",
-      path: "/about",
+      path: "https://blogs.digitomize.com/",
     },
     {
       title: "Discord",
