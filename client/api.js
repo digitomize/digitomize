@@ -50,6 +50,7 @@ export async function sendDeviceID(data) {
         return response;
       } catch (error) {
         console.error(error);
+        throw new Error(`Failed to send device ID: ${error.message}`);
       }
     }
   }
