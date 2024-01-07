@@ -48,6 +48,13 @@ export default function UserDashPersonal() {
       chips.filter((chip) => chip.key !== chipToDelete.key),
     );
   };
+  const handleSkillsChange = (e) => {
+    if(e.target.value.length > 25){
+      toast.error("Length exceeding 25 characters");
+      return;
+    }
+    setNewSkill(e.target.value);
+  };
   const handleAdd = (e) => {
     e.preventDefault();
 
@@ -343,8 +350,7 @@ export default function UserDashPersonal() {
                       className="input input-bordered  w-full max-w-lg"
                       placeholder=""
                       value={newSkill}
-                      maxLength={25}
-                      onChange={(e) => setNewSkill(e.target.value)}
+                      onChange={handleSkillsChange}
                     />
                     <Form onSubmit={handleAdd}>
                       <button
