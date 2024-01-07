@@ -31,7 +31,7 @@ export default function NewNavbar({ position }) {
     },
     {
       title: "About",
-      path: "/https://blogs.digitomize.com/",
+      path: "https://blogs.digitomize.com/",
     },
     {
       title: "Leaderboard",
