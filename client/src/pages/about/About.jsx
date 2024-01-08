@@ -7,7 +7,7 @@ import {
 import { MetaData } from "../../components/CustomComponents";
 import { Link } from "react-router-dom";
 import Contributors from "./Contributors";
-import { about_us, } from "./assets/assets";
+import { about_us } from "./assets/assets";
 import MuiTimeline from "./Timeline";
 export default function About() {
   return (
@@ -104,16 +104,15 @@ export default function About() {
                   Milestones of Digitomize
                 </h2> */}
                 <h1 className="my-4 py-4 text-white max-md:text-4xl md:text-6xl flex flex-row mx-auto justify-center">
-                        <span className="block mt-1 md:mt-6">
-                            <span className="bg-digitomize-bg mx-2 px-1 rounded-lg">Milestones</span>
-                            of Digitomize
-                        </span>
-                    </h1>
+                  <span className="block mt-1 md:mt-6">
+                    <span className="bg-digitomize-bg mx-2 px-1 rounded-lg">Milestones</span>
+                    of Digitomize
+                  </span>
+                </h1>
                 <MuiTimeline></MuiTimeline>
               </div>
 
 
-              <div className="divider phone:w-2/5 max-phone:w-3/5 mx-auto"></div>
               <div className="w-[80vw]">
                 <Contributors />
               </div>
@@ -166,7 +165,7 @@ export default function About() {
                 <AiFillStar className="w-8 h-8" />
               </div>
               <div className="stat-title">Github Stars</div>
-              <div className="stat-value text-secondary">222+</div>
+              <div className="stat-value text-secondary">230+</div>
               {/* <div className="stat-desc">21% more than last month</div> */}
             </div>
           </Link>
@@ -185,7 +184,7 @@ export default function About() {
           </Link>
         </div>
         <div className="sm:w-10/12 mx-auto">
-          <h1 className="w-full text-left py-2">How to contribute</h1>
+          <h1 className="w-full text-left py-2 mb-4">How to contribute</h1>
           <div className="parts flex sm:flex-row text-left max-sm:flex-col">
             <div className="sm:w-1/3  phone:space-x-2 sm:space-x-0  flex sm:flex-col max-sm:flex-row">
               <div>
