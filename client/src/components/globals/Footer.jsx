@@ -91,7 +91,7 @@ export default function Footer() {
               Contact Us
             </a>
             <a
-              href="https://blogs.digitomize.com/"
+              href="/about"
               className="link hover:no-underline link-hover hover:text-custom-blue hover:scale-110 transition-all text-lg"
             >
               About Digitomize

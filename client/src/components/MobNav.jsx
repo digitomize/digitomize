@@ -19,7 +19,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
       path: "/discord",
     },
     {
-      title: "About",
+      title: "Blogs",
       path: "https://blogs.digitomize.com/",
     },
     {
