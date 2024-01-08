@@ -6,21 +6,21 @@ import { codeforcesSVG } from "../utils/codeforcesSVG.js";
 const generateSVG = async (req, res) => {
   try {
     const user = await getUser(req.params.username);
-    console.log(user);
+    // console.log(user);
 
     const queries = req.query;
     // console.log(queries);
     const platforms = ["leetcode", "codechef", "codeforces"];
     let toReturn = [];
     for (const e in queries)
-      if (platforms.includes(e) && queries[e] === "1") toReturn.push(e);
+      if (platforms.includes(e) && (queries[e] === "1" || queries[e].includes("1"))) toReturn.push(e);
 
-    console.log(toReturn);
+    // console.log(toReturn);
 
     let cards = `<svg width="100%" height="100%" version="1.1"
     xmlns="http://www.w3.org/2000/svg">`;
       try {
-        let width=100/toReturn.length, height="50%",x=0;
+        let width=100/toReturn.length, height="100%",x=0;
         toReturn.forEach((e,i) => {
           let data = user[e];
           let card = ``;
