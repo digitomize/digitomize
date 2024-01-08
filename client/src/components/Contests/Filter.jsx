@@ -66,6 +66,20 @@ function Filter() {
   const [open, setOpen] = useState(false);
   const [range, setRange] = useState([0, 0]);
   const [maxValue, setMaxValue] = useState(Number);
+
+  useEffect(() => {
+    //fetch querry params from url
+    const params = new URLSearchParams(window.location.search);
+    const platformsQuery = params.get("platform");
+
+    //split the query params into array and setSelectedPlatforms
+    if(platformsQuery){
+      const platforms = platformsQuery.split(",");
+      setSelectedPlatforms(platforms);
+    }
+  }, []);  
+ 
+
   useEffect(() => {
     // Fetch data from the backend API
     const selectedPlatformsParam = selectedPlatforms.join(",");
