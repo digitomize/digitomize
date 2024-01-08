@@ -89,7 +89,7 @@ function UserCard({
         {(isUserProfile || isUserDashboard) && (
           <button
             className="bg-blue-500 flex gap-1 w-fit items-center justify-center text-white px-4 py-2 rounded-full mt-4 hover:opacity-80"
-            onClick={() => setShow(isUserProfile)}
+            onClick={() => setShow(isUserDashboard)}
           >
             <>
               <AiOutlineShareAlt />
