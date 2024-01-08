@@ -11,6 +11,7 @@ import {
 } from "../AllAssets";
 import ShareModel from "../share_model";
 import { IoCalendarNumberOutline } from "react-icons/io5";
+import { ToastContainer, toast } from "react-toastify";
 
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 const hostToSVGMap = {
@@ -74,11 +75,11 @@ function Card({ contest }) {
   useEffect(() => {
     //const expiryTime = new Date().getTime() + expiresIn * 1000;
     const initializeGoogleAPIs = async () => {
-        gapiLoaded();
-        gisLoaded();
+      gapiLoaded();
+      gisLoaded();
     };
     initializeGoogleAPIs();
-}, []);
+  }, []);
 
 
   function gapiLoaded() {
@@ -86,17 +87,22 @@ function Card({ contest }) {
   }
 
   async function initializeGapiClient() {
-    await gapi.client.init({
-      apiKey: API_KEY,
-      discoveryDocs: [DISCOVERY_DOC],
-    });
-    gapiInited = true;
-
-    if (accessToken && expiresIn) {
-      gapi.client.setToken({
-        access_token: accessToken,
-        expires_in: expiresIn,
+    try {
+      await gapi.client.init({
+        apiKey: API_KEY,
+        discoveryDocs: [DISCOVERY_DOC],
       });
+
+      gapiInited = true;
+
+      if (accessToken && expiresIn) {
+        gapi.client.setToken({
+          access_token: accessToken,
+          expires_in: expiresIn,
+        });
+      }
+    } catch (error) {
+      console.error('Error initializing Google API client:', error);
     }
   }
 
@@ -118,23 +124,51 @@ function Card({ contest }) {
     }
 
     tokenClient.callback = async (resp) => {
-      if (resp.error) {
-        throw (resp);
-      }
-      const { access_token, expires_in } = gapi.client.getToken();
-      localStorage.setItem("access_token", access_token);
-      localStorage.setItem("expires_in", expires_in);
+      try {
+        if (resp.error) {
+          throw new Error(`Authentication error: ${resp.error}`);
+        }
 
-      addEventToGoogleCalendar();
+        const { access_token, expires_in } = gapi.client.getToken();
+        if (!access_token || !expires_in) {
+          throw new Error('Invalid access token or expiration time');
+        }
+
+        localStorage.setItem("access_token", access_token);
+        localStorage.setItem("expires_in", expires_in);
+
+        addEventToGoogleCalendar();
+      } catch (error) {
+        console.error('Authentication error:', error);
+        toast.error('🦄 Wow so easy!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
     };
 
     if (!(accessToken && expiresIn)) {
-      tokenClient.requestAccessToken({ prompt: "consent" });
+      try {
+        tokenClient.requestAccessToken({ prompt: "consent" });
+      } catch (error) {
+        console.error('Error requesting access token:', error);
+      }
     } else {
       // Skip display of account chooser and consent dialog for an existing session.
-      tokenClient.requestAccessToken({ prompt: "" });
+      try {
+        tokenClient.requestAccessToken({ prompt: "" });
+      } catch (error) {
+        console.error('Error requesting access token:', error);
+      }
     }
   }
+
 
   async function addEventToGoogleCalendar() {
     // const startTime = new Date(startTimeUnix * 1000).toISOString();
@@ -182,8 +216,28 @@ function Card({ contest }) {
       });
 
       console.log("Event added to Google Calendar:", response);
+      toast.success('Event added to Google Calendar!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } catch (error) {
       console.error("Error adding event to Google Calendar:", error);
+      toast.error('Error adding event to Google Calendar, try again!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     }
   }
 
@@ -230,7 +284,7 @@ function Card({ contest }) {
             </svg>
           </button>
 
-          <button id="authorize_button" onClick={handleAuthClick}>
+          <button id="authorize_button" onClick={handleAuthClick} aria-label="Authorize Google Calendar Integration">
             <IoCalendarNumberOutline className="w-7 h-7 ml-4" />
           </button>
 
