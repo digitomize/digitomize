@@ -140,7 +140,7 @@ function Card({ contest }) {
         addEventToGoogleCalendar();
       } catch (error) {
         console.error('Authentication error:', error);
-        toast.error('🦄 Wow so easy!', {
+        toast.error('Authentication error, please try again!', {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -287,10 +287,6 @@ function Card({ contest }) {
           <button id="authorize_button" onClick={handleAuthClick} aria-label="Authorize Google Calendar Integration">
             <IoCalendarNumberOutline className="w-7 h-7 ml-4" />
           </button>
-
-          {/* <button id="authorize_button" onClick={addEventToGoogleCalendar}>
-            Add to Google Cal.
-          </button> */}
 
           {show && main_model}
         </div>
