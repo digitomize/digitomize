@@ -56,6 +56,12 @@ export default function Footer() {
               Opportunities
             </header>
             <a
+              href="/hackathons"
+              className="link link-hover hover:no-underline hover:text-custom-blue hover:scale-110 transition-all text-lg"
+            >
+              Hackathons
+            </a>
+            <a
               href="/internships"
               className="link link-hover hover:no-underline hover:text-custom-blue hover:scale-110 transition-all text-lg"
             >
