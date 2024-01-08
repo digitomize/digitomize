@@ -28,7 +28,7 @@ export default function DashboardNavbar() {
       path: "/contests",
     },
     {
-      title: "about",
+      title: "Blogs",
       path: "https://blogs.digitomize.com/",
     },
     {

@@ -30,7 +30,7 @@ export default function NewNavbar({ position }) {
       path: "/contests",
     },
     {
-      title: "About",
+      title: "Blogs",
       path: "https://blogs.digitomize.com/",
     },
     {
