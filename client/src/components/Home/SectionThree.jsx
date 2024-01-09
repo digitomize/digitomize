@@ -23,7 +23,7 @@ export default function SectionThree() {
               </Link>
             </div>
           </div>
-          <div className="w-screen">
+          <div className="w-full md:screen">
             <ContestCards />
           </div>
         </div>

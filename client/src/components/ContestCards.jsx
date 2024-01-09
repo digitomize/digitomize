@@ -71,11 +71,11 @@ export default function ContestCards() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="mt-12 md:hidden">
+      <div className="w-screen mt-12 md:hidden">
         <Marquee speed={100}>
           {platforms.map((item) => (
-            <div key={item.name} className="flex justify-center">
-              <span className="bg-cardsColor p-4 mx-4 rounded-xl">
+            <div key={item.name} className="flex justify-center ">
+              <span className="bg-cardsColor p-4 mx-4  rounded-xl">
                 <img
                   className="w-20 h-20"
                   src={item.icon}
@@ -87,10 +87,10 @@ export default function ContestCards() {
           ))}
         </Marquee>
       </div>
-      <div className="w-screen max-md:hidden">
-        <Marquee speed={200} className="flex flex-row" pauseOnHover={true}>
+      <div className="w-full max-md:hidden ">
+        <Marquee speed={200} className="flex flex-row " pauseOnHover={true}>
           {platforms.map((item) => (
-            <div key={item.name} className="contestcard font-['Geist'] border border-contestborder py-10 px-4 w-4/5">
+            <div key={item.name} className="contestcard font-['Geist'] box-border border border-contestborder py-10 px-1 w-4/5">
               <div className="flex justify-center">
                 <span className="bg-contestlogo p-4 rounded-full">
                   <img
