@@ -59,10 +59,6 @@ export default function UserDashPersonal() {
     e.preventDefault();
 
     if (newSkill.trim() !== "") {
-      if (newSkill.length > 25) {
-        toast.error("Length exceeding 25 characters");
-        return;
-      }
       setskillData((prevSkills) => [
         ...prevSkills,
         {
