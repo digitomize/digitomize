@@ -9,7 +9,7 @@ import { userDashboardDetails } from "../../../api";
 export default function UserDashWidgets() {
   const [loading, setLoading] = useState(true);
   const [ImagesArray, setImagesArray] = useState([]);
-  const [backendUrl,setBackendUrl] = useState("");
+  const [backendUrl, setBackendUrl] = useState("");
   const navigate = useNavigate();
 
   let ratingsData = null;
@@ -21,15 +21,18 @@ export default function UserDashWidgets() {
         if (res.data) {
           ratingsData = res.data.ratings;
           // console.log(res.data.personal_data?.username);
-          setBackendUrl(import.meta.env.VITE_REACT_APP_BACKEND_URL +
-            "/user/ratings/"+res.data.personal_data.username+"?");
-          console.log("here: ",backendUrl);
+          setBackendUrl(
+            import.meta.env.VITE_REACT_APP_BACKEND_URL +
+              "/user/ratings/" +
+              res.data.personal_data.username +
+              "?",
+          );
+          console.log("here: ", backendUrl);
           for (const rating in ratingsData) {
             if (ratingsData[rating].data)
               setImagesArray((arr) => {
                 let newArr = [...arr];
-                if(!newArr.includes(rating))
-                  newArr.push(rating);
+                if (!newArr.includes(rating)) newArr.push(rating);
                 return newArr;
               });
           }
@@ -43,7 +46,7 @@ export default function UserDashWidgets() {
     fetchData();
     return () => {
       setImagesArray([]);
-    }
+    };
   }, [backendUrl]);
   if (loading) {
     return (
@@ -59,29 +62,33 @@ export default function UserDashWidgets() {
       <>
         <MetaData path="u/dashboard/widgets" />
         <DashboardNavbar />
-        <div
-          style={{ width: "100%", height: "auto" }}
-          className="mt-[60px] flex flex-row flex-wrap justify-center items-center gap-2"
-        >
-          {ImagesArray.map((e,i) => {
-            return (
-              <SVGImageContainer key={i}
-                height={null}
-                width={null}
-                link={backendUrl + "" + e + "=1&"}
-              />
-            );
-          })}
+        <div className="widgets">
+          <h1 className="pt-[3.5rem] text-center text-white md:pt-[2rem] md:text-7xl lg:pt-[1rem] xl: 2xl: ">Widgets</h1>
+          <div
+            style={{ width: "100%", height: "auto" }}
+            className="flex flex-row flex-wrap justify-evenly items-center gap-2"
+          >
+            {ImagesArray.map((e, i) => {
+              return (
+                <SVGImageContainer
+                  key={i}
+                  height={null}
+                  width={null}
+                  link={backendUrl + "" + e + "=1&"}
+                />
+              );
+            })}
+          </div>
+          {ImagesArray.length > 1 ? (
+            <SVGImageContainer
+              height={1000}
+              width={6000}
+              link={backendUrl + allSvgs}
+            />
+          ) : (
+            <></>
+          )}
         </div>
-        {ImagesArray.length > 1 ? (
-          <SVGImageContainer
-            height={3000}
-            width={10000}
-            link={backendUrl + allSvgs}
-          />
-        ) : (
-          <></>
-        )}
       </>
     );
   } else
@@ -107,16 +114,16 @@ export default function UserDashWidgets() {
 const SVGImageContainer = ({ link, height, width }) => {
   const [show, setShow] = useState(false);
   const close_model = () => setShow(false);
-  height = height ? height : 500;
-  width = width | 500;
+  height = height | 300;
+  width = width | 300;
   return (
     <div className="mt-10 flex flex-col items-center">
       <img src={link} alt="Loading" height={height} width={width} />
       <button
-        className="btn sm:btn-sm md:btn-md lg:btn-lg bg-custom-blue text-[#fffff7]"
+        className="mt-2 btn sm:btn-sm md:btn-md lg:btn-md bg-custom-blue text-[#fffff7]"
         onClick={() => setShow(true)}
       >
-        Share Link
+        Share Widget
       </button>
       {show && (
         <ShareModel contestLink={link} theme="" close_model={close_model} />
