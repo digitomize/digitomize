@@ -17,6 +17,7 @@ import TagFacesIcon from "@mui/icons-material/TagFaces";
 import { styled } from "@mui/material/styles";
 import ImageUploader from "../../components/ImageUploader";
 import { FaXTwitter, FaLinkedin, FaInstagram } from "react-icons/fa6";
+import ResumeUploader from "../../components/ResumeUploader";
 
 const ListItem = styled("li")(({ theme }) => ({
   margin: theme.spacing(0.5),
@@ -314,17 +315,12 @@ export default function UserDashPersonal() {
               <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
                 <div className="form-control w-full ">
                   <label htmlFor="resume" className="label">
-                    <span className="label-text"> resume</span>
+                    <span className="label-text">Resume</span>
                   </label>
-                  <div className="flex  items-center gap-3 ">
-                    <input
-                      type="tel"
-                      name="resume"
-                      id="resume"
-                      value={formData.resume}
-                      onChange={handleInputChange}
-                      className="input input-bordered w-full max-w-lg "
-                    />
+                  <div className="flex items-center gap-3">
+                    <ResumeUploader
+                      // setFormData={setFormData}
+                    ></ResumeUploader>
                   </div>
                 </div>
               </div>
