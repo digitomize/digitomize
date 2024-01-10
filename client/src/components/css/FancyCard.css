@@ -1,0 +1,72 @@
+.fancy-card {
+    width: 325px;
+    height: 325px;
+    font-size: 30px;
+    color: #fff;
+    background: none;
+    border: none;
+    border-radius: 5%;
+    position: relative;
+    z-index: 0;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.fancy-card:before {
+    /* content: "";
+    position: absolute;
+    inset: -8px; */
+    padding: 10px;
+    border-radius: 5%;
+    background: conic-gradient(#272426,
+            #0000 30deg 120deg,
+            #00f8d3 150deg 180deg,
+            #0000 210deg 300deg,
+            #272426 330deg);
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: intersect
+}
+
+.fancy-card:after {
+    content: "";
+    position: absolute;
+    inset: -100px;
+    background:
+        radial-gradient(200px at left 400px top 150px, #1584ff 100%, #0000),
+        radial-gradient(200px at right 400px bottom 150px, #000000 100%, #0000);
+    filter: blur(120px);
+    opacity: .5;
+}
+
+.fancy-card:before,
+.fancy-card:after {
+    transition: .5s, 99999s 99999s transform;
+}
+
+.fancy-card:hover {
+    box-shadow: 0 0 0 1px #666;
+}
+
+.fancy-card:hover:before,
+.fancy-card:hover:after {
+    transform: rotate(36000deg);
+    transition: .5s, 600s linear transform;
+}
+
+.fancy-card:before {
+    background-color: #222;
+    border: 2px solid #333;
+}
+
+
+.fancy-card>div {
+    border-radius: 5%;
+    left: -2px;
+    position: relative;
+    top: 2px;
+    width: 594px;
+    opacity: 0.9;
+}
