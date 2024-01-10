@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import '../css/FancyCard.css'
 
 export default function Footer() {
