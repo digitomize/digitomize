@@ -1,0 +1,45 @@
+.grad-bg {
+        background: none;
+        background: linear-gradient(71deg, #080509, #1a171c, #072444);
+        -webkit-mask: linear-gradient(71deg, #080509, #1a171c, #072444);
+}
+
+.card-container {
+        perspective: 50em;
+}
+
+.card {
+        position: relative;
+        width: 320px;
+        padding: 3em;
+        color: #fff;
+        transform: rotateY(30deg) rotateX(15deg);
+        transform-style: preserve-3d;
+        transition: transform 1s;
+
+        &:hover {
+                transform: rotateY(-30deg) rotateX(-15deg);
+        }
+}
+
+.layers {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        z-index: -1;
+}
+
+.layer {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 1em;
+        background: linear-gradient(71deg, #080509, #1a171c, #080509);
+        box-shadow: 0 0 0.5em #000d inset;
+
+}
