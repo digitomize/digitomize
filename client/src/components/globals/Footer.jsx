@@ -11,7 +11,7 @@ export default function Footer() {
         <aside className="flex flex-col mx-auto sm:!ml-0 md:!mr-8 text-center sm:text-start mb-4 sm:mb-0">
           <div className="card-container">
             <div className="card">
-              <img src={dynamicLogo} alt="logo" style={{ maxHeight: "7rem", maxWidth: "7rem", margin: "auto" }} />
+              <img src={dynamicLogo} alt="logo" style={{ maxHeight: "7rem", maxWidth: "7rem" }} />
               <div>
                 <h2 className="text-2xl my-3">Digitomize</h2>
 
