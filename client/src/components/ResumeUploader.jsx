@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaRegCheckCircle } from "react-icons/fa";
 
-const ResumeUploader = ({ }) => {
+const ResumeUploader = () => {
     const [selectedResume, setSelectedResume] = useState(null);
 
     // update the resume state in form data
@@ -22,9 +22,13 @@ const ResumeUploader = ({ }) => {
         }
     };
 
+    /*Checking for a single file to be selected*/
     const handleDrop = (event) => {
         event.preventDefault();
+        event.stopPropagation();
+
         const file = event.dataTransfer.files[0];
+
         if (file) {
             setSelectedResume(file);
             setResume(file);
@@ -49,14 +53,17 @@ const ResumeUploader = ({ }) => {
                     id="resumeUpload"
                     className="hidden"
                     onChange={handleResumeChange}
-                    name="picture"
+                    name="resume"
                 />
-                <p className="text-gray-500">Drag & Drop or Click to Upload Resume</p>
+                <p className="text-gray-500">
+                    {selectedResume ? selectedResume.name : "Drag & Drop or Click to Upload Resume"}
+                </p>
             </label>
 
+            {/* When the User selects a file, it shows the Check Icon from react-icons */}
             {selectedResume && (
                 <div className="flex flex-col items-center justify-center">
-                    <FaRegCheckCircle size={30} />
+                    <FaRegCheckCircle aria-label="resumeField" size={30} />
                 </div>
             )}
         </div>
