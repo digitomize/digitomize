@@ -27,7 +27,7 @@ const LOCATION_ID_UTC = 1440;
 const generateTimeAndDateURL = (startTimeUnix) => {
 
     // Convert the Unix timestamp to a datetime in the UTC timezone
-    const utcDateAndTime = moment.unix(startTimeUnix).utc();
+    const utcDateAndTime = moment.tz(startTimeUnix * 1000, "UTC");
 
     // Get the respective Date and Time Values.
     const utcStartMonth = utcDateAndTime.format('MM');
@@ -65,13 +65,14 @@ function Card({ contest }) {
   const userTimezone = moment.tz.guess(true);
 
   // Convert the Unix timestamp to a datetime in the specified timezone
-  const dateTimeInTimezone = moment.unix(startTimeUnix).tz(userTimezone);
+  const dateTimeInTimezone = moment.tz(startTimeUnix * 1000, userTimezone);
 
   // Format the datetime as a string
   const startMonth = dateTimeInTimezone.format('MMMM');
   const startDate = dateTimeInTimezone.format('D');
   const startYear = dateTimeInTimezone.format('YYYY');
-  const startTime = dateTimeInTimezone.format('hh:mm a');
+  const startTime = dateTimeInTimezone.format('h:mm A z');
+  const zone = startTime.split(" ")[2];
 
   const [remaningTime, setRemainingTime] = useState("loading...");
   const [show, setShow] = useState(false);
@@ -106,8 +107,8 @@ function Card({ contest }) {
           id="startTime"
           className="text-card-text font-light leading-tight lowercase text-lg max-md:text-sm"
         >
-          <Link to={timeAndDateURL} style={{textDecoration:"underline"}} className="my-auto" target="_blank" rel="noopener noreferrer">
-            {`${startMonth} ${startDate}, ${startYear} ${startTime}`}
+          <Link to={timeAndDateURL} className="my-auto underline" target="_blank" rel="noopener noreferrer">
+            {`${startMonth} ${startDate}, ${startYear} at ${startTime} ${zone}`}
           </Link>
         </p>
         <img src={hostToSVGMap[host]} alt={host} width="13%" />
