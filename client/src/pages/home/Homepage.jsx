@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Snowfall from "react-snowfall";
 
 import "/src/components/css/Home.css";
 import SectionOne from "../../components/Home/SectionOne";
@@ -19,6 +20,8 @@ export default function Homepage() {
       <MetaData path="home" />
       <div>
         <div id="home" className="antialiased">
+          <Snowfall snowflakeCount={50} speed={[0.2, 0.5]} wind={[-0.2, 0]} style={{ position: "fixed", z: -1 }} />
+
           <SectionOne />
           <SectionTwo />
           <SectionThree />
