@@ -17,6 +17,7 @@ import questionRoutes from "./DSA_sheets/routes/questionRoutes.js";
 
 dotenv.config();
 const app = express();
+let server;
 
 if (process.env.NODE_ENV === "production") {
   app.use(routeLogging);
@@ -114,7 +115,7 @@ async function startServersProduction () {
       console.log("├──────────────────────────────────┤");
     }
     const port = process.env.PORT || 3000;
-    app.listen(port, () => {
+    server = app.listen(port, () => {
       console.log(`│ Server listening on port ${port}`.padEnd(35) + "│");
       console.log("└──────────────────────────────────┘");
     });
@@ -176,7 +177,7 @@ process.on("unhandledRejection", (err) => {
   console.log(`Error: ${err.message}`);
   console.log("Shutting down the server due to Unhandled promise rejection");
 
-  app.close(() => {
+  server.close(() => {
     process.exit(1);
   });
 });

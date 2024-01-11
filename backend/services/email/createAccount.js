@@ -66,7 +66,7 @@ const sendEmail = async (recipientEmail, recipientName) => {
       },
     ];
 
-     await transactionalEmailsApi.sendTransacEmail(sendSmtpEmail);
+    await transactionalEmailsApi.sendTransacEmail(sendSmtpEmail);
     // console.log(
     //   "Email sent successfully. Returned data: " + JSON.stringify(data),
     // );
