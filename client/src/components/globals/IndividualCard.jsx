@@ -53,7 +53,7 @@ function IndividualCard() {
 
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
-  const [remaningTime, setRemainingTime] = useState("0");
+  const [remaningTime, setRemainingTime] = useState("Loading...");
   if (contest === null) {
     return <div className="min-h-[40vh]">Loading...</div>;
   }
