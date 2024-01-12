@@ -81,16 +81,16 @@ function IndividualCard() {
   const startDateTimeInTimezone = moment.tz(startTimeUnix * 1000, userTimezone);
 
   // Format the datetime as a string for startTime
-  const startMonth = startDateTimeInTimezone.format('MMM');
-  const startDate = startDateTimeInTimezone.format('D');
-  const startYear = startDateTimeInTimezone.format('YYYY');
-  const startTime = startDateTimeInTimezone.format('h:mm A');
+  const startMonth = startDateTimeInTimezone.format("MMM");
+  const startDate = startDateTimeInTimezone.format("D");
+  const startYear = startDateTimeInTimezone.format("YYYY");
+  const startTime = startDateTimeInTimezone.format("h:mm A");
 
   // Convert the Unix timestamp to a datetime in the specified timezone for endTimeUnix
   const endDateTimeInTimezone = moment.tz(endTimeUnix * 1000, userTimezone);
 
   // Format the datetime as a string for endTime
-  const endTime = endDateTimeInTimezone.format('h:mm A');
+  const endTime = endDateTimeInTimezone.format("h:mm A");
   
   const getColorTheme = () => {
     if (host === "leetcode") {

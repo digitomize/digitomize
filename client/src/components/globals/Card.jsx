@@ -10,7 +10,7 @@ import {
   atcoder,
 } from "../AllAssets";
 import ShareModel from "../share_model";
-import moment from 'moment-timezone';
+import moment from "moment-timezone";
 
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 const hostToSVGMap = {
@@ -30,10 +30,10 @@ const generateTimeAndDateURL = (startTimeUnix) => {
     const utcDateAndTime = moment.tz(startTimeUnix * 1000, "UTC");
 
     // Get the respective Date and Time Values.
-    const utcStartMonth = utcDateAndTime.format('MM');
-    const utcStartDate = utcDateAndTime.format('DD');
-    const utcStartYear = utcDateAndTime.format('YYYY');
-    const utcStartTime = utcDateAndTime.format('HH:mm:ss');
+    const utcStartMonth = utcDateAndTime.format("MM");
+    const utcStartDate = utcDateAndTime.format("DD");
+    const utcStartYear = utcDateAndTime.format("YYYY");
+    const utcStartTime = utcDateAndTime.format("HH:mm:ss");
     const utcStartHour = utcStartTime.split(":")[0];
     const utcStartMin = utcStartTime.split(":")[1];
     const utcStartSec = utcStartTime.split(":")[2];
@@ -53,7 +53,7 @@ const generateTimeAndDateURL = (startTimeUnix) => {
     // Append the respective parameter's to timeanddate's URL.
     timeAndDateURL.search = new URLSearchParams(params).toString();
     return timeAndDateURL.href;
-}
+};
 
 function Card({ contest }) {
   const { name, startTimeUnix, url, duration, host, vanity } = contest;
@@ -68,10 +68,10 @@ function Card({ contest }) {
   const dateTimeInTimezone = moment.tz(startTimeUnix * 1000, userTimezone);
 
   // Format the datetime as a string
-  const startMonth = dateTimeInTimezone.format('MMMM');
-  const startDate = dateTimeInTimezone.format('D');
-  const startYear = dateTimeInTimezone.format('YYYY');
-  const startTime = dateTimeInTimezone.format('h:mm A');
+  const startMonth = dateTimeInTimezone.format("MMMM");
+  const startDate = dateTimeInTimezone.format("D");
+  const startYear = dateTimeInTimezone.format("YYYY");
+  const startTime = dateTimeInTimezone.format("h:mm A");
 
   const [remaningTime, setRemainingTime] = useState("loading...");
   const [show, setShow] = useState(false);
