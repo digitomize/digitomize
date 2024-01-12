@@ -71,8 +71,7 @@ function Card({ contest }) {
   const startMonth = dateTimeInTimezone.format('MMMM');
   const startDate = dateTimeInTimezone.format('D');
   const startYear = dateTimeInTimezone.format('YYYY');
-  const startTime = dateTimeInTimezone.format('h:mm A z');
-  const zone = startTime.split(" ")[2];
+  const startTime = dateTimeInTimezone.format('h:mm A');
 
   const [remaningTime, setRemainingTime] = useState("loading...");
   const [show, setShow] = useState(false);
@@ -108,7 +107,7 @@ function Card({ contest }) {
           className="text-card-text font-light leading-tight lowercase text-lg max-md:text-sm"
         >
           <Link to={timeAndDateURL} className="my-auto underline" target="_blank" rel="noopener noreferrer">
-            {`${startMonth} ${startDate}, ${startYear} at ${startTime} ${zone}`}
+            {`${startMonth} ${startDate}, ${startYear} at ${startTime}`}
           </Link>
         </p>
         <img src={hostToSVGMap[host]} alt={host} width="13%" />
