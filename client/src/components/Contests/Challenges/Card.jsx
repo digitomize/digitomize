@@ -139,7 +139,7 @@ function updateTimer(startTime, duration) {
         ends in {hours}h {minutes}m {seconds}s
       </p>
     );
-    return <p>the contest has started!</p>;
+    // return <p>the contest has started!</p>;
   } else {
     const days = Math.floor(timeDiff / 86400);
     const hours = Math.floor((timeDiff % 86400) / 3600);

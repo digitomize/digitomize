@@ -18,6 +18,7 @@ import codeforces from "/src/assets/codeforces.svg";
 import atcoder from "/src/assets/atcoder.svg";
 import CopyToClipboard from "../CopyToClipboard";
 import { useUserAuth } from "../../context/UserAuthContext";
+import moment from "moment-timezone";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
@@ -72,8 +73,25 @@ function IndividualCard() {
   // console.log(contest.length);
   const durationInMilliseconds = duration * 60 * 1000;
   const endTimeUnix = startTimeUnix + durationInMilliseconds / 1000;
-  const startDate = new Date(startTimeUnix * 1000);
-  const endDate = new Date(endTimeUnix * 1000);
+
+  // Get the current User's timezone
+  const userTimezone = moment.tz.guess(true);
+
+  // Convert the Unix timestamp to a datetime in the specified timezone for startTimeUnix
+  const startDateTimeInTimezone = moment.tz(startTimeUnix * 1000, userTimezone);
+
+  // Format the datetime as a string for startTime
+  const startMonth = startDateTimeInTimezone.format("MMM");
+  const startDate = startDateTimeInTimezone.format("D");
+  const startYear = startDateTimeInTimezone.format("YYYY");
+  const startTime = startDateTimeInTimezone.format("h:mm A");
+
+  // Convert the Unix timestamp to a datetime in the specified timezone for endTimeUnix
+  const endDateTimeInTimezone = moment.tz(endTimeUnix * 1000, userTimezone);
+
+  // Format the datetime as a string for endTime
+  const endTime = endDateTimeInTimezone.format("h:mm A");
+  
   const getColorTheme = () => {
     if (host === "leetcode") {
       return "#FFCC00";
@@ -92,44 +110,17 @@ function IndividualCard() {
     }
   };
   const colorTheme = getColorTheme();
-  const options = {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-    timeZone: "Asia/Kolkata",
-  };
-  const startTimeIST = startDate.toLocaleString("en-US", options);
-  const endTimeIST = endDate.toLocaleString("en-US", options);
 
   const hours = Math.floor(duration / 60);
   const minutes = duration % 60;
 
   const durationFormatted = `${hours} h ${minutes} m`;
 
-  const getMonthInWords = (date) => {
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    return months[date.getMonth()];
-  };
-  const monthName = getMonthInWords(startDate);
-
   setInterval(() => {
     setRemainingTime(updateTimer(startTimeUnix, duration));
   }, 1000);
 
-  const contentDescription = `${name} | ${startTimeIST} (IST)`.toLowerCase();
+  const contentDescription = `${name} | ${startTime} (IST)`.toLowerCase();
   const contentTitle = `${host} | Digitomize`.toLowerCase();
   const pageTitle = `${name} | Digitomize`.toLowerCase();
   if (contest)
@@ -230,7 +221,7 @@ function IndividualCard() {
                     backgroundColor: colorTheme,
                   }}
                 >
-                  {startDate.getDate()} {monthName}' {startDate.getFullYear()}
+                  {startDate} {startMonth}' {startYear}
                 </div>
                 <div className="ic-mv-child-first">
                   <img
@@ -267,7 +258,7 @@ function IndividualCard() {
                         display: "inline-block",
                       }}
                     >
-                      {startTimeIST}
+                      {startTime}
                     </div>
                   </div>
                   <div className="ic-mv-child-third-second">
@@ -388,7 +379,7 @@ function IndividualCard() {
                         display: "inline-block",
                       }}
                     >
-                      {endTimeIST}
+                      {endTime}
                     </div>
                   </div>
                 </div>
@@ -473,7 +464,7 @@ function IndividualCard() {
                     backgroundColor: colorTheme,
                   }}
                 >
-                  {startDate.getDate()} {monthName}' {startDate.getFullYear()}
+                  {startDate} {startMonth}' {startYear}
                 </div>
                 <div
                   style={{ position: "absolute", left: "350px", top: "530px" }}
@@ -525,7 +516,7 @@ function IndividualCard() {
                           display: "inline-block",
                         }}
                       >
-                        {startTimeIST}
+                        {startTime}
                       </p>
                     </div>
                   </div>
@@ -702,7 +693,7 @@ function IndividualCard() {
                           display: "inline-block",
                         }}
                       >
-                        {endTimeIST}
+                        {endTime}
                       </p>
                     </div>
                   </div>

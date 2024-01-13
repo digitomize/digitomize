@@ -216,6 +216,6 @@ export default function NewNavbar({ position }) {
           </div>
         </div>
       </div>
-    </>
-  );
+</>
+);
 }
