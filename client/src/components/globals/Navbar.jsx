@@ -48,6 +48,10 @@ function Navbar() {
       title: "Login",
       path: "/login",
     },
+    {
+      title: "Blogs",
+      path: "https://blogs.digitomize.com/",
+    },
   ];
 
   return (
