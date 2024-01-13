@@ -1,0 +1,5 @@
+.HoveringBox:hover {
+    transform: scale(1.2);
+    padding: 50px;
+    transition: transform 1s;
+}
