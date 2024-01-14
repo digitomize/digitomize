@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import Contributors from "./Contributors";
 import { about_us } from "./assets/assets";
 import MuiTimeline from "./Timeline";
-import  "./About.css";
 export default function About() {
   return (
     <>
@@ -60,7 +59,7 @@ export default function About() {
                 </h2>
                 <div className="flex flex-row justify-between mt-[50px] flex-wrap gap-y-[25px] gap-x-[25px]">
                  
-                  <div className="HoveringBox hover:trans border-[1px] flex-1 border-solid border-white bg-[#0e0f10] min-w-[225px] text-white rounded-[12px] py-[30px] px-[25px] text-center ">
+                  <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover: duration-300 .. hover:trans border-[1px] flex-1 border-solid border-white bg-[#0e0f10] min-w-[225px] text-white rounded-[12px] py-[30px] px-[25px] text-center ">
                     <h3 className="font-semibold text-2xl mb-[20px]">
                       Contests
                     </h3>
@@ -75,7 +74,7 @@ export default function About() {
                   </div>
                   
 
-                  <div className="HoveringBox border-[1px] flex-1 border-solid border-white min-w-[225px] bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
+                  <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover: duration-300 .. border-[1px] flex-1 border-solid border-white min-w-[225px] bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
                     <h3 className="font-semibold text-2xl mb-[20px]">
                       Portfolio
                     </h3>
@@ -88,7 +87,7 @@ export default function About() {
                       dynamic skill showcase.
                     </p>
                   </div>
-                  <div className="HoveringBox border-[1px] flex-1  border-solid border-white min-w-[225px] bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
+                  <div className="transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover: duration-300 .. border-[1px] flex-1  border-solid border-white min-w-[225px] bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
                     <h3 className="font-semibold text-2xl mb-[20px]">
                       Open Source
                     </h3>
