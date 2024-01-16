@@ -24,11 +24,12 @@ import moment from "moment-timezone";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity }) => {
-  const startTime = new Date(startTimeUnix * 1000);
-  const endTime = new Date((startTimeUnix + duration * 60) * 1000);
+  // Adjust the start time and duration for IST (GMT+5:30)
+  const startTimeIST = new Date((startTimeUnix + 5.5 * 60 * 60) * 1000);
+  const endTimeIST = new Date((startTimeUnix + duration * 60 + 5.5 * 60 * 60) * 1000);
 
-  const formattedStartTime = startTime.toISOString().replace(/[-:]/g, "");
-  const formattedEndTime = endTime.toISOString().replace(/[-:]/g, "");
+  const formattedStartTime = startTimeIST.toISOString().replace(/[-:]/g, "");
+  const formattedEndTime = endTimeIST.toISOString().replace(/[-:]/g, "");
 
   // Encode contest details in the description
   const description = `<hr>🏆<b>Contest</b>🏆%0A👨🏻‍💻Name: ${name}%0A⏱️Duration: ${duration} minutes%0A🚀Host: ${host}%0A🔗Contest URL: <a href='${url}'>${url}</a>%0A<hr><i>Thank you for using <a href='https://digitomize.com'>digitomize</a></i>`;
