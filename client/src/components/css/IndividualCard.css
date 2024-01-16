@@ -299,6 +299,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
   justify-content: center;
+  align-items: center;
 }
 
 .ic-mv-child-third-first {
@@ -311,12 +312,14 @@
   border-radius: 0.25rem;
   padding: 0.3125rem;
   width: fit-content;
+  text-align: center;
 }
 
 .mv-start-time-div {
   border-radius: 0.25rem;
   width: fit-content;
   padding: 0.3125rem;
+  text-align: center;
 }
 
 .ic-mv-child-third-second {
@@ -342,6 +345,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-wrap: nowrap;
 }
 
 .ic-mv-child-third-fourth {

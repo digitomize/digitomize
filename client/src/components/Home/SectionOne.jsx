@@ -8,6 +8,7 @@ import digitalOcean from "./svgs/digitalOcean.svg";
 import meltcd from "../../assets/meltcd.png";
 import { Star } from "@mui/icons-material";
 
+
 export default function SectionOne() {
   return (
     <div className="font-['Geist'] xl:pt-8 max-md:pt-4 items-center flex flex-col text-center phone:mt-16">
@@ -18,7 +19,7 @@ export default function SectionOne() {
         <h1 className="mt-2 text-white max-md:text-4xl md:text-7xl">
           <span>One place for all your</span>
           <span className="block mt-1 md:mt-6 relative">
-            <span className="bg-digitomize-bg px-2 relative rounded-md">
+            <span className="bg-digitomize-bg px-2 relative">
               <span className="relative z-10">
                 {/* <img src={santaHat} className="absolute -rotate-45 transform h-16 w-16 -left-2 top-[-10%]" alt="Santa Hat" /> */}
                 coding platforms
@@ -33,9 +34,9 @@ export default function SectionOne() {
         </p>
       </div>
       <div className="flex justify-center phone:mt-16 mt-8">
-        <Link to="/signup" className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border">
+        <a href="/signup" className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border">
           Register Now
-        </Link>
+        </a>
       </div>
       <div className="mt-14">
         <span>

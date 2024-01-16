@@ -9,7 +9,7 @@ export default function SectionThree() {
           <div className="md:my-24 mx-auto w-4/5">
             <h1 className="text-white max-md:text-4xl md:text-7xl text-center">
               <span className="block mt-1 md:mt-6">
-                <span className="bg-digitomize-bg px-2 rounded-md">Discover</span> the
+                <span className="bg-digitomize-bg px-2">Discover</span> the
                 perfect coding competition for you
               </span>{" "}
             </h1>
@@ -18,9 +18,9 @@ export default function SectionThree() {
               such as remaining time, duration, and more.
             </p>
             <div className="flex justify-center m-8">
-              <Link to='/contests' className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border">
+              <a href='/contests' className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border">
                 Explore Contests
-              </Link>
+              </a>
             </div>
           </div>
           <div className="w-screen">
