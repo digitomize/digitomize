@@ -6,6 +6,7 @@ import {
   Whatshot as WhatshotIcon,
   Grain as GrainIcon,
   Celebration,
+  Notifications,
 } from "@mui/icons-material";
 import { Helmet } from "react-helmet";
 import "/src/components/css/IndividualCard.css";
@@ -54,7 +55,7 @@ function IndividualCard() {
 
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
-  const [remaningTime, setRemainingTime] = useState("0");
+  const [remaningTime, setRemainingTime] = useState("Loading...");
   if (contest === null) {
     return <div className="min-h-[40vh]">Loading...</div>;
   }
@@ -154,16 +155,16 @@ function IndividualCard() {
         {true && (
           <div className="mx-auto w-fit mt-4">
             <Alert
-              severity="success"
+              severity="error"
               className="w-fit"
-              icon={<Celebration className="animate-ping" />}
+              icon={<Notifications className="animate-ping" />}
             >
-              <a href="https://blogs.digitomize.com" target="_blank" rel="noreferrer">
-                <AlertTitle>
-                  <strong>#100DaysOfCode!!!</strong>
+              <a href="https://whatsapp.com/channel/0029VaJyadwLNSa71cZCQt1A" target="_blank" rel="noreferrer">
+                <AlertTitle>DON'T miss out contests - get all contest notifications on 
+                  <strong> Whatsapp!!</strong>
                   <span className="normal-case">
                     {" "}
-                    Checkout coding journey <strong> today</strong>👨🏻‍💻
+                    Follow <strong> now</strong>👨🏻‍💻
                   </span>
                 </AlertTitle>
               </a>
