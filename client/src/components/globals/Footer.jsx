@@ -2,47 +2,28 @@ import { dynamicLogo } from "../AllAssets";
 import GitHubButton from "react-github-btn";
 import { FaLinkedin, FaDiscord, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import "../css/Footer.css";
 
 export default function Footer() {
   return (
-    <footer className="font-['Geist'] bg-cardsColor pb-10 mt-6 grad-bg">
+    <footer className="font-['Geist'] bg-cardsColor pb-10 mt-6">
       <div className="footer lg:max-w-7xl mx-auto p-10 text-base-content md:items-center flex flex-col md:flex-row justify-center items-start">
         <aside className="flex flex-col mx-auto sm:!ml-0 md:!mr-8 text-center sm:text-start mb-4 sm:mb-0">
-          <div className="card-container">
-            <div className="card">
-              <img src={dynamicLogo} alt="logo" style={{ maxHeight: "7rem", maxWidth: "7rem" }} />
-              <div>
-                <h2 className="text-2xl my-3">Digitomize</h2>
+          <img src={dynamicLogo} alt="logo" style={{ maxHeight: "7rem", maxWidth: "7rem", marginTop: '-.90rem' }} />
+          <h2 className="text-2xl my-3">Digitomize</h2>
 
-                <p className="text-base-content text-md max-w-[230px] mb-5">
-                  Explore upcoming coding contests and dynamically create developer
-                  portfolios
-                </p>
-                <GitHubButton
-                  href="https://github.com/digitomize/digitomize"
-                  data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: light;"
-                  data-size="large"
-                  data-show-count="true"
-                  aria-label="Star digitomize/digitomize on GitHub"
-                >
-                  Star
-                </GitHubButton>
-              </div>
-              <div className="layers">
-                <div className="layer"></div>
-                <div className="layer"></div>
-                <div className="layer"></div>
-                <div className="layer"></div>
-                <div className="layer"></div>
-                <div className="layer"></div>
-                <div className="layer"></div>
-                <div className="layer"></div>
-                <div className="layer"></div>
-                <div className="layer"></div>
-              </div>
-            </div>
-          </div>
+          <p className="text-base-content text-md max-w-[230px] mb-5">
+            Explore upcoming coding contests and dynamically create developer
+            portfolios
+          </p>
+          <GitHubButton
+            href="https://github.com/digitomize/digitomize"
+            data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: light;"
+            data-size="large"
+            data-show-count="true"
+            aria-label="Star digitomize/digitomize on GitHub"
+          >
+            Star
+          </GitHubButton>
         </aside>
         <div className="lg:flex-1 flex flex-col sm:flex-row sm:flex-wrap mx-auto justify-between gap-8 mb-4 sm:mb-0">
           <nav className="flex justify-center items-center sm:!items-start flex-col gap-3 w-full sm:!w-[45%] xl:!w-fit">
