@@ -24,7 +24,7 @@ function createDefaultContestObject (platformData) {
 
 // Takes the data and creates a new User in MongoDB
 const setUser = async (userData) => {
-  console.log(userData);
+  // console.log(userData);
   try {
     const {
       uid,
@@ -95,11 +95,11 @@ const setUser = async (userData) => {
     });
 
     const createdUser = await newUser.save();
-    console.log(createdUser);
-    console.log("New user created.");
+    // console.log(createdUser);
+    // console.log("New user created.");
     if (process.env.NODE_ENV === "production") {
       // if(true){
-      console.log("sending mail...");
+      // console.log("sending mail...");
       await sendEmail(newUser.email, newUser.name);
       sendWebhook_createAccount({
         imageURL: createdUser.picture,

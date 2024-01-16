@@ -13,6 +13,7 @@ import ShareModel from "../share_model";
 import moment from "moment-timezone";
 import { IoCalendarNumber } from "react-icons/io5";
 
+
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 const hostToSVGMap = {
   leetcode: leetcode,
@@ -75,16 +76,22 @@ const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity 
 
 function Card({ contest }) {
   const { name, startTimeUnix, url, duration, host, vanity } = contest;
-  const startDate = new Date(startTimeUnix * 1000);
-  const options = {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "numeric",
-    minute: "numeric",
-    timeZone: "Asia/Kolkata",
-  };
-  const startTimeIST = startDate.toLocaleString("en-US", options);
+
+  // Get the timeAndDateURL
+  const timeAndDateURL = generateTimeAndDateURL(startTimeUnix);
+
+  // Get the current User's timezone
+  const userTimezone = moment.tz.guess(true);
+
+  // Convert the Unix timestamp to a datetime in the specified timezone
+  const dateTimeInTimezone = moment.tz(startTimeUnix * 1000, userTimezone);
+
+  // Format the datetime as a string
+  const startMonth = dateTimeInTimezone.format("MMMM");
+  const startDate = dateTimeInTimezone.format("D");
+  const startYear = dateTimeInTimezone.format("YYYY");
+  const startTime = dateTimeInTimezone.format("h:mm A");
+
   const [remaningTime, setRemainingTime] = useState("loading...");
   const [show, setShow] = useState(false);
   const close_model = () => setShow(false);

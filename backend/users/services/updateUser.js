@@ -4,7 +4,7 @@ import User from "../models/User.js";
 const updateUser = async (updatedUser) => {
   try {
     // Find the user by ID and update the data
-    console.log(updatedUser);
+    // console.log(updatedUser);
     return await User.findByIdAndUpdate(updatedUser._id, updatedUser, {
       new: true,
     });

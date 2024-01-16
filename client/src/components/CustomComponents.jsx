@@ -2,7 +2,7 @@ import BgEllipse from "./globals/BgEllipse";
 import Button from "./globals/Button";
 import Card from "./globals/Card";
 import Contests from "./Contests";
-import About from "./About";
+import About from "../pages/about/About";
 import CopyToClipboard from "./CopyToClipboard";
 import ErrorPage from "./globals/error-page";
 import Feedback from "./Feedback";
@@ -17,11 +17,13 @@ import Homepage from "../pages/home/Homepage";
 import Footer from "./globals/Footer";
 import { loader as loginLoader } from "./Login";
 import { loader as signupLoader } from "./globals/Signup";
+import {loader as forgotPasswordLoader} from "./ForgotPassword";
 import NewNavbar from "./globals/NewNavbar";
 import ScrollToTop from "./globals/ScrollToTop";
 import Signup from "./globals/Signup";
 import Updates from "./Updates";
 import MetaData from "./globals/MetaData";
+import ForgotPassword from "./ForgotPassword";
 export {
   MetaData,
   BgEllipse,
@@ -47,4 +49,6 @@ export {
   Updates,
   loginLoader,
   signupLoader,
+  ForgotPassword,
+  forgotPasswordLoader,
 };

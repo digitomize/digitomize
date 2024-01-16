@@ -17,6 +17,8 @@ import "./App.css";
 import {
   Layout,
   Login,
+  ForgotPassword,
+  forgotPasswordLoader,
   loginLoader,
   Signup,
   signupLoader,
@@ -149,8 +151,9 @@ const router = createBrowserRouter(
       <Route path="/" element={<Layout />}>
         <Route index element={<Homepage />} />
         <Route path="login" element={<Login />} loader={loginLoader} />
-        <Route path="logout" element={<Logout />} />;
+        <Route path="logout" element={<Logout />} />
         <Route path="signup" element={<Signup />} loader={signupLoader} />
+        <Route path="forgot-password" element={<ForgotPassword />} loader={forgotPasswordLoader} />
         <Route element={<ContestPageLayout />}>
           <Route path="contests" element={<Filter />} />
           <Route path="challenges" element={<Challenges />} />
@@ -212,17 +215,13 @@ const router = createBrowserRouter(
     </Route>,
   ),
 );
-import Snowfall from "react-snowfall";
 function App() {
   return (
     <>
       <UserAuthContextProvider>
         <UserContextProvider>
           <ToastContainer />
-          <div>
-          <Snowfall snowflakeCount={100} speed={[0.2, 1]} wind={[0, 1]} style={{position:"fixed"}}/>
-            <RouterProvider router={router} />
-          </div>
+          <RouterProvider router={router} />
         </UserContextProvider>
       </UserAuthContextProvider>
       <Footer />
