@@ -52,6 +52,7 @@ export async function loader() {
 export default function UserDashRatings() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
+  const [isDisabled, setIsDisabled] = useState(false);
   let ratingsData = data?.ratings;
   // console.log("RATINGGSS:", ratingsData);
   const username = data?.personal_data.username;
@@ -140,8 +141,10 @@ export default function UserDashRatings() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setIsDisabled(true);
     const res = await submitUserFormData(formData)
       .then(() => {
+        setIsDisabled(false);
         toast.success("updated successfully!", {
           position: "top-left",
           autoClose: 1500,
@@ -491,14 +494,15 @@ export default function UserDashRatings() {
               </Link>
             </li>
 
-            <Form onSubmit={handleSubmit} className="mx-auto">
-              <button
-                type="submit"
-                className="text-black bg-white font-medium rounded-lg text-sm w-fit px-5 py-2.5 text-center my-2 self-center"
-              >
-                Update
-              </button>
-            </Form>
+            <button
+              onClick={handleSubmit}
+              disabled={isDisabled}
+              type="submit"
+              className={`mx-auto text-black bg-white font-medium rounded-lg text-sm w-fit px-5 py-2.5 text-center my-2 self-center ${isDisabled ? "cursor-not-allowed opacity-20" : null
+                }`}
+            >
+              {isDisabled ? "Updating..." : "Update"}
+            </button>
           </ul>
 
           {/* <Form className="flex flex-col items-center" onSubmit={handleSubmit}>
