@@ -23,6 +23,22 @@ import moment from "moment-timezone";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
+const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity }) => {
+  const startTime = new Date(startTimeUnix * 1000);
+  const endTime = new Date((startTimeUnix + duration * 60) * 1000);
+
+  const formattedStartTime = startTime.toISOString().replace(/[-:]/g, "");
+  const formattedEndTime = endTime.toISOString().replace(/[-:]/g, "");
+
+  // Encode contest details in the description
+  const description = `<hr>🏆<b>Contest</b>🏆%0A👨🏻‍💻Name: ${name}%0A⏱️Duration: ${duration} minutes%0A🚀Host: ${host}%0A🔗Contest URL: <a href='${url}'>${url}</a>%0A<hr><i>Thank you for using <a href='https://digitomize.com'>digitomize</a></i>`;
+
+  const googleCalendarUrl = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${formattedStartTime}/${formattedEndTime}&text=${encodeURIComponent(name)}&details=${description}`;
+
+  // Open the Google Calendar event creation page in a new tab
+  window.open(googleCalendarUrl, "_blank");
+};
+
 function IndividualCard() {
   const { user } = useUserAuth();
   const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
@@ -92,7 +108,7 @@ function IndividualCard() {
 
   // Format the datetime as a string for endTime
   const endTime = endDateTimeInTimezone.format("h:mm A");
-  
+
   const getColorTheme = () => {
     if (host === "leetcode") {
       return "#FFCC00";
@@ -160,7 +176,7 @@ function IndividualCard() {
               icon={<Notifications className="animate-ping" />}
             >
               <a href="https://whatsapp.com/channel/0029VaJyadwLNSa71cZCQt1A" target="_blank" rel="noreferrer">
-                <AlertTitle>DON'T miss out contests - get all contest notifications on 
+                <AlertTitle>DON'T miss out contests - get all contest notifications on
                   <strong> Whatsapp!!</strong>
                   <span className="normal-case">
                     {" "}
@@ -400,6 +416,24 @@ function IndividualCard() {
                   {remaningTime}
                 </div>
                 <div className="ic-mv-child-fifth">
+
+                  <div
+                    className="mv-btn-div"
+                    style={{ boxShadow: `8px 8px ${colorTheme}` }}
+                  >
+                    <button
+                      onClick={() => addToGoogleCalendar(contest)}
+                      style={{
+                        color: "black",
+                        fontWeight: "bold",
+                        fontSize: "20px",
+                        marginTop: "17px",
+                      }}
+                    >
+                      Add to Calendar
+                    </button>
+                  </div>
+
                   <a
                     href={url}
                     target="_blank"
@@ -900,6 +934,22 @@ function IndividualCard() {
                     {remaningTime}
                   </div>
                   <div className="ic-child-right-fourth">
+                    <div
+                      className="btn-div"
+                      style={{ boxShadow: `8px 8px ${colorTheme}` }}
+                    >
+                      <button
+                        onClick={() => addToGoogleCalendar(contest)}
+                        style={{
+                          color: "black",
+                          fontWeight: "bold",
+                          fontSize: "20px",
+                          marginTop: "17px",
+                        }}
+                      >
+                        Add to Calendar
+                      </button>
+                    </div>
                     <a
                       href={url}
                       target="_blank"

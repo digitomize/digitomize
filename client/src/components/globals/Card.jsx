@@ -11,6 +11,7 @@ import {
 } from "../AllAssets";
 import ShareModel from "../share_model";
 import moment from "moment-timezone";
+import { IoCalendarNumber } from "react-icons/io5";
 
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 const hostToSVGMap = {
@@ -53,6 +54,22 @@ const generateTimeAndDateURL = (startTimeUnix) => {
     // Append the respective parameter's to timeanddate's URL.
     timeAndDateURL.search = new URLSearchParams(params).toString();
     return timeAndDateURL.href;
+};
+
+const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity }) => {
+  const startTime = new Date(startTimeUnix * 1000);
+  const endTime = new Date((startTimeUnix + duration * 60) * 1000);
+
+  const formattedStartTime = startTime.toISOString().replace(/[-:]/g, "");
+  const formattedEndTime = endTime.toISOString().replace(/[-:]/g, "");
+
+  // Encode contest details in the description
+  const description = `<hr>🏆<b>Contest</b>🏆%0A👨🏻‍💻Name: ${name}%0A⏱️Duration: ${duration} minutes%0A🚀Host: ${host}%0A🔗Contest URL: <a href='${url}'>${url}</a>%0A<hr><i>Thank you for using <a href='https://digitomize.com'>digitomize</a></i>`;
+
+  const googleCalendarUrl = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${formattedStartTime}/${formattedEndTime}&text=${encodeURIComponent(name)}&details=${description}`;
+
+  // Open the Google Calendar event creation page in a new tab
+  window.open(googleCalendarUrl, "_blank");
 };
 
 function Card({ contest }) {
@@ -125,7 +142,7 @@ function Card({ contest }) {
           </div>
         </div>
 
-        <div className="h-8 max-md:w-12 clip">
+        <div className="flex items-center">
           <button onClick={() => setShow(true)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -140,6 +157,11 @@ function Card({ contest }) {
               ></path>
             </svg>
           </button>
+
+          <button id="calendarButton" onClick={() => addToGoogleCalendar(contest)} aria-label="Google Calendar Integration">
+            <IoCalendarNumber style={{ color: "white" }} className="w-7 h-7 ml-4" />
+          </button>
+
           {show && main_model}
         </div>
         <Button url={url} />
