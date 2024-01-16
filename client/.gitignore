@@ -25,3 +25,5 @@ dist-ssr
 
 
 frontend_env
+package.json
+package.lock.json
