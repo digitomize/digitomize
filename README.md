@@ -2,7 +2,7 @@
 
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-54-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-55-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Website: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9g.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
 
@@ -170,6 +170,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://biodrop.io/harmeetsingh11"><img src="https://avatars.githubusercontent.com/u/130365071?v=4?s=100" width="100px;" alt="Harmeet Singh"/><br /><sub><b>Harmeet Singh</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=harmeetsingh11" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/moeezahmad01/"><img src="https://avatars.githubusercontent.com/u/58481032?v=4?s=100" width="100px;" alt="Moeez Ahmad"/><br /><sub><b>Moeez Ahmad</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=moeez506" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://ekramian.uk"><img src="https://avatars.githubusercontent.com/u/20746347?v=4?s=100" width="100px;" alt="Hossein Ekramian"/><br /><sub><b>Hossein Ekramian</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=beneki" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/PatelYash7"><img src="https://avatars.githubusercontent.com/u/109963122?v=4?s=100" width="100px;" alt="Yash Patel"/><br /><sub><b>Yash Patel</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=PatelYash7" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
