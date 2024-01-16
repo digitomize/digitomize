@@ -64,7 +64,7 @@ const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity 
   const formattedEndTime = endTime.toISOString().replace(/[-:]/g, "");
 
   // Encode contest details in the description
-  const description = `Contest Details:%0AName: ${name}%0ADuration: ${duration} minutes%0AHost: ${host}%0AContest URL: ${url}%0A~DIGITOMIZE`;
+  const description = `<hr>🏆<b>Contest</b>🏆%0A👨🏻‍💻Name: ${name}%0A⏱️Duration: ${duration} minutes%0A🚀Host: ${host}%0A🔗Contest URL: <a href='${url}'>${url}</a>%0A<hr><i>Thank you for using <a href='https://digitomize.com'>digitomize</a></i>`;
 
   const googleCalendarUrl = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${formattedStartTime}/${formattedEndTime}&text=${encodeURIComponent(name)}&details=${description}`;
 
