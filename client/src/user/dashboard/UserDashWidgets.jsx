@@ -5,6 +5,7 @@ import DashboardNavbar from "../components/DashboardNavbar";
 import ShareModel from "../../components/share_model";
 import LoadingScreen from "../../components/globals/LoadingScreen";
 import { userDashboardDetails } from "../../../api";
+import question from "../../assets/question.png"
 
 export default function UserDashWidgets() {
   const [loading, setLoading] = useState(true);
@@ -62,8 +63,8 @@ export default function UserDashWidgets() {
       <>
         <MetaData path="u/dashboard/widgets" />
         <DashboardNavbar />
-        <div className="widgets">
-          <h1 className="pt-[3.5rem] text-center text-white md:pt-[2rem] md:text-7xl lg:pt-[1rem] xl: 2xl: ">Widgets</h1>
+        <div className="widgets font-['Geist']">
+          <h1 className="pt-[3.5rem] text-center md:pt-[2rem] md:text-7xl lg:pt-[1rem]">Widgets</h1>
           <div
             style={{ width: "100%", height: "auto" }}
             className="flex flex-row flex-wrap justify-evenly items-center gap-2"
@@ -88,6 +89,7 @@ export default function UserDashWidgets() {
           ) : (
             <></>
           )}
+          <HowToUse />
         </div>
       </>
     );
@@ -131,3 +133,16 @@ const SVGImageContainer = ({ link, height, width }) => {
     </div>
   );
 };
+
+const HowToUse = () => {
+  return (
+    <div class="font-['Geist'] xl:pt-8 max-md:pt-4 items-center flex flex-col phone:mt-16 gap-[1.2rem]">
+      <h2 className="text-5xl text-center">How to use?</h2>
+      <ol start={1} className="p-3 md:text-2xl">
+        <u>Step-1:</u> Click on share widget button to copy the widget's link<br/>
+        <u>Step-2:</u> Paste the link into &lt;img src=&quot;Your_copied_link_here" height=&quot;100%&quot; width&quot;100%&quot; /&gt;<br/>
+        <u>Step-3:</u> Now paste this img tag into any website you are making or you can also add this on your github readme.
+      </ol>
+    </div>
+  )
+}
