@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import CardActions from "@mui/material/CardActions";
-import "/src/components/css/Card.css";
 import Marquee from "react-fast-marquee";
 
 import {
