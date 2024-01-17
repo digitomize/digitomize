@@ -11,6 +11,7 @@ import {
 } from "../AllAssets";
 import ShareModel from "../share_model";
 import moment from "moment-timezone";
+import { IoCalendarNumber } from "react-icons/io5";
 
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 const hostToSVGMap = {
@@ -26,33 +27,54 @@ const LOCATION_ID_UTC = 1440;
 
 const generateTimeAndDateURL = (startTimeUnix) => {
 
-    // Convert the Unix timestamp to a datetime in the UTC timezone
-    const utcDateAndTime = moment.tz(startTimeUnix * 1000, "UTC");
+  // Convert the Unix timestamp to a datetime in the UTC timezone
+  const utcDateAndTime = moment.tz(startTimeUnix * 1000, "UTC");
 
-    // Get the respective Date and Time Values.
-    const utcStartMonth = utcDateAndTime.format("MM");
-    const utcStartDate = utcDateAndTime.format("DD");
-    const utcStartYear = utcDateAndTime.format("YYYY");
-    const utcStartTime = utcDateAndTime.format("HH:mm:ss");
-    const utcStartHour = utcStartTime.split(":")[0];
-    const utcStartMin = utcStartTime.split(":")[1];
-    const utcStartSec = utcStartTime.split(":")[2];
-  
-    // Form the URL to be directed to when clicked on time.
-    const timeAndDateURL = new URL("https://timeanddate.com/worldclock/fixedtime.html");
-    const params = {
-      day:utcStartDate,
-      month:utcStartMonth,
-      year:utcStartYear,
-      hour:utcStartHour,
-      min:utcStartMin,
-      sec:utcStartSec,
-      p1:LOCATION_ID_UTC,
-    };
-  
-    // Append the respective parameter's to timeanddate's URL.
-    timeAndDateURL.search = new URLSearchParams(params).toString();
-    return timeAndDateURL.href;
+  // Get the respective Date and Time Values.
+  const utcStartMonth = utcDateAndTime.format("MM");
+  const utcStartDate = utcDateAndTime.format("DD");
+  const utcStartYear = utcDateAndTime.format("YYYY");
+  const utcStartTime = utcDateAndTime.format("HH:mm:ss");
+  const utcStartHour = utcStartTime.split(":")[0];
+  const utcStartMin = utcStartTime.split(":")[1];
+  const utcStartSec = utcStartTime.split(":")[2];
+
+  // Form the URL to be directed to when clicked on time.
+  const timeAndDateURL = new URL("https://timeanddate.com/worldclock/fixedtime.html");
+  const params = {
+    day: utcStartDate,
+    month: utcStartMonth,
+    year: utcStartYear,
+    hour: utcStartHour,
+    min: utcStartMin,
+    sec: utcStartSec,
+    p1: LOCATION_ID_UTC,
+  };
+
+  // Append the respective parameter's to timeanddate's URL.
+  timeAndDateURL.search = new URLSearchParams(params).toString();
+  return timeAndDateURL.href;
+};
+
+const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity }) => {
+  // Adjust the start time and duration for IST (GMT+5:30)
+  const startTimeIST = new Date((startTimeUnix + 60 * 60 - 3600) * 1000);
+  const endTimeIST = new Date((startTimeUnix + duration * 60 + 60 * 60 - 3600) * 1000);
+
+  const formattedStartTime = startTimeIST.toISOString().replace(/[-:]/g, "").replace(".000", "+05:30");
+  const formattedEndTime = endTimeIST.toISOString().replace(/[-:]/g, "").replace(".000", "+05:30");
+
+  const startHour = startTimeIST.getHours();
+  const startMinute = startTimeIST.getMinutes();
+  const ampm = startHour >= 12 ? 'PM' : 'AM';
+  const formattedStartTimeString = `${startHour % 12 || 12}:${startMinute < 10 ? '0' : ''}${startMinute} ${ampm}`;
+
+  const description = `<hr>🏆<b>Contest</b>🏆%0A👨🏻‍💻Name: ${name}%0A🕘Start at: ${formattedStartTimeString}%0A⏱️Duration: ${duration} minutes%0A🚀Host: ${host}%0A🔗Contest URL: <a href='${url}'>${url}</a>%0A<hr><i>Thank you for using <a href='https://digitomize.com'>digitomize</a></i>`;
+
+  const googleCalendarUrl = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${formattedStartTime}/${formattedEndTime}&text=${encodeURIComponent(name)}&details=${description}`;
+
+  // Open the Google Calendar event creation page in a new tab
+  window.open(googleCalendarUrl, "_blank");
 };
 
 function Card({ contest }) {
@@ -125,7 +147,7 @@ function Card({ contest }) {
           </div>
         </div>
 
-        <div className="h-8 max-md:w-12 clip">
+        <div className="flex items-center gap-4">
           <button onClick={() => setShow(true)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -140,9 +162,14 @@ function Card({ contest }) {
               ></path>
             </svg>
           </button>
+
+          <button id="calendarButton" onClick={() => addToGoogleCalendar(contest)} aria-label="Google Calendar Integration">
+            <IoCalendarNumber style={{ color: "white" }} className="w-7 h-7" />
+          </button>
+
           {show && main_model}
+          <Button url={url} />
         </div>
-        <Button url={url} />
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import "./css/CopyToClipboard.css";
 import { getColorTheme } from "./globals/IndividualCard";
 import ShareModel from "./share_model";
+import { Share } from "@mui/icons-material";
 
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
@@ -72,7 +73,8 @@ function CopyToClipboard({ msg, gradient, vanity: propVanity }) {
       >
         <button className="share-button" onClick={() => setShow(true)}>
           <p>{msg}</p>
-          <span className="tooltip">{message}</span>
+          <Share fontSize="small"/>
+          {/* <span className="tooltip relative">{message}</span> */}
         </button>
       </div>
       {show && main_model}
