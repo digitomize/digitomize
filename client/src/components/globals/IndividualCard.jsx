@@ -7,6 +7,8 @@ import {
   Grain as GrainIcon,
   Celebration,
   Notifications,
+  Event,
+  Code,
 } from "@mui/icons-material";
 import { Helmet } from "react-helmet";
 import "/src/components/css/IndividualCard.css";
@@ -435,7 +437,7 @@ function IndividualCard() {
                         marginTop: "17px",
                       }}
                     >
-                      Add to Calendar
+                      Add to Calendar <Event />
                     </button>
                   </div>
 
@@ -454,11 +456,11 @@ function IndividualCard() {
                         marginTop: "1.063rem",
                       }}
                     >
-                      participate
+                      Participate <Code />
                     </button>
                   </a>
                   <CopyToClipboard
-                    msg="share"
+                    msg="Share"
                     className="mv-btn-div share-button-div share-button-container mv-btn-share-div"
                     gradient={"mv-btn-div"}
                   />
@@ -952,7 +954,7 @@ function IndividualCard() {
                           marginTop: "17px",
                         }}
                       >
-                        Add to Calendar
+                        Add to Calendar <Event />
                       </button>
                     </div>
                     <a
@@ -970,11 +972,11 @@ function IndividualCard() {
                           marginTop: "17px",
                         }}
                       >
-                        participate
+                        Participate <Code/>
                       </button>
                     </a>
                     <CopyToClipboard
-                      msg="share"
+                      msg="Share"
                       className="share-button-container share-button-div-phone"
                       gradient={"btn-div"}
                     />
