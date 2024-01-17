@@ -89,7 +89,7 @@ export default function ContestCards() {
       <div className="w-screen max-md:hidden">
         <Marquee speed={200} className="flex flex-row" pauseOnHover={true}>
           {platforms.map((item) => (
-            <div key={item.name} className="rounded-lg border border-solid border-[#7271b2] bg-gradient-to-b from-[#1c406b] via-[rgba(34, 78, 191, 0.3)] to-transparent font-['Geist'] py-10 px-4 w-4/5">
+            <div key={item.name} className="rounded-lg border border-solid border-[#7271b2] bg-card-gradient font-['Geist'] py-10 px-4 w-4/5">
               <div className="flex justify-center">
                 <span className="bg-contestlogo p-4 rounded-full">
                   <img
