@@ -42,9 +42,9 @@ const generateSVG = async (req, res) => {
     res.set("Content-Type", "image/svg+xml");
     res.status(200).end(cards);
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Error fetching user profile:", error.message);
     res.status(500).json({
-      message: "Error fetching user profile",
+      message: `Error fetching user profile: ${error.message}`,
       error: "Error fetching user profile",
     });
   }
