@@ -186,6 +186,7 @@ export default function UserDashPersonal() {
         setIsDisabled(false);
       })
       .catch((err) => {
+        setIsDisabled(false);
         toast.error(err.response.data.message, {
           position: "top-left",
           autoClose: 1500,
@@ -197,7 +198,6 @@ export default function UserDashPersonal() {
           theme: "colored",
         });
         console.log(err);
-        setIsDisabled(false);
       });
 
     // console.log(res);
@@ -470,9 +470,8 @@ export default function UserDashPersonal() {
                 onClick={handleSubmit}
                 disabled={isDisabled}
                 type="submit"
-                className={`text-black bg-white font-medium rounded-lg  text-xl  md:text-3xl   px-8 py-3 text-center ${
-                  isDisabled ? "cursor-not-allowed opacity-20" : null
-                }`}
+                className={`text-black bg-white font-medium rounded-lg  text-xl  md:text-3xl   px-8 py-3 text-center ${isDisabled ? "cursor-not-allowed opacity-20" : null
+                  }`}
               >
                 {isDisabled ? "Updating..." : "Update"}
               </button>
