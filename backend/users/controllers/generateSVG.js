@@ -13,11 +13,12 @@ const generateSVG = async (req, res) => {
       const keys = Object.keys(queries);
       // console.log(keys)
       keys.forEach((e) => {
-        if (
-          platforms.includes(e) &&
-          (queries[e] === "1" || queries[e].includes("1"))
-        )
-          toReturn.push(e);
+        if (platforms.includes(e)){
+          if(typeof queries[e] === "string" && queries[e] === "1")
+            toReturn.push(e);
+          else if (typeof queries[e] === "object" && queries[e].includes("1"))
+            toReturn.push(e);
+        }
       });
     }
 
