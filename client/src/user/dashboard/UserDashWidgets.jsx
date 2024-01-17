@@ -64,7 +64,7 @@ export default function UserDashWidgets() {
         <MetaData path="u/dashboard/widgets" />
         <DashboardNavbar />
         <div className="widgets font-['Geist']">
-          <h1 className="pt-[3.5rem] text-center md:pt-[2rem] md:text-7xl lg:pt-[1rem]">Widgets</h1>
+          <h2 className="mt-8 text-6xl font-['Geist'] pt-[3.5rem] text-center md:pt-[2rem] md:text-7xl lg:pt-[1rem]">Widgets</h2>
           <div
             style={{ width: "100%", height: "auto" }}
             className="flex flex-row flex-wrap justify-evenly items-center gap-2"
