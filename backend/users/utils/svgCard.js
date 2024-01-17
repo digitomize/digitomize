@@ -15,6 +15,9 @@ const svgCard = (data,width,height,x,logoType) => {
         case "codechef":
             logo = codechefLogo();
             break;
+        default:
+            console.error(`Unsupported logoType: ${logoType}`);
+            break;
     }
     return `
     ${svgWrapper(width,height,x)}

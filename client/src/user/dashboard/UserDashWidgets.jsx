@@ -5,7 +5,6 @@ import DashboardNavbar from "../components/DashboardNavbar";
 import ShareModel from "../../components/share_model";
 import LoadingScreen from "../../components/globals/LoadingScreen";
 import { userDashboardDetails } from "../../../api";
-import question from "../../assets/question.png"
 
 export default function UserDashWidgets() {
   const [loading, setLoading] = useState(true);
@@ -28,7 +27,7 @@ export default function UserDashWidgets() {
               res.data.personal_data.username +
               "?",
           );
-          console.log("here: ", backendUrl);
+          // console.log("here: ", backendUrl);
           for (const rating in ratingsData) {
             if (ratingsData[rating].data)
               setImagesArray((arr) => {
@@ -40,6 +39,7 @@ export default function UserDashWidgets() {
         }
       } catch (err) {
         console.log(err);
+        navigate("u/dashboard");
       } finally {
         setLoading(false);
       }

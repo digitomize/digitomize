@@ -10,14 +10,14 @@ const svgData = (data) => {
     <g class="data">
         <g>
             <text transform="translate(-175,250)" x="50%" text-anchor="middle">${
-            data.rating | "0"
+            data.rating || "0"
             }</text>
         </g>
         <text transform="translate(-10,250)" x="50%" text-anchor="middle">${
         data.badge
         }</text>
         <text transform="translate(165,250)" x="50%" text-anchor="middle">${
-        data.contests | "0"
+        data.contests || "0"
         }</text>
     </g>
     `;
