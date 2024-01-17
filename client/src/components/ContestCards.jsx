@@ -90,7 +90,7 @@ export default function ContestCards() {
       <div className="w-screen max-md:hidden">
         <Marquee speed={200} className="flex flex-row" pauseOnHover={true}>
           {platforms.map((item) => (
-            <div key={item.name} className="contestcard font-['Geist'] border border-contestborder py-10 px-4 w-4/5">
+            <div key={item.name} className="rounded-lg border border-solid border-[#7271b2] bg-gradient-to-b from-[#1c406b] via-[rgba(34, 78, 191, 0.3)] to-transparent font-['Geist'] py-10 px-4 w-4/5">
               <div className="flex justify-center">
                 <span className="bg-contestlogo p-4 rounded-full">
                   <img
@@ -109,7 +109,7 @@ export default function ContestCards() {
               </div>
               <CardActions className="justify-center">
                 <Link to="/contests">
-                  <button className="contestbtn px-4 py-2">check out</button>
+                  <button className=" rounded-lg border-[0.5px] border-solid border-[#8f8ecc] bg-[#3c3b86] transition duration-90 hover:bg-[#313073] px-4 py-2">check out</button>
                 </Link>
               </CardActions>
             </div>
