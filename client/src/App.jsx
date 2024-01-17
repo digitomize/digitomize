@@ -31,10 +31,8 @@ import {
   Footer,
   MetaData,
 } from "./components/CustomComponents";
+import UserDashBoardAccount from "./user/dashboard/Account";
 import UserDashboard from "./user/dashboard/UserDashboard";
-import UserDashPersonal, {
-  loader as userDashPersonalLoader,
-} from "./user/dashboard/UserDashPersonal";
 import UserDashRatings, {
   loader as userDashRatingsLoader,
 } from "./user/dashboard/UserDashRatings";
@@ -43,16 +41,18 @@ import UserDashGithub, {
 } from "./user/dashboard/UserDashGithub";
 import ProtectedRoute from "./ProtectedRoute";
 import NewUserProfile from "./user/Profile/NewUserProfile";
-
+import UserDashBoardLayout from "./user/dashboard/Layout";
 import ProfileRatingsPage from "./user/Profile/pages/ProfileRatingsPage";
 import PlatformRatings from "./user/Profile/components/PlatformRatings";
 import ProfileLayout, {
   loader as profileLoader,
 } from "./user/Profile/pages/ProfileLayout";
 // import ProtectedRoute from "./ProtectedRoute"
-
+import UserDashBoardCarrer from "./user/dashboard/Carrer";
+import {loader as userDashPersonalLoader} from './user/dashboard/UserDashPersonal'
+import UserDashBoardProfile from "./user/dashboard/profile";
 import Leaderboard from "./user/leaderboard/Leaderboard";
-
+import UserDashBoardWidget from "./user/dashboard/Widget";
 /*------------ DSA Sheets Import ------------ */
 import SheetLayout from "./dsaSheets/layout/SheetLayout";
 
@@ -94,6 +94,7 @@ import ContestPageLayout from "./components/Contests/ContestPageLayout";
 import Filter from "./components/Contests/Filter";
 import Challenges from "./components/Contests/Challenges/Challenges";
 import ComingSoonLoader from "./components/Contests/ComingSoonLoader";
+import { userDashboardDetails } from "../api";
 
 function Logout() {
   const navigate = useNavigate();
@@ -180,14 +181,7 @@ const router = createBrowserRouter(
         <Route path="dashboard">
           <Route
             index
-            element={<UserDashboard />}
-          // loader={userDashPersonalLoader}
-          // loader={userDashPersonalLoader}
-          />
-          <Route
-            path="account"
-            element={<UserDashPersonal />}
-            loader={userDashPersonalLoader}
+            element={<UserDashboard/>}
           />
           <Route path="ratings" element={<UserDashRatings />} />
           <Route
@@ -195,6 +189,17 @@ const router = createBrowserRouter(
             element={<UserDashGithub />}
             loader={userDashGithubLoader}
           />
+
+          <Route element={<UserDashBoardLayout/>} >
+          <Route
+            path="carrer"
+            element={<UserDashBoardCarrer />}
+            loader={userDashPersonalLoader}
+            />
+          <Route path="profile" loader={userDashPersonalLoader} element={<UserDashBoardProfile/>} />
+          <Route path="account"  loader={userDashPersonalLoader}  element={<UserDashBoardAccount/>}/>
+          <Route path="widget" element={<UserDashBoardWidget/>} />
+          </Route>
         </Route>
       </Route>
       <Route
