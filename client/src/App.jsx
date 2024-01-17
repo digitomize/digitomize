@@ -151,6 +151,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<Layout />}>
         <Route index element={<Homepage />} />
         <Route path="login" element={<Login />} loader={loginLoader} />
+        <Route path="hello" element={<h1>Testing PR!</h1>} />
         <Route path="logout" element={<Logout />} />
         <Route path="signup" element={<Signup />} loader={signupLoader} />
         <Route path="forgot-password" element={<ForgotPassword />} loader={forgotPasswordLoader} />
