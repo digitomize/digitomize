@@ -63,6 +63,16 @@ export default function Signup() {
           // .then((res) => console.log(res))
           .catch((err) => setError(err.code));
       }
+      toast.success("Verification link send to email", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
       navigate("/login");
     } catch (err) {
       toast.error(err.code, {
