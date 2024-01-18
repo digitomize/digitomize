@@ -5,7 +5,7 @@ import {
   useOutletContext,
   useNavigate,
   NavLink,
-  useParams
+  useParams,
 } from "react-router-dom";
 import UserCard from "../components/UserCard";
 import leetcode from "../../../assets/leetcode.svg";
