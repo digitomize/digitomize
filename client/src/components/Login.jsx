@@ -20,14 +20,18 @@ import SignoutButton from "../user/components/SignoutButton";
 import GoogleAuthButton from "./AuthButtons/GoogleAuthButton";
 import GithubAuthButton from "./AuthButtons/GithubAuthButton";
 import { Eye, EyeOff } from "lucide-react";
+import { auth } from "../../firebase";
+import { signOut } from "firebase/auth";
 
 export async function loader({ request }) {
   const message = new URL(request.url).searchParams.get("message");
   const loggedIn = await isLoggedIn();
+  const user = auth?.currentUser;
   if (loggedIn) {
-    return redirect("/u/dashboard");
+    if (user?.emailVerified) {
+      return redirect("/u/dashboard");
+    }
   }
-
   return message;
 }
 
@@ -42,7 +46,7 @@ export default function Login() {
   const [btnState, setbtnState] = useState(false); // disable feature
   const [passwordShow, setPasswordShow] = useState(false);
 
-  const passwordToggle = () =>{
+  const passwordToggle = () => {
     setPasswordShow(!passwordShow);
   };
 
@@ -50,9 +54,27 @@ export default function Login() {
     e.preventDefault();
     setError("");
     setbtnState(true);
+
     try {
       await logIn(email, password);
-      navigate("/u/dashboard");
+      const user = auth?.currentUser;
+      if (!user?.emailVerified) {
+        toast.error("Please verify your email", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        await signOut(auth);
+        setbtnState(false);
+        return;
+      } else {
+        navigate("/u/dashboard");
+      }
     } catch (err) {
       toast.error(err.code, {
         position: "top-right",
@@ -140,15 +162,26 @@ export default function Login() {
                         placeholder="***************"
                         required
                       />
-                      {password && (passwordShow ?
-                      <EyeOff onClick={passwordToggle} className="w-6 h-6 absolute z-50 left-100 right-2"/> :
-                      <Eye onClick={passwordToggle} className="w-6 h-6 absolute z-50 left-100 right-2"/>)}
+                      {password &&
+                        (passwordShow ? (
+                          <EyeOff
+                            onClick={passwordToggle}
+                            className="w-6 h-6 absolute z-50 left-100 right-2"
+                          />
+                        ) : (
+                          <Eye
+                            onClick={passwordToggle}
+                            className="w-6 h-6 absolute z-50 left-100 right-2"
+                          />
+                        ))}
                     </div>
                     <label className="label">
                       <span className="label-text-alt"></span>
                       {/* // ! TO ADD being added by nakul30*/}
-                      <Link to="/forgot-password" >
-                      <span className="label-text-alt text-custom-blue">forgot password?</span>
+                      <Link to="/forgot-password">
+                        <span className="label-text-alt text-custom-blue">
+                          forgot password?
+                        </span>
                       </Link>
                     </label>
                   </div>
