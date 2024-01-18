@@ -1,0 +1,20 @@
+[
+  {
+    "host": "quine",
+    "name": "Quest 005: Developer Tools",
+    "vanity": "quest005",
+    "url": "https://quine.sh/quests/creator?questId=5&utm_source=digitomize&ref=digitomize",
+    "startTimeUnix": 1702987200,
+    "duration": 50400,
+    "prize": "Total Prize Pot: 2048 USD"
+  },
+  {
+    "host": "tublian",
+    "name": "Build a RAG application using LLM",
+    "vanity": "tublian-303",
+    "url": "https://www.tublian.com/challenge/303?utm_source=digitomize&ref=digitomize",
+    "startTimeUnix": 1703026800,
+    "duration": 43200,
+    "prize": "Special Prize + Merch"
+  }
+]

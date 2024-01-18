@@ -11,12 +11,12 @@ import DashboardNavbar from "../components/DashboardNavbar";
 import Checkbox from "../components/Checkbox";
 import NewNavbar from "../../components/globals/NewNavbar";
 import { ToastContainer, toast } from "react-toastify";
-
+import { MetaData } from "../../components/CustomComponents";
 import Chip from "@mui/material/Chip";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import { styled } from "@mui/material/styles";
-import Footer from "../../components/globals/Footer";
 import ImageUploader from "../../components/ImageUploader";
+import { FaXTwitter, FaLinkedin, FaInstagram } from "react-icons/fa6";
 
 const ListItem = styled("li")(({ theme }) => ({
   margin: theme.spacing(0.5),
@@ -33,11 +33,11 @@ export async function loader() {
 }
 
 export default function UserDashPersonal() {
-  const personalData = useLoaderData().personal_data;
+  const { personal_data, social } = useLoaderData();
   const [newSkill, setNewSkill] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
   const [skillData, setskillData] = useState(
-    personalData.skills.map((skill, index) => ({
+    personal_data.skills.map((skill, index) => ({
       key: index, // Use the index as the key
       label: skill,
     })),
@@ -52,8 +52,8 @@ export default function UserDashPersonal() {
     e.preventDefault();
 
     if (newSkill.trim() !== "") {
-      if (newSkill.length > 20) {
-        toast.error("Length exceeding 20 characters");
+      if (newSkill.length > 25) {
+        toast.error("Length exceeding 25 characters");
         return;
       }
       setskillData((prevSkills) => [
@@ -96,24 +96,29 @@ export default function UserDashPersonal() {
   }, [skillData, btnRef]);
 
   const [formData, setFormData] = useState({
-    username: personalData.username,
-    name: personalData.name || "",
-    resume: personalData.resume || "",
-    picture: personalData.picture,
+    username: personal_data.username,
+    name: personal_data.name || "",
+    resume: personal_data.resume || "",
+    picture: personal_data.picture,
     phoneNumber: {
-      data: personalData.phoneNumber.data || "",
-      showOnWebsite: personalData.phoneNumber.showOnWebsite || true,
+      data: personal_data.phoneNumber.data || "",
+      showOnWebsite: personal_data.phoneNumber.showOnWebsite || true,
     },
     dateOfBirth: {
-      data: personalData.dateOfBirth.data || "",
-      showOnWebsite: personalData.dateOfBirth.showOnWebsite || true,
+      data: personal_data.dateOfBirth.data || "",
+      showOnWebsite: personal_data.dateOfBirth.showOnWebsite || true,
     },
     bio: {
-      data: personalData.bio.data || "",
-      showOnWebsite: personalData.bio.showOnWebsite || true,
+      data: personal_data.bio.data || "",
+      showOnWebsite: personal_data.bio.showOnWebsite || true,
     },
     skills: skillData.map((data) => data.label) || [],
-    education: personalData.education || [],
+    education: personal_data.education || [],
+    social: {
+      linkedin: social?.linkedin || null,
+      twitter: social?.twitter || null,
+      instagram: social?.instagram || null,
+    },
   });
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -150,6 +155,19 @@ export default function UserDashPersonal() {
       },
     }));
   };
+  const handleSocialChange = (event) => {
+    const { name, value } = event.target;
+
+    // Update the formData.social state based on the name of the input field
+    setFormData((prevData) => ({
+      ...prevData,
+      social: {
+        ...prevData.social,
+        [name]: value,
+      },
+    }));
+  };
+
   async function handleSubmit(event) {
     event.preventDefault();
     setIsDisabled(true);
@@ -168,7 +186,8 @@ export default function UserDashPersonal() {
         setIsDisabled(false);
       })
       .catch((err) => {
-        toast.error("error updating", {
+        setIsDisabled(false);
+        toast.error(err.response.data.message, {
           position: "top-left",
           autoClose: 1500,
           hideProgressBar: false,
@@ -179,14 +198,14 @@ export default function UserDashPersonal() {
           theme: "colored",
         });
         console.log(err);
-        setIsDisabled(false);
       });
 
-    console.log(res);
+    // console.log(res);
   }
 
   return (
     <>
+      <MetaData path="u/dashboard/account" />
       <ToastContainer />
       <DashboardNavbar />
       {/* <div className="px-8 md:ps-12 py-12 pt-24 w-11/12 mx-auto"> */}
@@ -324,7 +343,7 @@ export default function UserDashPersonal() {
                       className="input input-bordered  w-full max-w-lg"
                       placeholder=""
                       value={newSkill}
-                      maxLength={10}
+                      maxLength={25}
                       onChange={(e) => setNewSkill(e.target.value)}
                     />
                     <Form onSubmit={handleAdd}>
@@ -410,21 +429,56 @@ export default function UserDashPersonal() {
               </div>
             </div>
 
+            <div className="flex flex-col gap-4 pb-8">
+              <div className="flex gap-4 items-center">
+                <FaInstagram size={40} />
+                <input
+                  type="text"
+                  name="instagram"
+                  value={formData.social.instagram}
+                  placeholder="Instagram URL"
+                  onChange={handleSocialChange}
+                  className="input input-bordered sm:w-2/6 md:w-2/5"
+                />
+              </div>
+              <div className="flex gap-4 items-center">
+                <FaLinkedin size={40} />
+                <input
+                  type="text"
+                  name="linkedin"
+                  value={formData.social.linkedin}
+                  placeholder="Linkedin URL"
+                  onChange={handleSocialChange}
+                  className="input input-bordered sm:w-2/6 md:w-2/5"
+                />
+              </div>
+              <div className="flex gap-4 items-center">
+                <FaXTwitter size={40} />
+                <input
+                  type="text"
+                  name="twitter"
+                  value={formData.social.twitter}
+                  placeholder="Twitter URL"
+                  onChange={handleSocialChange}
+                  className="input input-bordered sm:w-2/6 md:w-2/5"
+                />
+              </div>
+            </div>
+
             <div className="flex w-full max-sm:justify-center md:justify-end md:pe-12">
               <button
                 onClick={handleSubmit}
                 disabled={isDisabled}
                 type="submit"
-                className={`text-black bg-white font-medium rounded-lg  text-xl  md:text-3xl   px-8 py-3 text-center ${
-                  isDisabled ? "cursor-not-allowed opacity-20" : null
-                }`}
+                className={`text-black bg-white font-medium rounded-lg  text-xl  md:text-3xl   px-8 py-3 text-center ${isDisabled ? "cursor-not-allowed opacity-20" : null
+                  }`}
               >
                 {isDisabled ? "Updating..." : "Update"}
               </button>
             </div>
           </div>
         </div>
-        <div className="mockup-browser border bg-base-300 mt-4">
+        {/* <div className="mockup-browser border bg-base-300 mt-4">
           <div className="mockup-browser-toolbar">
             <div className="input" style={{ marginLeft: "0" }}>
               {"#include {digitomize} > {socials}"}
@@ -443,9 +497,9 @@ export default function UserDashPersonal() {
               </pre>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

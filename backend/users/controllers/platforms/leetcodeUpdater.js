@@ -1,6 +1,6 @@
 import https from "https";
 
-async function leetcode_u(handle) {
+async function leetcode_u (handle) {
   if (!handle) {
     return null;
   }
@@ -14,6 +14,9 @@ async function leetcode_u(handle) {
         userContestRanking(username: $username) {
           attendedContestsCount
           rating
+          badge {
+            name
+          }
           globalRanking
           __typename
         }
@@ -39,16 +42,18 @@ async function leetcode_u(handle) {
       response.on("end", () => {
         try {
           const userInfo = JSON.parse(data);
-          console.log("OKKKKKKKKK", userInfo);
-          if (userInfo.data?.userContestRanking == undefined) {
-            userInfo.data = userContestRanking;
+          // console.log("OKKKKKKKKK", userInfo);
+          // console.log(userInfo.data.userContestRanking.badge);
+          if (userInfo.data?.userContestRanking === undefined || userInfo.data?.userContestRanking === null) {
+            // userInfo.data = userContestRanking;
             userInfo.data.userContestRanking = {
               attendedContestsCount: 0,
               rating: 0,
               globalRanking: 0,
             };
           }
-          userInfo.data.userContestRanking.rank = "none";
+          // console.log(userInfo)
+          userInfo.data.userContestRanking.rank = userInfo.data.userContestRanking?.badge?.name || "none";
           userInfo.data.userContestRanking.handle = handle;
 
           //   console.log("HERRRREEEEE:",userInfo.data.userContestRanking);

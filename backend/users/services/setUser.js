@@ -3,7 +3,7 @@ import { sendEmail } from "../../services/email/createAccount.js";
 import { sendWebhook_createAccount } from "../../services/discord-webhook/createAccount.js";
 
 // Utility function to create default contest object
-function createDefaultContestObject(platformData) {
+function createDefaultContestObject (platformData) {
   const commonDefaults = {
     rating: null,
     badge: null,
@@ -24,7 +24,7 @@ function createDefaultContestObject(platformData) {
 
 // Takes the data and creates a new User in MongoDB
 const setUser = async (userData) => {
-  console.log(userData);
+  // console.log(userData);
   try {
     const {
       uid,
@@ -51,7 +51,7 @@ const setUser = async (userData) => {
     }
     // Finds if the username with same name is already registered.
     const checkForDuplicateUsername = await User.findOne({
-      username: username,
+      username,
     });
 
     const newUser = new User({
@@ -60,7 +60,7 @@ const setUser = async (userData) => {
       name: name || "Digitomize User",
       picture:
         picture ||
-        "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png",
+        "https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg",
       resume,
       email,
       email_verified,
@@ -95,11 +95,11 @@ const setUser = async (userData) => {
     });
 
     const createdUser = await newUser.save();
-    console.log(createdUser);
-    console.log("New user created.");
+    // console.log(createdUser);
+    // console.log("New user created.");
     if (process.env.NODE_ENV === "production") {
       // if(true){
-      console.log("sending mail...");
+      // console.log("sending mail...");
       await sendEmail(newUser.email, newUser.name);
       sendWebhook_createAccount({
         imageURL: createdUser.picture,
@@ -114,10 +114,12 @@ const setUser = async (userData) => {
       console.log(error);
       const key = Object.keys(error.keyValue)[0];
       const message = `User with this ${key} already exists`;
-      throw { status: 200, message }; // Throw custom error object
+      const customError = new Error(message);
+      customError.status = 200;
+      throw customError;// Throw custom error object
     }
     console.error("Error:", error);
-    throw { status: 500, message: "Error creating user" }; // Throw custom error object
+    throw new Error("Error creating user"); // Throw custom error object
   }
 };
 

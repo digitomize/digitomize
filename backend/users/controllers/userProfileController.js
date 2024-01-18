@@ -57,7 +57,7 @@ const handleUserDataUpdate = async (user) => {
         platformData.username,
         platformKey,
       );
-      console.log("newData", newData);
+      // console.log("newData", newData);
       if (newData) {
         changes = true;
         platformData.attendedContestsCount = newData.attendedContestsCount;
@@ -117,6 +117,11 @@ const handleUserProfilePreview = async (req, res) => {
       github: {
         data: user.github.showOnWebsite ? user.github.data : null,
       },
+      social: {
+        linkedin: user.social.linkedin,
+        instagram: user.social.instagram,
+        twitter: user.social.twitter,
+      },
       ratings: {
         digitomize_rating: user.digitomize_rating,
       },
@@ -130,16 +135,14 @@ const handleUserProfilePreview = async (req, res) => {
     res.status(200).json(publicUserData);
   } catch (error) {
     console.error("Error:", error);
-    res
-      .status(500)
-      .json({
-        message: "Error fetching user profile",
-        error: "Error fetching user profile",
-      });
+    res.status(500).json({
+      message: "Error fetching user profile",
+      error: "Error fetching user profile",
+    });
   }
 };
 
-function handleCodingPlatform(targetObject, platform, platformKey) {
+function handleCodingPlatform (targetObject, platform, platformKey) {
   if (platform.showOnWebsite) {
     targetObject[platformKey] = {
       username: platform.username || null,
@@ -159,4 +162,4 @@ function handleCodingPlatform(targetObject, platform, platformKey) {
   }
 }
 
-export { handleUserProfilePreview };
+export { handleUserProfilePreview, handleUserDataUpdate };

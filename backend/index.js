@@ -8,21 +8,22 @@ import contestRoutes from "./contest/routes/contestRoutes.js";
 import communityRoutes from "./community/routes/communityRoutes.js";
 import userRoutes from "./users/routes/userRoutes.js";
 import adminRoutes from "./users/routes/adminRoutes.js";
-import sheetRoutes from "./DSA_sheets/routes/sheetRoutes.js";
-import questionRoutes from "./DSA_sheets/routes/questionRoutes.js";
 import bodyParser from "body-parser";
 import fetchContestsData from "./fetchContests.js";
 import admin from "firebase-admin";
 import { routeLogging } from "./users/middlewares/authMiddleware.js";
+import sheetRoutes from "./DSA_sheets/routes/sheetRoutes.js";
+import questionRoutes from "./DSA_sheets/routes/questionRoutes.js";
 
 dotenv.config();
 const app = express();
+let appServer;
 
 if (process.env.NODE_ENV === "production") {
   app.use(routeLogging);
 }
 
-//Handling uncaught exception
+// Handling uncaught exception
 process.on("uncaughtException", (err) => {
   console.log(`Error: ${err.message}`);
   console.log("Shutting down due to uncaught exception");
@@ -30,17 +31,17 @@ process.on("uncaughtException", (err) => {
 });
 
 console.log(process.env.TEST);
-async function main() {
+async function main () {
   try {
     console.log("Pinging...");
-    const contestsData = await fetchContestsData();
+    await fetchContestsData();
     console.log("Pong!");
   } catch (error) {
     console.error("Error pinging the server:", error);
   }
 }
 
-async function setupUserServer() {
+async function setupUserServer () {
   // console.log(process.env.FIREBASE_CREDENTIALS);
   console.log("ok");
   // Get the Firebase service account JSON from the environment variable
@@ -57,7 +58,7 @@ async function setupUserServer() {
   app.use("/questions", questionRoutes);
 }
 
-async function setupContestServer() {
+async function setupContestServer () {
   await dataSyncer.syncContests();
   setInterval(dataSyncer.syncContests, 90 * 60 * 1000);
 
@@ -82,11 +83,11 @@ async function setupContestServer() {
   app.use("/contests", contestRoutes);
 }
 
-async function setupCommunityServer() {
+async function setupCommunityServer () {
   app.use("/community", communityRoutes);
 }
 
-async function startServersProduction() {
+async function startServersProduction () {
   try {
     app.use(cors());
     app.use(bodyParser.json());
@@ -97,7 +98,7 @@ async function startServersProduction() {
     await setupUserServer();
     await setupContestServer();
 
-    //Handle unhandled routes
+    // Handle unhandled routes
     app.all("*", (req, res, next) => {
       res.status(404).json({ error: `${req.originalUrl} route not found` });
     });
@@ -114,7 +115,7 @@ async function startServersProduction() {
       console.log("├──────────────────────────────────┤");
     }
     const port = process.env.PORT || 3000;
-    app.listen(port, () => {
+    appServer = app.listen(port, () => {
       console.log(`│ Server listening on port ${port}`.padEnd(35) + "│");
       console.log("└──────────────────────────────────┘");
     });
@@ -122,7 +123,7 @@ async function startServersProduction() {
     console.log("Error starting servers:", err);
   }
 }
-async function startServersDev() {
+async function startServersDev () {
   try {
     app.use(cors());
     app.use(bodyParser.json());
@@ -141,7 +142,7 @@ async function startServersDev() {
       servers.push("Contest");
     }
 
-    //Handle unhandled routes
+    // Handle unhandled routes
     app.all("*", (req, res, next) => {
       res.status(404).json({ error: `${req.originalUrl} route not found` });
     });
@@ -154,7 +155,7 @@ async function startServersDev() {
       console.log("├──────────────────────────────────┤");
     }
     const port = process.env.PORT || 3000;
-    app.listen(port, () => {
+    appServer = app.listen(port, () => {
       console.log(`│ Server listening on port ${port}`.padEnd(35) + "│");
       console.log("└──────────────────────────────────┘");
     });
@@ -171,12 +172,12 @@ if (process.env.NODE_ENV === "development") {
   console.log("Error: NODE_ENV not set.");
 }
 
-//Handling unhandled server errors
+// Handling unhandled server errors
 process.on("unhandledRejection", (err) => {
   console.log(`Error: ${err.message}`);
   console.log("Shutting down the server due to Unhandled promise rejection");
 
-  server.close(() => {
+  appServer.close(() => {
     process.exit(1);
   });
 });

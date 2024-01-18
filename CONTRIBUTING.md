@@ -36,6 +36,8 @@ We welcome pull requests from contributors. To submit a pull request:
 1. Fork the repository and create a new branch.
 2. Make your changes and commit them with descriptive messages.
 3. Push your branch to your forked repository.
+4. Run `npm run eslint` in the root of the project to make sure your contributions are in line with our coding guidelines.
+5. Run `npm run eslint-fix` in the root of the project for ESLint to fix the issues it can.
 4. Open a pull request from your branch to the main repository.
 5. Provide a clear description of your changes and why they're valuable.
 
@@ -47,6 +49,10 @@ Please ensure your code adheres to the [Coding Guidelines](#coding-guidelines).
 - Write clear and concise code with meaningful comments when necessary.
 - Test your changes thoroughly before submitting a pull request.
 - Document new features, changes, or important concepts as needed.
+
+# Contact Information
+
+For more ways to get in touch, refer to our [CONTACT.md](CONTACT.md).
 
 ## License
 

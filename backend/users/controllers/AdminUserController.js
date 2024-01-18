@@ -50,17 +50,15 @@ const createUserFirebase = async (req, res, next) => {
     .then((userRecord) => {
       // See the UserRecord reference doc for the contents of userRecord.
       req.user = userRecord;
-      console.log("Successfully created new user:", userRecord);
+      // console.log("Successfully created new user:", userRecord);
       next();
     })
     .catch((error) => {
       console.log("Error creating new user:", error);
-      return res
-        .status(404)
-        .json({
-          error: error,
-          message: `code:${error.errorInfo.code}, \n message:${error.errorInfo.message}`,
-        });
+      return res.status(404).json({
+        error,
+        message: `code:${error.errorInfo.code}, \n message:${error.errorInfo.message}`,
+      });
     });
 };
 
@@ -113,7 +111,7 @@ const createUserDB = async (req, res) => {
       codeforces,
     };
 
-    const newUser = await setUser(userData); // Create a new user using setUser
+    await setUser(userData); // Create a new user using setUser
     // console.log(newUser);
     res.status(201).json({ message: "User created successfully" });
   } catch (error) {
@@ -136,29 +134,27 @@ const deleteUserFirebase = async (req, res, next) => {
     .then((userRecord) => {
       // See the UserRecord reference doc for the contents of userRecord.
       // req.user = userRecord;
-      console.log("Successfully deleted user!");
+      // console.log("Successfully deleted user!");
       next();
     })
     .catch((error) => {
       console.log("Error deleting user:", error);
-      return res
-        .status(404)
-        .json({
-          error: error,
-          message: `code:${error.errorInfo.code}, \n message:${error.errorInfo.message}`,
-        });
+      return res.status(404).json({
+        error,
+        message: `code:${error.errorInfo.code}, \n message:${error.errorInfo.message}`,
+      });
     });
 };
 
 const deleteUserDB = async (request, response) => {
   try {
-    console.log(request.body);
+    // console.log(request.body);
     const { uid } = request.body;
-    console.log(uid);
+    // console.log(uid);
     if (!uid) {
       return error(response, 400, "User ID cannot be null");
     }
-    await User.deleteOne({ uid: uid });
+    await User.deleteOne({ uid });
 
     return success({}, response, 200, "User Deleted!!");
   } catch (error) {

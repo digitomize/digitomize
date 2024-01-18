@@ -66,7 +66,7 @@ function PlatformRatings() {
     ? `${platformData.badge} with ${platformData.rating} rating | @${platformData.username}`
     : `Check out ${data.personal_data.name}'s ratings`;
   // Check if platformData is available before rendering
-  if (platformData.rating !== null) {
+  if (platformData.username !== null) {
     return (
       <>
         <Helmet>
@@ -95,7 +95,14 @@ function PlatformRatings() {
             </figure>
             <div className="card-body p-4 text-center items-center w-full">
               <h2 className="card-title text-center my-3 cursor-pointer">
-                @{platformData?.username || "user not found"}
+                <a href={platformData?.username
+                      ? contestLinks[platform].profileUrl +
+                        platformData.username
+                      : "#"
+                      }
+                      target={platformData?.username ? "_blank" : ""}
+                      rel="noopener noreferrer"
+                      >@{platformData?.username || "user not found"}</a> 
                 <a
                   href={
                     platformData?.username

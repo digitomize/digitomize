@@ -18,6 +18,7 @@ import codechef from "../../assets/codechef.svg";
 import codeforces from "../../assets/codeforces.svg";
 import geeksforgeeks from "../../assets/geeksforgeeks.svg";
 import codingninjas from "../../assets/codingninjas.png";
+import { MetaData } from "../../components/CustomComponents";
 
 const platformsIcon = [
   leetcode,
@@ -51,6 +52,7 @@ export async function loader() {
 export default function UserDashRatings() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
+  const [isDisabled, setIsDisabled] = useState(false);
   let ratingsData = data?.ratings;
   // console.log("RATINGGSS:", ratingsData);
   const username = data?.personal_data.username;
@@ -139,8 +141,10 @@ export default function UserDashRatings() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setIsDisabled(true);
     const res = await submitUserFormData(formData)
       .then(() => {
+        setIsDisabled(false);
         toast.success("updated successfully!", {
           position: "top-left",
           autoClose: 1500,
@@ -153,24 +157,33 @@ export default function UserDashRatings() {
         });
       })
       .catch((err) => {
-        toast.error("error updating", {
-          position: "top-left",
-          autoClose: 1500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
+        toast.error(
+          err.response
+            ? err.response.data.error
+            : err.request
+              ? err.request
+              : err.message,
+          {
+            position: "top-left",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          },
+        );
         console.log(err);
+        setIsDisabled(false);
       });
-    console.log(res);
+    // console.log(res);
   }
 
   if (data) {
     return (
       <>
+        <MetaData path="u/dashboard/ratings" />
         <ToastContainer />
         <DashboardNavbar />
         {/* <div className="max-phone:hidden">
@@ -248,6 +261,7 @@ export default function UserDashRatings() {
                             <a
                               href="https://codeforces.com/profile"
                               target="_blank"
+                              rel="noreferrer"
                             >
                               <div className="w-8 h-6 input-bordered join-item bg-cardsHover">
                                 <img
@@ -298,6 +312,7 @@ export default function UserDashRatings() {
                             <a
                               href="https://www.codechef.com/dashboard"
                               target="_blank"
+                              rel="noreferrer"
                             >
                               <div className="w-8 h-6 input-bordered join-item bg-cardsHover">
                                 <img
@@ -344,7 +359,11 @@ export default function UserDashRatings() {
                       <li>
                         <a>
                           <div className="join">
-                            <a href="https://leetcode.com/" target="_blank">
+                            <a
+                              href="https://leetcode.com/"
+                              target="_blank"
+                              rel="noreferrer"
+                            >
                               <div className="w-8 h-6 input-bordered join-item bg-cardsHover">
                                 <img
                                   src={platformsIcon[0]}
@@ -476,14 +495,15 @@ export default function UserDashRatings() {
               </Link>
             </li>
 
-            <Form onSubmit={handleSubmit} className="mx-auto">
-              <button
-                type="submit"
-                className="text-black bg-white font-medium rounded-lg text-sm w-fit px-5 py-2.5 text-center my-2 self-center"
-              >
-                Update
-              </button>
-            </Form>
+            <button
+              onClick={handleSubmit}
+              disabled={isDisabled}
+              type="submit"
+              className={`mx-auto text-black bg-white font-medium rounded-lg text-sm w-fit px-5 py-2.5 text-center my-2 self-center ${isDisabled ? "cursor-not-allowed opacity-20" : null
+                }`}
+            >
+              {isDisabled ? "Updating..." : "Update"}
+            </button>
           </ul>
 
           {/* <Form className="flex flex-col items-center" onSubmit={handleSubmit}>
@@ -587,7 +607,7 @@ export default function UserDashRatings() {
         <div className="flex justify-center py-12">
           <div className="divider w-3/5"></div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </>
     );
   }

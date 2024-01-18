@@ -16,8 +16,9 @@ import "./App.css";
 
 import {
   Layout,
-  Home,
   Login,
+  ForgotPassword,
+  forgotPasswordLoader,
   loginLoader,
   Signup,
   signupLoader,
@@ -27,6 +28,8 @@ import {
   Homepage,
   Feedback,
   About,
+  Footer,
+  MetaData,
 } from "./components/CustomComponents";
 import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashPersonal, {
@@ -47,19 +50,32 @@ import ProfileLayout, {
   loader as profileLoader,
 } from "./user/Profile/pages/ProfileLayout";
 // import ProtectedRoute from "./ProtectedRoute"
+
 import Leaderboard from "./user/leaderboard/Leaderboard";
 
 /*------------ DSA Sheets Import ------------ */
 import SheetLayout from "./dsaSheets/layout/SheetLayout";
 
 
+import formbricks from "@formbricks/js";
+
+if (typeof window !== "undefined") {
+  formbricks.init({
+    environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_API_KEY,
+    apiHost: "https://app.formbricks.com",
+  });
+}
+
 function DiscordRedirect() {
   window.location.href = "https://discord.gg/bsbBytBqBc";
   return (
-    <div className="flex flex-col justify-center items-center h-[60vh]">
-      <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
-      <h1 className="text-2xl ml-4">Redirecting to Discord</h1>
-    </div>
+    <>
+      <MetaData path="discord" />
+      <div className="flex flex-col justify-center items-center h-[60vh] antialiased">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
+        <h1 className="text-2xl ml-4">Redirecting to Discord</h1>
+      </div>
+    </>
   );
 }
 // function ContributeRedirect() {
@@ -74,7 +90,10 @@ import UserListPage from "./pages/admin/UserListPage";
 import AdminPanelGuard from "./AdminPanelGuard";
 import ContestListPage from "./pages/admin/ContestListPage";
 import CommunityListPage from "./pages/admin/CommunityListPage";
-import { Diversity1 } from "@mui/icons-material";
+import ContestPageLayout from "./components/Contests/ContestPageLayout";
+import Filter from "./components/Contests/Filter";
+import Challenges from "./components/Contests/Challenges/Challenges";
+import ComingSoonLoader from "./components/Contests/ComingSoonLoader";
 
 function Logout() {
   const navigate = useNavigate();
@@ -131,11 +150,19 @@ const router = createBrowserRouter(
     <Route errorElement={<ErrorPage />}>
       <Route path="/" element={<Layout />}>
         <Route index element={<Homepage />} />
+        <Route path="sheets" element={<SheetLayout />} />
         <Route path="login" element={<Login />} loader={loginLoader} />
-        <Route path="logout" element={<Logout />} />;
+        <Route path="logout" element={<Logout />} />
         <Route path="signup" element={<Signup />} loader={signupLoader} />
-        <Route path="contests" element={<Home />} />
-        <Route path="updates" element={<Updates />} />
+        <Route path="forgot-password" element={<ForgotPassword />} loader={forgotPasswordLoader} />
+        <Route element={<ContestPageLayout />}>
+          <Route path="contests" element={<Filter />} />
+          <Route path="challenges" element={<Challenges />} />
+          <Route path="hackathons" element={<ComingSoonLoader value='Hackathons' />} />
+          <Route path="internships" element={<ComingSoonLoader value='Internships' />} />
+          <Route path="jobs" element={<ComingSoonLoader value='Jobs' />} />
+        </Route>
+        {/* <Route path="updates" element={<Updates />} /> */}
         <Route path="home" element={<Homepage />} />
         <Route path="feedback" element={<Feedback />} />
         <Route path="contact" element={<About />} />
@@ -155,8 +182,8 @@ const router = createBrowserRouter(
           <Route
             index
             element={<UserDashboard />}
-            // loader={userDashPersonalLoader}
-            // loader={userDashPersonalLoader}
+          // loader={userDashPersonalLoader}
+          // loader={userDashPersonalLoader}
           />
           <Route
             path="account"
@@ -189,17 +216,17 @@ const router = createBrowserRouter(
     </Route>,
   ),
 );
-
 function App() {
   return (
-    <UserAuthContextProvider>
-      <UserContextProvider>
-        <ToastContainer />
-        <div className="font-myFont text-[#9eb3bd]">
+    <>
+      <UserAuthContextProvider>
+        <UserContextProvider>
+          <ToastContainer />
           <RouterProvider router={router} />
-        </div>
-      </UserContextProvider>
-    </UserAuthContextProvider>
+        </UserContextProvider>
+      </UserAuthContextProvider>
+      <Footer />
+    </>
   );
 }
 

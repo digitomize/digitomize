@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { Form, useLoaderData } from "react-router-dom";
-
 import { userDashboardDetails, submitUserFormData } from "../../../api";
-
 import { toast } from "react-toastify";
-
 import Checkbox from "../components/Checkbox";
 import NewNavbar from "../../components/globals/NewNavbar";
 import DashboardNavbar from "../components/DashboardNavbar";
 import Footer from "../../components/globals/Footer";
-
+import { MetaData } from "../../components/CustomComponents";
 export async function loader() {
   try {
     const res = await userDashboardDetails();
@@ -80,7 +77,7 @@ export default function UserDashGithub() {
         });
       })
       .catch((err) => {
-        toast.error("error updating", {
+        toast.error(err.response.data.message, {
           position: "top-left",
           autoClose: 1500,
           hideProgressBar: false,
@@ -92,12 +89,13 @@ export default function UserDashGithub() {
         });
         console.log(err);
       });
-    console.log(res);
+    // console.log(res);
     svgImage();
   }
 
   return (
     <>
+      <MetaData path="u/dashboard/github" />
       <DashboardNavbar />
       <div className="px-8 mt-24 py-4 w-11/12 mx-auto">
         <Form className="flex flex-col items-center" onSubmit={handleSubmit}>
@@ -135,7 +133,7 @@ export default function UserDashGithub() {
           {svgImage()}
         </div> */}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

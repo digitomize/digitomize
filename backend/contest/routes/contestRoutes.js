@@ -1,6 +1,5 @@
-import express from "express";
-import contestController from "../controllers/contestController.js";
 import { Router } from "express";
+import contestController from "../controllers/contestController.js";
 
 const router = Router();
 
@@ -19,7 +18,7 @@ router.get("/", async (req, res) => {
     }
 
     const platformArray = host ? host.split(",") : [];
-    const vanityArray = vanity ? vanity.split(",") : [];
+    // const vanityArray = vanity ? vanity.split(",") : [];
 
     const contests = await contestController.getContestList();
 
@@ -54,12 +53,10 @@ router.get("/", async (req, res) => {
     }
   } catch (err) {
     console.log("Error:", err);
-    res
-      .status(500)
-      .json({
-        error: "Internal server error",
-        message: "Internal server error",
-      });
+    res.status(500).json({
+      error: "Internal server error",
+      message: "Internal server error",
+    });
   }
 });
 

@@ -6,30 +6,72 @@ Welcome to the client-side documentation for Digitomize, an open-source platform
 
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-  - [Configuration](#configuration)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+  - [Creating a .env from the .example.env file template](#creating-a-env-from-the-exampleenv-file-template)
+    - [Creating New firebase project and setting up .env variables](#creating-new-firebase-project-and-setting-up-env-variables)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Project Structure
 
 The client directory is organized into several main directories and components:
 
 ```bash
-/client
-  /src
-    /assets         # Static assets like images and fonts
-    /components     # Reusable React components
-    /routes         # Frontend route definitions
+.
+└── /client/
+    └── /src/
+        ├── /assets         # Static assets like images and fonts
+        ├── /components     # Reusable React components/
+        │   ├── /AuthButtons
+        │   ├── /Contests/
+        │   │   └── /Challenges
+        │   ├── /Home
+        │   ├── /css
+        │   └── /globals
+        ├── /context        # State management contexts
+        ├── /core           # API services, app modal & utilities/
+        │   ├── /api
+        │   ├── /components/
+        │   │   └── /AppModal
+        │   └── /utils
+        ├── /dsaSheets      # Components and services for dsa content/
+        │   ├── /components
+        │   ├── /layout
+        │   └── /pages
+        ├── /lib            # Additional libraries or utility functions
+        ├── /pages          # Components for different pages/
+        │   ├── /admin/
+        │   │   ├── /CommunityListPage
+        │   │   ├── /ContestListPage
+        │   │   └── /UserListPage
+        │   └── /home
+        └── /user           # User-specific components, services or data/
+            ├── /Profile/
+            │   ├── /components
+            │   └── /pages
+            ├── /components
+            ├── /dashboard
+            └── /leaderboard        
 ```
 
-assets: This directory contains static assets such as images, fonts, and other files used in your application's user interface.
+- `assets`: This directory contains static assets such as images, fonts, and other files used in your application's user interface.
 
-components: Reusable React components are stored here. These components can be used throughout your application to maintain consistency and modularity.
+- `components`: Reusable React components are stored here. These components can be used throughout your application to maintain consistency and modularity.
 
-routes: Frontend route definitions are defined in this directory. It specifies how different URLs map to specific components and views.
+- `context`: This directory contains context providers and related utility functions for state management.
+
+- `core`: Houses core functionalities or services used throughout your application like API services, modals or other essential utilities.
+
+- `dsaSheets`: Contains components, implementations, or utilities related to DSA content.
+
+- `lib`: This directory stores additional libraries or utility functions that are used across your application.
+
+- `pages`: Organized React components that represent different pages or views in your application.
+
+- `user`: Contains components and functionality related to user profiles.
 
 ## Getting Started
 
@@ -77,9 +119,15 @@ VITE_REACT_APP_MEASUREMENT_ID=
 
 _Fill the empty fields by creating a demo firebase project._
 
+## Creating a .env from the .example.env file template
+
+- Create a new .env file in the client directory
+- Copy the .example.env in the the client directory and paste it's contents into your created .env file
+- Fill in the empty fields with the values from your firebase project (see below for instructions on how to create a firebase project)
+
 #### Creating New firebase project and setting up .env variables
 
-- go to [https://firebase.google.com/](Firebase)
+- Go to [Firebase](https://firebase.google.com/)
 - Create an account if you don't have one and click on get started
 - Add a project
 - Add an app and select web as the platform
@@ -113,6 +161,10 @@ This command will start the development server. You can then access and interact
 ## Contributing
 
 Contributions to the Digitomize project are welcome! If you would like to contribute to the client-side codebase, please refer to the [CONTRIBUTING.md](../CONTRIBUTING.md) file for details on how to contribute.
+
+### Linting
+- Run `npm run lint` to check for errors using the linter.
+- Run `npm run lint-fix` to have the linter automatically fix errors where possible.
 
 ## License
 

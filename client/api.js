@@ -2,6 +2,7 @@ import axios from "axios";
 import { redirect } from "react-router-dom";
 import { auth } from "./firebase";
 import { updateProfile } from "firebase/auth";
+import { PlaySquare } from "lucide-react";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export async function loginUser({ username, password }) {
@@ -60,12 +61,22 @@ export async function userProfileDetails(username) {
   }
 }
 
-export async function leaderboardData(page = 1) {
+export async function leaderboardData(page = 1, platform) {
   try {
-    const response = await axios.get(
-      `${backendUrl}/user/leaderboard?page=${page}`,
-    );
-    return response;
+    // console.log(platform);
+    if (platform && platform.length != 0) {
+      const response = await axios.get(
+        `${backendUrl}/user/leaderboard?page=${page}&platform=${platform}`,
+      );
+
+      return response;
+    } else {
+      const response = await axios.get(
+        `${backendUrl}/user/leaderboard?page=${page}`,
+      );
+
+      return response;
+    }
   } catch (err) {
     console.log(err);
   }
@@ -108,8 +119,8 @@ async function uploadPictureToCloudinary(formData, accessToken, uid) {
   await axios
     .post(url, cloudinaryformData)
     .then((res) => {
-      console.log(timestamp);
-      console.log(res.data);
+      // console.log(timestamp);
+      // console.log(res.data);
       const photo = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/ar_1.0,c_fill,g_face/f_auto/r_max/v${res.data.version}/users/${uid}.${res.data.format}`;
       formData.picture = photo;
       updateProfile(auth.currentUser, {
@@ -129,20 +140,40 @@ export async function submitUserFormData(formData) {
   if (!loggedIn) {
     throw redirect("/login");
   }
+
+  /* Throw an error if the entered username is an URL. */
+  const urlPattern = new RegExp(
+    "^(https?:\\/\\/)?" + // protocol
+      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+      "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+      "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+      "(\\#[-a-z\\d_]*)?$",
+    "i",
+  ); // fragment locator
+
+  if (
+    Object.keys(formData).some((platform) =>
+      urlPattern.test(formData[platform]?.username),
+    )
+  ) {
+    throw new Error("Invalid Username. Usernames should not be URLs.");
+  }
+
   const currentUser = auth.currentUser;
-  console.log(currentUser);
+  // console.log(currentUser);
   const accessToken = await currentUser.getIdToken();
   // console.log(jwtToken);
 
   await uploadPictureToCloudinary(formData, accessToken, currentUser.uid);
-  console.log(formData.picture);
+  // console.log(formData.picture);
   const res = await axios.post(`${backendUrl}/user/dashboard`, formData, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
   });
-  console.log("RESPONSE ----> ", res);
-  console.log(res.status);
+  // console.log("RESPONSE ----> ", res);
+  // console.log(res.status);
 }
 
 export async function getProfileData(username) {

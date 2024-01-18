@@ -58,7 +58,7 @@
   position: relative;
   outline: 0;
   border: transparent;
-  background: #161616;
+  background: #161616 !important;
   margin: 4px;
   padding: 6px;
   cursor: text;

@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import { sendErrorLog } from "./error.js";
 dotenv.config();
 
-function sendWebhook_updateAccount({
+function sendWebhook_updateAccount ({
   oldImage,
   newImage,
   oldUsername,
@@ -13,8 +13,8 @@ function sendWebhook_updateAccount({
   newData,
 }) {
   const webhookClient = new WebhookClient({ url: process.env.DC_WH_UPDATE });
-  console.log("oldImage:", oldImage);
-  console.log("newImage:", newImage);
+  // console.log("oldImage:", oldImage);
+  // console.log("newImage:", newImage);
 
   try {
     const oldEmbed = new EmbedBuilder()

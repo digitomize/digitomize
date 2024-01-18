@@ -1,18 +1,65 @@
 @tailwind base;
-@layer base {
-  html {
-    @apply text-neutral-800;
-  }
-  html.dark {
-    @apply text-neutral-50;
-    @apply bg-neutral-800;
-  }
-}
 @tailwind components;
 @tailwind utilities;
-@font-face {
-  font-family: "myFont";
-  src: url("../src/assets/myFont.ttf");
+
+@layer base {
+  /* Geist font with different weights */
+
+  /* Light */
+
+  @font-face {
+    font-family: "Geist";
+    src: url("/src/assets/fonts/Geist-Light.otf") format("truetype");
+    font-weight: 300;
+    font-display: swap;
+  }
+
+  /* Regular */
+
+  @font-face {
+    font-family: "Geist";
+    src: url("/src/assets/fonts/Geist-Regular.otf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  /* Medium */
+
+  @font-face {
+    font-family: "Geist";
+    src: url("/src/assets/fonts/Geist-Medium.otf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  /* SemiBold */
+
+  @font-face {
+    font-family: "Geist";
+    src: url("/src/assets/fonts/Geist-SemiBold.otf") format("truetype");
+    font-weight: 600;
+    font-display: swap;
+  }
+
+  /* Bold */
+
+  @font-face {
+    font-family: "Geist";
+    src: url("/src/assets/fonts/Geist-Bold.otf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+  }
+
+  /* ExtraBold */
+
+  @font-face {
+    font-family: "Geist";
+    src: url("/src/assets/fonts/Geist-Black.otf") format("truetype");
+    font-weight: 800;
+    font-display: swap;
+  }
+
+  /* ------------ */
 }
 .text-gradient {
   background: linear-gradient(

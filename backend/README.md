@@ -8,30 +8,77 @@ Welcome to the backend documentation for our open-source project. This document 
 - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Environment Variables](#environment-variables)
+    - [Example:](#example)
+- [Creating a .env from the .example.env file template](#creating-a-env-from-the-exampleenv-file-template)
+- [Firebase Credentials](#firebase-credentials)
   - [Running the Server](#running-the-server)
 - [API Routes](#api-routes)
-- [Contributing](../CONTRIBUTING.md)
-- [Code of Conduct](../CODE_OF_CONDUCT.md)
-- [License](../LICENSE)
 
 ## Folder Structure
 
 The backend folder is organized into several directories, each serving a specific purpose:
 
 ```bash
-/backend
-  /contest
-    /controllers   # Logic for handling API requests related to contests
-    /models        # Database models for contests
-    /routes        # API route definitions for contests
-  /user
-    /controllers   # Logic for handling API requests related to users
-    /models        # Database models for users
-    /routes        # API route definitions for users
-    /middlewares   # Custom middleware functions specific to users
-    /services      # Reusable services and utilities specific to users
-  index.js         # Main server file
+.
+└── /backend/
+    ├── /community/
+    │   ├── /controllers   # Logic for handling API requests related to Communities and it's members
+    │   ├── /middlewares   # Middleware functions for verifying admin and member status
+    │   ├── /models        # Database models for community and community members
+    │   ├── /routes        # API route definitions for community and community members
+    │   ├── /services      # Reusable services specific to community members
+    │   └── /utils         # Utility file defining constants for user roles
+    ├── /contest/
+    │   ├── /controllers   # Logic for handling API requests related to contests/
+    │   │   └── /platforms   # APIs for fetching the upcoming contests on each of the coding platforms
+    │   ├── /models        # Database models for contests
+    │   └── /routes        # API route definitions for contests
+    ├── /core/
+    │   └── /api           # File defining custom error and success handler objects for responses
+    ├── /DSA_sheets/
+    │   ├── /controllers   # Logic for handling API requests realted to DSA sheets and DSA questions
+    │   ├── /models        # Database models for DSA sheets and questions
+    │   └── /routes        # API route definitions for DSA sheets and questions
+    ├── /services/
+    │   ├── /discord-webhook  
+    │   └── /email
+    ├── /users/
+    │   ├── /controllers   # Logic for handling API requests related to users/
+    │   │   └── /platforms   # Logic for fetching user's info on different coding platforms 
+    │   ├── /middlewares   # Custom middleware functions specific to users
+    │   ├── /models        # Database models for users
+    │   ├── /routes        # API route definitions for users
+    │   └── /services      # Reusable services and utilities specific to users
+    └── index.js         # Main server file
 ```
+- `backend`: Main folder for the backend.
+  - `community`: Controllers, middlewares, models, routes, services, and utils for community members. 
+     - `controllers`: Logic for handling API requests related to Communities and it's members
+     - `middlewares`: Middleware functions for verifying admin and member status
+     - `models`: Database models for community and community members
+    - `routes`: API route definitions for community and community members
+    - `services`: Reusable services specific to community members
+     - `utils`: Utility file defining constants for user roles
+  - `contest`: Controllers, models, and routes for contests.
+    - `controllers`: Logic for handling API requests related to contests
+      - `platforms`: APIs for fetching the upcoming contests on each of the coding platforms
+    - `models`: Database models for contests
+    - `routes`: API route definitions for contests
+  - `core`: File defining custom error and success handler objects for responses
+    - `api`: File defining custom error and success handler objects for responses
+  - `DSA_sheets`: Controllers, models, and routes for DSA sheets and questions.
+    - `controllers`: Logic for handling API requests realted to DSA sheets and DSA questions
+    - `models`: Database models for DSA sheets and questions
+    - `routes`: API route definitions for DSA sheets and questions
+  - `services`: Reusable services and utilities specific to users
+  - `users`: Controllers, middlewares, models, routes, services, and utils for users.
+    - `controllers`: Logic for handling API requests related to users
+      - `platforms`: Logic for fetching user's info on different coding platforms
+    - `middlewares`: Custom middleware functions specific to users
+    - `models`: Database models for users
+    - `routes`: API route definitions for users
+    - `services`: Reusable services and utilities specific to users
+  - `index.js`: Main server file
 
 ## Getting Started
 
@@ -59,6 +106,12 @@ NODE_ENV=development
 # Firebase Configuration
 FIREBASE_CREDENTIALS= # you need to add JSON for this
 ```
+
+## Creating a .env from the .example.env file template
+
+- Create a new .env file in the backend directory
+- Copy the contents of the .example.env in the the backend directory and paste them into your created .env file
+- Fill in the FIREBASE_CREDENTIALS= variable in JSON with the JSON credentials generated from your created firebase project (see below for instructions on how to get these credentials)
 
 ## Firebase Credentials
 
@@ -90,6 +143,10 @@ To get credentials you should first have a firebase project. If you don't know h
 ### Running the Server
 
 Start the server: `npm start`
+
+### Linting
+- Run `npm run lint` to check for errors using the linter.
+- Run `npm run lint-fix` to have the linter automatically fix errors where possible.
 
 ## API Routes
 
