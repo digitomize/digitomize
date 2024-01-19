@@ -1,0 +1,25 @@
+{
+    "LABEL": {
+      "name": "title needs formatting",
+      "color": "F9D0C4"
+    },
+    "CHECKS": {
+      "prefixes": [
+        "build: ",
+        "chore: ",
+        "docs: ",
+        "feat: ",
+        "fix: ",
+        "perf: ",
+        "refactor: ",
+        "revert: ",
+        "style: ",
+        "test: "
+      ]
+    },
+    "MESSAGES": {
+      "success": "Everything is great. Status: 200",
+      "failure": "Testcase failed. Upgrade the title. Status: 400",
+      "notice": ""
+    }
+  }
