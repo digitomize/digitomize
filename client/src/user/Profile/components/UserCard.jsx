@@ -46,7 +46,7 @@ function UserCard({
 
       <div className="flex flex-col items-center gap-[8px] p-0">
         <div>
-          <h1 className="normal-case text-center text-[#F0ECE5]">{name}</h1>
+          <h1 className="normal-case text-center md:text-6xl text-3xl text-[#F0ECE5]">{name}</h1>
           <div className="badges text-center">
             <div className="badge bg-[#9ACD32] text-black mx-1">member</div>
             {role >= 4 && (
