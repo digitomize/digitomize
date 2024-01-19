@@ -19,7 +19,7 @@
     },
     "MESSAGES": {
       "success": "Everything is great. Status: 200",
-      "failure": "Testcase failed. Upgrade the title. Status: 400",
+      "failure": "PR title does not conform to the required format. Please use one of the specified prefixes followed by a colon and a space. Status: 400",
       "notice": ""
     }
   }
