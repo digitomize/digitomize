@@ -88,7 +88,9 @@ function UserCard({
         {(isUserProfile || isUserDashboard) && (
           <button
             className="bg-blue-500 flex gap-1 w-fit items-center justify-center text-white px-4 py-2 rounded-full mt-4 hover:opacity-80"
-            onClick={() => setShow(isUserProfile)}
+            onClick={() =>
+              setShow(isUserProfile ? isUserProfile : isUserDashboard)
+            }
           >
             <>
               <AiOutlineShareAlt />
@@ -96,15 +98,32 @@ function UserCard({
             </>
           </button>
         )}
-        <div className={`pt-8 flex justify-center gap-3 ${social ? "" : "hidden"}`}>
-          <a className={social?.linkedin ? "" : "hidden"} href={social?.linkedin} target="_blank" rel="noreferrer">
-            <FaLinkedin size={30} color="white"/>
+        <div
+          className={`pt-8 flex justify-center gap-3 ${social ? "" : "hidden"}`}
+        >
+          <a
+            className={social?.linkedin ? "" : "hidden"}
+            href={social?.linkedin}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaLinkedin size={30} color="white" />
           </a>
-          <a className={social?.instagram ? "" : "hidden"} href={social?.instagram} target="_blank" rel="noreferrer">
-            <FaInstagram size={30} color="white"/>
+          <a
+            className={social?.instagram ? "" : "hidden"}
+            href={social?.instagram}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaInstagram size={30} color="white" />
           </a>
-          <a className={social?.twitter ? "" : "hidden"} href={social?.twitter} target="_blank" rel="noreferrer">
-            <FaXTwitter size={30} color="white"/>
+          <a
+            className={social?.twitter ? "" : "hidden"}
+            href={social?.twitter}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaXTwitter size={30} color="white" />
           </a>
         </div>
         {!isUserProfile && !isUserDashboard && (
