@@ -22,7 +22,7 @@ import SignoutButton from "../../user/components/SignoutButton";
 
 export async function loader() {
   const loggedIn = await isLoggedIn();
-  if (loggedIn) {
+  if (loggedIn && auth.currentUser.emailVerified) {
     return redirect("/login");
   }
   return null;

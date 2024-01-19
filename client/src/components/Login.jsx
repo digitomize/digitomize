@@ -21,7 +21,7 @@ import GoogleAuthButton from "./AuthButtons/GoogleAuthButton";
 import GithubAuthButton from "./AuthButtons/GithubAuthButton";
 import { Eye, EyeOff } from "lucide-react";
 import { auth } from "../../firebase";
-import { signOut } from "firebase/auth";
+import { sendEmailVerification, signOut } from "firebase/auth";
 
 export async function loader({ request }) {
   const message = new URL(request.url).searchParams.get("message");
@@ -44,10 +44,37 @@ export default function Login() {
   const { logIn } = useUserAuth();
   const navigate = useNavigate();
   const [btnState, setbtnState] = useState(false); // disable feature
+  const [btnState2, setbtnState2] = useState(false); // disable feature
   const [passwordShow, setPasswordShow] = useState(false);
 
   const passwordToggle = () => {
     setPasswordShow(!passwordShow);
+  };
+  const handleSendingMail = async () => {
+    try {
+      await sendEmailVerification(auth.currentUser);
+      toast.success("Verification Mail Send", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    } catch (err) {
+      toast.error(err.code, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -69,7 +96,6 @@ export default function Login() {
           progress: undefined,
           theme: "colored",
         });
-        await signOut(auth);
         setbtnState(false);
         return;
       } else {
@@ -150,7 +176,7 @@ export default function Login() {
                       <p>
                         <span className="label-text">{"import"}</span>
                         <span className="label-text text-custom-blue">
-                          {" \"password\";"}
+                          {' "password";'}
                         </span>
                       </p>
                     </label>
@@ -187,13 +213,24 @@ export default function Login() {
                   </div>
                 </div>
                 <div className="items-center">
-                  <div className="w-full">
+                  <div className="w-full flex md:flex-row flex-col grow">
                     <SignoutButton
                       onClickFunction={(e) => handleSubmit}
                       isDisabled={btnState}
                       btnName={btnState ? "Logging in..." : "Log in"}
                       backgroundColor="bg-[#4285f4]"
                     />
+                    {auth.currentUser !== null &&
+                    !auth?.currentUser?.emailVerified ? (
+                      <SignoutButton
+                        onClickFunction={handleSendingMail}
+                        isDisabled={btnState2}
+                        btnName={
+                          btnState2 ? "sending" : "Resend Verification Email"
+                        }
+                        backgroundColor="bg-[#4285f4]"
+                      />
+                    ) : null}
                   </div>
                   <div className="new-user text-center mb-4">
                     <p>
