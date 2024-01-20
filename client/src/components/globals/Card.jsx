@@ -1,6 +1,5 @@
 import { useState, useEffect, memo } from "react";
-import { Link } from "react-router-dom";
-import Button from "./Button";
+import { Link, useNavigate } from "react-router-dom";
 import {
   geeksforgeeks,
   leetcode,
@@ -11,7 +10,7 @@ import {
 } from "../AllAssets";
 import ShareModel from "../share_model";
 import moment from "moment-timezone";
-import { IoCalendarNumber } from "react-icons/io5";
+import { CalendarPlus, Share2, MoveRight } from "lucide-react";
 
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 const hostToSVGMap = {
@@ -66,8 +65,8 @@ const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity 
 
   const startHour = startTimeIST.getHours();
   const startMinute = startTimeIST.getMinutes();
-  const ampm = startHour >= 12 ? 'PM' : 'AM';
-  const formattedStartTimeString = `${startHour % 12 || 12}:${startMinute < 10 ? '0' : ''}${startMinute} ${ampm}`;
+  const ampm = startHour >= 12 ? "PM" : "AM";
+  const formattedStartTimeString = `${startHour % 12 || 12}:${startMinute < 10 ? "0" : ""}${startMinute} ${ampm}`;
 
   const description = `<hr>🏆<b>Contest</b>🏆%0A👨🏻‍💻Name: ${name}%0A🕘Start at: ${formattedStartTimeString}%0A⏱️Duration: ${duration} minutes%0A🚀Host: ${host}%0A🔗Contest URL: <a href='${url}'>${url}</a>%0A<hr><i>Thank you for using <a href='https://digitomize.com'>digitomize</a></i>`;
 
@@ -78,6 +77,7 @@ const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity 
 };
 
 function Card({ contest }) {
+  const navigate = useNavigate();
   const { name, startTimeUnix, url, duration, host, vanity } = contest;
 
   // Get the timeAndDateURL
@@ -147,28 +147,21 @@ function Card({ contest }) {
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 md:gap-6 ml-4">
           <button onClick={() => setShow(true)}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              viewBox="0 0 24 24"
-              id="Share"
-            >
-              <path
-                d="M18,14a4,4,0,0,0-3.08,1.48l-5.1-2.35a3.64,3.64,0,0,0,0-2.26l5.1-2.35A4,4,0,1,0,14,6a4.17,4.17,0,0,0,.07.71L8.79,9.14a4,4,0,1,0,0,5.72l5.28,2.43A4.17,4.17,0,0,0,14,18a4,4,0,1,0,4-4ZM18,4a2,2,0,1,1-2,2A2,2,0,0,1,18,4ZM6,14a2,2,0,1,1,2-2A2,2,0,0,1,6,14Zm12,6a2,2,0,1,1,2-2A2,2,0,0,1,18,20Z"
-                fill="#ffffff"
-                className="color000000 svgShape"
-              ></path>
-            </svg>
+            <Share2 style={{ color: "white" }} className="w-5 h-5" />
           </button>
 
           <button id="calendarButton" onClick={() => addToGoogleCalendar(contest)} aria-label="Google Calendar Integration">
-            <IoCalendarNumber style={{ color: "white" }} className="w-7 h-7" />
+            <CalendarPlus style={{ color: "white" }} className="w-5 h-5" />
           </button>
 
           {show && main_model}
-          <Button url={url} />
+          <a href={url} target="_blank" rel="noreferrer">
+            <MoveRight style={{ color: "white" }} className="md:w-10 md:h-10" />
+          </a>
+
+          {/* <Button url={url} /> */}
         </div>
       </div>
     </div>
