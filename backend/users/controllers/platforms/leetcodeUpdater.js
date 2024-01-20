@@ -20,6 +20,15 @@ async function leetcode_u (handle) {
           globalRanking
           __typename
         }
+        matchedUser(username: $username) {
+          submitStats {
+            acSubmissionNum {
+              difficulty
+              count
+              submissions
+            }
+          }
+        }
       }
     `,
   };
@@ -51,6 +60,25 @@ async function leetcode_u (handle) {
               rating: 0,
               globalRanking: 0,
             };
+          }
+          if([null,undefined].includes(userInfo.data?.matchedUser)){
+            userInfo.data.userContestRanking = {
+              ...userInfo.data.userContestRanking,
+              totalQuestions:0,
+              easyQuestions:0,
+              mediumsQuestions:0,
+              hardQuestions:0
+            }
+          }else if(Object.hasOwn(userInfo.data?.matchedUser,'submitStats')){
+            const {submitStats:{acSubmissionNum:[all,easy,medium,hard]}} = userInfo.data?.matchedUser;
+            userInfo.data.userContestRanking = {
+              ...userInfo.data.userContestRanking,
+              totalQuestions:all.count,
+              easyQuestions:easy.count,
+              mediumsQuestions:medium.count,
+              hardQuestions:hard.count
+            }
+            
           }
           // console.log(userInfo)
           userInfo.data.userContestRanking.rank = userInfo.data.userContestRanking?.badge?.name || "none";
