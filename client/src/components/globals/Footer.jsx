@@ -3,6 +3,8 @@ import GitHubButton from "react-github-btn";
 import { FaLinkedin, FaDiscord, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
+const copyrightDate = new Date().getFullYear();
+
 export default function Footer() {
   return (
     <footer className="font-['Geist'] bg-cardsColor pb-10 mt-6">
@@ -153,7 +155,7 @@ export default function Footer() {
         </div>
       </div>
       <p className="text-center w-full text-sm">
-        &copy; 2023 Digitomize.{" "}
+        &copy; {copyrightDate} Digitomize.{" "}
         <a
           href="https://github.com/digitomize/digitomize/blob/main/LICENSE"
           target="_blank"
