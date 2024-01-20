@@ -2,14 +2,14 @@ import React from "react";
 
 function Button({ url }) {
   return (
-    <a href={url} target="_blank" rel="noopener noreferrer" className="my-auto">
+    <a href={url} target="_blank" rel="noopener noreferrer" className="m-auto flex items-center">
       <button
         style={{ background: "transparent", border: "none", cursor: "pointer" }}
       >
         {/* go to contests */}
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="60"
+          width="40"
           height="23"
           viewBox="0 0 60 23"
           fill="none"
