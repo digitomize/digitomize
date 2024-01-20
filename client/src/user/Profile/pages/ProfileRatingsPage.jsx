@@ -5,6 +5,7 @@ import {
   useOutletContext,
   useNavigate,
   NavLink,
+  useParams,
 } from "react-router-dom";
 import UserCard from "../components/UserCard";
 import leetcode from "../../../assets/leetcode.svg";
@@ -15,6 +16,7 @@ import codeforces from "../../../assets/codeforces.svg";
 function ProfileRatingsPage() {
   const navigate = useNavigate();
   const profileData = useOutletContext();
+  const { platform } = useParams();
   const personal_data = profileData.personal_data;
   const contestLinks = useMemo(() => [
     {
@@ -44,12 +46,18 @@ function ProfileRatingsPage() {
     const platformWithRating = contestLinks.find(
       (platform) => platform.rating !== null,
     );
-
-    if (platformWithRating) {
-      navigate(platformWithRating.link);
-    } else {
-      // Default navigation if no platform has a rating
-      navigate("leetcode");
+    
+    if(!platform){
+      /*
+        Execute this only when there is no parameter named 'platform' in the current routeParams. 
+        If there is ratings parameter, it is already taken care by the childRoute.
+      */
+      if (platformWithRating) {
+        navigate(platformWithRating.link);
+      } else {
+        // Default navigation if no platform has a rating
+        navigate("leetcode");
+      }
     }
   }, [contestLinks, navigate]);
 

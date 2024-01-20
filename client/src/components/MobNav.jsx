@@ -19,8 +19,8 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
       path: "/discord",
     },
     {
-      title: "About",
-      path: "/about",
+      title: "Blogs",
+      path: "https://blogs.digitomize.com/",
     },
     {
       title: "Leaderboard",
