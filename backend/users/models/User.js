@@ -20,7 +20,7 @@ const contestToggleSchema = new mongoose.Schema({
   showOnWebsite: Boolean,
   totalQuestions: Number,
   easyQuestions:Number,
-  mediumsQuestions:Number,
+  mediumQuestions:Number,
   hardQuestions: Number,
 });
 
@@ -150,7 +150,7 @@ const userSchema = new mongoose.Schema(
         attendedContestsCount: null,
         totalQuestions:0,
         easyQuestions:0,
-        mediumsQuestions:0,
+        mediumQuestions:0,
         hardQuestions:0
       },
     },
@@ -165,7 +165,7 @@ const userSchema = new mongoose.Schema(
         attendedContestsCount: null,
         totalQuestions:0,
         easyQuestions:0,
-        mediumsQuestions:0,
+        mediumQuestions:0,
         hardQuestions:0
       },
     },
@@ -180,7 +180,7 @@ const userSchema = new mongoose.Schema(
         attendedContestsCount: null,
         totalQuestions:0,
         easyQuestions:0,
-        mediumsQuestions:0,
+        mediumQuestions:0,
         hardQuestions:0
       },
     },

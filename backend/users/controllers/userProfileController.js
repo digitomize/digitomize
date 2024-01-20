@@ -67,7 +67,7 @@ const handleUserDataUpdate = async (user) => {
         platformData.fetchTime = currentTime;
         platformData.totalQuestions = newData.totalQuestions;
         platformData.easyQuestions = newData.easyQuestions;
-        platformData.mediumsQuestions = newData.mediumsQuestions;
+        platformData.mediumQuestions = newData.mediumQuestions;
         platformData.hardQuestions = newData.hardQuestions;
       }
     }

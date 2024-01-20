@@ -66,7 +66,7 @@ async function leetcode_u (handle) {
               ...userInfo.data.userContestRanking,
               totalQuestions:0,
               easyQuestions:0,
-              mediumsQuestions:0,
+              mediumQuestions:0,
               hardQuestions:0
             }
           }else if(Object.hasOwn(userInfo.data?.matchedUser,'submitStats')){
@@ -75,7 +75,7 @@ async function leetcode_u (handle) {
               ...userInfo.data.userContestRanking,
               totalQuestions:all.count,
               easyQuestions:easy.count,
-              mediumsQuestions:medium.count,
+              mediumQuestions:medium.count,
               hardQuestions:hard.count
             }
             
