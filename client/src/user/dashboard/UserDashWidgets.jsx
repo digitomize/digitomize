@@ -5,21 +5,24 @@ import DashboardNavbar from "../components/DashboardNavbar";
 import ShareModel from "../../components/share_model";
 import LoadingScreen from "../../components/globals/LoadingScreen";
 import { userDashboardDetails } from "../../../api";
+import { userProfileDetails } from "../../../api";
 
 export default function UserDashWidgets() {
   const [loading, setLoading] = useState(true);
-  const [ImagesArray, setImagesArray] = useState([]);
+  const [LinksArray, setLinksArray] = useState([]);
   const [backendUrl, setBackendUrl] = useState("");
   const navigate = useNavigate();
 
   let ratingsData = null;
-
+  const [allSvgs, setAllSvgs] = useState("");
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await userDashboardDetails();
-        if (res.data) {
-          ratingsData = res.data.ratings;
+        const RES = await userProfileDetails(res.data.personal_data?.username);
+        // console.log("HEre",RES.data.ratings);
+        if (RES.data) {
+          ratingsData = RES.data.ratings;
           // console.log(res.data.personal_data?.username);
           setBackendUrl(
             import.meta.env.VITE_REACT_APP_BACKEND_URL +
@@ -27,26 +30,35 @@ export default function UserDashWidgets() {
               res.data.personal_data.username +
               "?",
           );
-          // console.log("here: ", backendUrl);
-          for (const rating in ratingsData) {
-            if (ratingsData[rating].data)
-              setImagesArray((arr) => {
+          // console.log("here: ", res.data);
+          for (const platform in ratingsData) {
+            const username = ratingsData[platform].username;
+            const rating = ratingsData[platform].rating;
+            const contests = ratingsData[platform].attendedContestsCount;
+            // console.log(username,rating,contests)
+            if (username && rating && contests && backendUrl) {
+              setAllSvgs((a) => a + platform + "=1&");
+              setLinksArray((arr) => {
                 let newArr = [...arr];
-                if (!newArr.includes(rating)) newArr.push(rating);
+                if (!newArr.includes(platform)) {
+                  const svg = backendUrl + "" + platform + "=1&";
+                  if (svg !== null) newArr.push(svg);
+                }
                 return newArr;
               });
+            }
           }
         }
       } catch (err) {
         console.log(err);
-        navigate("u/dashboard");
+        navigate("u/dashboard"); //add error svg
       } finally {
         setLoading(false);
       }
     }
     fetchData();
     return () => {
-      setImagesArray([]);
+      setLinksArray([]);
     };
   }, [backendUrl]);
   if (loading) {
@@ -56,31 +68,31 @@ export default function UserDashWidgets() {
       </>
     );
   }
-  if (ImagesArray.length > 0) {
-    let allSvgs = "";
-    ImagesArray.forEach((e) => (allSvgs += e + "=1&"));
+  if (LinksArray.length > 0) {
     return (
       <>
         <MetaData path="u/dashboard/widgets" />
         <DashboardNavbar />
         <div className="widgets font-['Geist']">
-          <h2 className="mt-8 text-6xl font-['Geist'] pt-[3.5rem] text-center md:pt-[2rem] md:text-7xl lg:pt-[1rem]">Widgets</h2>
+          <h2 className="mt-8 text-6xl font-['Geist'] pt-[3.5rem] text-center md:pt-[2rem] md:text-7xl lg:pt-[1rem]">
+            Widgets
+          </h2>
           <div
             style={{ width: "100%", height: "auto" }}
             className="flex flex-row flex-wrap justify-evenly items-center gap-2"
           >
-            {ImagesArray.map((e, i) => {
+            {LinksArray.map((e, i) => {
               return (
                 <SVGImageContainer
                   key={i}
                   height={null}
                   width={null}
-                  link={backendUrl + "" + e + "=1&"}
+                  link={e}
                 />
               );
             })}
           </div>
-          {ImagesArray.length > 1 ? (
+          {LinksArray.length > 1 ? (
             <SVGImageContainer
               height={1000}
               width={6000}
@@ -139,10 +151,15 @@ const HowToUse = () => {
     <div class="font-['Geist'] xl:pt-8 max-md:pt-4 items-center flex flex-col phone:mt-16 gap-[1.2rem]">
       <h2 className="text-5xl text-center">How to use?</h2>
       <ol start={1} className="p-3 md:text-2xl">
-        <u>Step-1:</u> Click on share widget button to copy the widget's link<br/>
-        <u>Step-2:</u> Paste the link into &lt;img src=&quot;Your_copied_link_here" height=&quot;100%&quot; width&quot;100%&quot; /&gt;<br/>
-        <u>Step-3:</u> Now paste this img tag into any website you are making or you can also add this on your github readme.
+        <u>Step-1:</u> Click on share widget button to copy the widget's link
+        <br />
+        <u>Step-2:</u> Paste the link into &lt;img
+        src=&quot;Your_copied_link_here" height=&quot;100%&quot;
+        width&quot;100%&quot; /&gt;
+        <br />
+        <u>Step-3:</u> Now paste this img tag into any website you are making or
+        you can also add this on your github readme.
       </ol>
     </div>
-  )
-}
+  );
+};
