@@ -36,7 +36,13 @@ export default function UserDashWidgets() {
             const rating = ratingsData[platform].rating;
             const contests = ratingsData[platform].attendedContestsCount;
             // console.log(username,rating,contests)
-            if (username !== null && (rating !== null && rating !== undefined) && contests !== undefined && backendUrl) {
+            if (
+              username !== null &&
+              rating !== null &&
+              rating !== undefined &&
+              contests !== undefined &&
+              backendUrl
+            ) {
               setAllSvgs((a) => a + platform + "=1&");
               setLinksArray((arr) => {
                 let newArr = [...arr];
@@ -150,16 +156,28 @@ const HowToUse = () => {
   return (
     <div class="font-['Geist'] xl:pt-8 max-md:pt-4 items-center flex flex-col phone:mt-16 gap-[1.2rem]">
       <h2 className="text-5xl text-center">How to use?</h2>
-      <ol start={1} className="p-3 md:text-2xl">
-        <u>Step-1:</u> Click on share widget button to copy the widget's link
-        <br />
-        <u>Step-2:</u> Paste the link into &lt;img
-        src=&quot;Your_copied_link_here" height=&quot;100%&quot;
-        width&quot;100%&quot; /&gt;
-        <br />
-        <u>Step-3:</u> Now paste this img tag into any website you are making or
-        you can also add this on your github readme.
-      </ol>
+      <div className="m-[10px] flex flex-col w-auto p-[32px] m-[60px auto] rounded-[10px] border border-solid border-[black] shadow-[0px_2px_12px_white]">
+        <ol className="pl-[50px] list-decimal">
+          <li className="font-['Geist'] pl-[16px] mt-[24px] relative text-base leading-[20px] before:content-[''] before:block before:h-[42px] before:w-[42px] before:rounded-[50%] before:border-2 before:border-solid before:border-[#ddd] before:absolute before:top-[-9px] before:left-[-33px] before:border-[#0bad02]">
+            <strong>Copy Link</strong>
+            <p>Click on share widget button to copy the widget's link</p>
+          </li>
+          <li className="font-['Geist'] pl-[16px] mt-[24px] relative text-base leading-[20px] before:content-[''] before:block before:h-[42px] before:w-[42px] before:rounded-[50%] before:border-2 before:border-solid before:border-[#ddd] before:absolute before:top-[-9px] before:left-[-33px] before:border-[#2378d5]">
+            <strong>Paste Link</strong>
+            <p>
+              Paste the link into &lt;img src=&quot;Your_copied_link_here"
+              height=&quot;100%&quot; width&quot;100%&quot; /&gt;
+            </p>
+          </li>
+          <li className="font-['Geist'] pl-[16px] mt-[24px] relative text-base leading-[20px] before:content-[''] before:block before:h-[42px] before:w-[42px] before:rounded-[50%] before:border-2 before:border-solid before:border-[#ddd] before:absolute before:top-[-9px] before:left-[-33px] before:border-[#0bad02]">
+            <strong>Add in your readme</strong>
+            <p>
+              Now paste this img tag into any website you are making or you can
+              also add this on your github readme.
+            </p>
+          </li>
+        </ol>
+      </div>
     </div>
   );
 };
