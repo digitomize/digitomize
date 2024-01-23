@@ -28,15 +28,66 @@ const svgWrapper = (width, height, x) => {
     ${svgBackground()}`;
 };
 const svgStyle = () => {
+  const frontend = process.env.FRONTEND_URL; // use this in production
+  //const frontend = "http://localhost:5173/";//use this in development
+  // console.log(frontend+"/fonts/Geist-Light.otf");
   return `<style>
+  @font-face {
+    font-family: "Geist";
+    src: url("${frontend}/src/assets/fonts/Geist-Light.otf") format("truetype");
+    font-weight: 300;
+    font-display: swap;
+  }
+
+  /* Regular */
+  @font-face {
+    font-family: "Geist";
+    src: url("${frontend}/src/assets/fonts/Geist-Regular.otf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  /* Medium */
+  @font-face {
+    font-family: "Geist";
+    src: url("${frontend}/src/assets/fonts/Geist-Medium.otf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  /* SemiBold */
+  @font-face {
+    font-family: "Geist";
+    src: url("${frontend}/src/assets/fonts/Geist-SemiBold.otf") format("truetype");
+    font-weight: 600;
+    font-display: swap;
+  }
+
+  /* Bold */
+  @font-face {
+    font-family: "Geist";
+    src: url("${frontend}/src/assets/fonts/Geist-Bold.otf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+  }
+
+  /* ExtraBold */
+  @font-face {
+    font-family: "Geist";
+    src: url("${frontend}/src/assets/fonts/Geist-Black.otf") format("truetype");
+    font-weight: 800;
+    font-display: swap;
+  }
+    *{
+      font-family: "Geist", sans-serif;
+    }
     .username {
         fill: #e4e4e4;
-        font: 600 25px consolas;
+        font-size: 30px;
     }
-
     .data {
         fill: #e4e4e4;
-        font-size: 19px;
+        font-size: 22px;
     }
 </style>`;
 };
