@@ -65,6 +65,10 @@ const handleUserDataUpdate = async (user) => {
         platformData.rating = parseInt(newData.rating);
         platformData.badge = newData.rank;
         platformData.fetchTime = currentTime;
+        platformData.totalQuestions = newData.totalQuestions;
+        platformData.easyQuestions = newData.easyQuestions;
+        platformData.mediumQuestions = newData.mediumQuestions;
+        platformData.hardQuestions = newData.hardQuestions;
       }
     }
   }
@@ -150,6 +154,10 @@ function handleCodingPlatform (targetObject, platform, platformKey) {
       attendedContestsCount: platform.attendedContestsCount || null,
       badge: platform.badge || null,
       fetchTime: platform.fetchTime || 0,
+      totalQuestions: platform.totalQuestions || null,
+      easyQuestions: platform.easyQuestions || null,
+      mediumQuestions: platform.mediumQuestions || null,
+      hardQuestions: platform.hardQuestions || null,
     };
   } else {
     targetObject[platformKey] = {
@@ -158,6 +166,10 @@ function handleCodingPlatform (targetObject, platform, platformKey) {
       attendedContestsCount: null,
       badge: null,
       fetchTime: null,
+      totalQuestions: null,
+      easyQuestions: null,
+      mediumQuestions: null,
+      hardQuestions: null,
     };
   }
 }

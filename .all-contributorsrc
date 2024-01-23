@@ -517,6 +517,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "utkarsh4321",
+      "name": "utkarsh srivastava",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30936607?v=4",
+      "profile": "https://utdev.vercel.app/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
