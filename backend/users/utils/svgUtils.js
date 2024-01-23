@@ -17,7 +17,7 @@ const svgData = (data) => {
         data.badge
         }</text>
         <text transform="translate(165,250)" x="50%" text-anchor="middle">${
-        data.contests || "0"
+        data.attendedContestsCount || "0"
         }</text>
     </g>
     `;

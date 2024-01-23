@@ -11,17 +11,17 @@ export default function UserDashWidgets() {
   const [loading, setLoading] = useState(true);
   const [LinksArray, setLinksArray] = useState([]);
   const [backendUrl, setBackendUrl] = useState("");
+  const [allSvgs, setAllSvgs] = useState("");
   const navigate = useNavigate();
 
   let ratingsData = null;
-  const [allSvgs, setAllSvgs] = useState("");
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await userDashboardDetails();
         const RES = await userProfileDetails(res.data.personal_data?.username);
         // console.log("HEre",RES.data.ratings);
-        if (RES.data) {
+        if (res.data && RES.data) {
           ratingsData = RES.data.ratings;
           // console.log(res.data.personal_data?.username);
           setBackendUrl(
@@ -36,7 +36,7 @@ export default function UserDashWidgets() {
             const rating = ratingsData[platform].rating;
             const contests = ratingsData[platform].attendedContestsCount;
             // console.log(username,rating,contests)
-            if (username && rating && contests && backendUrl) {
+            if (username !== null && (rating !== null && rating !== undefined) && contests !== undefined && backendUrl) {
               setAllSvgs((a) => a + platform + "=1&");
               setLinksArray((arr) => {
                 let newArr = [...arr];
@@ -51,7 +51,7 @@ export default function UserDashWidgets() {
         }
       } catch (err) {
         console.log(err);
-        navigate("u/dashboard"); //add error svg
+        navigate("u/dashboard");
       } finally {
         setLoading(false);
       }
