@@ -3,12 +3,14 @@ import GitHubButton from "react-github-btn";
 import { FaLinkedin, FaDiscord, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
+const copyrightDate = new Date().getFullYear();
+
 export default function Footer() {
   return (
     <footer className="font-['Geist'] bg-cardsColor pb-10 mt-6">
       <div className="footer lg:max-w-7xl mx-auto p-10 text-base-content md:items-center flex flex-col md:flex-row justify-center items-start">
         <aside className="flex flex-col mx-auto sm:!ml-0 md:!mr-8 text-center sm:text-start mb-4 sm:mb-0">
-          <img src={dynamicLogo} alt="logo" style={{ maxHeight: "7rem", maxWidth: "7rem", marginTop: '-.90rem' }} />
+          <img src={dynamicLogo} alt="logo" style={{ maxHeight: "7rem", maxWidth: "7rem", marginTop: "-.90rem" }} />
           <h2 className="text-2xl my-3">Digitomize</h2>
 
           <p className="text-base-content text-md max-w-[230px] mb-5">
@@ -153,7 +155,7 @@ export default function Footer() {
         </div>
       </div>
       <p className="text-center w-full text-sm">
-        &copy; 2023 Digitomize.{" "}
+        &copy; {copyrightDate} Digitomize.{" "}
         <a
           href="https://github.com/digitomize/digitomize/blob/main/LICENSE"
           target="_blank"

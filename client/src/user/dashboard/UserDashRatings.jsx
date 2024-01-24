@@ -175,6 +175,7 @@ export default function UserDashRatings() {
           },
         );
         console.log(err);
+        setIsDisabled(false);
       });
     // console.log(res);
   }

@@ -35,8 +35,8 @@ const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity 
 
   const startHour = startTimeIST.getHours();
   const startMinute = startTimeIST.getMinutes();
-  const ampm = startHour >= 12 ? 'PM' : 'AM';
-  const formattedStartTimeString = `${startHour % 12 || 12}:${startMinute < 10 ? '0' : ''}${startMinute} ${ampm}`;
+  const ampm = startHour >= 12 ? "PM" : "AM";
+  const formattedStartTimeString = `${startHour % 12 || 12}:${startMinute < 10 ? "0" : ""}${startMinute} ${ampm}`;
 
   const description = `<hr>🏆<b>Contest</b>🏆%0A👨🏻‍💻Name: ${name}%0A🕘Start at: ${formattedStartTimeString}%0A⏱️Duration: ${duration} minutes%0A🚀Host: ${host}%0A🔗Contest URL: <a href='${url}'>${url}</a>%0A<hr><i>Thank you for using <a href='https://digitomize.com'>digitomize</a></i>`;
 

@@ -66,6 +66,9 @@ export default {
           "linear-gradient( to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97% )",
         "grad-bg": "-webkit-linear-gradient(#eee, #333);",
       },
+     backgroundImage:{
+          "card-gradient":"linear-gradient(180deg, #12274f 0%, rgba(28, 27, 64, 0.3) 100%)",
+        },
       shadowBlack: " hsla(0, 0%, 0%, 0.25);",
       keyframes: {
         gradientChange: {

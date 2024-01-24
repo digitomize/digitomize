@@ -57,6 +57,11 @@ export default function UserDashboard() {
       path: "ratings",
     },
     {
+      icon: TrendingUpIcon,
+      title: "Widgets",
+      path: "widgets",
+    },
+    {
       icon: GitHubIcon,
       title: "github(soon...)",
       path: "#",
@@ -165,6 +170,23 @@ export default function UserDashboard() {
                   <p>Connect usernames for linked coding profiles.</p>
                   <div className="card-actions justify-end">
                     <a href="/u/dashboard/ratings">
+                      <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]">
+                        <TrendingUpIcon fontSize="large" />
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl my-4">
+                <div className="card-body">
+                  <h2 className="card-title">
+                    <TrendingUpIcon fontSize="medium" />
+                    Widgets
+                    <div className="badge badge-secondary">new</div>
+                  </h2>
+                  <p>Specially created widgets, just for you!</p>
+                  <div className="card-actions justify-end">
+                    <a href="/u/dashboard/widgets">
                       <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]">
                         <TrendingUpIcon fontSize="large" />
                       </button>
