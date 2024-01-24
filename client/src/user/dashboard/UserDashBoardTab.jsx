@@ -47,7 +47,7 @@ function UserDashBoardTab() {
       </button>
 
       {isOpen && (
-        <div className="origin-top-right absolute right-0 mt-2 rounded-xl bg-eerie-black-2 border border-white border-solid  w-full">
+        <div className="origin-top-right absolute right-0 mt-2 rounded-xl bg-transparent border border-white border-solid  w-full">
           <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
             {navLinks.map((option,index) => (
               <Link to={option.path}
