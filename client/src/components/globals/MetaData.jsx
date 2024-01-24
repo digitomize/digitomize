@@ -67,6 +67,10 @@ const getPageMetadata = (path) => {
             title: "Ratings",
             description: "Check the leaderboard for top performers on Digitomize.",
         },
+        "u/dashboard/widgets": {
+            title: "Widgets",
+            description: "Get your own customized widgets",
+        },
         "u/dashboard/github": {
             title: "Github",
             description: "Check the leaderboard for top performers on Digitomize.",
