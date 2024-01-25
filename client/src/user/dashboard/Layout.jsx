@@ -9,7 +9,9 @@ function UserDashBoardLayout() {
        <DashboardNavbar/>
         <div className='flex md:flex-row  flex-col max-md:pt-[85px] mt-[33px]'>
         <UserDashBoardTab/>
+        <div className='md:w-[80%] max-md:w-full'>
         <Outlet/>
+        </div>
         </div>
     </div>
   )

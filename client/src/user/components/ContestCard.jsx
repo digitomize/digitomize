@@ -66,28 +66,29 @@ function ContestCard({ data }) {
   const startYear = dateTimeInTimezone.format("YYYY");
   const startTime = dateTimeInTimezone.format("h:mm A");
   return (
-    <div className="flex flex-1 px-3 py-2 flex-row   space-x-2 border border-solid border-[#EBEBEB] bg-[#0B0D0E] rounded-[2px] min-w-[200px]">
+      <Link to={`/contests/${vanity}`}>
+        <div className="flex flex-1 px-3 py-2 flex-row   space-x-2 border border-solid border-[#EBEBEB] bg-eerie-black-2 rounded-[2px] min-w-[200px]">
       
-        <img
-          src={hostToSVGMap[host]}
-          alt={host}
-          className="w-[45px] h-[45px] my-auto"
-        />
-     
-      <div className="flex flex-col">
-        <Link
-          to={timeAndDateURL}
-          className="my-auto text-[10px]"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {`${startMonth} ${startDate}, ${startYear} at ${startTime}`}
-        </Link>
-        <Link to={`/contests/${vanity}`} className="my-auto">
-          <h2 className="text-[12px] text-left ">{name}</h2>
-        </Link>
+      <img
+        src={hostToSVGMap[host]}
+        alt={host}
+        className="w-[45px] h-[45px] my-auto"
+      />
+   
+    <div className="flex flex-col">
+      <p
+       
+        className="my-auto text-[10px]"
+       
+      >
+        {`${startMonth} ${startDate}, ${startYear} at ${startTime}`}
+      </p>
+      <div className="my-auto">
+      <h2 className="text-[12px] text-left ">{name}</h2>
       </div>
     </div>
+  </div>
+      </Link>
   );
 }
 

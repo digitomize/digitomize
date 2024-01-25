@@ -38,18 +38,20 @@ function UserCard({
   );
   const truncatedBio = showMore ? bio : bio?.slice(0, 150);
   return (
-    <div className="rounded-2xl bg-eerie-black-2  shadow-md flex flex-col h-full lg:px-6 lg:py-8 sm:px-4 sm:py-6 border border-jet w-[100%]">
-      <div className="flex flex-row lg:space-x-6 md:space-x-4 sm:space-x-2 mb-6">
+    <div className="rounded-2xl bg-eerie-black-2  shadow-md flex flex-col h-fit lg:px-6 lg:py-8 px-4 py-6 border border-jet w-[100%]">
+      <div className="flex flex-row sm:items-center md:gap-4 gap-2 mb-6 lg:gap-6">
         <img
           src={picture}
           alt=""
-          className="rounded-full sm:w-[70px] sm:h-[70px] md:w-[90px] md:h-[90px] lg:w-[120px] lg:h-[120px]"
+          className="rounded-full w-[70px] h-[70px] md:w-[90px] md:h-[90px] lg:w-[120px] lg:h-[120px]"
         />
-        <div>
-          <h2 className="font-500 lg:text-[32px] sm:text-2xl ">{name}</h2>
-          <h2 className="text-[16px] sm:text-[14px] pl-1">@{username}</h2>
+        <div className="flex w-full sm:flex-col max-sm:flex-row max-sm:justify-between">
+          <div>
+          <h2 className="font-500 lg:text-[32px] text-2xl ">{name}</h2>
+          <h2 className="sm:text-[16px] text-[14px] pl-1 font-normal font-['Geist']">@{username}</h2>
+          </div>
           <div
-            className={`mt-3 flex justify-center sm:gap-2 gap-3 ${
+            className={`sm:mt-3 flex  sm:gap-2 gap-3 ${
               social ? "" : "hidden"
             }`}
           >
@@ -59,7 +61,7 @@ function UserCard({
               target="_blank"
               rel="noreferrer"
             >
-              <FaLinkedin className="lg:w-[30px] lg:h-[30px] sm:w-[24px] sm:h-[24px]" color="white" />
+              <FaLinkedin className="lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]" color="white" />
             </a>
             <a
               className={social?.instagram ? "" : "hidden"}
@@ -67,7 +69,7 @@ function UserCard({
               target="_blank"
               rel="noreferrer"
             >
-              <FaInstagram className="lg:w-[30px] lg:h-[30px] sm:w-[24px] sm:h-[24px]" color="white" />
+              <FaInstagram className="lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]" color="white" />
             </a>
             <a
               className={social?.twitter ? "" : "hidden"}
@@ -75,7 +77,7 @@ function UserCard({
               target="_blank"
               rel="noreferrer"
             >
-              <FaXTwitter className="lg:w-[30px] lg:h-[30px] sm:w-[24px] sm:h-[24px]" color="white" />
+              <FaXTwitter className="lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]" color="white" />
             </a>
           </div>
         </div>
@@ -89,6 +91,19 @@ function UserCard({
           <div className="badge bg-[#7DF9FF] text-black mx-1">admin</div>
         )}
       </div>
+      <div className="mt-6 sm:hidden">
+        <p className="text-[16px]">Skills</p>
+        <div className="flex flex-row mt-3">
+          {skills.map((skill, index) => (
+            <div
+              key={index}
+              className=" bg-[#1582ffb3] bg-opacity-80 text-[#1582FF] text-[12px] px-3 py-[2px] rounded-[12px] font-[500] mr-4"
+            >
+              {skill}
+            </div>
+          ))}
+        </div>
+      </div>
       <p className="border-[0.5px] border-solid border-[#8888884a] lg:text-[14px] sm:text-[12px] rounded-[5px] px-3 py-2 mt-4 text-[#818587]">
         {truncatedBio}
 
@@ -98,7 +113,7 @@ function UserCard({
           </button>
         )}
       </p>
-      <div className="flex lg:flex-row flex-col gap-y-4 w-full justify-between items-center mt-6">
+      <div className="flex lg:flex-row sm:flex-col max-sm:flex-row gap-y-4 w-full justify-between items-center mt-6">
         {isUserDashboard && (
           <button
             className=" text-white px-6 py-2 border border-solid rounded-[10px] text-[14px] border-[#FAFAFA] "
@@ -128,7 +143,7 @@ function UserCard({
           </button>
         )}
       </div>
-      <div className="mt-6">
+      <div className="mt-6 max-sm:hidden">
         <p className="text-[16px]">Skills</p>
         <div className="flex flex-row mt-3">
           {skills.map((skill, index) => (

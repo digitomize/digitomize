@@ -132,7 +132,7 @@ function UserDashBoardCarrer() {
   return (
     <>
     <ToastContainer />
-    <div className="border border-solid border-white rounded-[12px] p-[40px] w-full">
+    <div className="border border-solid border-white bg-cardsColor rounded-[12px] p-[40px] w-full font-['Geist']">
       <h2 className="md:text-[40px] sm:text-[30px] text-[20px] font-extrabold mb-7">Manage your socials</h2>
       <div>
         {/* <div className="relative z-0 w-full md:w-3/4 mb-4 group flex items-center gap-3">
@@ -251,8 +251,8 @@ function UserDashBoardCarrer() {
                 onClick={handleSubmit}
                 disabled={isDisabled}
                 type="submit"
-                className={`text-black bg-white font-medium max-sm:text-sm  rounded-lg  text-xl  md:text-3xl max-sm:py-2 max-sm:px-6  sm:px-8 sm:py-3 text-center ${
-                  isDisabled ? "cursor-not-allowed opacity-20" : null
+                className={`text-white bg-buttonColor text-[24px] rounded-[10px] px-3 py-2 text-center ${
+                  isDisabled ? "cursor-not-allowed opacity-60" : null
                 }`}
               >
                 {isDisabled ? "Updating Carrer..." : "Update Carrer"}

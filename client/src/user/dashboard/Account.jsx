@@ -72,7 +72,7 @@ const UserDashBoardAccount = () => {
   return (
       <>
       <ToastContainer/>
-        <div className="w-full flex flex-col space-y-[23px]">
+        <div className="w-full flex flex-col space-y-[23px] bg-cardsColor font-['Geist']">
           <div className="sm:pt-[42px] sm:px-[70px] sm:pb-[24px] px-6 py-5 flex flex-col space-y-8 justify-start items-start w-full bg-[#ebebeb
 1a] rounded-xl border border-white border-opacity-5">
         <p className="text-[40px] max-sm:text-2xl font-bold normal-case text-white">
@@ -121,8 +121,8 @@ const UserDashBoardAccount = () => {
             disabled={isDisabled}
             onClick={handleSubmit}
             type="submit"
-            className={`text-black bg-white font-medium rounded-lg  text-[24px]  px-[20px] py-3 text-center ${
-              isDisabled ? "cursor-not-allowed opacity-20" : null
+            className={`text-white bg-buttonColor text-[24px] rounded-[10px] px-3 py-2 text-center ${
+              isDisabled ? "cursor-not-allowed opacity-60" : null
             }`}
           >
            {isDisabled ? "Saving Changes..." : "Save Changes"}
@@ -158,64 +158,7 @@ const UserDashBoardAccount = () => {
       </div> */}
         </div>
       </>
-     
-    // <div className="flex flex-col gap-8 mb-8">
-    //   <div className="p-10 flex flex-col gap-8 justify-start items-start w-full h-3/4 bg-eerie-black-2 rounded-xl border border-white border-opacity-5">
-    //     <p className="text-3xl max-phone:text-2xl font-bold normal-case text-white">
-    //       Manage your account
-    //     </p>
-    //     <div className="flex flex-col gap-8 max-md:w-full md:w-3/4 ">
-    //       <FormInput
-    //         name="email"
-    //         labelText="Email"
-    //         placeholderText="Enter your email"
-    //       />
-    //       <FormInput
-    //         name="phoneNumber"
-    //         labelText="Phone Number"
-    //         placeholderText="How should we call you ?"
-    //       />
-    //     </div>
-    //     <div className="flex w-full max-md:flex-col gap-4 justify-between max-md:items-center">
-    //       <p className="normal-case text-xl text-red-500 tracking-tight">
-    //         Delete Account?
-    //       </p>
-    //       <button
-    //         className="btn btn-success max-md:w-3/4"
-    //         disabled={isDisabled}
-    //       >
-    //         Save Changes
-    //       </button>
-    //     </div>
-    //   </div>
-    //   <div className="p-10 flex flex-col gap-8 justify-start items-start w-full h-3/4 bg-eerie-black-2 rounded-xl border border-white border-opacity-5">
-    //     <p className="text-3xl max-phone:text-2xl font-bold normal-case text-white">
-    //       Change your password
-    //     </p>
-    //     <div className="flex gap-8 flex-col md:flex-row md:justify-between w-full">
-    //       <FormInput
-    //         name="oldPassword"
-    //         type="password"
-    //         labelText="Old password"
-    //         placeholderText="************"
-    //         textArea={false}
-    //         inputClass=" text-white"
-    //       />
-    //       <FormInput
-    //         name="newPassword"
-    //         type="password"
-    //         labelText="New password"
-    //         placeholderText="************"
-    //         textArea={false}
-    //       />
-    //     </div>
-    //     <div className="w-full flex justify-end">
-    //       <button className="btn btn-success" disabled={isDisabled}>
-    //         Change
-    //       </button>
-    //     </div>
-    //   </div>
-    // </div>
+    
   );
 };
 

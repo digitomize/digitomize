@@ -36,7 +36,7 @@ import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashRatings, {
   loader as userDashRatingsLoader,
 } from "./user/dashboard/UserDashRatings";
-import UserDashWidgets from "./user/dashboard/UserDashWidgets";
+import Widget from "./user/dashboard/Widget";
 import UserDashGithub, {
   loader as userDashGithubLoader,
 } from "./user/dashboard/UserDashGithub";
@@ -185,7 +185,7 @@ const router = createBrowserRouter(
             element={<UserDashboard/>}
           />
           <Route path="ratings" element={<UserDashRatings />} />
-          <Route path="widgets" element={<UserDashWidgets />} />
+          <Route path="widgets" element={<Widget />} />
           <Route
             path="github"
             element={<UserDashGithub />}

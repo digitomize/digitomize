@@ -74,7 +74,7 @@ function UserDashBoardProfile() {
   return (
     <>
     <ToastContainer/>
-    <div className='border border-white border-solid rounded-[12px] sm:px-[40px] sm:pt-[42px] sm:pb-[30px] px-6 py-5 w-full'>
+    <div className="border border-white border-solid rounded-[12px] bg-cardsColor sm:px-[40px] sm:pt-[42px] sm:pb-[30px] px-6 py-5 w-full font-['Geist'] ">
     <h2 className='font-bold text-white text-[40px] max-sm:text-2xl sm:mb-[30px] mb-[20px]'>Set up your digitomize account</h2>
     <div>
     <div className="relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
@@ -197,7 +197,7 @@ function UserDashBoardProfile() {
             onClick={handleSubmit}
             disabled={isDisabled}
             type="submit"
-            className={`text-black bg-red-400 font-medium rounded-lg  text-xl  md:text-3xl px-6 py-2  sm:px-8 sm:py-3 text-center ${
+            className={`text-white bg-buttonColor text-[24px] rounded-[10px] px-3 py-2 text-center  ${
               isDisabled ? "cursor-not-allowed opacity-20" : null
             }`}
           >

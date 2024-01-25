@@ -33,11 +33,11 @@ function UserDashBoardTab() {
   };
     return (
      <>
-      <div className="relative md:hidden text-left mb-3 ">
+      <div className="relative md:hidden text-left bg-ecardsColor mb-3 font-['Geist']">
       <button
         onClick={toggleDropdown}
         type="button"
-        className="flex w-full justify-between capitalize items-center border border-white rounded-[12px]  px-4 py-2 bg-[#ebebeb1a] text-sm font-medium text-button-primary transition duration-150 ease-in-out text-left"
+        className="flex w-full justify-between capitalize items-center border border-white rounded-[12px]  px-4 py-2 bg-cardsColor text-sm font-medium text-button-primary transition duration-150 ease-in-out text-left"
       >
         <p>{selectedOption}</p>
        {
@@ -47,7 +47,7 @@ function UserDashBoardTab() {
       </button>
 
       {isOpen && (
-        <div className="origin-top-right absolute right-0 mt-2 rounded-xl bg-transparent border border-white border-solid  w-full">
+        <div className="origin-top-right absolute right-0 mt-2 rounded-xl bg-cardsColor border border-white border-solid  w-full">
           <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
             {navLinks.map((option,index) => (
               <Link to={option.path}
@@ -63,7 +63,7 @@ function UserDashBoardTab() {
         </div>
       )}
     </div>
-    <div className='hidden md:flex flex-col pt-[33px] border border-solid border-white text-[20px] space-y-[33px] bg-[#0E0F10] rounded-[12px] px-[20px] w-[20%] h-[450px] mr-[30px]'>
+    <div className='hidden max-w-[270px] w-[20%] md:flex flex-col pt-[33px] border border-solid border-white text-[20px] space-y-[33px] bg-cardsColor rounded-[12px] px-[20px]  h-[450px] mr-[30px]'>
       {
         navLinks.map((option, index)=>(
           <Link to={option.path} key={index}  className={`capitalize ${selectedOption===option.title ? "text-button-primary":""}`} onClick={()=>{handleOptionClick(option.title)}}>{option.title}</Link>
