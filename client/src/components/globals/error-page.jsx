@@ -11,7 +11,7 @@ export default function ErrorPage() {
     <>
       <MetaData path="error" />
       <Navbar />
-      <div className=" h-80vh flex justify-center items-center justify-items-center">
+      <div className=" min-h-[75vh] flex justify-center items-center justify-items-center">
         <div className="h-full w-screen flex flex-col items-center justify-center gap-5">
         <h1 className="text-6xl md:text-[90px]">Oops!</h1>
           <p className="text-2xl md:text-[40px] text-center">Sorry, an unexpected error has occurred.</p>
