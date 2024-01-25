@@ -40,6 +40,7 @@ const handleUserSignup = async (req, res) => {
     leetcode,
     codeforces,
   } = req.decodedToken;
+  
 
   if (!username) {
     username = req.body?.username;

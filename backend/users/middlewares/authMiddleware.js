@@ -23,9 +23,19 @@ const addUID = async (request, response, next) => {
   }
 
   try {
+    const decodedToken = await getAuth().verifyIdToken(authToken);
+    const { uid } = decodedToken;
+
+    await getAuth().updateUser(uid, {
+      emailVerified: true,
+    });
+
     getAuth()
       .verifyIdToken(authToken)
       .then((decTok) => {
+        if (decTok.firebase.sign_in_provider === "github.com") {
+          decTok.email_verified = true;
+        }
         request.decodedToken = decTok;
         // console.log("calling next");
         next();
