@@ -184,7 +184,7 @@ const router = createBrowserRouter(
             index
             element={<UserDashboard/>}
           />
-          <Route path="ratings" element={<UserDashRatings />} />
+          
           <Route path="widgets" element={<Widget />} />
           <Route
             path="github"
@@ -201,6 +201,7 @@ const router = createBrowserRouter(
           <Route path="profile" loader={userDashPersonalLoader} element={<UserDashBoardProfile/>} />
           <Route path="account"  loader={userDashPersonalLoader}  element={<UserDashBoardAccount/>}/>
           <Route path="widget" element={<UserDashBoardWidget/>} />
+          <Route path="ratings" element={<UserDashRatings />} />
           </Route>
         </Route>
       </Route>

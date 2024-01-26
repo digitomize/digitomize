@@ -119,7 +119,6 @@ export default function UserDashboard() {
       const url = `${backendUrl}/contests`
       const response=await fetch(url)
       const data=await response.json()
-      console.log(data)
       setContest(data.results.slice(0,3))
     }
     getContest()
@@ -128,7 +127,6 @@ export default function UserDashboard() {
     async function fetchData() {
       try {
         const temp = await userDashboardDetails();
-        console.log(temp.data)
         setUserData(temp.data);
         if (user) {
           setLoading(false);
@@ -159,7 +157,7 @@ export default function UserDashboard() {
         <NewNavbar />
 
         {/* FOR DESKTOP */}
-        <div className=" w-11/12 mx-auto mt-4 max-sm:px-3 font-['Geist']">
+        <div className=" w-10/12 mx-auto mt-4 max-sm:px-3 font-['Geist']">
           <h1 className="pb-4 normal-case text-[#EBEBEB] sm:text-[50px] lg:text-[64px]">
             Heyy {userData.personal_data.name}
           </h1>
@@ -178,7 +176,7 @@ export default function UserDashboard() {
               />
             </div>
             <div className="sm:w-[60%]">
-             <div className="flex flex-row w-full lg:gap-10 lg:justify-start justify-around min-w-[100px] flex-wrap gap-y-4">
+             <div className="flex flex-row w-full lg:gap-10 lg:justify-between justify-around min-w-[100px] flex-wrap gap-y-4">
              {
                 navLinks.map((data,index)=>{
                  return <Link to={data.path} key={index}>

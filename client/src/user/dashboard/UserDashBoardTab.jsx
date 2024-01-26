@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import { IoIosArrowDown,IoIosArrowUp } from "react-icons/io";
+import { FaArrowLeft } from "react-icons/fa6";
 function UserDashBoardTab() {
   const url=window.location.href.split('/') 
   const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +23,10 @@ function UserDashBoardTab() {
     {
       title : "widget",
       path : "widget"
+    },
+    {
+      title : "ratings",
+      path : "ratings"
     }
   ];
   const handleOptionClick = (option) => {
@@ -64,6 +69,7 @@ function UserDashBoardTab() {
       )}
     </div>
     <div className='hidden max-w-[270px] w-[20%] md:flex flex-col pt-[33px] border border-solid border-white text-[20px] space-y-[33px] bg-cardsColor rounded-[12px] px-[20px]  h-[450px] mr-[30px]'>
+    <Link to={'/u/dashboard'} className={`capitalize flex flex-row items-center gap-2`} ><FaArrowLeft/>Dashboard</Link>
       {
         navLinks.map((option, index)=>(
           <Link to={option.path} key={index}  className={`capitalize ${selectedOption===option.title ? "text-button-primary":""}`} onClick={()=>{handleOptionClick(option.title)}}>{option.title}</Link>

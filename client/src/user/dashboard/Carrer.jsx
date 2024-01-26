@@ -247,16 +247,21 @@ function UserDashBoardCarrer() {
       </div>
 
       <div className="flex w-full max-sm:justify-center md:justify-end md:pe-12 max-sm:text-sm ">
-              <button
-                onClick={handleSubmit}
-                disabled={isDisabled}
-                type="submit"
-                className={`text-white bg-buttonColor text-[24px] rounded-[10px] px-3 py-2 text-center ${
-                  isDisabled ? "cursor-not-allowed opacity-60" : null
-                }`}
+      <div className="btn-div" style={{ boxShadow: `8px 8px #2E8D46` }}>
+              <button disabled={isDisabled}
+              onClick={handleSubmit}
+              type="submit"
+                style={{
+                  color: "black",
+                  fontWeight: "bold",
+                  fontSize: "20px",
+                  marginTop: "17px",
+                }}
+                className={`${isDisabled ?"cursor-not-allowed  opacity-60":""}`}
               >
-                {isDisabled ? "Updating Carrer..." : "Update Carrer"}
+              {isDisabled ? "Updating Carrer..." : "Update Carrer"}
               </button>
+            </div>
             </div>
     </div>
     </>
