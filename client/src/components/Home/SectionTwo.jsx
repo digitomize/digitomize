@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // Importing all MUI icons here...
 import {
@@ -91,15 +92,37 @@ export default function SectionTwo() {
       <div className="h-5/6 dynamicprofile rounded-lg flex-col my-auto py-4 px-4 max-w-7xl lg:w-10/12">
         <div className="left text-center">
           <div className="sm:text-center max-sm:text-center">
-            <h2 className="max-md:text-4xl md:text-6xl font-['Geist'] my-0 text-white font-semibold">
+            <motion.h2
+              initial={{ opacity: 0, x: -150 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 1,
+                type: "spring",
+                stiffness: 90,
+                delay: 0.5,
+              }}
+              className="max-md:text-4xl md:text-6xl font-['Geist'] my-0 text-white font-semibold"
+            >
               Build your <span className="bg-digitomize-bg px-2 ">Dynamic</span>{" "}
               Profile
-            </h2>
-            <p className="py-2 font-['Geist'] text-description max-md:text-sm md:text-xl">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, x: -150 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 1,
+                type: "spring",
+                stiffness: 90,
+                delay: 0.7,
+              }}
+              className="py-2 font-['Geist'] text-description max-md:text-sm md:text-xl"
+            >
               Showcase your ratings, GitHub stats, personal info, skills,
               education, and more. Climb the leaderboard while enjoying friendly
               competition with friends in the coding community.
-            </p>
+            </motion.p>
           </div>
         </div>
         <div className="lg:hidden mx-auto card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 p-2">
@@ -157,7 +180,18 @@ export default function SectionTwo() {
           <div className="flex flex-col md:flex-row">
             <div className="mx-3 h-fit w-4/6 bg-window duration-500 rounded-xl pb-4">
               <div>
-                <div className="flex flex-row bg-toolbar rounded-t-lg">
+                <motion.div
+                  initial={{ opacity: 0, x: -150 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 1,
+                    type: "spring",
+                    stiffness: 90,
+                    delay: 0.8,
+                  }}
+                  className="flex flex-row bg-toolbar rounded-t-lg"
+                >
                   <div className="flex gap-2 py-2 px-4 my-2">
                     <span className="rounded-full p-2 bg-[#C6B1FF]"></span>
                     <span className="rounded-full p-2 bg-[#AE92FF]"></span>
@@ -165,14 +199,27 @@ export default function SectionTwo() {
                   </div>
 
                   <div className="bg-window text-[#B7B6FF] rounded-full text-sm tracking-wide flex justify-center w-full py-0.5 my-2 items-center">
-                    <a className="py-1" href="/u/dashboard">https://digitomize.com/u/dashboard</a>
+                    <a className="py-1" href="/u/dashboard">
+                      https://digitomize.com/u/dashboard
+                    </a>
                   </div>
                   <div className="bg-window rounded-lg mx-2 my-2 px-1 py-1">
                     <p>+</p>
                   </div>
-                </div>
+                </motion.div>
               </div>
-              <div className="flex-1 justify-start px-4 pt-4">
+              <motion.div
+                initial={{ opacity: 0, x: -150 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 1,
+                  type: "spring",
+                  stiffness: 90,
+                  delay: 0.8,
+                }}
+                className="flex-1 justify-start px-4 pt-4"
+              >
                 <div className="form-control w-3/4 max-w-md">
                   <Avatar
                     src="/src/assets/hacker.png"
@@ -252,9 +299,20 @@ export default function SectionTwo() {
                     value={formData.bio.data}
                   ></textarea>
                 </div>
-              </div>
+              </motion.div>
             </div>
-            <div className="mx-3 w-2/6 bg-window rounded-xl">
+            <motion.div
+              initial={{ opacity: 0, x: 150 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 1,
+                type: "spring",
+                stiffness: 90,
+                delay: 0.8,
+              }}
+              className="mx-3 w-2/6 bg-window rounded-xl"
+            >
               <h2 className="pt-2 pl-4 text-2xl text-['#E7E7FF']">Preview</h2>
               <div className="my-auto py-2 text-center flex flex-col justify-center items-center">
                 <Avatar
@@ -347,14 +405,28 @@ export default function SectionTwo() {
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
-        <div className="flex justify-center m-4">
-          <a href="/signup" className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border ">
+        <motion.div
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 1,
+            type: "spring",
+            stiffness: 90,
+            delay: 0,
+          }}
+          className="flex justify-center m-4"
+        >
+          <a
+            href="/signup"
+            className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border "
+          >
             Create Now
           </a>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
