@@ -56,7 +56,6 @@ import Leaderboard from "./user/leaderboard/Leaderboard";
 /*------------ DSA Sheets Import ------------ */
 import SheetLayout from "./dsaSheets/layout/SheetLayout";
 
-
 import formbricks from "@formbricks/js";
 
 if (typeof window !== "undefined") {
@@ -94,6 +93,8 @@ import ContestPageLayout from "./components/Contests/ContestPageLayout";
 import Filter from "./components/Contests/Filter";
 import Challenges from "./components/Contests/Challenges/Challenges";
 import ComingSoonLoader from "./components/Contests/ComingSoonLoader";
+import ResendEmailVerification from "./pages/verification/ResendEmailVerification";
+import VerifyEmailPage from "./pages/verification/VerifyEmailPage";
 
 function Logout() {
   const navigate = useNavigate();
@@ -153,13 +154,28 @@ const router = createBrowserRouter(
         <Route path="login" element={<Login />} loader={loginLoader} />
         <Route path="logout" element={<Logout />} />
         <Route path="signup" element={<Signup />} loader={signupLoader} />
-        <Route path="forgot-password" element={<ForgotPassword />} loader={forgotPasswordLoader} />
+        <Route
+          path="forgot-password"
+          element={<ForgotPassword />}
+          loader={forgotPasswordLoader}
+        />
+        <Route
+          path="resend-email-verification"
+          element={<ResendEmailVerification />}
+        />
+        <Route path="user-email-verification" element={<VerifyEmailPage />} />
         <Route element={<ContestPageLayout />}>
           <Route path="contests" element={<Filter />} />
           <Route path="challenges" element={<Challenges />} />
-          <Route path="hackathons" element={<ComingSoonLoader value='Hackathons' />} />
-          <Route path="internships" element={<ComingSoonLoader value='Internships' />} />
-          <Route path="jobs" element={<ComingSoonLoader value='Jobs' />} />
+          <Route
+            path="hackathons"
+            element={<ComingSoonLoader value="Hackathons" />}
+          />
+          <Route
+            path="internships"
+            element={<ComingSoonLoader value="Internships" />}
+          />
+          <Route path="jobs" element={<ComingSoonLoader value="Jobs" />} />
         </Route>
         {/* <Route path="updates" element={<Updates />} /> */}
         <Route path="home" element={<Homepage />} />
@@ -181,8 +197,8 @@ const router = createBrowserRouter(
           <Route
             index
             element={<UserDashboard />}
-          // loader={userDashPersonalLoader}
-          // loader={userDashPersonalLoader}
+            // loader={userDashPersonalLoader}
+            // loader={userDashPersonalLoader}
           />
           <Route
             path="account"
