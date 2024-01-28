@@ -159,11 +159,7 @@ const router = createBrowserRouter(
           element={<ForgotPassword />}
           loader={forgotPasswordLoader}
         />
-        <Route
-          path="resend-email-verification"
-          element={<ResendEmailVerification />}
-        />
-        <Route path="user-email-verification" element={<VerifyEmailPage />} />
+
         <Route element={<ContestPageLayout />}>
           <Route path="contests" element={<Filter />} />
           <Route path="challenges" element={<Challenges />} />
@@ -186,6 +182,11 @@ const router = createBrowserRouter(
         <Route path="contests/:vanity" element={<IndividualCard />} />
         <Route path="404" element={<ErrorPage />} />
       </Route>
+      <Route
+        path="resend-email-verification"
+        element={<ResendEmailVerification />}
+      />
+      <Route path="user-email-verification" element={<VerifyEmailPage />} />
       <Route path="/admin" element={<AdminPanelGuard />}>
         <Route path="user" element={<UserListPage />}></Route>
         <Route path="contest" element={<ContestListPage />}></Route>

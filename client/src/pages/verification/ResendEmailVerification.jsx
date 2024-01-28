@@ -11,8 +11,7 @@ const ResendEmailVerification = () => {
     e.preventDefault();
     try {
       setbtnState(true);
-      const a = await sendEmailVerification(auth.currentUser);
-      console.log(a);
+      await sendEmailVerification(auth.currentUser);
       toast.success("Verification E-Mail Send", {
         position: "top-right",
         autoClose: 5000,
@@ -42,7 +41,7 @@ const ResendEmailVerification = () => {
     <>
       <ToastContainer />
       <main className="resend-email-container">
-        <h2 className="resend-email-heading">User Email Verification</h2>
+        <h2 className="resend-email-heading">Please verify your email to continue</h2>
         <p className="resend-email-content">
           Didn't receive the verification email? Click the button below to
           resend it.
