@@ -138,7 +138,7 @@ export default function About() {
               </svg>
             </div>
             <div className="stat-title">total views</div>
-            <div className="stat-value text-secondary">38k+</div>
+            <div className="stat-value text-secondary">50k+</div>
             {/* <div className="stat-desc">21% more than last month</div> */}
           </div>
           <Link
@@ -151,7 +151,7 @@ export default function About() {
                 <AiFillLinkedin className="w-8 h-8" />
               </div>
               <div className="stat-title">linkedin followers</div>
-              <div className="stat-value text-secondary">850+</div>
+              <div className="stat-value text-secondary">900+</div>
               {/* <div className="stat-desc">21% more than last month</div> */}
             </div>
           </Link>
@@ -165,7 +165,7 @@ export default function About() {
                 <AiFillStar className="w-8 h-8" />
               </div>
               <div className="stat-title">Github Stars</div>
-              <div className="stat-value text-secondary">230+</div>
+              <div className="stat-value text-secondary">300+</div>
               {/* <div className="stat-desc">21% more than last month</div> */}
             </div>
           </Link>
@@ -178,7 +178,7 @@ export default function About() {
                 <AiOutlineUsergroupAdd className="w-8 h-8" />
               </div>
               <div className="stat-title">contributors</div>
-              <div className="stat-value text-secondary">50+</div>
+              <div className="stat-value text-secondary">60+</div>
               {/* <div className="stat-desc">21% more than last month</div> */}
             </div>
           </Link>
