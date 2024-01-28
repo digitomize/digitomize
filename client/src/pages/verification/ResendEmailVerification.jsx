@@ -12,7 +12,7 @@ const ResendEmailVerification = () => {
     try {
       setbtnState(true);
       await sendEmailVerification(auth.currentUser);
-      toast.success("Verification E-Mail Send", {
+      toast.success("Verification Successfull", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
