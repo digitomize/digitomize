@@ -21,7 +21,12 @@ import GoogleAuthButton from "./AuthButtons/GoogleAuthButton";
 import GithubAuthButton from "./AuthButtons/GithubAuthButton";
 import { Eye, EyeOff } from "lucide-react";
 import { auth } from "../../firebase";
-import { sendEmailVerification, signOut } from "firebase/auth";
+import {
+  onAuthStateChanged,
+  sendEmailVerification,
+  signOut,
+} from "firebase/auth";
+import { useEffect } from "react";
 
 export async function loader({ request }) {
   const message = new URL(request.url).searchParams.get("message");
@@ -44,13 +49,12 @@ export default function Login() {
   const { logIn } = useUserAuth();
   const navigate = useNavigate();
   const [btnState, setbtnState] = useState(false); // disable feature
-  const [btnState2, setbtnState2] = useState(false); // disable feature
   const [passwordShow, setPasswordShow] = useState(false);
 
-  const passwordToggle = () => {
+  function passwordToggle() {
     setPasswordShow(!passwordShow);
-  };
-  const handleSendingMail = async () => {
+  }
+  /*  const handleSendingMail = async () => {
     try {
       await sendEmailVerification(auth.currentUser);
       toast.success("Verification Mail Send", {
@@ -76,7 +80,7 @@ export default function Login() {
       });
     }
   };
-
+ */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -84,23 +88,9 @@ export default function Login() {
 
     try {
       await logIn(email, password);
-      const user = auth?.currentUser;
-      if (!user?.emailVerified) {
-        toast.error("Please verify your email", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-        });
-        setbtnState(false);
-        return;
-      } else {
-        navigate("/u/dashboard");
-      }
+      setbtnState(false);
+
+      navigate("/u/dashboard");
     } catch (err) {
       toast.error(err.code, {
         position: "top-right",
@@ -116,6 +106,15 @@ export default function Login() {
       setError(err.code);
     }
   };
+
+  useEffect(() => {
+    const count = localStorage.getItem("count");
+    if (count < 1) {
+      window.localStorage.setItem("count", count + 1);
+      window.location.reload();
+    }
+  }, []);
+
   return (
     <>
       <MetaData path={"login"} />
@@ -220,17 +219,6 @@ export default function Login() {
                       btnName={btnState ? "Logging in..." : "Log in"}
                       backgroundColor="bg-[#4285f4]"
                     />
-                    {auth.currentUser !== null &&
-                    !auth?.currentUser?.emailVerified ? (
-                      <SignoutButton
-                        onClickFunction={handleSendingMail}
-                        isDisabled={btnState2}
-                        btnName={
-                          btnState2 ? "sending" : "Resend Verification Email"
-                        }
-                        backgroundColor="bg-[#4285f4]"
-                      />
-                    ) : null}
                   </div>
                   <div className="new-user text-center mb-4">
                     <p>
