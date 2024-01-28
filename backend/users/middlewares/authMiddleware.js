@@ -24,11 +24,16 @@ const addUID = async (request, response, next) => {
 
   try {
     const decodedToken = await getAuth().verifyIdToken(authToken);
-    const { uid } = decodedToken;
+    const {
+      uid,
+      firebase: { sign_in_provider },
+    } = decodedToken;
 
-    await getAuth().updateUser(uid, {
-      emailVerified: true,
-    });
+    if (sign_in_provider === "github.com") {
+      await getAuth().updateUser(uid, {
+        emailVerified: true,
+      });
+    }
 
     getAuth()
       .verifyIdToken(authToken)
