@@ -16,6 +16,7 @@ import Navbar from "./globals/Navbar";
 import Homepage from "../pages/home/Homepage";
 import Footer from "./globals/Footer";
 import { loader as loginLoader } from "./Login";
+import {loader as resendLoader} from "../pages/verification/ResendEmailVerification"
 import { loader as signupLoader } from "./globals/Signup";
 import {loader as forgotPasswordLoader} from "./ForgotPassword";
 import NewNavbar from "./globals/NewNavbar";
@@ -51,4 +52,5 @@ export {
   signupLoader,
   ForgotPassword,
   forgotPasswordLoader,
+  resendLoader
 };

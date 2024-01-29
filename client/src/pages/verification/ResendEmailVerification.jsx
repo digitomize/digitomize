@@ -4,6 +4,16 @@ import SignoutButton from "../../user/components/SignoutButton";
 import { toast, ToastContainer } from "react-toastify";
 import { auth } from "../../../firebase";
 import { sendEmailVerification } from "firebase/auth";
+import { isLoggedIn } from "../../../api";
+import { redirect } from "react-router-dom";
+
+export async function loader() {
+  const loggedIn = await isLoggedIn();
+  if (loggedIn && auth.currentUser.emailVerified) {
+    return redirect("/login");
+  }
+  return null;
+}
 
 const ResendEmailVerification = () => {
   const [btnState, setbtnState] = useState(false);
@@ -41,7 +51,9 @@ const ResendEmailVerification = () => {
     <>
       <ToastContainer />
       <main className="resend-email-container">
-        <h2 className="resend-email-heading">Please verify your email to continue</h2>
+        <h2 className="resend-email-heading">
+          Please verify your email to continue
+        </h2>
         <p className="resend-email-content">
           Didn't receive the verification email? Click the button below to
           resend it.
