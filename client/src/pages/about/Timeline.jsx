@@ -13,6 +13,20 @@ import { ms_startup_new, digitalocean, gitbook } from "./assets/assets";
 import TimelineComponent from "./TimelineComponent";
 const data = [
   {
+    title: "Reached 700+ Users Milestone",
+    date: "28 Jan, 2024",
+    description:
+      "Yay! We have reached 700+ users milestone. We are grateful for your support and we will continue to work hard.",
+    img: "",
+  },
+  {
+    title: "Reached 300+ Stars Milestone",
+    date: "27 Jan, 2024",
+    description:
+      "Thanks for the love and support!",
+    img: "",
+  },
+  {
     title: "Reached 500 Users Milestone",
     date: "1 Jan, 2024",
     description:
