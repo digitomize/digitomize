@@ -5,11 +5,8 @@ import { auth } from "../firebase";
 
 function ProtectedRoute() {
   const { user } = useUserAuth();
-  const navigate = useNavigate();
 
-  /* if(user && auth.currentUser.emailVerified === false){
-    return navigate("/resend-email-verification")
-  } */
+ 
 
   return user && auth?.currentUser?.emailVerified ? (
     <Outlet />

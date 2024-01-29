@@ -30,6 +30,7 @@ import {
   About,
   Footer,
   MetaData,
+  resendLoader,
 } from "./components/CustomComponents";
 import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashPersonal, {
@@ -185,6 +186,7 @@ const router = createBrowserRouter(
       <Route
         path="resend-email-verification"
         element={<ResendEmailVerification />}
+        loader={resendLoader}
       />
       <Route path="user-email-verification" element={<VerifyEmailPage />} />
       <Route path="/admin" element={<AdminPanelGuard />}>

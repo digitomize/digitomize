@@ -38,7 +38,7 @@ export default function GithubAuthButton({
           })
           // .then((res) => console.log(res))
           .catch((err) => console.log(err));
-        navigate("/u/dashboard/account");
+        window.location.reload();
       })
       .catch((error) => {
         toast.error(error.code, {
