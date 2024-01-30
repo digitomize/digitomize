@@ -30,7 +30,7 @@ import {
   About,
   Footer,
   MetaData,
-} from "./components/CustomComponents";
+} from "@components/CustomComponents";
 import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashPersonal, {
   loader as userDashPersonalLoader,
@@ -91,10 +91,10 @@ import UserListPage from "./pages/admin/UserListPage";
 import AdminPanelGuard from "./AdminPanelGuard";
 import ContestListPage from "./pages/admin/ContestListPage";
 import CommunityListPage from "./pages/admin/CommunityListPage";
-import ContestPageLayout from "./components/Contests/ContestPageLayout";
-import Filter from "./components/Contests/Filter";
-import Challenges from "./components/Contests/Challenges/Challenges";
-import ComingSoonLoader from "./components/Contests/ComingSoonLoader";
+import ContestPageLayout from "@components/Contests/ContestPageLayout";
+import Filter from "@components/Contests/Filter";
+import Challenges from "@components/Contests/Challenges/Challenges";
+import ComingSoonLoader from "@components/Contests/ComingSoonLoader";
 
 function Logout() {
   const navigate = useNavigate();

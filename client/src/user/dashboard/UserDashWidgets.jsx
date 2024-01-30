@@ -1,9 +1,9 @@
-import { MetaData } from "../../components/CustomComponents";
+import { MetaData } from "@components/CustomComponents";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DashboardNavbar from "../components/DashboardNavbar";
-import ShareModel from "../../components/share_model";
-import LoadingScreen from "../../components/globals/LoadingScreen";
+import ShareModel from "@components/share_model";
+import LoadingScreen from "@components/globals/LoadingScreen";
 import { userDashboardDetails } from "../../../api";
 import { userProfileDetails } from "../../../api";
 

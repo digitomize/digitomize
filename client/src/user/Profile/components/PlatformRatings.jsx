@@ -7,7 +7,7 @@ import codechef from "../../../assets/codechef.svg";
 import codeforces from "../../../assets/codeforces.svg";
 import { OpenInNew } from "@mui/icons-material";
 import { Helmet } from "react-helmet";
-import ShareModel from "../../../components/share_model.jsx";
+import ShareModel from "@components/share_model.jsx";
 
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 function PlatformRatings() {

@@ -16,7 +16,7 @@ import "react-toastify/dist/ReactToastify.css";
 import SignoutButton from "../components/SignoutButton";
 import NewLogOut from "../components/NewLogOut";
 import { useUserAuth } from "../../context/UserAuthContext";
-import NewNavbar from "../../components/globals/NewNavbar.jsx";
+import NewNavbar from "@components/globals/NewNavbar.jsx";
 import { Skeleton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import Chip from "@mui/material/Chip";
@@ -30,13 +30,13 @@ import logo from "../../assets/logo.png";
 import Badge from "@mui/material/Badge";
 import MoodIcon from "@mui/icons-material/Mood";
 import Tooltip from "@mui/material/Tooltip";
-import Footer from "../../components/globals/Footer.jsx";
-import LoadingScreen from "../../components/globals/LoadingScreen.jsx";
-import ShareModel from "../../components/share_model.jsx";
+import Footer from "@components/globals/Footer.jsx";
+import LoadingScreen from "@components/globals/LoadingScreen.jsx";
+import ShareModel from "@components/share_model.jsx";
 import UserCard from "../Profile/components/UserCard.jsx";
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 // import logo from "../assets/logo.png";
-import { MetaData } from "../../components/CustomComponents.jsx";
+import { MetaData } from "@components/CustomComponents.jsx";
 
 export default function UserDashboard() {
   const navigate = useNavigate();

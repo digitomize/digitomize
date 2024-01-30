@@ -11,7 +11,7 @@ import {
   Code,
 } from "@mui/icons-material";
 import { Helmet } from "react-helmet";
-import "/src/components/css/IndividualCard.css";
+import "@components/css/IndividualCard.css";
 import { Alert, AlertTitle } from "@mui/material";
 import geeksforgeeks from "/src/assets/geeksforgeeks.svg";
 import leetcode from "/src/assets/leetcode.svg";

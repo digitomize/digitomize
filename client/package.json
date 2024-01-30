@@ -47,7 +47,8 @@
     "tailwind-merge": "^2.1.0",
     "tailwindcss-animate": "^1.0.7",
     "tw-elements-react": "^1.0.0-alpha1",
-    "typewriter-effect": "^2.20.1"
+    "typewriter-effect": "^2.20.1",
+    "vite-jsconfig-paths": "^2.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

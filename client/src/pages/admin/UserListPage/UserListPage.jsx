@@ -25,7 +25,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { useUserAuth } from "../../../context/UserAuthContext";
 import { StyledTableCell, StyledTableRow } from "../../../index.styled";
-import { Footer } from "../../../components/CustomComponents";
+import { Footer } from "@components/CustomComponents";
 import AppDialog from "../../../core/components/AppModal";
 import CreateUser from "./CreateUser";
 import DeleteUser from "./DeleteUser";
