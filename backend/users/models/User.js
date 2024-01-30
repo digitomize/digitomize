@@ -18,6 +18,10 @@ const contestToggleSchema = new mongoose.Schema({
   fetchTime: Number,
   attendedContestsCount: Number,
   showOnWebsite: Boolean,
+  totalQuestions: Number,
+  easyQuestions:Number,
+  mediumQuestions:Number,
+  hardQuestions: Number,
 });
 
 const communitySchema = new mongoose.Schema({
@@ -148,6 +152,10 @@ const userSchema = new mongoose.Schema(
         showOnWebsite: true,
         fetchTime: 0,
         attendedContestsCount: null,
+        totalQuestions:0,
+        easyQuestions:0,
+        mediumQuestions:0,
+        hardQuestions:0
       },
     },
     leetcode: {
@@ -159,6 +167,10 @@ const userSchema = new mongoose.Schema(
         showOnWebsite: true,
         fetchTime: 0,
         attendedContestsCount: null,
+        totalQuestions:0,
+        easyQuestions:0,
+        mediumQuestions:0,
+        hardQuestions:0
       },
     },
     codeforces: {
@@ -170,6 +182,10 @@ const userSchema = new mongoose.Schema(
         showOnWebsite: true,
         fetchTime: 0,
         attendedContestsCount: null,
+        totalQuestions:0,
+        easyQuestions:0,
+        mediumQuestions:0,
+        hardQuestions:0
       },
     },
     digitomize_rating: {

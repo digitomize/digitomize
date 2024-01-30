@@ -38,6 +38,7 @@ import UserDashPersonal, {
 import UserDashRatings, {
   loader as userDashRatingsLoader,
 } from "./user/dashboard/UserDashRatings";
+import UserDashWidgets from "./user/dashboard/UserDashWidgets";
 import UserDashGithub, {
   loader as userDashGithubLoader,
 } from "./user/dashboard/UserDashGithub";
@@ -151,7 +152,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<Layout />}>
         <Route index element={<Homepage />} />
         <Route path="login" element={<Login />} loader={loginLoader} />
-        <Route path="logout" element={<Logout />} />;
+        <Route path="logout" element={<Logout />} />
         <Route path="signup" element={<Signup />} loader={signupLoader} />
         <Route path="forgot-password" element={<ForgotPassword />} loader={forgotPasswordLoader} />
         <Route element={<ContestPageLayout />}>
@@ -190,6 +191,7 @@ const router = createBrowserRouter(
             loader={userDashPersonalLoader}
           />
           <Route path="ratings" element={<UserDashRatings />} />
+          <Route path="widgets" element={<UserDashWidgets />} />
           <Route
             path="github"
             element={<UserDashGithub />}
@@ -215,17 +217,13 @@ const router = createBrowserRouter(
     </Route>,
   ),
 );
-import Snowfall from "react-snowfall";
 function App() {
   return (
     <>
       <UserAuthContextProvider>
         <UserContextProvider>
           <ToastContainer />
-          <div>
-            <Snowfall snowflakeCount={100} speed={[0.2, 1]} wind={[0, 1]} style={{ position: "fixed" }} />
-            <RouterProvider router={router} />
-          </div>
+          <RouterProvider router={router} />
         </UserContextProvider>
       </UserAuthContextProvider>
       <Footer />

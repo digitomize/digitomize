@@ -6,6 +6,7 @@ import { handleUpdateUserProfile } from "../controllers/userUpdateController.js"
 import { addUID } from "../middlewares/authMiddleware.js";
 import { getLeaderboard } from "../controllers/leaderboardController.js";
 import { generateSignature } from "../controllers/cloudinaryUploadController.js";
+import { generateSVG } from "../controllers/generateSVG.js";
 import { updateDeviceID } from "../controllers/notifsController.js";
 
 const router = express.Router();
@@ -27,6 +28,7 @@ router.get("/signImageUpload", addUID, generateSignature);
 
 router.get("/profile/:username", handleUserProfilePreview);
 
+router.get("/ratings/:username", generateSVG);
 // router.post('/profile/:username', addUID, checkUserOwnership, handleUpdateUserProfile);
 
 // router.post('/isLoggedin', checkLoggedIn);

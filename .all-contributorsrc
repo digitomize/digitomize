@@ -481,6 +481,60 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "moeez506",
+      "name": "Moeez Ahmad",
+      "avatar_url": "https://avatars.githubusercontent.com/u/58481032?v=4",
+      "profile": "https://www.linkedin.com/in/moeezahmad01/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "beneki",
+      "name": "Hossein Ekramian",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20746347?v=4",
+      "profile": "https://ekramian.uk",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "PatelYash7",
+      "name": "Yash Patel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/109963122?v=4",
+      "profile": "https://github.com/PatelYash7",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "JustFelix-Dev",
+      "name": "Felix Owolabi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55788436?v=4",
+      "profile": "http://felixdev.com.ng",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "utkarsh4321",
+      "name": "utkarsh srivastava",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30936607?v=4",
+      "profile": "https://utdev.vercel.app/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Zolo-Ryan",
+      "name": "Zolo Ryan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/119104324?v=4",
+      "profile": "https://github.com/Zolo-Ryan",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

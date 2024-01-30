@@ -1,8 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Link, useParams } from "react-router-dom";
-// import {HomeIcon, WhatshotIcon, GrainIcon} from '@mui/icons-material';
-import { Home as HomeIcon, Whatshot as WhatshotIcon, Grain as GrainIcon, OpenInNew, PanTool, Celebration, Star } from "@mui/icons-material";
+import { Home as HomeIcon, Whatshot as WhatshotIcon, Grain as GrainIcon, Star } from "@mui/icons-material";
 import { NewFooter } from "./CustomComponents";
 import { Helmet } from "react-helmet";
 import "./css/IndividualCard.css";
@@ -14,14 +13,10 @@ import codechef from "../assets/codechef.svg";
 import codeforces from "../assets/codeforces.svg";
 import atcoder from "../assets/atcoder.svg";
 import CopyToClipboard from "./CopyToClipboard";
-import { useUserAuth } from "../context/UserAuthContext";
-import microsoftLogo from "../public/png/MS_Startups_Celebration_Badge_Dark.png";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 function IndividualCard() {
-  const { user } = useUserAuth();
-  const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   const hostToSVGMap = {
     leetcode: leetcode,
     codingninjas: codingninjas,
@@ -30,12 +25,6 @@ function IndividualCard() {
     codechef: codechef,
     atcoder: atcoder,
     // Add other hosts and their corresponding SVG variables here
-  };
-  const [alertOpen, setAlertOpen] = useState(true);
-
-  const handleCloseAlert = () => {
-
-    setAlertOpen(false);
   };
 
   const params = useParams();
@@ -103,9 +92,15 @@ function IndividualCard() {
   };
   const monthName = getMonthInWords(startDate);
 
-  setInterval(() => {
-    setRemainingTime(updateTimer(startTimeUnix, duration));
-  }, 1000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRemainingTime(updateTimer(startTimeUnix, duration));
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   const contentDescription = `${name} | ${startTimeIST} (IST)`.toLowerCase();
   const contentTitle = `${host} | Digitomize`.toLowerCase();
@@ -120,28 +115,15 @@ function IndividualCard() {
       </Helmet>
       {true &&
         <div className="mx-auto w-fit mt-4">
-          <Alert severity="warning" className="w-fit" icon={<Star className="animate-ping"/>}>
+          <Alert severity="warning" className="w-fit" icon={<Star className="animate-ping" />}>
             <a href="https://github.com/digitomize/digitomize" target="_blank" rel="noreferrer">
               <AlertTitle>
                 {/* <strong>🎉 digitomize</strong> */}
-                <span className="normal-case"> Thank you for <strong>100+ stars</strong> on GitHub 🎉🎉 
+                <span className="normal-case"> Thank you for <strong>100+ stars</strong> on GitHub 🎉🎉
                 </span>
               </AlertTitle>
             </a>
           </Alert>
-          {/* <div className="w-full flex md:flex-row-reverse -right-8 -top-4 md:relative max-md:justify-center max-md:mt-4">
-          <img src={ microsoftLogo} alt="" className="w-40"/>
-          </div> */}
-          {/* <Alert severity="error" className="w-fit" icon={<PanTool className="animate-ping"/>}>
-            <Link to="/signup?utm_source=contests">
-              <AlertTitle>
-                <strong>One-Stop Ratings!</strong> -
-                <span> Join in<OpenInNew fontSize="small" />
-                </span>
-              </AlertTitle>
-              stop checking ratings <strong>one by one</strong>; see them all at <strong>once</strong>!
-            </Link>
-          </Alert> */}
         </div>
       }
       {isMobile ?
@@ -219,27 +201,27 @@ function IndividualCard() {
         :
         (<>
           <div className="card_Navigation flex justify-center mt-8 text-2xl" >
-                <div className="card_nav_path">
-                  <Link to="/">
-                    <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                    Home
-                  </Link>
-                </div>
-                <h3>&gt;</h3>
-                <div className="card_nav_path">
-                  <Link to="/contests">
-                    <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                    Contests
-                  </Link>
-                </div>
-                <h3>&gt;</h3>
-                <div className="card_nav_path">
-                  <h3>
-                    <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                    {name}
-                  </h3>
-              </div>
+            <div className="card_nav_path">
+              <Link to="/">
+                <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                Home
+              </Link>
             </div>
+            <h3>&gt;</h3>
+            <div className="card_nav_path">
+              <Link to="/contests">
+                <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                Contests
+              </Link>
+            </div>
+            <h3>&gt;</h3>
+            <div className="card_nav_path">
+              <h3>
+                <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
+                {name}
+              </h3>
+            </div>
+          </div>
           <div className="ic py-8" key={vanity} style={{ backgroundColor: colorTheme }}>
             <div className="ic-child">
               <div className='date' style={{ color: "black", fontWeight: "bold", backgroundColor: colorTheme }}>{startDate.getDate()} {monthName}' {startDate.getFullYear()}</div>

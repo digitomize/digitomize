@@ -2,7 +2,7 @@
 
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-52-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-58-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Website: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9g.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
 
@@ -168,6 +168,14 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/LevisNgigi"><img src="https://avatars.githubusercontent.com/u/111055098?v=4?s=100" width="100px;" alt="Levis Mbote"/><br /><sub><b>Levis Mbote</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=LevisNgigi" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/nakul30"><img src="https://avatars.githubusercontent.com/u/96560834?v=4?s=100" width="100px;" alt="Nakul Garg"/><br /><sub><b>Nakul Garg</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=nakul30" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://biodrop.io/harmeetsingh11"><img src="https://avatars.githubusercontent.com/u/130365071?v=4?s=100" width="100px;" alt="Harmeet Singh"/><br /><sub><b>Harmeet Singh</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=harmeetsingh11" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/moeezahmad01/"><img src="https://avatars.githubusercontent.com/u/58481032?v=4?s=100" width="100px;" alt="Moeez Ahmad"/><br /><sub><b>Moeez Ahmad</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=moeez506" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://ekramian.uk"><img src="https://avatars.githubusercontent.com/u/20746347?v=4?s=100" width="100px;" alt="Hossein Ekramian"/><br /><sub><b>Hossein Ekramian</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=beneki" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/PatelYash7"><img src="https://avatars.githubusercontent.com/u/109963122?v=4?s=100" width="100px;" alt="Yash Patel"/><br /><sub><b>Yash Patel</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=PatelYash7" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://felixdev.com.ng"><img src="https://avatars.githubusercontent.com/u/55788436?v=4?s=100" width="100px;" alt="Felix Owolabi"/><br /><sub><b>Felix Owolabi</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=JustFelix-Dev" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://utdev.vercel.app/"><img src="https://avatars.githubusercontent.com/u/30936607?v=4?s=100" width="100px;" alt="utkarsh srivastava"/><br /><sub><b>utkarsh srivastava</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=utkarsh4321" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Zolo-Ryan"><img src="https://avatars.githubusercontent.com/u/119104324?v=4?s=100" width="100px;" alt="Zolo Ryan"/><br /><sub><b>Zolo Ryan</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Zolo-Ryan" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>

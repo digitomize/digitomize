@@ -58,7 +58,7 @@ export default function About() {
                   What we do
                 </h2>
                 <div className="flex flex-row justify-between mt-[50px] flex-wrap gap-y-[25px] gap-x-[25px] ">
-                  <div className="border-[1px] flex-1 border-solid border-white bg-[#0e0f10] min-w-[225px] text-white rounded-[12px] py-[30px] px-[25px] text-center">
+                  <div className="hover:scale-110 hover:transition transition border-[1px] flex-1 border-solid border-white bg-[#0e0f10] min-w-[225px] text-white rounded-[12px] py-[30px] px-[25px] text-center">
                     <h3 className="font-semibold text-2xl mb-[20px]">
                       Contests
                     </h3>
@@ -72,7 +72,7 @@ export default function About() {
                     </p>
                   </div>
 
-                  <div className="border-[1px] flex-1 border-solid border-white min-w-[225px] bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
+                  <div className="hover:scale-110 hover:transition transition border-[1px] flex-1 border-solid border-white min-w-[225px] bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
                     <h3 className="font-semibold text-2xl mb-[20px]">
                       Portfolio
                     </h3>
@@ -85,7 +85,7 @@ export default function About() {
                       dynamic skill showcase.
                     </p>
                   </div>
-                  <div className="border-[1px] flex-1  border-solid border-white min-w-[225px] bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
+                  <div className="hover:scale-110 hover:transition transition border-[1px] flex-1  border-solid border-white min-w-[225px] bg-[#0e0f10] text-white rounded-[12px] py-[30px] px-[25px] text-center">
                     <h3 className="font-semibold text-2xl mb-[20px]">
                       Open Source
                     </h3>
@@ -138,7 +138,7 @@ export default function About() {
               </svg>
             </div>
             <div className="stat-title">total views</div>
-            <div className="stat-value text-secondary">38k+</div>
+            <div className="stat-value text-secondary">50k+</div>
             {/* <div className="stat-desc">21% more than last month</div> */}
           </div>
           <Link
@@ -151,7 +151,7 @@ export default function About() {
                 <AiFillLinkedin className="w-8 h-8" />
               </div>
               <div className="stat-title">linkedin followers</div>
-              <div className="stat-value text-secondary">850+</div>
+              <div className="stat-value text-secondary">900+</div>
               {/* <div className="stat-desc">21% more than last month</div> */}
             </div>
           </Link>
@@ -165,7 +165,7 @@ export default function About() {
                 <AiFillStar className="w-8 h-8" />
               </div>
               <div className="stat-title">Github Stars</div>
-              <div className="stat-value text-secondary">230+</div>
+              <div className="stat-value text-secondary">300+</div>
               {/* <div className="stat-desc">21% more than last month</div> */}
             </div>
           </Link>
@@ -178,7 +178,7 @@ export default function About() {
                 <AiOutlineUsergroupAdd className="w-8 h-8" />
               </div>
               <div className="stat-title">contributors</div>
-              <div className="stat-value text-secondary">50+</div>
+              <div className="stat-value text-secondary">60+</div>
               {/* <div className="stat-desc">21% more than last month</div> */}
             </div>
           </Link>

@@ -6,6 +6,9 @@ import {
   Whatshot as WhatshotIcon,
   Grain as GrainIcon,
   Celebration,
+  Notifications,
+  Event,
+  Code,
 } from "@mui/icons-material";
 import { Helmet } from "react-helmet";
 import "/src/components/css/IndividualCard.css";
@@ -18,8 +21,30 @@ import codeforces from "/src/assets/codeforces.svg";
 import atcoder from "/src/assets/atcoder.svg";
 import CopyToClipboard from "../CopyToClipboard";
 import { useUserAuth } from "../../context/UserAuthContext";
+import moment from "moment-timezone";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+
+const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity }) => {
+  // Adjust the start time and duration for IST (GMT+5:30)
+  const startTimeIST = new Date((startTimeUnix +  60 * 60 - 3600) * 1000);
+  const endTimeIST = new Date((startTimeUnix + duration * 60 + 60 * 60 - 3600) * 1000);
+
+  const formattedStartTime = startTimeIST.toISOString().replace(/[-:]/g, "").replace(".000", "+05:30");
+  const formattedEndTime = endTimeIST.toISOString().replace(/[-:]/g, "").replace(".000", "+05:30");
+
+  const startHour = startTimeIST.getHours();
+  const startMinute = startTimeIST.getMinutes();
+  const ampm = startHour >= 12 ? "PM" : "AM";
+  const formattedStartTimeString = `${startHour % 12 || 12}:${startMinute < 10 ? "0" : ""}${startMinute} ${ampm}`;
+
+  const description = `<hr>🏆<b>Contest</b>🏆%0A👨🏻‍💻Name: ${name}%0A🕘Start at: ${formattedStartTimeString}%0A⏱️Duration: ${duration} minutes%0A🚀Host: ${host}%0A🔗Contest URL: <a href='${url}'>${url}</a>%0A<hr><i>Thank you for using <a href='https://digitomize.com'>digitomize</a></i>`;
+
+  const googleCalendarUrl = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${formattedStartTime}/${formattedEndTime}&text=${encodeURIComponent(name)}&details=${description}`;
+
+  // Open the Google Calendar event creation page in a new tab
+  window.open(googleCalendarUrl, "_blank");
+};
 
 function IndividualCard() {
   const { user } = useUserAuth();
@@ -53,7 +78,7 @@ function IndividualCard() {
 
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
-  const [remaningTime, setRemainingTime] = useState("0");
+  const [remaningTime, setRemainingTime] = useState("Loading...");
   if (contest === null) {
     return <div className="min-h-[40vh]">Loading...</div>;
   }
@@ -72,8 +97,25 @@ function IndividualCard() {
   // console.log(contest.length);
   const durationInMilliseconds = duration * 60 * 1000;
   const endTimeUnix = startTimeUnix + durationInMilliseconds / 1000;
-  const startDate = new Date(startTimeUnix * 1000);
-  const endDate = new Date(endTimeUnix * 1000);
+
+  // Get the current User's timezone
+  const userTimezone = moment.tz.guess(true);
+
+  // Convert the Unix timestamp to a datetime in the specified timezone for startTimeUnix
+  const startDateTimeInTimezone = moment.tz(startTimeUnix * 1000, userTimezone);
+
+  // Format the datetime as a string for startTime
+  const startMonth = startDateTimeInTimezone.format("MMM");
+  const startDate = startDateTimeInTimezone.format("D");
+  const startYear = startDateTimeInTimezone.format("YYYY");
+  const startTime = startDateTimeInTimezone.format("h:mm A");
+
+  // Convert the Unix timestamp to a datetime in the specified timezone for endTimeUnix
+  const endDateTimeInTimezone = moment.tz(endTimeUnix * 1000, userTimezone);
+
+  // Format the datetime as a string for endTime
+  const endTime = endDateTimeInTimezone.format("h:mm A");
+
   const getColorTheme = () => {
     if (host === "leetcode") {
       return "#FFCC00";
@@ -92,44 +134,17 @@ function IndividualCard() {
     }
   };
   const colorTheme = getColorTheme();
-  const options = {
-    hour: "numeric",
-    minute: "numeric",
-    hour12: true,
-    timeZone: "Asia/Kolkata",
-  };
-  const startTimeIST = startDate.toLocaleString("en-US", options);
-  const endTimeIST = endDate.toLocaleString("en-US", options);
 
   const hours = Math.floor(duration / 60);
   const minutes = duration % 60;
 
   const durationFormatted = `${hours} h ${minutes} m`;
 
-  const getMonthInWords = (date) => {
-    const months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec",
-    ];
-    return months[date.getMonth()];
-  };
-  const monthName = getMonthInWords(startDate);
-
   setInterval(() => {
     setRemainingTime(updateTimer(startTimeUnix, duration));
   }, 1000);
 
-  const contentDescription = `${name} | ${startTimeIST} (IST)`.toLowerCase();
+  const contentDescription = `${name} | ${startTime} (IST)`.toLowerCase();
   const contentTitle = `${host} | Digitomize`.toLowerCase();
   const pageTitle = `${name} | Digitomize`.toLowerCase();
   if (contest)
@@ -163,16 +178,16 @@ function IndividualCard() {
         {true && (
           <div className="mx-auto w-fit mt-4">
             <Alert
-              severity="info"
+              severity="error"
               className="w-fit"
-              icon={<Celebration className="animate-ping" />}
+              icon={<Notifications className="animate-ping" />}
             >
-              <a href="https://code-kshetra.devfolio.co/?ref=f9a3e0c023" target="_blank" rel="noreferrer">
-                <AlertTitle>
-                  <strong>Hackathon!!!</strong>
+              <a href="https://whatsapp.com/channel/0029VaJyadwLNSa71cZCQt1A" target="_blank" rel="noreferrer">
+                <AlertTitle>DON'T miss out contests - get all contest notifications on
+                  <strong> Whatsapp!!</strong>
                   <span className="normal-case">
                     {" "}
-                    300k+ INR Prize Pool -<strong> register today</strong>🎉
+                    Follow <strong> now</strong>👨🏻‍💻
                   </span>
                 </AlertTitle>
               </a>
@@ -230,7 +245,7 @@ function IndividualCard() {
                     backgroundColor: colorTheme,
                   }}
                 >
-                  {startDate.getDate()} {monthName}' {startDate.getFullYear()}
+                  {startDate} {startMonth}' {startYear}
                 </div>
                 <div className="ic-mv-child-first">
                   <img
@@ -267,7 +282,7 @@ function IndividualCard() {
                         display: "inline-block",
                       }}
                     >
-                      {startTimeIST}
+                      {startTime}
                     </div>
                   </div>
                   <div className="ic-mv-child-third-second">
@@ -388,7 +403,7 @@ function IndividualCard() {
                         display: "inline-block",
                       }}
                     >
-                      {endTimeIST}
+                      {endTime}
                     </div>
                   </div>
                 </div>
@@ -408,6 +423,24 @@ function IndividualCard() {
                   {remaningTime}
                 </div>
                 <div className="ic-mv-child-fifth">
+
+                  <div
+                    className="mv-btn-div"
+                    style={{ boxShadow: `8px 8px ${colorTheme}` }}
+                  >
+                    <button
+                      onClick={() => addToGoogleCalendar(contest)}
+                      style={{
+                        color: "black",
+                        fontWeight: "bold",
+                        fontSize: "20px",
+                        marginTop: "17px",
+                      }}
+                    >
+                      Add to Calendar <Event />
+                    </button>
+                  </div>
+
                   <a
                     href={url}
                     target="_blank"
@@ -423,11 +456,11 @@ function IndividualCard() {
                         marginTop: "1.063rem",
                       }}
                     >
-                      participate
+                      Participate <Code />
                     </button>
                   </a>
                   <CopyToClipboard
-                    msg="share"
+                    msg="Share"
                     className="mv-btn-div share-button-div share-button-container mv-btn-share-div"
                     gradient={"mv-btn-div"}
                   />
@@ -473,7 +506,7 @@ function IndividualCard() {
                     backgroundColor: colorTheme,
                   }}
                 >
-                  {startDate.getDate()} {monthName}' {startDate.getFullYear()}
+                  {startDate} {startMonth}' {startYear}
                 </div>
                 <div
                   style={{ position: "absolute", left: "350px", top: "530px" }}
@@ -525,7 +558,7 @@ function IndividualCard() {
                           display: "inline-block",
                         }}
                       >
-                        {startTimeIST}
+                        {startTime}
                       </p>
                     </div>
                   </div>
@@ -702,7 +735,7 @@ function IndividualCard() {
                           display: "inline-block",
                         }}
                       >
-                        {endTimeIST}
+                        {endTime}
                       </p>
                     </div>
                   </div>
@@ -908,6 +941,22 @@ function IndividualCard() {
                     {remaningTime}
                   </div>
                   <div className="ic-child-right-fourth">
+                    <div
+                      className="btn-div"
+                      style={{ boxShadow: `8px 8px ${colorTheme}` }}
+                    >
+                      <button
+                        onClick={() => addToGoogleCalendar(contest)}
+                        style={{
+                          color: "black",
+                          fontWeight: "bold",
+                          fontSize: "20px",
+                          marginTop: "17px",
+                        }}
+                      >
+                        Add to Calendar <Event />
+                      </button>
+                    </div>
                     <a
                       href={url}
                       target="_blank"
@@ -923,11 +972,11 @@ function IndividualCard() {
                           marginTop: "17px",
                         }}
                       >
-                        participate
+                        Participate <Code/>
                       </button>
                     </a>
                     <CopyToClipboard
-                      msg="share"
+                      msg="Share"
                       className="share-button-container share-button-div-phone"
                       gradient={"btn-div"}
                     />

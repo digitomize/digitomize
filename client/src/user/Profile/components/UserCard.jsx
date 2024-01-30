@@ -46,7 +46,7 @@ function UserCard({
 
       <div className="flex flex-col items-center gap-[8px] p-0">
         <div>
-          <h1 className="normal-case text-center text-[#F0ECE5]">{name}</h1>
+          <h1 className="text-center text-3xl w-full max-w-[260px] whitespace-normal break-words px-3  md:text-5xl text-[#F0ECE5]">{name}</h1>
           <div className="badges text-center">
             <div className="badge bg-[#9ACD32] text-black mx-1">member</div>
             {role >= 4 && (
@@ -69,7 +69,6 @@ function UserCard({
         <div>
           <p>
             {truncatedBio}
-
             {bio?.length > 150 && (
               <button
                 onClick={toggleBio}
@@ -89,7 +88,9 @@ function UserCard({
         {(isUserProfile || isUserDashboard) && (
           <button
             className="bg-blue-500 flex gap-1 w-fit items-center justify-center text-white px-4 py-2 rounded-full mt-4 hover:opacity-80"
-            onClick={() => setShow(isUserProfile)}
+            onClick={() =>
+              setShow(isUserProfile ? isUserProfile : isUserDashboard)
+            }
           >
             <>
               <AiOutlineShareAlt />
@@ -97,15 +98,32 @@ function UserCard({
             </>
           </button>
         )}
-        <div className={`pt-8 flex justify-center gap-3 ${social ? "" : "hidden"}`}>
-          <a className={social?.linkedin ? "" : "hidden"} href={social?.linkedin} target="_blank" rel="noreferrer">
-            <FaLinkedin size={30} color="white"/>
+        <div
+          className={`pt-8 flex justify-center gap-3 ${social ? "" : "hidden"}`}
+        >
+          <a
+            className={social?.linkedin ? "" : "hidden"}
+            href={social?.linkedin}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaLinkedin size={30} color="white" />
           </a>
-          <a className={social?.instagram ? "" : "hidden"} href={social?.instagram} target="_blank" rel="noreferrer">
-            <FaInstagram size={30} color="white"/>
+          <a
+            className={social?.instagram ? "" : "hidden"}
+            href={social?.instagram}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaInstagram size={30} color="white" />
           </a>
-          <a className={social?.twitter ? "" : "hidden"} href={social?.twitter} target="_blank" rel="noreferrer">
-            <FaXTwitter size={30} color="white"/>
+          <a
+            className={social?.twitter ? "" : "hidden"}
+            href={social?.twitter}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaXTwitter size={30} color="white" />
           </a>
         </div>
         {!isUserProfile && !isUserDashboard && (
