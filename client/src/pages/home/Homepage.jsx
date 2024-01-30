@@ -6,14 +6,34 @@ import SectionOne from "../../components/Home/SectionOne";
 import SectionTwo from "../../components/Home/SectionTwo";
 import SectionThree from "../../components/Home/SectionThree";
 import Footer from "../../components/globals/Footer";
-
+import { messaging } from "../../../firebase";
+import { getToken } from "firebase/messaging";
 import { MetaData } from "../../components/CustomComponents";
 
 import ScrollToTop from "../../components/globals/ScrollToTop";
+import { isLoggedIn, sendDeviceID } from "../../../api";
 
 
 
 export default function Homepage() {
+
+  useEffect(() => {
+//checking if the user is logged in, if true, asking for notification perms and sending the device id to the db
+    async function requestPermission() {
+      const loggedIn = await isLoggedIn();
+      if (loggedIn) {
+        const permission = await Notification.requestPermission();
+        if (permission === "granted") {
+          const token = await getToken(messaging, { vapidKey: import.meta.env.VITE_REACT_APP_VAPID_KEY });
+          await sendDeviceID(token);
+        }
+      }
+    }
+
+    requestPermission();
+
+  }, []);
+
 
   return (
     <>

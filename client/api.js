@@ -31,6 +31,31 @@ export function isLoggedIn() {
   });
 }
 
+export async function sendDeviceID(data) {
+  console.log("api invoked");
+  const loggedIn = await isLoggedIn();
+
+  if (loggedIn) {
+    const currentUser = auth.currentUser;
+    const accessToken = await currentUser.getIdToken();
+
+    if (accessToken) {
+      try {
+        data = {"deviceID":data};
+        const response = await axios.post(`${backendUrl}/user/notifs`, data, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        return response;
+      } catch (error) {
+        console.error(error);
+        throw new Error(`Failed to send device ID: ${error.message}`);
+      }
+    }
+  }
+}
+
 export async function userDashboardDetails() {
   const loggedIn = await isLoggedIn();
 
@@ -144,11 +169,11 @@ export async function submitUserFormData(formData) {
   /* Throw an error if the entered username is an URL. */
   const urlPattern = new RegExp(
     "^(https?:\\/\\/)?" + // protocol
-      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
-      "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
-      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
-      "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
-      "(\\#[-a-z\\d_]*)?$",
+    "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+    "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+    "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+    "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+    "(\\#[-a-z\\d_]*)?$",
     "i",
   ); // fragment locator
 

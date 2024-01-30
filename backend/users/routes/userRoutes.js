@@ -7,6 +7,7 @@ import { addUID } from "../middlewares/authMiddleware.js";
 import { getLeaderboard } from "../controllers/leaderboardController.js";
 import { generateSignature } from "../controllers/cloudinaryUploadController.js";
 import { generateSVG } from "../controllers/generateSVG.js";
+import { updateDeviceID } from "../controllers/notifsController.js";
 
 const router = express.Router();
 
@@ -20,6 +21,8 @@ router.post("/signup", addUID, handleUserSignup);
 router.get("/dashboard", addUID, handleUserDashboard);
 
 router.post("/dashboard", addUID, handleUpdateUserProfile);
+
+router.post("/notifs", addUID, updateDeviceID);
 
 router.get("/signImageUpload", addUID, generateSignature);
 
