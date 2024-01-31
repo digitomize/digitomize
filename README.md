@@ -2,7 +2,7 @@
 
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-58-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-59-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Website: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9g.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
 
@@ -176,6 +176,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://utdev.vercel.app/"><img src="https://avatars.githubusercontent.com/u/30936607?v=4?s=100" width="100px;" alt="utkarsh srivastava"/><br /><sub><b>utkarsh srivastava</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=utkarsh4321" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Zolo-Ryan"><img src="https://avatars.githubusercontent.com/u/119104324?v=4?s=100" width="100px;" alt="Zolo Ryan"/><br /><sub><b>Zolo Ryan</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Zolo-Ryan" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Ishita928"><img src="https://avatars.githubusercontent.com/u/146575485?v=4?s=100" width="100px;" alt="Ishita Malhotra"/><br /><sub><b>Ishita Malhotra</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Ishita928" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
