@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-
+import { IoCreateSharp } from "react-icons/io5";
 // Importing all MUI icons here...
 import {
   Skeleton,
@@ -420,11 +420,17 @@ export default function SectionTwo() {
           }}
           className="flex justify-center m-4"
         >
-          <a
-            href="/signup"
+          <a  href="/signup"
+
+
+           
             className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border "
           >
+            <div  className='flex justify-center items-center gap-1'>
             Create Now
+            <IoCreateSharp />
+            </div>
+         
           </a>
         </motion.div>
       </div>
