@@ -16,7 +16,9 @@ const Modal = () => {
 
   const loginModal = useLoginModal();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState(null);
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [username, setUsername] = useState("");
   const [btnState, setbtnState] = useState(false); // disable feature
   const [passwordShow, setPasswordShow] = useState(false);
   const [error, setError] = useState("");
@@ -76,7 +78,22 @@ const Modal = () => {
             },
           })
           // .then((res) => console.log(res))
-          .catch((err) => setError(err.code));
+          .catch((err) => {
+            setError(err.code);
+            console.error("Signup error:", err);
+            setError("An error occurred during signup. Please try again.");
+            toast.error("An error occurred during signup. Please try again.", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
+          
+          });
       }
       handleSubmitLogin();
     } catch (err) {
@@ -293,7 +310,7 @@ const Modal = () => {
                       <div className="items-center">
                         <div className="w-full">
                           <SignoutButton
-                            onClickFunction={(e) => handleSubmit}
+                            onClickFunction={(e) => varient==="login" ? handleSubmitLogin : handleSubmitSignup}
                             isDisabled={btnState}
                             btnName={
                               varient==="login" ? (btnState ? "Logging in..." : "Log in") : (btnState ? "Joining in..." : "Join the coders")
