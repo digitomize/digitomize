@@ -8,7 +8,7 @@ import digitalOcean from "./svgs/digitalOcean.svg";
 import meltcd from "../../assets/meltcd.png";
 import { Star } from "@mui/icons-material";
 import { motion } from "framer-motion";
-
+import { MdPlayArrow } from "react-icons/md";
 export default function SectionOne() {
   return (
     <div className="font-['Geist'] xl:pt-8 max-md:pt-4 items-center flex flex-col text-center phone:mt-16">
@@ -81,11 +81,16 @@ export default function SectionOne() {
         }}
         className="flex justify-center phone:mt-16 mt-8"
       >
-        <a
-          href="/signup"
+        <a href="/signup"
+        
+          
           className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border"
         >
+          <div className='flex justify-center items-center gap-1'>
           Register Now
+          <MdPlayArrow />
+         </div>
+        
         </a>
       </motion.div>
       <motion.div
