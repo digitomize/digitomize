@@ -1,9 +1,9 @@
 import {
   Form,
-  useNavigation,
   redirect,
   Link,
   useLoaderData,
+  useNavigate
 } from "react-router-dom";
 import loginIcon from "../assets/fingerprint-animate-blue.svg";
 import { useState } from "react";
@@ -21,7 +21,6 @@ import GithubAuthButton from "./AuthButtons/GithubAuthButton";
 import { Eye, EyeOff } from "lucide-react";
 import { auth } from "../../firebase";
 
-
 export async function loader({ request }) {
   const message = new URL(request.url).searchParams.get("message");
   const loggedIn = await isLoggedIn();
@@ -36,19 +35,18 @@ export async function loader({ request }) {
 
 export default function Login() {
   const message = useLoaderData();
-  const navigation = useNavigation();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState(null);
   const [error, setError] = useState("");
   const { logIn } = useUserAuth();
-  const navigate = useNavigate();
   const [btnState, setbtnState] = useState(false); // disable feature
   const [passwordShow, setPasswordShow] = useState(false);
 
   function passwordToggle() {
     setPasswordShow(!passwordShow);
   }
- 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -57,6 +55,16 @@ export default function Login() {
     try {
       await logIn(email, password);
       setbtnState(false);
+      toast.success("Login Successfull", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
 
       navigate("/u/dashboard");
     } catch (err) {
@@ -74,8 +82,6 @@ export default function Login() {
       setError(err.code);
     }
   };
-
- 
 
   return (
     <>
