@@ -12,6 +12,7 @@ import {
   logo,
 } from "../../components/AllAssets";
 import { MetaData } from "../../components/CustomComponents";
+import Modal from "../../components/modals/Modal";
 import NewNavbar from "../../components/globals/NewNavbar";
 import { leaderboardData, rankOnLeaderboard } from "../../../api";
 import { OpenInNew, Info } from "@mui/icons-material";
@@ -35,6 +36,7 @@ import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import { useUserDetails } from "../../context/UserContext";
 import Rank from "./components/Rank";
 import ShareModel from "../../components/share_model";
+import useLoginModal from "../../hooks/useLoginModal";
 const theme = createTheme({
   palette: {
     mode: "dark",
@@ -63,6 +65,8 @@ export default function Leaderboard() {
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
   const close_model = () => setShow(false);
   const [show, setShow] = useState(false);
+  const loginModal = useLoginModal();
+
   function getCurrentDimension() {
     return {
       width: window.innerWidth,
@@ -140,7 +144,10 @@ export default function Leaderboard() {
 
   useEffect(() => {
     fetchLoggedUserData();
-  }, [userDetails]);
+    if(userDetails == null){
+      loginModal.onOpen();
+    }
+  }, [userDetails, loginModal.onOpen]);
 
   async function fetchLoggedUserData() {
     try {
@@ -211,6 +218,7 @@ export default function Leaderboard() {
   return (
     <>
       <MetaData path="u/leaderboard" />
+      <Modal />
       <NewNavbar position="static" />
       <div className="text-white text-center flex flex-col items-center justify-center">
         <h1 className="max-sm:text-[20px] max-sm:leading-6 mt-5 leading-[60px]">
