@@ -1,20 +1,24 @@
 import React from "react";
-import { Outlet, Navigate, useNavigate } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import { useUserAuth } from "./context/UserAuthContext";
 import { auth } from "../firebase";
 
 function ProtectedRoute() {
   const { user } = useUserAuth();
 
- 
-
-  return user && auth?.currentUser?.emailVerified ? (
-    <Outlet />
-  ) : auth?.currentUser?.emailVerified ? (
-    <Navigate to="/login?message=Please login first!" />
-  ) : (
-    <Navigate to="/resend-email-verification?message=Please verify your email" />
-  );
+  if (user) {
+    if (auth && auth?.currentUser?.emailVerified) {
+      return <Outlet />;
+    } else if (auth && !auth?.currentUser?.emailVerified) {
+      return (
+        <Navigate to="/resend-email-verification?message=Please verify your email" />
+      );
+    } else {
+      return <Navigate to="/login?message=Please login first!" />;
+    }
+  } else {
+    return <Navigate to="/login?message=Please login first!" />;
+  }
 }
 
 export default ProtectedRoute;
