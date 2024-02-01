@@ -3,7 +3,6 @@ import {
   useNavigation,
   redirect,
   Link,
-  useNavigate,
   useLoaderData,
 } from "react-router-dom";
 import loginIcon from "../assets/fingerprint-animate-blue.svg";
@@ -21,12 +20,7 @@ import GoogleAuthButton from "./AuthButtons/GoogleAuthButton";
 import GithubAuthButton from "./AuthButtons/GithubAuthButton";
 import { Eye, EyeOff } from "lucide-react";
 import { auth } from "../../firebase";
-import {
-  onAuthStateChanged,
-  sendEmailVerification,
-  signOut,
-} from "firebase/auth";
-import { useEffect } from "react";
+
 
 export async function loader({ request }) {
   const message = new URL(request.url).searchParams.get("message");
@@ -54,33 +48,7 @@ export default function Login() {
   function passwordToggle() {
     setPasswordShow(!passwordShow);
   }
-  /*  const handleSendingMail = async () => {
-    try {
-      await sendEmailVerification(auth.currentUser);
-      toast.success("Verification Mail Send", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-    } catch (err) {
-      toast.error(err.code, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-    }
-  };
- */
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -107,13 +75,7 @@ export default function Login() {
     }
   };
 
-  useEffect(() => {
-    const count = localStorage.getItem("count");
-    if (count < 1) {
-      window.localStorage.setItem("count", count + 1);
-      window.location.reload();
-    }
-  }, []);
+ 
 
   return (
     <>
