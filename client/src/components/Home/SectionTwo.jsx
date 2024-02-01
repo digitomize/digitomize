@@ -139,7 +139,7 @@ export default function SectionTwo() {
               <div className="flex flex-row px-4 py-4 bg-base-200">
                 <div className="flex flex-col w-2/4">
                   <Avatar
-                    src="/src/assets/hacker.png"
+                    src="@assets/hacker.png"
                     className="bg-custom-blue mb-2 self-center"
                     sx={{ padding: "6%", width: 40, height: 40 }}
                   />
@@ -222,7 +222,7 @@ export default function SectionTwo() {
               >
                 <div className="form-control w-3/4 max-w-md">
                   <Avatar
-                    src="/src/assets/hacker.png"
+                    src="@assets/hacker.png"
                     className="bg-custom-blue mb-2"
                     sx={{ padding: "2%", width: 60, height: 60 }}
                   />
@@ -317,7 +317,7 @@ export default function SectionTwo() {
               <div className="my-auto py-2 text-center flex flex-col justify-center items-center">
                 <Avatar
                   draggable="false"
-                  src="/src/assets/hacker.png"
+                  src="@assets/hacker.png"
                   className="bg-custom-blue mb-2 select-none"
                   sx={{ padding: "2%", width: 60, height: 60 }}
                 />

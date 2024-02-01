@@ -14,7 +14,7 @@ import { MetaData } from "../CustomComponents";
 import GoogleAuthButton from "../AuthButtons/GoogleAuthButton";
 import GithubAuthButton from "../AuthButtons/GithubAuthButton";
 import { ToastContainer, toast } from "react-toastify";
-import loginIcon from "/src/assets/fingerprint-animate-blue.svg";
+import loginIcon from "@assets/fingerprint-animate-blue.svg";
 import { Eye, EyeOff } from "lucide-react";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;

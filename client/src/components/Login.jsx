@@ -6,7 +6,7 @@ import {
   useNavigate,
   useLoaderData,
 } from "react-router-dom";
-import loginIcon from "../assets/fingerprint-animate-blue.svg";
+import loginIcon from "@assets/fingerprint-animate-blue.svg";
 import { useState } from "react";
 import { MetaData } from "./CustomComponents";
 import { useUserAuth } from "../context/UserAuthContext";
@@ -14,7 +14,7 @@ import { useUserAuth } from "../context/UserAuthContext";
 import { isLoggedIn } from "../../api";
 
 import { ToastContainer, toast } from "react-toastify";
-// import welcomeBack from "../assets/welcome-back.svg"
+// import welcomeBack from "@assets/welcome-back.svg"
 import SignoutButton from "../user/components/SignoutButton";
 
 import GoogleAuthButton from "./AuthButtons/GoogleAuthButton";

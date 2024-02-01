@@ -26,7 +26,7 @@ import { userDashboardDetails } from "../../../api";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import SettingsIcon from "@mui/icons-material/Settings";
-import logo from "../../assets/logo.png";
+import logo from "@assets/logo.png";
 import Badge from "@mui/material/Badge";
 import MoodIcon from "@mui/icons-material/Mood";
 import Tooltip from "@mui/material/Tooltip";

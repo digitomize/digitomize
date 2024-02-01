@@ -5,7 +5,7 @@ import gitbook from "./svgs/GitBookLight.svg";
 import msme from "./svgs/MSME.svg";
 import microsoft from "./svgs/microsoft4strp.svg";
 import digitalOcean from "./svgs/digitalOcean.svg";
-import meltcd from "../../assets/meltcd.png";
+import meltcd from "@assets/meltcd.png";
 import { Star } from "@mui/icons-material";
 import { motion } from "framer-motion";
 

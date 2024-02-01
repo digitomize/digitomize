@@ -3,7 +3,7 @@ import GoogleButton from "react-google-button";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 import { auth } from "../../../firebase";
-import googleIcon from "../../assets/google.svg";
+import googleIcon from "@assets/google.svg";
 
 import axios from "axios";
 

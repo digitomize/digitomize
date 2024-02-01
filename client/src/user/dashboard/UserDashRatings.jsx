@@ -13,11 +13,11 @@ import DashboardNavbar from "../components/DashboardNavbar";
 import Footer from "@components/globals/Footer";
 import LoadingScreen from "@components/globals/LoadingScreen";
 
-import leetcode from "../../assets/leetcode.svg";
-import codechef from "../../assets/codechef.svg";
-import codeforces from "../../assets/codeforces.svg";
-import geeksforgeeks from "../../assets/geeksforgeeks.svg";
-import codingninjas from "../../assets/codingninjas.png";
+import leetcode from "@assets/leetcode.svg";
+import codechef from "@assets/codechef.svg";
+import codeforces from "@assets/codeforces.svg";
+import geeksforgeeks from "@assets/geeksforgeeks.svg";
+import codingninjas from "@assets/codingninjas.png";
 import { MetaData } from "@components/CustomComponents";
 
 const platformsIcon = [
