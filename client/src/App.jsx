@@ -56,15 +56,14 @@ import Leaderboard from "./user/leaderboard/Leaderboard";
 /*------------ DSA Sheets Import ------------ */
 import SheetLayout from "./dsaSheets/layout/SheetLayout";
 
+// import formbricks from "@formbricks/js";
 
-import formbricks from "@formbricks/js";
-
-if (typeof window !== "undefined") {
-  formbricks.init({
-    environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_API_KEY,
-    apiHost: "https://app.formbricks.com",
-  });
-}
+// if (typeof window !== "undefined") { 
+//   formbricks.init({
+//     environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_API_KEY,
+//     apiHost: "https://app.formbricks.com",
+//   });
+// }
 
 function DiscordRedirect() {
   window.location.href = "https://discord.gg/bsbBytBqBc";

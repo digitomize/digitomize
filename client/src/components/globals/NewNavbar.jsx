@@ -7,9 +7,27 @@ import { useUserDetails } from "../../context/UserContext";
 import { ROLE } from "../../core/utils/const";
 import Novu from "./Notifs/Novu";
 
+
+import formbricks from "@formbricks/js";
+
+
+
 export default function NewNavbar({ position }) {
-  console.log("NAVVBAR")
   const { user } = useUserAuth();
+  const formbricksInit = () => {
+    // const user = useUserAuth();
+    console.log("FORMBRIN", user);
+    formbricks.init({
+      environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_API_KEY,
+      apiHost: "https://app.formbricks.com",
+      userId: user ? user.uid : "anonymous",
+    });
+  }
+  if (typeof window !== "undefined") {
+    formbricksInit();
+  }
+
+  console.log("NAVVBAR")
   const { userDetails } = useUserDetails();
   const location = useLocation();
 
@@ -109,8 +127,8 @@ export default function NewNavbar({ position }) {
           <Link
             to="/admin/user"
             className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname.includes("/admin")
-                ? "bg-zinc-400 text-zinc-950"
-                : ""
+              ? "bg-zinc-400 text-zinc-950"
+              : ""
               } hover:bg-zinc-200`}
           >
             <div className="dropdown  dropdown-bottom">
@@ -167,8 +185,8 @@ export default function NewNavbar({ position }) {
                 to={navLink.path}
                 key={index}
                 className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === navLink.path
-                    ? "bg-zinc-400 text-zinc-950"
-                    : ""
+                  ? "bg-zinc-400 text-zinc-950"
+                  : ""
                   } hover:bg-zinc-200`}
               >
                 {navLink.title}
