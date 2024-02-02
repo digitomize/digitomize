@@ -8,7 +8,7 @@ import { submitUserFormData, userDashboardDetails } from "../../../api";
 // import { useUserAuth } from '../../context/UserAuthContext'
 import { ToastContainer, toast } from "react-toastify";
 import { Skeleton } from "@mui/material";
-import NewNavbar from "../../components/globals/NewNavbar";
+import NewNavbar from "../../components/globals/Navbar/NewNavbar";
 import DashboardNavbar from "../components/DashboardNavbar";
 import Footer from "../../components/globals/Footer";
 import LoadingScreen from "../../components/globals/LoadingScreen";
@@ -185,7 +185,7 @@ export default function UserDashRatings() {
       <>
         <MetaData path="u/dashboard/ratings" />
         <ToastContainer />
-       
+
         {/* <div className="max-phone:hidden">
 
       <UserDashboard/>

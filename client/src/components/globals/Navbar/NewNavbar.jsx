@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import MobNav from "./MobNav";
-import { logo } from "../AllAssets";
-import { useUserAuth } from "../../context/UserAuthContext";
-import { useUserDetails } from "../../context/UserContext";
-import { ROLE } from "../../core/utils/const";
-import Novu from "./Notifs/Novu";
+import MobNav from "../MobNav";
+import { logo } from "../../AllAssets";
+import { useUserAuth } from "../../../context/UserAuthContext";
+import { useUserDetails } from "../../../context/UserContext";
+import { ROLE } from "../../../core/utils/const";
+import Novu from "../Notifs/Novu";
 
 
 import formbricks from "@formbricks/js";
 
-
+import { navLinks, navLinksDashboard } from "./navLinks";
 
 export default function NewNavbar({ position }) {
   const { user } = useUserAuth();
@@ -40,39 +40,7 @@ export default function NewNavbar({ position }) {
     transition: "opacity 0.3s ease-out, transform 0.3s ease-out",
   });
 
-  const navLinks = [
-    {
-      title: "Home",
-      path: "/home",
-    },
-    {
-      title: "Contests",
-      path: "/contests",
-    },
-    {
-      title: "Blogs",
-      path: "https://blogs.digitomize.com/",
-    },
-    {
-      title: "Leaderboard",
-      path: "/u/leaderboard",
-    },
-  ];
 
-  const navLinksDashboard = [
-    {
-      title: "account",
-      path: "/u/dashboard/account",
-    },
-    {
-      title: "ratings",
-      path: "/u/dashboard/ratings",
-    },
-    {
-      title: "github",
-      path: "/u/dashboard/github",
-    },
-  ];
 
   const toggleActive = () => {
     if (window.innerWidth < 768) {

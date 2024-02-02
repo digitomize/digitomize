@@ -12,7 +12,7 @@ import {
   logo,
 } from "../../components/AllAssets";
 import { MetaData } from "../../components/CustomComponents";
-import NewNavbar from "../../components/globals/NewNavbar";
+import NewNavbar from "../../components/globals/Navbar/NewNavbar";
 import { leaderboardData, rankOnLeaderboard } from "../../../api";
 import { OpenInNew, Info } from "@mui/icons-material";
 import {
@@ -338,9 +338,8 @@ export default function Leaderboard() {
       <div className="phone:w-4/6 w-[95%] mx-auto mt-4 text-center text-white">
         <div className=" rounded-[20px] max-phone:overflow-x-hidden overflow-x-auto">
           <table
-            className={`table  ${
-              screenSize.width <= 435 ? "table-xs" : ""
-            }  bg-[#252525]  w-full`}
+            className={`table  ${screenSize.width <= 435 ? "table-xs" : ""
+              }  bg-[#252525]  w-full`}
           >
             {/* head */}
             <thead className="bg-[#474747] text-white text-center max-sm:text-[12px]">
@@ -556,9 +555,9 @@ export default function Leaderboard() {
                                   15
                                   ? userDetails.personal_data.username
                                   : userDetails.personal_data.username.slice(
-                                      0,
-                                      15,
-                                    ) + "..."
+                                    0,
+                                    15,
+                                  ) + "..."
                                 : userDetails.personal_data.username}
                             </div>
                             {/* You can display more userDetails details here if needed */}

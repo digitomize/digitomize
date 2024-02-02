@@ -3,31 +3,11 @@ import logo from "../../assets/logo.png";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { useUserAuth } from "../../context/UserAuthContext";
 
+import { navLinks } from "../../components/globals/Navbar/navLinks";
+
+
 const MobileNav = ({ isMenuActive, toggleActive }) => {
   const { user } = useUserAuth();
-
-  const navLinks = [
-    {
-      title: "Home",
-      path: "/home",
-    },
-    {
-      title: "Contests",
-      path: "/contests",
-    },
-    {
-      title: "Blogs",
-      path: "https://blogs.digitomize.com/",
-    },
-    {
-      title: "Discord",
-      path: "/discord",
-    },
-    {
-      title: "Leaderboard",
-      path: "/u/leaderboard",
-    },
-  ];
 
   return (
     <header

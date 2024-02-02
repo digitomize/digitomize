@@ -3,7 +3,7 @@ import { Outlet, Navigate } from "react-router-dom";
 import { useUserDetails } from "./context/UserContext";
 import { USER_ROLE } from "./core/utils/const";
 import { useUserAuth } from "./context/UserAuthContext";
-import NewNavbar from "./components/globals/NewNavbar";
+import NewNavbar from "./components/globals/Navbar/NewNavbar";
 
 function AdminPanelGuard() {
   const { userDetails } = useUserDetails();
