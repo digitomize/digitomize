@@ -115,4 +115,6 @@ async function unstop_c(){
   return hackathonsListPromise;
 }
 
-export default unstop_c;
+export default {
+  unstop_c,
+}
