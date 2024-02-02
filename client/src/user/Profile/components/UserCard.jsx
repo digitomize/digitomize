@@ -104,7 +104,7 @@ function UserCard({
           ))}
         </div>
       </div>
-      <p className="border-[0.5px] border-solid border-[#8888884a] lg:text-[14px] sm:text-[12px] rounded-[5px] px-3 py-2 mt-4 text-[#818587]">
+      {bio && <p className="border-[0.5px] border-solid border-[#8888884a] lg:text-[14px] sm:text-[12px] rounded-[5px] px-3 py-2 mt-4 text-[#818587]">
         {truncatedBio}
 
         {bio?.length > 150 && (
@@ -112,7 +112,7 @@ function UserCard({
             {showMore ? "...show less" : "...show more"}
           </button>
         )}
-      </p>
+      </p>}
       <div className="flex lg:flex-row sm:flex-col max-sm:flex-row gap-y-4 w-full justify-between items-center mt-6">
         {isUserDashboard && (
           <button
