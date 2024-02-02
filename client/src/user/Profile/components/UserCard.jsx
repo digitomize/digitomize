@@ -13,7 +13,7 @@ function UserCard({
   bio,
   role,
   social,
-  skills=[],
+  skills = [],
 }) {
   console.log(social);
   const navigate = useNavigate();
@@ -47,13 +47,12 @@ function UserCard({
         />
         <div className="flex w-full sm:flex-col max-sm:flex-row max-sm:justify-between">
           <div>
-          <h2 className="font-500 lg:text-[32px] text-2xl ">{name}</h2>
-          <h2 className="sm:text-[16px] text-[14px] pl-1 font-normal font-['Geist']">@{username}</h2>
+            <h2 className="font-500 lg:text-[32px] text-2xl ">{name}</h2>
+            <h2 className="sm:text-[16px] text-[14px] pl-1 font-normal font-['Geist']">@{username}</h2>
           </div>
           <div
-            className={`sm:mt-3 flex  sm:gap-2 gap-3 ${
-              social ? "" : "hidden"
-            }`}
+            className={`sm:mt-3 flex  sm:gap-2 gap-3 ${social ? "" : "hidden"
+              }`}
           >
             <a
               className={social?.linkedin ? "" : "hidden"}
@@ -92,7 +91,7 @@ function UserCard({
         )}
       </div>
       <div className="mt-6 sm:hidden">
-        <p className="text-[16px]">Skills</p>
+        {skills.length > 0 && <p className="text-[16px]">Skills</p>}
         <div className="flex flex-row mt-3">
           {skills.map((skill, index) => (
             <div

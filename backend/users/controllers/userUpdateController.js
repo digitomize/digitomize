@@ -164,6 +164,12 @@ function compareUserProfile (oldPlatformData, newPlatformData) {
       // console.log(`Contest fields "${notEqualContestFields.join(', ')}" not equal`);
       return false;
     }
+
+    // Check skills
+    if (newPlatformData.skills && JSON.stringify(oldPlatformData.skills) !== JSON.stringify(newPlatformData.skills)) {
+      // console.log("Skills not equal");
+      return false;
+    }
   } else {
     // console.log("One or both platform data is undefined or null");
     return false;
