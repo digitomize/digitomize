@@ -5,8 +5,10 @@ const novu = new Novu(process.env.NOVU_API_KEY);
 
 export const updateDeviceID = async (req, res) => {
   try {
+    console.log("updateDeviceID");
     const userId = req.decodedToken.uid;
     const user = await User.findOne({ uid: userId });
+    console.log("user", user);
     const { name, email } = user;
 
     const { deviceID } = req.body;

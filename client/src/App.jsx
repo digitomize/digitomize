@@ -13,7 +13,6 @@ import { useState, useEffect } from "react";
 import "./App.css";
 
 // importing all the components ...
-
 import {
   Layout,
   Login,

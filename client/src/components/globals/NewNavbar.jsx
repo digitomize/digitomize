@@ -5,8 +5,10 @@ import { logo } from "../AllAssets";
 import { useUserAuth } from "../../context/UserAuthContext";
 import { useUserDetails } from "../../context/UserContext";
 import { ROLE } from "../../core/utils/const";
+import Novu from "./Notifs/Novu";
 
 export default function NewNavbar({ position }) {
+  console.log("NAVVBAR")
   const { user } = useUserAuth();
   const { userDetails } = useUserDetails();
   const location = useLocation();
@@ -103,49 +105,50 @@ export default function NewNavbar({ position }) {
       userDetails.personal_data.role === ROLE.ADMIN
     ) {
       return (
-        <Link
-          to="/admin/user"
-          className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
-            location.pathname.includes("/admin")
-              ? "bg-zinc-400 text-zinc-950"
-              : ""
-          } hover:bg-zinc-200`}
-        >
-          <div className="dropdown  dropdown-bottom">
-            <label tabIndex={0}>Admin</label>
-            <ul
-              tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow text-zinc-300 bg-base-100 rounded-box w-52 mt-2"
-            >
-              <li>
-                <Link to={"/admin/user"}>
-                  <span>Users</span>
-                </Link>
-              </li>
-              <li>
-                <Link to={"/admin/contest"}>
-                  <span>Contests</span>
-                </Link>
-              </li>
-              <li>
-                <Link to={"/admin/community"}>
-                  <span>Community</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </Link>
+        <>
+          <Link
+            to="/admin/user"
+            className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname.includes("/admin")
+                ? "bg-zinc-400 text-zinc-950"
+                : ""
+              } hover:bg-zinc-200`}
+          >
+            <div className="dropdown  dropdown-bottom">
+              <label tabIndex={0}>Admin</label>
+              <ul
+                tabIndex={0}
+                className="dropdown-content z-[1] menu p-2 shadow text-zinc-300 bg-base-100 rounded-box w-52 mt-2"
+              >
+                <li>
+                  <Link to={"/admin/user"}>
+                    <span>Users</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/admin/contest"}>
+                    <span>Contests</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/admin/community"}>
+                    <span>Community</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </Link>
+        </>
       );
     }
   };
 
   return (
     <>
+      {user && <Novu user={user} />}
       <MobNav isMenuActive={isMenuActive} toggleActive={toggleActive} />
       <div
-        className={`${
-          position ? position : "sticky"
-        } inset-x-0 top-0 relative z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto`}
+        className={`${position ? position : "sticky"
+          } inset-x-0 top-0 relative z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto`}
         style={{ ...navbarStyle }}
       >
         <div className="flex cursor-pointer items-center gap-4 rounded-full bg-white p-2">
@@ -163,11 +166,10 @@ export default function NewNavbar({ position }) {
               <Link
                 to={navLink.path}
                 key={index}
-                className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
-                  location.pathname === navLink.path
+                className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === navLink.path
                     ? "bg-zinc-400 text-zinc-950"
                     : ""
-                } hover:bg-zinc-200`}
+                  } hover:bg-zinc-200`}
               >
                 {navLink.title}
               </Link>
@@ -216,6 +218,6 @@ export default function NewNavbar({ position }) {
           </div>
         </div>
       </div>
-</>
-);
+    </>
+  );
 }
