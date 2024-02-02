@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 
 import { submitUserFormData, userDashboardDetails } from "../../../api";
 
-import { useUserAuth } from "../../context/UserAuthContext";
+import { useUserAuth } from "@context/UserAuthContext";
 import axios from "axios";
 // import { toast } from "react-toastify";
 import DashboardNavbar from "../components/DashboardNavbar";

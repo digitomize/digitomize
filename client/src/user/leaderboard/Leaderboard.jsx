@@ -32,7 +32,7 @@ import {
 } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
-import { useUserDetails } from "../../context/UserContext";
+import { useUserDetails } from "@context/UserContext";
 import Rank from "./components/Rank";
 import ShareModel from "@components/share_model";
 const theme = createTheme({

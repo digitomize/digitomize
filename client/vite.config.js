@@ -8,7 +8,11 @@ export default defineConfig({
   },resolve: {
     alias: {
       "@components": "/src/components",
-      "@assets": "/src/assets"
+      "@assets": "/src/assets",
+      "@user" : "/src/user",
+      "@core": "/src/core",
+      "@context" : "/src/context",
+      "@pages" : "/src/pages"
       // Add other aliases as needed
     },
   },

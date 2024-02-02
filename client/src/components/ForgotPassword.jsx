@@ -10,7 +10,7 @@ import { isLoggedIn } from "../../api";
 
 import { ToastContainer, toast } from "react-toastify";
 // import welcomeBack from "@assets/welcome-back.svg"
-import SignoutButton from "../user/components/SignoutButton";
+import SignoutButton from "@user/components/SignoutButton";
 
 // for forgot password
 import { auth } from "../../firebase";

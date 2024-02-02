@@ -15,7 +15,7 @@ import Typewriter from "typewriter-effect";
 import "react-toastify/dist/ReactToastify.css";
 import SignoutButton from "../components/SignoutButton";
 import NewLogOut from "../components/NewLogOut";
-import { useUserAuth } from "../../context/UserAuthContext";
+import { useUserAuth } from "@context/UserAuthContext";
 import NewNavbar from "@components/globals/NewNavbar.jsx";
 import { Skeleton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
