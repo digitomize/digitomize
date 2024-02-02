@@ -72,7 +72,7 @@ function Filter() {
     const url = selectedPlatformsParam
       ? `${backendUrl}/contests?host=${selectedPlatformsParam}`
       : `${backendUrl}/contests`;
-
+      
     fetch(url)
       .then((response) => response.json())
       .then((data) => {

@@ -12,7 +12,15 @@ import quine from "../assets/quine.png";
 // import loginSvg from "../assets/fingerprint-animate.svg"
 import loginSvg from "../assets/authentication-animate.svg";
 import ms_startups from "../assets/ms_startups_dark.png";
+import carrer from '../assets/carrer.svg'
+import widget from '../assets/widget.svg'
+import rating from '../assets/rating.svg'
+import github from '../assets/github.svg'
 export {
+  github,
+  carrer,
+  widget,
+  rating,
   geeksforgeeks,
   leetcode,
   codingninjas,

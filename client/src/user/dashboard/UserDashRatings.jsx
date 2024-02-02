@@ -185,12 +185,12 @@ export default function UserDashRatings() {
       <>
         <MetaData path="u/dashboard/ratings" />
         <ToastContainer />
-        <DashboardNavbar />
+       
         {/* <div className="max-phone:hidden">
 
       <UserDashboard/>
         </div> */}
-        <div className="max-md:py-20 md:py-12 min-h-[60vh] mt-24 w-11/12 m-auto">
+        <div className="max-md:py-20 md:py-12 min-h-[60vh] mt-12 w-11/12 m-auto">
           {/* <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
         <Checkbox />
       </div> */}
