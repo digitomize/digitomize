@@ -1,5 +1,6 @@
 import { Novu, ChatProviderIdEnum } from "@novu/node";
 import User from "../models/User.js";
+import { AllContest } from "../../contest/models/Contest.js";
 
 const novu = new Novu(process.env.NOVU_API_KEY);
 const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL;
@@ -7,7 +8,7 @@ const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL;
 export const addSubscriber = async (req, res) => {
   try {
     const { name, email, uid } = req.decodedToken;
-    
+
     // Create a subscriber
     await novu.subscribers.identify(uid, {
       email,
@@ -87,6 +88,54 @@ export const removeSubscriberFromTopic = async (req, res) => {
     });
     console.log(response);
     return res.status(200).json({ message: "Subscriber removed from topic successfully" });
+  }
+  catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Internal server error", error: error.message });
+  }
+}
+
+
+export const TriggerContestNotifToTopic = async (req, res) => {
+  try {
+    const { topicKey, contestVanity } = req.body;
+    const contest = await AllContest.findOne({ vanity: contestVanity });
+    const topic = await novu.topics.get(topicKey);
+    if (!topic) {
+      return res.status(404).json({ message: "Topic not found" });
+    }
+    if (!contest) {
+      return res.status(404).json({ message: "Contest not found" });
+    }
+    // console.log("contest", contest);
+    // console.log("topic", topic);
+    const response = await novu.trigger(topicKey, {
+      title,
+      body,
+    });
+
+    const durationInMinutes = contest.duration;
+    const hours = Math.floor(durationInMinutes / 60);
+    const minutes = durationInMinutes % 60;
+    const duration = `${hours} hours ${minutes} minutes`;
+    
+    const timeInIST = new Date(contest.startTimeUnix * 1000).toLocaleString('en-US', { timeZone: 'Asia/Kolkata' });
+
+    await novu.trigger('contest-alert', {
+      to: [{ type: 'Topic', topicKey: topicKey }],
+      payload: {
+        contest: {
+          name: contest.name,
+          host: contest.host,
+          vanity: contest.vanity,
+          time: timeInIST,
+          duration: duration,
+          url: contest.url,
+        }
+      },
+    });
+    console.log(response);
+    return res.status(200).json({ message: "Notification triggered successfully" });
   }
   catch (error) {
     console.error(error);
