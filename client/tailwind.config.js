@@ -42,6 +42,7 @@ export default {
         powered: "#D2D2D2",
         badge: "rgba(0, 76, 228, 0.33)",
         badgeborder: "#25478B",
+        buttonColor :"#52B55C",
         "badge-txt": "#C3E2FF",
         "custom-border": "#30363d",
         "custom-bg": "#0a0a0a",

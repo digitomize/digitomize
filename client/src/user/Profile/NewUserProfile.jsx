@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useOutletContext } from "react-router-dom";
-import UserCard from "./components/UserCard";
 import { AiFillGithub, AiFillLock } from "react-icons/ai";
 import { ImProfile } from "react-icons/im";
 import { BsFillArrowUpRightCircleFill, BsGraphUpArrow } from "react-icons/bs";
@@ -10,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import WarningIcon from "@mui/icons-material/Warning";
 import CustomLinkCard from "./components/CustomLinkCard";
+import ProfileCard from "./components/ProfileCard";
 
 function NewUserProfile() {
   const { personal_data, social } = useOutletContext();
@@ -44,8 +44,8 @@ function NewUserProfile() {
       </Helmet>
       <div className="flex mt-8 flex-col md:flex-row w-11/12 mx-auto pb-8">
         {/* First Column with 450px width */}
-        <div className="flex md:w-1/2">
-          <UserCard
+        <div className="flex md:w-[50%]">
+          <ProfileCard
             username={personal_data.username}
             name={personal_data.name}
             picture={personal_data.picture}
@@ -58,7 +58,7 @@ function NewUserProfile() {
         </div>
 
         {/* Second Column with two rows */}
-        <div className="flex flex-col w-full md:w-1/2 px-4 pt-4 md:pt-0">
+        <div className="flex flex-col w-full  px-4 pt-4 md:pt-0">
           {/* First Row */}
           <div className="flex flex-col md:flex-row pb-2 px-2 gap-6">
             <div

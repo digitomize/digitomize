@@ -189,7 +189,7 @@ export async function submitUserFormData(formData) {
   // console.log(currentUser);
   const accessToken = await currentUser.getIdToken();
   // console.log(jwtToken);
-
+if(formData.picture)
   await uploadPictureToCloudinary(formData, accessToken, currentUser.uid);
   // console.log(formData.picture);
   const res = await axios.post(`${backendUrl}/user/dashboard`, formData, {

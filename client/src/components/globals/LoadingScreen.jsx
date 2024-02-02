@@ -17,7 +17,7 @@ export default function LoadingScreen({ logout = true }) {
   }, []);
   return (
     <>
-      <div className="m-auto flex flex-col items-cente r w-4/5 py-12">
+      <div className="m-auto flex flex-col items-center w-4/5 py-12">
         {/* <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
                   <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
                   <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} /> */}
