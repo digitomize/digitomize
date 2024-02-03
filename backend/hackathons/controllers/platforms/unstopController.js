@@ -1,42 +1,6 @@
 import https from "https";
 
-function fetchHackathons(list){
-  const formattedHackathonsPromise = new Promise((resolve) => {
-    try{
-      const hackathonsList = JSON.parse(list.toString());
-      const formattedHackathons = hackathonsList.data.data.map((hackathon) => ({
-        name:hackathon.title,
-        url:`https://unstop.com/${hackathon.public_url}`,
-        registerationStartTimeUnix: Math.floor(
-          new Date(hackathon.regnRequirements.start_regn_dt).getTime() / 1000
-        ),
-        registerationEndTimeUnix: Math.floor(
-          new Date(hackathon.regnRequirements.end_regn_dt).getTime() / 1000
-        ),
-        hackathonStartTimeUnix: Math.floor(
-          new Date(hackathon.start_date).getTime() / 1000
-        ),
-        duration: Math.floor(
-          (
-            Math.floor(new Date(hackathon.end_date).getTime() / 1000) - 
-            Math.floor(new Date(hackathon.start_date).getTime() / 1000)
-          ) / 60
-        ),
-      }));
-
-      resolve(formattedHackathons);
-    }catch(error){
-      console.log("Error parsing JSON:", error);
-      resolve([]);
-    }
-  });
-
-  return formattedHackathonsPromise;
-}
-
-async function fetchPageWise (pageNumber) {
-  const url = `https://unstop.com/api/public/opportunity/search-result?opportunity=hackathons&page=${pageNumber}&per_page=10&oppstatus=open`;
-
+async function fetchPageWise (url, page) {
   const promise = new Promise((resolve, reject) => {
     https.get(url, function (response) {
       if (response.statusCode === 200) {
@@ -56,62 +20,85 @@ async function fetchPageWise (pageNumber) {
 
     return new Promise((resolve) => {
       response.on("end", async function () {
-        const hackathons = await fetchHackathons(list);
-        resolve(hackathons);
+        try{
+          const hackathonsList = JSON.parse(list.toString());
+
+          const formattedHackathons = hackathonsList.data.data.map((hackathon) => ({
+            name:hackathon.title,
+            url:`https://unstop.com/${hackathon.public_url}`,
+            registerationStartTimeUnix: Math.floor(
+              new Date(hackathon.regnRequirements.start_regn_dt).getTime() / 1000
+            ),
+            registerationEndTimeUnix: Math.floor(
+              new Date(hackathon.regnRequirements.end_regn_dt).getTime() / 1000
+            ),
+            hackathonStartTimeUnix: Math.floor(
+              new Date(hackathon.start_date).getTime() / 1000
+            ),
+            duration: Math.floor(
+              (
+                Math.floor(new Date(hackathon.end_date).getTime() / 1000) - 
+                Math.floor(new Date(hackathon.start_date).getTime() / 1000)
+              ) / 60
+            ),
+          }));
+
+          if(page === 1) {
+            resolve([formattedHackathons,hackathonsList.data.total,hackathonsList.data.per_page]);
+          } else {
+            resolve(formattedHackathons);
+          }
+        }catch(error){
+          if(page === 1) {
+            reject(new Error("Error parsing JSON: ", error));
+          } else {
+            resolve([]);
+          }
+        }
       });
-    })
+    });
+  }).catch((error) => {
+    return new Promise((resolve, reject) => {
+      if(page === 1) {
+        reject(new Error(error));
+      } else {
+        resolve([]);
+      }
+    });
   });
 
   return hackathonsPromise;
 }
 
-async function unstop_c(){
-  const url = `https://unstop.com/api/public/opportunity/search-result?opportunity=hackathons&page=1&per_page=10&oppstatus=open`;
+async function fetchHackathons () {
+  const url = `https://unstop.com/api/public/opportunity/search-result?opportunity=hackathons&per_page=10&oppstatus=open`;
   
-  const promise = new Promise((resolve, reject) => {
-    https.get(url, function (response) {
-      if (response.statusCode === 200) {
-        resolve(response);
-      } else {
-        reject(new Error("Error getting hackathons."));
+  return new Promise(async (resolve) => {
+    let listOfHackathons = [];
+    try{
+      // Fetch first page.
+      const firstPageHackathons = await fetchPageWise(`${url}&page=1`,1);
+      listOfHackathons.push(...firstPageHackathons[0]);
+
+      const totalHackathons = firstPageHackathons[1];
+      const per_page = firstPageHackathons[2];
+
+      // Fetch other pages hackathon.
+      for(let pageNumber = 2; pageNumber <= Math.ceil(totalHackathons / per_page); ++pageNumber){
+        const hackathons = await fetchPageWise(`${url}&page=${pageNumber}`, pageNumber);
+        listOfHackathons.push(...hackathons);
       }
-    });
+
+      resolve(listOfHackathons);
+    }catch(error){
+      console.log(error);
+      resolve([]);
+    }
   });
+}
 
-  let listOfHackathons = [];
-
-  const hackathonsListPromise = promise.then((response) => {
-    let list = "";
-
-    response.on("data", function (data) {
-      list += data;
-    });
-
-    return new Promise((resolve) => {
-      response.on("end",async function () { 
-        try{
-          const firstPageHackathons = await fetchHackathons(list);
-          listOfHackathons.push(...firstPageHackathons);
-          
-          const hackathonsList = JSON.parse(list.toString());
-    
-          const totalHackathons = hackathonsList.data.total;
-          const hackathonsPerPage = hackathonsList.data.per_page;
-    
-          for(let pageNumber = 2;pageNumber <= Math.ceil(totalHackathons / hackathonsPerPage);++pageNumber){
-            const hackathons = await fetchPageWise(pageNumber);
-            listOfHackathons.push(...hackathons);
-          }
-    
-          resolve(listOfHackathons);
-        }catch(error){
-          console.log("Error parsing JSON:", error);
-          resolve([]);
-        }
-      });
-    })
-  });
-
+async function unstop_c(){
+  const hackathonsListPromise = fetchHackathons();
   return hackathonsListPromise;
 }
 
