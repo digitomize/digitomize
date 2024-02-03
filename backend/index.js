@@ -91,7 +91,6 @@ async function startServersProduction () {
   try {
     app.use(cors());
     app.use(bodyParser.json());
-
     await mongoose.connect(process.env.MONGODB_URL);
     console.log("MongoDB Connected.");
 
