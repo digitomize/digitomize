@@ -18,6 +18,7 @@ import loginIcon from "/src/assets/fingerprint-animate-blue.svg";
 import { Eye, EyeOff } from "lucide-react";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 import SignoutButton from "../../user/components/SignoutButton";
 
 export async function loader() {
@@ -39,6 +40,7 @@ export default function Signup() {
   const { signUp } = useUserAuth();
   const [btnState, setbtnState] = useState(false);
   const [passwordShow, setPasswordShow] = useState(false);
+  const [subscribe, setSubscribe] = useState(true);
 
   const passwordToggle = () => {
     setPasswordShow(!passwordShow);
@@ -49,6 +51,9 @@ export default function Signup() {
     setError("");
     setbtnState(true);
     try {
+      if(subscribe){
+        await subscribeToNewsletter(email);
+      }
       await signUp(email, password, username, firstName);
       const token = auth.currentUser.accessToken;
       if (token) {
@@ -56,12 +61,14 @@ export default function Signup() {
           .post(`${backendUrl}/user/signup`, {
             name: firstName,
             username: username,
+            subscribe: subscribe,
             headers: {
               Authorization: `Bearer ${token}`,
             },
           })
           // .then((res) => console.log(res))
           .catch((err) => setError(err.code));
+          
       }
       navigate("/login");
     } catch (err) {
@@ -77,6 +84,18 @@ export default function Signup() {
       });
       setbtnState(false);
       setError(err.code);
+    }
+  };
+
+  const subscribeToNewsletter = async (email) => {
+    try {
+      // Make a POST request to the newsletter subscription endpoint
+      await axios.post("https://blogs.digitomize.com/newsletter", {
+        email: email,
+      });
+
+    } catch (error) {
+      setError(error);
     }
   };
 
@@ -209,6 +228,20 @@ export default function Signup() {
                     </label>
                   </div>
                 </div>
+                <div className="w-full px-3 flex items-center">
+                    <label className="label flex items-center">
+                      <input
+                        type="checkbox"
+                        checked={subscribe}
+                        onChange={() => setSubscribe(!subscribe)}
+                        defaultChecked={true}
+                        className="mr-2"
+                      />
+                      <span className="text-custom-white">
+                        Subscribe to Digitomize and receive emails
+                      </span>
+                    </label>
+                  </div>
                 <div className="items-center">
                   <div className="w-full">
                     <SignoutButton
