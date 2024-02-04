@@ -115,9 +115,7 @@ async function devfolio_c() {
   listOfHackathons.push(...openHackathons);
   listOfHackathons.push(...upcomingHackathons);
 
-  return new Promise((resolve) => {
-    resolve(listOfHackathons);
-  });
+  return listOfHackathons;
 }
 
 export default {
