@@ -152,7 +152,8 @@ export default function Signup() {
                       className="input input-bordered w-full bg-black border-2 border-jet"
                       onChange={(e) => setUsername(e.target.value)}
                       required
-
+                      pattern="^\S*$"
+                      title="no whitespaces allowed"
                     />
                   </div>
                   <div className="w-full px-3">
