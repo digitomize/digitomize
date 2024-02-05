@@ -67,12 +67,7 @@ async function fetchPageWise (from, size, type) {
     });
   
     req.on("error", (error) => {
-      if(from === 0) {
-        // When fetching first page from is 0.
-        reject(new Error(error));
-      } else {
-        resolve([]);
-      }
+      reject(error);
     });
   
     req.write(postFields);
