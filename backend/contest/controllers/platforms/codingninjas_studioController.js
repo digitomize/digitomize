@@ -45,6 +45,11 @@ async function codingninjas_studio_c () {
         }
       });
     });
+  }).catch((error) => {
+    console.log(error);
+    return new Promise((resolve) => {
+      resolve([]);
+    });
   });
   return filteredContestsPromise;
 }

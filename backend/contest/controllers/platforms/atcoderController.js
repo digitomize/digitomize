@@ -88,6 +88,11 @@ async function atcoder_c () {
         resolve(upcomingContests);
       });
     });
+  }).catch((error) => {
+    console.log(error);
+    return new Promise((resolve) => {
+      resolve([]);
+    });
   });
 
   return filteredContestsPromise;

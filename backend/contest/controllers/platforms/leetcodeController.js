@@ -60,7 +60,8 @@ async function leetcode_c () {
 
           resolve(contests);
         } catch (error) {
-          reject(error);
+          console.log(error);
+          resolve([]);
         }
       });
     });
