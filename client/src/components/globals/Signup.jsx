@@ -29,7 +29,6 @@ export async function loader() {
 }
 
 export default function Signup() {
-  const navigation = useNavigation();
   const [firstName, setFirstName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -133,6 +132,8 @@ export default function Signup() {
                       placeholder="your name"
                       className="input input-bordered w-full bg-black border-2 border-jet"
                       onChange={(e) => setFirstName(e.target.value)}
+                      pattern="^[a-zA-Z\s]*$"
+                      title="Only letters and whitespaces are allowed"
                       required
                     />
                   </div>
@@ -151,6 +152,8 @@ export default function Signup() {
                       className="input input-bordered w-full bg-black border-2 border-jet"
                       onChange={(e) => setUsername(e.target.value)}
                       required
+                      pattern="^\S*$"
+                      title="no whitespaces allowed"
                     />
                   </div>
                   <div className="w-full px-3">
@@ -203,9 +206,9 @@ export default function Signup() {
                     <label className="label">
                       <span className="label-text-alt"></span>
                       <Link to="/forgot-password" >
-                      <span className="label-text-alt text-custom-blue">forgot password?</span>
+                        <span className="label-text-alt text-custom-blue">forgot password?</span>
                       </Link>
-                      
+
                     </label>
                   </div>
                 </div>
