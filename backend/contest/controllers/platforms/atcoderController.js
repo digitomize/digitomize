@@ -89,7 +89,7 @@ async function atcoder_c () {
       });
     });
   }).catch((error) => {
-    console.log(error);
+    console.error("Failed to fetch atcoder contests:", error);
     return new Promise((resolve) => {
       resolve([]);
     });

@@ -48,7 +48,7 @@ async function codechef_c () {
       });
     });
   }).catch((error) => {
-    console.log(error);
+    console.error("Failed to fetch codechef contests:", error);
     return new Promise((resolve) => {
       resolve([]);
     });

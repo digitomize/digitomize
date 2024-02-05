@@ -47,7 +47,7 @@ async function codeforces_c () {
       });
     });
   }).catch((error) => {
-    console.log(error);
+    console.error("Failed to fetch Codeforces contests:", error);
     return new Promise((resolve) => {
       resolve([]);
     });

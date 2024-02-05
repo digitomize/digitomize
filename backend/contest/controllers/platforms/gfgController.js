@@ -57,7 +57,7 @@ async function geeksforgeeks_c () {
       });
     });
   }).catch((error) => {
-    console.log(error);
+    console.error("Failed to fetch geeks for geeks contests:", error);
     return new Promise((resolve) => {
       resolve([]);
     });
