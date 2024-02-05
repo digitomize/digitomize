@@ -2,7 +2,7 @@ import express from "express";
 import { handleUserSignup } from "../controllers/authController.js";
 import { handleUserDashboard } from "../controllers/userDashboardController.js";
 import { handleUserProfilePreview } from "../controllers/userProfileController.js";
-import { handleUpdateUserProfile } from "../controllers/userUpdateController.js";
+import { handleUpdateUserProfile, handleUserPreferences } from "../controllers/userUpdateController.js";
 import { addUID } from "../middlewares/authMiddleware.js";
 import { getLeaderboard } from "../controllers/leaderboardController.js";
 import { generateSignature } from "../controllers/cloudinaryUploadController.js";
@@ -21,6 +21,8 @@ router.post("/signup", addUID, handleUserSignup);
 router.get("/dashboard", addUID, handleUserDashboard);
 
 router.post("/dashboard", addUID, handleUpdateUserProfile);
+
+router.post("/preferences", addUID, handleUserPreferences);
 
 // router.post("/notifs", addUID, updateDeviceID);
 router.post("/notifs/subscribe", addUID, addSubscriber);

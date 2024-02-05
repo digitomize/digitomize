@@ -77,6 +77,36 @@ export async function userDashboardDetails() {
     }
   }
 }
+
+export async function changeUserPreferences(platform, prefer) {
+  const loggedIn = await isLoggedIn();
+
+  if (loggedIn) {
+    const currentUser = auth.currentUser;
+    const accessToken = await currentUser.getIdToken();
+
+    if (accessToken) {
+      try {
+        const response = await axios.post(
+          `${backendUrl}/user/preferences`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+              platform: platform,
+              preference: prefer,
+          },
+        );
+        // console.log("RESPONSEEEE:", response);
+        return response;
+      } catch (err) {
+        // console.log("ERRRR:",err);
+        throw new Error(err.response.data.message);
+      }
+    }
+  }
+}
+
 export async function userProfileDetails(username) {
   try {
     const response = await axios.get(`${backendUrl}/user/profile/${username}`);

@@ -27,6 +27,10 @@ function UserDashBoardTab() {
     {
       title : "ratings",
       path : "ratings"
+    },
+    {
+      title : "preferences",
+      path : "preferences"
     }
   ];
   const handleOptionClick = (option) => {

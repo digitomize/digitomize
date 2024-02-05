@@ -130,7 +130,7 @@ export default function NewNavbar({ position }) {
 
   return (
     <>
-      {user && <Novu user={user} />}
+      
       <MobNav isMenuActive={isMenuActive} toggleActive={toggleActive} />
       <div
         className={`${position ? position : "sticky"
@@ -202,6 +202,9 @@ export default function NewNavbar({ position }) {
               </Link>
             )}
           </div>
+        </div>
+        <div className="flex items-center flex-wrap">
+        {user && <Novu user={user} />}
         </div>
       </div>
     </>

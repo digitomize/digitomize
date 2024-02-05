@@ -281,10 +281,58 @@ const handleUpdateUserProfile = async (req, res) => {
     });
   }
 };
+import { Novu } from "@novu/node";
+const novu = new Novu(process.env.NOVU_API_KEY);
+const handleUserPreferences = async (req, res) => {
+  try {
+    const { uid } = req.decodedToken;
+    const { platform, preference } = req.body;
+    console.log(req.body);
+    console.log(uid, platform, preference);
+
+    const user = await User.findOne({ uid });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Ensure the platform exists in the contest_notifs object
+    // if (!user.preferences.contest_notifs[platform]) {
+    //   return res.status(400).json({ message: "Invalid platform" });
+    // }
+
+    // Update the preference for the specified platform
+    user.preferences.contest_notifs[platform] = preference;
+
+    // Save the user
+    await user.save();
+
+    // Handle adding/removing user from novu service based on preference
+    if (preference) {
+      const topicKey = `${platform}-notifs`;
+      const response = await novu.topics.addSubscribers(topicKey, {
+        subscribers: [uid],
+      });
+    } else {
+      const topicKey = `${platform}-notifs`;
+      const response = await novu.topics.removeSubscribers(topicKey, {
+        subscribers: [uid],
+      });
+    }
+
+    return res.status(200).json({ message: `Preference for ${platform} updated successfully to ${preference}` });
+  } catch (error) {
+    console.error("Error updating user preference:", error);
+    return res.status(500).json({ message: "Internal server error", error: "Internal server error"});
+  }
+};
+
+   
+
 
 export {
   updatePlatformData,
   updateDataField,
   updateUserData,
   handleUpdateUserProfile,
+  handleUserPreferences
 };

@@ -94,6 +94,7 @@ import Filter from "./components/Contests/Filter";
 import Challenges from "./components/Contests/Challenges/Challenges";
 import ComingSoonLoader from "./components/Contests/ComingSoonLoader";
 import { userDashboardDetails } from "../api";
+import Preferences from "./user/dashboard/Preferences2";
 
 function Logout() {
   const navigate = useNavigate();
@@ -199,7 +200,8 @@ const router = createBrowserRouter(
           <Route path="profile" loader={userDashPersonalLoader} element={<UserDashBoardProfile/>} />
           <Route path="account"  loader={userDashPersonalLoader}  element={<UserDashBoardAccount/>}/>
           <Route path="widget" element={<UserDashBoardWidget/>} />
-          <Route path="ratings" element={<UserDashRatings />} />
+            <Route path="ratings" element={<UserDashRatings />} />
+            <Route path="preferences" element={<Preferences />} />
           </Route>
         </Route>
       </Route>

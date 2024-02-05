@@ -26,7 +26,7 @@ function Novu(user) {
             subscriberId={user.uid}
             applicationIdentifier={"-H0R8Ne2fWHf"}
         >
-            <PopoverNotificationCenter colorScheme="dark" position="bottom-start"
+            <PopoverNotificationCenter colorScheme="dark" position="bottom"
                 tabs={[
                     { name: "All", storeId: "default_store" },
                     { name: "Contest Alerts", storeId: "Contest Alerts" },

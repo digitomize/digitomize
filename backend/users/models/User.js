@@ -73,6 +73,16 @@ const userSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+    preferences: {
+      contest_notifs: {
+        codechef: { type: Boolean, default: false },
+        leetcode: { type: Boolean, default: false },
+        codeforces: { type: Boolean, default: false },
+        atcoder: { type: Boolean, default: false },
+        codingninjas: { type: Boolean, default: false },
+        geeksforgeeks: { type: Boolean, default: false },
+      },
+    },
     bio: {
       type: stringToggleSchema,
       default: { data: null, showOnWebsite: false },
