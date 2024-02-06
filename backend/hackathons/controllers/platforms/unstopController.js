@@ -24,6 +24,7 @@ async function fetchPageWise (url, page) {
           const hackathonsList = JSON.parse(list.toString());
 
           const formattedHackathons = hackathonsList.data.data.map((hackathon) => ({
+            host:"unstop",
             name:hackathon.title,
             url:`https://unstop.com/${hackathon.public_url}`,
             registerationStartTimeUnix: Math.floor(

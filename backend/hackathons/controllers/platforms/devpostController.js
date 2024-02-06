@@ -26,7 +26,8 @@ async function fetchPageWise (url, page) {
           const hackathonsList = JSON.parse(list.toString());
           const formattedHackathons = hackathonsList.hackathons.map(async (hackathon) => {
               const hackathonInfo = {};
-    
+  
+              hackathonInfo.host = "devpost";
               hackathonInfo.name = hackathon.title;
               hackathonInfo.url = hackathon.url;
     

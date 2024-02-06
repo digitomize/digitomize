@@ -30,6 +30,7 @@ async function fetchPageWise (from, size, type) {
           const json = JSON.parse(data);
 
           const formattedHackathons = json.hits.hits.map((hackathon) => ({
+            host: "devfolio",
             name: hackathon._source.name,
             url:`https://${hackathon._source.slug}.devfolio.co`,
             registerationStartTimeUnix: Math.floor(

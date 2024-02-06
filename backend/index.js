@@ -14,6 +14,9 @@ import admin from "firebase-admin";
 import { routeLogging } from "./users/middlewares/authMiddleware.js";
 import sheetRoutes from "./DSA_sheets/routes/sheetRoutes.js";
 import questionRoutes from "./DSA_sheets/routes/questionRoutes.js";
+import hackathonAPISyncer from "./hackathons/controllers/hackathonApiSyncController.js";
+import hackathonDBSyncer from "./hackathons/controllers/hackathonDbSyncController.js";
+import hackathonRoutes from "./hackathons/routes/hackathonRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -87,6 +90,18 @@ async function setupCommunityServer () {
   app.use("/community", communityRoutes);
 }
 
+async function setupHackathonServer () {
+  await hackathonAPISyncer.syncHackathons();
+  setInterval(hackathonAPISyncer.syncHackathons, 90 * 60 * 1000);
+
+  // Update contests data and sync contests data at regular intervals
+  await hackathonDBSyncer.updateHackathons();
+  setInterval(hackathonDBSyncer.updateHackathons, 60 * 60 * 1000);
+
+  // Set up hackathon routes
+  app.use("/hackathons",hackathonRoutes);
+}
+
 async function startServersProduction () {
   try {
     app.use(cors());
@@ -97,6 +112,7 @@ async function startServersProduction () {
 
     await setupUserServer();
     await setupContestServer();
+    await setupHackathonServer();
 
     // Handle unhandled routes
     app.all("*", (req, res, next) => {
@@ -106,6 +122,7 @@ async function startServersProduction () {
     const servers = [];
     servers.push("User");
     servers.push("Contest");
+    servers.push("Hackathon");
 
     console.log("┌──────────────────────────────────┐");
     if (servers.length > 0) {
@@ -140,6 +157,10 @@ async function startServersDev () {
     if (process.env.CONTESTS === "true") {
       await setupContestServer();
       servers.push("Contest");
+    }
+    if (process.env.HACKATHONS === "true") {
+      await setupHackathonServer();
+      servers.push("Hackathon");
     }
 
     // Handle unhandled routes

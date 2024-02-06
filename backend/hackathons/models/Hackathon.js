@@ -3,6 +3,10 @@ import mongoose from "mongoose";
 //* Contest Schema
 const hackathonSchema = new mongoose.Schema(
   {
+    host:{
+      type:String,
+      required: [true, "host is required"],
+    },
     name: {
       type: String,
       required: [true, "Name is required."],
@@ -32,6 +36,7 @@ const hackathonSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
+const UpcomingHackathon = mongoose.model("UpcomingHackathon", hackathonSchema, "upcominghackathons");
 const AllHackathon = mongoose.model("AllHackathon", hackathonSchema, "allhackathons");
 
-export { AllHackathon };
+export { UpcomingHackathon, AllHackathon };
