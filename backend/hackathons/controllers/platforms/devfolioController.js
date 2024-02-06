@@ -1,4 +1,3 @@
-import { rejects } from "assert";
 import https from "https";
 
 async function fetchPageWise (from, size, type) {
