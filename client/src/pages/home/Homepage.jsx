@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Snowfall from "react-snowfall";
 
-import "/src/components/css/Home.css";
-import SectionOne from "../../components/Home/SectionOne";
-import SectionTwo from "../../components/Home/SectionTwo";
-import SectionThree from "../../components/Home/SectionThree";
-import Footer from "../../components/globals/Footer";
+import "@components/css/Home.css";
+import SectionOne from "@components/Home/SectionOne";
+import SectionTwo from "@components/Home/SectionTwo";
+import SectionThree from "@components/Home/SectionThree";
+import Footer from "@components/globals/Footer";
 
-import { MetaData } from "../../components/CustomComponents";
+import { MetaData } from "@components/CustomComponents";
 
-import ScrollToTop from "../../components/globals/ScrollToTop";
+import ScrollToTop from "@components/globals/ScrollToTop";
 
 
 

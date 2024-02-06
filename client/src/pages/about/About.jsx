@@ -4,7 +4,7 @@ import {
   AiOutlineUsergroupAdd,
   AiFillLinkedin,
 } from "react-icons/ai";
-import { MetaData } from "../../components/CustomComponents";
+import { MetaData } from "@components/CustomComponents";
 import { Link } from "react-router-dom";
 import Contributors from "./Contributors";
 import { about_us } from "./assets/assets";

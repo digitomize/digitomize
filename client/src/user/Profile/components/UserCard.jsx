@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineFastBackward, AiOutlineShareAlt } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
-import ShareModel from "../../../components/share_model";
+import ShareModel from "@components/share_model";
 import { FaXTwitter, FaLinkedin, FaInstagram } from "react-icons/fa6";
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 

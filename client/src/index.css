@@ -10,7 +10,7 @@
 
   @font-face {
     font-family: "Geist";
-    src: url("/src/assets/fonts/Geist-Light.otf") format("truetype");
+    src: url("@assets/fonts/Geist-Light.otf") format("truetype");
     font-weight: 300;
     font-display: swap;
   }
@@ -19,7 +19,7 @@
 
   @font-face {
     font-family: "Geist";
-    src: url("/src/assets/fonts/Geist-Regular.otf") format("truetype");
+    src: url("@assets/fonts/Geist-Regular.otf") format("truetype");
     font-weight: 400;
     font-display: swap;
   }
@@ -28,7 +28,7 @@
 
   @font-face {
     font-family: "Geist";
-    src: url("/src/assets/fonts/Geist-Medium.otf") format("truetype");
+    src: url("@assets/fonts/Geist-Medium.otf") format("truetype");
     font-weight: 500;
     font-display: swap;
   }
@@ -37,7 +37,7 @@
 
   @font-face {
     font-family: "Geist";
-    src: url("/src/assets/fonts/Geist-SemiBold.otf") format("truetype");
+    src: url("@assets/fonts/Geist-SemiBold.otf") format("truetype");
     font-weight: 600;
     font-display: swap;
   }
@@ -46,7 +46,7 @@
 
   @font-face {
     font-family: "Geist";
-    src: url("/src/assets/fonts/Geist-Bold.otf") format("truetype");
+    src: url("@assets/fonts/Geist-Bold.otf") format("truetype");
     font-weight: 700;
     font-display: swap;
   }
@@ -55,7 +55,7 @@
 
   @font-face {
     font-family: "Geist";
-    src: url("/src/assets/fonts/Geist-Black.otf") format("truetype");
+    src: url("@assets/fonts/Geist-Black.otf") format("truetype");
     font-weight: 800;
     font-display: swap;
   }

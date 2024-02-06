@@ -9,16 +9,16 @@ import axios from "axios";
 import { useState } from "react";
 import { isLoggedIn } from "../../../api";
 import { auth } from "../../../firebase";
-import { useUserAuth } from "../../context/UserAuthContext";
+import { useUserAuth } from "@context/UserAuthContext";
 import { MetaData } from "../CustomComponents";
 import GoogleAuthButton from "../AuthButtons/GoogleAuthButton";
 import GithubAuthButton from "../AuthButtons/GithubAuthButton";
 import { ToastContainer, toast } from "react-toastify";
-import loginIcon from "/src/assets/fingerprint-animate-blue.svg";
+import loginIcon from "@assets/fingerprint-animate-blue.svg";
 import { Eye, EyeOff } from "lucide-react";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
-import SignoutButton from "../../user/components/SignoutButton";
+import SignoutButton from "@user/components/SignoutButton";
 
 export async function loader() {
   const loggedIn = await isLoggedIn();
