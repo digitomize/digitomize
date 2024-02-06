@@ -20,7 +20,7 @@ async function fetchPageWise (url, page) {
       list += data;
     });
 
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       response.on("end", async function () {
         try{
           const hackathonsList = JSON.parse(list.toString());
