@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useOutletContext, useParams, useLocation } from "react-router-dom";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import leetcode from "../../../assets/leetcode.svg";
-// import codingninjas from "../../../assets/codingninjas.png";
-import codechef from "../../../assets/codechef.svg";
-import codeforces from "../../../assets/codeforces.svg";
+import leetcode from "@assets/leetcode.svg";
+// import codingninjas from "@assets/codingninjas.png";
+import codechef from "@assets/codechef.svg";
+import codeforces from "@assets/codeforces.svg";
 import { OpenInNew } from "@mui/icons-material";
 import { Helmet } from "react-helmet";
-import ShareModel from "../../../components/share_model.jsx";
+import ShareModel from "@components/share_model.jsx";
 
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 function PlatformRatings() {

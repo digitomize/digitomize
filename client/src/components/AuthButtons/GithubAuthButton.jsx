@@ -5,7 +5,7 @@ import { auth } from "../../../firebase";
 import { ToastContainer, toast } from "react-toastify";
 
 import { useNavigate } from "react-router-dom";
-import githubIcon from "../../assets/github.svg";
+import githubIcon from "@assets/github.svg";
 import axios from "axios";
 import GithubButton from "react-github-login-button";
 import { Tooltip } from "@mui/material";

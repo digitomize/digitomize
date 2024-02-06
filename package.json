@@ -26,7 +26,8 @@
   "devDependencies": {
     "all-contributors-cli": "^6.26.1",
     "concurrently": "^8.2.1",
-    "prettier": "3.1.0",
-    "husky": "^8.0.0"
+    "eslint-plugin-import": "^2.29.1",
+    "husky": "^8.0.0",
+    "prettier": "3.1.0"
   }
 }

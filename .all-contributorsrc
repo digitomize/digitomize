@@ -517,6 +517,42 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "utkarsh4321",
+      "name": "utkarsh srivastava",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30936607?v=4",
+      "profile": "https://utdev.vercel.app/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Zolo-Ryan",
+      "name": "Zolo Ryan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/119104324?v=4",
+      "profile": "https://github.com/Zolo-Ryan",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Ishita928",
+      "name": "Ishita Malhotra",
+      "avatar_url": "https://avatars.githubusercontent.com/u/146575485?v=4",
+      "profile": "https://github.com/Ishita928",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "MohitKambli",
+      "name": "Mohit Kambli",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31406633?v=4",
+      "profile": "https://github.com/MohitKambli",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

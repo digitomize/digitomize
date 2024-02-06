@@ -9,16 +9,16 @@ import axios from "axios";
 import { useState } from "react";
 import { isLoggedIn } from "../../../api";
 import { auth } from "../../../firebase";
-import { useUserAuth } from "../../context/UserAuthContext";
+import { useUserAuth } from "@context/UserAuthContext";
 import { MetaData } from "../CustomComponents";
 import GoogleAuthButton from "../AuthButtons/GoogleAuthButton";
 import GithubAuthButton from "../AuthButtons/GithubAuthButton";
 import { ToastContainer, toast } from "react-toastify";
-import loginIcon from "/src/assets/fingerprint-animate-blue.svg";
+import loginIcon from "@assets/fingerprint-animate-blue.svg";
 import { Eye, EyeOff } from "lucide-react";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
-import SignoutButton from "../../user/components/SignoutButton";
+import SignoutButton from "@user/components/SignoutButton";
 
 export async function loader() {
   const loggedIn = await isLoggedIn();
@@ -29,7 +29,6 @@ export async function loader() {
 }
 
 export default function Signup() {
-  const navigation = useNavigation();
   const [firstName, setFirstName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -143,6 +142,8 @@ export default function Signup() {
                       placeholder="your name"
                       className="input input-bordered w-full bg-black border-2 border-jet"
                       onChange={(e) => setFirstName(e.target.value)}
+                      pattern="^[a-zA-Z\s]*$"
+                      title="Only letters and whitespaces are allowed"
                       required
                     />
                   </div>
@@ -161,6 +162,8 @@ export default function Signup() {
                       className="input input-bordered w-full bg-black border-2 border-jet"
                       onChange={(e) => setUsername(e.target.value)}
                       required
+                      pattern="^\S*$"
+                      title="no whitespaces allowed"
                     />
                   </div>
                   <div className="w-full px-3">
@@ -210,13 +213,6 @@ export default function Signup() {
                           />
                         ))}
                     </div>
-                    <label className="label">
-                      <span className="label-text-alt"></span>
-                      <Link to="/forgot-password" >
-                      <span className="label-text-alt text-custom-blue">forgot password?</span>
-                      </Link>
-                      
-                    </label>
                   </div>
                 </div>
                 <div className="items-center">

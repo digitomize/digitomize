@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineFastBackward, AiOutlineShareAlt } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
-import ShareModel from "../../../components/share_model";
+import ShareModel from "@components/share_model";
 import { FaXTwitter, FaLinkedin, FaInstagram } from "react-icons/fa6";
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 
@@ -46,7 +46,7 @@ function UserCard({
 
       <div className="flex flex-col items-center gap-[8px] p-0">
         <div>
-          <h1 className="normal-case text-center text-[#F0ECE5]">{name}</h1>
+          <h1 className="text-center text-3xl w-full max-w-[260px] whitespace-normal break-words px-3  md:text-5xl text-[#F0ECE5]">{name}</h1>
           <div className="badges text-center">
             <div className="badge bg-[#9ACD32] text-black mx-1">member</div>
             {role >= 4 && (
@@ -69,7 +69,6 @@ function UserCard({
         <div>
           <p>
             {truncatedBio}
-
             {bio?.length > 150 && (
               <button
                 onClick={toggleBio}

@@ -8,10 +8,10 @@ import {
   useParams,
 } from "react-router-dom";
 import UserCard from "../components/UserCard";
-import leetcode from "../../../assets/leetcode.svg";
-// import codingninjas from "../../../assets/codingninjas.png";
-import codechef from "../../../assets/codechef.svg";
-import codeforces from "../../../assets/codeforces.svg";
+import leetcode from "@assets/leetcode.svg";
+// import codingninjas from "@assets/codingninjas.png";
+import codechef from "@assets/codechef.svg";
+import codeforces from "@assets/codeforces.svg";
 
 function ProfileRatingsPage() {
   const navigate = useNavigate();

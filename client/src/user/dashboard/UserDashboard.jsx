@@ -15,8 +15,8 @@ import Typewriter from "typewriter-effect";
 import "react-toastify/dist/ReactToastify.css";
 import SignoutButton from "../components/SignoutButton";
 import NewLogOut from "../components/NewLogOut";
-import { useUserAuth } from "../../context/UserAuthContext";
-import NewNavbar from "../../components/globals/NewNavbar.jsx";
+import { useUserAuth } from "@context/UserAuthContext";
+import NewNavbar from "@components/globals/NewNavbar.jsx";
 import { Skeleton } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import Chip from "@mui/material/Chip";
@@ -26,17 +26,17 @@ import { userDashboardDetails } from "../../../api";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import SettingsIcon from "@mui/icons-material/Settings";
-import logo from "../../assets/logo.png";
+import logo from "@assets/logo.png";
 import Badge from "@mui/material/Badge";
 import MoodIcon from "@mui/icons-material/Mood";
 import Tooltip from "@mui/material/Tooltip";
-import Footer from "../../components/globals/Footer.jsx";
-import LoadingScreen from "../../components/globals/LoadingScreen.jsx";
-import ShareModel from "../../components/share_model.jsx";
+import Footer from "@components/globals/Footer.jsx";
+import LoadingScreen from "@components/globals/LoadingScreen.jsx";
+import ShareModel from "@components/share_model.jsx";
 import UserCard from "../Profile/components/UserCard.jsx";
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 // import logo from "../assets/logo.png";
-import { MetaData } from "../../components/CustomComponents.jsx";
+import { MetaData } from "@components/CustomComponents.jsx";
 
 export default function UserDashboard() {
   const navigate = useNavigate();
@@ -55,6 +55,11 @@ export default function UserDashboard() {
       icon: TrendingUpIcon,
       title: "ratings",
       path: "ratings",
+    },
+    {
+      icon: TrendingUpIcon,
+      title: "Widgets",
+      path: "widgets",
     },
     {
       icon: GitHubIcon,
@@ -165,6 +170,23 @@ export default function UserDashboard() {
                   <p>Connect usernames for linked coding profiles.</p>
                   <div className="card-actions justify-end">
                     <a href="/u/dashboard/ratings">
+                      <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]">
+                        <TrendingUpIcon fontSize="large" />
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl my-4">
+                <div className="card-body">
+                  <h2 className="card-title">
+                    <TrendingUpIcon fontSize="medium" />
+                    Widgets
+                    <div className="badge badge-secondary">new</div>
+                  </h2>
+                  <p>Specially created widgets, just for you!</p>
+                  <div className="card-actions justify-end">
+                    <a href="/u/dashboard/widgets">
                       <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]">
                         <TrendingUpIcon fontSize="large" />
                       </button>
