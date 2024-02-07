@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../components/css/verification.css";
 import SignoutButton from "../../user/components/SignoutButton";
 import { toast, ToastContainer } from "react-toastify";
 import { auth } from "../../../firebase";
@@ -50,15 +49,15 @@ const ResendEmailVerification = () => {
   return (
     <>
       <ToastContainer />
-      <main className="resend-email-container">
-        <h2 className="resend-email-heading">
+      <main className="h-screen flex flex-col items-center justify-center w-fit ml-auto mr-auto gap-y-1">
+        <h2 className="self-start text-2xl font-bold">
           Please verify your email to continue
         </h2>
-        <p className="resend-email-content">
+        <p className="">
           Didn't receive the verification email? Click the button below to
           resend it.
         </p>
-        <div className="resend-email-btn">
+        <div className="self-start">
           <SignoutButton
             onClickFunction={handleSubmit}
             isDisabled={btnState}
