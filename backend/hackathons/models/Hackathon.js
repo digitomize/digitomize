@@ -11,6 +11,11 @@ const hackathonSchema = new mongoose.Schema(
       type: String,
       required: [true, "Name is required."],
     },
+    vanity: {
+      type: String,
+      required: [true, "Vanity is required."],
+      lowercase: true,
+    },
     url: {
       type: String,
       required: [true, "URL is required."],

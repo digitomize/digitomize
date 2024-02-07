@@ -35,7 +35,32 @@ async function getUpcomingHackathonsList () {
   return upcomingHackathonsList;
 }
 
+const getHackathonByVanity = async (vanity) => {
+  try {
+    // First, check the upcomingContestList in memory
+    const hackathonInMemory = upcomingHackathonsList.find(
+      (contest) => contest.vanity === vanity,
+    );
+    if (hackathonInMemory) {
+      return hackathonInMemory;
+    }
+
+    // If not found in memory, query MongoDB
+    const hackathonFromDB = await AllHackathon.findOne({ vanity });
+    if (hackathonFromDB) {
+      return hackathonFromDB;
+    }
+
+    throw new Error("Hackathon not found");
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
+
+
 export default {
   getUpcomingHackathonsList,
   updateHackathons,
+  getHackathonByVanity,
 };

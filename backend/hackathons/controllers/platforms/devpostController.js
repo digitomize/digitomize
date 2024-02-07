@@ -30,6 +30,7 @@ async function fetchPageWise (url, page) {
               hackathonInfo.host = "devpost";
               hackathonInfo.name = hackathon.title;
               hackathonInfo.url = hackathon.url;
+              hackathonInfo.vanity = hackathon.id;
     
               const url = `${hackathon.url}details/dates`;
     
