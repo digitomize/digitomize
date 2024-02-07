@@ -1,10 +1,4 @@
-import {
-  useNavigation,
-  Form,
-  useNavigate,
-  redirect,
-  Link,
-} from "react-router-dom";
+import { Form, useNavigate, redirect, Link } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { isLoggedIn } from "../../../api";
@@ -23,7 +17,7 @@ import SignoutButton from "@user/components/SignoutButton";
 export async function loader() {
   const loggedIn = await isLoggedIn();
   if (loggedIn && auth.currentUser.emailVerified) {
-    return redirect("/login");
+    return redirect("/u/dashboard");
   }
   return null;
 }
@@ -32,7 +26,7 @@ export default function Signup() {
   const [firstName, setFirstName] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState(null);
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const { signUp } = useUserAuth();
@@ -62,7 +56,7 @@ export default function Signup() {
           // .then((res) => console.log(res))
           .catch((err) => setError(err.code));
       }
-      toast.success("Verification link send to email", {
+      toast.success("Verification link sent to email", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -72,7 +66,7 @@ export default function Signup() {
         progress: undefined,
         theme: "colored",
       });
-      navigate("/login");
+      navigate("/login", { replace: true });
     } catch (err) {
       toast.error(err.code, {
         position: "top-right",
@@ -188,7 +182,7 @@ export default function Signup() {
                       <p>
                         <span className="label-text">{"import"}</span>
                         <span className="label-text text-custom-blue">
-                          {" \"password\";"}
+                          {' "password";'}
                         </span>
                       </p>
                     </label>
