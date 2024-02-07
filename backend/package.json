@@ -8,8 +8,8 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint":"eslint . --ext js --report-unused-disable-directives --max-warnings 0",
-    "lint-fix":"eslint . --ext js --report-unused-disable-directives --max-warnings 0 --fix"
+    "lint": "eslint . --ext js --report-unused-disable-directives --max-warnings 0",
+    "lint-fix": "eslint . --ext js --report-unused-disable-directives --max-warnings 0 --fix"
   },
   "author": "",
   "license": "MIT",
@@ -23,7 +23,8 @@
     "express": "^4.18.2",
     "firebase-admin": "^11.10.1",
     "https": "^1.0.0",
-    "mongoose": "^7.4.1"
+    "mongoose": "^7.4.1",
+    "picocolors": "^1.0.0"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^1.5.1",
