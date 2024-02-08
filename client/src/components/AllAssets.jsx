@@ -13,13 +13,17 @@ import quine from "../assets/quine.png";
 import loginSvg from "../assets/authentication-animate.svg";
 import ms_startups from "../assets/ms_startups_dark.png";
 import carrer from '../assets/carrer.svg'
-import widget from '../assets/widget.svg'
+import preferences from '../assets/preferences.svg'
+import widgets from '../assets/widgets.svg'
 import rating from '../assets/rating.svg'
 import github from '../assets/github.svg'
+import account from '../assets/account.svg'
 export {
   github,
   carrer,
-  widget,
+  preferences,
+  widgets,
+  account,
   rating,
   geeksforgeeks,
   leetcode,

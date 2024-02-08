@@ -30,7 +30,7 @@ import {
   Footer,
   MetaData,
 } from "./components/CustomComponents";
-import UserDashBoardAccount from "./user/dashboard/Account";
+// import UserDashBoardAccount from "./user/dashboard/Account";
 import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashRatings, {
   loader as userDashRatingsLoader,
@@ -198,7 +198,7 @@ const router = createBrowserRouter(
             loader={userDashPersonalLoader}
             />
           <Route path="profile" loader={userDashPersonalLoader} element={<UserDashBoardProfile/>} />
-          <Route path="account"  loader={userDashPersonalLoader}  element={<UserDashBoardAccount/>}/>
+          {/* <Route path="account"  loader={userDashPersonalLoader}  element={<UserDashBoardAccount/>}/> */}
           <Route path="widget" element={<UserDashBoardWidget/>} />
             <Route path="ratings" element={<UserDashRatings />} />
             <Route path="preferences" element={<Preferences />} />

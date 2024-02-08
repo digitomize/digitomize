@@ -281,6 +281,8 @@ const handleUpdateUserProfile = async (req, res) => {
     });
   }
 };
+
+
 import { Novu } from "@novu/node";
 const novu = new Novu(process.env.NOVU_API_KEY);
 const handleUserPreferences = async (req, res) => {
@@ -317,6 +319,7 @@ const handleUserPreferences = async (req, res) => {
       const response = await novu.topics.removeSubscribers(topicKey, {
         subscribers: [uid],
       });
+      console.log(response);
     }
 
     return res.status(200).json({ message: `Preference for ${platform} updated successfully to ${preference}` });

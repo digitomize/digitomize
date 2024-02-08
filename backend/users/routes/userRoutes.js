@@ -7,7 +7,7 @@ import { addUID } from "../middlewares/authMiddleware.js";
 import { getLeaderboard } from "../controllers/leaderboardController.js";
 import { generateSignature } from "../controllers/cloudinaryUploadController.js";
 import { generateSVG } from "../controllers/generateSVG.js";
-import { TriggerContestNotifToTopic, addSubscriber, addSubscriberToTopic, createTopic, removeSubscriberFromTopic, updateDeviceID } from "../controllers/notifsController.js";
+import { getAllTopics, TriggerContestNotifToTopic, addSubscriber, addSubscriberToTopic, createTopic, removeSubscriberFromTopic, updateDeviceID } from "../controllers/notifsController.js";
 
 const router = express.Router();
 
@@ -25,14 +25,16 @@ router.post("/dashboard", addUID, handleUpdateUserProfile);
 router.post("/preferences", addUID, handleUserPreferences);
 
 // router.post("/notifs", addUID, updateDeviceID);
-router.post("/notifs/subscribe", addUID, addSubscriber);
+// router.post("/notifs/subscribe", addUID, addSubscriber);
 
-router.post("/notifs/addSubscriberToTopic", addUID, addSubscriberToTopic);
-router.delete("/notifs/removeSubscriberFromTopic", addUID, removeSubscriberFromTopic);
+// router.post("/notifs/addSubscriberToTopic", addUID, addSubscriberToTopic);
+// router.delete("/notifs/removeSubscriberFromTopic", addUID, removeSubscriberFromTopic);
 
-router.post("/notifs/contest", TriggerContestNotifToTopic);
+// router.post("/notifs/contest", TriggerContestNotifToTopic);
 
-router.post("/createTopic", createTopic);
+// router.post("/createTopic", createTopic);
+
+router.get("/notifs/topics", getAllTopics);
 
 router.get("/signImageUpload", addUID, generateSignature);
 

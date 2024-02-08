@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../assets/logo.png";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { useUserAuth } from "../../context/UserAuthContext";
-
+import { Link } from "react-router-dom";
 import { navLinks } from "../../components/globals/Navbar/navLinks";
 
 
@@ -16,16 +16,16 @@ const MobileNav = ({ isMenuActive, toggleActive }) => {
       <div className="mx-auto max-w-screen-xl px-6 md:px-10">
         <div className="flex items-center justify-between">
           <div className="flex">
-            <a href="/u/dashboard" className="group">
+            <Link to="/u/dashboard" className="group">
               <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-blue-700">
-                <KeyboardBackspaceIcon />
+                <KeyboardBackspaceIcon /> 
                 {/* <img
                 src={KeyboardBackspaceIcon}
                 alt="logo"
                 className="rounded-full"
               /> */}
               </div>
-            </a>
+            </Link>
           </div>
           <button
             type="button"

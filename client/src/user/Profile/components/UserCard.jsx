@@ -143,7 +143,7 @@ function UserCard({
         )}
       </div>
       <div className="mt-6 max-sm:hidden">
-        <p className="text-[16px]">Skills</p>
+      {skills.length > 0 && <p className="text-[16px]">Skills</p>}
         <div className="flex flex-row mt-3">
           {skills.map((skill, index) => (
             <div

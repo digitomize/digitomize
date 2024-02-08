@@ -13,7 +13,7 @@ import NewLogOut from "../components/NewLogOut";
 import { useUserAuth } from "../../context/UserAuthContext";
 import NewNavbar from "../../components/globals/Navbar/NewNavbar.jsx";
 import EditIcon from "@mui/icons-material/Edit";
-import { widget, rating, carrer, github } from "../../components/AllAssets.jsx";
+import { preferences, rating, carrer, github, widgets, account } from "../../components/AllAssets.jsx";
 import { userDashboardDetails } from "../../../api";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import Badge from "@mui/material/Badge";
@@ -28,34 +28,40 @@ import { MetaData } from "../../components/CustomComponents.jsx";
 import ContestCard from "../components/ContestCard.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+import { navLinks } from "./dashboardLinks.js";
 
 export default function UserDashboard() {
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState();
   const { user } = useUserAuth();
   const [selectedStatus, setSelectedStatus] = useState("Busy"); // Initialize with a default status
-  const navLinks = [
-    {
-      icon: widget,
-      title: "widget",
-      path: "widget",
-    },
-    {
-      icon: carrer,
-      title: "carrer",
-      path: "carrer",
-    },
-    {
-      icon: github,
-      title: "github",
-      path: "github",
-    },
-    {
-      icon: rating,
-      title: "rating",
-      path: "ratings"
-    },
-  ];
+  // const navLinks = [
+  //   {
+  //     icon: account,
+  //     title: "profile",
+  //     path: "profile",
+  //   },
+  //   {
+  //     icon: widgets,
+  //     title: "widget",
+  //     path: "widget",
+  //   },
+  //   {
+  //     icon: carrer,
+  //     title: "carrer",
+  //     path: "carrer",
+  //   },
+  //   {
+  //     icon: rating,
+  //     title: "rating",
+  //     path: "ratings"
+  //   },
+  //   {
+  //     icon: preferences,
+  //     title: "preferences",
+  //     path: "preferences"
+  //   }
+  // ];
   let projects = [
     {
       title: "Awesome Chat App",
@@ -157,15 +163,15 @@ export default function UserDashboard() {
 
         {/* FOR DESKTOP */}
         <div className=" w-10/12 mx-auto mt-4 max-sm:px-3 font-['Geist']">
-          <h1 className="pb-4 normal-case text-[#EBEBEB] sm:text-[50px] lg:text-[64px]">
-            Heyy {userData.personal_data.name}
+          <h1 className="pb-4 normal-case text-[#EBEBEB] text-5xl">
+            Heyy {userData.personal_data.name.slice(0,20)}
           </h1>
 
           <div className="flex sm:flex-row flex-col sm:space-x-12 gap-6">
             <div className="sm:w-[40%]">
               <UserCard
                 username={userData.personal_data.username}
-                name={userData.personal_data.name}
+                name={userData.personal_data.name.slice(0,20)}
                 picture={userData.personal_data.picture}
                 bio={userData.personal_data.bio.data}
                 phoneNumber={userData.personal_data.phoneNumber}
@@ -175,12 +181,13 @@ export default function UserDashboard() {
               />
             </div>
             <div className="sm:w-[60%]">
-              <div className="flex flex-row w-full lg:gap-10 lg:justify-between justify-around min-w-[100px] flex-wrap gap-y-4">
+                <h1 className="my-0 text-4xl">Settings</h1>
+              <div className="my-2 flex flex-row w-11/12 lg:justify-between justify-around flex-wrap gap-y-4">
                 {
                   navLinks.map((data, index) => {
                     return <Link to={data.path} key={index}>
                       <div className="flex bg-cardsColor flex-col border border-solid sm:rounded-[12px] rounded-[5px] sm:py-3 sm:px-5 max-sm:py-2 max-sm:px-4 space-y-[5px] sm:justify-center justify-between  items-center border-[#EBEBEB]">
-                        <img src={data.icon} alt={data.title} className="lg:w-[70px] lg:h-[70px] sm:w-[50px] sm:h-[50px] max-sm:w-[35px]" />
+                        <img src={data.icon} alt={data.title} className="w-8" />
                         <p className="capitalize font-[500] sm:text-[16px] max-sm:text-[10px] text-[#EBEBEB]">{data.title}</p>
                       </div>
                     </Link>
@@ -188,7 +195,8 @@ export default function UserDashboard() {
                 }
               </div>
               <div className="w-full">
-                <p className="text-white text-[32px] my-4">Contests</p>
+                {/* <p className="text-white text-[32px] my-4">Contests</p> */}
+                <h1 className="mt-8 text-4xl">Contests</h1>
                 <div className="flex flex-row gap-7  flex-wrap">
                   {
                     contest.map((data, index) => {
@@ -198,13 +206,14 @@ export default function UserDashboard() {
                 </div>
               </div>
               <div className="w-full">
-                <p className="text-white text-[32px] my-4">Projects</p>
+                <h1 className="mt-8 text-4xl">Projects</h1>
+                coming soon
                 <div className="flex flex-row sm:gap-7 max-sm:gap-4  flex-wrap">
-                  {
+                  {/* {
                     projects.map((data, index) => {
                       return <ProjectCard {...data} key={index} />
                     })
-                  }
+                  } */}
                 </div>
               </div>
             </div>

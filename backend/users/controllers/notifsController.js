@@ -173,3 +173,20 @@ export const updateDeviceID = async (req, res) => {
     return res.status(500).json({ message: "Internal server error", error: error.message });
   }
 };
+
+
+export const getAllTopics = async (req, res) => {
+  try {
+    const response = await fetch("https://api.novu.co/v1/topics", {
+      headers: {
+        Authorization: `ApiKey ${process.env.NOVU_API_KEY}`,
+      },
+    });
+    const topics = await response.json();
+    console.log(topics);
+    return res.status(200).json(topics);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Internal server error", error: error.message });
+  }
+};

@@ -15,11 +15,7 @@ import LoadingScreen from "../../components/globals/LoadingScreen";
 import { MetaData } from "../../components/CustomComponents";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import leetcode from "../../assets/leetcode.svg";
-import codechef from "../../assets/codechef.svg";
-import codeforces from "../../assets/codeforces.svg";
-import geeksforgeeks from "../../assets/geeksforgeeks.svg";
-import codingninjas from "../../assets/codingninjas.png";
+import { atcoder, leetcode, codechef, codeforces, geeksforgeeks, codingninjas } from "../../components/AllAssets";
 
 const theme = createTheme({
   palette: {
@@ -33,6 +29,7 @@ const platformsData = [
   { name: "geeksforgeeks", icon: geeksforgeeks },
   { name: "codechef", icon: codechef },
   { name: "codeforces", icon: codeforces },
+  { name: "atcoder", icon: atcoder },
 ];
 
 export async function loader() {
@@ -89,14 +86,14 @@ export default function Preferences() {
       const response = changeUserPreferences(name, toggledValue);
       toast.promise(response, {
         pending: 'Updating preferences... 🤔',
-        // success: `Preference for ${name} updated to ${toggledValue} successfully! 🎉`,
-        success: {
-          render({ data }) {
-            console.log(data);
-            return `${data.data.message}`
-          },
-          icon: "✅",
-        },
+        success: `Preference for ${name} updated to ${toggledValue} successfully! 🎉`,
+        // success: {
+        //   render({ data }) {
+        //     console.log(data);
+        //     return `${data.data.message}`
+        //   },
+        //   icon: "✅",
+        // },
         error: {
           render({ data }) {
             console.log(data.message);
@@ -105,6 +102,7 @@ export default function Preferences() {
           icon: "✅",
         }
       });
+      console.log(response);
     } catch (err) {
       console.error(err);
       // Revert toggle state on failure
@@ -120,7 +118,7 @@ export default function Preferences() {
 
   const renderSwitches = () => (
     <>
-      <div className="w-1/2 mx-auto flex border border-white rounded-xl flex-col space-y-[23px] bg-cardsColor font-['Geist']">
+      <div className="w-7/12 rounded-md flex border border-jet rounded-xl flex-col space-y-[23px] bg-cardsColor font-['Geist']">
         <div
           className="p-8"
         >

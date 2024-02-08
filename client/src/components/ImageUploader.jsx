@@ -38,7 +38,7 @@ const ImageUploader = ({ image, setFormData }) => {
   };
 
   return (
-    <div className="flex gap-3 w-full min-h-24 max-w-lg max-phone:flex-col-reverse items-center">
+    <div className="flex gap-3 w-full min-h-24 max-w-lg max-phone:flex-col-reverse items-center phone:flex-row-reverse">
       <label
         htmlFor="imageUpload"
         className="input h-24 flex-none border-2 border-dashed border-gray-300 p-4 text-center cursor-pointer w-3/4 flex justify-center items-center"

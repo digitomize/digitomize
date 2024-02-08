@@ -77,6 +77,7 @@ export default function Widget() {
     return (
       <>
         <MetaData path="u/dashboard/widgets" />
+        <HowToUse />
         <div className="widgets font-['Geist']  w-full">
           <h2 className="mt-4 text-[40px] -mb-8 max-sm:text-2xl font-bold normal-case text-white pt-[3.5rem] text-center md:pt-[2rem]  lg:pt-[1rem]">
             Widgets
@@ -105,7 +106,6 @@ export default function Widget() {
           ) : (
             <></>
           )}
-          <HowToUse />
         </div>
       </>
     );
@@ -151,26 +151,25 @@ const SVGImageContainer = ({ link, height, width }) => {
 
 const HowToUse = () => {
   return (
-    <div class="font-['Geist']  xl:pt-8 max-md:pt-4 items-center flex flex-col phone:mt-16 gap-[1.2rem]">
+    <div class="font-['Geist'] items-center flex flex-col gap-[1.2rem]">
       <h2 className="text-[40px] max-sm:text-2xl font-bold normal-case text-white">How to use?</h2>
       <div className="sm:m-[10px] bg-cardsColor max-sm:m-4 flex flex-col items-center w-auto p-[32px]  rounded-[10px] border border-solid border-[black] shadow-[0px_2px_12px_white]">
         <ol className="pl-[50px]  list-decimal text-base">
           <li className="font-['Geist'] pl-[16px] mt-[24px] relative text-base leading-[20px] ">
-            <strong>Copy Link</strong>
-            <p>Click on share widget button to copy the widget's link</p>
+            <strong>Copy Widget Link</strong>
+            <p>To obtain the link for the widget, select the 'Share Widget' button.</p>
           </li>
           <li className="font-['Geist'] pl-[16px] mt-[24px] relative text-base leading-[20px] ">
-            <strong>Paste Link</strong>
+            <strong>Paste the Link</strong>
             <p>
-              Paste the link into &lt;img src=&quot;Your_copied_link_here"
-              height=&quot;100%&quot; width&quot;100%&quot; /&gt;
+              Paste the copied link within the following HTML tag: <br />
+              {`<img src="Your_copied_link_here" height="100%" width"100%" />`}
             </p>
           </li>
           <li className="font-['Geist'] pl-[16px] mt-[24px] relative text-base leading-[20px]">
-            <strong>Add in your readme</strong>
+            <strong>Integration into Your Readme/ Website</strong>
             <p>
-              Now paste this img tag into any website you are making or you can
-              also add this on your github readme.
+              Integrate the provided {'<img>'} tag into your website's codebase or include it within your GitHub readme for seamless integration.
             </p>
           </li>
         </ol>

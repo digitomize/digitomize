@@ -31,30 +31,30 @@ export function isLoggedIn() {
   });
 }
 
-export async function sendDeviceID(data) {
-  console.log("api invoked");
-  const loggedIn = await isLoggedIn();
+// export async function sendDeviceID(data) {
+//   console.log("api invoked");
+//   const loggedIn = await isLoggedIn();
 
-  if (loggedIn) {
-    const currentUser = auth.currentUser;
-    const accessToken = await currentUser.getIdToken();
+//   if (loggedIn) {
+//     const currentUser = auth.currentUser;
+//     const accessToken = await currentUser.getIdToken();
 
-    if (accessToken) {
-      try {
-        data = {"deviceID":data};
-        const response = await axios.post(`${backendUrl}/user/notifs`, data, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        });
-        return response;
-      } catch (error) {
-        console.error(error);
-        throw new Error(`Failed to send device ID: ${error.message}`);
-      }
-    }
-  }
-}
+//     if (accessToken) {
+//       try {
+//         data = {"deviceID":data};
+//         const response = await axios.post(`${backendUrl}/user/notifs`, data, {
+//           headers: {
+//             Authorization: `Bearer ${accessToken}`,
+//           },
+//         });
+//         return response;
+//       } catch (error) {
+//         console.error(error);
+//         throw new Error(`Failed to send device ID: ${error.message}`);
+//       }
+//     }
+//   }
+// }
 
 export async function userDashboardDetails() {
   const loggedIn = await isLoggedIn();
