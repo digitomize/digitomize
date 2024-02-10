@@ -49,8 +49,8 @@ import ProfileLayout, {
 } from "./user/Profile/pages/ProfileLayout";
 // import ProtectedRoute from "./ProtectedRoute"
 import UserDashBoardCarrer from "./user/dashboard/Carrer";
-import {loader as userDashPersonalLoader} from './user/dashboard/UserDashPersonal'
-import UserDashBoardProfile from "./user/dashboard/profile";
+import { loader as userDashPersonalLoader } from './user/dashboard/UserDashPersonal'
+import UserDashBoardProfile from "./user/dashboard/Profile/Profile";
 import Leaderboard from "./user/leaderboard/Leaderboard";
 import UserDashBoardWidget from "./user/dashboard/Widget";
 /*------------ DSA Sheets Import ------------ */
@@ -181,9 +181,9 @@ const router = createBrowserRouter(
         <Route path="dashboard">
           <Route
             index
-            element={<UserDashboard/>}
+            element={<UserDashboard />}
           />
-          
+
           <Route path="widgets" element={<Widget />} />
           <Route
             path="github"
@@ -191,15 +191,15 @@ const router = createBrowserRouter(
             loader={userDashGithubLoader}
           />
 
-          <Route element={<UserDashBoardLayout/>} >
-          <Route
-            path="carrer"
-            element={<UserDashBoardCarrer />}
-            loader={userDashPersonalLoader}
+          <Route element={<UserDashBoardLayout />} >
+            <Route
+              path="carrer"
+              element={<UserDashBoardCarrer />}
+              loader={userDashPersonalLoader}
             />
-          <Route path="profile" loader={userDashPersonalLoader} element={<UserDashBoardProfile/>} />
-          {/* <Route path="account"  loader={userDashPersonalLoader}  element={<UserDashBoardAccount/>}/> */}
-          <Route path="widget" element={<UserDashBoardWidget/>} />
+            <Route path="profile" loader={userDashPersonalLoader} element={<UserDashBoardProfile />} />
+            {/* <Route path="account"  loader={userDashPersonalLoader}  element={<UserDashBoardAccount/>}/> */}
+            <Route path="widget" element={<UserDashBoardWidget />} />
             <Route path="ratings" element={<UserDashRatings />} />
             <Route path="preferences" element={<Preferences />} />
           </Route>
@@ -232,7 +232,7 @@ function App() {
           <RouterProvider router={router} />
         </UserContextProvider>
       </UserAuthContextProvider>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

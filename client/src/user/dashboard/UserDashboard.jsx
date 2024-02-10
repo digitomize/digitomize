@@ -159,7 +159,7 @@ export default function UserDashboard() {
 
         <MetaData path="u/dashboard" />
         <ToastContainer />
-        <NewNavbar />
+        {/* <NewNavbar /> */}
 
         {/* FOR DESKTOP */}
         <div className=" w-10/12 mx-auto mt-4 max-sm:px-3 font-['Geist']">

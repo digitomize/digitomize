@@ -3,33 +3,12 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa6";
-import { navLinks } from "./dashboardLinks";
+import { navLinks, accountLinks, integrationLinks } from "./dashboardLinks";
+import { logo_white_full } from "../../components/AllAssets";
 function UserDashBoardTab() {
   const url = window.location.href.split('/')
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(url[url.length - 1]);
-  // const navLinks = [
-  //   {
-  //     title: "profile",
-  //     path: "profile"
-  //   },
-  //   {
-  //     title: "carrer",
-  //     path: "carrer",
-  //   },
-  //   {
-  //     title : "widget",
-  //     path : "widget"
-  //   },
-  //   {
-  //     title : "ratings",
-  //     path : "ratings"
-  //   },
-  //   {
-  //     title : "preferences",
-  //     path : "preferences"
-  //   }
-  // ];
   const handleOptionClick = (option) => {
     setSelectedOption(option)
   }
@@ -39,55 +18,51 @@ function UserDashBoardTab() {
   };
   return (
     <>
-      <div className="relative md:hidden text-left bg-ecardsColor mb-3 font-['Geist']">
-        <button
-          onClick={toggleDropdown}
-          type="button"
-          className="flex w-full justify-between capitalize items-center border border-white rounded-[12px]  px-4 py-2 bg-cardsColor text-sm font-medium text-button-primary transition duration-150 ease-in-out text-left"
-        >
-          <p>{selectedOption}</p>
-          {
-            isOpen ? <IoIosArrowUp /> : <IoIosArrowDown />
-          }
+      <aside className="h-full">
+        <div className="bg-dashboardColor h-full px-3 flex-col fixed left-0 lg:left-auto lg:top-auto lg:flex z-50 overflow-y-auto border-r border-solid border-jet w-56">
+          <div className="h-full flex flex-col">
+            <div className="pt-2 flex-grow flex flex-col dark:text-white">
+              <div className="flex flex-col justify-between">
+                <div>
+                  <h3 class="text-slate-500 mt-4 mb-4 px-3">Account</h3>
+                  <div className="text-slate-200 flex flex-col items-start w-full items-stretch">
+                    {
+                      accountLinks.map((option, index) => (
+                        <Link to={option.path} key={index} className="h-9 border-transparent focus-visible flex items-center mb-2 rounded-lg truncate transition">
+                          <button className={`rounded-lg justify-start flex w-full btn btn-ghost ${selectedOption === option.title ? "btn-active" : ""}`} onClick={() => { handleOptionClick(option.title) }}>
+                            <img src={option.icon} alt={option.title} className="w-4" />
+                            <p className="capitalize font-light text-sm">{option.title}</p>
+                          </button>
+                        </Link>
+                      ))
+                    }
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-slate-500 mt-4 mb-4 px-3">Integration</h3>
+                  <div className="text-slate-200 flex flex-col items-start w-full items-stretch">
+                    {
+                      integrationLinks.map((option, index) => (
+                        <Link to={option.path} key={index} className="h-9 border-transparent focus-visible flex items-center mb-2 rounded-lg truncate transition">
+                          <button className={`rounded-lg justify-start flex w-full btn btn-ghost ${selectedOption === option.title ? "btn-active" : ""}`} onClick={() => { handleOptionClick(option.title) }}>
+                            <img src={option.icon} alt={option.title} className="w-4" />
+                            <p className="capitalize font-light text-sm">{option.title}</p>
+                          </button>
+                        </Link>
+                      ))
+                    }
+                  </div>
+                </div>
 
-        </button>
+              </div>
 
-        {isOpen && (
-          <div className="origin-top-right absolute right-0 mt-2 rounded-xl bg-cardsColor border border-white border-solid  w-full">
-            <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-button">
-              {navLinks.map((option, index) => (
-                <Link to={option.path}
-                  key={index}
-                  onClick={() => handleOptionClick(option.title)}
-                  className="px-4 block capitalize py-2 text-sm text-white w-full text-left"
-                  role="menuitem"
-                >
-                  {option.title}
-                </Link>
-              ))}
             </div>
           </div>
-        )}
-      </div>
-      <div className='hidden max-w-[270px] w-[20%] md:flex flex-col py-12 border border-solid border-jet text-[20px] space-y-[33px] bg-cardsColor rounded-md px-[20px] min-h-96 h-fit mr-[30px]'>
-        <Link to={'/u/dashboard'} className={`capitalize flex flex-row items-center gap-2`} ><FaArrowLeft />Dashboard</Link>
-        {
-          navLinks.map((option, index) => (
-            <Link to={option.path} key={index} className={`capitalize ${selectedOption === option.title ? "text-button-primary" : ""}`} onClick={() => { handleOptionClick(option.title) }}>{option.title}</Link>
-          ))
-        }
-      </div>
-      {/* <ul className="menu bg-base-200 w-56 rounded-l-sm">
-        {
-          <Link to={'/u/dashboard'} className={`capitalize flex flex-row items-center gap-2`} ><FaArrowLeft />Dashboard</Link>
-          &&
-          navLinks.map((option, index) => (
-            <li>
-              <Link to={option.path} key={index} className={`capitalize ${selectedOption === option.title ? "text-button-primary" : ""}`} onClick={() => { handleOptionClick(option.title) }}>{option.title}</Link>
-            </li>
-          ))
-        }
-      </ul> */}
+
+        </div>
+
+      </aside>
+
     </>
   )
 }

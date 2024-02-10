@@ -5,6 +5,9 @@ import codechef from "../assets/codechef.svg";
 import codeforces from "../assets/codeforces.svg";
 import atcoder from "../assets/atcoder.svg";
 import logo from "../assets/logo.png";
+import logo_white_full from "../assets/logo_white_cropped.png";
+import downArrow from "../assets/downArrow.svg";
+import gear from "../assets/gear.svg";
 import dynamicLogo from "../assets/dynamic_logo.svg";
 import logodgm from "../assets/digitomizeLogo.png";
 import tublian from "../assets/tublian.svg";
@@ -32,6 +35,9 @@ export {
   codeforces,
   atcoder,
   logo,
+  logo_white_full,
+  downArrow,
+  gear,
   dynamicLogo,
   logodgm,
   tublian,
