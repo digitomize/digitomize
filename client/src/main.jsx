@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
-
+import { RecoilRoot } from "recoil";
 import App from "./App";
 
 import "@radix-ui/themes/styles.css";
@@ -20,15 +20,10 @@ const defaultDesc = "Empowering Coders and Developers Worldwide";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <Helmet>
-      <title>{currentPageData?.title || defaultTitle}</title>
-      <meta
-        name="description"
-        content={currentPageData?.description || defaultDesc}
-      />
-    </Helmet> */}
+    <RecoilRoot>
     <InstallPWAButton />
     <App />
+    </RecoilRoot>
   </React.StrictMode>,
 );
 
