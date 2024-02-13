@@ -1,4 +1,5 @@
 name: "PR Title Checker"
+
 on:
   pull_request_target:
     types:
@@ -11,9 +12,17 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: thehanimo/pr-title-checker@v1.3.7
+      - name: Check PR Title Format
+        uses: actions/github-script@v5
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          pass_on_octokit_error: false
-          configuration_path: ".github/pr-title-checker.json"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pattern = /^(feat|fix|docs|style|refactor|perf|test|chore|build|ci|temp)\: .*/;
+            const title = github.event.pull_request.title;
+            if (!pattern.test(title)) {
+              const errorMessage = "Error: PR title does not conform to the required format. Please use one of the specified prefixes followed by a colon and a space.";
+              console.error(errorMessage);
+              core.setFailed(errorMessage);
+            }
