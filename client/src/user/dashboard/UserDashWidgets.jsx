@@ -154,7 +154,7 @@ const SVGImageContainer = ({ link, height, width }) => {
 
 const HowToUse = () => {
   return (
-    <div class="font-['Geist'] xl:pt-8 max-md:pt-4 items-center flex flex-col phone:mt-16 gap-[1.2rem]">
+    <div className="font-['Geist'] xl:pt-8 max-md:pt-4 items-center flex flex-col phone:mt-16 gap-[1.2rem]">
       <h2 className="text-5xl text-center">How to use?</h2>
       <div className="m-[10px] flex flex-col w-auto p-[32px] m-[60px auto] rounded-[10px] border border-solid border-[black] shadow-[0px_2px_12px_white]">
         <ol className="pl-[50px] list-decimal">

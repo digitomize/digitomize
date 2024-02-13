@@ -30,12 +30,12 @@ export async function loader({ request }) {
 
 
 export const buttonState = atom({
-  key: 'btnState',
+  key: "btnState",
   default: false,
 });
 
 export const errorState = atom({
-  key: 'errorState',
+  key: "errorState",
   default: "",
 });
 
@@ -184,5 +184,5 @@ function LoginForm(){
       </p>
     </div>
   </div>
-</Form>
+</Form>;
 }
