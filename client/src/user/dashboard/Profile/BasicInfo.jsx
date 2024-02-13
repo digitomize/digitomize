@@ -11,94 +11,94 @@ import dayjs from "dayjs";
 
 
 
-function BasicInfo() {
+function BasicInfo({formData,setFormData,handleInputChange,handleInputChangeObjData}) {
 
-    const { personal_data, social } = useLoaderData();
-    const [isDisabled, setIsDisabled] = useState(false);
-    const [formData, setFormData] = useState({
-        email: personal_data.email,
-        username: personal_data.username,
-        name: personal_data.name || "",
-        picture: personal_data.picture,
-        dateOfBirth: {
-            data: personal_data.dateOfBirth.data || "",
-            showOnWebsite: personal_data.dateOfBirth.showOnWebsite || true,
-        },
-        bio: {
-            data: personal_data.bio.data || "",
-            showOnWebsite: personal_data.bio.showOnWebsite || true,
-        },
-        phoneNumber: {
-            data: personal_data.phoneNumber.data || "",
-            showOnWebsite: personal_data.phoneNumber.showOnWebsite || true,
-        },
-    });
+    // const { personal_data, social } = useLoaderData();
+    // const [isDisabled, setIsDisabled] = useState(false);
+    // const [formData, setFormData] = useState({
+    //     email: personal_data.email,
+    //     username: personal_data.username,
+    //     name: personal_data.name || "",
+    //     picture: personal_data.picture,
+    //     dateOfBirth: {
+    //         data: personal_data.dateOfBirth.data || "",
+    //         showOnWebsite: personal_data.dateOfBirth.showOnWebsite || true,
+    //     },
+    //     bio: {
+    //         data: personal_data.bio.data || "",
+    //         showOnWebsite: personal_data.bio.showOnWebsite || true,
+    //     },
+    //     phoneNumber: {
+    //         data: personal_data.phoneNumber.data || "",
+    //         showOnWebsite: personal_data.phoneNumber.showOnWebsite || true,
+    //     },
+    // });
 
-    const dobChange = (date) => {
-        setFormData((prevData) => ({
-            ...prevData,
-            dateOfBirth: {
-                ...prevData.dateOfBirth,
-                data: dayjs(date),
-            },
+    // const dobChange = (date) => {
+    //     setFormData((prevData) => ({
+    //         ...prevData,
+    //         dateOfBirth: {
+    //             ...prevData.dateOfBirth,
+    //             data: dayjs(date),
+    //         },
 
-        }));
-    };
+    //     }));
+    // };
 
 
-    const handleInputChangeObjData = (event) => {
-        console.log("EVENT:", event);
-        const { name, value } = event.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: {
-                ...prevData[name],
-                data: value,
-            },
-        }));
-    };
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
-    async function handleSubmit(event) {
-        event.preventDefault();
-        setIsDisabled(true);
-        const res = await submitUserFormData(formData)
-            .then(() => {
-                toast.success("updated successfully!", {
-                    position: "top-left",
-                    autoClose: 1500,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
-                setIsDisabled(false);
-            })
-            .catch((err) => {
-                toast.error(err.response.data.message, {
-                    position: "top-left",
-                    autoClose: 1500,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
-                console.log(err);
-                setIsDisabled(false);
-            });
+    // const handleInputChangeObjData = (event) => {
+    //     console.log("EVENT:", event);
+    //     const { name, value } = event.target;
+    //     setFormData((prevData) => ({
+    //         ...prevData,
+    //         [name]: {
+    //             ...prevData[name],
+    //             data: value,
+    //         },
+    //     }));
+    // };
+    // const handleInputChange = (event) => {
+    //     const { name, value } = event.target;
+    //     setFormData((prevData) => ({
+    //         ...prevData,
+    //         [name]: value,
+    //     }));
+    // };
+    // async function handleSubmit(event) {
+    //     event.preventDefault();
+    //     setIsDisabled(true);
+    //     const res = await submitUserFormData(formData)
+    //         .then(() => {
+    //             toast.success("updated successfully!", {
+    //                 position: "top-left",
+    //                 autoClose: 1500,
+    //                 hideProgressBar: false,
+    //                 closeOnClick: true,
+    //                 pauseOnHover: true,
+    //                 draggable: true,
+    //                 progress: undefined,
+    //                 theme: "colored",
+    //             });
+    //             setIsDisabled(false);
+    //         })
+    //         .catch((err) => {
+    //             toast.error(err.response.data.message, {
+    //                 position: "top-left",
+    //                 autoClose: 1500,
+    //                 hideProgressBar: false,
+    //                 closeOnClick: true,
+    //                 pauseOnHover: true,
+    //                 draggable: true,
+    //                 progress: undefined,
+    //                 theme: "colored",
+    //             });
+    //             console.log(err);
+    //             setIsDisabled(false);
+    //         });
 
         // console.log(res);
-    }
-    const { user } = useUserAuth();
+    // }
+    // const { user } = useUserAuth();
     const BIO_LIMIT = 250;
 
     return (
