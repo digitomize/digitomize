@@ -76,7 +76,17 @@ function UserDashBoardProfile() {
         console.log(err);
         setIsDisabled(false);
       });
+    };
 
+    const dobChange = (date) => {
+      setFormData((prevData) => ({
+          ...prevData,
+          dateOfBirth: {
+              ...prevData.dateOfBirth,
+              data: dayjs(date),
+          },
+
+      }));
     // console.log(res);
   }
   return (
@@ -90,11 +100,14 @@ function UserDashBoardProfile() {
         </div>
 
 
-        <BasicInfo />
+       
+       <form >
+       <BasicInfo formData={formData} setFormData={setFormData} handleInputChange={handleInputChange} handleInputChangeObjData={handleInputChangeObjData}  />
         
-        <GenderAndDOB />
+        <GenderAndDOB  handleInputChange={handleInputChange} dobChange={dobChange}/>
         
-        <SubmitBtn/>
+        <SubmitBtn handleSubmit={handleSubmit}/>
+       </form>
 
         {/* <div className="mt-8 flex flex-col xl:flex-row gap-8 xl:gap-20">
           <div class="flex-1 mt-8 ml-4 xl:ml-0">

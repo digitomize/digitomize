@@ -1,4 +1,4 @@
-function SubmitBtn() {
+function SubmitBtn({handleSubmit}) {
     return (
         <>
             <div className="flex space-x-20 mt-10">
@@ -8,7 +8,7 @@ function SubmitBtn() {
                 </div>
                 <div className="flex-2">
 
-                    <button type="submit" className="btn btn-outline border-jet hover:bg-jet hover:text-white">Save changes</button>
+                    <button type="submit" onClick={handleSubmit} className="btn btn-outline border-jet hover:bg-jet hover:text-white">Save changes</button>
                 </div>
             </div>
         </>

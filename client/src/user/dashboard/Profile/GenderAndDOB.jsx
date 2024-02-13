@@ -12,7 +12,7 @@ import { MenuItem, Select } from "@mui/material";
 
 
 
-function GenderAndDOB() {
+function GenderAndDOB({handleInputChange,dobChange}) {
 
     const { personal_data, social } = useLoaderData();
     const [isDisabled, setIsDisabled] = useState(false);
@@ -35,73 +35,73 @@ function GenderAndDOB() {
         },
     });
 
-    const dobChange = (date) => {
-        setFormData((prevData) => ({
-            ...prevData,
-            dateOfBirth: {
-                ...prevData.dateOfBirth,
-                data: dayjs(date),
-            },
+    // const dobChange = (date) => {
+    //     setFormData((prevData) => ({
+    //         ...prevData,
+    //         dateOfBirth: {
+    //             ...prevData.dateOfBirth,
+    //             data: dayjs(date),
+    //         },
 
-        }));
-    };
+    //     }));
+    // };
 
 
-    const handleInputChangeObjData = (event) => {
-        console.log("EVENT:", event);
-        const { name, value } = event.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: {
-                ...prevData[name],
-                data: value,
-            },
-        }));
-    };
-    const handleInputChange = (event) => {
-        console.log(event);
-        const { name, value } = event.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
-    async function handleSubmit(event) {
-        event.preventDefault();
-        setIsDisabled(true);
-        const res = await submitUserFormData(formData)
-            .then(() => {
-                toast.success("updated successfully!", {
-                    position: "top-left",
-                    autoClose: 1500,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
-                setIsDisabled(false);
-            })
-            .catch((err) => {
-                toast.error(err.response.data.message, {
-                    position: "top-left",
-                    autoClose: 1500,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
-                console.log(err);
-                setIsDisabled(false);
-            });
+    // const handleInputChangeObjData = (event) => {
+    //     console.log("EVENT:", event);
+    //     const { name, value } = event.target;
+    //     setFormData((prevData) => ({
+    //         ...prevData,
+    //         [name]: {
+    //             ...prevData[name],
+    //             data: value,
+    //         },
+    //     }));
+    // };
+    // const handleInputChange = (event) => {
+    //     console.log(event);
+    //     const { name, value } = event.target;
+    //     setFormData((prevData) => ({
+    //         ...prevData,
+    //         [name]: value,
+    //     }));
+    // };
+    // async function handleSubmit(event) {
+    //     event.preventDefault();
+    //     setIsDisabled(true);
+    //     const res = await submitUserFormData(formData)
+    //         .then(() => {
+    //             toast.success("updated successfully!", {
+    //                 position: "top-left",
+    //                 autoClose: 1500,
+    //                 hideProgressBar: false,
+    //                 closeOnClick: true,
+    //                 pauseOnHover: true,
+    //                 draggable: true,
+    //                 progress: undefined,
+    //                 theme: "colored",
+    //             });
+    //             setIsDisabled(false);
+    //         })
+    //         .catch((err) => {
+    //             toast.error(err.response.data.message, {
+    //                 position: "top-left",
+    //                 autoClose: 1500,
+    //                 hideProgressBar: false,
+    //                 closeOnClick: true,
+    //                 pauseOnHover: true,
+    //                 draggable: true,
+    //                 progress: undefined,
+    //                 theme: "colored",
+    //             });
+    //             console.log(err);
+    //             setIsDisabled(false);
+    //         });
 
-        // console.log(res);
-    }
-    const { user } = useUserAuth();
-    const BIO_LIMIT = 250;
+    //     // console.log(res);
+    // }
+    // const { user } = useUserAuth();
+    // const BIO_LIMIT = 250;
 
     return (
         <>
