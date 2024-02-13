@@ -142,24 +142,6 @@ function UserDashBoardCarrer() {
       <ToastContainer />
       <div className="border border-solid border-jet bg-cardsColor rounded-md p-[40px] w-9/12 font-['Geist']">
         <div>
-          {/* <div className="relative z-0 w-full md:w-3/4 mb-4 group flex items-center gap-3">
-          <div className="form-control w-full ">
-            <label htmlFor="resume" className="label">
-              <span className="label-text text-[14px]"> resume</span>
-            </label>
-            <div className="flex  items-center gap-3 ">
-              <input
-                type="text"
-                name="resume"
-                id="resume"
-                placeholder="upload your resume link"
-                value={formData.resume}
-                onChange={handleInputChange}
-                className="input input-bordered w-full"
-              />
-            </div>
-          </div>
-        </div> */}
           <div className="z-0 w-full md:w-3/4 group flex items-start md:mr-5 ">
             <div className="form-control  w-full ">
               <h2 className='font-bold text-white text-4xl max-sm:text-2xl sm:mb-[30px] mb-[20px]'>Skills</h2>
@@ -215,39 +197,6 @@ function UserDashBoardCarrer() {
 
           <h2 className='font-bold text-white text-4xl max-sm:text-2xl sm:mb-[30px] my-2'>Social</h2>
           <div className="flex flex-col gap-4 pb-8">
-            {/* <div className="flex sm:gap-4  gap-3 items-center">
-              <FaInstagram size={40} />
-              <input
-                type="text"
-                name="instagram"
-                value={formData.social.instagram}
-                placeholder="Instagram URL"
-                onChange={handleSocialChange}
-                className="input input-bordered max-sm:text-sm  sm:w-2/6 md:w-2/5"
-              />
-            </div>
-            <div className="flex sm:gap-4 gap-3 items-center">
-              <FaLinkedin size={40} />
-              <input
-                type="text"
-                name="linkedin"
-                value={formData.social.linkedin}
-                placeholder="Linkedin URL"
-                onChange={handleSocialChange}
-                className="input input-bordered max-sm:text-sm  sm:w-2/6 md:w-2/5"
-              />
-            </div>
-            <div className="flex sm:gap-4 gap-3 items-center">
-              <FaXTwitter size={40} />
-              <input
-                type="text"
-                name="twitter"
-                value={formData.social.twitter}
-                placeholder="Twitter URL"
-                onChange={handleSocialChange}
-                className="input input-bordered max-sm:text-sm  sm:w-2/6 md:w-2/5"
-              />
-            </div> */}
             {socialFields.map((field, index) => (
               <div key={index} className="flex sm:gap-4 gap-3 items-center">
                 {field.icon}

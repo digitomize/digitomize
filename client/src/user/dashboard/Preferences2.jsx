@@ -44,14 +44,12 @@ export async function loader() {
 
 export default function Preferences() {
   const [loading, setLoading] = useState(true);
-  const [preferences, setPreferences] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await userDashboardDetails();
         if (res.data) {
-          setPreferences(res.data.personal_data.preferences);
           setFormData({
             contest_notifs: res.data.personal_data.preferences.contest_notifs,
           });
@@ -87,13 +85,6 @@ export default function Preferences() {
       toast.promise(response, {
         pending: 'Updating preferences... 🤔',
         success: `Preference for ${name} updated to ${toggledValue} successfully! 🎉`,
-        // success: {
-        //   render({ data }) {
-        //     console.log(data);
-        //     return `${data.data.message}`
-        //   },
-        //   icon: "✅",
-        // },
         error: {
           render({ data }) {
             console.log(data.message);

@@ -58,6 +58,8 @@ import { loader as userDashPersonalLoader } from './user/dashboard/UserDashPerso
 import UserDashBoardProfile from "./user/dashboard/Profile/Profile";
 import Leaderboard from "./user/leaderboard/Leaderboard";
 import UserDashBoardWidget from "./user/dashboard/Widget";
+
+import Career from "./user/dashboard/Career/Career"
 /*------------ DSA Sheets Import ------------ */
 import SheetLayout from "./dsaSheets/layout/SheetLayout";
 
@@ -99,7 +101,7 @@ import Filter from "./components/Contests/Filter";
 import Challenges from "./components/Contests/Challenges/Challenges";
 import ComingSoonLoader from "./components/Contests/ComingSoonLoader";
 import { userDashboardDetails } from "../api";
-import Preferences from "./user/dashboard/Preferences2";
+import Preferences from "./user/dashboard/Preferences/Preferences";
 
 function Logout() {
   const navigate = useNavigate();
@@ -199,14 +201,14 @@ const router = createBrowserRouter(
           <Route element={<UserDashBoardLayout />} >
             <Route
               path="carrer"
-              element={<UserDashBoardCarrer />}
+              element={<Career />}
               loader={userDashPersonalLoader}
             />
             <Route path="profile" loader={userDashPersonalLoader} element={<UserDashBoardProfile />} />
             {/* <Route path="account"  loader={userDashPersonalLoader}  element={<UserDashBoardAccount/>}/> */}
             <Route path="widget" element={<UserDashBoardWidget />} />
             <Route path="ratings" element={<UserDashRatings />} />
-            <Route path="preferences" element={<Preferences />} />
+            <Route path="preferences" loader={userDashPersonalLoader} element={<Preferences />} />
           </Route>
         </Route>
       </Route>
