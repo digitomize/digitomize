@@ -8,10 +8,11 @@ import { toast, ToastContainer } from 'react-toastify';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from "dayjs";
+import { MenuItem, Select } from "@mui/material";
 
 
 
-function BasicInfo() {
+function GenderAndDOB() {
 
     const { personal_data, social } = useLoaderData();
     const [isDisabled, setIsDisabled] = useState(false);
@@ -58,6 +59,7 @@ function BasicInfo() {
         }));
     };
     const handleInputChange = (event) => {
+        console.log(event);
         const { name, value } = event.target;
         setFormData((prevData) => ({
             ...prevData,
@@ -105,52 +107,47 @@ function BasicInfo() {
         <>
             <div className="flex flex-col sm:flex-row sm:space-x-20 space-y-8 sm:space-y-0 my-8">
                 <div class="flex-1 mt-8">
-                    <h3 class="text-base font-semibold text-gray-200">Basic account information</h3>
-                    <p class="mt-3 font-light text-sm text-gray-500">Please enter your full name, or a display name you are comfortable with.</p>
-                    <p class="mt-3 font-light text-sm text-gray-500">Click on the avatar to upload a custom one from your files..</p>
+                    <h3 class="text-base font-semibold text-gray-200">Pronouns and Date of Birth</h3>
+                    {/* <p class="mt-3 font-light text-sm text-gray-500">Please enter your full name, or a display name you are comfortable with.</p>
+                    <p class="mt-3 font-light text-sm text-gray-500">Click on the avatar to upload a custom one from your files..</p> */}
                 </div>
 
                 <div className="flex-2 rounded-lg shadow bg-dashboardColor border border-jet">
-                    <div className="px-6 py-8 border-b border-jet">
-                        <div className="flex flex-col sm:flex-row sm:space-x-5 items-center">
-
-                            <div className="flex-0 px-4 flex flex-col justify-center items-center h-28">
-                                <div className="relative text-center">
-                                    <img src={formData.picture} alt="profile" className="w-16 rounded-full" />
-                                    <label class="mt-5 text-xs font-medium text-secondary text-center">Upload</label>
-                                </div>
-                            </div>
-
-
-                            <div class="flex-1 w-full">
-                                <label class="ml-1 mt-5 text-xs font-medium text-secondary" htmlFor="firstName">Display Name</label>
-                                <input style={{ backgroundColor: 'RGB(17, 19, 18)' }} placeholder="Bill" class="border border-jet rounded px-3 py-[10px] w-full mt-2 text-sm" required="required" type="text" value={formData.name} name="name" id="name" onChange={handleInputChange} maxLength={25} />
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="px-6 py-8 border-b border-jet">
-                        <div class="sm:w-9/12">
-                            <label class="ml-1 mt-5 text-xs font-medium text-secondary" htmlFor="email">E-mail</label>
-                            <input readOnly style={{ backgroundColor: 'RGB(17, 19, 18)' }} placeholder="bill.gates@example.com" autocomplete="email" value={formData.email} class="placeholder:text-gray-600 border border-jet rounded px-3 py-[10px] w-full mt-2 text-sm" type="email" name="email" id="email" />
-                        </div>
-                        <div class="mt-5">
-                            <div class="sm:w-9/12">
-                                <div class="mt-5">
-                                    <label htmlFor="phoneNumber" class="ml-1 text-xs font-medium text-secondary">Phone</label>
-                                    <input required style={{ backgroundColor: 'RGB(17, 19, 18)' }} type="tel" placeholder="+32 460 23 47 50" name="phoneNumber" max={12} class="placeholder:text-gray-600 border border-jet rounded px-3 py-[10px] w-full mt-2 text-sm" id="phoneNumber" value={formData.phoneNumber.data} onChange={handleInputChangeObjData} />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="px-6 py-8">
                         <div className="sm:w-9/12">
                             <div className="label">
-                                <label class="text-xs font-medium text-secondary">Brief bio</label>
-                                <label class="ml-1 text-xs font-medium text-secondary">{formData.bio?.data?.length || 0}/{BIO_LIMIT}</label>
+                                <label class="text-xs font-medium text-secondary">Personal pronouns</label>
                             </div>
-                            <textarea style={{ backgroundColor: 'RGB(17, 19, 18)' }} className="placeholder:text-gray-600 textarea textarea-bordered h-24 w-full" placeholder="Ex: Developer @ digitomize" maxLength={BIO_LIMIT} onChange={handleInputChangeObjData} value={formData.bio.data} name="bio" id="bio" />
+                            <Select className="w-full"
+                                id="gender"
+                                name="gender"
+                                displayEmpty
+                                inputProps={{ 'aria-label': 'Without label' }}
+                                sx={{
+                                    backgroundColor: 'RGB(17, 19, 18)',
+                                    fontSize: '.875rem',
+                                    lineHeight: '1.25rem',
+                                }}
+                                value={formData.gender}
+                                onChange={handleInputChange}
+                            >
+                                <MenuItem value="">
+                                    <em>Prefer not to say</em>
+                                </MenuItem>
+                                <MenuItem value={'He/Him'}>He/Him</MenuItem>
+                                <MenuItem value={'She/Her'}>She/Her</MenuItem>
+                                <MenuItem value={'They/Them'}>They/Them</MenuItem>
+                            </Select>
+                        </div>
+                        <div className="sm:w-9/12 mt-5">
+                            <div className="label">
+                                <label class="text-xs font-medium text-secondary">Date of Birth</label>
+                            </div>
+                            <DatePicker className="text-sm w-full" onChange={dobChange} name="dateOfBirth" id="dateOfBirth" sx={{
+                                backgroundColor: 'RGB(17, 19, 18)',
+                                fontSize: '.875rem',
+                                lineHeight: '1.25rem',
+                            }} />
                         </div>
                     </div>
                 </div>
@@ -159,4 +156,4 @@ function BasicInfo() {
     )
 }
 
-export default BasicInfo;
+export default GenderAndDOB;

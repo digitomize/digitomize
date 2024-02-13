@@ -9,3 +9,7 @@
 html {
   scroll-behavior: smooth;
 }
+
+input[type='text']:focus {
+  box-shadow: none;
+}

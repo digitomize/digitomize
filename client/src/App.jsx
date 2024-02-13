@@ -12,6 +12,11 @@ import {
 import { useState, useEffect } from "react";
 import "./App.css";
 
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+// import dayjs from 'dayjs';
+import 'dayjs/locale/en-gb';
+
 // importing all the components ...
 import {
   Layout,
@@ -229,7 +234,9 @@ function App() {
       <UserAuthContextProvider>
         <UserContextProvider>
           <ToastContainer />
-          <RouterProvider router={router} />
+          <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
+            <RouterProvider router={router} />
+          </LocalizationProvider>
         </UserContextProvider>
       </UserAuthContextProvider>
       {/* <Footer /> */}

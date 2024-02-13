@@ -16,6 +16,9 @@ export default {
       "2xl": "1536px", // Default '2xl' screen size
     },
     extend: {
+      flex: {
+        '2': '2 2 0%'
+      },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         caveat: ["Caveat", "cursive"],

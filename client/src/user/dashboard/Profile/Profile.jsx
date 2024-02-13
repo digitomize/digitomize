@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { submitUserFormData } from '../../../../api';
 import { toast, ToastContainer } from 'react-toastify';
 import BasicInfo from "./BasicInfo";
+import GenderAndDOB from "./GenderAndDOB";
+import SubmitBtn from "./SubmitBtn";
 function UserDashBoardProfile() {
   const { personal_data, social } = useLoaderData();
   const [isDisabled, setIsDisabled] = useState(false);
@@ -88,9 +90,13 @@ function UserDashBoardProfile() {
         </div>
 
 
-        <BasicInfo/>
+        <BasicInfo />
+        
+        <GenderAndDOB />
+        
+        <SubmitBtn/>
 
-        <div className="mt-8 flex flex-col xl:flex-row gap-8 xl:gap-20">
+        {/* <div className="mt-8 flex flex-col xl:flex-row gap-8 xl:gap-20">
           <div class="flex-1 mt-8 ml-4 xl:ml-0">
             <h3 class="heading">Sign in using password</h3>
             <p class="mt-3 text-secondary">Set your password if you want to be able to sign in using password.</p>
@@ -99,9 +105,9 @@ function UserDashBoardProfile() {
 
           </div>
 
-        </div>
+        </div> */}
 
-        <div>
+        {/* <div>
           <div className="relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
             <div className="form-control w-full">
               <label className="label">
@@ -265,7 +271,7 @@ function UserDashBoardProfile() {
               </button>
             </div>
           </div>
-        </div>
+        </div> */}
 
       </div>
     </>
