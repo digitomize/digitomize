@@ -10,6 +10,7 @@ import { changeUserPreferences, userDashboardDetails } from "../../../../api";
 import { atcoder, leetcode, codechef, codeforces, geeksforgeeks, codingninjas } from "../../../components/AllAssets";
 
 import LoadingScreen from "../../../components/globals/LoadingScreen";
+import { MetaData } from "../../../components/CustomComponents";
 
 const platformsData = [
   { name: "leetcode", icon: leetcode },
@@ -104,6 +105,7 @@ function Preferences() {
 
   return (
     <>
+      <MetaData path="u/dashboard/preferences" />
       <ToastContainer />
       <div className="bg-dashboardDarkColor font-['Geist']">
         <div class="flex justify-between items-center min-h-[40px]">

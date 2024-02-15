@@ -18,6 +18,7 @@ import LoadingScreen from "../../../components/globals/LoadingScreen";
 import PlatformBox from "./PlatformBox";
 
 import platformData from "./platformData";
+import { MetaData } from "../../../components/CustomComponents";
 
 export async function loader() {
     try {
@@ -108,6 +109,8 @@ export default function Ratings() {
     
     return (
         <>
+            <MetaData path="u/dashboard/ratings" />
+            <ToastContainer />
             <div className="container bg-dashboardDarkColor font-['Geist'] w-auto">
                 <div class="flex justify-between items-center min-h-[40px]">
                     <div class="flex flex-shrink gap-2 mr-4 items-center min-w-0">

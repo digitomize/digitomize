@@ -8,6 +8,7 @@ import BasicInfo from "./BasicInfo";
 import GenderAndDOB from "./GenderAndDOB";
 import SubmitBtn from "./SubmitBtn";
 import dayjs from "dayjs";
+import { MetaData } from "../../../components/CustomComponents";
 function UserDashBoardProfile() {
   const { personal_data, social } = useLoaderData();
   const [isDisabled, setIsDisabled] = useState(false);
@@ -92,6 +93,7 @@ function UserDashBoardProfile() {
   }
   return (
     <>
+      <MetaData path="u/dashboard/profile"/>
       <ToastContainer />
       <div className="bg-dashboardDarkColor font-['Geist']">
         <div class="flex justify-between items-center min-h-[40px]">

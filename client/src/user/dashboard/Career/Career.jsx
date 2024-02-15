@@ -12,6 +12,7 @@ import { FaLinkedin, FaXTwitter, FaInstagram } from "react-icons/fa6";
 import { ToastContainer, toast } from "react-toastify";
 import { submitUserFormData } from "../../../../api"; import Socials from "./Socials";
 import SubmitBtn from "../Profile/SubmitBtn";
+import { MetaData } from "../../../components/CustomComponents";
 ;
 
 const socialFields = [
@@ -166,6 +167,7 @@ function career() {
 
     return (
         <>
+            <MetaData path="u/dashboard/career" />
             <ToastContainer />
             <div className="bg-dashboardDarkColor font-['Geist']">
                 <div class="flex justify-between items-center min-h-[40px]">
