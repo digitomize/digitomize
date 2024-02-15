@@ -51,7 +51,7 @@ export default function PlatformModal({ btnText = "Connect", platform, handleSub
                                         {platform.url}
                                     </div>
                                 </label>
-                                <input type="text" className="placeholder:text-gray-600 outline-none border-0 rounded-md font-medium w-full bg-dashboardDarkerColor text-sm px-0" value={formData[platform.name]?.username} placeholder="" onChange={handleInputChangeObjData} name={platform.name} id={platform.name} />
+                                <input autoComplete="off" type="text" className="placeholder:text-gray-600 outline-none border-0 rounded-md font-medium w-full bg-dashboardDarkerColor text-sm px-0" value={formData[platform.name]?.username} placeholder="" onChange={handleInputChangeObjData} name={platform.name} id={platform.name} />
                             </div>
                         </div>
                         <label class="ml-1 text-xs font-medium text-secondary">{platform.note}</label>

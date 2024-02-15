@@ -29,6 +29,9 @@ function UserDashBoardProfile() {
       data: personal_data.phoneNumber.data || "",
       showOnWebsite: personal_data.phoneNumber.showOnWebsite || true,
     },
+    gender: {
+      
+    }
   });
   const handleInputChangeObjData = (event) => {
     const { name, value } = event.target;
@@ -107,7 +110,7 @@ function UserDashBoardProfile() {
        <form >
        <BasicInfo formData={formData} setFormData={setFormData} handleInputChange={handleInputChange} handleInputChangeObjData={handleInputChangeObjData}  />
         
-        <GenderAndDOB  handleInputChange={handleInputChange} dobChange={dobChange}/>
+        <GenderAndDOB formData={formData}  handleInputChange={handleInputChangeObjData} dobChange={dobChange}/>
         
         <SubmitBtn handleSubmit={handleSubmit}/>
        </form>
