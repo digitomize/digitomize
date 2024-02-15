@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import UserDashBoardTab from './UserDashBoardTab'
 import NewNavbar from '../../components/NewNavbar'
@@ -14,14 +14,19 @@ const theme = createTheme({
 
 
 function UserDashBoardLayout() {
+  const [sideTab, setSideTab] = React.useState(false);
+  const toggleActive = () => {
+    setSideTab(!sideTab);
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <div className='w-full bg-dashboardDarkerColor h-full'>
-        <DashNav />
+        <DashNav toggleActive={toggleActive} />
         <div class="h-16"></div>
         <div className='-mt-16 pt-16 relative'>
-          <UserDashBoardTab />
-          <div className="flex">
+          <UserDashBoardTab sideTab={sideTab} />
+          <div className={`flex ${sideTab ? 'blur-sm' : ''}`} >
             <div class="shrink-0 lg:w-56">
             </div>
             <main className="max-w-5xl phone:container px-6 phone:px-12 mx-auto py-10 min-h-screen">

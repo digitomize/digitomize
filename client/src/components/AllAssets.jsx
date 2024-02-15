@@ -5,6 +5,7 @@ import codechef from "../assets/codechef.svg";
 import codeforces from "../assets/codeforces.svg";
 import atcoder from "../assets/atcoder.svg";
 import logo from "../assets/logo.png";
+import logo_white_D from "../assets/D_white.svg";
 import logo_white_full from "../assets/logo_white_cropped.png";
 import downArrow from "../assets/downArrow.svg";
 import gear from "../assets/gear.svg";
@@ -27,6 +28,7 @@ export {
   preferences,
   widgets,
   account,
+  logo_white_D,
   rating,
   geeksforgeeks,
   leetcode,
