@@ -24,7 +24,7 @@ function UserDashBoardLayout() {
           <div className="flex">
             <div class="shrink-0 lg:w-56">
             </div>
-            <main className="container px-12 mx-auto py-10 min-h-screen">
+            <main className="max-w-5xl phone:container px-6 phone:px-12 mx-auto py-10 min-h-screen">
               <div className="max-w-5xl mx-auto">
 
                 <Outlet />

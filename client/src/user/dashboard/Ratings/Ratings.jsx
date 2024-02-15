@@ -106,7 +106,7 @@ export default function Ratings() {
 
     // console.log(ratingsData);
 
-    
+
     return (
         <>
             <MetaData path="u/dashboard/ratings" />
@@ -114,7 +114,8 @@ export default function Ratings() {
             <div className="container bg-dashboardDarkColor font-['Geist'] w-auto">
                 <div class="flex justify-between items-center min-h-[40px]">
                     <div class="flex flex-shrink gap-2 mr-4 items-center min-w-0">
-                        <p class="truncate font-medium text-gray-200 text-3xl max-w-[600px]">Integrate your ratings</p>
+                        <p class="truncate font-medium text-gray-200 text-3xl max-w-[600px] max-phone:hidden">Integrate your ratings</p>
+                        <p class="truncate font-medium text-gray-200 text-3xl max-w-[600px] phone:hidden">Ratings</p>
                     </div>
                 </div>
                 {

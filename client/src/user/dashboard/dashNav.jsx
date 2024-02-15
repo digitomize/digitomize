@@ -40,7 +40,7 @@ function DashNav() {
                                         <button className={`inline-flex justify-center w-full px-2 py-1 rounded transition btn btn-ghost`}>
                                             <div className="flex items-center space-x-2">
                                                 <div className="relative">
-                                                    <img className="rounded-full shrink-0 w-7 h-7 ring-2 ring-transparent " src={user.photoURL} alt="" />
+                                                    <img className="rounded-full shrink-0 w-7 ring-2 ring-transparent " src={user.photoURL} alt="" />
 
                                                 </div>
                                                 <span className="max-sm:hidden sm:inline font-medium">

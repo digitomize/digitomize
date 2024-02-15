@@ -34,7 +34,7 @@ function BasicInfo({ platformsData, formData, setFormData, handleToggleChange })
 
                 <div className="flex-2 rounded-lg shadow bg-dashboardColor border border-jet">
                     <div
-                        className="px-6 py-8"
+                        className="px-3 phone:px-6 py-8"
                     >
                         <List className="w-fit">
                             <div className="platforms flex flex-col">

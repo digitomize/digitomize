@@ -149,7 +149,7 @@ export default function PlatformBox({ platform }) {
                     <img src={platform.icon} className="w-16 my-4" alt="" srcset="" />
                 </div>
 
-                <div className="grow py-5 flex justify-between items-center gap-4">
+                <div className="grow py-5 flex justify-between items-center gap-4 max-phone:flex-col">
                     <div className="ml-6 md:ml-0 max-w-[350px]">
                         <h3 className="text-base capitalize font-semibold text-gray-200">{platform.name}</h3>
                         <p className="mt-1 font-light text-sm text-gray-500">{platform.content}</p>

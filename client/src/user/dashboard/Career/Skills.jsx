@@ -29,7 +29,7 @@ function Skills({ handleAdd, handleDelete, setNewSkill, newSkill, btnRef, skillD
                 <div className="flex-2 rounded-lg shadow bg-dashboardColor border border-jet">
                     <div class="px-6 py-8">
                         <div className="sm:w-9/12">
-                            <label htmlFor="phoneNumber" class="ml-1 text-xs font-medium text-secondary">Please enter one tag at a time in the input box!</label>
+                            <label htmlFor="phoneNumber" class="phone:ml-1 text-xs font-medium text-secondary">Please enter one tag at a time in the input box!</label>
                             <div className="mt-2 flex items-center gap-3">
                                 <input
                                     type="text"

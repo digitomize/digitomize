@@ -11,7 +11,7 @@ function Username({ username, handleInputChange, handleSubmit }) {
 
                 <div className="flex-2 rounded-lg shadow bg-dashboardColor border border-jet">
                     <div class="p-6 sm:w-9/12">
-                        <label class="ml-1 mt-5 text-xs font-medium text-secondary" htmlFor="firstName">Username</label>
+                        <label class="phone:ml-1 mt-5 text-xs font-medium text-secondary" htmlFor="firstName">Username</label>
                         <input style={{ backgroundColor: 'RGB(17, 19, 18)' }}
                             autoComplete="off"
                             type="text"
@@ -20,9 +20,9 @@ function Username({ username, handleInputChange, handleSubmit }) {
                             onChange={handleInputChange}
                             className="placeholder:text-gray-600 border border-jet rounded px-3 py-[10px] w-full text-sm"
                         />
-                        <label class="ml-1 mt-5 text-xs text-gray-500" htmlFor="firstName">
-                            Your profile:
-                            <span className="text-gray-400 mx-1">https://digitomize.com/{username}
+                        <label class="phone:l-1 mt-5 text-xs text-gray-500" htmlFor="firstName">
+                            Profile:
+                            <span className="text-gray-400 mx-1">digitomize.com/{username}
                             </span>
                         </label>
                     </div>
@@ -31,7 +31,7 @@ function Username({ username, handleInputChange, handleSubmit }) {
 
             <div className="flex space-x-20 mt-10">
 
-                <div className="flex-1 block">
+                <div className="flex-1 max-phone:hidden phone:block">
 
                 </div>
                 <div className="flex-2">
