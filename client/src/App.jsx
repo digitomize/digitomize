@@ -193,13 +193,12 @@ const router = createBrowserRouter(
           />
 
           <Route path="widgets" element={<Widget />} />
-          <Route
-            path="github"
-            element={<UserDashGithub />}
-            loader={userDashGithubLoader}
-          />
 
           <Route element={<UserDashBoardLayout />} >
+          <Route
+            path="github"
+            element={<ComingSoonLoader value={"Widgets"} />}
+          />
             <Route
               path="career"
               element={<Career />}
@@ -207,7 +206,7 @@ const router = createBrowserRouter(
             />
             <Route path="profile" loader={userDashPersonalLoader} element={<UserDashBoardProfile />} />
             {/* <Route path="account"  loader={userDashPersonalLoader}  element={<UserDashBoardAccount/>}/> */}
-            <Route path="widget" element={<UserDashBoardWidget />} />
+            <Route path="widget" element={<ComingSoonLoader value={"Widgets"} />} />
             <Route path="ratings" element={<Ratings />} />
             <Route path="preferences" loader={userDashPersonalLoader} element={<Preferences />} />
             <Route path="settings" loader={userDashPersonalLoader} element={<Settings />} />

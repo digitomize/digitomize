@@ -24,7 +24,7 @@ const ComingSoonLoader = ({ value }) => {
                         <p className="text-sm md:text-base lg:text-lg mb-8">
                             We're working hard to bring you something awesome. Stay tuned!
                         </p>
-                        <div className="flex max-sm:flex-col max-sm:items-center justify-center gap-2">
+                        {/* <div className="flex max-sm:flex-col max-sm:items-center justify-center gap-2">
                             <input
                                 type="email"
                                 placeholder="#include <email>"
@@ -33,7 +33,7 @@ const ComingSoonLoader = ({ value }) => {
                             <button className="btn btn-primary btn-active px-6 py-2 w-fit bg-button-primary hover:bg-button-primary-hover text-white">
                                 Notify Me
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 {/* <progress className="progress w-56 mt-12"></progress> */}

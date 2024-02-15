@@ -54,12 +54,12 @@ export const integrationLinks = [
   {
     icon: github,
     title: "github",
-    path: "#",
+    path: "github",
   },
   {
     icon: widgets,
     title: "widget",
-    path: "#",
+    path: "widget",
   },
   {
     icon: rating,
