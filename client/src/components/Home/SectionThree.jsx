@@ -66,8 +66,8 @@ Explore Contests
 </a>
             </motion.div>
           </div>
-          <div className="w-screen">
-            <ContestCards />
+          <div className="w-full ">
+          <ContestCards />
           </div>
         </div>
       </div>

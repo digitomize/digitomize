@@ -86,10 +86,10 @@ export default function ContestCards() {
           ))}
         </Marquee>
       </div>
-      <div className="w-screen max-md:hidden">
-        <Marquee speed={200} className="flex flex-row" pauseOnHover={true}>
+      <div className="w-screen max-w-[1330px] mx-auto max-md:hidden">
+        <Marquee speed={200} gradient={true} gradientColor="rgb(0,0,0,.4)"  gradientWidth={100} className="flex  flex-row" pauseOnHover={true}>
           {platforms.map((item) => (
-            <div key={item.name} className="rounded-lg border border-solid border-[#1584ff] bg-card-gradient font-['Geist'] py-10 px-4 w-4/5">
+            <div key={item.name} className=" rounded-lg border border-solid border-[#1584ff] bg-card-gradient font-['Geist'] py-10 px-4 w-4/5">
               <div className="flex justify-center">
                 <span className="bg-contestlogo p-4 rounded-full">
                   <img
