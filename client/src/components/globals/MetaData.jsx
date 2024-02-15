@@ -71,6 +71,10 @@ const getPageMetadata = (path) => {
             title: "Ratings",
             description: "",
         },
+        "u/dashboard/settings": {
+            title: "Settings",
+            description: "",
+        },
         "u/dashboard/career": {
             title: "Career",
             description: "",
