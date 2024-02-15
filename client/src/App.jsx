@@ -53,7 +53,6 @@ import ProfileLayout, {
   loader as profileLoader,
 } from "./user/Profile/pages/ProfileLayout";
 // import ProtectedRoute from "./ProtectedRoute"
-import UserDashBoardCarrer from "./user/dashboard/career";
 import { loader as userDashPersonalLoader } from './user/dashboard/UserDashPersonal'
 import UserDashBoardProfile from "./user/dashboard/Profile/Profile";
 import Leaderboard from "./user/leaderboard/Leaderboard";
