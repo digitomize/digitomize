@@ -1,6 +1,6 @@
 import { Button, DialogActions, DialogContent } from "@mui/material";
 import { CreateCommunityForm } from "./CreateCommunity.helper";
-import { createCommunity } from "../../../../core/api/community.api";
+import { createCommunity } from "@core/api/community.api";
 import { toast } from "react-toastify";
 import { useState } from "react";
 

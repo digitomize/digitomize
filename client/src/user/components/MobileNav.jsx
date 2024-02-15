@@ -1,7 +1,7 @@
 import React from "react";
-import logo from "../../assets/logo.png";
+import logo from "@assets/logo.png";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
-import { useUserAuth } from "../../context/UserAuthContext";
+import { useUserAuth } from "@context/UserAuthContext";
 
 const MobileNav = ({ isMenuActive, toggleActive }) => {
   const { user } = useUserAuth();

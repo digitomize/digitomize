@@ -5,18 +5,44 @@ import gitbook from "./svgs/GitBookLight.svg";
 import msme from "./svgs/MSME.svg";
 import microsoft from "./svgs/microsoft4strp.svg";
 import digitalOcean from "./svgs/digitalOcean.svg";
-import meltcd from "../../assets/meltcd.png";
+import meltcd from "@assets/meltcd.png";
 import { Star } from "@mui/icons-material";
-
-
+import { motion } from "framer-motion";
+import { MdPlayArrow } from "react-icons/md";
 export default function SectionOne() {
   return (
     <div className="font-['Geist'] xl:pt-8 max-md:pt-4 items-center flex flex-col text-center phone:mt-16">
-      <Link to="https://github.com/digitomize/digitomize" className="flex justify-center items-center border border-badge bg-badge text-badge-txt px-6 py-1 rounded-full text-xs">
-        We're open source | Star Now! <Star fontSize="small" />
-      </Link>
+      <motion.div
+        initial={{ opacity: 0, x: -150 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 1,
+          type: "spring",
+          stiffness: 100,
+          delay: 0,
+        }}
+      >
+        <Link
+          to="https://github.com/digitomize/digitomize"
+          className="flex justify-center items-center border border-badge bg-badge text-badge-txt px-6 py-1 rounded-full text-xs"
+        >
+          We're open source | Star Now! <Star fontSize="small" />
+        </Link>
+      </motion.div>
       <div className="w-10/12">
-        <h1 className="mt-2 text-white max-md:text-4xl md:text-7xl">
+        <motion.h1
+          initial={{ opacity: 0, x: -150 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 1,
+            type: "spring",
+            stiffness: 100,
+            delay: 0.5,
+          }}
+          className="mt-2 text-white max-md:text-4xl md:text-7xl"
+        >
           <span>One place for all your</span>
           <span className="block mt-1 md:mt-6 relative">
             <span className="bg-digitomize-bg px-2 relative">
@@ -26,19 +52,59 @@ export default function SectionOne() {
               </span>
             </span>{" "}
             needs
-          </span>
-          {" "}
-        </h1>
-        <p className="text-description max-sm:text-sm sm:text-md md:text-xl mt-6">
+          </span>{" "}
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, x: -150 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 1,
+            type: "spring",
+            stiffness: 100,
+            delay: 1,
+          }}
+          className="text-description max-sm:text-sm sm:text-md md:text-xl mt-6"
+        >
           Elevate your coding and development journey with digitomize
-        </p>
+        </motion.p>
       </div>
-      <div className="flex justify-center phone:mt-16 mt-8">
-        <a href="/signup" className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border">
+      <motion.div
+        initial={{ opacity: 0, y: 150 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 1,
+          type: "spring",
+          stiffness: 100,
+          delay: 1.5,
+        }}
+        className="flex justify-center phone:mt-16 mt-8"
+      >
+        <a href="/signup"
+        
+          
+          className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border"
+        >
+          <div className='flex justify-center items-center gap-1'>
           Register Now
+          <MdPlayArrow />
+         </div>
+        
         </a>
-      </div>
-      <div className="mt-14">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 150 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 1,
+          type: "spring",
+          stiffness: 100,
+          delay: 2,
+        }}
+        className="mt-14"
+      >
         <span>
           <p className="text-lg text-powered">Supported By</p>
         </span>
@@ -75,10 +141,8 @@ export default function SectionOne() {
             draggable={false}
             alt="meltcd"
           />
-
-
         </span>
-      </div>
+      </motion.div>
     </div>
   );
 }

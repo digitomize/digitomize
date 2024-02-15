@@ -6,12 +6,12 @@ import { NewFooter } from "./CustomComponents";
 import { Helmet } from "react-helmet";
 import "./css/IndividualCard.css";
 import { Alert, AlertTitle } from "@mui/material";
-import geeksforgeeks from "../assets/geeksforgeeks.svg";
-import leetcode from "../assets/leetcode.svg";
-import codingninjas from "../assets/codingninjas.png";
-import codechef from "../assets/codechef.svg";
-import codeforces from "../assets/codeforces.svg";
-import atcoder from "../assets/atcoder.svg";
+import geeksforgeeks from "@assets/geeksforgeeks.svg";
+import leetcode from "@assets/leetcode.svg";
+import codingninjas from "@assets/codingninjas.png";
+import codechef from "@assets/codechef.svg";
+import codeforces from "@assets/codeforces.svg";
+import atcoder from "@assets/atcoder.svg";
 import CopyToClipboard from "./CopyToClipboard";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;

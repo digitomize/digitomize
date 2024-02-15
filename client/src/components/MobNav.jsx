@@ -1,6 +1,6 @@
 import React from "react";
 import { logo } from "./AllAssets";
-import { useUserAuth } from "../context/UserAuthContext";
+import { useUserAuth } from "@context/UserAuthContext";
 
 const MobNav = ({ isMenuActive, toggleActive }) => {
   const { user } = useUserAuth();

@@ -1,24 +1,20 @@
-import { useState } from "react";
 import { GithubAuthProvider, signInWithPopup } from "firebase/auth";
-
+import { useRecoilState,useSetRecoilState } from "recoil";
 import { auth } from "../../../firebase";
-import { ToastContainer, toast } from "react-toastify";
-
+import { toast } from "react-toastify";
+import {buttonState,errorState} from '@components/Login'
 import { useNavigate } from "react-router-dom";
-import githubIcon from "../../assets/github.svg";
+import githubIcon from "@assets/github.svg";
 import axios from "axios";
-import GithubButton from "react-github-login-button";
+
 import { Tooltip } from "@mui/material";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
-export default function GithubAuthButton({
-  setError,
-  btnText,
-  btnState,
-  setbtnState,
-}) {
+export default function GithubAuthButton() {
   const navigate = useNavigate();
-  // const [btnState, setbtnState] = useState(false);
+  const [btnState,setbtnState] = useRecoilState(buttonState);
+  const setError = useSetRecoilState(errorState);
+
   const handleGithubSignIn = async (e) => {
     setbtnState(true);
     e.preventDefault();
@@ -71,7 +67,6 @@ export default function GithubAuthButton({
           />
         </button>
       </Tooltip>
-      {/* <GithubButton type="light" onClick={handleGithubSignIn} disabled={btnState} label={`${btnState ? 'signing in...' : btnText}`} style={{ backgroundColor: "white" }}>Github</GithubButton> */}
     </>
   );
 }

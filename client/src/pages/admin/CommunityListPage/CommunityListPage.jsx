@@ -12,10 +12,10 @@ import {
   Typography,
 } from "@mui/material";
 import { useEffect, useState } from "react";
-import { getCommunityList } from "../../../core/api/community.api";
+import { getCommunityList } from "@core/api/community.api";
 import { StyledTableCell, StyledTableRow } from "../../../index.styled";
-import AppModal from "../../../core/components/AppModal";
-import AppDialog from "../../../core/components/AppModal";
+// import AppModal from "@core/components/AppModal";
+import AppDialog from "@core/components/AppModal/AppDialog";
 import CreateCommunity from "./CreateCommunity";
 import { Edit, Group } from "@mui/icons-material";
 
