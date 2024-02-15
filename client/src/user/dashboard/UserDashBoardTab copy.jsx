@@ -15,8 +15,8 @@ function UserDashBoardTab() {
   //     path: "profile"
   //   },
   //   {
-  //     title: "carrer",
-  //     path: "carrer",
+  //     title: "career",
+  //     path: "career",
   //   },
   //   {
   //     title : "widget",

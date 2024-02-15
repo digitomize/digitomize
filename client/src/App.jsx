@@ -53,7 +53,7 @@ import ProfileLayout, {
   loader as profileLoader,
 } from "./user/Profile/pages/ProfileLayout";
 // import ProtectedRoute from "./ProtectedRoute"
-import UserDashBoardCarrer from "./user/dashboard/Carrer";
+import UserDashBoardCarrer from "./user/dashboard/career";
 import { loader as userDashPersonalLoader } from './user/dashboard/UserDashPersonal'
 import UserDashBoardProfile from "./user/dashboard/Profile/Profile";
 import Leaderboard from "./user/leaderboard/Leaderboard";
@@ -102,6 +102,7 @@ import Challenges from "./components/Contests/Challenges/Challenges";
 import ComingSoonLoader from "./components/Contests/ComingSoonLoader";
 import { userDashboardDetails } from "../api";
 import Preferences from "./user/dashboard/Preferences/Preferences";
+import Ratings from "./user/dashboard/Ratings/Ratings";
 
 function Logout() {
   const navigate = useNavigate();
@@ -200,14 +201,14 @@ const router = createBrowserRouter(
 
           <Route element={<UserDashBoardLayout />} >
             <Route
-              path="carrer"
+              path="career"
               element={<Career />}
               loader={userDashPersonalLoader}
             />
             <Route path="profile" loader={userDashPersonalLoader} element={<UserDashBoardProfile />} />
             {/* <Route path="account"  loader={userDashPersonalLoader}  element={<UserDashBoardAccount/>}/> */}
             <Route path="widget" element={<UserDashBoardWidget />} />
-            <Route path="ratings" element={<UserDashRatings />} />
+            <Route path="ratings" element={<Ratings />} />
             <Route path="preferences" loader={userDashPersonalLoader} element={<Preferences />} />
           </Route>
         </Route>

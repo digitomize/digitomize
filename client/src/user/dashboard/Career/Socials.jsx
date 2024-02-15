@@ -1,21 +1,5 @@
-import { useUserAuth } from "../../../context/UserAuthContext";
-import { useState } from "react";
 import React from 'react'
-import ImageUploader from "../../../components/ImageUploader";
-import { useLoaderData } from 'react-router-dom';
-import { submitUserFormData } from "../../../../api";
-import { toast, ToastContainer } from 'react-toastify';
-import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import dayjs from "dayjs";
-import { MenuItem, Select } from "@mui/material";
-import { Form } from "react-router-dom";
-import TagFacesIcon from '@mui/icons-material/TagFaces';
-import Chip from '@mui/material/Chip';
-
-
 function Socials({ formData, socialFields, handleSocialChange }) {
-
     return (
         <>
             <div className="flex flex-col sm:flex-row sm:space-x-20 space-y-8 sm:space-y-0 my-8">

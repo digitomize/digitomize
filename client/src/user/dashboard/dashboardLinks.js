@@ -1,4 +1,4 @@
-import { preferences, rating, carrer, github, widgets, account, gear } from "../../components/AllAssets.jsx";
+import { preferences, rating, career, github, widgets, account, gear } from "../../components/AllAssets.jsx";
 export const navLinks = [
   {
     icon: account,
@@ -11,9 +11,9 @@ export const navLinks = [
     path: "widget",
   },
   {
-    icon: carrer,
-    title: "carrer",
-    path: "carrer",
+    icon: career,
+    title: "career",
+    path: "career",
   },
   {
     icon: rating,
@@ -39,9 +39,9 @@ export const accountLinks = [
     path: "preferences"
   },
   {
-    icon: carrer,
-    title: "carrer",
-    path: "carrer",
+    icon: career,
+    title: "career",
+    path: "career",
   },
   {
     icon: gear,
@@ -54,12 +54,12 @@ export const integrationLinks = [
   {
     icon: github,
     title: "github",
-    path: "github",
+    path: "#",
   },
   {
     icon: widgets,
     title: "widget",
-    path: "widget",
+    path: "#",
   },
   {
     icon: rating,

@@ -13,7 +13,7 @@ import NewLogOut from "../components/NewLogOut";
 import { useUserAuth } from "../../context/UserAuthContext";
 import NewNavbar from "../../components/globals/Navbar/NewNavbar.jsx";
 import EditIcon from "@mui/icons-material/Edit";
-import { preferences, rating, carrer, github, widgets, account } from "../../components/AllAssets.jsx";
+import { preferences, rating, career, github, widgets, account } from "../../components/AllAssets.jsx";
 import { userDashboardDetails } from "../../../api";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import Badge from "@mui/material/Badge";
@@ -47,9 +47,9 @@ export default function UserDashboard() {
   //     path: "widget",
   //   },
   //   {
-  //     icon: carrer,
-  //     title: "carrer",
-  //     path: "carrer",
+  //     icon: career,
+  //     title: "career",
+  //     path: "career",
   //   },
   //   {
   //     icon: rating,
@@ -159,19 +159,19 @@ export default function UserDashboard() {
 
         <MetaData path="u/dashboard" />
         <ToastContainer />
-        {/* <NewNavbar /> */}
+        <NewNavbar />
 
         {/* FOR DESKTOP */}
         <div className=" w-10/12 mx-auto mt-4 max-sm:px-3 font-['Geist']">
           <h1 className="pb-4 normal-case text-[#EBEBEB] text-5xl">
-            Heyy {userData.personal_data.name.slice(0,20)}
+            Heyy {userData.personal_data.name.slice(0, 20)}
           </h1>
 
           <div className="flex sm:flex-row flex-col sm:space-x-12 gap-6">
             <div className="sm:w-[40%]">
               <UserCard
                 username={userData.personal_data.username}
-                name={userData.personal_data.name.slice(0,20)}
+                name={userData.personal_data.name.slice(0, 20)}
                 picture={userData.personal_data.picture}
                 bio={userData.personal_data.bio.data}
                 phoneNumber={userData.personal_data.phoneNumber}
@@ -181,7 +181,7 @@ export default function UserDashboard() {
               />
             </div>
             <div className="sm:w-[60%]">
-                <h1 className="my-0 text-4xl">Settings</h1>
+              <h1 className="my-0 text-4xl">Settings</h1>
               <div className="my-2 flex flex-row w-11/12 lg:justify-between justify-around flex-wrap gap-y-4">
                 {
                   navLinks.map((data, index) => {

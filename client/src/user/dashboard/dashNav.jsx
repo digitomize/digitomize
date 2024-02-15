@@ -18,13 +18,15 @@ function DashNav() {
                     <div className="h-full flex items-center">
 
                         <div className="h-full flex items-center gap-1 pl-3 pr-4 lg:border-r border-jet lg:w-56 bg-dashboardColor">
-                        <div className="relative inline-block text-left">
-                            <div className="m-4">
-                                <button type="button" className="sm:py-0 flex items-center rounded" id="options-menu" aria-expanded="true" aria-haspopup="true">
-                                    <img src={logo_white_full} alt="logo" className="w-36" />
-                                </button>
+                            <div className="relative inline-block text-left">
+                                <div className="m-4">
+                                    <Link to="/u/dashboard">
+                                        <button type="button" className="sm:py-0 flex items-center rounded" id="options-menu" aria-expanded="true" aria-haspopup="true">
+                                            <img src={logo_white_full} alt="logo" className="w-36" />
+                                        </button>
+                                    </Link>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                     <div className="flex items-center space-x-2">

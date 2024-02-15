@@ -24,7 +24,7 @@ const socialFields = [
 
 
 
-function Carrer() {
+function career() {
 
     const { personal_data, social } = useLoaderData();
     const [newSkill, setNewSkill] = useState("");
@@ -186,4 +186,4 @@ function Carrer() {
     )
 }
 
-export default Carrer
+export default career
