@@ -103,6 +103,7 @@ import ComingSoonLoader from "./components/Contests/ComingSoonLoader";
 import { userDashboardDetails } from "../api";
 import Preferences from "./user/dashboard/Preferences/Preferences";
 import Ratings from "./user/dashboard/Ratings/Ratings";
+import Settings from "./user/dashboard/Settings/Settings";
 
 function Logout() {
   const navigate = useNavigate();
@@ -210,6 +211,7 @@ const router = createBrowserRouter(
             <Route path="widget" element={<UserDashBoardWidget />} />
             <Route path="ratings" element={<Ratings />} />
             <Route path="preferences" loader={userDashPersonalLoader} element={<Preferences />} />
+            <Route path="settings" loader={userDashPersonalLoader} element={<Settings />} />
           </Route>
         </Route>
       </Route>
