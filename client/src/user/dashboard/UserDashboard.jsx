@@ -212,7 +212,7 @@ export default function UserDashboard() {
               </div>
               <div className="w-full">
                 <h1 className="mt-8 text-4xl">Contests</h1>
-                { userData?.personal_data?.preferences?.contest_notifs &&<p className="text-sm my-2 text-gray-400">Displaying the next 3 upcoming contests from your <Link to={"preferences"}>preferred list</Link>.</p>}
+                {userData?.personal_data?.preferences?.contest_notifs && <p className="text-sm my-2 text-gray-400">Displaying upcoming contests from your <Link to={"preferences"} className="underline">preferred list</Link>.</p>}
 
                 <div className="flex flex-row gap-7  flex-wrap">
                   {

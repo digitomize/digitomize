@@ -29,7 +29,7 @@ export default function PlatformModal({ btnText = "Connect", platform, handleSub
                 open={open}
                 onClose={handleClose}
             >
-                <div className="w-96 bg-dashboardColor">
+                <div className="sm:w-96 bg-dashboardColor">
                     <div className="border rounded-t-lg border border-jet px-4 py-6 w-full">
                         <div className="flex flex-col items-center mb-2">
                             <div className="rounded-full bg-dashboardDarkerColor p-3">
