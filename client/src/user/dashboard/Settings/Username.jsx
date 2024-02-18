@@ -22,7 +22,7 @@ function Username({ username, handleInputChange, handleSubmit }) {
                         />
                         <label class="phone:l-1 mt-5 text-xs text-gray-500" htmlFor="firstName">
                             Profile:
-                            <span className="text-gray-400 mx-1">digitomize.com/{username}
+                            <span className="text-gray-400 mx-1">digitomize.com/u/{username}
                             </span>
                         </label>
                     </div>

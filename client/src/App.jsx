@@ -195,10 +195,10 @@ const router = createBrowserRouter(
           <Route path="widgets" element={<Widget />} />
 
           <Route element={<UserDashBoardLayout />} >
-          <Route
-            path="github"
-            element={<ComingSoonLoader value={"Widgets"} />}
-          />
+            <Route
+              path="github"
+              element={<ComingSoonLoader value={"Github"} />}
+            />
             <Route
               path="career"
               element={<Career />}
