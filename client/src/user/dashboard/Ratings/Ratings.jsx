@@ -1,22 +1,8 @@
 import React, { useState, useEffect } from "react";
-
-import { Form, Link } from "react-router-dom";
-
-// import Checkbox from "../components/Checkbox";
-// import UserDashboard from "./UserDashboard";
 import { submitUserFormData, userDashboardDetails } from "../../../../api";
-// import { useUserAuth } from '../../context/UserAuthContext'
 import { ToastContainer, toast } from "react-toastify";
-import { Skeleton } from "@mui/material";
-// import NewNavbar from "../../components/globals/Navbar/NewNavbar";
-// import DashboardNavbar from "../components/DashboardNavbar";
-// import Footer from "../../components/globals/Footer";
 import LoadingScreen from "../../../components/globals/LoadingScreen";
-
-
-// import { MetaData } from "../../components/CustomComponents";
 import PlatformBox from "./PlatformBox";
-
 import platformData from "./platformData";
 import { MetaData } from "../../../components/CustomComponents";
 
@@ -96,6 +82,59 @@ export default function Ratings() {
         },
     });
 
+
+    const handleInputChangeObjData = (event) => {
+        const { name, value } = event.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: {
+                ...prevData[name],
+                username: value,
+            },
+        }));
+    };
+    async function handleSubmit(event) {
+        event.preventDefault();
+        setIsDisabled(true);
+        const res = await submitUserFormData(formData)
+            .then(() => {
+                setIsDisabled(false);
+                toast.success("updated successfully!", {
+                    position: "top-left",
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            })
+            .catch((err) => {
+                toast.error(
+                    err.response
+                        ? err.response.data.error
+                        : err.request
+                            ? err.request
+                            : err.message,
+                    {
+                        position: "top-left",
+                        autoClose: 1500,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "colored",
+                    },
+                );
+                console.log(err);
+                setIsDisabled(false);
+            });
+        // console.log(res);
+    }
+
+
     if (loading) {
         return (
             <>
@@ -120,7 +159,7 @@ export default function Ratings() {
                 </div>
                 {
                     platformData.map((platform, index) => (
-                        <PlatformBox platform={platform} />
+                        <PlatformBox formData={formData} handleInputChangeObjData={handleInputChangeObjData} handleSubmit={handleSubmit} platform={platform} />
                     ))
                 }
             </div>
