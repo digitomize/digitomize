@@ -1,4 +1,4 @@
-import { preferences, rating, career, github, widgets, account, gear } from "../../components/AllAssets.jsx";
+import { preferences, rating, career, github, widgets, account, gear, contests, swords, blogs } from "../../components/AllAssets.jsx";
 export const navLinks = [
   {
     icon: account,
@@ -65,5 +65,23 @@ export const integrationLinks = [
     icon: widgets,
     title: "widget",
     path: "widget",
+  },
+];
+
+export const resourcesLinks = [
+  {
+    icon: contests,
+    title: "contests",
+    path: "/contests"
+  },
+  {
+    icon: swords,
+    title: "challenges",
+    path: "/challenges",
+  },
+  {
+    icon: blogs,
+    title: "blogs",
+    path: "/blogs",
   },
 ];

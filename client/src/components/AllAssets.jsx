@@ -22,8 +22,14 @@ import widgets from '../assets/widgets.svg'
 import rating from '../assets/rating.svg'
 import github from '../assets/github.svg'
 import account from '../assets/account.svg'
+import contests from '../assets/contests.svg'
+import swords from "../assets/swords.svg";
+import blogs from "../assets/blogs.svg";
 export {
+  blogs,
+  swords,
   github,
+  contests,
   career,
   preferences,
   widgets,
