@@ -3,7 +3,7 @@ import { handleUserSignup } from "../controllers/authController.js";
 import { handleUserDashboard } from "../controllers/userDashboardController.js";
 import { handleUserProfilePreview } from "../controllers/userProfileController.js";
 import { handleUpdateUserProfile, handleUserPreferences } from "../controllers/userUpdateController.js";
-import { addUID } from "../middlewares/authMiddleware.js";
+import { addUID, dgmAdminCheck } from "../middlewares/authMiddleware.js";
 import { getLeaderboard } from "../controllers/leaderboardController.js";
 import { generateSignature } from "../controllers/cloudinaryUploadController.js";
 import { generateSVG } from "../controllers/generateSVG.js";
@@ -34,7 +34,7 @@ router.post("/preferences", addUID, handleUserPreferences);
 
 // router.post("/createTopic", createTopic);
 
-router.get("/notifs/topics", getAllTopics);
+router.get("/notifs/topics", [addUID, dgmAdminCheck], getAllTopics);
 
 router.get("/signImageUpload", addUID, generateSignature);
 
