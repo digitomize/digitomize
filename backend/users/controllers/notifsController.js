@@ -18,8 +18,9 @@ export const addSubscriber = async (req, res) => {
     await novu.subscribers.setCredentials(uid, ChatProviderIdEnum.Discord, {
       webhookUrl: DISCORD_WEBHOOK_URL,
     });
-
-    return res.status(201).json(req.body);
+    
+    return res.status(201).json({ message: "Subscriber added successfully" });
+    
   }
   catch (error) {
     console.error(error);
