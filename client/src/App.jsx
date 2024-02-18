@@ -83,6 +83,18 @@ function DiscordRedirect() {
     </>
   );
 }
+function BlogsRedirect() {
+  window.location.href = "https://blogs.digitomize.com";
+  return (
+    <>
+      <MetaData path="blogs" />
+      <div className="flex flex-col justify-center items-center h-[60vh] antialiased">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
+        <h1 className="text-2xl ml-4">Redirecting to Blogs</h1>
+      </div>
+    </>
+  );
+}
 // function ContributeRedirect() {
 //   window.location.href = "https://github.com/pranshugupta54/digitomize";
 //   return null;
@@ -176,6 +188,7 @@ const router = createBrowserRouter(
         <Route path="contact" element={<About />} />
         <Route path="about" element={<About />} />
         <Route path="discord" element={<DiscordRedirect />} />
+        <Route path="blogs" element={<BlogsRedirect />} />
         <Route path="contests/:vanity" element={<IndividualCard />} />
         <Route path="404" element={<ErrorPage />} />
       </Route>
