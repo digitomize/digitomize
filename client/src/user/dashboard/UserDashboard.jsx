@@ -29,6 +29,7 @@ import ContestCard from "../components/ContestCard.jsx";
 import ProjectCard from "../components/ProjectCard.jsx";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 import { navLinks } from "./dashboardLinks.js";
+import { Done, PriorityHigh, Warning } from "@mui/icons-material";
 
 export default function UserDashboard() {
   const [loading, setLoading] = useState(true);
@@ -62,38 +63,36 @@ export default function UserDashboard() {
   //     path: "preferences"
   //   }
   // ];
-  let projects = [
-    {
-      title: "Awesome Chat App",
-      description: "A feature-rich chat application with real-time messaging and multimedia support.",
-      fork: 25,
-      star: 50
+
+
+  const profileSteps = {
+    addSkills: {
+      text: "Elevate your profile with new skills.",
+      completed: userData?.personal_data?.skills?.length > 0,
+      score: 20,
+      link: "career"
     },
-    {
-      title: "Community Contributions Hub",
-      description: "An open-source repository encouraging developers to contribute to various projects.",
-      fork: 10,
-      star: 30
+    addSocialMedia: {
+      text: "Connect with your audience by adding social media links.",
+      completed: userData?.social?.linkedin?.length > 0 || userData?.social?.github?.length > 0 || userData?.social?.twitter?.length > 0 || userData?.social?.instagram?.length > 0 || userData?.social?.facebook?.length > 0,
+      score: 20,
+      link: "career"
     },
-    {
-      title: "UtilityJS Library",
-      description: "A lightweight JavaScript library providing essential utility functions for developers.",
-      fork: 15,
-      star: 40
+    addBio: {
+      text: "Craft a compelling bio to make a lasting impression.",
+      completed: userData?.personal_data?.bio?.data?.length > 0,
+      score: 20,
+      link: "profile"
     },
-    {
-      title: "Modern Web Portfolio",
-      description: "A web application showcasing modern web development technologies and best practices.",
-      fork: 5,
-      star: 20
-    },
-    {
-      title: "Collaborative Problem Solvers",
-      description: "A platform for collaborative efforts to solve real-world problems through coding.",
-      fork: 8,
-      star: 15
+    addRatings: {
+      text: "Add your ratings to showcase your competitive spirit.",
+      completed: userData?.ratings?.codechef?.data?.length > 0 || userData?.ratings?.codeforces?.data?.length > 0 || userData?.ratings?.leetcode?.data?.length > 0 || userData?.ratings?.geeksforgeeks?.data?.length > 0,
+      score: 40,
+      link: "ratings"
     }
-  ];
+  };
+
+
 
 
   const [contest, setContest] = useState([])
@@ -178,7 +177,7 @@ export default function UserDashboard() {
         <NewNavbar />
 
         {/* FOR DESKTOP */}
-        <div className=" w-10/12 mx-auto mt-4 max-sm:px-3 font-['Geist']">
+        <div className=" w-10/12 mx-auto my-4 max-sm:px-3 font-['Geist']">
           <h1 className="pb-4 normal-case text-[#EBEBEB] text-5xl">
             Heyy {userData.personal_data.name.slice(0, 20)}
           </h1>
@@ -197,18 +196,60 @@ export default function UserDashboard() {
               />
             </div>
             <div className="sm:w-[60%]">
-              <h1 className="my-0 text-4xl">Settings</h1>
-              <div className="my-2 flex flex-row w-11/12 lg:justify-between justify-around flex-wrap gap-y-4">
-                {
-                  navLinks.map((data, index) => {
-                    return <Link to={data.path} key={index}>
-                      <div className="flex bg-cardsColor flex-col border border-solid sm:rounded-[12px] rounded-[5px] sm:py-3 sm:px-5 max-sm:py-2 max-sm:px-4 space-y-[5px] sm:justify-center justify-between  items-center border-[#EBEBEB]">
-                        <img src={data.icon} alt={data.title} className="w-8" />
-                        <p className="capitalize font-[500] sm:text-[16px] max-sm:text-[10px] text-[#EBEBEB]">{data.title}</p>
+              <div className="mb-4">
+                <h1 className="my-0 text-4xl">Profile </h1>
+                <p className="text-sm my-2 text-gray-400"> <i>Enhance your profile today! See the suggestions below:</i></p>
+                <div className="flex flex-row gap-4">
+                  <div>
+
+                    {Object.keys(profileSteps).map(step => {
+                      const { text, completed, score, link } = profileSteps[step];
+                      return <div className="flex items-center gap-2 my-2">
+                        {completed ? <Done htmlColor="#00FF00" /> : <PriorityHigh htmlColor="red" />}
+                        <p className="text-xs">
+                          <Link to={link} className="underline decoration-dotted">{text}</Link>
+                          - <i> {score}% </i></p>
                       </div>
-                    </Link>
-                  })
-                }
+                    })}
+                  </div>
+                  <div>
+                    {
+                      (() => {
+                        let sum = 0;
+                        Object.keys(profileSteps).forEach(step => {
+                          const { score, completed } = profileSteps[step];
+                          if (completed) {
+                            sum += score;
+                          }
+                        });
+                        console.log("Sum of scores:", sum);
+
+                        // Render the radial progress bar here
+                        return (
+                          <div key="radial-progress" className={`radial-progress ${sum > 70 ? 'text-[#00FF00]' : sum > 50 ? 'text-green-600' : 'bg-gray-900'}`} style={{ "--value": sum, "--size": "6rem", "--thickness": "1rem" }} role="progressbar">
+                            {sum}%
+                          </div>
+                        );
+                      })()
+                    }
+                  </div>
+
+                </div>
+              </div>
+              <div>
+                <h1 className="my-0 text-4xl">Settings</h1>
+                <div className="my-2 flex flex-row w-11/12 lg:justify-between justify-around flex-wrap gap-y-4">
+                  {
+                    navLinks.map((data, index) => {
+                      return <Link to={data.path} key={index}>
+                        <div className="flex bg-cardsColor flex-col border border-solid sm:rounded-[12px] rounded-[5px] sm:py-3 sm:px-5 max-sm:py-2 max-sm:px-4 space-y-[5px] sm:justify-center justify-between  items-center border-[#EBEBEB]">
+                          <img src={data.icon} alt={data.title} className="w-8" />
+                          <p className="capitalize font-[500] sm:text-[16px] max-sm:text-[10px] text-[#EBEBEB]">{data.title}</p>
+                        </div>
+                      </Link>
+                    })
+                  }
+                </div>
               </div>
               <div className="w-full">
                 <h1 className="mt-8 text-4xl">Contests</h1>
