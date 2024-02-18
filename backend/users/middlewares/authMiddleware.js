@@ -21,7 +21,6 @@ const addUID = async (request, response, next) => {
         "Authentication required. Please include an 'Authorization' header with a valid Bearer token.",
     }); // Redirect to the login page
   }
-  console.log(authToken);
 
   try {
     getAuth()
