@@ -1,7 +1,6 @@
 import React from "react";
 import { logo } from "../AllAssets";
 import { useUserAuth } from "../../context/UserAuthContext";
-import Novu from "./Notifs/Novu";
 
 const MobNav = ({ isMenuActive, toggleActive }) => {
   const { user } = useUserAuth();

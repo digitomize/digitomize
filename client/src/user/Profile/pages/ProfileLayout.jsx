@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import NewNavbar from "../../../components/globals/Navbar/NewNavbar";
 import { Outlet, useLoaderData, defer, Await } from "react-router-dom";
 import { getProfileData } from "../../../../api";
-import LoadingScreen from "../../../components/globals/LoadingScreen";
+import LoadingScreen from "@components/globals/LoadingScreen";
 import { Helmet } from "react-helmet";
 export async function loader({ params }) {
   const username = params.username;

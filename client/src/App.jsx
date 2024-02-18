@@ -8,7 +8,7 @@ import {
 import {
   UserAuthContextProvider,
   useUserAuth,
-} from "./context/UserAuthContext";
+} from "@context/UserAuthContext";
 import { useState, useEffect } from "react";
 import "./App.css";
 
@@ -35,28 +35,28 @@ import {
   Footer,
   MetaData,
 } from "./components/CustomComponents";
-// import UserDashBoardAccount from "./user/dashboard/Account";
 import UserDashboard from "./user/dashboard/UserDashboard";
+import UserDashPersonal, {
+  loader as userDashPersonalLoader,
+} from "./user/dashboard/UserDashPersonal";
 import UserDashRatings, {
   loader as userDashRatingsLoader,
 } from "./user/dashboard/UserDashRatings";
-import Widget from "./user/dashboard/Widget";
+import UserDashWidgets from "./user/dashboard/UserDashWidgets";
 import UserDashGithub, {
   loader as userDashGithubLoader,
-} from "./user/dashboard/UserDashGithub";
+} from "@user/dashboard/UserDashGithub";
 import ProtectedRoute from "./ProtectedRoute";
 import NewUserProfile from "./user/Profile/NewUserProfile";
-import UserDashBoardLayout from "./user/dashboard/Layout";
+
 import ProfileRatingsPage from "./user/Profile/pages/ProfileRatingsPage";
 import PlatformRatings from "./user/Profile/components/PlatformRatings";
 import ProfileLayout, {
   loader as profileLoader,
-} from "./user/Profile/pages/ProfileLayout";
+} from "@user/Profile/pages/ProfileLayout";
 // import ProtectedRoute from "./ProtectedRoute"
-import { loader as userDashPersonalLoader } from './user/dashboard/UserDashPersonal'
-import UserDashBoardProfile from "./user/dashboard/Profile/Profile";
+
 import Leaderboard from "./user/leaderboard/Leaderboard";
-import UserDashBoardWidget from "./user/dashboard/Widget";
 
 import Career from "./user/dashboard/Career/Career"
 /*------------ DSA Sheets Import ------------ */
@@ -90,8 +90,8 @@ function DiscordRedirect() {
 
 import { auth } from "../firebase";
 import { ToastContainer, toast } from "react-toastify";
-import { UserContextProvider } from "./context/UserContext";
-import UserListPage from "./pages/admin/UserListPage";
+import { UserContextProvider } from "@context/UserContext";
+import UserListPage from "@pages/admin/UserListPage";
 import AdminPanelGuard from "./AdminPanelGuard";
 import ContestListPage from "./pages/admin/ContestListPage";
 import CommunityListPage from "./pages/admin/CommunityListPage";
@@ -99,10 +99,6 @@ import ContestPageLayout from "./components/Contests/ContestPageLayout";
 import Filter from "./components/Contests/Filter";
 import Challenges from "./components/Contests/Challenges/Challenges";
 import ComingSoonLoader from "./components/Contests/ComingSoonLoader";
-import { userDashboardDetails } from "../api";
-import Preferences from "./user/dashboard/Preferences/Preferences";
-import Ratings from "./user/dashboard/Ratings/Ratings";
-import Settings from "./user/dashboard/Settings/Settings";
 
 function Logout() {
   const navigate = useNavigate();

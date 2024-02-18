@@ -1,5 +1,5 @@
 import React from "react";
-import NewNavbar from "../../components/NewNavbar";
+import NewNavbar from "@components/NewNavbar";
 import SheetCard from "../components/SheetCard";
 import QuestionComponent from "../components/QuestionComponent";
 const sheet = [

@@ -1,9 +1,9 @@
 import { Button, DialogActions, DialogContent } from "@mui/material";
 import { CreateUserForm } from "./CreateUser.helper";
-import { createNewUser } from "../../../../core/api/user.api";
+import { createNewUser } from "@core/api/user.api";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { useUserAuth } from "../../../../context/UserAuthContext";
+import { useUserAuth } from "@context/UserAuthContext";
 
 export default function CreateUser({ handleClose }) {
   const [pending, setPending] = useState(false);

@@ -5,8 +5,8 @@ import { toast } from "react-toastify";
 import Checkbox from "../components/Checkbox";
 import NewNavbar from "../../components/globals/Navbar/NewNavbar";
 import DashboardNavbar from "../components/DashboardNavbar";
-import Footer from "../../components/globals/Footer";
-import { MetaData } from "../../components/CustomComponents";
+import Footer from "@components/globals/Footer";
+import { MetaData } from "@components/CustomComponents";
 export async function loader() {
   try {
     const res = await userDashboardDetails();

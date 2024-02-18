@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import MobileNav from "./MobileNav";
-import logo from "../../assets/logo.png";
-import { useUserAuth } from "../../context/UserAuthContext";
+import logo from "@assets/logo.png";
+import { useUserAuth } from "@context/UserAuthContext";
 
 import { navLinks, navLinksDashboard } from "../../components/globals/Navbar/navLinks";
 

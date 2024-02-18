@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
-import "../components/css/socials.css";
+import "@components/css/socials.css";
 import Stack from "@mui/material/Stack";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import TelegramIcon from "@mui/icons-material/Telegram";

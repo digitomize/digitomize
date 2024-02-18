@@ -11,16 +11,16 @@ import {
   Code,
 } from "@mui/icons-material";
 import { Helmet } from "react-helmet";
-import "/src/components/css/IndividualCard.css";
+import "@components/css/IndividualCard.css";
 import { Alert, AlertTitle } from "@mui/material";
-import geeksforgeeks from "/src/assets/geeksforgeeks.svg";
-import leetcode from "/src/assets/leetcode.svg";
-import codingninjas from "/src/assets/codingninjas.png";
-import codechef from "/src/assets/codechef.svg";
-import codeforces from "/src/assets/codeforces.svg";
-import atcoder from "/src/assets/atcoder.svg";
+import geeksforgeeks from "@assets/geeksforgeeks.svg";
+import leetcode from "@assets/leetcode.svg";
+import codingninjas from "@assets/codingninjas.png";
+import codechef from "@assets/codechef.svg";
+import codeforces from "@assets/codeforces.svg";
+import atcoder from "@assets/atcoder.svg";
 import CopyToClipboard from "../CopyToClipboard";
-import { useUserAuth } from "../../context/UserAuthContext";
+import { useUserAuth } from "@context/UserAuthContext";
 import moment from "moment-timezone";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;

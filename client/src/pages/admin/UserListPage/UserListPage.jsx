@@ -1,8 +1,8 @@
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getUserList, updateUserData } from "../../../core/api/user.api";
-import { getUserRoleOptions } from "../../../core/utils/options";
+import { getUserList, updateUserData } from "@core/api/user.api";
+import { getUserRoleOptions } from "@core/utils/options";
 import { deepOrange } from "@mui/material/colors";
 import {
   Avatar,
@@ -23,10 +23,10 @@ import {
 } from "@mui/material";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import LaunchIcon from "@mui/icons-material/Launch";
-import { useUserAuth } from "../../../context/UserAuthContext";
+import { useUserAuth } from "@context/UserAuthContext";
 import { StyledTableCell, StyledTableRow } from "../../../index.styled";
-import { Footer } from "../../../components/CustomComponents";
-import AppDialog from "../../../core/components/AppModal";
+import { Footer } from "@components/CustomComponents";
+import AppDialog from "@core/components/AppModal";
 import CreateUser from "./CreateUser";
 import DeleteUser from "./DeleteUser";
 

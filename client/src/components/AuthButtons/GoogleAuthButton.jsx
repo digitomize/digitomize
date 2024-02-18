@@ -1,24 +1,19 @@
-import { useState } from "react";
-import GoogleButton from "react-google-button";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-
+import {buttonState,errorState} from '@components/Login';
 import { auth } from "../../../firebase";
-import googleIcon from "../../assets/google.svg";
+import googleIcon from "@assets/google.svg";
 
 import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
 import { Tooltip } from "@mui/material";
+import { useRecoilState, useSetRecoilState } from "recoil";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
-export default function GoogleAuthButton({
-  setError,
-  btnText,
-  btnState,
-  setbtnState,
-}) {
+export default function GoogleAuthButton() {
   const navigate = useNavigate();
-
+  const [btnState,setbtnState] = useRecoilState(buttonState);
+  const setError = useSetRecoilState(errorState);
   // const [btnState, setbtnState] = useState(false);
   const handleGoogleSignIn = async (e) => {
     setbtnState(true);

@@ -1,5 +1,5 @@
 import React from "react";
-import comingSoonSvg from "../../assets/comming_soon.svg";
+import comingSoonSvg from "@assets/comming_soon.svg";
 
 
 const ComingSoonLoader = ({ value }) => {
