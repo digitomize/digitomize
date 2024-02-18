@@ -6,9 +6,9 @@ export const navLinks = [
     path: "profile",
   },
   {
-    icon: widgets,
-    title: "widget",
-    path: "widget",
+    icon: preferences,
+    title: "preferences",
+    path: "preferences"
   },
   {
     icon: career,
@@ -16,14 +16,14 @@ export const navLinks = [
     path: "career",
   },
   {
+    icon: gear,
+    title: "settings",
+    path: "settings",
+  },
+  {
     icon: rating,
     title: "rating",
     path: "ratings"
-  },
-  {
-    icon: preferences,
-    title: "preferences",
-    path: "preferences"
   }
 ];
 

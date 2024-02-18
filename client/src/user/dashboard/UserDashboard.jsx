@@ -121,13 +121,29 @@ export default function UserDashboard() {
   }
   useEffect(() => {
     async function getContest() {
-      const url = `${backendUrl}/contests`
+      let url = `${backendUrl}/contests`
+      if (userData?.personal_data?.preferences?.contest_notifs) {
+        const preferences = userData.personal_data.preferences.contest_notifs;
+        const platforms = [];
+
+        for (const platform in preferences) {
+          if (preferences[platform]) {
+            platforms.push(platform);
+          }
+        }
+
+        if (platforms.length > 0) {
+          url += `?host=${platforms.join('&')}`;
+        }
+      }
+      console.log("URLL:", url);
+      console.log("userData:", userData);
       const response = await fetch(url)
       const data = await response.json()
       setContest(data.results.slice(0, 3))
     }
     getContest()
-  }, [])
+  }, [userData])
   useEffect(() => {
     async function fetchData() {
       try {
@@ -195,8 +211,9 @@ export default function UserDashboard() {
                 }
               </div>
               <div className="w-full">
-                {/* <p className="text-white text-[32px] my-4">Contests</p> */}
                 <h1 className="mt-8 text-4xl">Contests</h1>
+                { userData?.personal_data?.preferences?.contest_notifs &&<p className="text-sm my-2 text-gray-400">Displaying the next 3 upcoming contests from your <Link to={"preferences"}>preferred list</Link>.</p>}
+
                 <div className="flex flex-row gap-7  flex-wrap">
                   {
                     contest.map((data, index) => {
