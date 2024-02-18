@@ -36,8 +36,8 @@ function ProfileLayout() {
                   <meta
                     name="description"
                     content={
-                      loadedProfileData.personal_data.bio?.slice(0, 25) ||
-                      loadedProfileData.personal_data.name
+                      `${loadedProfileData.personal_data.bio?.slice(0, 200) ||
+                      loadedProfileData.personal_data.name} | Check contest ratins and connect today! - Find more about ${loadedProfileData.personal_data.name} on Digitomize`
                     }
                   />
 
@@ -57,11 +57,11 @@ function ProfileLayout() {
                   <meta
                     property="og:description"
                     content={
-                      loadedProfileData.personal_data.bio?.slice(0, 25) ||
-                      loadedProfileData.personal_data.name
+                      `${loadedProfileData.personal_data.bio?.slice(0, 200) ||
+                      loadedProfileData.personal_data.name} | Check contest ratins and connect today! - Find more about ${loadedProfileData.personal_data.name} on Digitomize`
                     }
                   />
-                  {/* <meta property="og:description" content={loadedProfileData.personal_data.bio?.slice(0, 25) ?? loadedProfileData.personal_data.name ?? ''} /> */}
+                  {/* <meta property="og:description" content={loadedProfileData.personal_data.bio?.slice(0, 200) ?? loadedProfileData.personal_data.name ?? ''} /> */}
 
                   <meta
                     property="og:image"
@@ -80,8 +80,8 @@ function ProfileLayout() {
                   <meta
                     name="twitter:description"
                     content={
-                      loadedProfileData.personal_data.bio?.slice(0, 25) ||
-                      loadedProfileData.personal_data.name
+                      `${loadedProfileData.personal_data.bio?.slice(0, 200) ||
+                      loadedProfileData.personal_data.name} | Check contest ratins and connect today! - Find more about ${loadedProfileData.personal_data.name} on Digitomize`
                     }
                   />
                   <meta

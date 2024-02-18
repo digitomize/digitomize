@@ -52,6 +52,11 @@ export const accountLinks = [
 
 export const integrationLinks = [
   {
+    icon: rating,
+    title: "rating",
+    path: "ratings"
+  },
+  {
     icon: github,
     title: "github",
     path: "github",
@@ -61,9 +66,4 @@ export const integrationLinks = [
     title: "widget",
     path: "widget",
   },
-  {
-    icon: rating,
-    title: "rating",
-    path: "ratings"
-  }
 ];

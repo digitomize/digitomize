@@ -2,6 +2,8 @@ import React from "react";
 import logo from "@assets/logo.png";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { useUserAuth } from "../../context/UserAuthContext";
+import { Link } from "react-router-dom";
+import { navLinks } from "../../components/globals/Navbar/navLinks";
 
 const MobileNav = ({ isMenuActive, toggleActive }) => {
   const { user } = useUserAuth();
@@ -15,7 +17,7 @@ const MobileNav = ({ isMenuActive, toggleActive }) => {
           <div className="flex">
             <Link to="/u/dashboard" className="group">
               <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-blue-700">
-                <KeyboardBackspaceIcon /> 
+                <KeyboardBackspaceIcon />
                 {/* <img
                 src={KeyboardBackspaceIcon}
                 alt="logo"
@@ -59,9 +61,8 @@ const MobileNav = ({ isMenuActive, toggleActive }) => {
             </div>
           </button>
           <nav
-            className={`duration-500 absolute inset-x-0 top-full z-10 mt-px flex-col p-6 pb-24 bg-zinc-950 shadow-2xl flex transition-[opacity] ${
-              isMenuActive ? "opacity-100" : "opacity-0 pointer-events-none z-0"
-            }`}
+            className={`duration-500 absolute inset-x-0 top-full z-10 mt-px flex-col p-6 pb-24 bg-zinc-950 shadow-2xl flex transition-[opacity] ${isMenuActive ? "opacity-100" : "opacity-0 pointer-events-none z-0"
+              }`}
           >
             {user ? (
               <a

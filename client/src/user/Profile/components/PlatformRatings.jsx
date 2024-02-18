@@ -63,7 +63,7 @@ function PlatformRatings() {
   const startTimeIST = startDate.toLocaleString("en-US", options);
   const pageTitle = `${platform} | ${data.personal_data.name}`;
   const contentDescription = platformData.rating
-    ? `${platformData.badge} with ${platformData.rating} rating | @${platformData.username}`
+    ? `${platformData?.badge} with ${platformData?.rating} rating | ${platformData?.attendedContestsCount} contests | @${platformData?.username} | ${data.personal_data.name}'s ratings | ${platform} | ${data.personal_data.name}`
     : `Check out ${data.personal_data.name}'s ratings`;
   // Check if platformData is available before rendering
   if (platformData.username !== null) {

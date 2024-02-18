@@ -36,12 +36,12 @@ function NewUserProfile() {
   const resumeEmbedUrl = generateEmbedUrl();
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <title>{personal_data.name} | digitomize</title>
         <meta property="og:title" content={pageTitle} />
         <meta property="og:description" content={contentDescription} />
         <meta name="description" content={contentDescription} />
-      </Helmet>
+      </Helmet> */}
       <div className="flex mt-8 flex-col md:flex-row w-11/12 mx-auto pb-8">
         {/* First Column with 450px width */}
         <div className="flex md:w-[50%]">
