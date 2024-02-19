@@ -1,74 +1,64 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
-  <head class="scroll-smooth">
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-BY8B08J7V0"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
 
-      gtag("config", "G-BY8B08J7V0");
-    </script>
-    <meta
-      property="og:image"
-      content="https://res.cloudinary.com/dsazw0r59/image/upload/c_scale,h_630,q_100,w_1200/v1708241240/og_dgm.png"
-    />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:title" content="Digitomize" />
-    <meta
-      property="og:description"
-      content="One place for all your coding platforms need."
-    />
-    <meta property="og:url" content="https://digitomize.com" />
-    <meta property="og:type" content="website" />
+<head class="scroll-smooth">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-BY8B08J7V0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-    <meta charset="UTF-8" />
-    <link rel="icon" href="https://res.cloudinary.com/dsazw0r59/image/upload/r_max/v1697627259/logox144.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" /> -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      html,
-      body {
-        background-color: #090d0e;
-      }
-    </style>
-    <meta name="theme-color" content="#1582ff" />
-    <link rel="manifest" href="./src/app.webmanifest" />
+    gtag("config", "G-BY8B08J7V0");
+  </script>
+  <meta property="og:image" content="https://res.cloudinary.com/dsazw0r59/image/upload/v1708241240/og_dgm.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:title" content="Digitomize" />
+  <meta property="og:description" content="One place for all your coding platforms need." />
+  <meta property="og:url" content="https://digitomize.com" />
+  <meta property="og:type" content="website" />
 
-    <!-- Brevo Conversations {literal} -->
-    <script>
-      (function (d, w, c) {
-        w.BrevoConversationsID = "654a140f4b767640330ee777";
-        w[c] =
-          w[c] ||
-          function () {
-            (w[c].q = w[c].q || []).push(arguments);
-          };
-        var s = d.createElement("script");
-        s.async = true;
-        s.src = "https://conversations-widget.brevo.com/brevo-conversations.js";
-        if (d.head) d.head.appendChild(s);
-      })(document, window, "BrevoConversations");
-    </script>
-    <!-- /Brevo Conversations {/literal} -->
-  </head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="https://res.cloudinary.com/dsazw0r59/image/upload/r_max/v1697627259/logox144.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" /> -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    html,
+    body {
+      background-color: #090d0e;
+    }
+  </style>
+  <meta name="theme-color" content="#1582ff" />
+  <link rel="manifest" href="./src/app.webmanifest" />
 
-  <body>
-    <div id="root"></div>
-    <div id="portal_div"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <!-- Brevo Conversations {literal} -->
+  <script>
+    (function (d, w, c) {
+      w.BrevoConversationsID = "654a140f4b767640330ee777";
+      w[c] =
+        w[c] ||
+        function () {
+          (w[c].q = w[c].q || []).push(arguments);
+        };
+      var s = d.createElement("script");
+      s.async = true;
+      s.src = "https://conversations-widget.brevo.com/brevo-conversations.js";
+      if (d.head) d.head.appendChild(s);
+    })(document, window, "BrevoConversations");
+  </script>
+  <!-- /Brevo Conversations {/literal} -->
+</head>
+
+<body>
+  <div id="root"></div>
+  <div id="portal_div"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

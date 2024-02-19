@@ -46,7 +46,7 @@ function ProfileCard({
 
       <div className="flex flex-col items-center gap-[8px] p-0">
         <div>
-          <h1 className="text-center text-3xl w-full max-w-[260px] whitespace-normal break-words px-3  md:text-5xl text-[#F0ECE5]">{name}</h1>
+          <h1 className="text-center text-3xl w-full max-w-[260px] whitespace-normal break-words px-3  md:text-5xl text-[#F0ECE5] mx-auto">{name}</h1>
           <div className="badges text-center">
             <div className="badge bg-[#9ACD32] text-black mx-1">member</div>
             {role >= 4 && (

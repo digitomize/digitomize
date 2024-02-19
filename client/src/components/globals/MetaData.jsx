@@ -102,7 +102,8 @@ const getPageMetadata = (path) => {
     keywords.push("codechef", "codeforces", "leetcode", "atcoder", "hackerrank", "hackerearth", "topcoder", "kaggle", "digitomize", "digitomize.com", "digitomize contests", "digitomize challenges", "digitomize hackathons", "digitomize internships", "digitomize jobs", "digitomize updates", "digitomize feedback", "digitomize contact", "digitomize about", "digitomize discord", "digitomize 404", "digitomize leaderboard");
 
     keywords.push("algorithm", "data structure", "binary search", "sorting", "searching", "dynamic programming", "greedy", "graph", "tree", "heap", "queue", "stack", "linked list", "hashing", "recursion", "backtracking", "bit manipulation", "segment tree", "fenwick tree", "disjoint set", "competitive programming", "code jam", "kick start", "google code jam", "facebook hacker cup", "acm icpc", "online judge", "competitive coding", "contest", "codeforces round", "leetcode contest", "atcoder contest", "hackerrank challenge", "hackerearth challenge", "topcoder open");
-    const image = "https://res.cloudinary.com/dsazw0r59/image/upload/c_fit,q_100,w_250/v1693023476/logo_bg_y5ixum.jpg";
+    // const image = "https://res.cloudinary.com/dsazw0r59/image/upload/c_fit,q_100,w_250/v1693023476/logo_bg_y5ixum.jpg";
+    const image = "";
 
     return {
         title: `${title} | Digitomize`,
