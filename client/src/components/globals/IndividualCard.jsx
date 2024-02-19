@@ -27,7 +27,7 @@ const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity }) => {
   // Adjust the start time and duration for IST (GMT+5:30)
-  const startTimeIST = new Date((startTimeUnix +  60 * 60 - 3600) * 1000);
+  const startTimeIST = new Date((startTimeUnix + 60 * 60 - 3600) * 1000);
   const endTimeIST = new Date((startTimeUnix + duration * 60 + 60 * 60 - 3600) * 1000);
 
   const formattedStartTime = startTimeIST.toISOString().replace(/[-:]/g, "").replace(".000", "+05:30");
@@ -172,8 +172,10 @@ function IndividualCard() {
           <meta name="twitter:description" content={contentDescription} />
           <meta name="twitter:image" content={hostToSVGMap[host]} />
           <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@digitomize" />
+          <meta name="twitter:creator" content="@digitomize" />
 
-          {/* Canonical URL */}
+            {/* Canonical URL */}
           <link rel="canonical" href={url} />
         </Helmet>
         {true && (
@@ -973,7 +975,7 @@ function IndividualCard() {
                           marginTop: "17px",
                         }}
                       >
-                        Participate <Code/>
+                        Participate <Code />
                       </button>
                     </a>
                     <CopyToClipboard

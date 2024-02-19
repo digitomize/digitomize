@@ -89,6 +89,8 @@ function ProfileLayout() {
                     content={loadedProfileData.personal_data.picture}
                   />
                   <meta name="twitter:card" content="summary" />
+                  <meta name="twitter:site" content="@digitomize" />
+                  <meta name="twitter:creator" content="@digitomize" />
 
                   {/* Canonical URL */}
                   <link
