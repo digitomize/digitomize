@@ -8,7 +8,7 @@ import { submitUserFormData, userDashboardDetails } from "../../../api";
 
 import { ToastContainer, toast } from "react-toastify";
 import { Skeleton } from "@mui/material";
-import NewNavbar from "@components/globals/NewNavbar";
+import NewNavbar from "../../components/globals/Navbar/NewNavbar";
 import DashboardNavbar from "../components/DashboardNavbar";
 import Footer from "@components/globals/Footer";
 import LoadingScreen from "@components/globals/LoadingScreen";
@@ -185,17 +185,17 @@ export default function UserDashRatings() {
       <>
         <MetaData path="u/dashboard/ratings" />
         <ToastContainer />
-        <DashboardNavbar />
+
         {/* <div className="max-phone:hidden">
 
       <UserDashboard/>
         </div> */}
-        <div className="max-md:py-20 md:py-12 min-h-[60vh] mt-24 w-11/12 m-auto">
+        <div className="max-md:py-20 md:py-12 min-h-[60vh] mt-12 w-11/12 m-auto">
           {/* <div className="w-full flex justify-center md:justify-end mb-12 md:mb-8">
         <Checkbox />
       </div> */}
 
-          <ul className="menu menu-xs bg-base-200 rounded-lg w-fit mx-auto my-auto md:scale-150">
+          <ul className="menu menu-xs bg-base-200 rounded-lg w-fit mx-8 border border-jet my-auto md:scale-150">
             <li>
               <Link to={"/u/dashboard/account"}>
                 <svg
@@ -232,7 +232,7 @@ export default function UserDashRatings() {
                     d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"
                   />
                 </svg>
-                My ratings
+                my ratings
                 <ul />
                 {/* codeforces */}
                 <li>

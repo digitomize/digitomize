@@ -1,33 +1,12 @@
 import React from "react";
 import logo from "@assets/logo.png";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
-import { useUserAuth } from "@context/UserAuthContext";
+import { useUserAuth } from "../../context/UserAuthContext";
+import { Link } from "react-router-dom";
+import { navLinks } from "../../components/globals/Navbar/navLinks";
 
 const MobileNav = ({ isMenuActive, toggleActive }) => {
   const { user } = useUserAuth();
-
-  const navLinks = [
-    {
-      title: "Home",
-      path: "/home",
-    },
-    {
-      title: "Contests",
-      path: "/contests",
-    },
-    {
-      title: "Blogs",
-      path: "https://blogs.digitomize.com/",
-    },
-    {
-      title: "Discord",
-      path: "/discord",
-    },
-    {
-      title: "Leaderboard",
-      path: "/u/leaderboard",
-    },
-  ];
 
   return (
     <header
@@ -36,7 +15,7 @@ const MobileNav = ({ isMenuActive, toggleActive }) => {
       <div className="mx-auto max-w-screen-xl px-6 md:px-10">
         <div className="flex items-center justify-between">
           <div className="flex">
-            <a href="/u/dashboard" className="group">
+            <Link to="/u/dashboard" className="group">
               <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-blue-700">
                 <KeyboardBackspaceIcon />
                 {/* <img
@@ -45,7 +24,7 @@ const MobileNav = ({ isMenuActive, toggleActive }) => {
                 className="rounded-full"
               /> */}
               </div>
-            </a>
+            </Link>
           </div>
           <button
             type="button"
@@ -82,9 +61,8 @@ const MobileNav = ({ isMenuActive, toggleActive }) => {
             </div>
           </button>
           <nav
-            className={`duration-500 absolute inset-x-0 top-full z-10 mt-px flex-col p-6 pb-24 bg-zinc-950 shadow-2xl flex transition-[opacity] ${
-              isMenuActive ? "opacity-100" : "opacity-0 pointer-events-none z-0"
-            }`}
+            className={`duration-500 absolute inset-x-0 top-full z-10 mt-px flex-col p-6 pb-24 bg-zinc-950 shadow-2xl flex transition-[opacity] ${isMenuActive ? "opacity-100" : "opacity-0 pointer-events-none z-0"
+              }`}
           >
             {user ? (
               <a

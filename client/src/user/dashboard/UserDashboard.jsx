@@ -3,71 +3,99 @@ import { useState, useEffect } from "react";
 import { auth } from "../../../firebase";
 
 import {
-  NavLink,
-  Outlet,
   Link,
-  useNavigate,
   useLocation,
 } from "react-router-dom";
 
 import { ToastContainer, toast } from "react-toastify";
-import Typewriter from "typewriter-effect";
 import "react-toastify/dist/ReactToastify.css";
-import SignoutButton from "../components/SignoutButton";
 import NewLogOut from "../components/NewLogOut";
-import { useUserAuth } from "@context/UserAuthContext";
-import NewNavbar from "@components/globals/NewNavbar.jsx";
-import { Skeleton } from "@mui/material";
+import { useUserAuth } from "../../context/UserAuthContext";
+import NewNavbar from "../../components/globals/Navbar/NewNavbar.jsx";
 import EditIcon from "@mui/icons-material/Edit";
-import Chip from "@mui/material/Chip";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import GitHubIcon from "@mui/icons-material/GitHub";
+import { preferences, rating, career, github, widgets, account } from "../../components/AllAssets.jsx";
 import { userDashboardDetails } from "../../../api";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
-import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
-import SettingsIcon from "@mui/icons-material/Settings";
-import logo from "@assets/logo.png";
 import Badge from "@mui/material/Badge";
 import MoodIcon from "@mui/icons-material/Mood";
 import Tooltip from "@mui/material/Tooltip";
-import Footer from "@components/globals/Footer.jsx";
-import LoadingScreen from "@components/globals/LoadingScreen.jsx";
-import ShareModel from "@components/share_model.jsx";
+import LoadingScreen from "../../components/globals/LoadingScreen.jsx";
+import ShareModel from "../../components/share_model.jsx";
 import UserCard from "../Profile/components/UserCard.jsx";
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 // import logo from "../assets/logo.png";
-import { MetaData } from "@components/CustomComponents.jsx";
+import { MetaData } from "../../components/CustomComponents.jsx";
+import ContestCard from "../components/ContestCard.jsx";
+import ProjectCard from "../components/ProjectCard.jsx";
+const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+import { navLinks } from "./dashboardLinks.js";
+import { Done, PriorityHigh, Warning } from "@mui/icons-material";
 
 export default function UserDashboard() {
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState();
   const { user } = useUserAuth();
   const [selectedStatus, setSelectedStatus] = useState("Busy"); // Initialize with a default status
+  // const navLinks = [
+  //   {
+  //     icon: account,
+  //     title: "profile",
+  //     path: "profile",
+  //   },
+  //   {
+  //     icon: widgets,
+  //     title: "widget",
+  //     path: "widget",
+  //   },
+  //   {
+  //     icon: career,
+  //     title: "career",
+  //     path: "career",
+  //   },
+  //   {
+  //     icon: rating,
+  //     title: "rating",
+  //     path: "ratings"
+  //   },
+  //   {
+  //     icon: preferences,
+  //     title: "preferences",
+  //     path: "preferences"
+  //   }
+  // ];
 
-  const navLinks = [
-    {
-      icon: SettingsIcon,
-      title: "account",
-      path: "account",
-    },
-    {
-      icon: TrendingUpIcon,
-      title: "ratings",
-      path: "ratings",
-    },
-    {
-      icon: TrendingUpIcon,
-      title: "Widgets",
-      path: "widgets",
-    },
-    {
-      icon: GitHubIcon,
-      title: "github(soon...)",
-      path: "#",
-    },
-  ];
 
+  const profileSteps = {
+    addSkills: {
+      text: "Elevate your profile with new skills.",
+      completed: userData?.personal_data?.skills?.length > 0,
+      score: 20,
+      link: "career"
+    },
+    addSocialMedia: {
+      text: "Connect with your audience by adding social media links.",
+      completed: userData?.social?.linkedin?.length > 0 || userData?.social?.github?.length > 0 || userData?.social?.twitter?.length > 0 || userData?.social?.instagram?.length > 0 || userData?.social?.facebook?.length > 0,
+      score: 20,
+      link: "career"
+    },
+    addBio: {
+      text: "Craft a compelling bio to make a lasting impression.",
+      completed: userData?.personal_data?.bio?.data?.length > 0,
+      score: 20,
+      link: "profile"
+    },
+    addRatings: {
+      text: "Add your ratings to showcase your competitive spirit.",
+      completed: userData?.ratings?.codechef?.data?.length > 0 || userData?.ratings?.codeforces?.data?.length > 0 || userData?.ratings?.leetcode?.data?.length > 0 || userData?.ratings?.geeksforgeeks?.data?.length > 0,
+      score: 40,
+      link: "ratings"
+    }
+  };
+
+
+
+
+  const [contest, setContest] = useState([])
   const location = useLocation();
   const [show, setShow] = useState(false);
   const close_model = () => setShow(false);
@@ -90,6 +118,31 @@ export default function UserDashboard() {
     // console.log("before");
     navigate("/login?message=Logged out successfully");
   }
+  useEffect(() => {
+    async function getContest() {
+      let url = `${backendUrl}/contests`
+      if (userData?.personal_data?.preferences?.contest_notifs) {
+        const preferences = userData.personal_data.preferences.contest_notifs;
+        const platforms = [];
+
+        for (const platform in preferences) {
+          if (preferences[platform]) {
+            platforms.push(platform);
+          }
+        }
+
+        if (platforms.length > 0) {
+          url += `?host=${platforms.join('&')}`;
+        }
+      }
+      console.log("URLL:", url);
+      console.log("userData:", userData);
+      const response = await fetch(url)
+      const data = await response.json()
+      setContest(data.results.slice(0, 3))
+    }
+    getContest()
+  }, [userData])
   useEffect(() => {
     async function fetchData() {
       try {
@@ -118,273 +171,114 @@ export default function UserDashboard() {
   if (!loading) {
     return (
       <>
-        
+
         <MetaData path="u/dashboard" />
         <ToastContainer />
         <NewNavbar />
 
         {/* FOR DESKTOP */}
-        <div className="max-phone:hidden w-11/12 mx-auto mt-4">
-          <h1 className="pb-4 normal-case text-[#F0ECE5]">
-            Hey, {userData.personal_data.name} 👋
+        <div className=" w-10/12 mx-auto my-4 max-sm:px-3 font-['Geist']">
+          <h1 className="pb-4 normal-case text-[#EBEBEB] text-5xl">
+            Heyy {userData.personal_data.name.slice(0, 20)}
           </h1>
 
-          <div className="flex flex-row">
-            <div className="w-[40%]">
+          <div className="flex sm:flex-row flex-col sm:space-x-12 gap-6">
+            <div className="sm:w-[40%]">
               <UserCard
                 username={userData.personal_data.username}
-                name={userData.personal_data.name}
+                name={userData.personal_data.name.slice(0, 20)}
                 picture={userData.personal_data.picture}
                 bio={userData.personal_data.bio.data}
                 phoneNumber={userData.personal_data.phoneNumber}
                 role={userData.personal_data.role}
+                social={userData.social}
                 skills={userData.personal_data.skills}
               />
             </div>
-            <div className="cards flex flex-row flex-wrap items-center justify-evenly">
-              <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl my-4">
-                <div className="card-body">
-                  <h2 className="card-title">
-                    <SettingsIcon fontSize="medium" />
-                    account
-                    {/* <div className="badge badge-secondary"></div> */}
-                  </h2>
-                  <p>Personalize your experience and manage preferences.</p>
-                  <div className="card-actions justify-end">
-                    <a href="/u/dashboard/account">
-                      <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]">
-                        <SettingsIcon fontSize="large" />
-                      </button>
-                    </a>
-                  </div>
-                </div>
-              </div>
+            <div className="sm:w-[60%]">
+              <div className="mb-4">
+                <h1 className="my-0 text-4xl">Profile </h1>
+                <p className="text-sm my-2 text-gray-400"> <i>Enhance your profile today! See the suggestions below:</i></p>
+                <div className="flex flex-row gap-4">
+                  <div>
 
-              <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl my-4">
-                <div className="card-body">
-                  <h2 className="card-title">
-                    <TrendingUpIcon fontSize="medium" />
-                    ratings
-                    <div className="badge badge-secondary">new</div>
-                  </h2>
-                  <p>Connect usernames for linked coding profiles.</p>
-                  <div className="card-actions justify-end">
-                    <a href="/u/dashboard/ratings">
-                      <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]">
-                        <TrendingUpIcon fontSize="large" />
-                      </button>
-                    </a>
+                    {Object.keys(profileSteps).map(step => {
+                      const { text, completed, score, link } = profileSteps[step];
+                      return <div className="flex items-center gap-2 my-2">
+                        {completed ? <Done htmlColor="#00FF00" /> : <PriorityHigh htmlColor="red" />}
+                        <p className="text-xs">
+                          <Link to={link} className="underline decoration-dotted">{text}</Link>
+                          - <i> {score}% </i></p>
+                      </div>
+                    })}
                   </div>
-                </div>
-              </div>
-              <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl my-4">
-                <div className="card-body">
-                  <h2 className="card-title">
-                    <TrendingUpIcon fontSize="medium" />
-                    Widgets
-                    <div className="badge badge-secondary">new</div>
-                  </h2>
-                  <p>Specially created widgets, just for you!</p>
-                  <div className="card-actions justify-end">
-                    <a href="/u/dashboard/widgets">
-                      <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]">
-                        <TrendingUpIcon fontSize="large" />
-                      </button>
-                    </a>
-                  </div>
-                </div>
-              </div>
+                  <div>
+                    {
+                      (() => {
+                        let sum = 0;
+                        Object.keys(profileSteps).forEach(step => {
+                          const { score, completed } = profileSteps[step];
+                          if (completed) {
+                            sum += score;
+                          }
+                        });
+                        console.log("Sum of scores:", sum);
 
-              <div className="card w-96 bg-base-100 border-[#D1E5F4] border-2 shadow-[8px_8px_0px_#D1E5F4] rounded-xl my-4">
-                <div className="card-body">
-                  <h2 className="card-title">
-                    <GitHubIcon fontSize="medium" />
-                    Github
-                    <div className="badge badge-secondary">coming soon</div>
-                  </h2>
-                  <p>Showcase and collaborate on coding projects.</p>
-                  <div className="card-actions justify-end">
-                    <Tooltip title="coming soon" placement="top">
-                      <span>
-                        <button className="btn border-2 border-[#D1E5F4] shadow-[4px_4px_0px_#D1E5F4] hover:shadow-none hover:bg-[#D1E5F4] hover:text-[#000]">
-                          <GitHubIcon fontSize="large" />
-                        </button>
-                      </span>
-                    </Tooltip>
+                        // Render the radial progress bar here
+                        return (
+                          <div key="radial-progress" className={`radial-progress ${sum > 70 ? 'text-[#00FF00]' : sum > 50 ? 'text-green-600' : 'bg-gray-900'}`} style={{ "--value": sum, "--size": "6rem", "--thickness": "1rem" }} role="progressbar">
+                            {sum}%
+                          </div>
+                        );
+                      })()
+                    }
                   </div>
+
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="w-full flex justify-center my-16">
-            <div className="divider w-3/5"></div>
-          </div>
-        </div>
-
-        {/* FOR PHONE */}
-        <div className="phone:hidden">
-          <div className="flex flex-col pt-8 md:mt-0 w-11/12 mx-auto">
-            <div className="personal m-auto flex flex-row">
-              <div className="Ellipse3 w-[50px] h-[50px] m-2">
-                <Badge
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "right",
-                  }}
-                  badgeContent={
-                    <MoodIcon
-                      fontSize="small"
-                      sx={{
-                        maxWidth: "20px",
-                        bgcolor: "red",
-                        borderRadius: "100%",
-                      }}
-                    />
+              <div>
+                <h1 className="my-0 text-4xl">Settings</h1>
+                <div className="my-2 flex flex-row w-11/12 lg:justify-between justify-around flex-wrap gap-y-4">
+                  {
+                    navLinks.map((data, index) => {
+                      return <Link to={data.path} key={index}>
+                        <div className="flex bg-cardsColor flex-col border border-solid sm:rounded-[12px] rounded-[5px] sm:py-3 sm:px-5 max-sm:py-2 max-sm:px-4 space-y-[5px] sm:justify-center justify-between  items-center border-[#EBEBEB]">
+                          <img src={data.icon} alt={data.title} className="w-8" />
+                          <p className="capitalize font-[500] sm:text-[16px] max-sm:text-[10px] text-[#EBEBEB]">{data.title}</p>
+                        </div>
+                      </Link>
+                    })
                   }
-                >
-                  <div className="avatar rounded-full ring ring-blue ">
-                    <div className="rounded-full">
-                      <img src={userData.personal_data.picture} alt="avatar" />{" "}
-                      {/*// TODO: FIX THIS*/}
-                    </div>
-                  </div>
-                </Badge>
+                </div>
               </div>
-              <div className="username my-auto w-fit">
-                <h2 className="text-2xl">{`${userData.personal_data.name}`}</h2>
-                <p
-                  style={{ overflowWrap: "anywhere" }}
-                >{`@${userData.personal_data.username}`}</p>
-              </div>
-              <div className="edit my-auto mx-2">
-                <Link to={"account"}>
-                  <EditIcon fontSize="small" />
-                </Link>
-              </div>
-            </div>
-            <div className="profile self-center mt-4 flex flex-col">
-              <button
-                className="btn btn-primary lowercase"
-                onClick={() => setShow(true)}
-              >
-                share{" "}
-              </button>
-              {show && main_model}
-              <Link to={`/u/${userData.personal_data.username}`}>
-                <button className="btn btn-primary lowercase my-2">
-                  view profile
-                </button>
-              </Link>
-            </div>
-            {/* <div className="status self-center">
-                            <label className="label justify-center">
-                                <span className="label-text">my status</span>
-                            </label>
-                            <div>
-                                <Chip
-                                    label="Busy"
-                                    color='primary'
-                                    variant={selectedStatus === 'Busy' ? 'filled' : 'outlined'}
-                                    onClick={() => handleStatusClick('Busy')}
-                                />
-                                <Chip
-                                    label="Working"
-                                    color='primary'
-                                    variant={selectedStatus === 'Working' ? 'filled' : 'outlined'}
-                                    onClick={() => handleStatusClick('Working')}
-                                />
-                                <Chip
-                                    label="Available"
-                                    color='primary'
-                                    variant={selectedStatus === 'Available' ? 'filled' : 'outlined'}
-                                    onClick={() => handleStatusClick('Available')}
-                                />
-                                <Chip
-                                    label="Offline"
-                                    color='primary'
-                                    variant={selectedStatus === 'Offline' ? 'filled' : 'outlined'}
-                                    onClick={() => handleStatusClick('Offline')}
-                                />
-                            </div>
-                        </div> */}
-            <div className="divider my-2"></div>
+              <div className="w-full">
+                <h1 className="mt-8 text-4xl">Contests</h1>
+                {userData?.personal_data?.preferences?.contest_notifs && <p className="text-sm my-2 text-gray-400">Displaying upcoming contests from your <Link to={"preferences"} className="underline">preferred list</Link>.</p>}
 
-            <div className="phone:hidden dashboard">
-              <label className="label">
-                <span className="label-text">dashboard</span>
-              </label>
-              <div className="ratings">
-                <ul className="menu bg-base-200 w-full rounded-box">
-                  {navLinks.map((navLink, index) => (
-                    <>
-                      <li key={index}>
-                        <NavLink to={navLink.path} className="p-0 mt-2">
-                          <navLink.icon fontSize="large" />
-
-                          <h2 className="my-auto flex items-center justify-evenly">
-                            {" "}
-                            <span className="text-xl w-1/2">
-                              {" "}
-                              {navLink.title}
-                            </span>{" "}
-                            <KeyboardDoubleArrowRightIcon />
-                          </h2>
-                        </NavLink>
-                      </li>
-                      <div className="divider w-4/5 self-center m-0 p-0"></div>
-                    </>
-                  ))}
-                </ul>
+                <div className="flex flex-row gap-7  flex-wrap">
+                  {
+                    contest.map((data, index) => {
+                      return <ContestCard data={data} key={index} />
+                    })
+                  }
+                </div>
               </div>
-            </div>
-            <div className="logout py-8 self-center">
-              <NewLogOut
-                isDisabled={false}
-                btnName="sign out"
-                onClickFunction={handleLogout}
-              />
-            </div>
-            {/* <Outlet /> */}
-
-            {/*
-
-          <div className='flex w-full min-h-screen flex-col items-center md:pt-12 gap-12 '>
-            <div className="w-[100%] md:w-3/4 flex items-center  justify-between  ">
-              <div className=" Ellipse3 w-[60px] h-[60px] bg-pink-700 rounded-full flex gap-3" >
-                <img src={user.photoURL} alt="avatar" />
-                <h2 className='text-2xl'>{`${user.displayName}'s Dashboard`}</h2>
-              </div>
-              <div className="">
-                <SignoutButton isDisabled={false} btnName="sign out" backgroundColor="bg-red-600" onClickFunction={handleLogout} />
+              <div className="w-full">
+                <h1 className="mt-8 text-4xl">Projects</h1>
+                coming soon
+                <div className="flex flex-row sm:gap-7 max-sm:gap-4  flex-wrap">
+                  {/* {
+                    projects.map((data, index) => {
+                      return <ProjectCard {...data} key={index} />
+                    })
+                  } */}
+                </div>
               </div>
             </div>
 
-            <div className="container flex  items-center px-[5%] flex-col">
-              <div className='flex items-start '>
-                <nav className=''>
-                  <ul className="flex flex-nowrap text-md font-medium text-center text-gray-400 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
-                    <li className="mr-4">
-                      <NavLink to='personal' className={({ isActive }) => isActive ? "inline-block p-4 rounded-t-lg text-gray-600 bg-gray-50 dark:bg-gray-800 dark:text-gray-300 " : "inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300 "}>
-                        Personal Info</NavLink>
-                    </li>
-                    <li className="mr-4">
-                      <NavLink to='ratings' className={({ isActive }) => isActive ? "inline-block p-4 rounded-t-lg text-gray-600 bg-gray-50 dark:bg-gray-800 dark:text-gray-300 " : "inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300 "}>Ratings</NavLink>
-                    </li>
-                    <li className="">
-                      <NavLink to='github' className={({ isActive }) => isActive ? "inline-block p-4 rounded-t-lg text-gray-600 bg-gray-50 dark:bg-gray-800 dark:text-gray-300 " : "inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300 "}>Github</NavLink>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-              <div className="container w-[100%]  h-fit bg-custom-bg rounded-[10px] border border-custom-border shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
-                <Outlet />
-              </div>
-            </div>
-             
-          </div>*/}
           </div>
         </div>
-        {/* <Footer /> */}
+
       </>
     );
   }

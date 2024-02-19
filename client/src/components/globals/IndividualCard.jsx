@@ -442,7 +442,7 @@ function IndividualCard() {
                   </div>
 
                   <a
-                    href={url}
+                    href={url + "?ref=digitomize&utm_source=digitomize"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mv-btn-div"
@@ -958,7 +958,7 @@ function IndividualCard() {
                       </button>
                     </div>
                     <a
-                      href={url}
+                      href={url + "?ref=digitomize&utm_source=digitomize"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-div"

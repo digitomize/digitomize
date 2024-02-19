@@ -9,7 +9,7 @@ import axios from "axios";
 // import { toast } from "react-toastify";
 import DashboardNavbar from "../components/DashboardNavbar";
 import Checkbox from "../components/Checkbox";
-import NewNavbar from "@components/globals/NewNavbar";
+// import NewNavbar from "../../components/globals/NewNavbar";
 import { ToastContainer, toast } from "react-toastify";
 import { MetaData } from "@components/CustomComponents";
 import Chip from "@mui/material/Chip";

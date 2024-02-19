@@ -1,5 +1,5 @@
 import { useRouteError, Link } from "react-router-dom";
-import Navbar from "./NewNavbar";
+import Navbar from "./Navbar/NewNavbar";
 import { Helmet } from "react-helmet";
 import { MetaData } from "../CustomComponents";
 
