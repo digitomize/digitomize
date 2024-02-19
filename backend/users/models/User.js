@@ -19,8 +19,8 @@ const contestToggleSchema = new mongoose.Schema({
   attendedContestsCount: Number,
   showOnWebsite: Boolean,
   totalQuestions: Number,
-  easyQuestions:Number,
-  mediumQuestions:Number,
+  easyQuestions: Number,
+  mediumQuestions: Number,
   hardQuestions: Number,
 });
 
@@ -148,10 +148,10 @@ const userSchema = new mongoose.Schema(
         showOnWebsite: true,
         fetchTime: 0,
         attendedContestsCount: null,
-        totalQuestions:0,
-        easyQuestions:0,
-        mediumQuestions:0,
-        hardQuestions:0
+        totalQuestions: 0,
+        easyQuestions: 0,
+        mediumQuestions: 0,
+        hardQuestions: 0,
       },
     },
     leetcode: {
@@ -163,10 +163,10 @@ const userSchema = new mongoose.Schema(
         showOnWebsite: true,
         fetchTime: 0,
         attendedContestsCount: null,
-        totalQuestions:0,
-        easyQuestions:0,
-        mediumQuestions:0,
-        hardQuestions:0
+        totalQuestions: 0,
+        easyQuestions: 0,
+        mediumQuestions: 0,
+        hardQuestions: 0,
       },
     },
     codeforces: {
@@ -178,10 +178,10 @@ const userSchema = new mongoose.Schema(
         showOnWebsite: true,
         fetchTime: 0,
         attendedContestsCount: null,
-        totalQuestions:0,
-        easyQuestions:0,
-        mediumQuestions:0,
-        hardQuestions:0
+        totalQuestions: 0,
+        easyQuestions: 0,
+        mediumQuestions: 0,
+        hardQuestions: 0,
       },
     },
     digitomize_rating: {

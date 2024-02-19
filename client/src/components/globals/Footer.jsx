@@ -26,7 +26,7 @@ export default function Footer() {
           >
             Star
           </GitHubButton>
-          <div className="flex justify-center mt-px-2" style={{marginTop:'5px'}}>
+          <div className="flex justify-center mt-px-2" style={{marginTop:"5px"}}>
               <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">
               <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" className="w-[18] h-10" /> {/*added here*/}
             </a>

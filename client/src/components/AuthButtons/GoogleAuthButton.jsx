@@ -1,5 +1,5 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import {buttonState,errorState} from '@components/Login';
+import {buttonState,errorState} from "@components/Login";
 import { auth } from "../../../firebase";
 import googleIcon from "@assets/google.svg";
 
