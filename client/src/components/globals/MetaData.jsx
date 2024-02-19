@@ -142,6 +142,7 @@ const MetaData = ({ path = "null" }) => {
                 <meta name="twitter:title" content={getPageMetadata(path).title} />
                 <meta name="twitter:description" content={getPageMetadata(path).description} />
                 <meta name="twitter:image" content={getPageMetadata(path).image} />
+                <meta name="twitter:card" content="summary_large_image" />
 
                 {/* Canonical URL */}
                 <link rel="canonical" href={getPageMetadata(path).url} />

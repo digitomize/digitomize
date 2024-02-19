@@ -171,6 +171,7 @@ function IndividualCard() {
           <meta name="twitter:title" content={pageTitle} />
           <meta name="twitter:description" content={contentDescription} />
           <meta name="twitter:image" content={hostToSVGMap[host]} />
+          <meta name="twitter:card" content="summary_large_image" />
 
           {/* Canonical URL */}
           <link rel="canonical" href={url} />

@@ -88,6 +88,7 @@ function ProfileLayout() {
                     name="twitter:image"
                     content={loadedProfileData.personal_data.picture}
                   />
+                  <meta name="twitter:card" content="summary" />
 
                   {/* Canonical URL */}
                   <link
