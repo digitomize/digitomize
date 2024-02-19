@@ -9,7 +9,8 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "lint-fix": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0 --fix",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "seleniumtest": "mocha ui_tests/**/*.cjs --timeout 10000"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -30,6 +31,7 @@
     "framer-motion": "^11.0.3",
     "geist": "^1.2.0",
     "lucide-react": "^0.294.0",
+    "mocha": "^10.3.0",
     "moment-timezone": "^0.5.44",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
