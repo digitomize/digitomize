@@ -1,3 +1,4 @@
+
 import {
   Form,
   useNavigate,
@@ -24,13 +25,14 @@ import { useSetRecoilState } from "recoil";
 
 export async function loader() {
   const loggedIn = await isLoggedIn();
-  if (loggedIn) {
-    return redirect("/login");
+  if (loggedIn && auth.currentUser.emailVerified) {
+    return redirect("/u/dashboard");
   }
   return null;
 }
 
 export default function Signup() {
+
   const firstNameRef = useRef("");
   const usernameRef = useRef("");
   const emailRef = useRef("");
@@ -67,7 +69,17 @@ export default function Signup() {
 
           .catch((err) => setError(err.code));
       }
-      navigate("/login");
+      toast.success("Verification link sent to email", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      navigate("/login", { replace: true });
     } catch (err) {
       toast.error(err.code, {
         position: "top-right",
@@ -176,7 +188,7 @@ export default function Signup() {
                       <p>
                         <span className="label-text">{"import"}</span>
                         <span className="label-text text-custom-blue">
-                          {" \"password\";"}
+                          {' "password";'}
                         </span>
                       </p>
                     </label>

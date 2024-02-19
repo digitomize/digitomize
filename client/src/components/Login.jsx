@@ -2,7 +2,9 @@ import {
   Form,
   redirect,
   Link,
+
   useNavigate,
+
 } from "react-router-dom";
 import loginIcon from "@assets/fingerprint-animate-blue.svg";
 import { useRef, useState } from "react";
@@ -17,14 +19,17 @@ import { atom, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil"
 import GoogleAuthButton from "./AuthButtons/GoogleAuthButton";
 import GithubAuthButton from "./AuthButtons/GithubAuthButton";
 import { Eye, EyeOff } from "lucide-react";
+import { auth } from "../../firebase";
 
 export async function loader({ request }) {
   const message = new URL(request.url).searchParams.get("message");
   const loggedIn = await isLoggedIn();
+  const user = auth?.currentUser;
   if (loggedIn) {
-    return redirect("/u/dashboard");
+    if (user?.emailVerified) {
+      return redirect("/u/dashboard");
+    }
   }
-
   return message;
 }
 
@@ -68,7 +73,9 @@ export default function Login() {
             </div>
             <div className="divider">OR</div>
             <div className="email-form mx-auto">
+
              <LoginForm/>
+
             </div>
           </div>
           <div className="right md:w-2/4 max-md:hidden px-12 my-auto h-full">

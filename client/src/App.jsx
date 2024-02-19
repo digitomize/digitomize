@@ -30,8 +30,9 @@ import {
   About,
   Footer,
   MetaData,
-} from "@components/CustomComponents";
-import UserDashboard from "@user/dashboard/UserDashboard";
+  resendLoader,
+} from "./components/CustomComponents";
+import UserDashboard from "./user/dashboard/UserDashboard";
 import UserDashPersonal, {
   loader as userDashPersonalLoader,
 } from "@user/dashboard/UserDashPersonal";
@@ -56,7 +57,6 @@ import Leaderboard from "@user/leaderboard/Leaderboard";
 
 /*------------ DSA Sheets Import ------------ */
 import SheetLayout from "./dsaSheets/layout/SheetLayout";
-
 
 import formbricks from "@formbricks/js";
 
@@ -89,12 +89,15 @@ import { ToastContainer, toast } from "react-toastify";
 import { UserContextProvider } from "@context/UserContext";
 import UserListPage from "@pages/admin/UserListPage";
 import AdminPanelGuard from "./AdminPanelGuard";
-import ContestListPage from "@pages/admin/ContestListPage";
-import CommunityListPage from "@pages/admin/CommunityListPage";
-import ContestPageLayout from "@components/Contests/ContestPageLayout";
-import Filter from "@components/Contests/Filter";
-import Challenges from "@components/Contests/Challenges/Challenges";
-import ComingSoonLoader from "@components/Contests/ComingSoonLoader";
+import ContestListPage from "./pages/admin/ContestListPage";
+import CommunityListPage from "./pages/admin/CommunityListPage";
+import ContestPageLayout from "./components/Contests/ContestPageLayout";
+import Filter from "./components/Contests/Filter";
+import Challenges from "./components/Contests/Challenges/Challenges";
+import ComingSoonLoader from "./components/Contests/ComingSoonLoader";
+import ResendEmailVerification from "./pages/verification/ResendEmailVerification";
+import VerifyEmailPage from "./pages/verification/VerifyEmailPage";
+
 
 function Logout() {
   const navigate = useNavigate();
@@ -154,13 +157,24 @@ const router = createBrowserRouter(
         <Route path="login" element={<Login />} loader={loginLoader} />
         <Route path="logout" element={<Logout />} />
         <Route path="signup" element={<Signup />} loader={signupLoader} />
-        <Route path="forgot-password" element={<ForgotPassword />} loader={forgotPasswordLoader} />
+        <Route
+          path="forgot-password"
+          element={<ForgotPassword />}
+          loader={forgotPasswordLoader}
+        />
+
         <Route element={<ContestPageLayout />}>
           <Route path="contests" element={<Filter />} />
           <Route path="challenges" element={<Challenges />} />
-          <Route path="hackathons" element={<ComingSoonLoader value='Hackathons' />} />
-          <Route path="internships" element={<ComingSoonLoader value='Internships' />} />
-          <Route path="jobs" element={<ComingSoonLoader value='Jobs' />} />
+          <Route
+            path="hackathons"
+            element={<ComingSoonLoader value="Hackathons" />}
+          />
+          <Route
+            path="internships"
+            element={<ComingSoonLoader value="Internships" />}
+          />
+          <Route path="jobs" element={<ComingSoonLoader value="Jobs" />} />
         </Route>
         {/* <Route path="updates" element={<Updates />} /> */}
         <Route path="home" element={<Homepage />} />
@@ -171,6 +185,12 @@ const router = createBrowserRouter(
         <Route path="contests/:vanity" element={<IndividualCard />} />
         <Route path="404" element={<ErrorPage />} />
       </Route>
+      <Route
+        path="resend-email-verification"
+        element={<ResendEmailVerification />}
+        loader={resendLoader}
+      />
+      <Route path="user-email-verification" element={<VerifyEmailPage />} />
       <Route path="/admin" element={<AdminPanelGuard />}>
         <Route path="user" element={<UserListPage />}></Route>
         <Route path="contest" element={<ContestListPage />}></Route>
@@ -182,8 +202,8 @@ const router = createBrowserRouter(
           <Route
             index
             element={<UserDashboard />}
-          // loader={userDashPersonalLoader}
-          // loader={userDashPersonalLoader}
+            // loader={userDashPersonalLoader}
+            // loader={userDashPersonalLoader}
           />
           <Route
             path="account"
