@@ -18,6 +18,10 @@ const contestToggleSchema = new mongoose.Schema({
   fetchTime: Number,
   attendedContestsCount: Number,
   showOnWebsite: Boolean,
+  totalQuestions: Number,
+  easyQuestions:Number,
+  mediumQuestions:Number,
+  hardQuestions: Number,
 });
 
 const communitySchema = new mongoose.Schema({
@@ -68,6 +72,16 @@ const userSchema = new mongoose.Schema(
     email_show: {
       type: Boolean,
       default: true,
+    },
+    preferences: {
+      contest_notifs: {
+        codechef: { type: Boolean, default: false },
+        leetcode: { type: Boolean, default: false },
+        codeforces: { type: Boolean, default: false },
+        atcoder: { type: Boolean, default: false },
+        codingninjas: { type: Boolean, default: false },
+        geeksforgeeks: { type: Boolean, default: false },
+      },
     },
     bio: {
       type: stringToggleSchema,
@@ -135,6 +149,10 @@ const userSchema = new mongoose.Schema(
         default: null,
       },
     },
+    deviceID: {
+      type: String,
+      default: null,
+    },
     codechef: {
       type: contestToggleSchema,
       default: {
@@ -144,6 +162,10 @@ const userSchema = new mongoose.Schema(
         showOnWebsite: true,
         fetchTime: 0,
         attendedContestsCount: null,
+        totalQuestions:0,
+        easyQuestions:0,
+        mediumQuestions:0,
+        hardQuestions:0
       },
     },
     leetcode: {
@@ -155,6 +177,10 @@ const userSchema = new mongoose.Schema(
         showOnWebsite: true,
         fetchTime: 0,
         attendedContestsCount: null,
+        totalQuestions:0,
+        easyQuestions:0,
+        mediumQuestions:0,
+        hardQuestions:0
       },
     },
     codeforces: {
@@ -166,6 +192,10 @@ const userSchema = new mongoose.Schema(
         showOnWebsite: true,
         fetchTime: 0,
         attendedContestsCount: null,
+        totalQuestions:0,
+        easyQuestions:0,
+        mediumQuestions:0,
+        hardQuestions:0
       },
     },
     digitomize_rating: {

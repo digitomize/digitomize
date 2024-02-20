@@ -35,6 +35,7 @@ const handleUserDashboard = async (req, res) => {
         email_show: user.email_show,
         skills: user.skills,
         education: user.education,
+        preferences: user?.preferences,
         bio: {
           data: user.bio.data || null,
           showOnWebsite: user.bio.showOnWebsite,

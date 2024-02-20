@@ -60,7 +60,8 @@ async function leetcode_c () {
 
           resolve(contests);
         } catch (error) {
-          reject(error);
+          console.error("Failed to fetch leetcode contests:", error);
+          resolve([]);
         }
       });
     });

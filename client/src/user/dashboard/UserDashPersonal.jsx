@@ -4,18 +4,18 @@ import { useState, useEffect, useRef } from "react";
 
 import { submitUserFormData, userDashboardDetails } from "../../../api";
 
-import { useUserAuth } from "../../context/UserAuthContext";
+import { useUserAuth } from "@context/UserAuthContext";
 import axios from "axios";
 // import { toast } from "react-toastify";
 import DashboardNavbar from "../components/DashboardNavbar";
 import Checkbox from "../components/Checkbox";
-import NewNavbar from "../../components/globals/NewNavbar";
+// import NewNavbar from "../../components/globals/NewNavbar";
 import { ToastContainer, toast } from "react-toastify";
-import { MetaData } from "../../components/CustomComponents";
+import { MetaData } from "@components/CustomComponents";
 import Chip from "@mui/material/Chip";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import { styled } from "@mui/material/styles";
-import ImageUploader from "../../components/ImageUploader";
+import ImageUploader from "@components/ImageUploader";
 import { FaXTwitter, FaLinkedin, FaInstagram } from "react-icons/fa6";
 
 const ListItem = styled("li")(({ theme }) => ({

@@ -16,6 +16,9 @@ export default {
       "2xl": "1536px", // Default '2xl' screen size
     },
     extend: {
+      flex: {
+        '2': '2 2 0%'
+      },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         caveat: ["Caveat", "cursive"],
@@ -42,6 +45,7 @@ export default {
         powered: "#D2D2D2",
         badge: "rgba(0, 76, 228, 0.33)",
         badgeborder: "#25478B",
+        buttonColor :"#52B55C",
         "badge-txt": "#C3E2FF",
         "custom-border": "#30363d",
         "custom-bg": "#0a0a0a",
@@ -50,6 +54,8 @@ export default {
         "nav-text": "rgba(255, 255, 255, 0.50)",
         "card-text": "rgba(255, 255, 255, 0.75)",
         cardsColor: "#171A1A",
+        dashboardColor: "#171A1A",
+        dashboardDarkerColor: "RGB(17, 19, 18)",
         "gradient-bg":
           "linear-gradient(270deg,#8D41AA 0%,#BA356C 17.71%,#F22C30 42.19%,#F8573A 71.88%,#FCBB57 100%)",
         filter: "#d9d9d9",

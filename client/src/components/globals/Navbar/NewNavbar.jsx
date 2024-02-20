@@ -1,13 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import MobNav from "./MobNav";
-import { logo } from "../AllAssets";
-import { useUserAuth } from "../../context/UserAuthContext";
-import { useUserDetails } from "../../context/UserContext";
-import { ROLE } from "../../core/utils/const";
+import MobNav from "../MobNav";
+import { logo } from "../../AllAssets";
+import { useUserAuth } from "../../../context/UserAuthContext";
+import { useUserDetails } from "../../../context/UserContext";
+import { ROLE } from "../../../core/utils/const";
+import Novu from "../Notifs/Novu";
+
+
+import formbricks from "@formbricks/js";
+
+import { navLinks, navLinksDashboard } from "./navLinks";
 
 export default function NewNavbar({ position }) {
   const { user } = useUserAuth();
+  const formbricksInit = () => {
+    // const user = useUserAuth();
+    console.log("FORMBRIN", user);
+    formbricks.init({
+      environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_API_KEY,
+      apiHost: "https://app.formbricks.com",
+      userId: user ? user.uid : "anonymous",
+    });
+  }
+  if (typeof window !== "undefined") {
+    formbricksInit();
+  }
+
+  console.log("NAVVBAR")
   const { userDetails } = useUserDetails();
   const location = useLocation();
 
@@ -20,39 +40,7 @@ export default function NewNavbar({ position }) {
     transition: "opacity 0.3s ease-out, transform 0.3s ease-out",
   });
 
-  const navLinks = [
-    {
-      title: "Home",
-      path: "/home",
-    },
-    {
-      title: "Contests",
-      path: "/contests",
-    },
-    {
-      title: "Blogs",
-      path: "https://blogs.digitomize.com/",
-    },
-    {
-      title: "Leaderboard",
-      path: "/u/leaderboard",
-    },
-  ];
 
-  const navLinksDashboard = [
-    {
-      title: "account",
-      path: "/u/dashboard/account",
-    },
-    {
-      title: "ratings",
-      path: "/u/dashboard/ratings",
-    },
-    {
-      title: "github",
-      path: "/u/dashboard/github",
-    },
-  ];
 
   const toggleActive = () => {
     if (window.innerWidth < 768) {
@@ -103,49 +91,50 @@ export default function NewNavbar({ position }) {
       userDetails.personal_data.role === ROLE.ADMIN
     ) {
       return (
-        <Link
-          to="/admin/user"
-          className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
-            location.pathname.includes("/admin")
+        <>
+          <Link
+            to="/admin/user"
+            className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname.includes("/admin")
               ? "bg-zinc-400 text-zinc-950"
               : ""
-          } hover:bg-zinc-200`}
-        >
-          <div className="dropdown  dropdown-bottom">
-            <label tabIndex={0}>Admin</label>
-            <ul
-              tabIndex={0}
-              className="dropdown-content z-[1] menu p-2 shadow text-zinc-300 bg-base-100 rounded-box w-52 mt-2"
-            >
-              <li>
-                <Link to={"/admin/user"}>
-                  <span>Users</span>
-                </Link>
-              </li>
-              <li>
-                <Link to={"/admin/contest"}>
-                  <span>Contests</span>
-                </Link>
-              </li>
-              <li>
-                <Link to={"/admin/community"}>
-                  <span>Community</span>
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </Link>
+              } hover:bg-zinc-200`}
+          >
+            <div className="dropdown  dropdown-bottom">
+              <label tabIndex={0}>Admin</label>
+              <ul
+                tabIndex={0}
+                className="dropdown-content z-[1] menu p-2 shadow text-zinc-300 bg-base-100 rounded-box w-52 mt-2"
+              >
+                <li>
+                  <Link to={"/admin/user"}>
+                    <span>Users</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/admin/contest"}>
+                    <span>Contests</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/admin/community"}>
+                    <span>Community</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </Link>
+        </>
       );
     }
   };
 
   return (
     <>
+      
       <MobNav isMenuActive={isMenuActive} toggleActive={toggleActive} />
       <div
-        className={`${
-          position ? position : "sticky"
-        } inset-x-0 top-0 relative z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto`}
+        className={`${position ? position : "sticky"
+          } inset-x-0 top-0 relative z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto`}
         style={{ ...navbarStyle }}
       >
         <div className="flex cursor-pointer items-center gap-4 rounded-full bg-white p-2">
@@ -163,11 +152,10 @@ export default function NewNavbar({ position }) {
               <Link
                 to={navLink.path}
                 key={index}
-                className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
-                  location.pathname === navLink.path
-                    ? "bg-zinc-400 text-zinc-950"
-                    : ""
-                } hover:bg-zinc-200`}
+                className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === navLink.path
+                  ? "bg-zinc-400 text-zinc-950"
+                  : ""
+                  } hover:bg-zinc-200`}
               >
                 {navLink.title}
               </Link>
@@ -215,7 +203,10 @@ export default function NewNavbar({ position }) {
             )}
           </div>
         </div>
+        <div className="flex items-center flex-wrap">
+        {user && <Novu user={user} />}
+        </div>
       </div>
-</>
-);
+    </>
+  );
 }

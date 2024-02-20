@@ -34,7 +34,7 @@ async function codeforces_c () {
             host: "codeforces",
             name: contest.name,
             vanity: contest.id,
-            url: "https://codeforces.com/contest/" + contest.id,
+            url: "https://codeforces.com/contests/" + contest.id,
             startTimeUnix: contest.startTimeSeconds,
             duration: Math.floor(contest.durationSeconds / 60),
           }));
@@ -45,6 +45,11 @@ async function codeforces_c () {
           resolve([]);
         }
       });
+    });
+  }).catch((error) => {
+    console.error("Failed to fetch Codeforces contests:", error);
+    return new Promise((resolve) => {
+      resolve([]);
     });
   });
 

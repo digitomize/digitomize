@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import MobileNav from "./MobileNav";
-import logo from "../../assets/logo.png";
-import { useUserAuth } from "../../context/UserAuthContext";
+import logo from "@assets/logo.png";
+import { useUserAuth } from "@context/UserAuthContext";
+
+import { navLinks, navLinksDashboard } from "../../components/globals/Navbar/navLinks";
 
 export default function DashboardNavbar() {
   const { user } = useUserAuth();
@@ -17,44 +19,6 @@ export default function DashboardNavbar() {
     transform: "none",
   };
   const [isMenuActive, setActive] = useState(false);
-
-  const navLinks = [
-    {
-      title: "Home",
-      path: "/home",
-    },
-    {
-      title: "Contests",
-      path: "/contests",
-    },
-    {
-      title: "Blogs",
-      path: "https://blogs.digitomize.com/",
-    },
-    {
-      title: "Discord",
-      path: "/discord",
-    },
-    {
-      title: "Leaderboard",
-      path: "/u/leaderboard",
-    },
-  ];
-
-  const navLinksDashboard = [
-    {
-      title: "account",
-      path: "/u/dashboard/account",
-    },
-    {
-      title: "ratings",
-      path: "/u/dashboard/ratings",
-    },
-    {
-      title: "github",
-      path: "/u/dashboard/github",
-    },
-  ];
 
   function toggleActive() {
     if (window.innerWidth < 768) {

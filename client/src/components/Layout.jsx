@@ -1,7 +1,8 @@
-import NewNavbar from "/src/components/globals/NewNavbar";
+import NewNavbar from "/src/components/globals/Navbar/NewNavbar";
 import Alert from "@mui/material/Alert";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { Footer } from "./CustomComponents";
 
 export default function Layout() {
   return (
@@ -9,6 +10,7 @@ export default function Layout() {
       <NewNavbar />
       <Outlet />
       {/* <NewFooter /> */}
+      <Footer/>
     </>
   );
 }

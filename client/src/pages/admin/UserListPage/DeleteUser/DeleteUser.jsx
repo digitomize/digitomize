@@ -1,9 +1,9 @@
 import { Button, DialogActions, DialogContent } from "@mui/material";
 import { DeleteUserForm } from "./DeleteUser.helper";
-import { deleteUser } from "../../../../core/api/user.api";
+import { deleteUser } from "@core/api/user.api";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { useUserAuth } from "../../../../context/UserAuthContext";
+import { useUserAuth } from "@context/UserAuthContext";
 
 export default function DeleteUser({ user, handleClose }) {
   const [pending, setPending] = useState(false);

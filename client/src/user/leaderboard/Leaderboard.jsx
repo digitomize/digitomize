@@ -12,7 +12,7 @@ import {
   logo,
 } from "../../components/AllAssets";
 import { MetaData } from "../../components/CustomComponents";
-import NewNavbar from "../../components/globals/NewNavbar";
+import NewNavbar from "../../components/globals/Navbar/NewNavbar";
 import { leaderboardData, rankOnLeaderboard } from "../../../api";
 import { OpenInNew, Info } from "@mui/icons-material";
 import {
@@ -32,9 +32,9 @@ import {
 } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
-import { useUserDetails } from "../../context/UserContext";
+import { useUserDetails } from "@context/UserContext";
 import Rank from "./components/Rank";
-import ShareModel from "../../components/share_model";
+import ShareModel from "@components/share_model";
 const theme = createTheme({
   palette: {
     mode: "dark",
@@ -48,10 +48,11 @@ export default function Leaderboard() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [totalPages, setTotalPages] = useState(1);
-  const [currentPage, setCurrentPage] = useState(searchParams.get("page") || 1);
+  const [currentPage, setCurrentPage] = useState(parseInt(searchParams.get("page")) || 1);
   const [currentUserData, setCurrentUserData] = useState(null);
   const { userDetails } = useUserDetails();
   const [top3, setTop3] = useState([]);
+  console.log(currentPage)
   const [selectedPlatform, setSelectedPlatform] = useState(
     searchParams.get("platform") || "",
   );
@@ -338,9 +339,8 @@ export default function Leaderboard() {
       <div className="phone:w-4/6 w-[95%] mx-auto mt-4 text-center text-white">
         <div className=" rounded-[20px] max-phone:overflow-x-hidden overflow-x-auto">
           <table
-            className={`table  ${
-              screenSize.width <= 435 ? "table-xs" : ""
-            }  bg-[#252525]  w-full`}
+            className={`table  ${screenSize.width <= 435 ? "table-xs" : ""
+              }  bg-[#252525]  w-full`}
           >
             {/* head */}
             <thead className="bg-[#474747] text-white text-center max-sm:text-[12px]">
@@ -556,9 +556,9 @@ export default function Leaderboard() {
                                   15
                                   ? userDetails.personal_data.username
                                   : userDetails.personal_data.username.slice(
-                                      0,
-                                      15,
-                                    ) + "..."
+                                    0,
+                                    15,
+                                  ) + "..."
                                 : userDetails.personal_data.username}
                             </div>
                             {/* You can display more userDetails details here if needed */}
@@ -630,22 +630,24 @@ export default function Leaderboard() {
                         </>
                     ))}
                 </div> */}
-        <ThemeProvider theme={theme}>
-          <div className="pagination py-8 mx-auto w-fit">
-            <Pagination
-              count={totalPages}
-              page={currentPage}
-              onChange={handlePageChange}
-              color="primary"
-              className="text-white"
-              siblingCount={1}
-              boundaryCount={1}
-              shape="rounded"
-              sx={{ color: "pink" }}
-              style={{ color: "pink" }}
-            />
-          </div>
-        </ThemeProvider>
+       
+       <ThemeProvider theme={theme}>
+        <div className="pagination py-8 mx-auto w-fit">
+          <Pagination
+            count={totalPages}
+            page={currentPage}
+            onChange={handlePageChange}
+            color="primary"
+            className="text-white"
+            siblingCount={1}
+            boundaryCount={1}
+            shape="rounded"
+            sx={{ color: "pink" }}
+            style={{ color: "pink" }}
+          />
+        </div>
+      </ThemeProvider>
+      
       </div>
     </>
   );
