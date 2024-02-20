@@ -55,7 +55,7 @@ function DashNav({ toggleActive }) {
 
                                                 </div>
                                                 <span className="max-sm:hidden sm:inline font-medium">
-                                                    Pranshu Gupta
+                                             {user.displayName}
                                                 </span>
                                                 <img src={downArrow} alt="downArrow" className="w-5 stroke-white" />
 
