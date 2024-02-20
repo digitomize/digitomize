@@ -22,6 +22,9 @@ export default function NewNavbar({ position }) {
       apiHost: "https://app.formbricks.com",
       userId: user ? user.uid : "anonymous",
     });
+    if (user) {
+      formbricks.setEmail(user.email);
+    }
   }
   if (typeof window !== "undefined") {
     formbricksInit();
