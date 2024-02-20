@@ -24,7 +24,7 @@ function Novu(user) {
                 },
             ]}
             subscriberId={user.uid}
-            applicationIdentifier={"-H0R8Ne2fWHf"}
+            applicationIdentifier={process.env.VITE_REACT_APP_NOVU_IDENTIFIER}
         >
             <PopoverNotificationCenter colorScheme="dark" position="bottom"
                 tabs={[

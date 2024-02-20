@@ -289,8 +289,8 @@ const handleUserPreferences = async (req, res) => {
   try {
     const { uid } = req.decodedToken;
     const { platform, preference } = req.body;
-    console.log(req.body);
-    console.log(uid, platform, preference);
+    // console.log(req.body);
+    // console.log(uid, platform, preference);
 
     const user = await User.findOne({ uid });
     if (!user) {
@@ -319,7 +319,7 @@ const handleUserPreferences = async (req, res) => {
       const response = await novu.topics.removeSubscribers(topicKey, {
         subscribers: [uid],
       });
-      console.log(response);
+      // console.log(response);
     }
 
     return res.status(200).json({ message: `Preference for ${platform} updated successfully to ${preference}` });
