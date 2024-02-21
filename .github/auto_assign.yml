@@ -1,0 +1,8 @@
+addReviewers: true
+
+addAssignees: false
+
+reviewers:
+  - pranshugupta54
+
+numberOfReviewers: 1
