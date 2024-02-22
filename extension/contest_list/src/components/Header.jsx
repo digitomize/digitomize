@@ -2,9 +2,9 @@ import logo from "../assets/digitomizeLogo.png";
 function Header() {
     return (
         <>
-            <div className="bg-cardsColor my-2">
+            <div className="bg-cardsColor ">
 
-                <img src={logo} alt="Logo" className="w-40 mx-auto mt-4 p-4" />
+                <img src={logo} alt="Logo" className="w-40 mx-auto p-4" />
 
                 <div className="text-white text-xl mx-auto text-center">
                     <span>One place for all your</span>

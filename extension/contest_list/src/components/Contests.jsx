@@ -33,8 +33,8 @@ function Contests() {
 
     if (loading) {
         return (
-            <div className="">
-                Loading...
+            <div className="flex justify-center mx-auto w-full items-center">
+                Loading <span className="loading loading-bars loading-sm"></span>
                 {err && <div>Error: {err.message}</div>}
             </div>
         );
