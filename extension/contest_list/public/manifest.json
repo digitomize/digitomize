@@ -1,0 +1,11 @@
+{
+  "name": "Extension name",
+  "version": "0.1",
+  "manifest_version": 3,
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+  ]
+}
