@@ -21,16 +21,6 @@ const platforms = {
 };
 
 function PotdCard({ potd, platform }) {
-
-    chrome.storage.local.set({ name: 'Tom' }, function () {
-        console.log('Value is set to ' + 'Tom');
-    }
-    );
-    
-    chrome.storage.local.get(['name'], function (result) {
-        console.log("User is " + result.name);
-// you can use the variable or set to any state variable from here
-    });
     const platformLogo = platforms[platform];
 
     const dateString = potd.date;
@@ -41,10 +31,10 @@ function PotdCard({ potd, platform }) {
     return (
         <div className="flex flex-row gap-2 border rounded border-jet bg-dashboardDarkerColor mt-2 p-2 w-full">
             <div>
-                {platformLogo && <img src={platformLogo} alt={potd.problem_name} className="w-8" />}
+                {platformLogo && <img src={platformLogo} alt={potd.problemName} className="w-8" />}
             </div>
             <div className="flex flex-col text-sm w-11/12">
-                <h2 className="font-bold text-gray-300">{potd?.problem_name?.slice(0, 35) + "..."}</h2>
+                <h2 className="font-bold text-gray-300">{potd?.problemName?.slice(0, 35) + "..."}</h2>
                 <div className="flex flex-row justify-between items-center w-full">
                 <div className="flex flex-row items-center gap-1">
 
@@ -52,7 +42,7 @@ function PotdCard({ potd, platform }) {
                 </div>
 
                     {/* <p>Starts at: <a href={timeAndDateURL} target="_blank"> {startMonth.slice(0, 3)} {startDate}, {startYear} {startTime}</a></p> */}
-                    <a href={potd.problem_url + "?ref=digitomize&utm_source=digitomize"} target="_blank" rel="noopener noreferrer" className="hover:scale-125 text-custom-blue">
+                    <a href={potd.problemUrl + "?ref=digitomize&utm_source=digitomize"} target="_blank" rel="noopener noreferrer" className="hover:scale-125 text-custom-blue">
                         <IoOpenOutline />
                     </a>
 

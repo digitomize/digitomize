@@ -1,3 +1,4 @@
+/*global chrome*/
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ContestCard from "./ContestCard";
@@ -15,81 +16,118 @@ function Potd() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const { data } = await axios.get("https://cors-anywhere.herokuapp.com/https://practiceapi.geeksforgeeks.org/api/vr/problems-of-day/problem/today")
-                setPotdGFG(data);
-                // setContests(data.results.slice(0, 5));
-                setLoading(false);
-                console.log(data);
-                // console.log(data.results);
+                // Fetch GeeksforGeeks data
+                chrome.storage.local.get('potdGFG', async function (result) {
+                    const potdGFG = result.potdGFG || {};
+                    const today = new Date();
+                    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+                    const formattedToday = today.toLocaleDateString('en-GB', options);
+    
+                    if (formattedToday in potdGFG) {
+                        const todayData = potdGFG[formattedToday];
+                        // Use today's data
+                        console.log("Using today's GeeksforGeeks data:", todayData);
+                        // Set the data to your state or wherever you need it
+                        setPotdGFG(todayData);
+                        setLoading(false); // If you need to update loading state
+                    } else {
+                        // Fetch new GeeksforGeeks data
+                        try {
+                            const response = await axios.get("https://cors-anywhere.herokuapp.com/https://practiceapi.geeksforgeeks.org/api/vr/problems-of-day/problem/today");
+                            const data = response.data;
+                            const problemName = data.problemName;
+                            const problemUrl = data.problemUrl;
+                            const date = data.date;
+                            const newData = { problemName, problemUrl, date };
+    
+                            // Store today's GeeksforGeeks data
+                            potdGFG[formattedToday] = newData;
+                            chrome.storage.local.set({ potdGFG }, function () {
+                                console.log("GeeksforGeeks data for today stored:", newData);
+                            });
+    
+                            // Use the fetched data
+                            setPotdGFG(newData);
+                            setLoading(false); // If you need to update loading state
+                        } catch (error) {
+                            console.error("Error fetching GeeksforGeeks data:", error);
+                        }
+                    }
+                });
+    
             } catch (error) {
-                const msg = error.response.data?.message || error.response.data?.error;
-                // console.log(msg);
+                const msg = error.response?.data?.message || error.response?.data?.error;
                 setLoading(false);
                 setError(msg);
-                console.log(error)
+                console.error(error);
             }
-
-
+    
             try {
-                const query = {
-                    operationName: "codingChallengeMedal",
-                    variables: { year: 2024, month: 2 },
-                    query: `
-                        query codingChallengeMedal{
-                            activeDailyCodingChallengeQuestion {
-                                link
-                                date
-                            }
-                        }
-                    `
-                };
-
-                const { data } = await axios.post('https://cors-anywhere.herokuapp.com/https://leetcode.com/graphql', query);
-
-                // const linkk = 
-                const link = data?.data?.activeDailyCodingChallengeQuestion?.link;
-
-                // Extracting the last part of the link which contains the problem name
-                const parts = link.split('/');
-                const problemName = parts[parts.length - 2]; // Get the second-to-last part
-
-                // Transforming the problem name by replacing dashes with spaces and capitalizing words
-                const transformedName = problemName
-                    .split('-') // Split by dashes
-                    .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
-                    .join(' '); // Join the words with spaces
-
-                // console.log(transformedName);
-                const potd = {
-                    problem_name: transformedName,
-                    problem_url: "https://leetcode.com"+ link,
-                    date: data?.data?.activeDailyCodingChallengeQuestion?.date,
-                };
-                setPotdLeetcode(potd);
-                // console.log(potd);
-
-                // Now you can access the data returned from the GraphQL API
-                // console.log(data);
-                // const { data } = await axios.get("https://cors-anywhere.herokuapp.com/https://leetcode.com/api/problems/all/")
-                // setPotdLeetcode(data);
-                // setContests(data.results.slice(0, 5));
-                setLoading(false);
-                // console.log(data);
-                // console.log(data.results);
+                // Fetch LeetCode data only if not already stored for today
+                chrome.storage.local.get('potdLeetCode', async function (result) {
+                    const potdLeetCode = result.potdLeetCode;
+                    if (!potdLeetCode) {
+                        const query = {
+                            operationName: "codingChallengeMedal",
+                            variables: { year: 2024, month: 2 },
+                            query: `
+                                query codingChallengeMedal{
+                                    activeDailyCodingChallengeQuestion {
+                                        link
+                                        date
+                                    }
+                                }
+                            `
+                        };
+    
+                        const { data } = await axios.post('https://cors-anywhere.herokuapp.com/https://leetcode.com/graphql', query);
+    
+                        const link = data?.data?.activeDailyCodingChallengeQuestion?.link;
+    
+                        // Extracting the last part of the link which contains the problem name
+                        const parts = link.split('/');
+                        const problemName = parts[parts.length - 2]; // Get the second-to-last part
+    
+                        // Transforming the problem name by replacing dashes with spaces and capitalizing words
+                        const transformedName = problemName
+                            .split('-') // Split by dashes
+                            .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
+                            .join(' '); // Join the words with spaces
+    
+                        const formattedDate = new Date(data?.data?.activeDailyCodingChallengeQuestion?.date);
+                        const formattedOptions = { day: '2-digit', month: 'short', year: 'numeric' };
+                        const formattedLeetCodeDate = formattedDate.toLocaleDateString('en-GB', formattedOptions);
+    
+                        const potd = {
+                            problemName: transformedName,
+                            problemUrl: "https://leetcode.com" + link,
+                            date: formattedLeetCodeDate,
+                        };
+    
+                        // Store LeetCode data
+                        chrome.storage.local.set({ potdLeetCode: potd }, function () {
+                            console.log("LeetCode data for today stored:", potd);
+                        });
+    
+                        setPotdLeetcode(potd);
+                        setLoading(false);
+                    } else {
+                        console.log("Using stored LeetCode data for today:", potdLeetCode);
+                        setPotdLeetcode(potdLeetCode);
+                        setLoading(false);
+                    }
+                });
             }
             catch (error) {
-                // const msg = error.response.data?.message || error.response.data?.error;
-                // console.log(msg);
                 setLoading(false);
-                // setError(msg);
-                console.log(error)
+                console.error("Error fetching LeetCode data:", error);
             }
-
         };
-
+    
         fetchData(); // Call the async function immediately
-
-    }, []); // Empty dependency array means this effect runs only once on mount
+    
+    }, []);
+     // Empty dependency array means this effect runs only once on mount
 
     if (loading) {
         return (

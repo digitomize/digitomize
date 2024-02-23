@@ -9,7 +9,7 @@ function Nav({ path, navigateToPage }) {
                 Contests
                 <IoTrendingUp />
             </button>
-            <button className={`btn btn-sm ${path !== 'potd' ? "btn-outline" : "bg-custom-blue text-white"}`}  onClick={() => navigateToPage('potd')}>
+            <button className={`btn btn-sm ${path !== 'potd' ? "btn-outline" : "bg-custom-blue text-white"}`} onClick={() => navigateToPage('potd')}>
                 POTD
                 <Swords size={15} />
             </button>
