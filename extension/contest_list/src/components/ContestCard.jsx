@@ -84,7 +84,10 @@ function ContestCard({ contest }) {
                 <div className="flex flex-row justify-between items-center w-full">
 
                     <p>Starts at: <a href={timeAndDateURL} target="_blank"> {startMonth.slice(0, 3)} {startDate}, {startYear} {startTime}</a></p>
-                    <IoOpenOutline />
+                    <a href={contest.url + "?ref=digitomize&utm_source=digitomize"} target="_blank" rel="noopener noreferrer" className="hover:scale-125 text-custom-blue">
+                        <IoOpenOutline />
+                    </a>
+
                 </div>
 
             </div>

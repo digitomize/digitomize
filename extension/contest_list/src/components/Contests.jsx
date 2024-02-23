@@ -1,9 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ContestCard from "./ContestCard";
-import { IoTrendingUp } from "react-icons/io5";
-import { FaLock } from "react-icons/fa";
-import { Swords } from "lucide-react";
+
+import Nav from "./Nav";
 
 function Contests() {
     const [loading, setLoading] = useState(true);
@@ -43,23 +42,7 @@ function Contests() {
     return (
         <>
             <div className="bg-dashboardColor px-4 w-full">
-                <div className="mx-auto flex justify-around">
-
-                    <button className={`btn btn-sm ${false ? "btn-outline" : "bg-custom-blue text-white"}`} >
-                        Contests
-                        <IoTrendingUp />
-                    </button>
-                    <a href="https://digitomize.com/challenges" target="_blank" className="flex flex-row">
-                        <button className={`btn btn-sm ${true ? "btn-outline" : "bg-custom-blue text-white"}`} >
-                            Challenges
-                            <Swords size={15} />
-                        </button>
-                    </a>
-                    {/* <button className={`btn btn-sm btn-disabled ${true ? "btn-outline" : "bg-custom-blue text-white"}`} >
-                        Hackathons
-                        <FaLock />
-                    </button> */}
-                </div>
+                {/* <Nav path={"contests"}/> */}
                 {
                     contests.map((contest) => (
                         <ContestCard key={contest.id} contest={contest} />
