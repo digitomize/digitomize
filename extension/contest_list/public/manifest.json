@@ -1,0 +1,11 @@
+{
+  "name": "Digitomize - contests",
+  "version": "0.1",
+  "manifest_version": 3,
+  "permissions": ["activeTab", "storage"],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "logo.png"
+  },
+  "content_scripts": []
+}
