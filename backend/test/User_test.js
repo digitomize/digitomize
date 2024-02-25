@@ -20,6 +20,7 @@ describe('Create User in Database', () => {
     it('Create a new User and verify Username', (done) => {
       console.time('Test Time');
       var newUser = new User({ uid: "tp42182024", username: "Username1", email_verified: true});
+
       const expectedName= "Username1";
       assert.equal(expectedName, newUser.username, "Username does not match");
       console.timeEnd('Test Time');
@@ -31,6 +32,7 @@ describe('Create User in Database', () => {
     it('Create a new User and verify Email', (done) => {
       console.time('Test Time');
       var newUser = new User({ uid: "tp42182024", username: "Username1", email_verified: true});
+      
       const expectedName= true;
       assert.equal(expectedName, newUser.email_verified, "Email was not verifed");
       console.timeEnd('Test Time');
