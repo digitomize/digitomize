@@ -1,5 +1,7 @@
 import User from '../users/models/User.js';
 import assert from 'assert';
+//var User = require('../users/models/User');
+//var assert = require('assert');
 
 describe('Create User in Database', () => {
     it('Create a new User and verify UID', (done) => {

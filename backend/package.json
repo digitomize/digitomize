@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "nyc mocha",
+    "test": "c8 mocha",
     "lint": "eslint . --ext js --report-unused-disable-directives --max-warnings 0",
     "lint-fix": "eslint . --ext js --report-unused-disable-directives --max-warnings 0 --fix"
   },
