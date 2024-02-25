@@ -1,9 +1,5 @@
 import User from '../users/models/User.js';
 import assert from 'assert';
-import {benchtest} from "benchtest";
-
-it = benchtest.it(it);
-describe = benchtest.describe(describe);
 
 describe('Create User in Database', () => {
     it('Create a new User and verify UID', (done) => {
@@ -32,7 +28,7 @@ describe('Create User in Database', () => {
     it('Create a new User and verify Email', (done) => {
       console.time('Test Time');
       var newUser = new User({ uid: "tp42182024", username: "Username1", email_verified: true});
-      
+
       const expectedName= true;
       assert.equal(expectedName, newUser.email_verified, "Email was not verifed");
       console.timeEnd('Test Time');
