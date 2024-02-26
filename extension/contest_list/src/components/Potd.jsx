@@ -31,7 +31,7 @@ function Potd() {
                         chrome.storage.local.remove('potdGFG');
                         // Fetch new GeeksforGeeks data
                         try {
-                            const response = await axios.get("https://api.digitomize.com/potd/geeksforgeeks");
+                            const response = await axios.get("https://api.digitomize.com/potd/gfg");
                             const data = response.data;
                             const problemName = data.problemName;
                             const problemUrl = data.problemUrl;
@@ -54,7 +54,6 @@ function Potd() {
 
             } catch (error) {
                 const msg = error.response?.data?.message || error.response?.data?.error;
-                setLoading(false);
                 setError(msg);
                 console.error(error);
             }
@@ -79,9 +78,10 @@ function Potd() {
                         chrome.storage.local.remove('potdLeetCode');
                         try {
 
-                            const data = await axios.get('https://api.digitomize.com/potd/leetcode');
+                            const {data} = await axios.get('https://api.digitomize.com/potd/leetcode');
+                            console.log("LeetCode data:", data);
                             const link = data.problemUrl;
-
+                            console.log("LeetCode link:", link);
                             // Extracting the last part of the link which contains the problem name
                             const parts = link.split('/');
                             const problemName = parts[parts.length - 2]; // Get the second-to-last part

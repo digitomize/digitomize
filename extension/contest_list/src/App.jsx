@@ -60,7 +60,7 @@ function App() {
       case 'contests':
         return <Contests />;
       case 'potd':
-        return <ComingSoon />;
+        return <Potd />;
       default:
         return null;
     }

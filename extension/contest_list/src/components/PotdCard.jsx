@@ -34,7 +34,7 @@ function PotdCard({ potd, platform }) {
                 {platformLogo && <img src={platformLogo} alt={potd.problemName} className="w-8" />}
             </div>
             <div className="flex flex-col text-sm w-11/12">
-                <h2 className="font-bold text-gray-300">{potd?.problemName?.slice(0, 35) + "..."}</h2>
+                <h2 className="font-bold text-gray-300">{potd?.problemName?.slice(0, 45) + "..."}</h2>
                 <div className="flex flex-row justify-between items-center w-full">
                 <div className="flex flex-row items-center gap-1">
 
