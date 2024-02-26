@@ -34,6 +34,19 @@ import Potd from "./components/Potd";
 //     // </Route>
 //   ),
 // );
+
+
+function ComingSoon() {
+  return (
+    <div className="w-full mx-auto text-center">
+      <h1 className="text-xl">
+        Coming Soon
+        <span className="loading loading-bars loading-xs"></span>
+      </h1>
+    </div>
+  );
+}
+
 function App() {
 
   const [currentPage, setCurrentPage] = useState('contests');
@@ -47,7 +60,7 @@ function App() {
       case 'contests':
         return <Contests />;
       case 'potd':
-        return <Potd />;
+        return <ComingSoon />;
       default:
         return null;
     }

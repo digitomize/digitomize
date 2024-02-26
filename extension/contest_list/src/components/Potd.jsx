@@ -31,10 +31,10 @@ function Potd() {
                         chrome.storage.local.remove('potdGFG');
                         // Fetch new GeeksforGeeks data
                         try {
-                            const response = await axios.get("https://cors-anywhere.herokuapp.com/https://practiceapi.geeksforgeeks.org/api/vr/problems-of-day/problem/today");
+                            const response = await axios.get("https://api.digitomize.com/potd/geeksforgeeks");
                             const data = response.data;
-                            const problemName = data.problem_name;
-                            const problemUrl = data.problem_url;
+                            const problemName = data.problemName;
+                            const problemUrl = data.problemUrl;
                             const date = data.date;
                             const newData = { problemName, problemUrl, date };
 
@@ -78,22 +78,9 @@ function Potd() {
                     } else {
                         chrome.storage.local.remove('potdLeetCode');
                         try {
-                            const query = {
-                                operationName: "codingChallengeMedal",
-                                variables: { year: 2024, month: 2 },
-                                query: `
-                                query codingChallengeMedal{
-                                    activeDailyCodingChallengeQuestion {
-                                        link
-                                        date
-                                    }
-                                }
-                            `
-                            };
 
-                            const { data } = await axios.post('https://cors-anywhere.herokuapp.com/https://leetcode.com/graphql', query);
-
-                            const link = data?.data?.activeDailyCodingChallengeQuestion?.link;
+                            const data = await axios.get('https://api.digitomize.com/potd/leetcode');
+                            const link = data.problemUrl;
 
                             // Extracting the last part of the link which contains the problem name
                             const parts = link.split('/');
@@ -105,13 +92,13 @@ function Potd() {
                                 .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
                                 .join(' '); // Join the words with spaces
 
-                            const formattedDate = new Date(data?.data?.activeDailyCodingChallengeQuestion?.date);
+                            const formattedDate = new Date(data?.date);
                             const formattedOptions = { day: '2-digit', month: 'short', year: 'numeric' };
                             const formattedLeetCodeDate = formattedDate.toLocaleDateString('en-GB', formattedOptions);
 
                             const potd = {
                                 problemName: transformedName,
-                                problemUrl: "https://leetcode.com" + link,
+                                problemUrl: link,
                                 date: formattedLeetCodeDate,
                             };
 
