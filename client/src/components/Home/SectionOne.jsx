@@ -85,25 +85,25 @@ export default function SectionOne() {
         className="flex justify-center phone:mt-16 mt-8"
       >
         {user ? (
-          <a
-            href="/u/dashboard"
+          <Link
+            to="/u/dashboard"
             className="btn px-5 py-2  border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border"
           >
             <div className="flex justify-center items-center gap-1">
               Welcome {user.displayName}
               <GoArrowUpRight />
             </div>
-          </a>
+          </Link>
         ) : (
-          <a
-            href="/signup"
+          <Link
+            to="/signup"
             className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border"
           >
             <div className="flex justify-center items-center gap-1">
               Register Now
               <MdPlayArrow />
             </div>
-          </a>
+          </Link>
         )}
       </motion.div>
       <motion.div
