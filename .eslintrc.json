@@ -1,0 +1,19 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": "standard",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "rules": {
+        "camelcase":"off",
+        "quotes": ["error", "double"],
+        "semi": ["error", "always"],
+        "comma-dangle": ["error", "always-multiline"]
+    },
+    "plugins": ["@stylistic/eslint-plugin"]
+
+}

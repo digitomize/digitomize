@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "c8 mocha",
+    "test": "c8 --reporter=text mocha",
     "lint": "eslint . --ext js --report-unused-disable-directives --max-warnings 0",
     "lint-fix": "eslint . --ext js --report-unused-disable-directives --max-warnings 0 --fix"
   },
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^1.5.1",
+    "benchtest": "^3.2.0",
     "eslint": "^8.56.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.1",
