@@ -28,12 +28,12 @@
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^1.5.1",
-    "benchtest": "^3.2.0",
     "eslint": "^8.56.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-n": "^16.4.0",
     "eslint-plugin-promise": "^6.1.1",
+    "flush-cache": "^1.0.1",
     "nodemon": "^3.0.1",
     "nyc": "^15.1.0"
   }

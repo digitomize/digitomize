@@ -209,6 +209,7 @@ userSchema.methods.updateCount = function () {
     if (updateIndex === -1) {
       // console.log("step2");
       // console.log(this.updatesToday);
+      //comnent
       this.updatesToday.push({ timestamp: new Date(), count: 1 });
       // console.log(this.updatesToday);
     } else {
