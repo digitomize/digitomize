@@ -1,0 +1,49 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'client/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'client/**'
+
+defaults:
+  run:
+    working-directory: client
+
+jobs:
+
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build project
+      run: npm run dev
+
+    - name: Run tests
+      run: npm test
+
+    - name: Send email
+      if: ${{ failure() }}
+      env:
+        EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
+        EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD}}
+      run: |
+        BUILD_STATUS=$?
+        TEST_STATUS=$?
+        SUBJECT="Build and Test Results"
+        BODY="Build Status: $BUILD_STATUS\nTest Status: $TEST_STATUS"
+        echo "$BODY" | mail -s "$SUBJECT" -r "$EMAIL_SENDER" -S smtp="smtp.gmail.com:587" -xu "$EMAIL_SENDER" -xp "$EMAIL_PASSWORD" "$EMAIL_RECIPIENT"
