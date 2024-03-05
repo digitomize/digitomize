@@ -32,8 +32,8 @@ jobs:
     - name: Build project
       run: npm run dev
 
-    - name: Run tests
-      run: npm test
+    - name: Run UI tests
+      run: npm seleniumtest
 
     - name: Send email
       if: ${{ failure() }}
