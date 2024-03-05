@@ -117,30 +117,38 @@ export default function SectionOne() {
               alt="microsoft"
             />
           </a>
+          <a href="https://www.microsoft.com/en-us/startups">
           <img
             className="max-md:w-32 md:w-40"
             src={microsoft}
             draggable={false}
             alt="microsoft"
           />
+        </a>
+        <a href="https://www.gitbook.com/">
           <img
             className="max-md:w-32 md:w-40"
             src={gitbook}
             draggable={false}
             alt="gitbook"
           />
+        </a>
+        <a href="https://msme.gov.in/">
           <img
             className="w-15 sm:w-25 md:w-30"
             src={msme}
             draggable={false}
             alt="msme"
           />
+        </a>
+        <a href="https://github.com/digitomize/digitomize">
           <img
             className="max-md:w-32 md:w-40"
             src={meltcd}
             draggable={false}
             alt="meltcd"
           />
+        </a>
         </span>
       </motion.div>
     </div>
