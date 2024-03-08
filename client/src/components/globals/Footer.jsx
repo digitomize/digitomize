@@ -26,6 +26,11 @@ export default function Footer() {
           >
             Star
           </GitHubButton>
+          <div className="flex justify-center mt-px-2" style={{marginTop:'5px'}}>
+              <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">
+              <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" className="w-[18] h-10" /> {/*added here*/}
+            </a>
+          </div>
         </aside>
         <div className="lg:flex-1 flex flex-col sm:flex-row sm:flex-wrap mx-auto justify-between gap-8 mb-4 sm:mb-0">
           <nav className="flex justify-center items-center sm:!items-start flex-col gap-3 w-full sm:!w-[45%] xl:!w-fit">

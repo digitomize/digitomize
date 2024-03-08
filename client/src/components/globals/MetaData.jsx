@@ -66,11 +66,27 @@ const getPageMetadata = (path) => {
         },
         "u/dashboard/account": {
             title: "Account",
-            description: "Check the leaderboard for top performers on Digitomize.",
+            description: "",
+        },
+        "u/dashboard/profile": {
+            title: "Profile",
+            description: "",
         },
         "u/dashboard/ratings": {
             title: "Ratings",
-            description: "Check the leaderboard for top performers on Digitomize.",
+            description: "",
+        },
+        "u/dashboard/settings": {
+            title: "Settings",
+            description: "",
+        },
+        "u/dashboard/career": {
+            title: "Career",
+            description: "",
+        },
+        "u/dashboard/preferences": {
+            title: "Preferences",
+            description: "",
         },
         "u/dashboard/widgets": {
             title: "Widgets",
@@ -91,7 +107,8 @@ const getPageMetadata = (path) => {
     keywords.push("codechef", "codeforces", "leetcode", "atcoder", "hackerrank", "hackerearth", "topcoder", "kaggle", "digitomize", "digitomize.com", "digitomize contests", "digitomize challenges", "digitomize hackathons", "digitomize internships", "digitomize jobs", "digitomize updates", "digitomize feedback", "digitomize contact", "digitomize about", "digitomize discord", "digitomize 404", "digitomize leaderboard");
 
     keywords.push("algorithm", "data structure", "binary search", "sorting", "searching", "dynamic programming", "greedy", "graph", "tree", "heap", "queue", "stack", "linked list", "hashing", "recursion", "backtracking", "bit manipulation", "segment tree", "fenwick tree", "disjoint set", "competitive programming", "code jam", "kick start", "google code jam", "facebook hacker cup", "acm icpc", "online judge", "competitive coding", "contest", "codeforces round", "leetcode contest", "atcoder contest", "hackerrank challenge", "hackerearth challenge", "topcoder open");
-    const image = "https://res.cloudinary.com/dsazw0r59/image/upload/c_fit,q_100,w_250/v1693023476/logo_bg_y5ixum.jpg";
+    // const image = "https://res.cloudinary.com/dsazw0r59/image/upload/c_fit,q_100,w_250/v1693023476/logo_bg_y5ixum.jpg";
+    const image = "";
 
     return {
         title: `${title} | Digitomize`,
@@ -131,6 +148,9 @@ const MetaData = ({ path = "null" }) => {
                 <meta name="twitter:title" content={getPageMetadata(path).title} />
                 <meta name="twitter:description" content={getPageMetadata(path).description} />
                 <meta name="twitter:image" content={getPageMetadata(path).image} />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:site" content="@digitomize" />
+                <meta name="twitter:creator" content="@digitomize" />
 
                 {/* Canonical URL */}
                 <link rel="canonical" href={getPageMetadata(path).url} />

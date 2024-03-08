@@ -11,23 +11,23 @@ import {
   Code,
 } from "@mui/icons-material";
 import { Helmet } from "react-helmet";
-import "/src/components/css/IndividualCard.css";
+import "@components/css/IndividualCard.css";
 import { Alert, AlertTitle } from "@mui/material";
-import geeksforgeeks from "/src/assets/geeksforgeeks.svg";
-import leetcode from "/src/assets/leetcode.svg";
-import codingninjas from "/src/assets/codingninjas.png";
-import codechef from "/src/assets/codechef.svg";
-import codeforces from "/src/assets/codeforces.svg";
-import atcoder from "/src/assets/atcoder.svg";
+import geeksforgeeks from "@assets/geeksforgeeks.svg";
+import leetcode from "@assets/leetcode.svg";
+import codingninjas from "@assets/codingninjas.png";
+import codechef from "@assets/codechef.svg";
+import codeforces from "@assets/codeforces.svg";
+import atcoder from "@assets/atcoder.svg";
 import CopyToClipboard from "../CopyToClipboard";
-import { useUserAuth } from "../../context/UserAuthContext";
+import { useUserAuth } from "@context/UserAuthContext";
 import moment from "moment-timezone";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity }) => {
   // Adjust the start time and duration for IST (GMT+5:30)
-  const startTimeIST = new Date((startTimeUnix +  60 * 60 - 3600) * 1000);
+  const startTimeIST = new Date((startTimeUnix + 60 * 60 - 3600) * 1000);
   const endTimeIST = new Date((startTimeUnix + duration * 60 + 60 * 60 - 3600) * 1000);
 
   const formattedStartTime = startTimeIST.toISOString().replace(/[-:]/g, "").replace(".000", "+05:30");
@@ -171,8 +171,11 @@ function IndividualCard() {
           <meta name="twitter:title" content={pageTitle} />
           <meta name="twitter:description" content={contentDescription} />
           <meta name="twitter:image" content={hostToSVGMap[host]} />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@digitomize" />
+          <meta name="twitter:creator" content="@digitomize" />
 
-          {/* Canonical URL */}
+            {/* Canonical URL */}
           <link rel="canonical" href={url} />
         </Helmet>
         {true && (
@@ -442,7 +445,7 @@ function IndividualCard() {
                   </div>
 
                   <a
-                    href={url}
+                    href={url + "?ref=digitomize&utm_source=digitomize"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mv-btn-div"
@@ -958,7 +961,7 @@ function IndividualCard() {
                       </button>
                     </div>
                     <a
-                      href={url}
+                      href={url + "?ref=digitomize&utm_source=digitomize"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-div"
@@ -972,7 +975,7 @@ function IndividualCard() {
                           marginTop: "17px",
                         }}
                       >
-                        Participate <Code/>
+                        Participate <Code />
                       </button>
                     </a>
                     <CopyToClipboard

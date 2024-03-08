@@ -16,6 +16,7 @@
   "dependencies": {
     "@getbrevo/brevo": "^1.0.1",
     "axios": "^1.6.7",
+    "@novu/node": "^0.22.0",
     "cheerio": "^1.0.0-rc.12",
     "cloudinary": "^1.41.0",
     "cors": "^2.8.5",

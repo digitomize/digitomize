@@ -31,6 +31,31 @@ export function isLoggedIn() {
   });
 }
 
+// export async function sendDeviceID(data) {
+//   console.log("api invoked");
+//   const loggedIn = await isLoggedIn();
+
+//   if (loggedIn) {
+//     const currentUser = auth.currentUser;
+//     const accessToken = await currentUser.getIdToken();
+
+//     if (accessToken) {
+//       try {
+//         data = {"deviceID":data};
+//         const response = await axios.post(`${backendUrl}/user/notifs`, data, {
+//           headers: {
+//             Authorization: `Bearer ${accessToken}`,
+//           },
+//         });
+//         return response;
+//       } catch (error) {
+//         console.error(error);
+//         throw new Error(`Failed to send device ID: ${error.message}`);
+//       }
+//     }
+//   }
+// }
+
 export async function userDashboardDetails() {
   const loggedIn = await isLoggedIn();
 
@@ -52,6 +77,36 @@ export async function userDashboardDetails() {
     }
   }
 }
+
+export async function changeUserPreferences(platform, prefer) {
+  const loggedIn = await isLoggedIn();
+
+  if (loggedIn) {
+    const currentUser = auth.currentUser;
+    const accessToken = await currentUser.getIdToken();
+
+    if (accessToken) {
+      try {
+        const response = await axios.post(
+          `${backendUrl}/user/preferences`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+              platform: platform,
+              preference: prefer,
+          },
+        );
+        // console.log("RESPONSEEEE:", response);
+        return response;
+      } catch (err) {
+        // console.log("ERRRR:",err);
+        throw new Error(err.response.data.message);
+      }
+    }
+  }
+}
+
 export async function userProfileDetails(username) {
   try {
     const response = await axios.get(`${backendUrl}/user/profile/${username}`);
@@ -144,11 +199,11 @@ export async function submitUserFormData(formData) {
   /* Throw an error if the entered username is an URL. */
   const urlPattern = new RegExp(
     "^(https?:\\/\\/)?" + // protocol
-      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
-      "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
-      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
-      "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
-      "(\\#[-a-z\\d_]*)?$",
+    "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+    "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+    "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+    "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+    "(\\#[-a-z\\d_]*)?$",
     "i",
   ); // fragment locator
 
@@ -164,7 +219,7 @@ export async function submitUserFormData(formData) {
   // console.log(currentUser);
   const accessToken = await currentUser.getIdToken();
   // console.log(jwtToken);
-
+if(formData.picture)
   await uploadPictureToCloudinary(formData, accessToken, currentUser.uid);
   // console.log(formData.picture);
   const res = await axios.post(`${backendUrl}/user/dashboard`, formData, {

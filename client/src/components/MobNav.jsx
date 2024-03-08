@@ -1,6 +1,6 @@
 import React from "react";
 import { logo } from "./AllAssets";
-import { useUserAuth } from "../context/UserAuthContext";
+import { useUserAuth } from "@context/UserAuthContext";
 
 const MobNav = ({ isMenuActive, toggleActive }) => {
   const { user } = useUserAuth();
@@ -80,9 +80,8 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
             </div>
           </button>
           <nav
-            className={`duration-500 absolute inset-x-0 top-full z-10 mt-px flex-col p-6 pb-24 bg-zinc-950 shadow-2xl flex transition-[opacity] ${
-              isMenuActive ? "opacity-100" : "opacity-0 pointer-events-none z-0"
-            }`}
+            className={`duration-500 absolute inset-x-0 top-full z-10 mt-px flex-col p-6 pb-24 bg-zinc-950 shadow-2xl flex transition-[opacity] ${isMenuActive ? "opacity-100" : "opacity-0 pointer-events-none z-0"
+              }`}
           >
             <a
               target="_self"

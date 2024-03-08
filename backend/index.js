@@ -14,9 +14,6 @@ import admin from "firebase-admin";
 import { routeLogging } from "./users/middlewares/authMiddleware.js";
 import sheetRoutes from "./DSA_sheets/routes/sheetRoutes.js";
 import questionRoutes from "./DSA_sheets/routes/questionRoutes.js";
-import hackathonAPISyncer from "./hackathons/controllers/hackathonApiSyncController.js";
-import hackathonDBSyncer from "./hackathons/controllers/hackathonDbSyncController.js";
-import hackathonRoutes from "./hackathons/routes/hackathonRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -59,6 +56,10 @@ async function setupUserServer () {
   app.use("/admin", adminRoutes);
   app.use("/sheets", sheetRoutes);
   app.use("/questions", questionRoutes);
+}
+
+async function setupExtensionServer() {
+  app.use("/potd", potdRoutes);
 }
 
 async function setupContestServer () {
@@ -112,7 +113,6 @@ async function startServersProduction () {
 
     await setupUserServer();
     await setupContestServer();
-    await setupHackathonServer();
 
     // Handle unhandled routes
     app.all("*", (req, res, next) => {
@@ -122,7 +122,6 @@ async function startServersProduction () {
     const servers = [];
     servers.push("User");
     servers.push("Contest");
-    servers.push("Hackathon");
 
     console.log("┌──────────────────────────────────┐");
     if (servers.length > 0) {
@@ -153,6 +152,8 @@ async function startServersDev () {
       servers.push("User");
       await setupCommunityServer();
       servers.push("Community");
+      await setupExtensionServer();
+      servers.push("Extension");
     }
     if (process.env.CONTESTS === "true") {
       await setupContestServer();

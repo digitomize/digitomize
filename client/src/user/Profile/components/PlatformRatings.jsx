@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useOutletContext, useParams, useLocation } from "react-router-dom";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import leetcode from "../../../assets/leetcode.svg";
-// import codingninjas from "../../../assets/codingninjas.png";
-import codechef from "../../../assets/codechef.svg";
-import codeforces from "../../../assets/codeforces.svg";
+import leetcode from "@assets/leetcode.svg";
+// import codingninjas from "@assets/codingninjas.png";
+import codechef from "@assets/codechef.svg";
+import codeforces from "@assets/codeforces.svg";
 import { OpenInNew } from "@mui/icons-material";
 import { Helmet } from "react-helmet";
-import ShareModel from "../../../components/share_model.jsx";
+import ShareModel from "@components/share_model.jsx";
 
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 function PlatformRatings() {
@@ -63,7 +63,7 @@ function PlatformRatings() {
   const startTimeIST = startDate.toLocaleString("en-US", options);
   const pageTitle = `${platform} | ${data.personal_data.name}`;
   const contentDescription = platformData.rating
-    ? `${platformData.badge} with ${platformData.rating} rating | @${platformData.username}`
+    ? `${platformData?.badge} with ${platformData?.rating} rating | ${platformData?.attendedContestsCount} contests | @${platformData?.username} | ${data.personal_data.name}'s ratings | ${platform} | ${data.personal_data.name}`
     : `Check out ${data.personal_data.name}'s ratings`;
   // Check if platformData is available before rendering
   if (platformData.username !== null) {

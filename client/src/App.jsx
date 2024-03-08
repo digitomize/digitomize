@@ -12,8 +12,12 @@ import {
 import { useState, useEffect } from "react";
 import "./App.css";
 
-// importing all the components ...
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+// import dayjs from 'dayjs';
+import 'dayjs/locale/en-gb';
 
+// importing all the components ...
 import {
   Layout,
   Login,
@@ -31,41 +35,41 @@ import {
   Footer,
   MetaData,
 } from "./components/CustomComponents";
+// import UserDashBoardAccount from "./user/dashboard/Account";
 import UserDashboard from "./user/dashboard/UserDashboard";
-import UserDashPersonal, {
-  loader as userDashPersonalLoader,
-} from "./user/dashboard/UserDashPersonal";
 import UserDashRatings, {
   loader as userDashRatingsLoader,
 } from "./user/dashboard/UserDashRatings";
-import UserDashWidgets from "./user/dashboard/UserDashWidgets";
+import Widget from "./user/dashboard/Widget";
 import UserDashGithub, {
   loader as userDashGithubLoader,
 } from "./user/dashboard/UserDashGithub";
 import ProtectedRoute from "./ProtectedRoute";
 import NewUserProfile from "./user/Profile/NewUserProfile";
-
+import UserDashBoardLayout from "./user/dashboard/Layout";
 import ProfileRatingsPage from "./user/Profile/pages/ProfileRatingsPage";
 import PlatformRatings from "./user/Profile/components/PlatformRatings";
 import ProfileLayout, {
   loader as profileLoader,
 } from "./user/Profile/pages/ProfileLayout";
 // import ProtectedRoute from "./ProtectedRoute"
-
+import { loader as userDashPersonalLoader } from './user/dashboard/UserDashPersonal'
+import UserDashBoardProfile from "./user/dashboard/Profile/Profile";
 import Leaderboard from "./user/leaderboard/Leaderboard";
+import UserDashBoardWidget from "./user/dashboard/Widget";
 
+import Career from "./user/dashboard/Career/Career"
 /*------------ DSA Sheets Import ------------ */
 import SheetLayout from "./dsaSheets/layout/SheetLayout";
 
+// import formbricks from "@formbricks/js";
 
-import formbricks from "@formbricks/js";
-
-if (typeof window !== "undefined") {
-  formbricks.init({
-    environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_API_KEY,
-    apiHost: "https://app.formbricks.com",
-  });
-}
+// if (typeof window !== "undefined") { 
+//   formbricks.init({
+//     environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_API_KEY,
+//     apiHost: "https://app.formbricks.com",
+//   });
+// }
 
 function DiscordRedirect() {
   window.location.href = "https://discord.gg/bsbBytBqBc";
@@ -75,6 +79,18 @@ function DiscordRedirect() {
       <div className="flex flex-col justify-center items-center h-[60vh] antialiased">
         <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
         <h1 className="text-2xl ml-4">Redirecting to Discord</h1>
+      </div>
+    </>
+  );
+}
+function BlogsRedirect() {
+  window.location.href = "https://blogs.digitomize.com";
+  return (
+    <>
+      <MetaData path="blogs" />
+      <div className="flex flex-col justify-center items-center h-[60vh] antialiased">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
+        <h1 className="text-2xl ml-4">Redirecting to Blogs</h1>
       </div>
     </>
   );
@@ -97,6 +113,10 @@ import Challenges from "./components/Contests/Challenges/Challenges";
 import ComingSoonLoader from "./components/Contests/ComingSoonLoader";
 import HackathonsFilter from "./components/Contests/Hackathons/HackathonsFilter";
 import HackathonIndividualCard from "./components/Contests/Hackathons/HackathonIndividualCard";
+import { userDashboardDetails } from "../api";
+import Preferences from "./user/dashboard/Preferences/Preferences";
+import Ratings from "./user/dashboard/Ratings/Ratings";
+import Settings from "./user/dashboard/Settings/Settings";
 
 function Logout() {
   const navigate = useNavigate();
@@ -170,6 +190,7 @@ const router = createBrowserRouter(
         <Route path="contact" element={<About />} />
         <Route path="about" element={<About />} />
         <Route path="discord" element={<DiscordRedirect />} />
+        <Route path="blogs" element={<BlogsRedirect />} />
         <Route path="contests/:vanity" element={<IndividualCard />} />
         <Route path="hackathons/:vanity" element={<HackathonIndividualCard />} />
         <Route path="404" element={<ErrorPage />} />
@@ -185,21 +206,27 @@ const router = createBrowserRouter(
           <Route
             index
             element={<UserDashboard />}
-          // loader={userDashPersonalLoader}
-          // loader={userDashPersonalLoader}
           />
-          <Route
-            path="account"
-            element={<UserDashPersonal />}
-            loader={userDashPersonalLoader}
-          />
-          <Route path="ratings" element={<UserDashRatings />} />
-          <Route path="widgets" element={<UserDashWidgets />} />
-          <Route
-            path="github"
-            element={<UserDashGithub />}
-            loader={userDashGithubLoader}
-          />
+
+          <Route path="widgets" element={<Widget />} />
+
+          <Route element={<UserDashBoardLayout />} >
+            <Route
+              path="github"
+              element={<ComingSoonLoader value={"Github"} />}
+            />
+            <Route
+              path="career"
+              element={<Career />}
+              loader={userDashPersonalLoader}
+            />
+            <Route path="profile" loader={userDashPersonalLoader} element={<UserDashBoardProfile />} />
+            {/* <Route path="account"  loader={userDashPersonalLoader}  element={<UserDashBoardAccount/>}/> */}
+            <Route path="widget" element={<ComingSoonLoader value={"Widgets"} />} />
+            <Route path="ratings" element={<Ratings />} />
+            <Route path="preferences" loader={userDashPersonalLoader} element={<Preferences />} />
+            <Route path="settings" loader={userDashPersonalLoader} element={<Settings />} />
+          </Route>
         </Route>
       </Route>
       <Route
@@ -226,10 +253,12 @@ function App() {
       <UserAuthContextProvider>
         <UserContextProvider>
           <ToastContainer />
-          <RouterProvider router={router} />
+          <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
+            <RouterProvider router={router} />
+          </LocalizationProvider>
         </UserContextProvider>
       </UserAuthContextProvider>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { getUserData } from "../core/api/user.api";
+import { getUserData } from "@core/api/user.api";
 
 const userContext = createContext();
 
