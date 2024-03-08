@@ -161,7 +161,7 @@ function Card({ hackathon }) {
           </button>
 
           {show && main_model}
-          <a href={url} target="_blank" rel="noreferrer">
+          <a href={url + "?ref=digitomize&utm_source=digitomize"} target="_blank" rel="noreferrer">
             <MoveRight style={{ color: "white" }} className="md:w-10 md:h-10" />
           </a>
 

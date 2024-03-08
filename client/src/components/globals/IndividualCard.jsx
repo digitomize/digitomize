@@ -175,7 +175,7 @@ function IndividualCard() {
           <meta name="twitter:site" content="@digitomize" />
           <meta name="twitter:creator" content="@digitomize" />
 
-            {/* Canonical URL */}
+          {/* Canonical URL */}
           <link rel="canonical" href={url} />
         </Helmet>
         {true && (
@@ -185,15 +185,15 @@ function IndividualCard() {
               className="w-fit"
               icon={<Notifications className="animate-ping" />}
             >
-              <a href="https://whatsapp.com/channel/0029VaJyadwLNSa71cZCQt1A" target="_blank" rel="noreferrer">
-                <AlertTitle>DON'T miss out contests - get all contest notifications on
-                  <strong> Whatsapp!!</strong>
+              <Link to="/hackathons">
+                <AlertTitle>All
+                  <strong> Hackathons</strong>
                   <span className="normal-case">
                     {" "}
-                    Follow <strong> now</strong>👨🏻‍💻
+                    in one place <strong>!</strong>👨🏻‍💻
                   </span>
                 </AlertTitle>
-              </a>
+              </Link>
             </Alert>
             {/* <div className="w-full flex md:flex-row-reverse -right-8 -top-4 md:relative max-md:justify-center max-md:mt-4">
           <img src={ microsoftLogo} alt="" className="w-40"/>
