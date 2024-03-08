@@ -35,10 +35,11 @@ function HackathonsFilter() {
           <>
             <p className="mx-auto text-center mt-4 text-xl">
               Want hackathons from more platforms?{" "} Join our <a href="https://digitomize.com/discord" target="_blank" rel="noopener noreferrer" className="text-digitomize-bg">Discord</a> or <button className="text-digitomize-bg" onClick={handleClick}>
-              click here
-            </button> and let us know!
+                click here
+              </button> and let us know!
             </p>
-            
+            <p className="mx-auto text-center mt-4 text-sm underline"><i>Sorted on basis of Application close time</i></p>
+
             <Hackathons hackathons={hackathonsData} />
           </>
         ) : (
