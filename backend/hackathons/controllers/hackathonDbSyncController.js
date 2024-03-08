@@ -17,7 +17,7 @@ async function updateHackathons () {
     );
 
     // Sorting hackathons
-    fetchedHackathons.sort((a, b) => a.registerationStartTimeUnix - b.registerationStartTimeUnix);
+    fetchedHackathons.sort((a, b) => a.registerationEndTimeUnix - b.registerationEndTimeUnix);
 
     // Update the upcomingHackathonsList variable
     upcomingHackathonsList = fetchedHackathons;
