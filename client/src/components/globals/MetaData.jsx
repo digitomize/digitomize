@@ -15,6 +15,11 @@ const getPageMetadata = (path) => {
             description:
                 "Discover upcoming coding challenges on Digitomize and stay in the loop with the latest contests. Join us, take part, and put your coding skills to the test!",
         },
+        "hackathons": {
+            title: "Hackathons",
+            description: 
+                "Discover Hackathons on Digitomize and stay in the loop with the latest hackathons. Join us, take part, and put your coding skills to the test!",
+        },
         "contact": {
             title: "Contact Us",
             description: "Get in touch with us.",

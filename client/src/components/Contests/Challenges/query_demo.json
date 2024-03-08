@@ -7,5 +7,14 @@
     "startTimeUnix": 1708430400,
     "duration": 40320,
     "prize": "Total Prize Pot: 2048 USD"
+  },
+  {
+    "host": "tublian",
+    "name": "Build a RAG application using LLM",
+    "vanity": "tublian-303",
+    "url": "https://www.tublian.com/challenge/303?utm_source=digitomize&ref=digitomize",
+    "startTimeUnix": 1703026800,
+    "duration": 43200,
+    "prize": "Special Prize + Merch"
   }
 ]
