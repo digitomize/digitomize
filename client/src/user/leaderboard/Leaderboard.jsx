@@ -52,7 +52,7 @@ export default function Leaderboard() {
   const [currentUserData, setCurrentUserData] = useState(null);
   const { userDetails } = useUserDetails();
   const [top3, setTop3] = useState([]);
-  console.log(currentPage)
+  console.log(currentPage);
   const [selectedPlatform, setSelectedPlatform] = useState(
     searchParams.get("platform") || "",
   );

@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { useState } from 'react';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa6";
 import { navLinks, accountLinks } from "./dashboardLinks";
 import { logo_white_full } from "../../components/AllAssets";
 function UserDashBoardTab() {
-  const url = window.location.href.split('/')
+  const url = window.location.href.split("/");
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(url[url.length - 1]);
   // const navLinks = [
@@ -32,8 +32,8 @@ function UserDashBoardTab() {
   //   }
   // ];
   const handleOptionClick = (option) => {
-    setSelectedOption(option)
-  }
+    setSelectedOption(option);
+  };
   const options = [{}];
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -76,7 +76,7 @@ function UserDashBoardTab() {
           <img src={logo_white_full} alt="logo" className="w-9/12 mx-auto m-4" />
         </div>
 
-        <Link to={'/u/dashboard'} className={`capitalize flex flex-row items-center gap-2 mx-auto my-2`} ><FaArrowLeft />Dashboard</Link>
+        <Link to={"/u/dashboard"} className={"capitalize flex flex-row items-center gap-2 mx-auto my-2"} ><FaArrowLeft />Dashboard</Link>
 
         <div className="w-9/12 mx-auto">
           <div>
@@ -85,7 +85,7 @@ function UserDashBoardTab() {
               {
                 accountLinks.map((option, index) => (
                   <Link to={option.path} key={index}>
-                    <button className={`justify-start flex w-full btn btn-ghost ${selectedOption === option.title ? "btn-active" : ""}`} onClick={() => { handleOptionClick(option.title) }}>
+                    <button className={`justify-start flex w-full btn btn-ghost ${selectedOption === option.title ? "btn-active" : ""}`} onClick={() => { handleOptionClick(option.title); }}>
                       <img src={option.icon} alt={option.title} className="w-4" />
                       <p className="capitalize font-[500] text-sm text-[#EBEBEB]">{option.title}</p>
                     </button>
@@ -99,7 +99,7 @@ function UserDashBoardTab() {
           <div className="text-sm flex flex-col">
             {
               navLinks.map((option, index) => (
-                <Link to={option.path} key={index} className={`capitalize ${selectedOption === option.title ? "text-button-primary" : ""}`} onClick={() => { handleOptionClick(option.title) }}>{option.title}</Link>
+                <Link to={option.path} key={index} className={`capitalize ${selectedOption === option.title ? "text-button-primary" : ""}`} onClick={() => { handleOptionClick(option.title); }}>{option.title}</Link>
               ))
             }
           </div>
@@ -117,7 +117,7 @@ function UserDashBoardTab() {
         }
       </ul> */}
     </>
-  )
+  );
 }
 
-export default UserDashBoardTab
+export default UserDashBoardTab;

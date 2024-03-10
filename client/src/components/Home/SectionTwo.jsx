@@ -93,7 +93,7 @@ export default function SectionTwo() {
         ...prevData,
         [fieldName]: {
           ...prevData[fieldName],
-          data: '',
+          data: "",
         },
       }));
     }
@@ -249,21 +249,16 @@ export default function SectionTwo() {
                       {">"}
                     </span>
                   </label>
-                  
                   <input
   name="name"
   type="text"
   placeholder="Your Name"
   className="input input-bordered w-full max-w-xs"
   onChange={handleInputChange}
-  onFocus={(event) => {
-    if (event.target.value === formData.name) {
-      event.target.value = "";
-      handleInputChange(event);
-    }
-  }}
+  onClick={(event) => clearDefaultText(event, 'name')}
   value={formData.name}
 />
+
 
 
 <label className="select-text cursor-text label">
@@ -295,7 +290,7 @@ export default function SectionTwo() {
    placeholder="Your Number"
    className="input input-bordered w-full max-w-xs [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" // classes to remove arrows from number input
    onChange={handleInputChangeObjData}
-   onFocus={(event) => clearDefaultText(event, 'phoneNumber')}
+   onFocus={(event) => clearDefaultText(event, "phoneNumber")}
    value={formData.phoneNumber.data}
 />
 
@@ -328,7 +323,7 @@ export default function SectionTwo() {
     className="textarea textarea-bordered h-24 max-h-60"
     placeholder="about you"
     onChange={handleInputChangeObjData}
-    onFocus={(event) => clearDefaultText(event, 'bio')}
+    onFocus={(event) => clearDefaultText(event, "bio")}
     value={formData.bio.data}
 ></textarea>
 

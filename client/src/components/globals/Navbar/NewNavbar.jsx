@@ -25,12 +25,12 @@ export default function NewNavbar({ position }) {
     if (user) {
       formbricks.setEmail(user.email);
     }
-  }
+  };
   if (typeof window !== "undefined") {
     formbricksInit();
   }
 
-  console.log("NAVVBAR")
+  console.log("NAVVBAR");
   const { userDetails } = useUserDetails();
   const location = useLocation();
 
