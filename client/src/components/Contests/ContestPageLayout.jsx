@@ -7,7 +7,7 @@ const activeLinks = [
     {
         name: "Contests",
         icon: <TrendingUp />,
-        link: "/contests",
+        link: "contests",
     },
     {
         name: "Challenges",
@@ -17,19 +17,14 @@ const activeLinks = [
             </>),
         link: "/challenges",
     },
-
+    {
+        name: "Hackathons",
+        icon: <TrendingUp />,
+        link: "/hackathons",
+    },
 ];
 
 const inactiveLinks = [
-    {
-        name: "Hackathons",
-        icon: (
-            <>
-                <div className="badge badge-error">soon</div>
-            </>
-        ),
-        link: "/hackathons",
-    },
     {
         name: "Internships",
         icon: (

@@ -1,15 +1,18 @@
 // import { Element } from "react-scroll";
 
+import meltcd from "@assets/meltcd.png";
+import { useUserAuth } from "@context/UserAuthContext";
+import { Star } from "@mui/icons-material";
+import { motion } from "framer-motion";
+import { GoArrowUpRight } from "react-icons/go";
+import { MdPlayArrow } from "react-icons/md";
 import { Link } from "react-router-dom";
 import gitbook from "./svgs/GitBookLight.svg";
 import msme from "./svgs/MSME.svg";
-import microsoft from "./svgs/microsoft4strp.svg";
 import digitalOcean from "./svgs/digitalOcean.svg";
-import meltcd from "@assets/meltcd.png";
-import { Star } from "@mui/icons-material";
-import { motion } from "framer-motion";
-import { MdPlayArrow } from "react-icons/md";
+import microsoft from "./svgs/microsoft4strp.svg";
 export default function SectionOne() {
+  const { user } = useUserAuth();
   return (
     <div className="font-['Geist'] xl:pt-8 max-md:pt-4 items-center flex flex-col text-center phone:mt-16">
       <motion.div
@@ -81,17 +84,27 @@ export default function SectionOne() {
         }}
         className="flex justify-center phone:mt-16 mt-8"
       >
-        <a href="/signup"
-        
-          
-          className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border"
-        >
-          <div className='flex justify-center items-center gap-1'>
-          Register Now
-          <MdPlayArrow />
-         </div>
-        
-        </a>
+        {user ? (
+          <Link
+            to="/u/dashboard"
+            className="btn px-5 py-2  border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border"
+          >
+            <div className="flex justify-center items-center gap-1">
+              Welcome {user.displayName}
+              <GoArrowUpRight />
+            </div>
+          </Link>
+        ) : (
+          <Link
+            to="/signup"
+            className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border"
+          >
+            <div className="flex justify-center items-center gap-1">
+              Register Now
+              <MdPlayArrow />
+            </div>
+          </Link>
+        )}
       </motion.div>
       <motion.div
         initial={{ opacity: 0, y: 150 }}
@@ -117,30 +130,38 @@ export default function SectionOne() {
               alt="microsoft"
             />
           </a>
+          <a href="https://www.microsoft.com/en-us/startups">
           <img
             className="max-md:w-32 md:w-40"
             src={microsoft}
             draggable={false}
             alt="microsoft"
           />
+        </a>
+        <a href="https://www.gitbook.com/">
           <img
             className="max-md:w-32 md:w-40"
             src={gitbook}
             draggable={false}
             alt="gitbook"
           />
+        </a>
+        <a href="https://msme.gov.in/">
           <img
             className="w-15 sm:w-25 md:w-30"
             src={msme}
             draggable={false}
             alt="msme"
           />
+        </a>
+        <a href="https://github.com/digitomize/digitomize">
           <img
             className="max-md:w-32 md:w-40"
             src={meltcd}
             draggable={false}
             alt="meltcd"
           />
+        </a>
         </span>
       </motion.div>
     </div>

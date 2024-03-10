@@ -5,29 +5,22 @@ import {
   Home as HomeIcon,
   Whatshot as WhatshotIcon,
   Grain as GrainIcon,
-  Celebration,
   Notifications,
   Event,
   Code,
 } from "@mui/icons-material";
 import { Helmet } from "react-helmet";
-import "@components/css/IndividualCard.css";
+import "/src/components/css/IndividualCard.css";
 import { Alert, AlertTitle } from "@mui/material";
-import geeksforgeeks from "@assets/geeksforgeeks.svg";
-import leetcode from "@assets/leetcode.svg";
-import codingninjas from "@assets/codingninjas.png";
-import codechef from "@assets/codechef.svg";
-import codeforces from "@assets/codeforces.svg";
-import atcoder from "@assets/atcoder.svg";
-import CopyToClipboard from "../CopyToClipboard";
-import { useUserAuth } from "@context/UserAuthContext";
+import { devfolio, devpost, unstop } from "../../AllAssets";
+import CopyToClipboard from "../../CopyToClipboard";
 import moment from "moment-timezone";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
-const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity }) => {
+const addToGoogleCalendar = ({ name, hackathonStartTimeUnix: startTimeUnix, duration, url, host }) => {
   // Adjust the start time and duration for IST (GMT+5:30)
-  const startTimeIST = new Date((startTimeUnix + 60 * 60 - 3600) * 1000);
+  const startTimeIST = new Date((startTimeUnix +  60 * 60 - 3600) * 1000);
   const endTimeIST = new Date((startTimeUnix + duration * 60 + 60 * 60 - 3600) * 1000);
 
   const formattedStartTime = startTimeIST.toISOString().replace(/[-:]/g, "").replace(".000", "+05:30");
@@ -38,7 +31,7 @@ const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity 
   const ampm = startHour >= 12 ? "PM" : "AM";
   const formattedStartTimeString = `${startHour % 12 || 12}:${startMinute < 10 ? "0" : ""}${startMinute} ${ampm}`;
 
-  const description = `<hr>🏆<b>Contest</b>🏆%0A👨🏻‍💻Name: ${name}%0A🕘Start at: ${formattedStartTimeString}%0A⏱️Duration: ${duration} minutes%0A🚀Host: ${host}%0A🔗Contest URL: <a href='${url}'>${url}</a>%0A<hr><i>Thank you for using <a href='https://digitomize.com'>digitomize</a></i>`;
+  const description = `<hr>🏆<b>Hackathon</b>🏆%0A👨🏻‍💻Name: ${name}%0A🕘Start at: ${formattedStartTimeString}%0A⏱️Duration: ${duration} minutes%0A🚀Host: ${host}%0A🔗Hackathon URL: <a href='${url}'>${url}</a>%0A<hr><i>Thank you for using <a href='https://digitomize.com'>digitomize</a></i>`;
 
   const googleCalendarUrl = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${formattedStartTime}/${formattedEndTime}&text=${encodeURIComponent(name)}&details=${description}`;
 
@@ -46,55 +39,46 @@ const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity 
   window.open(googleCalendarUrl, "_blank");
 };
 
-function IndividualCard() {
-  const { user } = useUserAuth();
+function HackathonIndividualCard() {
   const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   const hostToSVGMap = {
-    leetcode: leetcode,
-    codingninjas: codingninjas,
-    codeforces: codeforces,
-    geeksforgeeks: geeksforgeeks,
-    codechef: codechef,
-    atcoder: atcoder,
+    devfolio: devfolio,
+    devpost: devpost,
+    unstop: unstop,
     // Add other hosts and their corresponding SVG variables here
-  };
-  const [alertOpen, setAlertOpen] = useState(true);
-
-  const handleCloseAlert = () => {
-    setAlertOpen(false);
   };
 
   const params = useParams();
-  const [contest, setContest] = useState(null);
+  const [hackathon, setHackathon] = useState(null);
   const vanity = params.vanity;
 
   useEffect(() => {
-    fetch(`${backendUrl}/contests?vanity=${vanity}`);
-    fetch(`${backendUrl}/contests?vanity=${vanity}`)
+    fetch(`${backendUrl}/hackathons?vanity=${vanity}`)
       .then((res) => res.json())
-      .then((data) => setContest(data.results[0]))
-      .catch((error) => console.error("Error fetching contest:", error));
+      .then((data) => setHackathon(data.results[0]))
+      .catch((error) => console.error("Error fetching hackathon:", error));
   }, [vanity]);
 
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   const [remaningTime, setRemainingTime] = useState("Loading...");
-  if (contest === null) {
+  if (hackathon === null) {
     return <div className="min-h-[40vh]">Loading...</div>;
   }
-  if (contest?.host === undefined) {
+
+  if (hackathon?.host === undefined) {
     return (
       <div className="min-h-[40vh] text-center">
         <h1>
-          404 <br /> Contest not found
+          404 <br /> Hackathon not found
         </h1>
-        <Link to="/contests">Go back to contests</Link>
+        <Link to="/hackathons">Go back to Hackathons</Link>
       </div>
     );
   }
 
-  const { host, name, url, startTimeUnix, duration } = contest;
-  // console.log(contest.length);
+  const { host, name, url, hackathonStartTimeUnix: startTimeUnix, duration } = hackathon;
+
   const durationInMilliseconds = duration * 60 * 1000;
   const endTimeUnix = startTimeUnix + durationInMilliseconds / 1000;
 
@@ -117,28 +101,26 @@ function IndividualCard() {
   const endTime = endDateTimeInTimezone.format("h:mm A");
 
   const getColorTheme = () => {
-    if (host === "leetcode") {
-      return "#FFCC00";
-    } else if (host === "geeksforgeeks") {
-      return "#2E8D46";
-    } else if (host === "codingninjas") {
-      return "	#F28C28";
-    } else if (host === "codeforces") {
-      return "#318CE7";
-    } else if (host === "codechef") {
-      return "#b87333";
-    } else if (host === "atcoder") {
-      return "white";
+    if (host === "devpost") {
+      return "#003e54";
+    } else if (host === "devfolio") {
+      return "#3770FF";
+    } else if (host === "unstop") {
+      return "#1C4980";
     } else {
       return "black";
     }
   };
   const colorTheme = getColorTheme();
 
-  const hours = Math.floor(duration / 60);
-  const minutes = duration % 60;
+  const hours = Math.floor((duration % 1440) / 60);
+  const minutes = Math.floor((duration % 1440) % 60);
+  let durationFormatted = `${hours} h ${minutes} m`;
 
-  const durationFormatted = `${hours} h ${minutes} m`;
+  const days = Math.floor(duration / 1440);
+  if (days > 0) {
+    durationFormatted = `${days} d ${hours} h`;
+  }
 
   setInterval(() => {
     setRemainingTime(updateTimer(startTimeUnix, duration));
@@ -147,7 +129,7 @@ function IndividualCard() {
   const contentDescription = `${name} | ${startTime} (IST)`.toLowerCase();
   const contentTitle = `${host} | Digitomize`.toLowerCase();
   const pageTitle = `${name} | Digitomize`.toLowerCase();
-  if (contest)
+  if (hackathon)
     return (
       <>
         <Helmet>
@@ -171,9 +153,6 @@ function IndividualCard() {
           <meta name="twitter:title" content={pageTitle} />
           <meta name="twitter:description" content={contentDescription} />
           <meta name="twitter:image" content={hostToSVGMap[host]} />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="@digitomize" />
-          <meta name="twitter:creator" content="@digitomize" />
 
           {/* Canonical URL */}
           <link rel="canonical" href={url} />
@@ -185,29 +164,16 @@ function IndividualCard() {
               className="w-fit"
               icon={<Notifications className="animate-ping" />}
             >
-              <Link to="/hackathons">
-                <AlertTitle>All
-                  <strong> Hackathons</strong>
+              <a href="https://whatsapp.com/channel/0029VaJyadwLNSa71cZCQt1A" target="_blank" rel="noreferrer">
+                <AlertTitle>DON'T miss out hackathons - get all hackathon notifications on
+                  <strong> Whatsapp!!</strong>
                   <span className="normal-case">
                     {" "}
-                    in one place <strong>!</strong>👨🏻‍💻
+                    Follow <strong> now</strong>👨🏻‍💻
                   </span>
                 </AlertTitle>
-              </Link>
+              </a>
             </Alert>
-            {/* <div className="w-full flex md:flex-row-reverse -right-8 -top-4 md:relative max-md:justify-center max-md:mt-4">
-          <img src={ microsoftLogo} alt="" className="w-40"/>
-          </div> */}
-            {/* <Alert severity="error" className="w-fit" icon={<PanTool className="animate-ping"/>}>
-            <Link to="/signup?utm_source=contests">
-              <AlertTitle>
-                <strong>One-Stop Ratings!</strong> -
-                <span> Join in<OpenInNew fontSize="small" />
-                </span>
-              </AlertTitle>
-              stop checking ratings <strong>one by one</strong>; see them all at <strong>once</strong>!
-            </Link>
-          </Alert> */}
           </div>
         )}
         {isMobile ? (
@@ -221,9 +187,9 @@ function IndividualCard() {
               </div>
               <h3>&gt;</h3>
               <div className="card_nav_path">
-                <Link to="/contests">
+                <Link to="/hackathons">
                   <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                  Contests
+                  Hackathons
                 </Link>
               </div>
               <h3>&gt;</h3>
@@ -432,7 +398,7 @@ function IndividualCard() {
                     style={{ boxShadow: `8px 8px ${colorTheme}` }}
                   >
                     <button
-                      onClick={() => addToGoogleCalendar(contest)}
+                      onClick={() => addToGoogleCalendar(hackathon)}
                       style={{
                         color: "black",
                         fontWeight: "bold",
@@ -482,9 +448,9 @@ function IndividualCard() {
               </div>
               <h3>&gt;</h3>
               <div className="card_nav_path">
-                <Link to="/contests">
+                <Link to="/hackathons">
                   <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
-                  Contests
+                  Hackathons
                 </Link>
               </div>
               <h3>&gt;</h3>
@@ -949,7 +915,7 @@ function IndividualCard() {
                       style={{ boxShadow: `8px 8px ${colorTheme}` }}
                     >
                       <button
-                        onClick={() => addToGoogleCalendar(contest)}
+                        onClick={() => addToGoogleCalendar(hackathon)}
                         style={{
                           color: "black",
                           fontWeight: "bold",
@@ -975,7 +941,7 @@ function IndividualCard() {
                           marginTop: "17px",
                         }}
                       >
-                        Participate <Code />
+                        Participate <Code/>
                       </button>
                     </a>
                     <CopyToClipboard
@@ -1010,7 +976,7 @@ export const getColorTheme = (host) => {
     return "black";
   }
 };
-export default IndividualCard;
+export default HackathonIndividualCard;
 
 function updateTimer(startTime, duration) {
   const currentTime = Math.floor(Date.now() / 1000);
@@ -1018,13 +984,13 @@ function updateTimer(startTime, duration) {
   if (duration * 60 + startTime < currentTime) {
     return (
       <p style={{ display: "inline-block", marginLeft: "10px" }}>
-        the contest has ended
+        the hackathon has ended
       </p>
     );
   } else if (startTime <= currentTime) {
     return (
       <p style={{ display: "inline-block", marginLeft: "10px" }}>
-        the contest has started!
+        the hackathon has started!
       </p>
     );
   } else {

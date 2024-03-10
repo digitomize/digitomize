@@ -111,6 +111,8 @@ import ContestPageLayout from "./components/Contests/ContestPageLayout";
 import Filter from "./components/Contests/Filter";
 import Challenges from "./components/Contests/Challenges/Challenges";
 import ComingSoonLoader from "./components/Contests/ComingSoonLoader";
+import HackathonsFilter from "./components/Contests/Hackathons/HackathonsFilter";
+import HackathonIndividualCard from "./components/Contests/Hackathons/HackathonIndividualCard";
 import { userDashboardDetails } from "../api";
 import Preferences from "./user/dashboard/Preferences/Preferences";
 import Ratings from "./user/dashboard/Ratings/Ratings";
@@ -178,7 +180,7 @@ const router = createBrowserRouter(
         <Route element={<ContestPageLayout />}>
           <Route path="contests" element={<Filter />} />
           <Route path="challenges" element={<Challenges />} />
-          <Route path="hackathons" element={<ComingSoonLoader value='Hackathons' />} />
+          <Route path="hackathons" element={<HackathonsFilter />} />
           <Route path="internships" element={<ComingSoonLoader value='Internships' />} />
           <Route path="jobs" element={<ComingSoonLoader value='Jobs' />} />
         </Route>
@@ -190,6 +192,7 @@ const router = createBrowserRouter(
         <Route path="discord" element={<DiscordRedirect />} />
         <Route path="blogs" element={<BlogsRedirect />} />
         <Route path="contests/:vanity" element={<IndividualCard />} />
+        <Route path="hackathons/:vanity" element={<HackathonIndividualCard />} />
         <Route path="404" element={<ErrorPage />} />
       </Route>
       <Route path="/admin" element={<AdminPanelGuard />}>
