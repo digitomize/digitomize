@@ -86,6 +86,22 @@ export default function SectionTwo() {
       },
     }));
   };
+  const clearDefaultText = (event, fieldName) => {
+    const fieldValue = formData[fieldName].data;
+    if (event.target.value === fieldValue) {
+      setFormData((prevData) => ({
+        ...prevData,
+        [fieldName]: {
+          ...prevData[fieldName],
+          data: '',
+        },
+      }));
+    }
+  };
+  
+
+
+
 
   return (
     <div className="max-md:mt-2 md:mt-24 flex justify-center p-2 min-h-screen min-xs:flex-col mx-auto w-11/12">
@@ -233,15 +249,24 @@ export default function SectionTwo() {
                       {">"}
                     </span>
                   </label>
+                  
                   <input
-                    name="name"
-                    type="text"
-                    placeholder="your name"
-                    className="input input-bordered w-full max-w-xs"
-                    onChange={handleInputChange}
-                    value={formData.name}
-                  />
-                  <label className="select-text cursor-text label">
+  name="name"
+  type="text"
+  placeholder="Your Name"
+  className="input input-bordered w-full max-w-xs"
+  onChange={handleInputChange}
+  onFocus={(event) => {
+    if (event.target.value === formData.name) {
+      event.target.value = "";
+      handleInputChange(event);
+    }
+  }}
+  value={formData.name}
+/>
+
+
+<label className="select-text cursor-text label">
                     <span className="select-text cursor-text label-text">
                       phone number
                       <Tooltip
@@ -253,23 +278,30 @@ export default function SectionTwo() {
                         arrow
                         placement="top"
                       >
-                        <Switch
+                        
+                      </Tooltip>
+                    </span>
+                  </label>
+
+<Switch
                           size="small"
                           inputProps={{ "aria-label": "controlled" }}
                           checked={formData.phoneNumber.showOnWebsite}
                           onChange={updateShowOnWebsite("phoneNumber")}
                         />
-                      </Tooltip>
-                    </span>
-                  </label>
-                  <input
-                    name="phoneNumber"
-                    type="Number"
-                    placeholder="your number"
-                    className="input input-bordered w-full max-w-xs [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" // classes to remove arrows from number input
-                    onChange={handleInputChangeObjData}
-                    value={formData.phoneNumber.data}
-                  />
+<input
+   name="phoneNumber"
+   type="Number"
+   placeholder="Your Number"
+   className="input input-bordered w-full max-w-xs [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" // classes to remove arrows from number input
+   onChange={handleInputChangeObjData}
+   onFocus={(event) => clearDefaultText(event, 'phoneNumber')}
+   value={formData.phoneNumber.data}
+/>
+
+
+                  
+                
                   <label className="select-text cursor-text label">
                     <span className="select-text cursor-text label-text">
                       bio
@@ -292,12 +324,14 @@ export default function SectionTwo() {
                     </span>
                   </label>
                   <textarea
-                    name="bio"
-                    className="textarea textarea-bordered h-24 max-h-60"
-                    placeholder="about you"
-                    onChange={handleInputChangeObjData}
-                    value={formData.bio.data}
-                  ></textarea>
+    name="bio"
+    className="textarea textarea-bordered h-24 max-h-60"
+    placeholder="about you"
+    onChange={handleInputChangeObjData}
+    onFocus={(event) => clearDefaultText(event, 'bio')}
+    value={formData.bio.data}
+></textarea>
+
                 </div>
               </motion.div>
             </div>
