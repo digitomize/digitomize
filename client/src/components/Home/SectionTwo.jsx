@@ -256,13 +256,8 @@ export default function SectionTwo() {
                     placeholder="Your Name"
                     className="input input-bordered w-full max-w-xs"
                     onChange={handleInputChange}
-                    onFocus={(event) => {
-                      if (event.target.value === formData.name) {
-                        event.target.value = "";
-                        handleInputChange(event);
-                      }
-                    }}
-                    value={formData.name}
+                    onFocus={(event) => clearDefaultText(event, 'name')}
+                    value={formData.name.data}
                   />
 
 
