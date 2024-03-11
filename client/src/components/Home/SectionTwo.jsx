@@ -93,15 +93,11 @@ export default function SectionTwo() {
         ...prevData,
         [fieldName]: {
           ...prevData[fieldName],
-          data: '',
+          data: "",
         },
       }));
     }
   };
-  
-
-
-
 
   return (
     <div className="max-md:mt-2 md:mt-24 flex justify-center p-2 min-h-screen min-xs:flex-col mx-auto w-11/12">
@@ -249,17 +245,16 @@ export default function SectionTwo() {
                       {">"}
                     </span>
                   </label>
-                  
+
                   <input
                     name="name"
                     type="text"
                     placeholder="Your Name"
                     className="input input-bordered w-full max-w-xs"
                     onChange={handleInputChange}
-                    onFocus={(event) => clearDefaultText(event, 'name')}
+                    onFocus={(event) => clearDefaultText(event, "name")}
                     value={formData.name.data}
                   />
-
 
                   <label className="select-text cursor-text label">
                     <span className="select-text cursor-text label-text">
@@ -272,9 +267,7 @@ export default function SectionTwo() {
                         }
                         arrow
                         placement="top"
-                      >
-                        
-                      </Tooltip>
+                      ></Tooltip>
                     </span>
                   </label>
 
@@ -290,7 +283,7 @@ export default function SectionTwo() {
                     placeholder="Your Number"
                     className="input input-bordered w-full max-w-xs [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" // classes to remove arrows from number input
                     onChange={handleInputChangeObjData}
-                    onFocus={(event) => clearDefaultText(event, 'phoneNumber')}
+                    onFocus={(event) => clearDefaultText(event, "phoneNumber")}
                     value={formData.phoneNumber.data}
                   />
 
@@ -320,10 +313,9 @@ export default function SectionTwo() {
                     className="textarea textarea-bordered h-24 max-h-60"
                     placeholder="about you"
                     onChange={handleInputChangeObjData}
-                    onFocus={(event) => clearDefaultText(event, 'bio')}
+                    onFocus={(event) => clearDefaultText(event, "bio")}
                     value={formData.bio.data}
                   ></textarea>
-
                 </div>
               </motion.div>
             </div>
@@ -446,17 +438,14 @@ export default function SectionTwo() {
           }}
           className="flex justify-center m-4"
         >
-          <a  href="/signup"
-
-
-           
+          <a
+            href="/signup"
             className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border "
           >
-            <div  className='flex justify-center items-center gap-1'>
-            Create Now
-            <IoCreateSharp />
+            <div className="flex justify-center items-center gap-1">
+              Create Now
+              <IoCreateSharp />
             </div>
-         
           </a>
         </motion.div>
       </div>
