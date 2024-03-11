@@ -251,22 +251,22 @@ export default function SectionTwo() {
                   </label>
                   
                   <input
-  name="name"
-  type="text"
-  placeholder="Your Name"
-  className="input input-bordered w-full max-w-xs"
-  onChange={handleInputChange}
-  onFocus={(event) => {
-    if (event.target.value === formData.name) {
-      event.target.value = "";
-      handleInputChange(event);
-    }
-  }}
-  value={formData.name}
-/>
+                    name="name"
+                    type="text"
+                    placeholder="Your Name"
+                    className="input input-bordered w-full max-w-xs"
+                    onChange={handleInputChange}
+                    onFocus={(event) => {
+                      if (event.target.value === formData.name) {
+                        event.target.value = "";
+                        handleInputChange(event);
+                      }
+                    }}
+                    value={formData.name}
+                  />
 
 
-<label className="select-text cursor-text label">
+                  <label className="select-text cursor-text label">
                     <span className="select-text cursor-text label-text">
                       phone number
                       <Tooltip
@@ -283,25 +283,22 @@ export default function SectionTwo() {
                     </span>
                   </label>
 
-<Switch
-                          size="small"
-                          inputProps={{ "aria-label": "controlled" }}
-                          checked={formData.phoneNumber.showOnWebsite}
-                          onChange={updateShowOnWebsite("phoneNumber")}
-                        />
-<input
-   name="phoneNumber"
-   type="Number"
-   placeholder="Your Number"
-   className="input input-bordered w-full max-w-xs [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" // classes to remove arrows from number input
-   onChange={handleInputChangeObjData}
-   onFocus={(event) => clearDefaultText(event, 'phoneNumber')}
-   value={formData.phoneNumber.data}
-/>
+                  <Switch
+                    size="small"
+                    inputProps={{ "aria-label": "controlled" }}
+                    checked={formData.phoneNumber.showOnWebsite}
+                    onChange={updateShowOnWebsite("phoneNumber")}
+                  />
+                  <input
+                    name="phoneNumber"
+                    type="Number"
+                    placeholder="Your Number"
+                    className="input input-bordered w-full max-w-xs [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" // classes to remove arrows from number input
+                    onChange={handleInputChangeObjData}
+                    onFocus={(event) => clearDefaultText(event, 'phoneNumber')}
+                    value={formData.phoneNumber.data}
+                  />
 
-
-                  
-                
                   <label className="select-text cursor-text label">
                     <span className="select-text cursor-text label-text">
                       bio
@@ -324,13 +321,13 @@ export default function SectionTwo() {
                     </span>
                   </label>
                   <textarea
-    name="bio"
-    className="textarea textarea-bordered h-24 max-h-60"
-    placeholder="about you"
-    onChange={handleInputChangeObjData}
-    onFocus={(event) => clearDefaultText(event, 'bio')}
-    value={formData.bio.data}
-></textarea>
+                    name="bio"
+                    className="textarea textarea-bordered h-24 max-h-60"
+                    placeholder="about you"
+                    onChange={handleInputChangeObjData}
+                    onFocus={(event) => clearDefaultText(event, 'bio')}
+                    value={formData.bio.data}
+                  ></textarea>
 
                 </div>
               </motion.div>
