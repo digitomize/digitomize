@@ -1,55 +1,52 @@
-# Digitomize - [Website](https://digitomize.com)
+# Digitomize - [Site Web](https://digitomize.com)
 
-**Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-61-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-Website: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9g.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
+**Digitomize**, qui fait partie du **Microsoft for Startups Founders Hub**, est une plateforme open source qui combine deux sections principales : les concours et les profils d'utilisateurs. Il permet aux utilisateurs d'explorer les prochains concours de codage et de créer dynamiquement des portefeuilles de développeurs. </br>
+<!-- ALL-CONTRIBUTORS-BADGE:START - Ne pas supprimer ni modifier cette section -->
+[![Tous les contributeurs](https://img.shields.io/badge/all_contributors-61-orange.svg?style=flat-square)](#contributors-)
+<!-- BADGE-TOUS-CONTRIBUTEURS : FIN -->
+Site Web : [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9g.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
 
-V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9j.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
+V2api : [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9j.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
 
 [![Discord](https://img.shields.io/discord/968977338253586442.svg?logo=discord&logoColor=fff&label=Discord&color=7389d8)](https://discord.com/invite/bsbBytBqBc)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/125b14c1-ebbe-46d7-97db-c3e97674e36e/deploy-status)](https://app.netlify.com/sites/digitomize/deploys)
-[![Forks on Github](https://img.shields.io/github/forks/digitomize/digitomize)](https://github.com/digitomize/digitomize/forks)
-[![Star on GitHub](https://img.shields.io/github/stars/digitomize/digitomize.svg?style=social)](https://github.com/digitomize/digitomize/stargazers)
+[![Statut Netlify](https://api.netlify.com/api/v1/badges/125b14c1-ebbe-46d7-97db-c3e97674e36e/deploy-status)](https://app.netlify.com/sites /numériser/déployer)
+[![Forks sur Github](https://img.shields.io/github/forks/digitomize/digitomize)](https://github.com/digitomize/digitomize/forks)
+[![Étoile sur GitHub](https://img.shields.io/github/stars/digitomize/digitomize.svg?style=social)](https://github.com/digitomize/digitomize/stargazers)
 
-# Supported by:
+# Supporté par:
 <img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" alt="Microsoft for Startups Logo" height="auto" width="180">
 <a href="https://m.do.co/c/db7dbc698e16" target="_blank"><img align="center" src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" alt="DigitalOcean Logo" height="150" width="180"></a> 
 <img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" alt="GitBook Logo" height="auto" width="180">
 <img align="center" src="https://github.com/krushnarout/digitomize/assets/129386740/3f224853-cf4b-4318-ba27-8285d1c9a0fe" alt="MSME Logo" height="auto" width="180">
 <img align="center" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcROO_yLE47eeYv8eSiT3aMB1AWncngyOzGHYqptZwwckpfmH4m0" alt="MELT CD Logo" height="auto" width="180">
 
-# Translation:
-[French](doc/README.fr.md)
-
-# Table of Contents
+# Table des matières
 
 - [Introduction](#introduction)
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Tech Stack](#tech-stack)
-  - [Installation Guide](#installation-guide)
-- [Usage](#usage)
-  - [Contests Section](#contests-section)
-  - [User Profiles](#user-profiles)
-- [Contributing](#contributing)
-- [License](#license)
+- [Fonctionnalités](#fonctionnalités)
+- [Premiers Pas](#premiers-pas)
+   - [Tech Stack](#tech-stack)
+   - [Guide d'installation](#installation-guide)
+- [Utilisation](#utilisation)
+   - [Section Concours](#contests-section)
+   - [Profils d'utilisateurs](#profils-utilisateurs)
+- [Contribuer](#contribuer)
+- [Licence](#licence)
 - [Discord](#discord)
-- [Contact](#contact-information)
+- [Contact](#contact)
 
 # Introduction
 
-**Digitomize** is designed to provide developers with a comprehensive platform for exploring coding contests and creating dynamic portfolios that showcase their coding skills and achievements.
+**Digitomize** est conçu pour fournir aux développeurs une plateforme complète pour explorer les concours de codage et créer des portfolios dynamiques qui mettent en valeur leurs compétences et leurs accomplissements en matière de codage.
 
-# Features
+# Fonctionnalités
 
-- **Contests Section:** Explore upcoming coding contests from platforms like LeetCode, Codeforces, CodeChef, and more. Filter contests based on various criteria and view contest details such as remaining time, duration, and more.
+- **Section Concours :** Découvrez les prochains concours de codage sur des plateformes telles que LeetCode, Codeforces, CodeChef, etc. Filtrez les concours en fonction de divers critères et affichez les détails du concours tels que le temps restant, la durée, etc.
 
-- **User Profiles:** Create your developer portfolio by providing user handles for different coding platforms. The platform dynamically fetches and displays your updated ratings, achievements, and coding history.
+- **Profils d'utilisateurs :** Créez votre portefeuille de développeurs en fournissant des identifiants d'utilisateur pour différentes plateformes de codage. La plateforme récupère et affiche dynamiquement vos notes, réalisations et historique de codage mis à jour.
 
-# Getting Started
-**Hit the star :star:**
+# Premiers Pas
+**Frappez l'étoile :star:**
 
 ## Tech Stack
 
@@ -66,38 +63,38 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 - NPM
 - MongoDB
 
-## Installation Guide
+## Guide d'installation
 
-1. Clone the repository: `git clone https://github.com/pranshugupta54/digitomize.git`
-2. Install project dependencies and start the development environment: <br>
-   In the root directory of the project (where package.json is located), run `npm install`. <br>
-3. Configure environment variables: Create a .env file in the backend and client directories respectively, and set up the required environment variables such as database connection details, API keys, and other configurations.
+1. Cloner le dépôt : `git clone https://github.com/pranshugupta54/digitomize.git`
+2. Installer les dépendances du projet et démarrez l'environnement de développement : <br>
+    Dans le répertoire racine du projet (où se trouve package.json), exécuter « npm install ». <br>
+3. Configurer les variables d'environnement : créer un fichier .env dans les répertoires backend et client respectivement et configurer les variables d'environnement requises telles que les détails de connexion à la base de données, les clés API et d'autres configurations.
 
-- For more information check [Backend Documentation](/backend/README.md) and [Frontend Documentation](/client/README.md).
+- Pour plus d'informations, consulter [Documentation backend](/backend/README.md) et [Documentation frontend](/client/README.md).
 
-4. Start the development environment: `npm run dev` (This command, defined in your project's package.json, starts both the backend server and the client using the concurrently library. It's a convenient way to run both parts of your application concurrently during development.)
+4. Démarrer l'environnement de développement : `npm run dev` (Cette commande, définie dans le package.json de votre projet, démarre à la fois le serveur backend et le client en utilisant la bibliothèque simultanément. C'est un moyen pratique d'exécuter les deux parties de votre application simultanément pendant le développement.)
 
-# Usage
+# Utilisation
 
-### Contests Section
+### Section Concours
 
-- Visit the **Contests** page to explore upcoming coding contests.
-- Apply filters to narrow down contests based on your preferences.
-- Click on a contest to view detailed information, including start time, duration, and platform.
+- Visiter la page **Concours** pour découvrir les prochains concours de codage.
+- Appliquer des filtres pour affiner les concours en fonction de vos préférences.
+- Cliquer sur un concours pour afficher des informations détaillées, notamment l'heure de début, la durée et la plateforme.
 
-### User Profiles
+### Profils d'utilisateurs
 
-- Create your developer portfolio by signing up and providing your user handles for different coding platforms.
-- The platform dynamically fetches and displays your latest ratings, achievements, and contest history.
-- Customize your portfolio to display the information you want to share with others.
+- Créer votre portefeuille de développeurs en vous inscrivant et en fournissant vos identifiants d'utilisateur pour différentes plateformes de codage.
+- La plateforme récupère et affiche dynamiquement vos dernières notes, réalisations et historique des concours.
+- Personnaliser votre portefeuille pour afficher les informations que vous souhaitez partager avec les autres.
 
-# Contributing
+# Contribuer
 
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
+Les contributions sont les bienvenues ! Veuillez lire [CONTRIBUTING.md](CONTRIBUTING.md) pour savoir comment contribuer à ce projet.
 
-# Contributors ✨
+# Contributeurs ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Merci à ces personnes formidables ([clé emoji](https://allcontributors.org/docs/en/emoji-key)) :
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -191,18 +188,18 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-# License
+# Licence
 
-This project is licensed under the [MIT License](LICENSE).
+Ce projet est sous licence [MIT License](LICENSE).
 
 # Discord
 
-Join Our [Discord Community](https://digitomize.com/discord) for any help and troubleshooting.
+Rejoignez notre [Communauté Discord](https://digitomize.com/discord) pour toute aide et dépannage.
 
-# Contact Information
+# Contact
 
-For more ways to get in touch, refer to our [CONTACT.md](CONTACT.md).
+Pour en savoir plus, consulter notre [CONTACT.md](CONTACT.md).
 
-# Buy me a Coffee ☕
+# Achetez-moi un café ☕
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/digitomize)
+[!["Achetez-moi un café"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/digitomize)
