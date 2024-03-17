@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import { FaArrowLeft } from "react-icons/fa6";
+import { FaArrowLeft } from "react-icons/fa";
 import { navLinks, accountLinks } from "./dashboardLinks";
 import { logo_white_full } from "../../components/AllAssets";
 function UserDashBoardTab() {
