@@ -70,32 +70,32 @@ export default function UserDashboard() {
       text: "Elevate your profile with new skills.",
       completed: userData?.personal_data?.skills?.length > 0,
       score: 20,
-      link: "career"
+      link: "career",
     },
     addSocialMedia: {
       text: "Connect with your audience by adding social media links.",
       completed: userData?.social?.linkedin?.length > 0 || userData?.social?.github?.length > 0 || userData?.social?.twitter?.length > 0 || userData?.social?.instagram?.length > 0 || userData?.social?.facebook?.length > 0,
       score: 20,
-      link: "career"
+      link: "career",
     },
     addBio: {
       text: "Craft a compelling bio to make a lasting impression.",
       completed: userData?.personal_data?.bio?.data?.length > 0,
       score: 20,
-      link: "profile"
+      link: "profile",
     },
     addRatings: {
       text: "Add your ratings to showcase your competitive spirit.",
       completed: userData?.ratings?.codechef?.data?.length > 0 || userData?.ratings?.codeforces?.data?.length > 0 || userData?.ratings?.leetcode?.data?.length > 0 || userData?.ratings?.geeksforgeeks?.data?.length > 0,
       score: 40,
-      link: "ratings"
-    }
+      link: "ratings",
+    },
   };
 
 
 
 
-  const [contest, setContest] = useState([])
+  const [contest, setContest] = useState([]);
   const location = useLocation();
   const [show, setShow] = useState(false);
   const close_model = () => setShow(false);
@@ -120,7 +120,7 @@ export default function UserDashboard() {
   }
   useEffect(() => {
     async function getContest() {
-      let url = `${backendUrl}/contests`
+      let url = `${backendUrl}/contests`;
       if (userData?.personal_data?.preferences?.contest_notifs) {
         const preferences = userData.personal_data.preferences.contest_notifs;
         const platforms = [];
@@ -132,17 +132,17 @@ export default function UserDashboard() {
         }
 
         if (platforms.length > 0) {
-          url += `?host=${platforms.join('&')}`;
+          url += `?host=${platforms.join("&")}`;
         }
       }
       console.log("URLL:", url);
       console.log("userData:", userData);
-      const response = await fetch(url)
-      const data = await response.json()
-      setContest(data.results.slice(0, 3))
+      const response = await fetch(url);
+      const data = await response.json();
+      setContest(data.results.slice(0, 3));
     }
-    getContest()
-  }, [userData])
+    getContest();
+  }, [userData]);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -209,7 +209,7 @@ export default function UserDashboard() {
                         <p className="text-xs">
                           <Link to={link} className="underline decoration-dotted">{text}</Link>
                           - <i> {score}% </i></p>
-                      </div>
+                      </div>;
                     })}
                   </div>
                   <div>
@@ -226,7 +226,7 @@ export default function UserDashboard() {
 
                         // Render the radial progress bar here
                         return (
-                          <div key="radial-progress" className={`radial-progress ${sum > 70 ? 'text-[#00FF00]' : sum > 50 ? 'text-green-600' : 'bg-gray-900'}`} style={{ "--value": sum, "--size": "6rem", "--thickness": "1rem" }} role="progressbar">
+                          <div key="radial-progress" className={`radial-progress ${sum > 70 ? "text-[#00FF00]" : sum > 50 ? "text-green-600" : "bg-gray-900"}`} style={{ "--value": sum, "--size": "6rem", "--thickness": "1rem" }} role="progressbar">
                             {sum}%
                           </div>
                         );
@@ -246,7 +246,7 @@ export default function UserDashboard() {
                           <img src={data.icon} alt={data.title} className="w-8" />
                           <p className="capitalize font-[500] sm:text-[16px] max-sm:text-[10px] text-[#EBEBEB]">{data.title}</p>
                         </div>
-                      </Link>
+                      </Link>;
                     })
                   }
                 </div>
@@ -258,7 +258,7 @@ export default function UserDashboard() {
                 <div className="flex flex-row gap-7  flex-wrap">
                   {
                     contest.map((data, index) => {
-                      return <ContestCard data={data} key={index} />
+                      return <ContestCard data={data} key={index} />;
                     })
                   }
                 </div>

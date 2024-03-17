@@ -7,7 +7,7 @@ export default function PlatformBox({formData,handleInputChangeObjData, handleSu
         <>
             <div className="mt-10 bg-dashboardColor shadow-light rounded-lg md:flex items-center gap-8 p-[6px]">
                 <div className="grow bg-dashboardDarkerColor self-stretch flex justify-center items-center rounded-[6px] md:max-w-[205px]">
-                    <img src={platform.icon} className="w-16 my-4" alt="" srcset="" />
+                    <img src={platform.icon} className="w-16 my-4" alt="" srcSet="" />
                 </div>
 
                 <div className="grow py-5 flex justify-between items-center gap-4 max-phone:flex-col">
@@ -22,5 +22,5 @@ export default function PlatformBox({formData,handleInputChangeObjData, handleSu
 
             </div>
         </>
-    )
+    );
 }

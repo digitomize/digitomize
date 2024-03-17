@@ -12,10 +12,10 @@ import {
 import { useState, useEffect } from "react";
 import "./App.css";
 
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 // import dayjs from 'dayjs';
-import 'dayjs/locale/en-gb';
+import "dayjs/locale/en-gb";
 
 // importing all the components ...
 import {
@@ -53,12 +53,12 @@ import ProfileLayout, {
   loader as profileLoader,
 } from "./user/Profile/pages/ProfileLayout";
 // import ProtectedRoute from "./ProtectedRoute"
-import { loader as userDashPersonalLoader } from './user/dashboard/UserDashPersonal'
+import { loader as userDashPersonalLoader } from "./user/dashboard/UserDashPersonal";
 import UserDashBoardProfile from "./user/dashboard/Profile/Profile";
 import Leaderboard from "./user/leaderboard/Leaderboard";
 import UserDashBoardWidget from "./user/dashboard/Widget";
 
-import Career from "./user/dashboard/Career/Career"
+import Career from "./user/dashboard/Career/Career";
 /*------------ DSA Sheets Import ------------ */
 import SheetLayout from "./dsaSheets/layout/SheetLayout";
 
