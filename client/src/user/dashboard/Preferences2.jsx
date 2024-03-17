@@ -5,9 +5,9 @@ import UserDashboard from "./UserDashboard";
 import { changeUserPreferences, submitUserFormData, userDashboardDetails } from "../../../api";
 import { ToastContainer, toast } from "react-toastify";
 import { ListItem, ListItemText, Skeleton, List } from "@mui/material";
-import WifiIcon from '@mui/icons-material/Wifi';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import { Switch } from '@mui/material';
+import WifiIcon from "@mui/icons-material/Wifi";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import { Switch } from "@mui/material";
 import NewNavbar from "../../components/globals/Navbar/NewNavbar";
 import DashboardNavbar from "../components/DashboardNavbar";
 import Footer from "../../components/globals/Footer";
@@ -83,15 +83,15 @@ export default function Preferences() {
     try {
       const response = changeUserPreferences(name, toggledValue);
       toast.promise(response, {
-        pending: 'Updating preferences... 🤔',
+        pending: "Updating preferences... 🤔",
         success: `Preference for ${name} updated to ${toggledValue} successfully! 🎉`,
         error: {
           render({ data }) {
             console.log(data.message);
-            return `${data.message}`
+            return `${data.message}`;
           },
           icon: "✅",
-        }
+        },
       });
       console.log(response);
     } catch (err) {
@@ -131,7 +131,7 @@ export default function Preferences() {
                       </ListItemIcon>
                       <ListItemText id={`switch-list-label-${name}`} primary={name} />
                       <Switch checked={formData.contest_notifs[name]} onChange={handleToggleChange} name={name} inputProps={{
-                        'aria-labelledby': `switch-list-label-${name}`,
+                        "aria-labelledby": `switch-list-label-${name}`,
                       }} />
                     {/* </div> */}
                   </ListItem>

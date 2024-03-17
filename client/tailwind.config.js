@@ -17,7 +17,7 @@ export default {
     },
     extend: {
       flex: {
-        '2': '2 2 0%'
+        "2": "2 2 0%",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],

@@ -8,7 +8,7 @@ export const navLinks = [
   {
     icon: preferences,
     title: "preferences",
-    path: "preferences"
+    path: "preferences",
   },
   {
     icon: career,
@@ -23,8 +23,8 @@ export const navLinks = [
   {
     icon: rating,
     title: "rating",
-    path: "ratings"
-  }
+    path: "ratings",
+  },
 ];
 
 export const accountLinks = [
@@ -36,7 +36,7 @@ export const accountLinks = [
   {
     icon: preferences,
     title: "preferences",
-    path: "preferences"
+    path: "preferences",
   },
   {
     icon: career,
@@ -54,7 +54,7 @@ export const integrationLinks = [
   {
     icon: rating,
     title: "rating",
-    path: "ratings"
+    path: "ratings",
   },
   {
     icon: github,
@@ -72,7 +72,7 @@ export const resourcesLinks = [
   {
     icon: contests,
     title: "contests",
-    path: "/contests"
+    path: "/contests",
   },
   {
     icon: swords,

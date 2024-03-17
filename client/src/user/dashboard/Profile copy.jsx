@@ -1,9 +1,9 @@
-import React from 'react'
-import ImageUploader from '../../components/ImageUploader'
-import { useLoaderData } from 'react-router-dom';
-import { useState } from 'react';
-import { submitUserFormData } from '../../../api';
-import { toast, ToastContainer } from 'react-toastify';
+import React from "react";
+import ImageUploader from "../../components/ImageUploader";
+import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import { submitUserFormData } from "../../../api";
+import { toast, ToastContainer } from "react-toastify";
 function UserDashBoardProfile() {
   const { personal_data, social } = useLoaderData();
   const [isDisabled, setIsDisabled] = useState(false);
@@ -229,7 +229,7 @@ function UserDashBoardProfile() {
             </div>
           </div>
           <div className="flex w-full max-sm:justify-center md:justify-end md:pe-12">
-            <div className="btn-div" style={{ boxShadow: `8px 8px #2E8D46` }}>
+            <div className="btn-div" style={{ boxShadow: "8px 8px #2E8D46" }}>
               <button disabled={isDisabled}
                 onClick={handleSubmit}
                 type="submit"
@@ -249,7 +249,7 @@ function UserDashBoardProfile() {
 
       </div>
     </>
-  )
+  );
 }
 
-export default UserDashBoardProfile
+export default UserDashBoardProfile;

@@ -1,5 +1,5 @@
 import React from "react";
-import {buttonState} from '@components/Login'
+import {buttonState} from "@components/Login";
 import { useRecoilValue } from "recoil";
 
 function SignoutButton({
@@ -24,7 +24,7 @@ function SignoutButton({
           className={`absolute inset-0 w-full h-full transition-all duration-200 ease-in-out delay-100 ${backgroundColor} rounded-md opacity-0 group-hover:opacity-100 `}
         ></span>
         <span className="relative text-black transition-colors duration-200 ease-in-out delay-100 group-hover:text-white">
-        {isLoginPage ? (btnState ? 'Logging in...' : 'Log in') :(btnState ? "Joining in..." : "Join the coders")}
+        {isLoginPage ? (btnState ? "Logging in..." : "Log in") :(btnState ? "Joining in..." : "Join the coders")}
         </span>
       </button>
     </div>

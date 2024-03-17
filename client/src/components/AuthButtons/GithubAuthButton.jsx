@@ -2,7 +2,7 @@ import { GithubAuthProvider, signInWithPopup } from "firebase/auth";
 import { useRecoilState,useSetRecoilState } from "recoil";
 import { auth } from "../../../firebase";
 import { toast } from "react-toastify";
-import {buttonState,errorState} from '@components/Login'
+import {buttonState,errorState} from "@components/Login";
 import { useNavigate } from "react-router-dom";
 import githubIcon from "@assets/github.svg";
 import axios from "axios";

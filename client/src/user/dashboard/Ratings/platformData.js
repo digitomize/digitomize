@@ -9,7 +9,7 @@ const platforms = [
         url: "leetcode.com/",
         name: "leetcode",
         note: "Note: Please enter username only",
-        active: true
+        active: true,
     },
     {
         title: "Integrate with Codechef",
@@ -19,7 +19,7 @@ const platforms = [
         url: "codechef.com/users/",
         name: "codechef",
         note: "Note: Please enter username only",
-        active: true
+        active: true,
     },
     {
         title: "Integrate with Codeforces",
@@ -29,7 +29,7 @@ const platforms = [
         url: "codeforces.com/profile/",
         name: "codeforces",
         note: "Note: Please enter username only",
-        active: true
+        active: true,
     },
     {
         title: "Integrate with Atcoder",
@@ -39,7 +39,7 @@ const platforms = [
         url: "atcoder.jp/users/",
         name: "atcoder",
         note: "Note: Please enter username only",
-        active: false
+        active: false,
     },
     {
         title: "Integrate with GeeksforGeeks",
@@ -49,7 +49,7 @@ const platforms = [
         url: "auth.geeksforgeeks.org/user/",
         name: "geeksforgeeks",
         note: "Note: Please enter username only",
-        active: false
+        active: false,
     },
     {
         title: "Integrate with Coding Ninjas",
@@ -59,7 +59,7 @@ const platforms = [
         url: "codingninjas.com/studio/profile/",
         name: "codingninjas",
         note: "Note: Please enter username only",
-        active: false
+        active: false,
     },
 ];
 

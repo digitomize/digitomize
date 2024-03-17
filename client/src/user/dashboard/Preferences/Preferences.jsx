@@ -1,9 +1,9 @@
-import React from 'react'
-import ImageUploader from '../../../components/ImageUploader'
-import { useLoaderData } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { submitUserFormData } from '../../../../api';
-import { toast, ToastContainer } from 'react-toastify';
+import React from "react";
+import ImageUploader from "../../../components/ImageUploader";
+import { useLoaderData } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { submitUserFormData } from "../../../../api";
+import { toast, ToastContainer } from "react-toastify";
 import BasicInfo from "./Selecting";
 import { changeUserPreferences, userDashboardDetails } from "../../../../api";
 
@@ -71,15 +71,15 @@ function Preferences() {
     try {
       const response = changeUserPreferences(name, toggledValue);
       toast.promise(response, {
-        pending: 'Updating preferences... 🤔',
+        pending: "Updating preferences... 🤔",
         success: `Preference for ${name} updated to ${toggledValue} successfully! 🎉`,
         error: {
           render({ data }) {
             console.log(data.message);
-            return `${data.message}`
+            return `${data.message}`;
           },
           icon: "✅",
-        }
+        },
       });
       console.log(response);
     } catch (err) {
@@ -100,7 +100,7 @@ function Preferences() {
 
         <LoadingScreen />;
       </div>
-    )
+    );
   }
 
   return (
@@ -108,9 +108,9 @@ function Preferences() {
       <MetaData path="u/dashboard/preferences" />
       <ToastContainer />
       <div className="bg-dashboardDarkColor font-['Geist']">
-        <div class="flex justify-between items-center min-h-[40px]">
-          <div class="flex flex-shrink gap-2 mr-4 items-center min-w-0">
-            <p class="truncate font-medium text-gray-200 text-3xl max-w-[600px]">Preferences</p>
+        <div className="flex justify-between items-center min-h-[40px]">
+          <div className="flex flex-shrink gap-2 mr-4 items-center min-w-0">
+            <p className="truncate font-medium text-gray-200 text-3xl max-w-[600px]">Preferences</p>
           </div>
         </div>
         <form >
@@ -124,7 +124,7 @@ function Preferences() {
 
       </div>
     </>
-  )
+  );
 }
 
-export default Preferences
+export default Preferences;

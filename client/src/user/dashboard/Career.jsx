@@ -10,7 +10,7 @@ import { submitUserFormData } from "../../../api";
 const socialFields = [
   { icon: <FaInstagram size={40} />, name: "instagram", placeholder: "Instagram URL" },
   { icon: <FaLinkedin size={40} />, name: "linkedin", placeholder: "Linkedin URL" },
-  { icon: <FaXTwitter size={40} />, name: "twitter", placeholder: "Twitter URL" }
+  { icon: <FaXTwitter size={40} />, name: "twitter", placeholder: "Twitter URL" },
 ];
 
 
@@ -215,7 +215,7 @@ function UserDashBoardCarrer() {
         </div>
 
         <div className="flex w-full max-sm:justify-center md:justify-end md:pe-12 max-sm:text-sm ">
-          <div className="btn-div" style={{ boxShadow: `8px 8px #2E8D46` }}>
+          <div className="btn-div" style={{ boxShadow: "8px 8px #2E8D46" }}>
             <button disabled={isDisabled}
               onClick={handleSubmit}
               type="submit"

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
     devfolio,
     devpost,
-    unstop
+    unstop,
 } from "../../AllAssets";
 import ShareModel from "../../share_model";
 import moment from "moment-timezone";

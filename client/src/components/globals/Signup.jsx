@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import axios from "axios";
 import { useRef } from "react";
-import {buttonState} from '@components/Login';
+import {buttonState} from "@components/Login";
 import { useState } from "react";
 import { isLoggedIn } from "../../../api";
 import { auth } from "../../../firebase";
