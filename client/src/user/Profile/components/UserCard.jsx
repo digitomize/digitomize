@@ -38,18 +38,18 @@ function UserCard({
   );
   const truncatedBio = showMore ? bio : bio?.slice(0, 150);
   return (
-    <div className="rounded-2xl bg-eerie-black-2  shadow-md flex flex-col h-fit lg:px-6 lg:py-8 px-4 py-6 border border-jet w-[100%]">
-      <div className="flex flex-row sm:items-center md:gap-4 gap-2 mb-6 lg:gap-6">
+      <div className="rounded-2xl bg-eerie-black-2 shadow-md flex flex-col lg:flex-row lg:h-fit lg:px-6 lg:py-8 px-4 py-6 border border-jet w-full max-w-[768px] lg:max-w-none lg:w-[calc(100% - 2rem)]"> {/* Making the card responsive */}
+          <div className="flex flex-col sm:flex-row lg:flex-col items-center lg:items-start lg:w-[120px] lg:mr-6"> {/* Adjusting layout for different screen sizes */}
         <img
           src={picture}
           alt=""
           className="rounded-full w-[70px] h-[70px] md:w-[90px] md:h-[90px] lg:w-[120px] lg:h-[120px]"
-        />
-        <div className="flex w-full sm:flex-col max-sm:flex-row max-sm:justify-between">
-          <div>
-            <h2 className="font-500 lg:text-[32px] text-2xl ">{name}</h2>
-            <h2 className="sm:text-[16px] text-[14px] pl-1 font-normal font-['Geist']">@{username}</h2>
-          </div>
+          />
+          <div className="flex flex-col sm:flex-row max-sm:flex-row max-sm:justify-between w-full mt-2 sm:mt-0"> {/* Making the text layout responsive */}
+            <div className="w-full">
+             <h2 className="font-500 lg:text-[32px] text-2xl mb-1 lg:mb-2">{name}</h2>
+             <h2 className="sm:text-[16px] text-[14px] font-normal font-['Geist']">@{username}</h2>
+            </div>
           <div
             className={`sm:mt-3 flex  sm:gap-2 gap-3 ${social ? "" : "hidden"
               }`}
