@@ -86,6 +86,18 @@ export default function SectionTwo() {
       },
     }));
   };
+  const clearDefaultText = (event, fieldName) => {
+    const fieldValue = formData[fieldName].data;
+    if (event.target.value === fieldValue) {
+      setFormData((prevData) => ({
+        ...prevData,
+        [fieldName]: {
+          ...prevData[fieldName],
+          data: "",
+        },
+      }));
+    }
+  };
 
   return (
     <div className="max-md:mt-2 md:mt-24 flex justify-center p-2 min-h-screen min-xs:flex-col mx-auto w-11/12">
@@ -233,14 +245,17 @@ export default function SectionTwo() {
                       {">"}
                     </span>
                   </label>
+
                   <input
                     name="name"
                     type="text"
-                    placeholder="your name"
+                    placeholder="Your Name"
                     className="input input-bordered w-full max-w-xs"
                     onChange={handleInputChange}
-                    value={formData.name}
+                    onFocus={(event) => clearDefaultText(event, "name")}
+                    value={formData.name.data}
                   />
+
                   <label className="select-text cursor-text label">
                     <span className="select-text cursor-text label-text">
                       phone number
@@ -252,24 +267,26 @@ export default function SectionTwo() {
                         }
                         arrow
                         placement="top"
-                      >
-                        <Switch
-                          size="small"
-                          inputProps={{ "aria-label": "controlled" }}
-                          checked={formData.phoneNumber.showOnWebsite}
-                          onChange={updateShowOnWebsite("phoneNumber")}
-                        />
-                      </Tooltip>
+                      ></Tooltip>
                     </span>
                   </label>
+
+                  <Switch
+                    size="small"
+                    inputProps={{ "aria-label": "controlled" }}
+                    checked={formData.phoneNumber.showOnWebsite}
+                    onChange={updateShowOnWebsite("phoneNumber")}
+                  />
                   <input
                     name="phoneNumber"
                     type="Number"
-                    placeholder="your number"
+                    placeholder="Your Number"
                     className="input input-bordered w-full max-w-xs [-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" // classes to remove arrows from number input
                     onChange={handleInputChangeObjData}
+                    onFocus={(event) => clearDefaultText(event, "phoneNumber")}
                     value={formData.phoneNumber.data}
                   />
+
                   <label className="select-text cursor-text label">
                     <span className="select-text cursor-text label-text">
                       bio
@@ -296,6 +313,7 @@ export default function SectionTwo() {
                     className="textarea textarea-bordered h-24 max-h-60"
                     placeholder="about you"
                     onChange={handleInputChangeObjData}
+                    onFocus={(event) => clearDefaultText(event, "bio")}
                     value={formData.bio.data}
                   ></textarea>
                 </div>
@@ -420,17 +438,14 @@ export default function SectionTwo() {
           }}
           className="flex justify-center m-4"
         >
-          <a  href="/signup"
-
-
-           
+          <a
+            href="/signup"
             className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border "
           >
-            <div  className='flex justify-center items-center gap-1'>
-            Create Now
-            <IoCreateSharp />
+            <div className="flex justify-center items-center gap-1">
+              Create Now
+              <IoCreateSharp />
             </div>
-         
           </a>
         </motion.div>
       </div>
