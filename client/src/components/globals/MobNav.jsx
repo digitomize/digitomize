@@ -75,15 +75,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
             <nav
               className={`duration-500 absolute inset-x-0 top-full z-10 mt-px flex-col p-6 pb-24 bg-zinc-950 shadow-2xl flex transition-[opacity] ${isMenuActive ? "opacity-100" : "opacity-0 pointer-events-none z-0"
                 }`}
-            >
-              <a
-                target="_self"
-                className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 rounded-full hover:bg-emerald-400 hover:text-emerald-950 disabled:bg-white/5 disabled:text-zinc-50 justify-center py-3 text-lg font-medium bg-custom-blue font-display text-zinc-950"
-                href={user ? "/logout" : "/login"}
-              >
-                <span>{user ? "logout" : "login"}</span>
-              </a>
-              <div className="flex flex-col mt-6 divide-y divide-white/5 border-y border-y-white/5">
+            ><div className="flex flex-col  divide-y divide-white/5 border-y border-y-white/5">
                 {user && (
                   <a
                     className="flex items-center gap-2 py-4 font-display text-lg font-medium"
@@ -104,7 +96,16 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
                   </a>
                 ))}
               </div>
+              <div className="py-4"></div> 
+              <a
+                target="_self"
+                className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 rounded-full hover:bg-emerald-400 hover:text-emerald-950 disabled:bg-white/5 disabled:text-zinc-50 justify-center py-3 text-lg font-medium bg-custom-blue font-display text-zinc-950"
+                href={user ? "/logout" : "/login"}
+              >
+                <span>{user ? "logout" : "login"}</span>
+              </a>
             </nav>
+            
           </div>
         </div>
       </header>
