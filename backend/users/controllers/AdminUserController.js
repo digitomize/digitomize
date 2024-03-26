@@ -38,7 +38,8 @@ const updateUser = async (req, res) => {
   }
 };
 
-const createUserFirebase = async (req, res, next) => {
+//old cretaUserFirebase function
+/*const createUserFirebase = async (req, res, next) => {
   const { body } = req;
   admin
     .auth()
@@ -60,6 +61,35 @@ const createUserFirebase = async (req, res, next) => {
         message: `code:${error.errorInfo.code}, \n message:${error.errorInfo.message}`,
       });
     });
+};*/
+
+//new function
+const createUserFirebase = async (req, res, next) => {
+  try {
+    const { email, name, password } = req.body;
+
+    // Validate input
+    if (!email || !name || !password) {
+      return res.status(400).json({ error: "Missing required fields" });
+    }
+
+    // Create user in Firebase Authentication
+    const userRecord = await admin.auth().createUser({
+      email,
+      displayName: name,
+      password,
+    });
+
+    // Proceed to next middleware
+    req.user = userRecord;
+    next();
+  } catch (error) {
+    console.error("Error creating new user:", error);
+    return res.status(500).json({
+      error: "Internal server error",
+      message: error.message,
+    });
+  }
 };
 
 const createUserDB = async (req, res) => {
