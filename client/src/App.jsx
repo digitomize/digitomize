@@ -176,7 +176,7 @@ const router = createBrowserRouter(
         <Route path="signup" element={<Signup />} loader={signupLoader} />
         <Route path="forgot-password" element={<ForgotPassword />} loader={forgotPasswordLoader} />
         <Route element={<ContestPageLayout />}>
-          <Route path="contests" element={<Filter />} />
+          <Route path="contasts" alement={<Filter />} />
           <Route path="challenges" element={<Challenges />} />
           <Route path="hackathons" element={<ComingSoonLoader value='Hackathons' />} />
           <Route path="internships" element={<ComingSoonLoader value='Internships' />} />
