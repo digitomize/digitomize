@@ -20,9 +20,6 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 <img align="center" src="https://github.com/krushnarout/digitomize/assets/129386740/3f224853-cf4b-4318-ba27-8285d1c9a0fe" alt="MSME Logo" height="auto" width="180">
 <img align="center" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcROO_yLE47eeYv8eSiT3aMB1AWncngyOzGHYqptZwwckpfmH4m0" alt="MELT CD Logo" height="auto" width="180">
 
-# Translation:
-[French](doc/README.fr.md)
-
 # Table of Contents
 
 - [Introduction](#introduction)
