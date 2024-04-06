@@ -20,7 +20,7 @@ export const navLinks = [
 export const navLinksDashboard = [
     {
         title: "account",
-        path: "/u/dashboard/profile",
+        path: "/u/dashboard/account",
     },
     {
         title: "ratings",
