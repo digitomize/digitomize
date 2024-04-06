@@ -42,8 +42,8 @@ const createUserFirebase = (req, res, next) => {
   const { body } = req;
 
   // Validate input fields
-  if (!body || !body.email || !body.name || !body.password) {
-    return res.status(400).json({ error: "Missing required fields" });
+  if (!body || !body.email.trim() || !body.name.trim() || !body.password.trim()) {
+        return res.status(400).json({ error: "Missing required fields" });
   }
 
   // Create user in Firebase Authentication
@@ -55,7 +55,7 @@ const createUserFirebase = (req, res, next) => {
       password: body.password,
     })
     .then((userRecord) => {
-      // Set the user record in the request object for subsequent middleware
+      // See the UserRecord reference doc for the contents of userRecord.
       req.user = userRecord;
       next(); // Proceed to the next middleware
     })
@@ -66,7 +66,7 @@ const createUserFirebase = (req, res, next) => {
       const errorMessage = `code:${error.errorInfo.code}, \n message:${error.errorInfo.message}`;
 
       // Return appropriate error response based on error code
-      if (error.code === "auth/email-already-exists") {
+      if (error.errorInfo.code === "auth/email-already-exists") {
         return res.status(400).json({ error: "Email already exists" });
       }
 
