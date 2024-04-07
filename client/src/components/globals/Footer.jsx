@@ -2,6 +2,8 @@ import { dynamicLogo } from "../AllAssets";
 import GitHubButton from "react-github-btn";
 import { FaLinkedin, FaDiscord, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
+
 
 const copyrightDate = new Date().getFullYear();
 
@@ -10,15 +12,18 @@ export default function Footer() {
     <footer className="font-['Geist'] bg-cardsColor pb-10 mt-6">
       <div className="footer lg:max-w-7xl mx-auto p-10 text-base-content md:items-center flex flex-col md:flex-row justify-center items-start">
         <aside className="flex flex-col mx-auto sm:!ml-0 md:!mr-8 text-center sm:text-start mb-4 sm:mb-0">
-        <a href="/home">
-          <img
-          src={dynamicLogo}
-          alt="logo"
-          style={{ maxHeight: "7rem", maxWidth: "7rem", marginTop: "-.90rem" }}
-          />
-          </a>
+          <Link to="/home">
+            <img
+              src={dynamicLogo}
+              alt="logo"
+              style={{
+                maxHeight: "7rem",
+                maxWidth: "7rem",
+                marginTop: "-0.90rem",
+              }}
+            />
+          </Link>
           <h2 className="text-2xl my-3">Digitomize</h2>
-
 
           <p className="text-base-content text-md max-w-[230px] mb-5">
             Explore upcoming coding contests and dynamically create developer
@@ -33,9 +38,21 @@ export default function Footer() {
           >
             Star
           </GitHubButton>
-          <div className="flex justify-center mt-px-2" style={{marginTop:'5px'}}>
-              <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">
-              <img src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg" alt="Deploys by Netlify" className="w-[18] h-10" /> {/*added here*/}
+          <div
+            className="flex justify-center mt-px-2"
+            style={{ marginTop: "5px" }}
+          >
+            <a
+              href="https://www.netlify.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg"
+                alt="Deploys by Netlify"
+                className="w-[18] h-10"
+              />{" "}
+              {/*added here*/}
             </a>
           </div>
         </aside>
