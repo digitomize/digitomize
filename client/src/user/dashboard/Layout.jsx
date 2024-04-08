@@ -18,6 +18,11 @@ function UserDashBoardLayout() {
   const toggleActive = () => {
     setSideTab(!sideTab);
   }
+  const handleClick=()=>{
+    if (sideTab){
+      toggleActive();
+
+  }}
 
   return (
     <ThemeProvider theme={theme}>
@@ -27,12 +32,9 @@ function UserDashBoardLayout() {
 
         <div className='-mt-16 pt-16 relative'>
           <UserDashBoardTab sideTab={sideTab} />
-          <div className={`flex ${sideTab ? 'blur-sm' : ''}`}  onClick={()=>{
-            if(sideTab){
-
-              toggleActive();
-            }
-          }}>
+          <div className={`flex ${sideTab ? 'blur-sm' : ''}`}  onClick=
+            {handleClick}
+          >
             <div class="shrink-0 lg:w-56">
             </div>
             <main className="max-w-5xl phone:container px-6 phone:px-12 mx-auto py-10 min-h-screen">
