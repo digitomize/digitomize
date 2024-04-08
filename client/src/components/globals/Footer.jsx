@@ -2,8 +2,7 @@ import { dynamicLogo } from "../AllAssets";
 import GitHubButton from "react-github-btn";
 import { FaLinkedin, FaDiscord, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 
 const copyrightDate = new Date().getFullYear();
 
@@ -11,24 +10,24 @@ export default function Footer() {
   return (
     <footer className="font-['Geist'] bg-cardsColor pb-10 mt-6">
       <div className="footer lg:max-w-7xl mx-auto p-10 text-base-content md:items-center flex flex-col md:flex-row justify-center items-start">
-        <aside className="flex flex-col mx-auto sm:!ml-0 md:!mr-8 text-center sm:text-start mb-4 sm:mb-0">
-          <Link to="/home">
+        <aside className="flex flex-col items-center justify-center mx-auto sm:mx-0 sm:ml-0 md:mr-8 text-center sm:text-start mb-4 sm:mb-0">
+          <Link
+            to="/home"
+            className="flex flex-col items-center justify-center"
+          >
             <img
               src={dynamicLogo}
               alt="logo"
-              style={{
-                maxHeight: "7rem",
-                maxWidth: "7rem",
-                marginTop: "-0.90rem",
-              }}
+              className="max-w-[7rem] max-h-[7rem] mb-2"
             />
+            <h2 className="text-2xl my-3">Digitomize</h2>
           </Link>
-          <h2 className="text-2xl my-3">Digitomize</h2>
 
           <p className="text-base-content text-md max-w-[230px] mb-5">
             Explore upcoming coding contests and dynamically create developer
             portfolios
           </p>
+
           <GitHubButton
             href="https://github.com/digitomize/digitomize"
             data-color-scheme="no-preference: dark_high_contrast; light: dark_high_contrast; dark: light;"
@@ -38,10 +37,8 @@ export default function Footer() {
           >
             Star
           </GitHubButton>
-          <div
-            className="flex justify-center mt-px-2"
-            style={{ marginTop: "5px" }}
-          >
+
+          <div className="flex justify-center mt-2">
             <a
               href="https://www.netlify.com"
               target="_blank"
@@ -51,11 +48,11 @@ export default function Footer() {
                 src="https://www.netlify.com/v3/img/components/netlify-color-accent.svg"
                 alt="Deploys by Netlify"
                 className="w-[18] h-10"
-              />{" "}
-              {/*added here*/}
+              />
             </a>
           </div>
         </aside>
+
         <div className="lg:flex-1 flex flex-col sm:flex-row sm:flex-wrap mx-auto justify-between gap-8 mb-4 sm:mb-0">
           <nav className="flex justify-center items-center sm:!items-start flex-col gap-3 w-full sm:!w-[45%] xl:!w-fit">
             <header className="text-white font-medium text-2xl mb-2">
