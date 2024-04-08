@@ -38,8 +38,15 @@ const updateUser = async (req, res) => {
   }
 };
 
-const createUserFirebase = async (req, res, next) => {
+const createUserFirebase = (req, res, next) => {
   const { body } = req;
+
+  // Validate input fields
+  if (!body || !body.email.trim() || !body.name.trim() || !body.password.trim()) {
+        return res.status(400).json({ error: "Missing required fields" });
+  }
+
+  // Create user in Firebase Authentication
   admin
     .auth()
     .createUser({
@@ -50,14 +57,23 @@ const createUserFirebase = async (req, res, next) => {
     .then((userRecord) => {
       // See the UserRecord reference doc for the contents of userRecord.
       req.user = userRecord;
-      // console.log("Successfully created new user:", userRecord);
-      next();
+      next(); // Proceed to the next middleware
     })
     .catch((error) => {
-      console.log("Error creating new user:", error);
-      return res.status(404).json({
-        error,
-        message: `code:${error.errorInfo.code}, \n message:${error.errorInfo.message}`,
+      console.error("Error creating new user:", error);
+
+      // Extract the error code and message from error object
+      const errorMessage = `code:${error.errorInfo.code}, \n message:${error.errorInfo.message}`;
+
+      // Return appropriate error response based on error code
+      if (error.errorInfo.code === "auth/email-already-exists") {
+        return res.status(400).json({ error: "Email already exists" });
+      }
+
+      // Return a 500 Internal Server Error status for other errors
+      return res.status(500).json({
+        error: "Internal server error",
+        message: errorMessage,
       });
     });
 };
