@@ -3,6 +3,7 @@ import Button from "./globals/Button";
 import Card from "./globals/Card";
 import Contests from "./Contests";
 import About from "@pages/about/About";
+import Contact from "@pages/contact/Contact";
 import CopyToClipboard from "./CopyToClipboard";
 import ErrorPage from "./globals/error-page";
 import Feedback from "./Feedback";
@@ -31,6 +32,7 @@ export {
   Card,
   Contests,
   About,
+  Contact,
   CopyToClipboard,
   ErrorPage,
   Feedback,

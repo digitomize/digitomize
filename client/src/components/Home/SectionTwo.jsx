@@ -66,6 +66,7 @@ export default function SectionTwo() {
       [name]: value,
     }));
   };
+
   const handleInputChangeObjData = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
@@ -87,16 +88,13 @@ export default function SectionTwo() {
     }));
   };
   const clearDefaultText = (event, fieldName) => {
-    const fieldValue = formData[fieldName].data;
-    if (event.target.value === fieldValue) {
-      setFormData((prevData) => ({
-        ...prevData,
-        [fieldName]: {
-          ...prevData[fieldName],
-          data: "",
-        },
-      }));
-    }
+    setFormData((prevData) => ({
+      ...prevData,
+      [fieldName]: {
+        ...prevData[fieldName],
+        data: "", // Clear the field's value when it gains focus
+      },
+    }));
   };
 
   return (
@@ -253,7 +251,7 @@ export default function SectionTwo() {
                     className="input input-bordered w-full max-w-xs"
                     onChange={handleInputChange}
                     onFocus={(event) => clearDefaultText(event, "name")}
-                    value={formData.name.data}
+                    value={formData.name}
                   />
 
                   <label className="select-text cursor-text label">

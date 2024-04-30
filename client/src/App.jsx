@@ -32,6 +32,7 @@ import {
   Homepage,
   Feedback,
   About,
+  Contact,
   Footer,
   MetaData,
 } from "./components/CustomComponents";
@@ -187,8 +188,8 @@ const router = createBrowserRouter(
         {/* <Route path="updates" element={<Updates />} /> */}
         <Route path="home" element={<Homepage />} />
         <Route path="feedback" element={<Feedback />} />
-        <Route path="contact" element={<About />} />
         <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
         <Route path="discord" element={<DiscordRedirect />} />
         <Route path="blogs" element={<BlogsRedirect />} />
         <Route path="contests/:vanity" element={<IndividualCard />} />

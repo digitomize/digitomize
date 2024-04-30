@@ -46,7 +46,7 @@ export default function NewNavbar({ position }) {
   const navLinksDashboard = [
     {
       title: "account",
-      path: "/u/dashboard/account",
+     url: "/https://digitomize.com/u/dashboard/profile ",
     },
     {
       title: "ratings",

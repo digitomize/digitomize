@@ -18,6 +18,7 @@ import potdRoutes from "./potd/routes/potdRoutes.js";
 import hackathonAPISyncer from "./hackathons/controllers/hackathonApiSyncController.js";
 import hackathonDBSyncer from "./hackathons/controllers/hackathonDbSyncController.js";
 import hackathonRoutes from "./hackathons/routes/hackathonRoutes.js";
+import contactRoutes from "./services/email/contactRoutes.js"
 
 dotenv.config();
 const app = express();
@@ -60,6 +61,7 @@ async function setupUserServer() {
   app.use("/admin", adminRoutes);
   app.use("/sheets", sheetRoutes);
   app.use("/questions", questionRoutes);
+  app.use("/contact", contactRoutes);
 }
 
 async function setupExtensionServer() {
