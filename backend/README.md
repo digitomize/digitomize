@@ -96,7 +96,7 @@ Configure your environment variables in the `.env` file. This file should contai
 
 ```bash
 TEST=Env file connected.
-MONGODB_URL=mongodb://localhost:27017/digitomize
+MONGODB_URL=mongodb://127.0.0.1:27017/digitomize
 PORT=4001
 BACKEND_URL=http://localhost:4001
 CONTESTS=true
