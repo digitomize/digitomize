@@ -12,6 +12,7 @@ import {
 
 export default function Contact() {
   const [btnState, setBtnState] = useState(false);
+  const [isFormDisplayed, setIsFormDisplayed] = useState(true);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -38,10 +39,16 @@ export default function Contact() {
     );
   };
 
+  const handleResendButton = () => {
+    setIsFormDisplayed(true);
+    setSuccessMsg("");
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setSuccessMsg("");
     if (!canSubmit()) return;
+    console.log(formData);
     axios
       .post(`${BACKEND_URL}/contact/post`, {
         recipientEmail: formData.email,
@@ -51,6 +58,7 @@ export default function Contact() {
       .then((res) => {
         setSuccessMsg("Contact email sent successfully");
         setFormData({ message: "", email: "", fullName: "" });
+        setIsFormDisplayed(false);
       })
       .catch((err) => {
         setSuccessMsg("Error submitting contact form: " + err);
@@ -154,165 +162,126 @@ export default function Contact() {
         </div>
         <div
           className="mt-2 text-white max-md:text-4xl md:text-6xl flex flex-col w-full mt-5 mx-auto"
-          style={{ width: "50%", flex: "2" }}
+          style={{ flex: "2" }}
         >
-          <div className="flex flex-col">
-            <div className="w-full px-3">
-              <label className="label">
-                <p>
-                  {/* <span className="label-text">{"#include"}</span> */}
-                  <span className="label-text text-custom-blue">
-                    {"Full Name*:"}
-                  </span>
-                </p>
-              </label>
-              <input
-                type="text"
-                id="fullName"
-                placeholder="Full Name"
-                className="input input-bordered w-full bg-black border-2 border-jet"
-                onChange={handleChange}
-                value={formData.fullName}
-                required
-              />
-            </div>
-            <div className="w-full px-3">
-              <label className="label">
-                <p>
-                  {/* <span className="label-text">{"import"}</span> */}
-                  <span className="label-text text-custom-blue">
-                    {"Email*:"}
-                  </span>
-                </p>
-              </label>
-              <div className="flex flex-row justify-between p-0 items-center input relative input-bordered w-full bg-black border-2 border-jet">
-                <input
-                  type="email"
-                  id="email"
-                  className="bg-transparent border-none w-full input input-bordered"
-                  onChange={handleChange}
-                  placeholder="Email"
-                  value={formData.email}
-                  required
-                />
-              </div>
-            </div>
-            <div className="w-full px-3">
-              <label className="label">
-                <p>
-                  {/* <span className="label-text">{"#include"}</span> */}
-                  <span className="label-text text-custom-blue">
-                    {"Message*:"}
-                  </span>
-                </p>
-              </label>
-              <textarea
-                placeholder="Message"
-                id="message"
-                className="input input-bordered w-full bg-black border-2 border-jet"
-                style={{ height: "200px" }}
-                onChange={handleChange}
-                required
-                value={formData.message}
-              />
-            </div>
-          </div>
-          <button
-            onClick={handleSubmit}
-            className="relative inline-flex items-center justify-center px-6 py-2 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group min-w-2/5"
-            style={{ margin: "20px auto 0 auto", width: "25%" }}
-          >
-            <span
-              className={`absolute inset-0 w-full h-full mt-1 ml-1 transition-all duration-300 ease-in-out bg-[#4285f4] rounded-md group-hover:mt-0 group-hover:ml-0`}
-            ></span>
-            <span className="absolute inset-0 w-full h-full bg-white rounded-md "></span>
-            <span
-              className={`absolute inset-0 w-full h-full transition-all duration-200 ease-in-out delay-100 bg-[#4285f4] rounded-md opacity-0 group-hover:opacity-100 `}
-            ></span>
-            <span className="relative text-black transition-colors duration-200 ease-in-out delay-100 group-hover:text-white">
-              Send !
-            </span>
-          </button>
-          {successMsg != "" && (
-            <div
-              style={{
-                color: successMsg.includes("Error") ? "red" : "#4caf50",
-                fontSize: "20px",
-                textAlign: "center",
-                paddingTop: "15px",
-              }}
-            >
-              <p>{successMsg}</p>
+          {isFormDisplayed ? (
+            <ContactForm
+              handleChange={handleChange}
+              handleSubmit={handleSubmit}
+              formData={formData}
+            />
+          ) : (
+            <div className="flex flex-col" style={{ height: "500px", width: "100%", textAlign: "center", justifyContent: "center"}}>
+              {successMsg != "" && (
+                <div
+                  style={{
+                    color: successMsg.includes("Error") ? "red" : "#4caf50",
+                    fontSize: "20px",
+                    paddingTop: "15px",
+                  }}
+                >
+                  <p>{successMsg}</p>
+                </div>
+              )}
+              <button
+                onClick={handleResendButton}
+                className="relative inline-flex items-center justify-center px-6 py-2 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group min-w-2/5"
+                style={{ margin: "20px auto 0 auto", width: "25%" }}
+              >
+                <span
+                  className={`absolute inset-0 w-full h-full mt-1 ml-1 transition-all duration-300 ease-in-out bg-[#4285f4] rounded-md group-hover:mt-0 group-hover:ml-0`}
+                ></span>
+                <span className="absolute inset-0 w-full h-full bg-white rounded-md "></span>
+                <span
+                  className={`absolute inset-0 w-full h-full transition-all duration-200 ease-in-out delay-100 bg-[#4285f4] rounded-md opacity-0 group-hover:opacity-100 `}
+                ></span>
+                <span className="relative text-black transition-colors duration-200 ease-in-out delay-100 group-hover:text-white">
+                  Send another email!
+                </span>
+              </button>
             </div>
           )}
-          {/* <button
-            type="submit"
-            style={{
-              fontSize: "24px",
-              width: "100px",
-              marginLeft: "auto",
-              marginRight: "auto",
-              backgroundColor: "#2e58ff",
-            }}
-            className="text-black rounded-full"
-          >
-            Send
-          </button> */}
-          {/* <form onSubmit={handleSubmit} className="flex flex-col">
-            <div>
-              <label htmlFor="name" style={{ fontSize: "22px" }}>
-                Name:
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                className="input input-bordered w-full bg-black border-2 border-jet"
-                value={formData.name}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="lastName" style={{ fontSize: "22px" }}>
-                Last Name:
-              </label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                className="input input-bordered w-full bg-black border-2 border-jet"
-                value={formData.lastName}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="email" style={{ fontSize: "22px" }}>
-                Email Address:
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="input input-bordered w-full bg-black border-2 border-jet"
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="message" style={{ fontSize: "22px" }}>
-                Message:
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                className="input input-bordered w-full bg-black border-2 border-jet"
-                value={formData.message}
-                onChange={handleChange}
-              ></textarea>
-            </div>
-          </form> */}
         </div>
       </div>
     </>
   );
 }
+const ContactForm = ({ handleSubmit, formData, handleChange }) => {
+  return (
+    <>
+      <div className="flex flex-col">
+        <div className="w-full px-3">
+          <label className="label">
+            <p>
+              {/* <span className="label-text">{"#include"}</span> */}
+              <span className="label-text text-custom-blue">
+                {"Full Name*:"}
+              </span>
+            </p>
+          </label>
+          <input
+            type="text"
+            id="fullName"
+            placeholder="Full Name"
+            className="input input-bordered w-full bg-black border-2 border-jet"
+            onChange={handleChange}
+            value={formData.fullName}
+            required
+          />
+        </div>
+        <div className="w-full px-3">
+          <label className="label">
+            <p>
+              {/* <span className="label-text">{"import"}</span> */}
+              <span className="label-text text-custom-blue">{"Email*:"}</span>
+            </p>
+          </label>
+          <div className="flex flex-row justify-between p-0 items-center input relative input-bordered w-full bg-black border-2 border-jet">
+            <input
+              type="email"
+              id="email"
+              className="bg-transparent border-none w-full input input-bordered"
+              onChange={handleChange}
+              placeholder="Email"
+              value={formData.email}
+              required
+            />
+          </div>
+        </div>
+        <div className="w-full px-3">
+          <label className="label">
+            <p>
+              {/* <span className="label-text">{"#include"}</span> */}
+              <span className="label-text text-custom-blue">{"Message*:"}</span>
+            </p>
+          </label>
+          <textarea
+            placeholder="Message"
+            id="message"
+            className="input input-bordered w-full bg-black border-2 border-jet"
+            style={{ height: "200px" }}
+            onChange={handleChange}
+            required
+            value={formData.message}
+          />
+        </div>
+      </div>
+      <button
+        onClick={handleSubmit}
+        className="relative inline-flex items-center justify-center px-6 py-2 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group min-w-2/5"
+        style={{ margin: "20px auto 0 auto", width: "25%" }}
+      >
+        <span
+          className={`absolute inset-0 w-full h-full mt-1 ml-1 transition-all duration-300 ease-in-out bg-[#4285f4] rounded-md group-hover:mt-0 group-hover:ml-0`}
+        ></span>
+        <span className="absolute inset-0 w-full h-full bg-white rounded-md "></span>
+        <span
+          className={`absolute inset-0 w-full h-full transition-all duration-200 ease-in-out delay-100 bg-[#4285f4] rounded-md opacity-0 group-hover:opacity-100 `}
+        ></span>
+        <span className="relative text-black transition-colors duration-200 ease-in-out delay-100 group-hover:text-white">
+          Send !
+        </span>
+      </button>
+    </>
+  );
+};
