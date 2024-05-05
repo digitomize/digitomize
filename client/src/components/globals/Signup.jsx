@@ -150,8 +150,8 @@ export default function Signup() {
                       className="input input-bordered w-full bg-black border-2 border-jet"
                       onChange={(e) => usernameRef.current=e.target.value}
                       required
-                      pattern="^\S*$"
-                      title="no whitespaces allowed"
+                      pattern="^[a-zA-Z]\S*$"
+                      title="No whitespaces allowed. Must start with a character"
                     />
                   </div>
                   <div className="w-full px-3">
