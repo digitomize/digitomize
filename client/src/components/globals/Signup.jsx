@@ -151,7 +151,7 @@ export default function Signup() {
                       onChange={(e) => usernameRef.current=e.target.value}
                       required
                       pattern="^[a-zA-Z]\S*$"
-                      title="No whitespaces allowed. Must start with a character"
+                      title="Username must start with a letter and contain no spaces (e.g., JohnDoe123)"
                     />
                   </div>
                   <div className="w-full px-3">
