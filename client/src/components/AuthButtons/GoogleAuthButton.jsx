@@ -21,7 +21,7 @@ export default function GoogleAuthButton() {
     e.preventDefault();
     const onError = (firebaseError)=>{
       setError("Failed to sign-in with Gmail");
-      toast.error(firebaseError.code, {
+      toast.error("Failed to sign-in with Gmail", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
