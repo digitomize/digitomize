@@ -40,14 +40,12 @@ export const errorState = atom({
 });
 
 export default function Login() {
-  const error = useRecoilValue(errorState);
    // disable feature
   return (
     <>
       <MetaData path={"login"} />
       <ToastContainer />
       <div className="phone:mt-12 antialiased">
-        {error && <h3 className="text-[#cc0000] text-center">{error}</h3>}
         <div className="outer w-11/12 flex flex-row mx-auto my-auto phone:border-2 rounded-xl border-jet">
           <div className="left md:w-2/4 max-md:w-full phone:px-12">
             <div className="heading text-center">
@@ -81,6 +79,7 @@ export default function Login() {
 }
 
 function LoginForm(){
+  const error = useRecoilValue(errorState);
   const emailRef = useRef("");
   const passwordRef = useRef(null);
   const { logIn } = useUserAuth();
@@ -99,8 +98,9 @@ function LoginForm(){
     try {
       await logIn(emailRef.current, passwordRef.current);
       navigate("/u/dashboard");
-    } catch (err) {
-      toast.error(err.code, {
+    } catch (error) {
+      const errorMessage = getErrorMessage(error);
+      toast.error(errorMessage, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -111,7 +111,7 @@ function LoginForm(){
         theme: "colored",
       });
       setbtnState(false);
-      setError(err.code);
+      setError(errorMessage);
     }
   };
   return <Form
@@ -174,6 +174,7 @@ function LoginForm(){
         onClickFunction={(e) => handleSubmit}
         backgroundColor="bg-[#4285f4]"
       />
+      {error && <h3 className="text-[#cc0000] text-center">{error}</h3>}
     </div>
     <div className="new-user text-center mb-4">
       <p>
@@ -186,3 +187,27 @@ function LoginForm(){
   </div>
 </Form>
 }
+const getErrorMessage = (firebaseError) => {
+  const errorCode = firebaseError.code;
+  let errorMessage = "";
+  switch (errorCode) {
+    case 'auth/invalid-login-credentials':
+        errorMessage = "The email or password is incorrect. Please try again.";
+        break;
+    case 'auth/user-not-found':
+        errorMessage = "The email address is not associated with an account.";
+        break;
+    case 'auth/network-request-failed':
+        errorMessage = "There is a network error. Please check your connection and try again.";
+        break;
+    case 'auth/too-many-requests':
+        errorMessage = "Too many login attempts. Please try again later.";
+        break;
+    case 'auth/operation-not-allowed':
+        errorMessage = "This operation is not allowed. Please contact support.";
+        break;
+    default:
+        errorMessage = "An unknown error occurred. Please try again later.";
+  }
+  return errorMessage;
+};
