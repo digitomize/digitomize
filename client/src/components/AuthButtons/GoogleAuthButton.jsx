@@ -8,6 +8,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Tooltip } from "@mui/material";
 import { useRecoilState, useSetRecoilState } from "recoil";
+import { toast } from "react-toastify";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export default function GoogleAuthButton() {
@@ -18,6 +19,19 @@ export default function GoogleAuthButton() {
   const handleGoogleSignIn = async (e) => {
     setbtnState(true);
     e.preventDefault();
+    const onError = (firebaseError)=>{
+      setError("Failed to sign-in with Gmail");
+      toast.error(firebaseError.code, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+    }
     try {
       const googleAuthProvider = new GoogleAuthProvider();
       await signInWithPopup(auth, googleAuthProvider)
@@ -30,25 +44,15 @@ export default function GoogleAuthButton() {
                 },
               })
               // .then((res) => console.log(res))
-              .catch((err) => console.log(err));
+              .catch((err) =>onError(err));
           });
           navigate("/u/dashboard");
         })
         .catch((err) => {
-          setError(err.code);
-          toast.error(error.code, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
+          onError(err);
         });
     } catch (err) {
-      setError(err.code);
+      onError(err);
     }
     setbtnState(false);
   };
