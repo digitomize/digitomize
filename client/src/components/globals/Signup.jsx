@@ -5,7 +5,6 @@ import {
   Link,
 } from "react-router-dom";
 import axios from "axios";
-import { useRef } from "react";
 import {buttonState} from '@components/Login';
 import { useState } from "react";
 import { isLoggedIn } from "../../../api";
@@ -31,13 +30,21 @@ export async function loader() {
 }
 
 export default function Signup() {
-  const firstNameRef = useRef("");
-  const usernameRef = useRef("");
-  const emailRef = useRef("");
-  const passwordRef = useRef("");
+  const [formData, setFormData] = useState({
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+    errors: {
+      name: "",
+      username: "",
+      email: "",
+      password: "",
+      other: ""
+    },
+  });
 
   const setbtnState = useSetRecoilState(buttonState);
-  const [error, setError] = useState("");
 
   const navigate = useNavigate();
   const { signUp } = useUserAuth();
@@ -50,26 +57,17 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
     setbtnState(true);
-    try {
-      await signUp(emailRef.current, passwordRef.current, usernameRef.current, firstNameRef.current);
-      const token = auth.currentUser.accessToken;
-      if (token) {
-        axios
-          .post(`${backendUrl}/user/signup`, {
-            name: firstNameRef.current,
-            username: usernameRef.current,
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          })
-
-          .catch((err) => setError(err.code));
+    setFormData(prev=>({
+      ...prev,
+      errors:{
+        ...prev.errors,
+        other: ""
       }
-      navigate("/login");
-    } catch (err) {
-      toast.error(err.code, {
+    }));
+    const onError = (error)=>{
+      const errorMessage = handleSignupError(error, setFormData);
+      toast.error(errorMessage, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -80,8 +78,38 @@ export default function Signup() {
         theme: "colored",
       });
       setbtnState(false);
-      setError(err.code);
     }
+
+    try {
+      await signUp(formData.email, formData.password, formData.username, formData.name);
+      const token = auth.currentUser.accessToken;
+      if (token) {
+        axios
+          .post(`${backendUrl}/user/signup`, {
+            name: formData.name,
+            username: formData.username,
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .catch((error) => onError(error));
+      }
+      navigate("/login");
+    } catch (error) {
+      onError(error);
+    }
+  };
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+      errors:{
+        ...prevData.errors,
+        [name]: ""
+      },
+    }));
   };
 
   return (
@@ -89,7 +117,6 @@ export default function Signup() {
       <MetaData path={"signup"} />
       <ToastContainer />
       <div className="phone:pt-4 pb-12 antialiased">
-        {error && <h3 className="text-[#cc0000] text-center">{error}</h3>}
         <div className="outer w-11/12 flex flex-row mx-auto my-auto phone:border-2 rounded-xl border-jet">
           <div className="left md:w-2/4 max-md:w-full phone:px-12">
             <div className="heading text-center">
@@ -129,11 +156,14 @@ export default function Signup() {
                       type="text"
                       placeholder="your name"
                       className="input input-bordered w-full bg-black border-2 border-jet"
-                      onChange={(e) => firstNameRef.current=e.target.value}
+                      value={formData.name}
+                      name="name"
+                      onChange={handleInputChange}
                       pattern="^[a-zA-Z\s]*$"
                       title="Only letters and whitespaces are allowed"
                       required
                     />
+                    {formData.errors.name && <h3 className="text-[#cc0000] text-center">{formData.errors.name}</h3>}
                   </div>
                   <div className="w-full px-3">
                     <label className="label">
@@ -147,12 +177,15 @@ export default function Signup() {
                     <input
                       type="text"
                       placeholder="username"
+                      name="username"
                       className="input input-bordered w-full bg-black border-2 border-jet"
-                      onChange={(e) => usernameRef.current=e.target.value}
+                      value={formData.username}
+                      onChange={handleInputChange}
                       required
                       pattern="^[a-zA-Z]\S*$"
                       title="Username must start with a letter and contain no spaces (e.g., JohnDoe123)"
                     />
+                    {formData.errors.username && <h3 className="text-[#cc0000] text-center">{formData.errors.username}</h3>}
                   </div>
                   <div className="w-full px-3">
                     <label className="label">
@@ -165,11 +198,14 @@ export default function Signup() {
                     </label>
                     <input
                       type="email"
+                      name="email"
                       placeholder="you@mail.com"
                       className="input input-bordered w-full bg-black border-2 border-jet"
-                      onChange={(e) => emailRef.current=e.target.value}
+                      value={formData.email}
+                      onChange={handleInputChange}
                       required
                     />
+                      {formData.errors.email && <h3 className="text-[#cc0000] text-center">{formData.errors.email}</h3>}
                   </div>
                   <div className="w-full px-3">
                     <label className="label">
@@ -183,12 +219,15 @@ export default function Signup() {
                     <div className="flex flex-row justify-between p-0 items-center input relative input-bordered w-full bg-black border-2 border-jet">
                       <input
                         type={passwordShow ? "text" : "password"}
-                        className="bg-transparent border-none w-full input input-bordered"
-                        onChange={(e) => passwordRef.current=e.target.value}
+                      name="password"
+                      className="bg-transparent border-none w-full input input-bordered"
+                        value={formData.password}
+                        onChange={handleInputChange}
                         placeholder="***************"
                         required
                       />
-                      {passwordRef.current &&
+                      {formData.errors.password && <h3 className="text-[#cc0000] text-center">{formData.errors.password}</h3>}
+                      {formData.password &&
                         (passwordShow ? (
                           <EyeOff
                             onClick={passwordToggle}
@@ -210,6 +249,7 @@ export default function Signup() {
                       isLoginPage={false}
                       backgroundColor="bg-[#4285f4]"
                     />
+                    {formData.errors.other && <h3 className="text-[#cc0000] text-center">{formData.errors.other}</h3>}
                   </div>
                   <div className="new-user text-center mb-4">
                     <p>
@@ -233,3 +273,53 @@ export default function Signup() {
 
  
 }
+
+/**
+ * Sets the error message of the corresponding field.
+ */
+const setErrorMessage = (field, message, setFormData) => {
+  setFormData((prevData) => ({
+    ...prevData,
+    errors: {
+      ...prevData.errors,
+      [field]: message,
+    },
+  }));
+};
+
+/**
+ * Is called when there is a signup error.
+ */
+const handleSignupError = (error, setFormData) => {
+  const errorCode = error.code;
+  let errorMessage = "", field = "";
+
+  switch (errorCode) {
+      case 'auth/weak-password':
+          errorMessage = "The password is too weak. Please choose a stronger password.";
+          field = "password"
+          break;
+      case 'auth/email-already-in-use':
+          errorMessage = "The email address is already in use by another account.";
+          field = "email"
+          break;
+      case 'auth/invalid-email':
+          errorMessage = "The email address is invalid.";
+          field = "email"
+          break;
+      case 'auth/operation-not-allowed':
+          errorMessage = "This operation is not allowed. Please contact support.";
+          field = "other"
+          break;
+      case 'auth/network-request-failed':
+          errorMessage = "There is a network error. Please check your connection and try again.";
+          field = "other"
+          break;
+      default:
+          errorMessage = "An unknown error occurred. Please try again later.";
+          field = "other"
+          break;
+  }
+  setErrorMessage(field, errorMessage, setFormData);
+  return errorMessage;
+};
