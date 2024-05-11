@@ -105,7 +105,7 @@ Configure your environment variables in the `.env` file. This file should contai
 TEST=Env file connected.
 MONGODB_URL=mongodb://127.0.0.1:27017/digitomize
 PORT=4001
-BACKEND_URL=http://127.0.0.1:4001
+BACKEND_URL=http://localhost:4001
 CONTESTS=true
 USERS=true
 NODE_ENV=development
@@ -113,7 +113,9 @@ NODE_ENV=development
 # Firebase Configuration
 `FIREBASE_CREDENTIALS=` # you need to add JSON for this
 ```
+
 ### The Environment Variables in `.env`
+
 This `.env` file must be populated with the following environment variables for digitomize to work:
 
 | Variable              | Explanation                                                                                            |
