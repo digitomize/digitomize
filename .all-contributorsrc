@@ -589,6 +589,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "Madhu-mac",
+      "name": "Madhu Lokesh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/99901964?v=4",
+      "profile": "https://madhulokesh.netlify.app/",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
