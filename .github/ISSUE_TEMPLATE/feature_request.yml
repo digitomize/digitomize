@@ -61,7 +61,7 @@ body:
       options:
         - label: I have used the search function to check if an issue already exists
         - label: I agree to follow this project's Code of Conduct
-      required: true
+          required: true
   - type: dropdown
     id: program
     validations:
