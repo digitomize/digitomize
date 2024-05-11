@@ -2,11 +2,12 @@
 import brevo from "@getbrevo/brevo";
 import { sendErrorLog } from "../discord-webhook/error.js";
 
-const defaultClient = brevo.ApiClient.instance;
-const apiKey = defaultClient.authentications["api-key"];
-apiKey.apiKey = process.env.BREVO_API;
-const contactsApi = new brevo.ContactsApi();
-const transactionalEmailsApi = new brevo.TransactionalEmailsApi();
+
+ const defaultClient = brevo.ApiClient.instance;
+ const apiKey = defaultClient.authentications["api-key"];
+ apiKey.apiKey = process.env.BREVO_API;
+ const contactsApi = new brevo.ContactsApi();
+ const transactionalEmailsApi = new brevo.TransactionalEmailsApi();
 
 const createContact = async (email, firstName) => {
   try {
