@@ -111,10 +111,10 @@ USERS=true
 NODE_ENV=development
 
 # Firebase Configuration
-FIREBASE_CREDENTIALS= # you need to add JSON for this
+`FIREBASE_CREDENTIALS=` # you need to add JSON for this
 ```
-### The Environment Variables in .env
-This .env file must be populated with the following environment variables for digitomize to work:
+### The Environment Variables in `.env`
+This `.env` file must be populated with the following environment variables for digitomize to work:
 
 | Variable              | Explanation                                                                                            |
 |-----------------------|--------------------------------------------------------------------------------------------------------|
@@ -129,14 +129,14 @@ This .env file must be populated with the following environment variables for di
 
 
 
-## Creating a .env from the .example.env file template
+## Creating a `.env` from the `.example.env` file template
 
-- Create a new .env file in the backend directory
-- Copy the contents of the .example.env in the the backend directory and paste them into your created .env file
-- Fill in the FIREBASE_CREDENTIALS= variable in JSON with the JSON credentials generated from your created firebase project (see below for instructions on how to get these credentials)
+- Create a new `.env` file in the backend directory
+- Copy the contents of the `.example.env` in the the backend directory and paste them into your created `.env` file
+- Fill in the `FIREBASE_CREDENTIALS=` variable in JSON with the JSON credentials generated from your created firebase project (see below for instructions on how to get these credentials)
 
 ## Linking MongoDB
-To connect Digitomize to the backend side, two options are available: MongoDB atlas or hosting a local instance. Here is a setup guide on both options.
+To connect Digitomize to the database side, two options are available: MongoDB atlas or hosting a local instance. Here is a setup guide on both options.
 
 ### Setting up Atlas
 1. **Sign Up/Login to MongoDB Atlas**:
@@ -174,8 +174,36 @@ To connect Digitomize to the backend side, two options are available: MongoDB at
    - Save the changes to the `.env` file.
   
 ### Setting up Locally
-To use MongoDB locally, update the `.env` file:
+To use MongoDB locally, you need to first download MongoDB locally and then update the `.env` file.
 
+### How to download MongoDB
+
+1. **Download MongoDB**:
+   - Visit the [official MongoDB download page](https://www.mongodb.com/try/download/community) and select the appropriate version for your operating system.
+   - Follow the installation instructions provided for your operating system.
+
+2. **Install MongoDB**:
+   - For Windows:
+     - Run the downloaded installer (.msi file) and follow the setup wizard.
+     - Choose the Complete installation type and proceed with the installation.
+   - For macOS:
+     - Open the downloaded `.dmg` file and drag the MongoDB application to the Applications folder.
+   - For Linux:
+     - Follow the installation instructions specific to your Linux distribution provided on the MongoDB download page.
+
+3. **Start MongoDB Server**:
+   - Open a command-line interface (CLI) and navigate to the MongoDB bin directory.
+   - Start the MongoDB server by running the `mongod` command:
+     ```
+     mongod
+     ```
+   - MongoDB should now be running locally on the default port (27017) unless configured otherwise.
+
+4. **Verify MongoDB Installation**:
+   - Open a new CLI window and navigate to the MongoDB bin directory.
+   - Run the `mongo` command to open the MongoDB shell.
+   - If MongoDB is running properly, you should see a prompt indicating that you've connected to the MongoDB server.
+### Update the `.env`:
       MONGODB_URL=mongodb://localhost:27017/digitomize
     
 ## Firebase Credentials
