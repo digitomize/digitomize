@@ -174,7 +174,7 @@ To connect Digitomize to the backend side, two options are available: MongoDB at
    - Save the changes to the `.env` file.
   
 ### Setting up Locally
-To use the MongoDB locally, update the `.env` file:
+To use MongoDB locally, update the `.env` file:
 
       MONGODB_URL=mongodb://localhost:27017/digitomize
     
