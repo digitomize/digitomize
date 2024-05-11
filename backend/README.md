@@ -204,7 +204,7 @@ To use MongoDB locally, you need to first download MongoDB locally and then upda
    - Run the `mongo` command to open the MongoDB shell.
    - If MongoDB is running properly, you should see a prompt indicating that you've connected to the MongoDB server.
 ### Update the `.env`:
-      MONGODB_URL=mongodb://localhost:27017/digitomize
+      MONGODB_URL=mongodb://`your ip address`:27017/digitomize
     
 ## Firebase Credentials
 
