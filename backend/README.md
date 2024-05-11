@@ -4,15 +4,22 @@ Welcome to the backend documentation for our open-source project. This document 
 
 ## Table of Contents
 
-- [Folder Structure](#folder-structure)
-- [Getting Started](#getting-started)
-  - [Installation](#installation)
-  - [Environment Variables](#environment-variables)
-    - [Example:](#example)
-- [Creating a .env from the .example.env file template](#creating-a-env-from-the-exampleenv-file-template)
-- [Firebase Credentials](#firebase-credentials)
-  - [Running the Server](#running-the-server)
-- [API Routes](#api-routes)
+- [Backend Documentation](#backend-documentation)
+  - [Table of Contents](#table-of-contents)
+  - [Folder Structure](#folder-structure)
+  - [Getting Started](#getting-started)
+    - [Installation](#installation)
+    - [Environment Variables](#environment-variables)
+      - [Example:](#example)
+    - [The Environment Variables in .env](#the-environment-variables-in-env)
+  - [Creating a .env from the .example.env file template](#creating-a-env-from-the-exampleenv-file-template)
+  - [Linking MongoDB](#linking-mongodb)
+    - [Setting up Atlas](#setting-up-atlas)
+    - [Setting up Locally](#setting-up-locally)
+  - [Firebase Credentials](#firebase-credentials)
+    - [Running the Server](#running-the-server)
+    - [Linting](#linting)
+  - [API Routes](#api-routes)
 
 ## Folder Structure
 
@@ -104,18 +111,106 @@ USERS=true
 NODE_ENV=development
 
 # Firebase Configuration
-FIREBASE_CREDENTIALS= # you need to add JSON for this
+`FIREBASE_CREDENTIALS=` # you need to add JSON for this
 ```
 
-## Creating a .env from the .example.env file template
+### The Environment Variables in `.env`
 
-- Create a new .env file in the backend directory
-- Copy the contents of the .example.env in the the backend directory and paste them into your created .env file
-- Fill in the FIREBASE_CREDENTIALS= variable in JSON with the JSON credentials generated from your created firebase project (see below for instructions on how to get these credentials)
+This `.env` file must be populated with the following environment variables for digitomize to work:
 
+| Variable              | Explanation                                                                                            |
+|-----------------------|--------------------------------------------------------------------------------------------------------|
+| TEST                  | Marker indicating that the environment file is successfully connected.                                 |
+| MONGODB_URL           | URL for connecting Digitomize to the MongoDB database. |
+| PORT                  | Port on which the application will run.                                                                |
+| BACKEND_URL           | URL of the backend server.                                                                             |
+| CONTESTS              | Controls whether the application should fetch contest data.                                            |
+| USERS                 | Controls whether the application should fetch user data.                                               |
+| NODE_ENV              | Specifies the environment in which the application is running.                                          |
+| FIREBASE_CREDENTIALS | Variable intended for storing Firebase credential in JSON format.                               |
+
+
+
+## Creating a `.env` from the `.example.env` file template
+
+- Create a new `.env` file in the backend directory
+- Copy the contents of the `.example.env` in the the backend directory and paste them into your created `.env` file
+- Fill in the `FIREBASE_CREDENTIALS=` variable in JSON with the JSON credentials generated from your created firebase project (see below for instructions on how to get these credentials)
+
+## Linking MongoDB
+To connect Digitomize to the database side, two options are available: MongoDB atlas or hosting a local instance. Here is a setup guide on both options.
+
+### Setting up Atlas
+1. **Sign Up/Login to MongoDB Atlas**:
+   - Go to the [MongoDB Atlas website](https://www.mongodb.com/cloud/atlas) and sign up for an account or log in if you already have one.
+
+2. **Create a New Cluster**:
+   - Once logged in, click on the "Build a Cluster" button or navigate to the "Clusters" tab and click on "Build a New Cluster".
+   - Choose the provider and region for your cluster. For example, you can select a cloud provider (AWS, Azure, or Google Cloud) and a region closest to your location.
+   - Select the desired cluster tier (e.g., M0 Sandbox is the free tier).
+   - Click "Create Cluster" to provision your new cluster.
+
+3. **Configure Cluster Settings**:
+   - MongoDB Atlas will guide you through the process of setting up your cluster. You can keep the default settings or customize them based on your requirements.
+   - Choose the cluster name, project name, and other settings as needed.
+
+4. **Whitelist Your IP Address**:
+   - In the MongoDB Atlas dashboard, navigate to the "Network Access" tab.
+   - Click on the "Add IP Address" button and add your current IP address to the whitelist. This allows your application to connect to the cluster.
+
+5. **Get Connection String**:
+   - Once your cluster is created, click on the "Connect" button.
+   - Choose "Connect Your Application" and select your driver and version.
+   - Copy the connection string provided.
+
+6. **Create a `.env` File**:
+   - Paste the following content into your `.env` file:
+
+     ```plaintext
+     MONGODB_URL=<connection-string>
+     ```
+
+   - Replace `<connection-string>` with the MongoDB Atlas connection string you copied earlier.
+
+7. **Save the `.env` File**:
+   - Save the changes to the `.env` file.
+  
+### Setting up Locally
+To use MongoDB locally, you need to first download MongoDB locally and then update the `.env` file.
+
+### How to download MongoDB
+
+1. **Download MongoDB**:
+   - Visit the [official MongoDB download page](https://www.mongodb.com/try/download/community) and select the appropriate version for your operating system.
+   - Follow the installation instructions provided for your operating system.
+
+2. **Install MongoDB**:
+   - For Windows:
+     - Run the downloaded installer (.msi file) and follow the setup wizard.
+     - Choose the Complete installation type and proceed with the installation.
+   - For macOS:
+     - Open the downloaded `.dmg` file and drag the MongoDB application to the Applications folder.
+   - For Linux:
+     - Follow the installation instructions specific to your Linux distribution provided on the MongoDB download page.
+
+3. **Start MongoDB Server**:
+   - Open a command-line interface (CLI) and navigate to the MongoDB bin directory.
+   - Start the MongoDB server by running the `mongod` command:
+     ```
+     mongod
+     ```
+   - MongoDB should now be running locally on the default port (27017) unless configured otherwise.
+
+4. **Verify MongoDB Installation**:
+   - Open a new CLI window and navigate to the MongoDB bin directory.
+   - Run the `mongo` command to open the MongoDB shell.
+   - If MongoDB is running properly, you should see a prompt indicating that you've connected to the MongoDB server.
+### Update the `.env`:
+      MONGODB_URL=mongodb://127.0.0.1:27017/digitomize
+    
 ## Firebase Credentials
 
-To get credentials you should first have a firebase project. If you don't know how to make one please check [Frontend Documentation](/client/README.md).
+To get credentials you should first have a firebase project. If you don't know how to make one, please check [Frontend Documentation](/client/README.md).
 
 - Select your project.
 - Go to "Project Settings" by clicking on the gear icon next to "Project Overview" in the top-left corner.
