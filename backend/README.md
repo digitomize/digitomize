@@ -13,7 +13,9 @@ Welcome to the backend documentation for our open-source project. This document 
       - [Example:](#example)
     - [The Environment Variables in .env](#the-environment-variables-in-env)
   - [Creating a .env from the .example.env file template](#creating-a-env-from-the-exampleenv-file-template)
-  - [Creating and linking a mongoDB cluster](#creating-and-linking-a-mongodb-cluster)
+  - [Linking MongoDB](#linking-mongodb)
+    - [Setting up Atlas](#setting-up-atlas)
+    - [Setting up Locally](#setting-up-locally)
   - [Firebase Credentials](#firebase-credentials)
     - [Running the Server](#running-the-server)
     - [Linting](#linting)
@@ -133,8 +135,10 @@ This .env file must be populated with the following environment variables for di
 - Copy the contents of the .example.env in the the backend directory and paste them into your created .env file
 - Fill in the FIREBASE_CREDENTIALS= variable in JSON with the JSON credentials generated from your created firebase project (see below for instructions on how to get these credentials)
 
-## Creating and linking a mongoDB cluster
+## Linking MongoDB
+To connect Digitomize to the backend side, two options are available: MongoDB atlas or hosting a local instance. Here is a setup guide on both options.
 
+### Setting up Atlas
 1. **Sign Up/Login to MongoDB Atlas**:
    - Go to the [MongoDB Atlas website](https://www.mongodb.com/cloud/atlas) and sign up for an account or log in if you already have one.
 
@@ -168,10 +172,15 @@ This .env file must be populated with the following environment variables for di
 
 7. **Save the `.env` File**:
    - Save the changes to the `.env` file.
+  
+### Setting up Locally
+To use the MongoDB locally, update the `.env` file:
 
+      MONGODB_URL=mongodb://localhost:27017/digitomize
+    
 ## Firebase Credentials
 
-To get credentials you should first have a firebase project. If you don't know how to make one please check [Frontend Documentation](/client/README.md).
+To get credentials you should first have a firebase project. If you don't know how to make one, please check [Frontend Documentation](/client/README.md).
 
 - Select your project.
 - Go to "Project Settings" by clicking on the gear icon next to "Project Overview" in the top-left corner.
