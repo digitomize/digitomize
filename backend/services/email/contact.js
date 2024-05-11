@@ -1,9 +1,10 @@
+import brevo from "@getbrevo/brevo";
 const defaultClient = brevo.ApiClient.instance;
 const apiKey = defaultClient.authentications["api-key"];
 apiKey.apiKey = process.env.BREVO_API;
 const contactsApi = new brevo.ContactsApi();
 const transactionalEmailsApi = new brevo.TransactionalEmailsApi();
-import brevo from "@getbrevo/brevo";
+
 
 const sendContactEmail = async (req, res) => {
   const { recipientEmail, recipientName, message } = req.body;
