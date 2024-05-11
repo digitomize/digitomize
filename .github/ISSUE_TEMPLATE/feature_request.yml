@@ -62,3 +62,11 @@ body:
         - label: I have used the search function to check if an issue already exists
         - label: I agree to follow this project's Code of Conduct
           required: true
+  - type: dropdown
+    id: program
+    validations:
+      required: true
+    attributes:
+      label: Which program are you contributing in?
+      options: ['Not applicable','gssoc', 'swoc', 'kwoc', 'dwoc', 'tublian']
+      multiple: true

@@ -42,6 +42,7 @@ We welcome pull requests from contributors. To submit a pull request:
 5. Provide a clear description of your changes and why they're valuable.
 
 Please ensure your code adheres to the [Coding Guidelines](#coding-guidelines).
+Make sure to read [PR Guidelines](./PR_GUIDELINES.md) and [Issue Guidelines](./Issue_GUIDELINES.md) first.
 
 ## Coding Guidelines
 
