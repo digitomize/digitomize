@@ -4,15 +4,20 @@ Welcome to the backend documentation for our open-source project. This document 
 
 ## Table of Contents
 
-- [Folder Structure](#folder-structure)
-- [Getting Started](#getting-started)
-  - [Installation](#installation)
-  - [Environment Variables](#environment-variables)
-    - [Example:](#example)
-- [Creating a .env from the .example.env file template](#creating-a-env-from-the-exampleenv-file-template)
-- [Firebase Credentials](#firebase-credentials)
-  - [Running the Server](#running-the-server)
-- [API Routes](#api-routes)
+- [Backend Documentation](#backend-documentation)
+  - [Table of Contents](#table-of-contents)
+  - [Folder Structure](#folder-structure)
+  - [Getting Started](#getting-started)
+    - [Installation](#installation)
+    - [Environment Variables](#environment-variables)
+      - [Example:](#example)
+    - [The Environment Variables in .env](#the-environment-variables-in-env)
+  - [Creating a .env from the .example.env file template](#creating-a-env-from-the-exampleenv-file-template)
+  - [Creating and linking a mongoDB cluster](#creating-and-linking-a-mongodb-cluster)
+  - [Firebase Credentials](#firebase-credentials)
+    - [Running the Server](#running-the-server)
+    - [Linting](#linting)
+  - [API Routes](#api-routes)
 
 ## Folder Structure
 
@@ -96,7 +101,7 @@ Configure your environment variables in the `.env` file. This file should contai
 
 ```bash
 TEST=Env file connected.
-MONGODB_URL=mongodb://127.0.0.1:27017/digitomize
+MONGODB_URL=mongodb://localhost:27017/digitomize
 PORT=4001
 BACKEND_URL=http://localhost:4001
 CONTESTS=true
@@ -106,12 +111,63 @@ NODE_ENV=development
 # Firebase Configuration
 FIREBASE_CREDENTIALS= # you need to add JSON for this
 ```
+### The Environment Variables in .env
+This .env file must be populated with the following environment variables for digitomize to work:
+
+| Variable              | Explanation                                                                                            |
+|-----------------------|--------------------------------------------------------------------------------------------------------|
+| TEST                  | Marker indicating that the environment file is successfully connected.                                 |
+| MONGODB_URL           | URL for connecting Digitomize to the MongoDB database. |
+| PORT                  | Port on which the application will run.                                                                |
+| BACKEND_URL           | URL of the backend server.                                                                             |
+| CONTESTS              | Controls whether the application should fetch contest data.                                            |
+| USERS                 | Controls whether the application should fetch user data.                                               |
+| NODE_ENV              | Specifies the environment in which the application is running.                                          |
+| FIREBASE_CREDENTIALS | Variable intended for storing Firebase credential in JSON format.                               |
+
+
 
 ## Creating a .env from the .example.env file template
 
 - Create a new .env file in the backend directory
 - Copy the contents of the .example.env in the the backend directory and paste them into your created .env file
 - Fill in the FIREBASE_CREDENTIALS= variable in JSON with the JSON credentials generated from your created firebase project (see below for instructions on how to get these credentials)
+
+## Creating and linking a mongoDB cluster
+
+1. **Sign Up/Login to MongoDB Atlas**:
+   - Go to the [MongoDB Atlas website](https://www.mongodb.com/cloud/atlas) and sign up for an account or log in if you already have one.
+
+2. **Create a New Cluster**:
+   - Once logged in, click on the "Build a Cluster" button or navigate to the "Clusters" tab and click on "Build a New Cluster".
+   - Choose the provider and region for your cluster. For example, you can select a cloud provider (AWS, Azure, or Google Cloud) and a region closest to your location.
+   - Select the desired cluster tier (e.g., M0 Sandbox is the free tier).
+   - Click "Create Cluster" to provision your new cluster.
+
+3. **Configure Cluster Settings**:
+   - MongoDB Atlas will guide you through the process of setting up your cluster. You can keep the default settings or customize them based on your requirements.
+   - Choose the cluster name, project name, and other settings as needed.
+
+4. **Whitelist Your IP Address**:
+   - In the MongoDB Atlas dashboard, navigate to the "Network Access" tab.
+   - Click on the "Add IP Address" button and add your current IP address to the whitelist. This allows your application to connect to the cluster.
+
+5. **Get Connection String**:
+   - Once your cluster is created, click on the "Connect" button.
+   - Choose "Connect Your Application" and select your driver and version.
+   - Copy the connection string provided.
+
+6. **Create a `.env` File**:
+   - Paste the following content into your `.env` file:
+
+     ```plaintext
+     MONGODB_URL=<connection-string>
+     ```
+
+   - Replace `<connection-string>` with the MongoDB Atlas connection string you copied earlier.
+
+7. **Save the `.env` File**:
+   - Save the changes to the `.env` file.
 
 ## Firebase Credentials
 
