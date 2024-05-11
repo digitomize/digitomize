@@ -66,5 +66,5 @@ body:
     id: program
     attributes:
       label: Which program are you contributing in?
-      options: ['gssoc', 'swoc', 'kwoc', 'dwoc', 'tublian', 'NONE']
+      options: ['gssoc', 'swoc', 'kwoc', 'dwoc', 'tublian']
       multiple: true
