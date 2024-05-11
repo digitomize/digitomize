@@ -17,6 +17,12 @@ function UserDashBoardLayout() {
     setSideTab((prevSideTab) => !prevSideTab);
   }, []);
 
+  const toggleOffWithCheck = () => {
+    if (sideTab) {
+      toggleSideTab();
+    }
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <div className="w-full bg-dashboardDarkerColor h-full">
@@ -27,7 +33,7 @@ function UserDashBoardLayout() {
           <UserDashBoardTab sideTab={sideTab} toggleSideTab={toggleSideTab} />
           <div
             className={`flex ${sideTab ? "blur-sm" : ""}`}
-            onClick={toggleSideTab}
+            onClick={toggleOffWithCheck}
           >
             <div className="shrink-0 lg:w-56"></div>
             <main className="max-w-5xl phone:container px-6 phone:px-12 mx-auto py-10 min-h-screen">
