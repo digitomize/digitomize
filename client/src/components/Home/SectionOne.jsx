@@ -33,20 +33,27 @@ export default function SectionOne() {
       >
         <Link to={"https://github.com/digitomize/digitomize"}>
 
-        <div className="z-10 flex min-h-[2.5rem] items-center justify-center">
+        <div className="z-10 flex min-h-[2rem] items-center justify-center">
   <AnimatedGradientText>
-    ⭐️ <hr className="mx-2 h-4 w-[2px] shrink-0 bg-gray-300" />{" "}
-    <a
-      href="https://github.com/digitomize/digitomize"
-      target="_blank"
-      rel="noopener noreferrer"
-      className={cn(
-        "inline animate-gradient bg-gradient-to-r from-[gold] via-[#B8860B] to-[gold] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent",
-      )}
-      >
-      We're Open Source! Star Now!
-    </a>
-    <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+  <span
+  target="_blank"
+  rel="noopener noreferrer"
+  className={cn(
+    "inline animate-gradient bg-gradient-to-r from-[#f0f8ff] via-[#f0f8ff] to-[#f0f8ff] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent flex justify-center items-center",
+  )}
+>
+  We're Open Source 
+  <hr className="mx-2 h-4 w-[0.5px] bg-[#f0f8ff]" />
+  Star Now!
+</span> 
+&nbsp;
+
+    <Star fontSize="small" sx={{color:"gold"}}/>
+    <ChevronRight
+  className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5"
+  style={{ color: "#f0f8ff" }}
+/>
+
   </AnimatedGradientText>
 </div>
       </Link>
