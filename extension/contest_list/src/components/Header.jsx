@@ -2,22 +2,22 @@ import logo from "../assets/digitomizeLogo.png";
 function Header() {
     return (
         <>
-            <div className="bg-cardsColor ">
+            <div className="noCursor bg-cardsColor ">
 
-                <img src={logo} alt="Logo" className="w-40 mx-auto p-4" />
+                <img src={logo} alt="Logo" className="noCursor w-40 mx-auto p-4" />
 
-                <div className="text-white text-xl mx-auto text-center">
+                <div className="noCursor text-white text-xl mx-auto text-center">
                     <span>One place for all your</span>
-                    <span className="block mt-1 relative">
-                        <span className="bg-digitomize-bg px-1 relative">
-                            <span className="relative z-10">
+                    <span className="noCursor block mt-1 relative">
+                        <span className="noCursor bg-digitomize-bg px-1 relative">
+                            <span className="noCursor relative z-10">
                                 coding platforms
                             </span>
                         </span>{" "}
                         needs
                     </span>{" "}
                 </div>
-                <div className="divider w-3/4 mx-auto my-4"></div>
+                <div className="noCursor divider w-3/4 mx-auto my-4"></div>
             </div>
         </>
     )

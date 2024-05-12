@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import axios from "axios";
 import { useRef } from "react";
-import {buttonState} from '@components/Login';
+import { buttonState } from '@components/Login';
 import { useState } from "react";
 import { isLoggedIn } from "../../../api";
 import { auth } from "../../../firebase";
@@ -88,39 +88,39 @@ export default function Signup() {
     <>
       <MetaData path={"signup"} />
       <ToastContainer />
-      <div className="phone:pt-4 pb-12 antialiased">
-        {error && <h3 className="text-[#cc0000] text-center">{error}</h3>}
-        <div className="outer w-11/12 flex flex-row mx-auto my-auto phone:border-2 rounded-xl border-jet">
-          <div className="left md:w-2/4 max-md:w-full phone:px-12">
-            <div className="heading text-center">
-              <h1 className="max-phone:mt-8">
+      <div className="noCursor phone:pt-4 pb-12 antialiased">
+        {error && <h3 className="noCursor text-[#cc0000] text-center">{error}</h3>}
+        <div className="noCursor outer w-11/12 flex flex-row mx-auto my-auto phone:border-2 rounded-xl border-jet">
+          <div className="noCursor left md:w-2/4 max-md:w-full phone:px-12">
+            <div className="noCursor heading text-center">
+              <h1 className="noCursor max-phone:mt-8">
                 Create an Account
               </h1>
               <p>
                 Sign Up for a{" "}
-                <span className="text-custom-blue">World of Coding </span>{" "}
+                <span className="noCursor text-custom-blue">World of Coding </span>{" "}
                 Possibilities
               </p>
             </div>
-            <div className="auth-btns flex flex-row gap-2 justify-center mt-4">
+            <div className="noCursor auth-btns flex flex-row gap-2 justify-center mt-4">
               <GoogleAuthButton
               />
               <GithubAuthButton
               />
             </div>
-            <div className="divider mb-0">OR</div>
-            <div className="email-form mx-auto my-0">
+            <div className="noCursor divider mb-0">OR</div>
+            <div className="noCursor email-form mx-auto my-0">
               <Form
                 onSubmit={handleSubmit}
-                className="flex flex-col w-full mt-5 mx-auto"
+                className="noCursor flex flex-col w-full mt-5 mx-auto"
                 replace
               >
-                <div className="flex flex-col gap-1">
-                  <div className="w-full px-3">
-                    <label className="label">
+                <div className="noCursor flex flex-col gap-1">
+                  <div className="noCursor w-full px-3">
+                    <label className="noCursor label">
                       <p>
-                        <span className="label-text">{"#include"}</span>
-                        <span className="label-text text-custom-blue">
+                        <span className="noCursor label-text">{"#include"}</span>
+                        <span className="noCursor label-text text-custom-blue">
                           {" <name>"}
                         </span>
                       </p>
@@ -128,18 +128,18 @@ export default function Signup() {
                     <input
                       type="text"
                       placeholder="your name"
-                      className="input input-bordered w-full bg-black border-2 border-jet"
-                      onChange={(e) => firstNameRef.current=e.target.value}
+                      className="noCursor input input-bordered w-full bg-black border-2 border-jet"
+                      onChange={(e) => firstNameRef.current = e.target.value}
                       pattern="^[a-zA-Z\s]*$"
                       title="Only letters and whitespaces are allowed"
                       required
                     />
                   </div>
-                  <div className="w-full px-3">
-                    <label className="label">
+                  <div className="noCursor w-full px-3">
+                    <label className="noCursor label">
                       <p>
-                        <span className="label-text">{"#include"}</span>
-                        <span className="label-text text-custom-blue">
+                        <span className="noCursor label-text">{"#include"}</span>
+                        <span className="noCursor label-text text-custom-blue">
                           {" <username>"}
                         </span>
                       </p>
@@ -147,18 +147,18 @@ export default function Signup() {
                     <input
                       type="text"
                       placeholder="username"
-                      className="input input-bordered w-full bg-black border-2 border-jet"
-                      onChange={(e) => usernameRef.current=e.target.value}
+                      className="noCursor input input-bordered w-full bg-black border-2 border-jet"
+                      onChange={(e) => usernameRef.current = e.target.value}
                       required
                       pattern="^[a-zA-Z]\S*$"
                       title="Username must start with a letter and contain no spaces (e.g., JohnDoe123)"
                     />
                   </div>
-                  <div className="w-full px-3">
-                    <label className="label">
+                  <div className="noCursor w-full px-3">
+                    <label className="noCursor label">
                       <p>
-                        <span className="label-text">{"#include"}</span>
-                        <span className="label-text text-custom-blue">
+                        <span className="noCursor label-text">{"#include"}</span>
+                        <span className="noCursor label-text text-custom-blue">
                           {" <email>"}
                         </span>
                       </p>
@@ -166,25 +166,25 @@ export default function Signup() {
                     <input
                       type="email"
                       placeholder="you@mail.com"
-                      className="input input-bordered w-full bg-black border-2 border-jet"
-                      onChange={(e) => emailRef.current=e.target.value}
+                      className="noCursor input input-bordered w-full bg-black border-2 border-jet"
+                      onChange={(e) => emailRef.current = e.target.value}
                       required
                     />
                   </div>
-                  <div className="w-full px-3">
-                    <label className="label">
+                  <div className="noCursor w-full px-3">
+                    <label className="noCursor label">
                       <p>
-                        <span className="label-text">{"import"}</span>
-                        <span className="label-text text-custom-blue">
+                        <span className="noCursor label-text">{"import"}</span>
+                        <span className="noCursor label-text text-custom-blue">
                           {" \"password\";"}
                         </span>
                       </p>
                     </label>
-                    <div className="flex flex-row justify-between p-0 items-center input relative input-bordered w-full bg-black border-2 border-jet">
+                    <div className="noCursor flex flex-row justify-between p-0 items-center input relative input-bordered w-full bg-black border-2 border-jet">
                       <input
                         type={passwordShow ? "text" : "password"}
-                        className="bg-transparent border-none w-full input input-bordered"
-                        onChange={(e) => passwordRef.current=e.target.value}
+                        className="noCursor bg-transparent border-none w-full input input-bordered"
+                        onChange={(e) => passwordRef.current = e.target.value}
                         placeholder="***************"
                         required
                       />
@@ -192,29 +192,29 @@ export default function Signup() {
                         (passwordShow ? (
                           <EyeOff
                             onClick={passwordToggle}
-                            className="w-6 h-6 absolute z-50 left-100 right-2"
+                            className="noCursor w-6 h-6 absolute z-50 left-100 right-2"
                           />
                         ) : (
                           <Eye
                             onClick={passwordToggle}
-                            className="w-6 h-6 absolute z-50 left-100 right-2"
+                            className="noCursor w-6 h-6 absolute z-50 left-100 right-2"
                           />
                         ))}
                     </div>
                   </div>
                 </div>
-                <div className="items-center">
-                  <div className="w-full">
+                <div className="noCursor items-center">
+                  <div className="noCursor w-full">
                     <SignoutButton
                       onClickFunction={(e) => handleSubmit}
                       isLoginPage={false}
                       backgroundColor="bg-[#4285f4]"
                     />
                   </div>
-                  <div className="new-user text-center mb-4">
+                  <div className="noCursor new-user text-center mb-4">
                     <p>
                       already a user?
-                      <span className="text-custom-blue mx-1">
+                      <span className="noCursor text-custom-blue mx-1">
                         <Link to="/login">login</Link>
                       </span>
                     </p>
@@ -223,13 +223,13 @@ export default function Signup() {
               </Form>
             </div>
           </div>
-          <div className="right md:w-2/4 max-md:hidden px-12 my-auto h-full">
-            <img src={loginIcon} alt="Login image" className="" />
+          <div className="noCursor right md:w-2/4 max-md:hidden px-12 my-auto h-full">
+            <img src={loginIcon} alt="Login image" className="noCursor " />
           </div>
         </div>
       </div>
     </>
   );
 
- 
+
 }

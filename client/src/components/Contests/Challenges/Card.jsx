@@ -55,41 +55,41 @@ function Card({ contest }) {
 
   return (
     <div
-      className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] my-4 sm:w-96 min-h-[250px] p-6 rounded-xl bg-cardsColor flex flex-col hover:scale-[1.02] hover:bg-cardsHover m-1"
+      className="noCursor border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] my-4 sm:w-96 min-h-[250px] p-6 rounded-xl bg-cardsColor flex flex-col hover:scale-[1.02] hover:bg-cardsHover m-1"
       key={vanity}
     >
-      <div className="flex justify-between">
+      <div className="noCursor flex justify-between">
         <p
           id="startTime"
-          className="text-card-text font-light leading-tight lowercase text-lg max-md:text-sm"
+          className="noCursor text-card-text font-light leading-tight lowercase text-lg max-md:text-sm"
         >
           ends: {endTimeIST}
         </p>
         <Tooltip title={host} placement="bottom" arrow>
-          <img src={hostToSVGMap[host]} alt={host} width="13%"  className="object-contain"/>
-          </Tooltip>
+          <img src={hostToSVGMap[host]} alt={host} width="13%" className="noCursor object-contain" />
+        </Tooltip>
       </div>
-      {/* <Link to={`/contests/${vanity}`} className="my-auto pb-6"> */}
-      <Link to={url} className="my-auto pb-6" target="_blank">
-        <h2 className="text-3xl pb-0">{name}</h2>
-        <p className="flex flex-row items-center">
+      {/* <Link to={`/contests/${vanity}`} className="noCursor my-auto pb-6"> */}
+      <Link to={url} className="noCursor my-auto pb-6" target="_blank">
+        <h2 className="noCursor text-3xl pb-0">{name}</h2>
+        <p className="noCursor flex flex-row items-center">
           <EmojiEvents />
-          <div className="badge badge-success">
-            <h3 className="max-phone:text-xs">{prize}</h3>
-            </div>
+          <div className="noCursor badge badge-success">
+            <h3 className="noCursor max-phone:text-xs">{prize}</h3>
+          </div>
         </p>
       </Link>
-      <div className="flex justify-between items-end">
+      <div className="noCursor flex justify-between items-end">
         <div>
-          <p className="text-card-text text-xs font-light leading-tight lowercase">
+          <p className="noCursor text-card-text text-xs font-light leading-tight lowercase">
             Duration : {duration / 60 / 24} days
           </p>
-          <div className="text-card-text text-xs font-light leading-tight lowercase">
+          <div className="noCursor text-card-text text-xs font-light leading-tight lowercase">
             {remaningTime}
           </div>
         </div>
 
-        <div className="h-8 max-md:w-12 clip">
+        <div className="noCursor h-8 max-md:w-12 clip">
           <button onClick={() => setShow(true)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@ function Card({ contest }) {
               <path
                 d="M18,14a4,4,0,0,0-3.08,1.48l-5.1-2.35a3.64,3.64,0,0,0,0-2.26l5.1-2.35A4,4,0,1,0,14,6a4.17,4.17,0,0,0,.07.71L8.79,9.14a4,4,0,1,0,0,5.72l5.28,2.43A4.17,4.17,0,0,0,14,18a4,4,0,1,0,4-4ZM18,4a2,2,0,1,1-2,2A2,2,0,0,1,18,4ZM6,14a2,2,0,1,1,2-2A2,2,0,0,1,6,14Zm12,6a2,2,0,1,1,2-2A2,2,0,0,1,18,20Z"
                 fill="#ffffff"
-                className="color000000 svgShape"
+                className="noCursor color000000 svgShape"
               ></path>
             </svg>
           </button>

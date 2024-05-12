@@ -4,7 +4,7 @@ export default function Feedback() {
     <>
       <MetaData path="feedback" />
       <div
-        className="text-center items-center"
+        className="noCursor text-center items-center"
         style={{
           textAlign: "center",
           color: "white",

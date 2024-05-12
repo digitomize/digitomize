@@ -49,33 +49,31 @@ function TimelineComponent({ data, index }) {
           bgcolor: "#05225C",
         }}
       >
-        <h2 className="lg:hidden text-[14px] mb-1 text-description">
+        <h2 className="noCursor lg:hidden text-[14px] mb-1 text-description">
           {data.date}
         </h2>
-        <h2 className="mb-[12px] text-[20px] font-outfit">{data.title}</h2>
-        <div className="flex flex-row justify-center gap-x-3 items-center">
+        <h2 className="noCursor mb-[12px] text-[20px] font-outfit">{data.title}</h2>
+        <div className="noCursor flex flex-row justify-center gap-x-3 items-center">
           <img
             src={data.img}
             alt=""
-            className={`w-24 ${
-              index % 2 === 0 || matches ? "" : "hidden "
-            } max-sm:hidden`}
+            className={`w-24 ${index % 2 === 0 || matches ? "" : "hidden "
+              } max-sm:hidden`}
           />
-          <p className="text-left  text-[14px] max-sm:hidden font-outfit">
+          <p className="noCursor text-left  text-[14px] max-sm:hidden font-outfit">
             {data.description}
           </p>
           <img
             src={data.img}
             alt=""
-            className={`w-24 ${
-              index % 2 !== 0 && !matches ? "" : "hidden"
-            } max-sm:hidden`}
+            className={`w-24 ${index % 2 !== 0 && !matches ? "" : "hidden"
+              } max-sm:hidden`}
           />
-          <p className="sm:hidden">
+          <p className="noCursor sm:hidden">
             {truncatedText}{" "}
             <button
               onClick={toggleReadMore}
-              className="text-blue-500 cursor-pointer sm:hidden focus:outline-none"
+              className="noCursor text-blue-500 cursor-pointer sm:hidden focus:outline-none"
             >
               {isExpanded ? "show less" : "show more"}
             </button>

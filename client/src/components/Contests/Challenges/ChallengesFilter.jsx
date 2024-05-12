@@ -35,7 +35,7 @@ const MenuProps = {
 };
 
 const platformsIcon = [
-  tublian,  
+  tublian,
   quine,
 ];
 const platforms = [
@@ -83,7 +83,7 @@ function ChallengesFilter() {
   };
   return (
     <>
-      <Element className=" flex lg:flex-row max-lg:flex-col justify-between mx-auto lg:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
+      <Element className="noCursor  flex lg:flex-row max-lg:flex-col justify-between mx-auto lg:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
         {/* //checkmarks */}
         <div
           className={"filter-div w-fit self-center bg-cardsColor relative rounded-xl"}
@@ -113,24 +113,24 @@ function ChallengesFilter() {
                 <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                   {selected?.map((value) => (
                     <Chip
-                    key={value}
-                    label={
-                      <span style={{ display: "flex", alignItems: "center" }}>
-                        <img
-                          src={platformsIcon[platforms.indexOf(value)]}
-                          alt={value}
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            marginRight: "5%",
-                          }}
-                        />
-                        {value}
-                      </span>
-                    }
-                    onDelete={() => handleDelete(value)}
-                  />
-                ))}
+                      key={value}
+                      label={
+                        <span style={{ display: "flex", alignItems: "center" }}>
+                          <img
+                            src={platformsIcon[platforms.indexOf(value)]}
+                            alt={value}
+                            style={{
+                              width: "20px",
+                              height: "20px",
+                              marginRight: "5%",
+                            }}
+                          />
+                          {value}
+                        </span>
+                      }
+                      onDelete={() => handleDelete(value)}
+                    />
+                  ))}
                 </Box>
               )}
               MenuProps={MenuProps}
@@ -157,25 +157,25 @@ function ChallengesFilter() {
         </div>
         <CustomSlider setRange={setRange} maxValue={maxValue} />
       </Element>
-      <Element name="contests" className="container mx-auto contests-container z-[1]">
+      <Element name="contests" className="noCursor container mx-auto contests-container z-[1]">
         {contestsData.length ? (
           <Contests contests={contestsData} range={range} />
         ) : (
-          <div className="m-auto flex sm:flex-row flex-col items-center w-4/5 my-12 ">
+          <div className="noCursor m-auto flex sm:flex-row flex-col items-center w-4/5 my-12 ">
             <Skeleton
               variant="text"
               sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
-              className="mx-4 sm:w-80 w-full"
+              className="noCursor mx-4 sm:w-80 w-full"
             />
             <Skeleton
               variant="text"
               sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
-              className="mx-4 sm:w-80 w-full"
+              className="noCursor mx-4 sm:w-80 w-full"
             />
             <Skeleton
               variant="text"
               sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
-              className="mx-4 sm:w-80 w-full"
+              className="noCursor mx-4 sm:w-80 w-full"
             />
           </div>
         )}

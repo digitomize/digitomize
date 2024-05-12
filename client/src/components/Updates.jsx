@@ -3,44 +3,44 @@ import "flowbite";
 export default function Updates() {
   return (
     <>
-      <div className="container m-auto">
-        <h1 className="mx-auto w-full text-center my-2">Updates</h1>
-        <div className="p-5 mb-4 border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-          <time className="text-lg font-semibold text-gray-900 dark:text-white">
+      <div className="noCursor container m-auto">
+        <h1 className="noCursor mx-auto w-full text-center my-2">Updates</h1>
+        <div className="noCursor p-5 mb-4 border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+          <time className="noCursor text-lg font-semibold text-gray-900 dark:text-white">
             January 13th, 2022
           </time>
-          <ol className="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
+          <ol className="noCursor mt-3 divide-y divider-gray-200 dark:divide-gray-700">
             <li>
               <a
                 href="#"
-                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="noCursor items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  className="w-12 h-12 mb-3 mr-3 rounded-full sm:mb-0"
+                  className="noCursor w-12 h-12 mb-3 mr-3 rounded-full sm:mb-0"
                   src="https://flowbite.com/docs/images/people/profile-picture-1.jpg"
                   alt="Jese Leos image"
                 />
-                <div className="text-gray-600 dark:text-gray-400">
-                  <div className="text-base font-normal">
-                    <span className="font-medium text-gray-900 dark:text-white">
+                <div className="noCursor text-gray-600 dark:text-gray-400">
+                  <div className="noCursor text-base font-normal">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       Jese Leos
                     </span>{" "}
                     likes{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       Bonnie Green's
                     </span>{" "}
                     post in{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       {" "}
                       How to start with Flowbite library
                     </span>
                   </div>
-                  <div className="text-sm font-normal">
+                  <div className="noCursor text-sm font-normal">
                     "I wanted to share a webinar zeroheight."
                   </div>
-                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="noCursor inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      className="w-2.5 h-2.5 mr-1"
+                      className="noCursor w-2.5 h-2.5 mr-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -56,27 +56,27 @@ export default function Updates() {
             <li>
               <a
                 href="#"
-                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="noCursor items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  className="w-12 h-12 mb-3 mr-3 rounded-full sm:mb-0"
+                  className="noCursor w-12 h-12 mb-3 mr-3 rounded-full sm:mb-0"
                   src="/docs/images/people/profile-picture-3.jpg"
                   alt="Bonnie Green image"
                 />
                 <div>
-                  <div className="text-base font-normal text-gray-600 dark:text-gray-400">
-                    <span className="font-medium text-gray-900 dark:text-white">
+                  <div className="noCursor text-base font-normal text-gray-600 dark:text-gray-400">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       Bonnie Green
                     </span>{" "}
                     react to{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       Thomas Lean's
                     </span>{" "}
                     comment
                   </div>
-                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="noCursor inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      className="w-2.5 h-2.5 mr-1"
+                      className="noCursor w-2.5 h-2.5 mr-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -93,42 +93,42 @@ export default function Updates() {
             </li>
           </ol>
         </div>
-        <div className="p-5 border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-          <time className="text-lg font-semibold text-gray-900 dark:text-white">
+        <div className="noCursor p-5 border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+          <time className="noCursor text-lg font-semibold text-gray-900 dark:text-white">
             January 12th, 2022
           </time>
-          <ol className="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
+          <ol className="noCursor mt-3 divide-y divider-gray-200 dark:divide-gray-700">
             <li>
               <a
                 href="#"
-                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="noCursor items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  className="w-12 h-12 mb-3 mr-3 rounded-full sm:mb-0"
+                  className="noCursor w-12 h-12 mb-3 mr-3 rounded-full sm:mb-0"
                   src="/docs/images/people/profile-picture-4.jpg"
                   alt="Laura Romeros image"
                 />
-                <div className="text-gray-600 dark:text-gray-400">
-                  <div className="text-base font-normal">
-                    <span className="font-medium text-gray-900 dark:text-white">
+                <div className="noCursor text-gray-600 dark:text-gray-400">
+                  <div className="noCursor text-base font-normal">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       Laura Romeros
                     </span>{" "}
                     likes{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       Bonnie Green's
                     </span>{" "}
                     post in{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       {" "}
                       How to start with Flowbite library
                     </span>
                   </div>
-                  <div className="text-sm font-normal">
+                  <div className="noCursor text-sm font-normal">
                     "I wanted to share a webinar zeroheight."
                   </div>
-                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="noCursor inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      className="w-2.5 h-2.5 mr-1"
+                      className="noCursor w-2.5 h-2.5 mr-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -146,27 +146,27 @@ export default function Updates() {
             <li>
               <a
                 href="#"
-                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="noCursor items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  className="w-12 h-12 mb-3 mr-3 rounded-full sm:mb-0"
+                  className="noCursor w-12 h-12 mb-3 mr-3 rounded-full sm:mb-0"
                   src="/docs/images/people/profile-picture-2.jpg"
                   alt="Mike Willi image"
                 />
                 <div>
-                  <div className="text-base font-normal text-gray-600 dark:text-gray-400">
-                    <span className="font-medium text-gray-900 dark:text-white">
+                  <div className="noCursor text-base font-normal text-gray-600 dark:text-gray-400">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       Mike Willi
                     </span>{" "}
                     react to{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       Thomas Lean's
                     </span>{" "}
                     comment
                   </div>
-                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="noCursor inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      className="w-2.5 h-2.5 mr-1"
+                      className="noCursor w-2.5 h-2.5 mr-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -182,34 +182,34 @@ export default function Updates() {
             <li>
               <a
                 href="#"
-                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="noCursor items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  className="w-12 h-12 mb-3 mr-3 rounded-full sm:mb-0"
+                  className="noCursor w-12 h-12 mb-3 mr-3 rounded-full sm:mb-0"
                   src="/docs/images/people/profile-picture-5.jpg"
                   alt="Jese Leos image"
                 />
-                <div className="text-gray-600 dark:text-gray-400">
-                  <div className="text-base font-normal">
-                    <span className="font-medium text-gray-900 dark:text-white">
+                <div className="noCursor text-gray-600 dark:text-gray-400">
+                  <div className="noCursor text-base font-normal">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       Jese Leos
                     </span>{" "}
                     likes{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       Bonnie Green's
                     </span>{" "}
                     post in{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       {" "}
                       How to start with Flowbite library
                     </span>
                   </div>
-                  <div className="text-sm font-normal">
+                  <div className="noCursor text-sm font-normal">
                     "I wanted to share a webinar zeroheight."
                   </div>
-                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="noCursor inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      className="w-2.5 h-2.5 mr-1"
+                      className="noCursor w-2.5 h-2.5 mr-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -225,34 +225,34 @@ export default function Updates() {
             <li>
               <a
                 href="#"
-                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="noCursor items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  className="w-12 h-12 mb-3 mr-3 rounded-full sm:mb-0"
+                  className="noCursor w-12 h-12 mb-3 mr-3 rounded-full sm:mb-0"
                   src="/docs/images/people/profile-picture-3.jpg"
                   alt="Bonnie Green image"
                 />
-                <div className="text-gray-600 dark:text-gray-400">
-                  <div className="text-base font-normal">
-                    <span className="font-medium text-gray-900 dark:text-white">
+                <div className="noCursor text-gray-600 dark:text-gray-400">
+                  <div className="noCursor text-base font-normal">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       Bonnie Green
                     </span>{" "}
                     likes{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       Bonnie Green's
                     </span>{" "}
                     post in{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
+                    <span className="noCursor font-medium text-gray-900 dark:text-white">
                       {" "}
                       Top figma designs
                     </span>
                   </div>
-                  <div className="text-sm font-normal">
+                  <div className="noCursor text-sm font-normal">
                     "I wanted to share a webinar zeroheight."
                   </div>
-                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="noCursor inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      className="w-2.5 h-2.5 mr-1"
+                      className="noCursor w-2.5 h-2.5 mr-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"

@@ -25,12 +25,12 @@ export default function NewNavbar({ position }) {
     if (user) {
       formbricks.setEmail(user.email);
     }
-  }
+  };
   if (typeof window !== "undefined") {
     formbricksInit();
   }
 
-  console.log("NAVVBAR")
+  console.log("NAVVBAR");
   const { userDetails } = useUserDetails();
   const location = useLocation();
 
@@ -102,11 +102,11 @@ export default function NewNavbar({ position }) {
               : ""
               } hover:bg-zinc-200`}
           >
-            <div className="dropdown  dropdown-bottom">
+            <div className="noCursor dropdown  dropdown-bottom">
               <label tabIndex={0}>Admin</label>
               <ul
                 tabIndex={0}
-                className="dropdown-content z-[1] menu p-2 shadow text-zinc-300 bg-base-100 rounded-box w-52 mt-2"
+                className="noCursor dropdown-content z-[1] menu p-2 shadow text-zinc-300 bg-base-100 rounded-box w-52 mt-2"
               >
                 <li>
                   <Link to={"/admin/user"}>
@@ -133,24 +133,24 @@ export default function NewNavbar({ position }) {
 
   return (
     <>
-      
+
       <MobNav isMenuActive={isMenuActive} toggleActive={toggleActive} />
       <div
         className={`${position ? position : "sticky"
           } inset-x-0 top-0 relative z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto`}
         style={{ ...navbarStyle }}
       >
-        <div className="flex cursor-pointer items-center gap-4 rounded-full bg-white p-2">
+        <div className="noCursor flex cursor-pointer items-center gap-4 rounded-full bg-white p-2">
           <Link to="/">
-            <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-zinc-100">
+            <div className="noCursor flex items-center justify-center w-10 h-10 rounded-full hover:bg-zinc-100">
               <img
                 src={logo}
                 alt="logo"
-                className="bg-black hover:bg-blue-700 rounded-full"
+                className="noCursor bg-black hover:bg-blue-700 rounded-full"
               />
             </div>
           </Link>
-          <div className="flex items-center">
+          <div className="noCursor flex items-center">
             {navLinks.map((navLink, index) => (
               <Link
                 to={navLink.path}
@@ -165,22 +165,22 @@ export default function NewNavbar({ position }) {
             ))}
             {renderAdminLink()}
           </div>
-          <div className="flex justify-end">
+          <div className="noCursor flex justify-end">
             {user ? (
-              <div className="dropdown dropdown-hover dropdown-bottom">
+              <div className="noCursor dropdown dropdown-hover dropdown-bottom">
                 <a href="/u/dashboard">
-                  <div className="flex items-center justify-center w-[40px] h-[40px] rounded-full hover:bg-zinc-100">
+                  <div className="noCursor flex items-center justify-center w-[40px] h-[40px] rounded-full hover:bg-zinc-100">
                     <img
                       src={user.photoURL || logo}
                       alt="logo"
-                      className="bg-black object-fill hover:bg-blue-700 rounded-full"
+                      className="noCursor bg-black object-fill hover:bg-blue-700 rounded-full"
                       style={{ width: "40px", height: "40px" }}
                     />
                   </div>
                 </a>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                  className="noCursor dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   {navLinksDashboard.map((navLinkDashboard, index) => (
                     <li key={index}>
@@ -190,7 +190,7 @@ export default function NewNavbar({ position }) {
                     </li>
                   ))}
                   <li>
-                    <Link to={"/logout"} className="text-custom-blue">
+                    <Link to={"/logout"} className="noCursor text-custom-blue">
                       <span>{"logout"}</span>
                     </Link>
                   </li>
@@ -199,15 +199,15 @@ export default function NewNavbar({ position }) {
             ) : (
               <Link
                 to={"/login"}
-                className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 py-2 rounded-full hover:bg-blue-600 hover:text-black-300 disabled:bg-white/5 disabled:text-zinc-50 bg-custom-blue text-blue-950"
+                className="noCursor group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 py-2 rounded-full hover:bg-blue-600 hover:text-black-300 disabled:bg-white/5 disabled:text-zinc-50 bg-custom-blue text-blue-950"
               >
                 Login
               </Link>
             )}
           </div>
         </div>
-        <div className="flex items-center flex-wrap">
-        {user && <Novu user={user} />}
+        <div className="noCursor flex items-center flex-wrap">
+          {user && <Novu user={user} />}
         </div>
       </div>
     </>

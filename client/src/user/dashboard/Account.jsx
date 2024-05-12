@@ -26,19 +26,19 @@ const UserDashBoardAccount = () => {
   });
   const handleInputChangeObjData = (event) => {
     const { name, value } = event.target;
-    if(name==='phoneNumber')
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: {
-        ...prevData[name],
-        data: value,
-      },
-    }));
+    if (name === 'phoneNumber')
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: {
+          ...prevData[name],
+          data: value,
+        },
+      }));
     else
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value
+      }));
   };
   async function handleSubmit(event) {
     event.preventDefault();
@@ -77,35 +77,35 @@ const UserDashBoardAccount = () => {
   return (
     <>
       <ToastContainer />
-      <div className="w-full flex border border-white rounded-xl flex-col space-y-[23px] bg-cardsColor font-['Geist']">
+      <div className="noCursor w-full flex border border-white rounded-xl flex-col space-y-[23px] bg-cardsColor font-['Geist']">
         <div
-          className="sm:pt-[42px] sm:px-[70px] sm:pb-[24px] px-6 py-5 flex flex-col space-y-8 justify-start items-start w-full bg-[#ebebeb
+          className="noCursor sm:pt-[42px] sm:px-[70px] sm:pb-[24px] px-6 py-5 flex flex-col space-y-8 justify-start items-start w-full bg-[#ebebeb
 1a] rounded-xl "
         >
-          <p className="text-[40px] max-sm:text-2xl font-bold normal-case text-white">
+          <p className="noCursor text-[40px] max-sm:text-2xl font-bold normal-case text-white">
             Manage your account
           </p>
-          <div className="flex flex-col gap-8 max-md:w-full md:w-3/4 ">
-            <div className="form-control w-full ">
-              <label htmlFor="email" className="label">
-                <span className="label-text"> Email</span>
+          <div className="noCursor flex flex-col gap-8 max-md:w-full md:w-3/4 ">
+            <div className="noCursor form-control w-full ">
+              <label htmlFor="email" className="noCursor label">
+                <span className="noCursor label-text"> Email</span>
               </label>
-              <div className="flex  items-center gap-3 ">
+              <div className="noCursor flex  items-center gap-3 ">
                 <input
                   type="email"
                   name="email"
                   id="email"
                   value={formData.email}
                   onChange={handleInputChangeObjData}
-                  className="input input-bordered w-full max-w-lg "
+                  className="noCursor input input-bordered w-full max-w-lg "
                 />
               </div>
             </div>
-            <div className="form-control w-full ">
-              <label htmlFor="phoneNumber" className="label">
-                <span className="label-text"> Phone number</span>
+            <div className="noCursor form-control w-full ">
+              <label htmlFor="phoneNumber" className="noCursor label">
+                <span className="noCursor label-text"> Phone number</span>
               </label>
-              <div className="flex  items-center gap-3 ">
+              <div className="noCursor flex  items-center gap-3 ">
                 <input
                   type="tel"
                   name="phoneNumber"
@@ -113,15 +113,15 @@ const UserDashBoardAccount = () => {
                   id="phoneNumber"
                   value={formData.phoneNumber.data}
                   onChange={handleInputChangeObjData}
-                  className="input input-bordered w-full max-w-lg "
+                  className="noCursor input input-bordered w-full max-w-lg "
                 />
               </div>
             </div>
           </div>
-          <div className="flex w-full max-md:flex-col gap-4 justify-between max-md:items-center">
-          <div className="btn-div " style={{ boxShadow: `8px 8px #B55B52` }}>
+          <div className="noCursor flex w-full max-md:flex-col gap-4 justify-between max-md:items-center">
+            <div className="noCursor btn-div " style={{ boxShadow: `8px 8px #B55B52` }}>
               <button
-              type="submit"
+                type="submit"
                 style={{
                   color: "black",
                   fontWeight: "bold",
@@ -129,31 +129,31 @@ const UserDashBoardAccount = () => {
                   marginTop: "17px",
                 }}
               >
-              Delete Account
+                Delete Account
               </button>
             </div>
-            <div className="btn-div" style={{ boxShadow: `8px 8px #2E8D46` }}>
+            <div className="noCursor btn-div" style={{ boxShadow: `8px 8px #2E8D46` }}>
               <button disabled={isDisabled}
-              onClick={handleSubmit}
-              type="submit"
+                onClick={handleSubmit}
+                type="submit"
                 style={{
                   color: "black",
                   fontWeight: "bold",
                   fontSize: "20px",
                   marginTop: "17px",
                 }}
-                className={`${isDisabled ?"cursor-not-allowed  opacity-60":""}`}
+                className={`${isDisabled ? "cursor-not-allowed  opacity-60" : ""}`}
               >
-              {isDisabled ? "Saving Changes..." : "Save Changes"}
+                {isDisabled ? "Saving Changes..." : "Save Changes"}
               </button>
             </div>
           </div>
         </div>
-        {/* <div className="p-10 flex flex-col gap-8 justify-start items-start w-full h-3/4 bg-eerie-black-2 rounded-xl border border-white border-opacity-5">
-        <p className="text-3xl max-phone:text-2xl font-bold normal-case text-white">
+        {/* <div className="noCursor p-10 flex flex-col gap-8 justify-start items-start w-full h-3/4 bg-eerie-black-2 rounded-xl border border-white border-opacity-5">
+        <p className="noCursor text-3xl max-phone:text-2xl font-bold normal-case text-white">
           Change your password
         </p>
-        <div className="flex gap-8 flex-col md:flex-row md:justify-between w-full">
+        <div className="noCursor flex gap-8 flex-col md:flex-row md:justify-between w-full">
             <FormInput
               name="oldPassword"
               type="password"
@@ -170,8 +170,8 @@ const UserDashBoardAccount = () => {
               textArea={false}
             />
         </div>
-        <div className="w-full flex justify-end">
-          <button className="btn btn-success" disabled={isDisabled}>
+        <div className="noCursor w-full flex justify-end">
+          <button className="noCursor btn btn-success" disabled={isDisabled}>
             Change
           </button>
         </div>

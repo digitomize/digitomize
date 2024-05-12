@@ -11,7 +11,7 @@ import dayjs from "dayjs";
 
 
 
-function BasicInfo({formData,setFormData,handleInputChange,handleInputChangeObjData}) {
+function BasicInfo({ formData, setFormData, handleInputChange, handleInputChangeObjData }) {
 
     // const { personal_data, social } = useLoaderData();
     // const [isDisabled, setIsDisabled] = useState(false);
@@ -96,27 +96,27 @@ function BasicInfo({formData,setFormData,handleInputChange,handleInputChangeObjD
     //             setIsDisabled(false);
     //         });
 
-        // console.log(res);
+    // console.log(res);
     // }
     // const { user } = useUserAuth();
     const BIO_LIMIT = 250;
 
     return (
         <>
-            <div className="flex flex-col sm:flex-row sm:space-x-20 space-y-8 sm:space-y-0 my-8">
+            <div className="noCursor flex flex-col sm:flex-row sm:space-x-20 space-y-8 sm:space-y-0 my-8">
                 <div class="flex-1 mt-8">
                     <h3 class="text-base font-semibold text-gray-200">Basic account information</h3>
                     <p class="mt-3 font-light text-sm text-gray-500">Please enter your full name, or a display name you are comfortable with.</p>
                     <p class="mt-3 font-light text-sm text-gray-500">Click on the avatar to upload a custom one from your files..</p>
                 </div>
 
-                <div className="flex-2 rounded-lg shadow bg-dashboardColor border border-jet">
-                    <div className="px-6 py-8 border-b border-jet">
-                        <div className="flex flex-col sm:flex-row sm:space-x-5 items-center">
+                <div className="noCursor flex-2 rounded-lg shadow bg-dashboardColor border border-jet">
+                    <div className="noCursor px-6 py-8 border-b border-jet">
+                        <div className="noCursor flex flex-col sm:flex-row sm:space-x-5 items-center">
 
-                            <div className="flex-0 px-4 flex flex-col justify-center items-center h-28">
-                                <div className="relative text-center">
-                                    <img src={formData.picture} alt="profile" className="w-16 rounded-full" />
+                            <div className="noCursor flex-0 px-4 flex flex-col justify-center items-center h-28">
+                                <div className="noCursor relative text-center">
+                                    <img src={formData.picture} alt="profile" className="noCursor w-16 rounded-full" />
                                     <label class="mt-5 text-xs font-medium text-secondary text-center">Upload</label>
                                 </div>
                             </div>
@@ -145,12 +145,12 @@ function BasicInfo({formData,setFormData,handleInputChange,handleInputChangeObjD
                         </div>
                     </div>
                     <div class="px-6 py-8">
-                        <div className="sm:w-9/12">
-                            <div className="label">
+                        <div className="noCursor sm:w-9/12">
+                            <div className="noCursor label">
                                 <label class="text-xs font-medium text-secondary">Brief bio</label>
                                 <label class="ml-1 text-xs font-medium text-secondary">{formData.bio?.data?.length || 0}/{BIO_LIMIT}</label>
                             </div>
-                            <textarea style={{ backgroundColor: 'RGB(17, 19, 18)' }} className="placeholder:text-gray-600 textarea textarea-bordered h-24 w-full" placeholder="Ex: Developer @ digitomize" maxLength={BIO_LIMIT} onChange={handleInputChangeObjData} value={formData.bio.data} name="bio" id="bio" />
+                            <textarea style={{ backgroundColor: 'RGB(17, 19, 18)' }} className="noCursor placeholder:text-gray-600 textarea textarea-bordered h-24 w-full" placeholder="Ex: Developer @ digitomize" maxLength={BIO_LIMIT} onChange={handleInputChangeObjData} value={formData.bio.data} name="bio" id="bio" />
                         </div>
                     </div>
                 </div>

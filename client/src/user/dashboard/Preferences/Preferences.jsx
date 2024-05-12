@@ -96,7 +96,7 @@ function Preferences() {
   };
   if (loading) {
     return (
-      <div className="w-full">
+      <div className="noCursor w-full">
 
         <LoadingScreen />;
       </div>
@@ -107,7 +107,7 @@ function Preferences() {
     <>
       <MetaData path="u/dashboard/preferences" />
       <ToastContainer />
-      <div className="bg-dashboardDarkColor font-['Geist']">
+      <div className="noCursor bg-dashboardDarkColor font-['Geist']">
         <div class="flex justify-between items-center min-h-[40px]">
           <div class="flex flex-shrink gap-2 mr-4 items-center min-w-0">
             <p class="truncate font-medium text-gray-200 text-3xl max-w-[600px]">Preferences</p>

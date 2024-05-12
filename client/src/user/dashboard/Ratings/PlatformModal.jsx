@@ -18,10 +18,10 @@ export default function PlatformModal({ btnText = "Connect", platform, handleSub
         <React.Fragment>
             {
                 platform.active ?
-                    <button className="btn btn-outline border-jet hover:bg-jet hover:text-white" onClick={handleClickOpen}>
+                    <button className="noCursor btn btn-outline border-jet hover:bg-jet hover:text-white" onClick={handleClickOpen}>
                         {btnText}
                     </button> :
-                    <button className="btn btn-outline border-jet hover:bg-jet hover:text-white" disabled>
+                    <button className="noCursor btn btn-outline border-jet hover:bg-jet hover:text-white" disabled>
                         Coming Soon
                     </button>
             }
@@ -29,12 +29,12 @@ export default function PlatformModal({ btnText = "Connect", platform, handleSub
                 open={open}
                 onClose={handleClose}
             >
-                <div className="sm:w-96 bg-dashboardColor">
-                    <div className="border rounded-t-lg border border-jet px-4 py-6 w-full">
-                        <div className="flex flex-col items-center mb-2">
-                            <div className="rounded-full bg-dashboardDarkerColor p-3">
+                <div className="noCursor sm:w-96 bg-dashboardColor">
+                    <div className="noCursor border rounded-t-lg border border-jet px-4 py-6 w-full">
+                        <div className="noCursor flex flex-col items-center mb-2">
+                            <div className="noCursor rounded-full bg-dashboardDarkerColor p-3">
 
-                                <img src={platform.icon} alt="" className="w-12" />
+                                <img src={platform.icon} alt="" className="noCursor w-12" />
                             </div>
                             <h3 class="text-base font-semibold text-gray-200 mt-2">{platform.title}</h3>
                             {/* <p class="text-gray-gray1k font-semibold text-sm mt-4 mb-1">{platform.title}</p> */}
@@ -51,7 +51,7 @@ export default function PlatformModal({ btnText = "Connect", platform, handleSub
                                         {platform.url}
                                     </div>
                                 </label>
-                                <input autoComplete="off" type="text" className="placeholder:text-gray-600 outline-none border-0 rounded-md font-medium w-full bg-dashboardDarkerColor text-sm px-0" value={formData[platform.name]?.username} placeholder="" onChange={handleInputChangeObjData} name={platform.name} id={platform.name} />
+                                <input autoComplete="off" type="text" className="noCursor placeholder:text-gray-600 outline-none border-0 rounded-md font-medium w-full bg-dashboardDarkerColor text-sm px-0" value={formData[platform.name]?.username} placeholder="" onChange={handleInputChangeObjData} name={platform.name} id={platform.name} />
                             </div>
                         </div>
                         <label class="ml-1 text-xs font-medium text-secondary">{platform.note}</label>

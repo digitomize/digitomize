@@ -140,17 +140,17 @@ function UserDashBoardCarrer() {
   return (
     <>
       <ToastContainer />
-      <div className="border border-solid border-jet bg-cardsColor rounded-md p-[40px] w-9/12 font-['Geist']">
+      <div className="noCursor border border-solid border-jet bg-cardsColor rounded-md p-[40px] w-9/12 font-['Geist']">
         <div>
-          <div className="z-0 w-full md:w-3/4 group flex items-start md:mr-5 ">
-            <div className="form-control  w-full ">
+          <div className="noCursor z-0 w-full md:w-3/4 group flex items-start md:mr-5 ">
+            <div className="noCursor form-control  w-full ">
               <h2 className='font-bold text-white text-4xl max-sm:text-2xl sm:mb-[30px] mb-[20px]'>Skills</h2>
-              <div className="flex items-center gap-3">
+              <div className="noCursor flex items-center gap-3">
                 <input
                   type="text"
                   name="skills"
                   id="skills"
-                  className="input-sm input input-bordered max-sm:text-sm  w-full max-w-lg"
+                  className="noCursor input-sm input input-bordered max-sm:text-sm  w-full max-w-lg"
                   placeholder="Add a skill"
                   value={newSkill}
                   maxLength={25}
@@ -160,13 +160,13 @@ function UserDashBoardCarrer() {
                   <button
                     ref={btnRef}
                     type="submit"
-                    className="btn btn-sm btn-outline"
+                    className="noCursor btn btn-sm btn-outline"
                   >
                     Add
                   </button>
                 </Form>
               </div>
-              <div className="skillchips w-full max-sm:text-sm  max-w-3xl h-12">
+              <div className="noCursor skillchips w-full max-sm:text-sm  max-w-3xl h-12">
                 {skillData.length > 0 ? (
                   skillData.map((data) => {
                     let icon;
@@ -175,7 +175,7 @@ function UserDashBoardCarrer() {
                     }
 
                     return (
-                      <div key={data.key} className="max-sm:text-sm my-2  inline-block">
+                      <div key={data.key} className="noCursor max-sm:text-sm my-2  inline-block">
                         <Chip
                           variant="outlined"
                           color="primary"
@@ -187,7 +187,7 @@ function UserDashBoardCarrer() {
                     );
                   })
                 ) : (
-                  <p className="font-semibold mt-1 max-sm:text-sm text-red-600 ">
+                  <p className="noCursor font-semibold mt-1 max-sm:text-sm text-red-600 ">
                     No skills added.
                   </p>
                 )}
@@ -196,9 +196,9 @@ function UserDashBoardCarrer() {
           </div>
 
           <h2 className='font-bold text-white text-4xl max-sm:text-2xl sm:mb-[30px] my-2'>Social</h2>
-          <div className="flex flex-col gap-4 pb-8">
+          <div className="noCursor flex flex-col gap-4 pb-8">
             {socialFields.map((field, index) => (
-              <div key={index} className="flex sm:gap-4 gap-3 items-center">
+              <div key={index} className="noCursor flex sm:gap-4 gap-3 items-center">
                 {field.icon}
                 <input
                   type="text"
@@ -206,7 +206,7 @@ function UserDashBoardCarrer() {
                   value={formData.social[field.name]}
                   placeholder={field.placeholder}
                   onChange={handleSocialChange}
-                  className="input-sm input input-bordered max-sm:text-sm w-9/12"
+                  className="noCursor input-sm input input-bordered max-sm:text-sm w-9/12"
                 />
               </div>
             ))}
@@ -214,8 +214,8 @@ function UserDashBoardCarrer() {
 
         </div>
 
-        <div className="flex w-full max-sm:justify-center md:justify-end md:pe-12 max-sm:text-sm ">
-          <div className="btn-div" style={{ boxShadow: `8px 8px #2E8D46` }}>
+        <div className="noCursor flex w-full max-sm:justify-center md:justify-end md:pe-12 max-sm:text-sm ">
+          <div className="noCursor btn-div" style={{ boxShadow: `8px 8px #2E8D46` }}>
             <button disabled={isDisabled}
               onClick={handleSubmit}
               type="submit"

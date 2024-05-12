@@ -23,7 +23,7 @@ function BasicInfo({ platformsData, formData, setFormData, handleToggleChange })
 
     return (
         <>
-            <div className="flex flex-col sm:flex-row sm:space-x-20 space-y-8 sm:space-y-0 my-8">
+            <div className="noCursor flex flex-col sm:flex-row sm:space-x-20 space-y-8 sm:space-y-0 my-8">
 
                 <div class="flex-1 mt-8">
                     <h3 class="text-base font-semibold text-gray-200">Select your platforms</h3>
@@ -32,17 +32,17 @@ function BasicInfo({ platformsData, formData, setFormData, handleToggleChange })
                 </div>
 
 
-                <div className="flex-2 rounded-lg shadow bg-dashboardColor border border-jet">
+                <div className="noCursor flex-2 rounded-lg shadow bg-dashboardColor border border-jet">
                     <div
-                        className="px-3 phone:px-6 py-8"
+                        className="noCursor px-3 phone:px-6 py-8"
                     >
-                        <List className="w-fit">
-                            <div className="platforms flex flex-col">
+                        <List className="noCursor w-fit">
+                            <div className="noCursor platforms flex flex-col">
                                 {platformsData.map(({ name, icon }) => (
                                     <ListItem>
-                                        {/* <div className="flex flex-row"> */}
+                                        {/* <div className="noCursor flex flex-row"> */}
                                         <ListItemIcon>
-                                            <img src={icon} alt={name} className="w-8" />
+                                            <img src={icon} alt={name} className="noCursor w-8" />
                                         </ListItemIcon>
                                         <ListItemText id={`switch-list-label-${name}`} primary={name} />
                                         <Switch checked={formData.contest_notifs[name]} onChange={handleToggleChange} name={name} inputProps={{

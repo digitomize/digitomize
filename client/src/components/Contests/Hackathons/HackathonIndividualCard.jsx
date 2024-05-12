@@ -20,7 +20,7 @@ const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 const addToGoogleCalendar = ({ name, hackathonStartTimeUnix: startTimeUnix, duration, url, host }) => {
   // Adjust the start time and duration for IST (GMT+5:30)
-  const startTimeIST = new Date((startTimeUnix +  60 * 60 - 3600) * 1000);
+  const startTimeIST = new Date((startTimeUnix + 60 * 60 - 3600) * 1000);
   const endTimeIST = new Date((startTimeUnix + duration * 60 + 60 * 60 - 3600) * 1000);
 
   const formattedStartTime = startTimeIST.toISOString().replace(/[-:]/g, "").replace(".000", "+05:30");
@@ -63,12 +63,12 @@ function HackathonIndividualCard() {
 
   const [remaningTime, setRemainingTime] = useState("Loading...");
   if (hackathon === null) {
-    return <div className="min-h-[40vh]">Loading...</div>;
+    return <div className="noCursor min-h-[40vh]">Loading...</div>;
   }
 
   if (hackathon?.host === undefined) {
     return (
-      <div className="min-h-[40vh] text-center">
+      <div className="noCursor min-h-[40vh] text-center">
         <h1>
           404 <br /> Hackathon not found
         </h1>
@@ -158,16 +158,16 @@ function HackathonIndividualCard() {
           <link rel="canonical" href={url} />
         </Helmet>
         {true && (
-          <div className="mx-auto w-fit mt-4">
+          <div className="noCursor mx-auto w-fit mt-4">
             <Alert
               severity="error"
-              className="w-fit"
-              icon={<Notifications className="animate-ping" />}
+              className="noCursor w-fit"
+              icon={<Notifications className="noCursor animate-ping" />}
             >
               <a href="https://whatsapp.com/channel/0029VaJyadwLNSa71cZCQt1A" target="_blank" rel="noreferrer">
                 <AlertTitle>DON'T miss out hackathons - get all hackathon notifications on
                   <strong> Whatsapp!!</strong>
-                  <span className="normal-case">
+                  <span className="noCursor normal-case">
                     {" "}
                     Follow <strong> now</strong>👨🏻‍💻
                   </span>
@@ -177,23 +177,23 @@ function HackathonIndividualCard() {
           </div>
         )}
         {isMobile ? (
-          <div className="py-8 ">
-            <div className="card_Navigation mx-4">
-              <div className="card_nav_path">
+          <div className="noCursor py-8 ">
+            <div className="noCursor card_Navigation mx-4">
+              <div className="noCursor card_nav_path">
                 <Link to="/">
                   <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                   Home
                 </Link>
               </div>
               <h3>&gt;</h3>
-              <div className="card_nav_path">
+              <div className="noCursor card_nav_path">
                 <Link to="/hackathons">
                   <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                   Hackathons
                 </Link>
               </div>
               <h3>&gt;</h3>
-              <div className="card_nav_path">
+              <div className="noCursor card_nav_path">
                 <h3>
                   <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                   {name}
@@ -201,13 +201,13 @@ function HackathonIndividualCard() {
               </div>
             </div>
             <div
-              className="ic-mv"
+              className="noCursor ic-mv"
               key={vanity}
               style={{ backgroundColor: colorTheme }}
             >
-              <div className="ic-mv-child">
+              <div className="noCursor ic-mv-child">
                 <div
-                  className="mv-date"
+                  className="noCursor mv-date"
                   style={{
                     color: "black",
                     fontWeight: "bold",
@@ -216,7 +216,7 @@ function HackathonIndividualCard() {
                 >
                   {startDate} {startMonth}' {startYear}
                 </div>
-                <div className="ic-mv-child-first">
+                <div className="noCursor ic-mv-child-first">
                   <img
                     src={hostToSVGMap[host]}
                     alt={host}
@@ -227,21 +227,21 @@ function HackathonIndividualCard() {
                       marginBottom: "0px",
                     }}
                   />
-                  <div className="mv-siteName">{host}</div>
+                  <div className="noCursor mv-siteName">{host}</div>
                 </div>
-                <div className="ic-mv-child-second">
+                <div className="noCursor ic-mv-child-second">
                   <h2
-                    className="mv-contest-name"
+                    className="noCursor mv-contest-name"
                     id="contest-title"
                     style={{ margin: "auto", width: "28.125rem" }}
                   >
                     {name}
                   </h2>
                 </div>
-                <div className="ic-mv-child-third">
-                  <div className="ic-mv-child-third-first">
+                <div className="noCursor ic-mv-child-third">
+                  <div className="noCursor ic-mv-child-third-first">
                     <div
-                      className="mv-start-time-div"
+                      className="noCursor mv-start-time-div"
                       style={{
                         backgroundColor: colorTheme,
                         fontSize: "3.8vw",
@@ -254,13 +254,13 @@ function HackathonIndividualCard() {
                       {startTime}
                     </div>
                   </div>
-                  <div className="ic-mv-child-third-second">
+                  <div className="noCursor ic-mv-child-third-second">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="6"
                       height="6"
                       fill="currentColor"
-                      className="bi bi-square-fill"
+                      className="noCursor bi bi-square-fill"
                       viewBox="0 0 16 16"
                     >
                       {" "}
@@ -271,7 +271,7 @@ function HackathonIndividualCard() {
                       width="6"
                       height="6"
                       fill="currentColor"
-                      className="bi bi-square-fill"
+                      className="noCursor bi bi-square-fill"
                       viewBox="0 0 16 16"
                     >
                       {" "}
@@ -282,7 +282,7 @@ function HackathonIndividualCard() {
                       width="6"
                       height="6"
                       fill="currentColor"
-                      className="bi bi-square-fill"
+                      className="noCursor bi bi-square-fill"
                       viewBox="0 0 16 16"
                     >
                       {" "}
@@ -293,34 +293,34 @@ function HackathonIndividualCard() {
                       width="6"
                       height="6"
                       fill="currentColor"
-                      className="bi bi-square-fill"
+                      className="noCursor bi bi-square-fill"
                       viewBox="0 0 16 16"
                     >
                       {" "}
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
                     </svg>
                   </div>
-                  <div className="ic-mv-child-third-third">
-                    <div className="ic-mv-child-third-third-first">
-                      <div className="ic-mv-child-third-third-first-sub"></div>
+                  <div className="noCursor ic-mv-child-third-third">
+                    <div className="noCursor ic-mv-child-third-third-first">
+                      <div className="noCursor ic-mv-child-third-third-first-sub"></div>
                     </div>
                     <div
-                      className="ic-mv-child-third-third-second"
+                      className="noCursor ic-mv-child-third-third-second"
                       style={{ fontSize: "3.8vw" }}
                     >
                       {durationFormatted}
                     </div>
-                    <div className="ic-mv-child-third-third-third">
-                      <div className="ic-mv-child-third-third-third-sub"></div>
+                    <div className="noCursor ic-mv-child-third-third-third">
+                      <div className="noCursor ic-mv-child-third-third-third-sub"></div>
                     </div>
                   </div>
-                  <div className="ic-mv-child-third-fourth">
+                  <div className="noCursor ic-mv-child-third-fourth">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="6"
                       height="6"
                       fill="currentColor"
-                      className="bi bi-square-fill"
+                      className="noCursor bi bi-square-fill"
                       viewBox="0 0 16 16"
                     >
                       {" "}
@@ -331,7 +331,7 @@ function HackathonIndividualCard() {
                       width="6"
                       height="6"
                       fill="currentColor"
-                      className="bi bi-square-fill"
+                      className="noCursor bi bi-square-fill"
                       viewBox="0 0 16 16"
                     >
                       {" "}
@@ -342,7 +342,7 @@ function HackathonIndividualCard() {
                       width="6"
                       height="6"
                       fill="currentColor"
-                      className="bi bi-square-fill"
+                      className="noCursor bi bi-square-fill"
                       viewBox="0 0 16 16"
                     >
                       {" "}
@@ -353,16 +353,16 @@ function HackathonIndividualCard() {
                       width="6"
                       height="6"
                       fill="currentColor"
-                      className="bi bi-square-fill"
+                      className="noCursor bi bi-square-fill"
                       viewBox="0 0 16 16"
                     >
                       {" "}
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />{" "}
                     </svg>
                   </div>
-                  <div className="ic-mv-child-third-fifth">
+                  <div className="noCursor ic-mv-child-third-fifth">
                     <div
-                      className="mv-end-time-div"
+                      className="noCursor mv-end-time-div"
                       style={{
                         backgroundColor: colorTheme,
                         fontSize: "3.8vw",
@@ -376,14 +376,14 @@ function HackathonIndividualCard() {
                     </div>
                   </div>
                 </div>
-                <div className="ic-mv-child-fourth">
+                <div className="noCursor ic-mv-child-fourth">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     style={{ display: "inline-block" }}
                     width="20"
                     height="20"
                     fill="currentColor"
-                    className="bi bi-alarm"
+                    className="noCursor bi bi-alarm"
                     viewBox="0 0 16 16"
                   >
                     <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z" />
@@ -391,10 +391,10 @@ function HackathonIndividualCard() {
                   </svg>
                   {remaningTime}
                 </div>
-                <div className="ic-mv-child-fifth">
+                <div className="noCursor ic-mv-child-fifth">
 
                   <div
-                    className="mv-btn-div"
+                    className="noCursor mv-btn-div"
                     style={{ boxShadow: `8px 8px ${colorTheme}` }}
                   >
                     <button
@@ -414,7 +414,7 @@ function HackathonIndividualCard() {
                     href={url + "?ref=digitomize&utm_source=digitomize"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mv-btn-div"
+                    className="noCursor mv-btn-div"
                     style={{ boxShadow: `0.5rem 0.5rem ${colorTheme}` }}
                   >
                     <button
@@ -430,7 +430,7 @@ function HackathonIndividualCard() {
                   </a>
                   <CopyToClipboard
                     msg="Share"
-                    className="mv-btn-div share-button-div share-button-container mv-btn-share-div"
+                    className="noCursor mv-btn-div share-button-div share-button-container mv-btn-share-div"
                     gradient={"mv-btn-div"}
                   />
                 </div>
@@ -439,22 +439,22 @@ function HackathonIndividualCard() {
           </div>
         ) : (
           <>
-            <div className="card_Navigation flex justify-center mt-8 text-2xl">
-              <div className="card_nav_path">
+            <div className="noCursor card_Navigation flex justify-center mt-8 text-2xl">
+              <div className="noCursor card_nav_path">
                 <Link to="/">
                   <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                   Home
                 </Link>
               </div>
               <h3>&gt;</h3>
-              <div className="card_nav_path">
+              <div className="noCursor card_nav_path">
                 <Link to="/hackathons">
                   <WhatshotIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                   Hackathons
                 </Link>
               </div>
               <h3>&gt;</h3>
-              <div className="card_nav_path">
+              <div className="noCursor card_nav_path">
                 <h3>
                   <GrainIcon sx={{ mr: 0.5 }} fontSize="inherit" />
                   {name}
@@ -462,13 +462,13 @@ function HackathonIndividualCard() {
               </div>
             </div>
             <div
-              className="ic py-8"
+              className="noCursor ic py-8"
               key={vanity}
               style={{ backgroundColor: colorTheme }}
             >
-              <div className="ic-child">
+              <div className="noCursor ic-child">
                 <div
-                  className="date"
+                  className="noCursor date"
                   style={{
                     color: "black",
                     fontWeight: "bold",
@@ -485,7 +485,7 @@ function HackathonIndividualCard() {
                     width="40"
                     height="40"
                     fill="currentColor"
-                    className="bi bi-scissors"
+                    className="noCursor bi bi-scissors"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.5 3.5c-.614-.884-.074-1.962.858-2.5L8 7.226 11.642 1c.932.538 1.472 1.616.858 2.5L8.81 8.61l1.556 2.661a2.5 2.5 0 1 1-.794.637L8 9.73l-1.572 2.177a2.5 2.5 0 1 1-.794-.637L7.19 8.61 3.5 3.5zm2.5 10a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0zm7 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z" />
@@ -504,17 +504,17 @@ function HackathonIndividualCard() {
                     width="40"
                     height="40"
                     fill="currentColor"
-                    className="bi bi-scissors"
+                    className="noCursor bi bi-scissors"
                     viewBox="0 0 16 16"
                   >
                     <path d="M3.5 3.5c-.614-.884-.074-1.962.858-2.5L8 7.226 11.642 1c.932.538 1.472 1.616.858 2.5L8.81 8.61l1.556 2.661a2.5 2.5 0 1 1-.794.637L8 9.73l-1.572 2.177a2.5 2.5 0 1 1-.794-.637L7.19 8.61 3.5 3.5zm2.5 10a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0zm7 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0z" />
                   </svg>
                 </div>
-                <div className="ic-child-left">
-                  <div className="ic-child-left-zeroth"></div>
-                  <div className="ic-child-left-first">
+                <div className="noCursor ic-child-left">
+                  <div className="noCursor ic-child-left-zeroth"></div>
+                  <div className="noCursor ic-child-left-first">
                     <div
-                      className="ic-child-left-first-inner"
+                      className="noCursor ic-child-left-first-inner"
                       style={{ backgroundColor: colorTheme }}
                     >
                       <p
@@ -531,13 +531,13 @@ function HackathonIndividualCard() {
                       </p>
                     </div>
                   </div>
-                  <div className="ic-child-left-second">
+                  <div className="noCursor ic-child-left-second">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="5"
                       height="5"
                       fill="currentColor"
-                      className="bi bi-square-fill left-filled-box"
+                      className="noCursor bi bi-square-fill left-filled-box"
                       viewBox="0 0 16 16"
                     >
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -547,7 +547,7 @@ function HackathonIndividualCard() {
                       width="5"
                       height="5"
                       fill="currentColor"
-                      className="bi bi-square-fill left-filled-box"
+                      className="noCursor bi bi-square-fill left-filled-box"
                       viewBox="0 0 16 16"
                     >
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -557,7 +557,7 @@ function HackathonIndividualCard() {
                       width="5"
                       height="5"
                       fill="currentColor"
-                      className="bi bi-square-fill left-filled-box"
+                      className="noCursor bi bi-square-fill left-filled-box"
                       viewBox="0 0 16 16"
                     >
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -567,7 +567,7 @@ function HackathonIndividualCard() {
                       width="5"
                       height="5"
                       fill="currentColor"
-                      className="bi bi-square-fill left-filled-box"
+                      className="noCursor bi bi-square-fill left-filled-box"
                       viewBox="0 0 16 16"
                     >
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -577,7 +577,7 @@ function HackathonIndividualCard() {
                       width="5"
                       height="5"
                       fill="currentColor"
-                      className="bi bi-square-fill left-filled-box"
+                      className="noCursor bi bi-square-fill left-filled-box"
                       viewBox="0 0 16 16"
                     >
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -587,7 +587,7 @@ function HackathonIndividualCard() {
                       width="5"
                       height="5"
                       fill="currentColor"
-                      className="bi bi-square-fill left-filled-box"
+                      className="noCursor bi bi-square-fill left-filled-box"
                       viewBox="0 0 16 16"
                     >
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -597,14 +597,14 @@ function HackathonIndividualCard() {
                       width="5"
                       height="5"
                       fill="currentColor"
-                      className="bi bi-square-fill left-filled-box"
+                      className="noCursor bi bi-square-fill left-filled-box"
                       viewBox="0 0 16 16"
                     >
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
                     </svg>
                   </div>
-                  <div className="ic-child-left-third"></div>
-                  <div className="ic-child-left-fourth">
+                  <div className="noCursor ic-child-left-third"></div>
+                  <div className="noCursor ic-child-left-fourth">
                     <p
                       style={{
                         marginLeft: "125px",
@@ -616,14 +616,14 @@ function HackathonIndividualCard() {
                       {durationFormatted}
                     </p>
                   </div>
-                  <div className="ic-child-left-fifth"></div>
-                  <div className="ic-child-left-sixth">
+                  <div className="noCursor ic-child-left-fifth"></div>
+                  <div className="noCursor ic-child-left-sixth">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="5"
                       height="5"
                       fill="currentColor"
-                      className="bi bi-square-fill left-filled-box"
+                      className="noCursor bi bi-square-fill left-filled-box"
                       viewBox="0 0 16 16"
                     >
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -633,7 +633,7 @@ function HackathonIndividualCard() {
                       width="5"
                       height="5"
                       fill="currentColor"
-                      className="bi bi-square-fill left-filled-box"
+                      className="noCursor bi bi-square-fill left-filled-box"
                       viewBox="0 0 16 16"
                     >
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -643,7 +643,7 @@ function HackathonIndividualCard() {
                       width="5"
                       height="5"
                       fill="currentColor"
-                      className="bi bi-square-fill left-filled-box"
+                      className="noCursor bi bi-square-fill left-filled-box"
                       viewBox="0 0 16 16"
                     >
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -653,7 +653,7 @@ function HackathonIndividualCard() {
                       width="5"
                       height="5"
                       fill="currentColor"
-                      className="bi bi-square-fill left-filled-box"
+                      className="noCursor bi bi-square-fill left-filled-box"
                       viewBox="0 0 16 16"
                     >
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -663,7 +663,7 @@ function HackathonIndividualCard() {
                       width="5"
                       height="5"
                       fill="currentColor"
-                      className="bi bi-square-fill left-filled-box"
+                      className="noCursor bi bi-square-fill left-filled-box"
                       viewBox="0 0 16 16"
                     >
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -673,7 +673,7 @@ function HackathonIndividualCard() {
                       width="5"
                       height="5"
                       fill="currentColor"
-                      className="bi bi-square-fill left-filled-box"
+                      className="noCursor bi bi-square-fill left-filled-box"
                       viewBox="0 0 16 16"
                     >
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -683,15 +683,15 @@ function HackathonIndividualCard() {
                       width="5"
                       height="5"
                       fill="currentColor"
-                      className="bi bi-square-fill left-filled-box"
+                      className="noCursor bi bi-square-fill left-filled-box"
                       viewBox="0 0 16 16"
                     >
                       <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
                     </svg>
                   </div>
-                  <div className="ic-child-left-seventh">
+                  <div className="noCursor ic-child-left-seventh">
                     <div
-                      className="ic-child-left-seventh-inner"
+                      className="noCursor ic-child-left-seventh-inner"
                       style={{ backgroundColor: colorTheme }}
                     >
                       <p
@@ -708,15 +708,15 @@ function HackathonIndividualCard() {
                       </p>
                     </div>
                   </div>
-                  <div className="ic-child-left-eight"></div>
+                  <div className="noCursor ic-child-left-eight"></div>
                 </div>
-                <div className="ic-child-center">
+                <div className="noCursor ic-child-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill first-filled-box"
+                    className="noCursor bi bi-square-fill first-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -726,7 +726,7 @@ function HackathonIndividualCard() {
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill center-filled-box"
+                    className="noCursor bi bi-square-fill center-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -736,7 +736,7 @@ function HackathonIndividualCard() {
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill center-filled-box"
+                    className="noCursor bi bi-square-fill center-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -746,7 +746,7 @@ function HackathonIndividualCard() {
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill center-filled-box"
+                    className="noCursor bi bi-square-fill center-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -756,7 +756,7 @@ function HackathonIndividualCard() {
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill center-filled-box"
+                    className="noCursor bi bi-square-fill center-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -766,7 +766,7 @@ function HackathonIndividualCard() {
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill center-filled-box"
+                    className="noCursor bi bi-square-fill center-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -776,7 +776,7 @@ function HackathonIndividualCard() {
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill center-filled-box"
+                    className="noCursor bi bi-square-fill center-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -786,7 +786,7 @@ function HackathonIndividualCard() {
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill center-filled-box"
+                    className="noCursor bi bi-square-fill center-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -796,7 +796,7 @@ function HackathonIndividualCard() {
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill center-filled-box"
+                    className="noCursor bi bi-square-fill center-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -806,7 +806,7 @@ function HackathonIndividualCard() {
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill center-filled-box"
+                    className="noCursor bi bi-square-fill center-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -816,7 +816,7 @@ function HackathonIndividualCard() {
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill center-filled-box"
+                    className="noCursor bi bi-square-fill center-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -826,7 +826,7 @@ function HackathonIndividualCard() {
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill center-filled-box"
+                    className="noCursor bi bi-square-fill center-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -836,7 +836,7 @@ function HackathonIndividualCard() {
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill center-filled-box"
+                    className="noCursor bi bi-square-fill center-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -846,7 +846,7 @@ function HackathonIndividualCard() {
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill center-filled-box"
+                    className="noCursor bi bi-square-fill center-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -856,7 +856,7 @@ function HackathonIndividualCard() {
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill center-filled-box"
+                    className="noCursor bi bi-square-fill center-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
@@ -866,14 +866,14 @@ function HackathonIndividualCard() {
                     width="12"
                     height="12"
                     fill="currentColor"
-                    className="bi bi-square-fill center-filled-box"
+                    className="noCursor bi bi-square-fill center-filled-box"
                     viewBox="0 0 16 16"
                   >
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2z" />
                   </svg>
                 </div>
-                <div className="ic-child-right">
-                  <div className="ic-child-right-first">
+                <div className="noCursor ic-child-right">
+                  <div className="noCursor ic-child-right-first">
                     <img
                       src={hostToSVGMap[host]}
                       alt={host}
@@ -883,25 +883,25 @@ function HackathonIndividualCard() {
                         margin: "auto",
                       }}
                     />
-                    <div className="siteName">{host}</div>
+                    <div className="noCursor siteName">{host}</div>
                   </div>
-                  <div className="ic-child-right-second">
+                  <div className="noCursor ic-child-right-second">
                     <h2
-                      className="contest-name"
+                      className="noCursor contest-name"
                       id="contest-title"
                       style={{ margin: "auto", width: "450px" }}
                     >
                       {name}
                     </h2>
                   </div>
-                  <div className="ic-child-right-third">
+                  <div className="noCursor ic-child-right-third">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       style={{ display: "inline-block" }}
                       width="20"
                       height="20"
                       fill="currentColor"
-                      className="bi bi-alarm"
+                      className="noCursor bi bi-alarm"
                       viewBox="0 0 16 16"
                     >
                       <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z" />
@@ -909,9 +909,9 @@ function HackathonIndividualCard() {
                     </svg>
                     {remaningTime}
                   </div>
-                  <div className="ic-child-right-fourth">
+                  <div className="noCursor ic-child-right-fourth">
                     <div
-                      className="btn-div"
+                      className="noCursor btn-div"
                       style={{ boxShadow: `8px 8px ${colorTheme}` }}
                     >
                       <button
@@ -930,7 +930,7 @@ function HackathonIndividualCard() {
                       href={url + "?ref=digitomize&utm_source=digitomize"}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn-div"
+                      className="noCursor btn-div"
                       style={{ boxShadow: `8px 8px ${colorTheme}` }}
                     >
                       <button
@@ -941,12 +941,12 @@ function HackathonIndividualCard() {
                           marginTop: "17px",
                         }}
                       >
-                        Participate <Code/>
+                        Participate <Code />
                       </button>
                     </a>
                     <CopyToClipboard
                       msg="Share"
-                      className="share-button-container share-button-div-phone"
+                      className="noCursor share-button-container share-button-div-phone"
                       gradient={"btn-div"}
                     />
                   </div>

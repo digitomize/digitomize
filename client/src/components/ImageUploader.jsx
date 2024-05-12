@@ -38,10 +38,10 @@ const ImageUploader = ({ image, setFormData }) => {
   };
 
   return (
-    <div className="flex gap-3 w-full min-h-24 max-w-lg max-phone:flex-col-reverse items-center phone:flex-row-reverse">
+    <div className="noCursor flex gap-3 w-full min-h-24 max-w-lg max-phone:flex-col-reverse items-center phone:flex-row-reverse">
       <label
         htmlFor="imageUpload"
-        className="input h-24 flex-none border-2 border-dashed border-gray-300 p-4 text-center cursor-pointer w-3/4 flex justify-center items-center"
+        className="noCursor input h-24 flex-none border-2 border-dashed border-gray-300 p-4 text-center cursor-pointer w-3/4 flex justify-center items-center"
         onDrop={handleDrop}
         onDragOver={handleDragOver}
       >
@@ -49,28 +49,28 @@ const ImageUploader = ({ image, setFormData }) => {
           type="file"
           accept="image/*"
           id="imageUpload"
-          className="hidden"
+          className="noCursor hidden"
           onChange={handleImageChange}
           name="picture"
         />
-        <p className="text-gray-500">Drag & Drop or Click to Upload Image</p>
+        <p className="noCursor text-gray-500">Drag & Drop or Click to Upload Image</p>
       </label>
       {selectedImage ? (
-        <div className="">
+        <div className="noCursor ">
           <Avatar
             variant="rounded"
             src={URL.createObjectURL(selectedImage)}
-            className="mb-2 self-center h-24"
+            className="noCursor mb-2 self-center h-24"
             sx={{ width: 100, height: 96, padding: 0 }}
           />
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center">
+        <div className="noCursor flex flex-col items-center justify-center">
           {image ? (
             <Avatar
               variant="rounded"
               src={image}
-              className="self-center h-24"
+              className="noCursor self-center h-24"
               sx={{ width: 100, height: 96, padding: 0 }}
             />
           ) : (

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Nav({ path, navigateToPage }) {
     return (
-        <div className="mx-auto flex justify-around">
+        <div className="noCursor mx-auto flex justify-around">
             <button className={`btn btn-sm ${path !== 'contests' ? "btn-outline" : "bg-custom-blue text-white"}`} onClick={() => navigateToPage('contests')} >
                 Contests
                 <IoTrendingUp />

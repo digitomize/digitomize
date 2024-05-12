@@ -82,16 +82,16 @@ const ShareModel = ({ close_model, copyToClipboard, contestLink, theme }) => {
 
   return ReactDOM.createPortal(
     <>
-      <div className="model_container" onClick={close_model}>
+      <div className="noCursor model_container" onClick={close_model}>
         <div
-          className="model_wrapper gradiant-model-border"
+          className="noCursor model_wrapper gradiant-model-border"
           onClick={handleContainerClick}
           style={{ background: `${theme}` != "" ? `${theme}` : "whitesmoke" }}
         >
           <div>
             <p>Share this link via</p>
           </div>
-          <div className="flex">
+          <div className="noCursor flex">
             <Stack
               justifyContent="center"
               alignItems="center"
@@ -115,11 +115,11 @@ const ShareModel = ({ close_model, copyToClipboard, contestLink, theme }) => {
             <p onClick={copy_text}>or copy link</p>
           </div>
 
-          <div className="input_url">
-            <span className="text-copied hidden">copied!</span>
+          <div className="noCursor input_url">
+            <span className="noCursor text-copied hidden">copied!</span>
             <input
               type="text"
-              className="input_value cursor-default"
+              className="noCursor input_value cursor-default"
               value={contestLink}
               onClick={copy_text}
             />

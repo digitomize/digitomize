@@ -17,17 +17,17 @@ export default function LoadingScreen({ logout = true }) {
   }, []);
   return (
     <>
-      <div className="m-auto flex flex-col items-center w-4/5 py-12">
+      <div className="noCursor m-auto flex flex-col items-center w-4/5 py-12">
         {/* <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
                   <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
                   <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} /> */}
-        <div className="mockup-code w-2/4 mx-auto">
+        <div className="noCursor mockup-code w-2/4 mx-auto">
           <pre data-prefix="$">
-            <code className="text-white">import</code>{" "}
-            <code className="text-red">"{window.location.pathname}"</code>
+            <code className="noCursor text-white">import</code>{" "}
+            <code className="noCursor text-red">"{window.location.pathname}"</code>
           </pre>
-          <pre data-prefix=">" className="text-warning flex flex-row">
-            <code className="flex flex-row">
+          <pre data-prefix=">" className="noCursor text-warning flex flex-row">
+            <code className="noCursor flex flex-row">
               importing
               <Typewriter
                 options={{ loop: true }}
@@ -41,13 +41,13 @@ export default function LoadingScreen({ logout = true }) {
               />
             </code>
           </pre>
-          <pre data-prefix=">" className="text-success">
+          <pre data-prefix=">" className="noCursor text-success">
             <code></code>
           </pre>
         </div>
-        <div className="buttons my-3 flex gap-3 mx-auto max-phone:flex-col phone:flex-row items-center">
+        <div className="noCursor buttons my-3 flex gap-3 mx-auto max-phone:flex-col phone:flex-row items-center">
           <button
-            className="btn lowercase"
+            className="noCursor btn lowercase"
             disabled={isRefreshBtnDisabled}
             onClick={() => window.location.reload()}
           >
@@ -57,14 +57,14 @@ export default function LoadingScreen({ logout = true }) {
           {logout &&
             (isRefreshBtnDisabled ? (
               // Render a disabled link when the button is disabled
-              <button className="btn lowercase" disabled>
+              <button className="noCursor btn lowercase" disabled>
                 <Logout />
                 <span>logout in 10s</span>
               </button>
             ) : (
               // Render an active link when the button is not disabled
               <Link to="/logout">
-                <button className="btn lowercase">
+                <button className="noCursor btn lowercase">
                   <Logout />
                   <span>logout in 10s</span>
                 </button>
@@ -72,14 +72,14 @@ export default function LoadingScreen({ logout = true }) {
             ))}
           {isRefreshBtnDisabled ? (
             // Render a disabled link when the button is disabled
-            <button className="btn lowercase" disabled>
+            <button className="noCursor btn lowercase" disabled>
               <ReportGmailerrorred />
               <span>Report issue in 10s</span>
             </button>
           ) : (
             // Render an active link when the button is not disabled
             <Link to="/discord">
-              <button className="btn lowercase">
+              <button className="noCursor btn lowercase">
                 <ReportGmailerrorred />
                 <span>report issue on discord</span>
               </button>

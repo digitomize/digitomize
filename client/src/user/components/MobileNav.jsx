@@ -12,26 +12,26 @@ const MobileNav = ({ isMenuActive, toggleActive }) => {
     <header
       className={"fixed inset-x-0 top-0 z-50 py-4 md:hidden border-b border-b-white/5 bg-zinc-950"}
     >
-      <div className="mx-auto max-w-screen-xl px-6 md:px-10">
-        <div className="flex items-center justify-between">
-          <div className="flex">
-            <Link to="/u/dashboard" className="group">
-              <div className="flex items-center justify-center w-10 h-10 rounded-full hover:bg-blue-700">
+      <div className="noCursor mx-auto max-w-screen-xl px-6 md:px-10">
+        <div className="noCursor flex items-center justify-between">
+          <div className="noCursor flex">
+            <Link to="/u/dashboard" className="noCursor group">
+              <div className="noCursor flex items-center justify-center w-10 h-10 rounded-full hover:bg-blue-700">
                 <KeyboardBackspaceIcon />
                 {/* <img
                 src={KeyboardBackspaceIcon}
                 alt="logo"
-                className="rounded-full"
+                className="noCursor rounded-full"
               /> */}
               </div>
             </Link>
           </div>
           <button
             type="button"
-            className="flex items-center justify-center p-2 opacity-60"
+            className="noCursor flex items-center justify-center p-2 opacity-60"
           >
             <div
-              className="flex items-center justify-center p-2 opacity-60"
+              className="noCursor flex items-center justify-center p-2 opacity-60"
               onClick={toggleActive} // Directly call toggleActive in the onClick handler
             >
               <svg
@@ -44,7 +44,7 @@ const MobileNav = ({ isMenuActive, toggleActive }) => {
                 viewBox="0 0 24 24"
                 width="1em"
                 height="1em"
-                className="inline-flex shrink-0 text-3xl"
+                className="noCursor inline-flex shrink-0 text-3xl"
               >
                 {isMenuActive ? (
                   <>
@@ -67,7 +67,7 @@ const MobileNav = ({ isMenuActive, toggleActive }) => {
             {user ? (
               <a
                 target="_self"
-                className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 rounded-full hover:bg-emerald-400 hover:text-emerald-950 disabled:bg-white/5 disabled:text-zinc-50 justify-center py-3 text-lg font-medium bg-custom-blue font-display text-zinc-950"
+                className="noCursor group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 rounded-full hover:bg-emerald-400 hover:text-emerald-950 disabled:bg-white/5 disabled:text-zinc-50 justify-center py-3 text-lg font-medium bg-custom-blue font-display text-zinc-950"
                 href="/logout"
               >
                 <span>Logout</span>
@@ -75,17 +75,17 @@ const MobileNav = ({ isMenuActive, toggleActive }) => {
             ) : (
               <a
                 target="_self"
-                className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 rounded-full hover:bg-emerald-400 hover:text-emerald-950 disabled:bg-white/5 disabled:text-zinc-50 justify-center py-3 text-lg font-medium bg-custom-blue font-display text-zinc-950"
+                className="noCursor group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 rounded-full hover:bg-emerald-400 hover:text-emerald-950 disabled:bg-white/5 disabled:text-zinc-50 justify-center py-3 text-lg font-medium bg-custom-blue font-display text-zinc-950"
                 href="/login"
               >
                 <span>Login</span>
               </a>
             )}
-            <div className="flex flex-col mt-6 divide-y divide-white/5 border-y border-y-white/5">
+            <div className="noCursor flex flex-col mt-6 divide-y divide-white/5 border-y border-y-white/5">
               {navLinks.map((navLink, index) => (
                 <a
                   key={index}
-                  className="flex items-center gap-2 py-4 font-display text-lg font-medium"
+                  className="noCursor flex items-center gap-2 py-4 font-display text-lg font-medium"
                   href={navLink.path}
                   onClick={toggleActive}
                 >

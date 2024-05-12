@@ -11,6 +11,7 @@ import { getToken } from "firebase/messaging";
 import { MetaData } from "../../components/CustomComponents";
 
 import ScrollToTop from "../../components/globals/ScrollToTop";
+import { FollowerPointerCard } from "../../components/globals/FollowingPointer";
 // import { isLoggedIn, sendDeviceID } from "../../../api";
 
 
@@ -36,18 +37,21 @@ export default function Homepage() {
 
   return (
     <>
-      <MetaData path="home" />
-      <div>
-        <div id="home" className="antialiased">
-          <Snowfall snowflakeCount={50} speed={[0.2, 0.5]} wind={[-0.2, 0]} style={{ position: "fixed", z: -1 }} />
+      <FollowerPointerCard
+      >
+        <MetaData path="home" />
+        <div>
+          <div id="home" className="noCursor antialiased">
+            <Snowfall snowflakeCount={50} speed={[0.2, 0.5]} wind={[-0.2, 0]} style={{ position: "fixed", z: -1 }} />
 
-          <SectionOne />
-          <SectionTwo />
-          <SectionThree />
-          <ScrollToTop toid={"home"} h={2} />
+            <SectionOne />
+            <SectionTwo />
+            <SectionThree />
+            <ScrollToTop toid={"home"} h={2} />
+          </div>
+          {/* <Footer /> */}
         </div>
-        {/* <Footer /> */}
-      </div>
+      </FollowerPointerCard>
     </>
   );
 }

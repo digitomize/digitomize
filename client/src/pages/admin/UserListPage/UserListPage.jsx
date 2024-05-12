@@ -152,8 +152,8 @@ export default function UserListPage() {
                     </StyledTableCell>
                     <StyledTableCell component="th" scope="row">
                       <Stack direction={"column"} columnGap={2}>
-                        <p className="text-xs">{user.uid}</p>
-                        <p className="text-xs">
+                        <p className="noCursor text-xs">{user.uid}</p>
+                        <p className="noCursor text-xs">
                           created: {formatCreatedAt(user.createdAt)}
                         </p>
                       </Stack>
@@ -181,8 +181,8 @@ export default function UserListPage() {
                         >
                           {roleOptions.map((option) => (
                             <MenuItem
-                            key={option.value}
-                              className="capitalize"
+                              key={option.value}
+                              className="noCursor capitalize"
                               value={option.value}
                             >
                               {option.label}
@@ -197,7 +197,7 @@ export default function UserListPage() {
                           sx={{
                             cursor:
                               user.uid === currentUser.uid ||
-                              disableInput === user.uid
+                                disableInput === user.uid
                                 ? "not-allowed"
                                 : "pointer",
                           }}
@@ -217,12 +217,12 @@ export default function UserListPage() {
                             style={{
                               opacity:
                                 user.uid === currentUser.uid ||
-                                disableInput === user.uid
+                                  disableInput === user.uid
                                   ? 0.5
                                   : 1,
                               pointerEvents:
                                 user.uid === currentUser.uid ||
-                                disableInput === user.uid
+                                  disableInput === user.uid
                                   ? "none"
                                   : "auto",
                             }}

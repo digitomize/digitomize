@@ -1,7 +1,7 @@
 import React from "react";
 
 const SheetDetail = () => {
-  return <main className=""></main>;
+  return <main className="noCursor "></main>;
 };
 
 export default SheetDetail;

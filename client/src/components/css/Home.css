@@ -10,6 +10,22 @@ body {
     linear-gradient(to bottom, rgb(23, 33, 54) 0.5px, transparent 0.5px);
 }
 
+.noCursor{
+  cursor: none;
+}
+nput[type='text']:focus {
+  box-shadow: none; 
+  cursor:none
+}
+
+body{
+  cursor:none;
+}
+
+button {
+  cursor: none;
+} 
+
 .dynamicprofile {
   border: 1px solid #1584ff;
   background: linear-gradient(180deg, #12274f 0%, rgba(28, 27, 64, 0.3) 100%);

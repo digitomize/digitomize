@@ -76,9 +76,9 @@ function DiscordRedirect() {
   return (
     <>
       <MetaData path="discord" />
-      <div className="flex flex-col justify-center items-center h-[60vh] antialiased">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
-        <h1 className="text-2xl ml-4">Redirecting to Discord</h1>
+      <div className="noCursor flex flex-col justify-center items-center h-[60vh] antialiased">
+        <div className="noCursor animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
+        <h1 className="noCursor text-2xl ml-4">Redirecting to Discord</h1>
       </div>
     </>
   );
@@ -88,9 +88,9 @@ function BlogsRedirect() {
   return (
     <>
       <MetaData path="blogs" />
-      <div className="flex flex-col justify-center items-center h-[60vh] antialiased">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
-        <h1 className="text-2xl ml-4">Redirecting to Blogs</h1>
+      <div className="noCursor flex flex-col justify-center items-center h-[60vh] antialiased">
+        <div className="noCursor animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
+        <h1 className="noCursor text-2xl ml-4">Redirecting to Blogs</h1>
       </div>
     </>
   );
@@ -117,6 +117,7 @@ import { userDashboardDetails } from "../api";
 import Preferences from "./user/dashboard/Preferences/Preferences";
 import Ratings from "./user/dashboard/Ratings/Ratings";
 import Settings from "./user/dashboard/Settings/Settings";
+import { FollowerPointerCard } from "./components/globals/FollowingPointer";
 
 function Logout() {
   const navigate = useNavigate();
@@ -157,9 +158,9 @@ function Logout() {
   return (
     <div>
       {isLoggingOut ? (
-        <div className="flex flex-col justify-center items-center h-[60vh]">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
-          <h1 className="text-2xl ml-4">Logging out..</h1>
+        <div className="noCursor flex flex-col justify-center items-center h-[60vh]">
+          <div className="noCursor animate-spin rounded-full h-16 w-16 border-t-2 border-blue-500 border-r-2 border-b-2"></div>
+          <h1 className="noCursor text-2xl ml-4">Logging out..</h1>
         </div>
       ) : (
         <div>Logout completed.</div>
@@ -250,15 +251,17 @@ const router = createBrowserRouter(
 function App() {
   return (
     <>
-      <UserAuthContextProvider>
-        <UserContextProvider>
-          <ToastContainer />
-          <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
-            <RouterProvider router={router} />
-          </LocalizationProvider>
-        </UserContextProvider>
-      </UserAuthContextProvider>
-      {/* <Footer /> */}
+      <FollowerPointerCard className="noCursor z-50">
+        <UserAuthContextProvider>
+          <UserContextProvider>
+            <ToastContainer />
+            <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
+              <RouterProvider router={router} />
+            </LocalizationProvider>
+          </UserContextProvider>
+        </UserAuthContextProvider>
+        {/* <Footer /> */}
+      </FollowerPointerCard>
     </>
   );
 }

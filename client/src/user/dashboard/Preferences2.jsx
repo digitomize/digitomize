@@ -54,7 +54,7 @@ export default function Preferences() {
             contest_notifs: res.data.personal_data.preferences.contest_notifs,
           });
         }
-        console.log("OKK:",formData);
+        console.log("OKK:", formData);
       } catch (err) {
         console.error(err);
       } finally {
@@ -109,30 +109,30 @@ export default function Preferences() {
 
   const renderSwitches = () => (
     <>
-      <div className="w-7/12 rounded-md flex border border-jet rounded-xl flex-col space-y-[23px] bg-cardsColor font-['Geist']">
+      <div className="noCursor w-7/12 rounded-md flex border border-jet rounded-xl flex-col space-y-[23px] bg-cardsColor font-['Geist']">
         <div
-          className="p-8"
+          className="noCursor p-8"
         >
-          <p className="text-4xl max-sm:text-2xl font-bold normal-case text-white">
+          <p className="noCursor text-4xl max-sm:text-2xl font-bold normal-case text-white">
             Manage your preferences
           </p>
-          <p className="text-sm max-sm:text-base font-normal text-white italic">
+          <p className="noCursor text-sm max-sm:text-base font-normal text-white italic">
             {"(Choose the platforms you want to receive contest notifications from.)"}
           </p>
 
-          <List className="w-fit">
-            <div className="platforms flex flex-col">
+          <List className="noCursor w-fit">
+            <div className="noCursor platforms flex flex-col">
               {platformsData.map(({ name, icon }) => (
                 <ThemeProvider key={name} theme={theme}>
                   <ListItem>
-                    {/* <div className="flex flex-row"> */}
-                      <ListItemIcon>
-                        <img src={icon} alt={name} className="w-8" />
-                      </ListItemIcon>
-                      <ListItemText id={`switch-list-label-${name}`} primary={name} />
-                      <Switch checked={formData.contest_notifs[name]} onChange={handleToggleChange} name={name} inputProps={{
-                        'aria-labelledby': `switch-list-label-${name}`,
-                      }} />
+                    {/* <div className="noCursor flex flex-row"> */}
+                    <ListItemIcon>
+                      <img src={icon} alt={name} className="noCursor w-8" />
+                    </ListItemIcon>
+                    <ListItemText id={`switch-list-label-${name}`} primary={name} />
+                    <Switch checked={formData.contest_notifs[name]} onChange={handleToggleChange} name={name} inputProps={{
+                      'aria-labelledby': `switch-list-label-${name}`,
+                    }} />
                     {/* </div> */}
                   </ListItem>
                 </ThemeProvider>

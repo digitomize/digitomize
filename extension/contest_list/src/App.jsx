@@ -10,7 +10,7 @@ import Potd from "./components/Potd";
 // function App() {
 //   return (
 //     <Router>
-//       <div className="bg-zinc-900 App w-96 min-h-40 mx-auto rounded-xl">
+//       <div className="noCursor bg-zinc-900 App w-96 min-h-40 mx-auto rounded-xl">
 //         <Header />
 //         <Route exact path="/" component={Contests} />
 //         {/* Add more routes here */}
@@ -38,10 +38,10 @@ import Potd from "./components/Potd";
 
 function ComingSoon() {
   return (
-    <div className="w-full mx-auto text-center">
-      <h1 className="text-xl">
+    <div className="noCursor w-full mx-auto text-center">
+      <h1 className="noCursor text-xl">
         Coming Soon
-        <span className="loading loading-bars loading-xs"></span>
+        <span className="noCursor loading loading-bars loading-xs"></span>
       </h1>
     </div>
   );
@@ -69,7 +69,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-zinc-900 App w-96 min-h-40 mx-auto rounded-xl">
+      <div className="noCursor bg-zinc-900 App w-96 min-h-40 mx-auto rounded-xl">
         <Header />
         <Nav path={currentPage} navigateToPage={navigateToPage} />
         {renderPage()}

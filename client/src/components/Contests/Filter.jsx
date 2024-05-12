@@ -72,7 +72,7 @@ function Filter() {
     const url = selectedPlatformsParam
       ? `${backendUrl}/contests?host=${selectedPlatformsParam}`
       : `${backendUrl}/contests`;
-      
+
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -102,7 +102,7 @@ function Filter() {
   return (
     <>
       <MetaData path="contests" />
-      <Element className="phone:mt-8 flex lg:flex-row max-lg:flex-col justify-between mx-auto lg:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
+      <Element className="noCursor phone:mt-8 flex lg:flex-row max-lg:flex-col justify-between mx-auto lg:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
         {/* //checkmarks */}
         <div
           className={"filter-div w-fit self-center bg-cardsColor relative rounded-xl"}
@@ -176,33 +176,33 @@ function Filter() {
         </div>
         <CustomSlider setRange={setRange} maxValue={maxValue} />
       </Element>
-      <Element name="contests" className="container mx-auto contests-container z-[1]">
+      <Element name="contests" className="noCursor container mx-auto contests-container z-[1]">
         {contestsData.length ? (
           <>
-            <p className="mx-auto text-center mt-4 text-xl">
-              Have a favorite contest platform we're missing? {" "} Join our <a href="https://digitomize.com/discord" target="_blank" rel="noopener noreferrer" className="text-digitomize-bg">Discord</a> or <button className="text-digitomize-bg" onClick={handleClick}>
-              click here
-            </button> and let us know!
+            <p className="noCursor mx-auto text-center mt-4 text-xl">
+              Have a favorite contest platform we're missing? {" "} Join our <a href="https://digitomize.com/discord" target="_blank" rel="noopener noreferrer" className="noCursor text-digitomize-bg">Discord</a> or <button className="noCursor text-digitomize-bg" onClick={handleClick}>
+                click here
+              </button> and let us know!
             </p>
-            
+
             <Contests contests={contestsData} range={range} />
           </>
         ) : (
-          <div className="m-auto flex sm:flex-row flex-col items-center w-4/5 my-12 ">
+          <div className="noCursor m-auto flex sm:flex-row flex-col items-center w-4/5 my-12 ">
             <Skeleton
               variant="text"
               sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
-              className="mx-4 sm:w-80 w-full"
+              className="noCursor mx-4 sm:w-80 w-full"
             />
             <Skeleton
               variant="text"
               sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
-              className="mx-4 sm:w-80 w-full"
+              className="noCursor mx-4 sm:w-80 w-full"
             />
             <Skeleton
               variant="text"
               sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
-              className="mx-4 sm:w-80 w-full"
+              className="noCursor mx-4 sm:w-80 w-full"
             />
           </div>
         )}

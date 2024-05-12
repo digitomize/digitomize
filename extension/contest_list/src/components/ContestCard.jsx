@@ -71,20 +71,20 @@ function ContestCard({ contest }) {
     const startTime = dateTimeInTimezone.format("h:mm A");
 
     return (
-        <div className="flex flex-row gap-2 border rounded border-jet bg-dashboardDarkerColor mt-2 p-2 w-full">
+        <div className="noCursor flex flex-row gap-2 border rounded border-jet bg-dashboardDarkerColor mt-2 p-2 w-full">
             <div>
-                {platformLogo && <img src={platformLogo} alt={contest.name} className="w-8" />}
+                {platformLogo && <img src={platformLogo} alt={contest.name} className="noCursor w-8" />}
             </div>
-            <div className="flex flex-col text-sm w-11/12">
-                <h2 className="font-bold text-gray-300">{contest.name.slice(0, 35) + "..."}</h2>
-                <div className="flex flex-row items-center gap-1">
+            <div className="noCursor flex flex-col text-sm w-11/12">
+                <h2 className="noCursor font-bold text-gray-300">{contest.name.slice(0, 35) + "..."}</h2>
+                <div className="noCursor flex flex-row items-center gap-1">
 
                     <FaClock /><p>Duration: {Math.floor(contest.duration / 60)}hr {contest.duration % 60 ? `${contest.duration % 60}min` : ''}</p>
                 </div>
-                <div className="flex flex-row justify-between items-center w-full">
+                <div className="noCursor flex flex-row justify-between items-center w-full">
 
                     <p>Starts at: <a href={timeAndDateURL} target="_blank"> {startMonth.slice(0, 3)} {startDate}, {startYear} {startTime}</a></p>
-                    <a href={contest.url + "?ref=digitomize&utm_source=digitomize"} target="_blank" rel="noopener noreferrer" className="hover:scale-125 text-custom-blue">
+                    <a href={contest.url + "?ref=digitomize&utm_source=digitomize"} target="_blank" rel="noopener noreferrer" className="noCursor hover:scale-125 text-custom-blue">
                         <IoOpenOutline />
                     </a>
 

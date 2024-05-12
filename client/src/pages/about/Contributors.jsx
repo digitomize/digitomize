@@ -284,25 +284,25 @@ export default function Contributors() {
   return (
     <>
       <CssVarsProvider defaultMode="dark">
-        <div className="w-full p-2 flex flex-col gap-2">
+        <div className="noCursor w-full p-2 flex flex-col gap-2">
 
-          <h1 className="my-4 py-4 text-white max-md:text-4xl md:text-6xl flex flex-row mx-auto justify-center">
-            <span className="block mt-1 md:mt-6">
-              <span className="bg-digitomize-bg mx-2 px-1 rounded-lg">Contributors</span>
+          <h1 className="noCursor my-4 py-4 text-white max-md:text-4xl md:text-6xl flex flex-row mx-auto justify-center">
+            <span className="noCursor block mt-1 md:mt-6">
+              <span className="noCursor bg-digitomize-bg mx-2 px-1 rounded-lg">Contributors</span>
             </span>
           </h1>
-          <div className="flex flex-row mt-4">
+          <div className="noCursor flex flex-row mt-4">
             <Marquee
               pauseOnHover={true}
               speed={100}
             >
               {temp.map((item) => (
-                <div key={item.name} className="w-full phone:mx-3 max-phone:mx-2">
-                  <div key={item.name} className="w-fit">
+                <div key={item.name} className="noCursor w-full phone:mx-3 max-phone:mx-2">
+                  <div key={item.name} className="noCursor w-fit">
                     <Link to={item.profile}>
                       <Card
                         orientation="horizontal"
-                        className="w-fit my-2 hover:scale-105"
+                        className="noCursor w-fit my-2 hover:scale-105"
                         size="sm"
                         key={item.title}
                         variant="outlined"
@@ -316,19 +316,19 @@ export default function Contributors() {
                         </AspectRatio>
                         <Box
                           sx={{ whiteSpace: "nowrap", mx: 1 }}
-                          className="max-phone:hidden"
+                          className="noCursor max-phone:hidden"
                         >
                           <Typography level="title-md">
                             {item.name.slice(0, 15)}
                           </Typography>
-                          <div className="github flex flex-col gap-1">
-                            <div className="flex flex-row items-center">
+                          <div className="noCursor github flex flex-col gap-1">
+                            <div className="noCursor flex flex-row items-center">
                               <AiFillGithub />
                               <Typography level="body-sm">
                                 {item.login}
                               </Typography>
                             </div>
-                            <div className="flex flex-row gap-1">
+                            <div className="noCursor flex flex-row gap-1">
                               {item.contributions.map((contribution, index) => {
                                 let badgeColor = "";
 
@@ -362,18 +362,18 @@ export default function Contributors() {
               ))}
             </Marquee>
           </div>
-          <div className="flex flex-row mb-4">
+          <div className="noCursor flex flex-row mb-4">
             <Marquee
               pauseOnHover={true}
               speed={100}
               direction="right"
             >
               {temp.map((item) => (
-                <div key={item.name} className="w-full phone:mx-3 max-phone:mx-2">
+                <div key={item.name} className="noCursor w-full phone:mx-3 max-phone:mx-2">
                   <Link to={item.profile}>
                     <Card
                       orientation="horizontal"
-                      className="w-fit my-2 hover:scale-105"
+                      className="noCursor w-fit my-2 hover:scale-105"
                       size="sm"
                       key={item.title}
                       variant="outlined"
@@ -387,19 +387,19 @@ export default function Contributors() {
                       </AspectRatio>
                       <Box
                         sx={{ whiteSpace: "nowrap", mx: 1 }}
-                        className="max-phone:hidden"
+                        className="noCursor max-phone:hidden"
                       >
                         <Typography level="title-md">
                           {item.name.slice(0, 20)}
                         </Typography>
-                        <div className="github flex flex-col gap-1">
-                          <div className="flex flex-row items-center">
+                        <div className="noCursor github flex flex-col gap-1">
+                          <div className="noCursor flex flex-row items-center">
                             <AiFillGithub />
                             <Typography level="body-sm">
                               {item.login}
                             </Typography>
                           </div>
-                          <div className="flex flex-row gap-1">
+                          <div className="noCursor flex flex-row gap-1">
                             {item.contributions.map((contribution, index) => {
                               let badgeColor = "";
 

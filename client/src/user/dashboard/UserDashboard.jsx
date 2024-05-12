@@ -177,13 +177,13 @@ export default function UserDashboard() {
         <NewNavbar />
 
         {/* FOR DESKTOP */}
-        <div className=" w-10/12 mx-auto my-4 max-sm:px-3 font-['Geist']">
-          <h1 className="pb-4 normal-case text-[#EBEBEB] text-5xl">
+        <div className="noCursor  w-10/12 mx-auto my-4 max-sm:px-3 font-['Geist']">
+          <h1 className="noCursor pb-4 normal-case text-[#EBEBEB] text-5xl">
             Heyy {userData.personal_data.name.slice(0, 20)}
           </h1>
 
-          <div className="flex sm:flex-row flex-col sm:space-x-12 gap-6">
-            <div className="sm:w-[40%]">
+          <div className="noCursor flex sm:flex-row flex-col sm:space-x-12 gap-6">
+            <div className="noCursor sm:w-[40%]">
               <UserCard
                 username={userData.personal_data.username}
                 name={userData.personal_data.name.slice(0, 20)}
@@ -195,19 +195,19 @@ export default function UserDashboard() {
                 skills={userData.personal_data.skills}
               />
             </div>
-            <div className="sm:w-[60%]">
-              <div className="mb-4">
-                <h1 className="my-0 text-4xl">Profile </h1>
-                <p className="text-sm my-2 text-gray-400"> <i>Enhance your profile today! See the suggestions below:</i></p>
-                <div className="flex flex-row gap-4">
+            <div className="noCursor sm:w-[60%]">
+              <div className="noCursor mb-4">
+                <h1 className="noCursor my-0 text-4xl">Profile </h1>
+                <p className="noCursor text-sm my-2 text-gray-400"> <i>Enhance your profile today! See the suggestions below:</i></p>
+                <div className="noCursor flex flex-row gap-4">
                   <div>
 
                     {Object.keys(profileSteps).map(step => {
                       const { text, completed, score, link } = profileSteps[step];
-                      return <div className="flex items-center gap-2 my-2">
+                      return <div className="noCursor flex items-center gap-2 my-2">
                         {completed ? <Done htmlColor="#00FF00" /> : <PriorityHigh htmlColor="red" />}
-                        <p className="text-xs">
-                          <Link to={link} className="underline decoration-dotted">{text}</Link>
+                        <p className="noCursor text-xs">
+                          <Link to={link} className="noCursor underline decoration-dotted">{text}</Link>
                           - <i> {score}% </i></p>
                       </div>
                     })}
@@ -237,25 +237,25 @@ export default function UserDashboard() {
                 </div>
               </div>
               <div>
-                <h1 className="my-0 text-4xl">Settings</h1>
-                <div className="my-2 flex flex-row w-11/12 lg:justify-between justify-around flex-wrap gap-y-4">
+                <h1 className="noCursor my-0 text-4xl">Settings</h1>
+                <div className="noCursor my-2 flex flex-row w-11/12 lg:justify-between justify-around flex-wrap gap-y-4">
                   {
                     navLinks.map((data, index) => {
                       return <Link to={data.path} key={index}>
-                        <div className="flex bg-cardsColor flex-col border border-solid sm:rounded-[12px] rounded-[5px] sm:py-3 sm:px-5 max-sm:py-2 max-sm:px-4 space-y-[5px] sm:justify-center justify-between  items-center border-[#EBEBEB]">
-                          <img src={data.icon} alt={data.title} className="w-8" />
-                          <p className="capitalize font-[500] sm:text-[16px] max-sm:text-[10px] text-[#EBEBEB]">{data.title}</p>
+                        <div className="noCursor flex bg-cardsColor flex-col border border-solid sm:rounded-[12px] rounded-[5px] sm:py-3 sm:px-5 max-sm:py-2 max-sm:px-4 space-y-[5px] sm:justify-center justify-between  items-center border-[#EBEBEB]">
+                          <img src={data.icon} alt={data.title} className="noCursor w-8" />
+                          <p className="noCursor capitalize font-[500] sm:text-[16px] max-sm:text-[10px] text-[#EBEBEB]">{data.title}</p>
                         </div>
                       </Link>
                     })
                   }
                 </div>
               </div>
-              <div className="w-full">
-                <h1 className="mt-8 text-4xl">Contests</h1>
-                {userData?.personal_data?.preferences?.contest_notifs && <p className="text-sm my-2 text-gray-400">Displaying upcoming contests from your <Link to={"preferences"} className="underline">preferred list</Link>.</p>}
+              <div className="noCursor w-full">
+                <h1 className="noCursor mt-8 text-4xl">Contests</h1>
+                {userData?.personal_data?.preferences?.contest_notifs && <p className="noCursor text-sm my-2 text-gray-400">Displaying upcoming contests from your <Link to={"preferences"} className="noCursor underline">preferred list</Link>.</p>}
 
-                <div className="flex flex-row gap-7  flex-wrap">
+                <div className="noCursor flex flex-row gap-7  flex-wrap">
                   {
                     contest.map((data, index) => {
                       return <ContestCard data={data} key={index} />
@@ -263,10 +263,10 @@ export default function UserDashboard() {
                   }
                 </div>
               </div>
-              <div className="w-full">
-                <h1 className="mt-8 text-4xl">Projects</h1>
+              <div className="noCursor w-full">
+                <h1 className="noCursor mt-8 text-4xl">Projects</h1>
                 coming soon
-                <div className="flex flex-row sm:gap-7 max-sm:gap-4  flex-wrap">
+                <div className="noCursor flex flex-row sm:gap-7 max-sm:gap-4  flex-wrap">
                   {/* {
                     projects.map((data, index) => {
                       return <ProjectCard {...data} key={index} />

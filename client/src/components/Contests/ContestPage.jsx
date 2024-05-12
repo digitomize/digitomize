@@ -3,18 +3,18 @@ import * as React from "react";
 import Filter from "./Filter";
 import { LockOutlined, TrendingUp } from "@mui/icons-material";
 
-function ComingSoon({value}) {
+function ComingSoon({ value }) {
   return (
     <>
       <div>
-        <div className="flex flex-col justify-center items-center">
-          <h1 className="my-0 text-white text-4xl text-center capitalize">
+        <div className="noCursor flex flex-col justify-center items-center">
+          <h1 className="noCursor my-0 text-white text-4xl text-center capitalize">
             <span style={{ textShadow: "5px 5px 5px rgba(21, 132, 255, 0.9)" }}>
               {value} {""}
             </span>
             Coming Soon
           </h1>
-          <progress className="progress w-56 mt-12"></progress>
+          <progress className="noCursor progress w-56 mt-12"></progress>
         </div>
       </div>
     </>
@@ -28,18 +28,18 @@ export default function ContestPage() {
     setValue(newValue);
   };
   return (
-    <div className="w-11/12 mx-auto">
-      <div className="heading w-4/5 mx-auto text-center my-4">
-        <h1 className="text-white max-md:text-4xl md:text-6xl flex flex-row mx-auto justify-center">
+    <div className="noCursor w-11/12 mx-auto">
+      <div className="noCursor heading w-4/5 mx-auto text-center my-4">
+        <h1 className="noCursor text-white max-md:text-4xl md:text-6xl flex flex-row mx-auto justify-center">
           <span>All att</span>
-          <span className="block mt-1 md:mt-6">
-            <span className="bg-digitomize-bg mx-2 px-1">one</span>
+          <span className="noCursor block mt-1 md:mt-6">
+            <span className="noCursor bg-digitomize-bg mx-2 px-1">one</span>
             place
           </span>
         </h1>
 
       </div>
-      <div className="buttons flex gap-4 justify-center my-8 flex-wrap">
+      <div className="noCursor buttons flex gap-4 justify-center my-8 flex-wrap">
         <button className={`btn ${value !== "contests" ? "btn-outline" : "bg-custom-blue text-white"}`} onClick={(event) => handleChange(event, "contests")}>
           Contests
           <TrendingUp />
@@ -62,7 +62,7 @@ export default function ContestPage() {
         </button>
       </div>
 
-      <div className="">
+      <div className="noCursor ">
         {value === "contests" && <Filter />}
         {value === "hackathons" && <ComingSoon value={value} />}
         {value === "internships" && <ComingSoon value={value} />}

@@ -30,34 +30,34 @@ function HackathonsFilter() {
   return (
     <>
       <MetaData path="hackathons" />
-      <Element name="hackathons" className="container mx-auto contests-container z-[1]">
+      <Element name="hackathons" className="noCursor container mx-auto contests-container z-[1]">
         {hackathonsData.length ? (
           <>
-            <p className="mx-auto text-center mt-4 text-xl">
-              Want hackathons from more platforms?{" "} Join our <a href="https://digitomize.com/discord" target="_blank" rel="noopener noreferrer" className="text-digitomize-bg">Discord</a> or <button className="text-digitomize-bg" onClick={handleClick}>
+            <p className="noCursor mx-auto text-center mt-4 text-xl">
+              Want hackathons from more platforms?{" "} Join our <a href="https://digitomize.com/discord" target="_blank" rel="noopener noreferrer" className="noCursor text-digitomize-bg">Discord</a> or <button className="noCursor text-digitomize-bg" onClick={handleClick}>
                 click here
               </button> and let us know!
             </p>
-            <p className="mx-auto text-center mt-4 text-sm underline"><i>Sorted on basis of Application close time</i></p>
+            <p className="noCursor mx-auto text-center mt-4 text-sm underline"><i>Sorted on basis of Application close time</i></p>
 
             <Hackathons hackathons={hackathonsData} />
           </>
         ) : (
-          <div className="m-auto flex sm:flex-row flex-col items-center w-4/5 my-12 ">
+          <div className="noCursor m-auto flex sm:flex-row flex-col items-center w-4/5 my-12 ">
             <Skeleton
               variant="text"
               sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
-              className="mx-4 sm:w-80 w-full"
+              className="noCursor mx-4 sm:w-80 w-full"
             />
             <Skeleton
               variant="text"
               sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
-              className="mx-4 sm:w-80 w-full"
+              className="noCursor mx-4 sm:w-80 w-full"
             />
             <Skeleton
               variant="text"
               sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
-              className="mx-4 sm:w-80 w-full"
+              className="noCursor mx-4 sm:w-80 w-full"
             />
           </div>
         )}

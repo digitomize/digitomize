@@ -79,42 +79,42 @@ function UserDashBoardProfile() {
   return (
     <>
       <ToastContainer />
-      <div className="border border-jet border-solid rounded-md bg-cardsColor sm:px-[40px] sm:pt-[42px] sm:pb-[30px] px-6 py-5 w-full font-['Geist'] ">
+      <div className="noCursor border border-jet border-solid rounded-md bg-cardsColor sm:px-[40px] sm:pt-[42px] sm:pb-[30px] px-6 py-5 w-full font-['Geist'] ">
         <h2 className='font-bold text-white text-4xl max-sm:text-2xl sm:mb-[30px] mb-[20px]'>Set up your digitomize account</h2>
         <div>
-          <div className="relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
-            <div className="form-control w-full">
-              <label className="label">
-                <span className="label-text text-[14px]">
+          <div className="noCursor relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
+            <div className="noCursor form-control w-full">
+              <label className="noCursor label">
+                <span className="noCursor label-text text-[14px]">
                   Upload Profile Picture {"(automatically focuses on face)"}
                 </span>
               </label>
-              <div className="flex items-center gap-3">
+              <div className="noCursor flex items-center gap-3">
                 <ImageUploader
                   image={formData.picture}
                   setFormData={setFormData}
                 ></ImageUploader>
               </div>
             </div>
-            <div className="w-full">
-              <div className="form-control w-full flex flex-row">
-                <label htmlFor="email" className="label">
-                  <span className="label-text"> Email:</span>
+            <div className="noCursor w-full">
+              <div className="noCursor form-control w-full flex flex-row">
+                <label htmlFor="email" className="noCursor label">
+                  <span className="noCursor label-text"> Email:</span>
                 </label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    value={formData.email}
-                    disabled
-                    className="input-sm input input-bordered w-full"
-                  />
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  value={formData.email}
+                  disabled
+                  className="noCursor input-sm input input-bordered w-full"
+                />
               </div>
-              <div className="form-control w-full ">
-                <label htmlFor="phoneNumber" className="label">
-                  <span className="label-text"> Phone number</span>
+              <div className="noCursor form-control w-full ">
+                <label htmlFor="phoneNumber" className="noCursor label">
+                  <span className="noCursor label-text"> Phone number</span>
                 </label>
-                <div className="flex  items-center gap-3 ">
+                <div className="noCursor flex  items-center gap-3 ">
                   <input
                     type="tel"
                     name="phoneNumber"
@@ -122,19 +122,19 @@ function UserDashBoardProfile() {
                     id="phoneNumber"
                     value={formData.phoneNumber.data}
                     onChange={handleInputChangeObjData}
-                    className="input-sm input input-bordered w-full max-w-lg "
+                    className="noCursor input-sm input input-bordered w-full max-w-lg "
                   />
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex flex-row sm:space-x-[80px] space-x-4 mx-auto sm:mb-12 mb-5">
-            <div className="relative z-0 w-full md:w-3/4 group flex items-center ">
-              <div className="form-control w-full   max-w-lg   ">
-                <label htmlFor="firstName" className="label">
-                  <span className="label-text text-[14px]">Name</span>
+          <div className="noCursor flex flex-row sm:space-x-[80px] space-x-4 mx-auto sm:mb-12 mb-5">
+            <div className="noCursor relative z-0 w-full md:w-3/4 group flex items-center ">
+              <div className="noCursor form-control w-full   max-w-lg   ">
+                <label htmlFor="firstName" className="noCursor label">
+                  <span className="noCursor label-text text-[14px]">Name</span>
                 </label>
-                <div className="flex items-center ">
+                <div className="noCursor flex items-center ">
                   <input
                     type="text"
                     name="name"
@@ -143,18 +143,18 @@ function UserDashBoardProfile() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="input-sm input input-bordered w-full"
+                    className="noCursor input-sm input input-bordered w-full"
                   />
                 </div>
               </div>
             </div>
 
-            <div className="relative z-0 w-full md:w-3/4 group flex items-center gap-3 ">
-              <div className="form-control w-full max-w-lg    ">
-                <label htmlFor="username" className="label">
-                  <span className="label-text text-[14px]"> Username</span>
+            <div className="noCursor relative z-0 w-full md:w-3/4 group flex items-center gap-3 ">
+              <div className="noCursor form-control w-full max-w-lg    ">
+                <label htmlFor="username" className="noCursor label">
+                  <span className="noCursor label-text text-[14px]"> Username</span>
                 </label>
-                <div className="flex  items-center gap-3">
+                <div className="noCursor flex  items-center gap-3">
                   <input
                     type="text"
                     name="username"
@@ -164,24 +164,24 @@ function UserDashBoardProfile() {
                     maxLength={15}
                     onChange={handleInputChange}
                     required
-                    className="input-sm input input-bordered w-full"
+                    className="noCursor input-sm input input-bordered w-full"
                   />
                 </div>
               </div>
             </div>
           </div>
           <div className='flex sm:flex-row flex-col-reverse sm:space-x-[70px]  mb-[50px]'>
-            <div className="relative z-0 w-full md:w-[60%]  group flex items-center gap-3">
-              <div className="form-control   w-full">
-                <label className="label">
-                  <span className="label-text text-[14px]">Bio</span>
+            <div className="noCursor relative z-0 w-full md:w-[60%]  group flex items-center gap-3">
+              <div className="noCursor form-control   w-full">
+                <label className="noCursor label">
+                  <span className="noCursor label-text text-[14px]">Bio</span>
                 </label>
-                <div className=" w-full">
+                <div className="noCursor  w-full">
                   <textarea
                     name="bio"
                     maxLength={250}
                     id="bio"
-                    className="textarea-sm textarea w-full textarea-bordered h-full"
+                    className="noCursor textarea-sm textarea w-full textarea-bordered h-full"
                     placeholder=""
                     value={formData.bio.data}
                     onChange={handleInputChangeObjData}
@@ -191,12 +191,12 @@ function UserDashBoardProfile() {
               </div>
             </div>
             <div className='flex max-sm:flex-row sm:flex-col max-sm:mb-4  max-sm:space-x-3 sm:space-y-3 sm:w-[40%]'>
-              <div className="relative z-0 w-full md:w-full group flex items-center gap-3">
-                <div className="form-control w-full  ">
-                  <label htmlFor="dateOfBirth" className="label">
-                    <span className="label-text text-[14px]"> Date of birth</span>
+              <div className="noCursor relative z-0 w-full md:w-full group flex items-center gap-3">
+                <div className="noCursor form-control w-full  ">
+                  <label htmlFor="dateOfBirth" className="noCursor label">
+                    <span className="noCursor label-text text-[14px]"> Date of birth</span>
                   </label>
-                  <div className="flex  items-center gap-3">
+                  <div className="noCursor flex  items-center gap-3">
                     <input
                       type="date"
                       id="dateOfBirth"
@@ -204,32 +204,32 @@ function UserDashBoardProfile() {
                       value={formData.dateOfBirth.data}
                       onChange={handleInputChangeObjData}
                       placeholder="Type here"
-                      className="input-sm input input-bordered w-full max-w-lg "
+                      className="noCursor input-sm input input-bordered w-full max-w-lg "
                     />
                   </div>
                 </div>
               </div>
-              <div className="relative z-0 w-full md:w-full group flex items-center gap-3">
-                <div className="form-control w-full  ">
-                  <label htmlFor="dateOfBirth" className="label">
-                    <span className="label-text text-[14px]">Gender</span>
+              <div className="noCursor relative z-0 w-full md:w-full group flex items-center gap-3">
+                <div className="noCursor form-control w-full  ">
+                  <label htmlFor="dateOfBirth" className="noCursor label">
+                    <span className="noCursor label-text text-[14px]">Gender</span>
                   </label>
-                  <div className="flex  items-center gap-3">
+                  <div className="noCursor flex  items-center gap-3">
                     <input
                       type="text"
                       id="gender"
                       name="gender"
                       value="gender"
                       placeholder="Type here"
-                      className="input-sm input input-bordered w-full max-w-lg "
+                      className="noCursor input-sm input input-bordered w-full max-w-lg "
                     />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex w-full max-sm:justify-center md:justify-end md:pe-12">
-            <div className="btn-div" style={{ boxShadow: `8px 8px #2E8D46` }}>
+          <div className="noCursor flex w-full max-sm:justify-center md:justify-end md:pe-12">
+            <div className="noCursor btn-div" style={{ boxShadow: `8px 8px #2E8D46` }}>
               <button disabled={isDisabled}
                 onClick={handleSubmit}
                 type="submit"

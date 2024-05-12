@@ -46,8 +46,8 @@ function ProfileRatingsPage() {
     const platformWithRating = contestLinks.find(
       (platform) => platform.rating !== null,
     );
-    
-    if(!platform){
+
+    if (!platform) {
       /*
         Execute this only when there is no parameter named 'platform' in the current routeParams. 
         If there is ratings parameter, it is already taken care by the childRoute.
@@ -63,10 +63,10 @@ function ProfileRatingsPage() {
 
   return (
     <>
-      <div className="phone:w-10/12 mx-auto py-4">
-        <div className="flex max-sm:flex-col max-phone:flex-col max-phone:mt-4">
+      <div className="noCursor phone:w-10/12 mx-auto py-4">
+        <div className="noCursor flex max-sm:flex-col max-phone:flex-col max-phone:mt-4">
           <div className='flex flex-col justify-center sm:w-2/4 max-phone:w-11/12 mx-auto'>
-            <div className="phone:w-11/12 mx-auto">
+            <div className="noCursor phone:w-11/12 mx-auto">
               <Link to="..">
                 <UserCard
                   username={personal_data.username}
@@ -79,14 +79,14 @@ function ProfileRatingsPage() {
               </Link>
             </div>
           </div>
-          <div className="flex w-full justify-center">
-            <div className="w-11/12 pt-12 max-phone:pt-4">
+          <div className="noCursor flex w-full justify-center">
+            <div className="noCursor w-11/12 pt-12 max-phone:pt-4">
               <div className='m-auto bg-eerie-black-2 h-full w-full rounded-2xl max-phone:rounded-tr-none max-phone:rounded-tl-none shadow-md border border-jet'>
 
                 {contestLinks.some(contestLink => contestLink.username !== null) ? (
-                  <div className="flex flex-col items-end w-full">
-                    <nav className="navbar bg-eerie-black-1 backdrop-blur-md border border-jet phone:w-max rounded-tr-2xl rounded-bl-2xl max-phone:rounded-br-2xl max-phone:rounded-tr-none shadow-none py-0 px-6">
-                      <ul className="navbar-list flex gap-4 py-0 px-6">
+                  <div className="noCursor flex flex-col items-end w-full">
+                    <nav className="noCursor navbar bg-eerie-black-1 backdrop-blur-md border border-jet phone:w-max rounded-tr-2xl rounded-bl-2xl max-phone:rounded-br-2xl max-phone:rounded-tr-none shadow-none py-0 px-6">
+                      <ul className="noCursor navbar-list flex gap-4 py-0 px-6">
                         {contestLinks
                           .filter(contestLink => contestLink.username !== null)
                           .map((contestLink, index) => (
@@ -104,17 +104,17 @@ function ProfileRatingsPage() {
                           ))}
                       </ul>
                     </nav>
-                    <div className="w-full h-full">
+                    <div className="noCursor w-full h-full">
                       <Outlet context={profileData} />
                     </div>
                   </div>
                 ) : (
-                  <div className="w-full mx-auto h-full flex flex-col justify-center items-center gap-8 p-16">
-                    <p className="lg:text-xl">
+                  <div className="noCursor w-full mx-auto h-full flex flex-col justify-center items-center gap-8 p-16">
+                    <p className="noCursor lg:text-xl">
                       Add your contest data from the dashboard.
                     </p>
                     <button
-                      className="btn sm:btn-sm md:btn-md lg:btn-lg bg-custom-blue text-[#fffff7]"
+                      className="noCursor btn sm:btn-sm md:btn-md lg:btn-lg bg-custom-blue text-[#fffff7]"
                       onClick={() => navigate("/u/dashboard/ratings")}
                     >
                       Go to Dashboard

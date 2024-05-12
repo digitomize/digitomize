@@ -54,9 +54,9 @@ function InstallPWAButton() {
     return null;
   } else {
     return (
-      <div className="install-prompt">
+      <div className="noCursor install-prompt">
         <p>Install our app for a better experience!</p>
-        <div className="installPromptButtonsDiv">
+        <div className="noCursor installPromptButtonsDiv">
           <button onClick={onInstallClick}>Install</button>
           <button onClick={onRemindLaterClick}>Remind me later</button>
         </div>

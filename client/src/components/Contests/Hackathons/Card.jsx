@@ -1,9 +1,9 @@
 import { useState, useEffect, memo, useMemo } from "react";
 import { Link } from "react-router-dom";
 import {
-    devfolio,
-    devpost,
-    unstop
+  devfolio,
+  devpost,
+  unstop
 } from "../../AllAssets";
 import ShareModel from "../../share_model";
 import moment from "moment-timezone";
@@ -102,7 +102,7 @@ function Card({ hackathon }) {
     }
 
     return `${duration}min`;
-  },[duration]);
+  }, [duration]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -125,44 +125,44 @@ function Card({ hackathon }) {
 
   return (
     <div
-      className="border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] my-4 sm:w-96 min-h-[250px] p-6 rounded-xl bg-cardsColor flex flex-col hover:scale-[1.02] hover:bg-cardsHover m-1"
+      className="noCursor border-[#D1E5F4] border-2 hover:shadow-[8px_8px_0px_#D1E5F4] my-4 sm:w-96 min-h-[250px] p-6 rounded-xl bg-cardsColor flex flex-col hover:scale-[1.02] hover:bg-cardsHover m-1"
       key={vanity}
     >
-      <div className="flex justify-between">
+      <div className="noCursor flex justify-between">
         <p
           id="startTime"
-          className="text-card-text font-light leading-tight text-lg max-md:text-sm"
+          className="noCursor text-card-text font-light leading-tight text-lg max-md:text-sm"
         >
-          <Link to={timeAndDateURL} className="my-auto underline lowercase" target="_blank" rel="noopener noreferrer">
+          <Link to={timeAndDateURL} className="noCursor my-auto underline lowercase" target="_blank" rel="noopener noreferrer">
             {`Runs from ${startMonth} ${startDate}, ${startYear}`}
           </Link>
         </p>
         <img src={hostToSVGMap[host]} alt={host} width="13%" />
       </div>
-      <Link to={`/hackathons/${vanity}`} className="my-auto">
-        <h2 className="text-3xl pb-8">{name}</h2>
+      <Link to={`/hackathons/${vanity}`} className="noCursor my-auto">
+        <h2 className="noCursor text-3xl pb-8">{name}</h2>
       </Link>
-      <div className="flex justify-between items-end">
+      <div className="noCursor flex justify-between items-end">
         <div>
-          <p className="text-card-text text-xs font-light leading-tight lowercase">
+          <p className="noCursor text-card-text text-xs font-light leading-tight lowercase">
             duration: {hackathonDuration}
           </p>
-          <div className="text-card-text text-xs font-light leading-tight lowercase">
+          <div className="noCursor text-card-text text-xs font-light leading-tight lowercase">
             {remaningTime}
           </div>
         </div>
-        <div className="flex items-center gap-4 md:gap-6 ml-4">
+        <div className="noCursor flex items-center gap-4 md:gap-6 ml-4">
           <button onClick={() => setShow(true)}>
-            <Share2 style={{ color: "white" }} className="w-5 h-5" />
+            <Share2 style={{ color: "white" }} className="noCursor w-5 h-5" />
           </button>
 
           <button id="calendarButton" onClick={() => addToGoogleCalendar(hackathon)} aria-label="Google Calendar Integration">
-            <CalendarPlus style={{ color: "white" }} className="w-5 h-5" />
+            <CalendarPlus style={{ color: "white" }} className="noCursor w-5 h-5" />
           </button>
 
           {show && main_model}
           <a href={url + "?ref=digitomize&utm_source=digitomize"} target="_blank" rel="noreferrer">
-            <MoveRight style={{ color: "white" }} className="md:w-10 md:h-10" />
+            <MoveRight style={{ color: "white" }} className="noCursor md:w-10 md:h-10" />
           </a>
 
           {/* <Button url={url} /> */}
@@ -182,15 +182,15 @@ function updateTimer(regStartTimeUnix, regEndTimeUnix) {
     startsOrCloses = "close";
     timeDiff = regEndTimeUnix - currentTime;
   }
-  
+
   const days = Math.floor(timeDiff / 86400);
   const hours = Math.floor((timeDiff % 86400) / 3600);
   const minutes = Math.floor((timeDiff % 3600) / 60);
 
   return (
-      <p>
-          Application {startsOrCloses} in {days}d:{hours}h:{minutes}m
-      </p>
+    <p>
+      Application {startsOrCloses} in {days}d:{hours}h:{minutes}m
+    </p>
   );
 
 }

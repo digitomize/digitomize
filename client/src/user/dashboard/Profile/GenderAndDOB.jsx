@@ -16,20 +16,20 @@ function GenderAndDOB({ formData, handleInputChange, dobChange }) {
 
     return (
         <>
-            <div className="flex flex-col sm:flex-row sm:space-x-20 space-y-8 sm:space-y-0 my-8">
+            <div className="noCursor flex flex-col sm:flex-row sm:space-x-20 space-y-8 sm:space-y-0 my-8">
                 <div class="flex-1 mt-8">
                     <h3 class="text-base font-semibold text-gray-200">Date of Birth</h3>
                     <p class="mt-3 font-light text-sm text-gray-500">Kindly provide your date of birth for accurate record-keeping.</p>
                     {/* <p class="mt-3 font-light text-sm text-gray-500">Click on the avatar to upload a custom one from your files..</p> */}
                 </div>
 
-                <div className="flex-2 rounded-lg shadow bg-dashboardColor border border-jet">
+                <div className="noCursor flex-2 rounded-lg shadow bg-dashboardColor border border-jet">
                     <div class="px-6 py-8">
-                        {/* <div className="sm:w-9/12">
-                            <div className="label">
+                        {/* <div className="noCursor sm:w-9/12">
+                            <div className="noCursor label">
                                 <label class="text-xs font-medium text-secondary">Personal pronouns</label>
                             </div>
-                            <Select className="w-full"
+                            <Select className="noCursor w-full"
                                 id="gender"
                                 name="gender"
                                 displayEmpty
@@ -50,20 +50,20 @@ function GenderAndDOB({ formData, handleInputChange, dobChange }) {
                                 <MenuItem value={'They/Them'}>They/Them</MenuItem>
                             </Select>
                         </div> */}
-                        <div className="sm:w-9/12">
-                            <div className="label">
+                        <div className="noCursor sm:w-9/12">
+                            <div className="noCursor label">
                                 <label class="text-xs font-medium text-secondary">Date of Birth</label>
                             </div>
                             {
                                 !formData?.dateOfBirth?.data
                                     ?
-                                    <DatePicker className="text-sm w-full" onChange={dobChange} name="dateOfBirth" id="dateOfBirth" sx={{
+                                    <DatePicker className="noCursor text-sm w-full" onChange={dobChange} name="dateOfBirth" id="dateOfBirth" sx={{
                                         backgroundColor: 'RGB(17, 19, 18)',
                                         fontSize: '.875rem',
                                         lineHeight: '1.25rem',
                                     }} />
                                     :
-                                    <DatePicker value={dayjs(formData?.dateOfBirth?.data)} className="text-sm w-full" onChange={dobChange} name="dateOfBirth" id="dateOfBirth" sx={{
+                                    <DatePicker value={dayjs(formData?.dateOfBirth?.data)} className="noCursor text-sm w-full" onChange={dobChange} name="dateOfBirth" id="dateOfBirth" sx={{
                                         backgroundColor: 'RGB(17, 19, 18)',
                                         fontSize: '.875rem',
                                         lineHeight: '1.25rem',

@@ -13,7 +13,7 @@ const activeLinks = [
         name: "Challenges",
         icon: (
             <>
-                <Swords /> <div className="badge badge-warning">new</div>
+                <Swords /> <div className="noCursor badge badge-warning">new</div>
             </>),
         link: "/challenges",
     },
@@ -29,7 +29,7 @@ const inactiveLinks = [
         name: "Internships",
         icon: (
             <>
-                <div className="badge badge-error">soon</div>
+                <div className="noCursor badge badge-error">soon</div>
             </>
         ),
         link: "/internships",
@@ -38,7 +38,7 @@ const inactiveLinks = [
         name: "Jobs",
         icon: (
             <>
-                <div className="badge badge-error">soon</div>
+                <div className="noCursor badge badge-error">soon</div>
             </>
         ),
         link: "/jobs",
@@ -48,18 +48,18 @@ const inactiveLinks = [
 const ContestPageLayout = () => {
     return (
         <>
-            <div className="w-11/12 mx-auto antialiased">
-                <div className="heading w-4/5 mx-auto text-center my-4">
-                    <h1 className="text-white max-md:text-4xl md:text-6xl flex flex-row mx-auto justify-center">
+            <div className="noCursor w-11/12 mx-auto antialiased">
+                <div className="noCursor heading w-4/5 mx-auto text-center my-4">
+                    <h1 className="noCursor text-white max-md:text-4xl md:text-6xl flex flex-row mx-auto justify-center">
                         <span>All at</span>
-                        <span className="block mt-1 md:mt-6">
-                            <span className="bg-digitomize-bg mx-2 px-1 rounded-lg">one</span>
+                        <span className="noCursor block mt-1 md:mt-6">
+                            <span className="noCursor bg-digitomize-bg mx-2 px-1 rounded-lg">one</span>
                             place
                         </span>
                     </h1>
 
                 </div>
-                <div className="buttons flex gap-4 justify-center mt-8 flex-wrap">
+                <div className="noCursor buttons flex gap-4 justify-center mt-8 flex-wrap">
                     {
                         activeLinks.map((link, idx) => {
                             return (

@@ -70,13 +70,13 @@ export default function ContestCards() {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="mt-12 md:hidden">
+      <div className="noCursor mt-12 md:hidden">
         <Marquee speed={100}>
           {platforms.map((item) => (
-            <div key={item.name} className="flex justify-center">
-              <span className="bg-cardsColor p-4 mx-4 rounded-xl">
+            <div key={item.name} className="noCursor flex justify-center">
+              <span className="noCursor bg-cardsColor p-4 mx-4 rounded-xl">
                 <img
-                  className="w-20 h-20"
+                  className="noCursor w-20 h-20"
                   src={item.icon}
                   draggable={false}
                   alt="leetcode"
@@ -86,29 +86,29 @@ export default function ContestCards() {
           ))}
         </Marquee>
       </div>
-      <div className="w-screen max-md:hidden">
-        <Marquee speed={200} className="flex flex-row" pauseOnHover={true}>
+      <div className="noCursor w-screen max-md:hidden">
+        <Marquee speed={200} className="noCursor flex flex-row" pauseOnHover={true}>
           {platforms.map((item) => (
-            <div key={item.name} className="rounded-lg border border-solid border-[#1584ff] bg-card-gradient font-['Geist'] py-10 px-4 w-4/5">
-              <div className="flex justify-center">
-                <span className="bg-contestlogo p-4 rounded-full">
+            <div key={item.name} className="noCursor rounded-lg border border-solid border-[#1584ff] bg-card-gradient font-['Geist'] py-10 px-4 w-4/5">
+              <div className="noCursor flex justify-center">
+                <span className="noCursor bg-contestlogo p-4 rounded-full">
                   <img
-                    className="w-20 h-20"
+                    className="noCursor w-20 h-20"
                     src={item.icon}
                     draggable={false}
                     alt="leetcode"
                   />
                 </span>
               </div>
-              <div className="text-center mt-4 mb-5">
-                <h1 className="text-xl text-[#ffffff] mb-2 mt-0">
+              <div className="noCursor text-center mt-4 mb-5">
+                <h1 className="noCursor text-xl text-[#ffffff] mb-2 mt-0">
                   {item.name}
                 </h1>
-                <p className=" text-[#B7B6FF]">{item.description}</p>
+                <p className="noCursor  text-[#B7B6FF]">{item.description}</p>
               </div>
-              <CardActions className="justify-center">
+              <CardActions className="noCursor justify-center">
                 <Link to="/contests">
-                  <button className=" text-white rounded-lg border-[0.5px] border-solid   border-button-primary-helper bg-button-primary transition duration-90 hover:bg-button-primary-hover px-4 py-2">check out</button>
+                  <button className="noCursor  text-white rounded-lg border-[0.5px] border-solid   border-button-primary-helper bg-button-primary transition duration-90 hover:bg-button-primary-hover px-4 py-2">check out</button>
                 </Link>
               </CardActions>
             </div>

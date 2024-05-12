@@ -60,7 +60,7 @@ function Settings() {
         <>
             <MetaData path="u/dashboard/settings" />
             <ToastContainer />
-            <div className="bg-dashboardDarkColor font-['Geist']">
+            <div className="noCursor bg-dashboardDarkColor font-['Geist']">
                 <div class="flex justify-between items-center min-h-[40px]">
                     <div class="flex flex-shrink gap-2 mr-4 items-center min-w-0">
                         <p class="truncate font-medium text-gray-200 text-3xl max-w-[600px]">Settings</p>

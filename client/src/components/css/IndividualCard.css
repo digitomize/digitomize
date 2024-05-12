@@ -419,3 +419,18 @@
   padding-left: 0 !important;
   transform: rotate(0) !important;
 }
+.noCursor{
+  cursor: none;
+}
+nput[type='text']:focus {
+  box-shadow: none; 
+  cursor:none
+}
+
+body{
+  cursor:none;
+}
+
+button {
+  cursor: none;
+} 

@@ -13,11 +13,10 @@ import ProfileCard from "./components/ProfileCard";
 
 function NewUserProfile() {
   const { personal_data, social } = useOutletContext();
-  const contentDescription = `${
-    personal_data?.bio?.length > 30
+  const contentDescription = `${personal_data?.bio?.length > 30
       ? personal_data.bio.substring(0, 30) + "..."
       : personal_data.bio
-  }`;
+    }`;
   const pageTitle = `${personal_data.name} | digitomize`;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -42,9 +41,9 @@ function NewUserProfile() {
         <meta property="og:description" content={contentDescription} />
         <meta name="description" content={contentDescription} />
       </Helmet> */}
-      <div className="flex mt-8 flex-col md:flex-row w-11/12 mx-auto pb-8">
+      <div className="noCursor flex mt-8 flex-col md:flex-row w-11/12 mx-auto pb-8">
         {/* First Column with 450px width */}
-        <div className="flex md:w-[50%]">
+        <div className="noCursor flex md:w-[50%]">
           <ProfileCard
             username={personal_data.username}
             name={personal_data.name}
@@ -58,24 +57,24 @@ function NewUserProfile() {
         </div>
 
         {/* Second Column with two rows */}
-        <div className="flex flex-col w-full  px-4 pt-4 md:pt-0">
+        <div className="noCursor flex flex-col w-full  px-4 pt-4 md:pt-0">
           {/* First Row */}
-          <div className="flex flex-col md:flex-row pb-2 px-2 gap-6">
+          <div className="noCursor flex flex-col md:flex-row pb-2 px-2 gap-6">
             <div
               onClick={handleOpen}
-              className="border-jet border transition ease-in-out delay-150 motion-reduce:transition-none motion-reduce:hover:transform-none shadow-2xl rounded-3xl bg-[#FF526A]  hover:scale-[1.02] w-full h-[250px] p-8 cursor-pointer"
+              className="noCursor border-jet border transition ease-in-out delay-150 motion-reduce:transition-none motion-reduce:hover:transform-none shadow-2xl rounded-3xl bg-[#FF526A]  hover:scale-[1.02] w-full h-[250px] p-8 cursor-pointer"
             >
-              <div className="w-full h-full flex items-end">
-                <div className="w-full flex flex-col gap-4">
+              <div className="noCursor w-full h-full flex items-end">
+                <div className="noCursor w-full flex flex-col gap-4">
                   <ImProfile size="18%" />
                   {/* <p className='uppercase tracking-tighter text-sm text-black pb-4'> Learn more about me</p> */}
-                  <div className="flex justify-between items-center w-full">
-                    <p className="text-3xl tracking-tight text-black font-medium">
+                  <div className="noCursor flex justify-between items-center w-full">
+                    <p className="noCursor text-3xl tracking-tight text-black font-medium">
                       See my resume
                     </p>
                     <BsFillArrowUpRightCircleFill
                       color="#F0FFF0"
-                      className="phone:w-1/6 phone:h-1/6 ml-2 w-2/4 h-2/4"
+                      className="noCursor phone:w-1/6 phone:h-1/6 ml-2 w-2/4 h-2/4"
                     />
                   </div>
                 </div>
@@ -88,8 +87,8 @@ function NewUserProfile() {
               aria-labelledby="modal-modal-title"
               aria-describedby="modal-modal-description"
             >
-              <Box className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-phone:w-[95%] phone:w-10/12 border-2 border-jet shadow-lg p-4 rounded-xl glass">
-                <div className="title">
+              <Box className="noCursor absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-phone:w-[95%] phone:w-10/12 border-2 border-jet shadow-lg p-4 rounded-xl glass">
+                <div className="noCursor title">
                   <button
                     onClick={handleClose}
                     style={{
@@ -122,8 +121,8 @@ function NewUserProfile() {
                     ></iframe>
                   </Box>
                 ) : (
-                  <div className="w-full bg-jet text-black rounded-md">
-                    <div className="w-9/12 mx-auto text-center">
+                  <div className="noCursor w-full bg-jet text-black rounded-md">
+                    <div className="noCursor w-9/12 mx-auto text-center">
                       <Typography variant="h4">
                         <WarningIcon fontSize="large" />
                         no resume found
@@ -144,10 +143,10 @@ function NewUserProfile() {
           </div>
 
           {/* Second Row */}
-          <div className="flex flex-col md:flex-row pt-4 px-2 gap-6">
+          <div className="noCursor flex flex-col md:flex-row pt-4 px-2 gap-6">
             {/* -----------GITHUB CODE WITHOUT LOCK----------- */}
-            {/* <Link to='github' className="w-full md:w-1/2 ">
-                            <div className="border-[#d1e5f47d] border-2 transition ease-in-out delay-150 motion-reduce:transition-none motion-reduce:hover:transform-none shadow-2xl rounded-3xl bg-[#926bf2]  hover:scale-[1.02] w-full h-[250px] p-8">
+            {/* <Link to='github' className="noCursor w-full md:w-1/2 ">
+                            <div className="noCursor border-[#d1e5f47d] border-2 transition ease-in-out delay-150 motion-reduce:transition-none motion-reduce:hover:transform-none shadow-2xl rounded-3xl bg-[#926bf2]  hover:scale-[1.02] w-full h-[250px] p-8">
                                 <div className='w-full h-full flex items-end'>
                                     <div className='w-full'>
                                         <AiFillGithub size='20%' />
@@ -162,29 +161,29 @@ function NewUserProfile() {
                         </Link> */}
 
             {/* -----------GITHUB CODE WITH LOCK----------- */}
-            <div className="w-full flex justify-center">
-              <Link to="#" className=" md:w-1/2 cursor-not-allowed">
+            <div className="noCursor w-full flex justify-center">
+              <Link to="#" className="noCursor  md:w-1/2 cursor-not-allowed">
                 {/* Fourth Card */}
-                <div className="relative overflow-hidden rounded-3xl border bg-[#926bf2] hover:scale-[1.02] transition ease-in-out delay-150 motion-reduce:transition-none motion-reduce:hover:transform-none shadow-2xl w-full h-[250px]">
+                <div className="noCursor relative overflow-hidden rounded-3xl border bg-[#926bf2] hover:scale-[1.02] transition ease-in-out delay-150 motion-reduce:transition-none motion-reduce:hover:transform-none shadow-2xl w-full h-[250px]">
                   {/* Lock Icon with Blurry Background */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="absolute inset-0 bg-black opacity-50 backdrop-filter backdrop-blur-md"></div>
-                    <div className="relative z-10 flex flex-col items-center justify-center text-white">
+                  <div className="noCursor absolute inset-0 flex items-center justify-center">
+                    <div className="noCursor absolute inset-0 bg-black opacity-50 backdrop-filter backdrop-blur-md"></div>
+                    <div className="noCursor relative z-10 flex flex-col items-center justify-center text-white">
                       <AiFillLock size="20%" />
-                      <p className="mt-2">Coming Soon</p>
+                      <p className="noCursor mt-2">Coming Soon</p>
                     </div>
                   </div>
-                  <div className="border border-jet h-full">
-                    <div className="w-full h-full flex items-end p-8">
-                      <div className="w-full">
+                  <div className="noCursor border border-jet h-full">
+                    <div className="noCursor w-full h-full flex items-end p-8">
+                      <div className="noCursor w-full">
                         <AiFillGithub size="17%" />
-                        <div className="flex justify-between items-center w-full">
-                          <p className="pt-4 tracking-tight text-3xl text-white font-medium">
+                        <div className="noCursor flex justify-between items-center w-full">
+                          <p className="noCursor pt-4 tracking-tight text-3xl text-white font-medium">
                             Github projects
                           </p>
                           <BsFillArrowUpRightCircleFill
                             color="#F0FFF0"
-                            className="phone:w-1/6 phone:h-1/6 ml-2 w-2/4 h-2/4"
+                            className="noCursor phone:w-1/6 phone:h-1/6 ml-2 w-2/4 h-2/4"
                           />
                         </div>
                       </div>

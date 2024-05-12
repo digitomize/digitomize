@@ -52,25 +52,24 @@ function Navbar() {
 
   return (
     <nav>
-      <div className="flex justify-between md:px-16 px-12 md:pt-12 items-center">
-        <div className="w-56 max-sm:mt-8">
+      <div className="noCursor flex justify-between md:px-16 px-12 md:pt-12 items-center">
+        <div className="noCursor w-56 max-sm:mt-8">
           <Link to="/">
             <img src={logo} alt="Logo" width="75%" />
           </Link>
         </div>
 
         <div
-          className={`${
-            isMenuActive
+          className={`${isMenuActive
               ? "bg-black h-full flex justify-center inset-x-0 inset-y-0 z-50 fixed flex-col items-center"
               : "hidden"
-          } md:flex`}
+            } md:flex`}
         >
           {navLinks.map((link, index) => (
             <Link to={link.path} key={index}>
               <li
                 onClick={() => toggleActive()}
-                className="flex text-nav-text text-3xl font-light p-4 lowercase hover:white"
+                className="noCursor flex text-nav-text text-3xl font-light p-4 lowercase hover:white"
               >
                 {link.title}
               </li>
@@ -80,20 +79,19 @@ function Navbar() {
 
         <div
           onClick={() => toggleActive()}
-          className={`${
-            isMenuActive ? "mx-6 my-2 block fixed right-5 z-50" : "hidden"
-          }`}
+          className={`${isMenuActive ? "mx-6 my-2 block fixed right-5 z-50" : "hidden"
+            }`}
         >
           close
         </div>
 
         <div
           onClick={() => toggleActive()}
-          className="md:hidden max-sm:block cursor-pointer"
+          className="noCursor md:hidden max-sm:block cursor-pointer"
         >
-          <span className="block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
-          <span className="block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
-          <span className="block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
+          <span className="noCursor block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
+          <span className="noCursor block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
+          <span className="noCursor block w-6 h-0.5 my-1.5 bg-white mx-auto"></span>
         </div>
       </div>
     </nav>

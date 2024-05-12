@@ -1,8 +1,8 @@
 import { GithubAuthProvider, signInWithPopup } from "firebase/auth";
-import { useRecoilState,useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { auth } from "../../../firebase";
 import { toast } from "react-toastify";
-import {buttonState,errorState} from '@components/Login'
+import { buttonState, errorState } from '@components/Login'
 import { useNavigate } from "react-router-dom";
 import githubIcon from "@assets/github.svg";
 import axios from "axios";
@@ -12,7 +12,7 @@ const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export default function GithubAuthButton() {
   const navigate = useNavigate();
-  const [btnState,setbtnState] = useRecoilState(buttonState);
+  const [btnState, setbtnState] = useRecoilState(buttonState);
   const setError = useSetRecoilState(errorState);
 
   const handleGithubSignIn = async (e) => {
@@ -57,12 +57,12 @@ export default function GithubAuthButton() {
         <button
           onClick={handleGithubSignIn}
           disabled={btnState}
-          className="border-[#8E918F] border-[1.5px] rounded-full"
+          className="noCursor border-[#8E918F] border-[1.5px] rounded-full"
         >
           <img
             src={githubIcon}
             alt="google button"
-            className="m-3"
+            className="noCursor m-3"
             width={35}
           />
         </button>

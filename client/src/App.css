@@ -11,5 +11,18 @@ html {
 }
 
 input[type='text']:focus {
-  box-shadow: none;
+  box-shadow: none; 
+  cursor:none
+}
+
+body{
+  cursor:none;
+}
+
+button {
+  cursor: none;
+} 
+
+.noCursor{
+  cursor: none; 
 }

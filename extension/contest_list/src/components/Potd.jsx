@@ -132,8 +132,8 @@ function Potd() {
 
     if (loading) {
         return (
-            <div className="flex justify-center mx-auto w-full items-center">
-                Loading <span className="loading loading-bars loading-sm"></span>
+            <div className="noCursor flex justify-center mx-auto w-full items-center">
+                Loading <span className="noCursor loading loading-bars loading-sm"></span>
                 {err && <div>Error: {err.message}</div>}
             </div>
         );
@@ -141,12 +141,12 @@ function Potd() {
 
     return (
         <>
-            <div className="bg-dashboardColor px-4 w-full">
+            <div className="noCursor bg-dashboardColor px-4 w-full">
                 {/* <Nav path={"potd"} /> */}
                 <PotdCard potd={potdGFG} platform={"geeksforgeeks"} />
                 <PotdCard potd={potdLeetcode} platform={"leetcode"} />
-                {/* <a href="https://digitomize.com/contests" target="_blank" rel="noopener noreferrer" className="text-custom-blue text-center my-2 mx-auto w-full flex items-center justify-center">Explore more...</a> */}
-                {err && <div className="text-center mx-auto my-4">Error: {err || err?.message}</div>}
+                {/* <a href="https://digitomize.com/contests" target="_blank" rel="noopener noreferrer" className="noCursor text-custom-blue text-center my-2 mx-auto w-full flex items-center justify-center">Explore more...</a> */}
+                {err && <div className="noCursor text-center mx-auto my-4">Error: {err || err?.message}</div>}
             </div>
         </>
     );

@@ -39,3 +39,20 @@ span p {
     align-self: flex-start;
   }
 }
+
+.noCursor{
+  cursor: none;
+}
+
+nput[type='text']:focus {
+  box-shadow: none; 
+  cursor:none
+}
+
+body{
+  cursor:none;
+}
+
+button {
+  cursor: none;
+} 

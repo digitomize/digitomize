@@ -1,4 +1,10 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
 export default {
   content: [
     "node_modules/daisyui/dist/**/*.js",
@@ -17,7 +23,7 @@ export default {
     },
     extend: {
       flex: {
-        '2': '2 2 0%'
+        "2": "2 2 0%",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
@@ -107,5 +113,19 @@ export default {
     require("flowbite/plugin")({
       charts: true,
     }),
+    addVariablesForColors,
+
   ],
 };
+
+
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),
+  );
+ 
+  addBase({
+    ":root": newVars,
+  });
+}

@@ -38,17 +38,17 @@ function UserCard({
   );
   const truncatedBio = showMore ? bio : bio?.slice(0, 150);
   return (
-    <div className="rounded-2xl bg-eerie-black-2  shadow-md flex flex-col h-fit lg:px-6 lg:py-8 px-4 py-6 border border-jet w-[100%]">
-      <div className="flex flex-row sm:items-center md:gap-4 gap-2 mb-6 lg:gap-6">
+    <div className="noCursor rounded-2xl bg-eerie-black-2  shadow-md flex flex-col h-fit lg:px-6 lg:py-8 px-4 py-6 border border-jet w-[100%]">
+      <div className="noCursor flex flex-row sm:items-center md:gap-4 gap-2 mb-6 lg:gap-6">
         <img
           src={picture}
           alt=""
-          className="rounded-full w-[70px] h-[70px] md:w-[90px] md:h-[90px] lg:w-[120px] lg:h-[120px]"
+          className="noCursor rounded-full w-[70px] h-[70px] md:w-[90px] md:h-[90px] lg:w-[120px] lg:h-[120px]"
         />
-        <div className="flex w-full sm:flex-col max-sm:flex-row max-sm:justify-between">
+        <div className="noCursor flex w-full sm:flex-col max-sm:flex-row max-sm:justify-between">
           <div>
-            <h2 className="font-500 lg:text-[32px] text-2xl ">{name}</h2>
-            <h2 className="sm:text-[16px] text-[14px] pl-1 font-normal font-['Geist']">@{username}</h2>
+            <h2 className="noCursor font-500 lg:text-[32px] text-2xl ">{name}</h2>
+            <h2 className="noCursor sm:text-[16px] text-[14px] pl-1 font-normal font-['Geist']">@{username}</h2>
           </div>
           <div
             className={`sm:mt-3 flex  sm:gap-2 gap-3 ${social ? "" : "hidden"
@@ -60,7 +60,7 @@ function UserCard({
               target="_blank"
               rel="noreferrer"
             >
-              <FaLinkedin className="lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]" color="white" />
+              <FaLinkedin className="noCursor lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]" color="white" />
             </a>
             <a
               className={social?.instagram ? "" : "hidden"}
@@ -68,7 +68,7 @@ function UserCard({
               target="_blank"
               rel="noreferrer"
             >
-              <FaInstagram className="lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]" color="white" />
+              <FaInstagram className="noCursor lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]" color="white" />
             </a>
             <a
               className={social?.twitter ? "" : "hidden"}
@@ -76,46 +76,46 @@ function UserCard({
               target="_blank"
               rel="noreferrer"
             >
-              <FaXTwitter className="lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]" color="white" />
+              <FaXTwitter className="noCursor lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]" color="white" />
             </a>
           </div>
         </div>
       </div>
-      <div className="badges ">
-        <div className="badge bg-[#9ACD32] text-black mx-1">member</div>
+      <div className="noCursor badges ">
+        <div className="noCursor badge bg-[#9ACD32] text-black mx-1">member</div>
         {role >= 4 && (
-          <div className="badge bg-[#FFFF00] text-black mx-1">contributor</div>
+          <div className="noCursor badge bg-[#FFFF00] text-black mx-1">contributor</div>
         )}
         {role >= 5 && (
-          <div className="badge bg-[#7DF9FF] text-black mx-1">admin</div>
+          <div className="noCursor badge bg-[#7DF9FF] text-black mx-1">admin</div>
         )}
       </div>
-      <div className="mt-6 sm:hidden">
-        {skills.length > 0 && <p className="text-[16px]">Skills</p>}
-        <div className="flex flex-wrap mt-3">
+      <div className="noCursor mt-6 sm:hidden">
+        {skills.length > 0 && <p className="noCursor text-[16px]">Skills</p>}
+        <div className="noCursor flex flex-wrap mt-3">
           {skills.map((skill, index) => (
             <div
               key={index}
-              className=" bg-[#1582ffb3] bg-opacity-80 text-[#1582FF] text-[12px] px-3 py-[2px] rounded-[12px] font-[500] mr-4 mb-1"
+              className="noCursor  bg-[#1582ffb3] bg-opacity-80 text-[#1582FF] text-[12px] px-3 py-[2px] rounded-[12px] font-[500] mr-4 mb-1"
             >
               {skill}
             </div>
           ))}
         </div>
       </div>
-      {bio && <p className="border-[0.5px] border-solid border-[#8888884a] lg:text-[14px] sm:text-[12px] rounded-[5px] px-3 py-2 mt-4 text-[#818587]">
+      {bio && <p className="noCursor border-[0.5px] border-solid border-[#8888884a] lg:text-[14px] sm:text-[12px] rounded-[5px] px-3 py-2 mt-4 text-[#818587]">
         {truncatedBio}
 
         {bio?.length > 150 && (
-          <button onClick={toggleBio} className="text-blue-500 hover:underline">
+          <button onClick={toggleBio} className="noCursor text-blue-500 hover:underline">
             {showMore ? "...show less" : "...show more"}
           </button>
         )}
       </p>}
-      <div className="flex lg:flex-row sm:flex-col max-sm:flex-row gap-y-4 w-full justify-between items-center mt-6">
+      <div className="noCursor flex lg:flex-row sm:flex-col max-sm:flex-row gap-y-4 w-full justify-between items-center mt-6">
         {isUserDashboard && (
           <button
-            className=" text-white px-6 py-2 border border-solid rounded-[10px] text-[14px] border-[#FAFAFA] "
+            className="noCursor  text-white px-6 py-2 border border-solid rounded-[10px] text-[14px] border-[#FAFAFA] "
             onClick={() => navigate(`/u/${username}`)}
           >
             View Profile
@@ -123,7 +123,7 @@ function UserCard({
         )}
         {(isUserProfile || isUserDashboard) && (
           <button
-            className="bg-blue-500 flex flex-row justify-center items-center space-x-3 text-[14px] text-white px-6 py-2 rounded-[10px] hover:opacity-80"
+            className="noCursor bg-blue-500 flex flex-row justify-center items-center space-x-3 text-[14px] text-white px-6 py-2 rounded-[10px] hover:opacity-80"
             onClick={() =>
               setShow(isUserProfile ? isUserProfile : isUserDashboard)
             }
@@ -134,7 +134,7 @@ function UserCard({
         )}
 
         {!isUserProfile && !isUserDashboard && (
-          <button className="bg-blue-500 flex gap-1 w-fit items-center justify-center text-white px-4 py-2 rounded-full mt-4 hover:opacity-80">
+          <button className="noCursor bg-blue-500 flex gap-1 w-fit items-center justify-center text-white px-4 py-2 rounded-full mt-4 hover:opacity-80">
             <>
               <AiOutlineFastBackward />
               Back
@@ -142,13 +142,13 @@ function UserCard({
           </button>
         )}
       </div>
-      <div className="mt-6 max-sm:hidden">
-        {skills.length > 0 && <p className="text-[16px]">Skills</p>}
-        <div className="flex flex-wrap mt-3">
+      <div className="noCursor mt-6 max-sm:hidden">
+        {skills.length > 0 && <p className="noCursor text-[16px]">Skills</p>}
+        <div className="noCursor flex flex-wrap mt-3">
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="bg-custom-blue bg-opacity-80 text-black text-[12px] px-3 py-[2px] rounded-[12px] font-[500] mr-4 mb-1"
+              className="noCursor bg-custom-blue bg-opacity-80 text-black text-[12px] px-3 py-[2px] rounded-[12px] font-[500] mr-4 mb-1"
             >
               {skill}
             </div>

@@ -76,38 +76,38 @@ function PlatformRatings() {
           <meta name="description" content={contentDescription} />
         </Helmet>
         {/* <EmojiEventsIcon sx={{ fontSize: 100 }} /> */}
-        <div className="mx-auto text-center items-center flex flex-col my-12 w-full pb-12 h-full">
-          {/* <div className="card flex flex-row">
-                        <div className="upper flex flex-row">
+        <div className="noCursor mx-auto text-center items-center flex flex-col my-12 w-full pb-12 h-full">
+          {/* <div className="noCursor card flex flex-row">
+                        <div className="noCursor upper flex flex-row">
                             <img src={contestLinks[platform].img} style={{ maxHeight: '35px', maxWidth: '35px' }} />
                         </div>
-                        <div className="lower flex flex-col">
+                        <div className="noCursor lower flex flex-col">
 
                         </div>
                     </div> */}
-          <div className="border border-jet bg-gradient-to-br from-color-1 from-0% via-color-2 via-100% to-color-3 rounded-3xl shadow-shadowBlack z-1 w-2/4 max-phone:w-3/4 py-4">
-            <figure className="w-full flex justify-center rounded-3xl">
+          <div className="noCursor border border-jet bg-gradient-to-br from-color-1 from-0% via-color-2 via-100% to-color-3 rounded-3xl shadow-shadowBlack z-1 w-2/4 max-phone:w-3/4 py-4">
+            <figure className="noCursor w-full flex justify-center rounded-3xl">
               <img
-                className="w-16 h-16"
+                className="noCursor w-16 h-16"
                 src={contestLinks[platform].img}
                 alt="platform icon"
               />
             </figure>
-            <div className="card-body p-4 text-center items-center w-full">
-              <h2 className="card-title text-center my-3 cursor-pointer">
+            <div className="noCursor card-body p-4 text-center items-center w-full">
+              <h2 className="noCursor card-title text-center my-3 cursor-pointer">
                 <a href={platformData?.username
-                      ? contestLinks[platform].profileUrl +
-                        platformData.username
-                      : "#"
-                      }
-                      target={platformData?.username ? "_blank" : ""}
-                      rel="noopener noreferrer"
-                      >@{platformData?.username || "user not found"}</a> 
+                  ? contestLinks[platform].profileUrl +
+                  platformData.username
+                  : "#"
+                }
+                  target={platformData?.username ? "_blank" : ""}
+                  rel="noopener noreferrer"
+                >@{platformData?.username || "user not found"}</a>
                 <a
                   href={
                     platformData?.username
                       ? contestLinks[platform].profileUrl +
-                        platformData.username
+                      platformData.username
                       : "#"
                   }
                   target={platformData?.username ? "_blank" : ""}
@@ -116,31 +116,31 @@ function PlatformRatings() {
                   <OpenInNew />
                 </a>
               </h2>
-              <div className="info flex flex-row w-full justify-around my-3">
-                <div className="flex flex-col items-center">
-                  <h3 className="text-xl">{platformData?.rating || "null"}</h3>
-                  <div className="badge badge-outline text-[#f6c43d] my-2">
+              <div className="noCursor info flex flex-row w-full justify-around my-3">
+                <div className="noCursor flex flex-col items-center">
+                  <h3 className="noCursor text-xl">{platformData?.rating || "null"}</h3>
+                  <div className="noCursor badge badge-outline text-[#f6c43d] my-2">
                     Rating
                   </div>
                 </div>
-                <div className="flex flex-col items-center">
-                  <h3 className="text-xl">{platformData?.badge || "null"}</h3>
-                  <div className="badge text-[#1789ca] badge-outline my-2">
+                <div className="noCursor flex flex-col items-center">
+                  <h3 className="noCursor text-xl">{platformData?.badge || "null"}</h3>
+                  <div className="noCursor badge text-[#1789ca] badge-outline my-2">
                     badge
                   </div>
                 </div>
-                <div className="flex flex-col items-center">
-                  <h3 className="text-xl">
+                <div className="noCursor flex flex-col items-center">
+                  <h3 className="noCursor text-xl">
                     {platformData?.attendedContestsCount || "null"}
                   </h3>
-                  <div className="badge badge-outline text-[#da2828] my-2">
+                  <div className="noCursor badge badge-outline text-[#da2828] my-2">
                     contests
                   </div>
                 </div>
               </div>
-              <div className="buttons">
+              <div className="noCursor buttons">
                 <button
-                  className="btn btn-outline btn-accent"
+                  className="noCursor btn btn-outline btn-accent"
                   onClick={() => setShow(true)}
                 >
                   Share
@@ -148,8 +148,8 @@ function PlatformRatings() {
                 {show && main_model}
               </div>
             </div>
-            <div className="fetch-time flex w-full justify-center p-2">
-              <p className="text-sm">Last fetched: {startTimeIST}</p>
+            <div className="noCursor fetch-time flex w-full justify-center p-2">
+              <p className="noCursor text-sm">Last fetched: {startTimeIST}</p>
             </div>
           </div>
         </div>
@@ -157,7 +157,7 @@ function PlatformRatings() {
     );
   } else {
     return (
-      <div className="mx-auto text-center items-center flex flex-col my-12 w-full h-full pb-12">
+      <div className="noCursor mx-auto text-center items-center flex flex-col my-12 w-full h-full pb-12">
         <p>No data available for the selected platform: {platform}</p>
       </div>
     );

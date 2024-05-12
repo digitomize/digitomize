@@ -208,23 +208,23 @@ export default function UserDashPersonal() {
       <MetaData path="u/dashboard/account" />
       <ToastContainer />
       <DashboardNavbar />
-      {/* <div className="px-8 md:ps-12 py-12 pt-24 w-11/12 mx-auto"> */}
-      <div className="phone:mt-12 max-phone:mt-24 py-4 w-11/12 mx-auto">
-        <div className="mockup-browser border bg-base-300">
-          <div className="mockup-browser-toolbar">
-            <div className="input" style={{ marginLeft: "0" }}>
+      {/* <div className="noCursor px-8 md:ps-12 py-12 pt-24 w-11/12 mx-auto"> */}
+      <div className="noCursor phone:mt-12 max-phone:mt-24 py-4 w-11/12 mx-auto">
+        <div className="noCursor mockup-browser border bg-base-300">
+          <div className="noCursor mockup-browser-toolbar">
+            <div className="noCursor input" style={{ marginLeft: "0" }}>
               {"#include {digitomize} > {personal}"}
             </div>
           </div>
 
-          <div className="bg-base-200 w-full p-8">
-            <div className="grid md:grid-cols-2 mx-auto">
-              <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center ">
-                <div className="form-control w-full   max-w-lg   ">
-                  <label htmlFor="firstName" className="label">
-                    <span className="label-text"> name</span>
+          <div className="noCursor bg-base-200 w-full p-8">
+            <div className="noCursor grid md:grid-cols-2 mx-auto">
+              <div className="noCursor relative z-0 w-full md:w-3/4 mb-12 group flex items-center ">
+                <div className="noCursor form-control w-full   max-w-lg   ">
+                  <label htmlFor="firstName" className="noCursor label">
+                    <span className="noCursor label-text"> name</span>
                   </label>
-                  <div className="flex  items-center gap-3">
+                  <div className="noCursor flex  items-center gap-3">
                     <input
                       type="text"
                       name="name"
@@ -234,18 +234,18 @@ export default function UserDashPersonal() {
                       maxLength={25}
                       onChange={handleInputChange}
                       required
-                      className="input input-bordered w-full  "
+                      className="noCursor input input-bordered w-full  "
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3 ">
-                <div className="form-control w-full max-w-lg    ">
-                  <label htmlFor="username" className="label">
-                    <span className="label-text"> Username</span>
+              <div className="noCursor relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3 ">
+                <div className="noCursor form-control w-full max-w-lg    ">
+                  <label htmlFor="username" className="noCursor label">
+                    <span className="noCursor label-text"> Username</span>
                   </label>
-                  <div className="flex  items-center gap-3">
+                  <div className="noCursor flex  items-center gap-3">
                     <input
                       type="text"
                       name="username"
@@ -255,20 +255,20 @@ export default function UserDashPersonal() {
                       maxLength={15}
                       onChange={handleInputChange}
                       required
-                      className="input input-bordered w-full"
+                      className="noCursor input input-bordered w-full"
                     />
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 mx-auto">
-              <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
-                <div className="form-control w-full ">
-                  <label htmlFor="phoneNumber" className="label">
-                    <span className="label-text"> Phone number</span>
+            <div className="noCursor grid md:grid-cols-2 mx-auto">
+              <div className="noCursor relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
+                <div className="noCursor form-control w-full ">
+                  <label htmlFor="phoneNumber" className="noCursor label">
+                    <span className="noCursor label-text"> Phone number</span>
                   </label>
-                  <div className="flex  items-center gap-3 ">
+                  <div className="noCursor flex  items-center gap-3 ">
                     <input
                       type="tel"
                       name="phoneNumber"
@@ -276,7 +276,7 @@ export default function UserDashPersonal() {
                       id="phoneNumber"
                       value={formData.phoneNumber.data}
                       onChange={handleInputChangeObjData}
-                      className="input input-bordered w-full max-w-lg "
+                      className="noCursor input input-bordered w-full max-w-lg "
                     />
                     <Checkbox
                       isCheckedState={formData.phoneNumber.showOnWebsite}
@@ -286,12 +286,12 @@ export default function UserDashPersonal() {
                 </div>
               </div>
 
-              <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
-                <div className="form-control w-full  ">
-                  <label htmlFor="dateOfBirth" className="label">
-                    <span className="label-text"> Date of birth</span>
+              <div className="noCursor relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
+                <div className="noCursor form-control w-full  ">
+                  <label htmlFor="dateOfBirth" className="noCursor label">
+                    <span className="noCursor label-text"> Date of birth</span>
                   </label>
-                  <div className="flex  items-center gap-3">
+                  <div className="noCursor flex  items-center gap-3">
                     <input
                       type="date"
                       id="dateOfBirth"
@@ -299,7 +299,7 @@ export default function UserDashPersonal() {
                       value={formData.dateOfBirth.data}
                       onChange={handleInputChangeObjData}
                       placeholder="Type here"
-                      className="input input-bordered w-full max-w-lg "
+                      className="noCursor input input-bordered w-full max-w-lg "
                     />
                     <Checkbox
                       isCheckedState={formData.dateOfBirth.showOnWebsite}
@@ -310,37 +310,37 @@ export default function UserDashPersonal() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2  mx-auto ">
-              <div className="relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
-                <div className="form-control w-full ">
-                  <label htmlFor="resume" className="label">
-                    <span className="label-text"> resume</span>
+            <div className="noCursor grid md:grid-cols-2  mx-auto ">
+              <div className="noCursor relative z-0 w-full md:w-3/4 mb-12 group flex items-center gap-3">
+                <div className="noCursor form-control w-full ">
+                  <label htmlFor="resume" className="noCursor label">
+                    <span className="noCursor label-text"> resume</span>
                   </label>
-                  <div className="flex  items-center gap-3 ">
+                  <div className="noCursor flex  items-center gap-3 ">
                     <input
                       type="tel"
                       name="resume"
                       id="resume"
                       value={formData.resume}
                       onChange={handleInputChange}
-                      className="input input-bordered w-full max-w-lg "
+                      className="noCursor input input-bordered w-full max-w-lg "
                     />
                   </div>
                 </div>
               </div>
 
-              {/* <div className="skills relative z-0 w-full md:w-3/4 mb-5  group flex flex-col items-center gap-3"> */}
-              <div className="z-0 w-full md:w-3/4 group flex items-start md:mr-5 ">
-                <div className="form-control  w-full ">
-                  <label htmlFor="skills" className="label">
-                    <span className="label-text">Skills</span>
+              {/* <div className="noCursor skills relative z-0 w-full md:w-3/4 mb-5  group flex flex-col items-center gap-3"> */}
+              <div className="noCursor z-0 w-full md:w-3/4 group flex items-start md:mr-5 ">
+                <div className="noCursor form-control  w-full ">
+                  <label htmlFor="skills" className="noCursor label">
+                    <span className="noCursor label-text">Skills</span>
                   </label>
-                  <div className="flex items-center gap-3">
+                  <div className="noCursor flex items-center gap-3">
                     <input
                       type="text"
                       name="skills"
                       id="skills"
-                      className="input input-bordered  w-full max-w-lg"
+                      className="noCursor input input-bordered  w-full max-w-lg"
                       placeholder=""
                       value={newSkill}
                       maxLength={25}
@@ -350,13 +350,13 @@ export default function UserDashPersonal() {
                       <button
                         ref={btnRef}
                         type="submit"
-                        className="text-black bg-white font-medium rounded-lg text-sm md:text-lg sm:w-auto px-5 py-1.5 text-center "
+                        className="noCursor text-black bg-white font-medium rounded-lg text-sm md:text-lg sm:w-auto px-5 py-1.5 text-center "
                       >
                         Add
                       </button>
                     </Form>
                   </div>
-                  <div className="skillchips w-full max-w-3xl mx-auto  ">
+                  <div className="noCursor skillchips w-full max-w-3xl mx-auto  ">
                     {skillData.length > 0 ? (
                       skillData.map((data) => {
                         let icon;
@@ -365,7 +365,7 @@ export default function UserDashPersonal() {
                         }
 
                         return (
-                          <div key={data.key} className="m-2 inline-block">
+                          <div key={data.key} className="noCursor m-2 inline-block">
                             <Chip
                               variant="outlined"
                               color="primary"
@@ -377,7 +377,7 @@ export default function UserDashPersonal() {
                         );
                       })
                     ) : (
-                      <p className="font-semibold font-mono text-red-600">
+                      <p className="noCursor font-semibold font-mono text-red-600">
                         No skills added.
                       </p>
                     )}
@@ -387,18 +387,18 @@ export default function UserDashPersonal() {
             </div>
             {/* </div> */}
 
-            <div className="flex flex-col md:flex-row  items-start gap-5  mb-10 mt-9">
-              <div className="relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
-                <div className="form-control   w-full">
-                  <label className="label">
-                    <span className="label-text">Bio</span>
+            <div className="noCursor flex flex-col md:flex-row  items-start gap-5  mb-10 mt-9">
+              <div className="noCursor relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
+                <div className="noCursor form-control   w-full">
+                  <label className="noCursor label">
+                    <span className="noCursor label-text">Bio</span>
                   </label>
-                  <div className="flex items-center gap-3">
+                  <div className="noCursor flex items-center gap-3">
                     <textarea
                       name="bio"
                       maxLength={250}
                       id="bio"
-                      className="textarea w-full textarea-bordered h-24 max-w-lg"
+                      className="noCursor textarea w-full textarea-bordered h-24 max-w-lg"
                       placeholder=""
                       value={formData.bio.data}
                       onChange={handleInputChangeObjData}
@@ -412,14 +412,14 @@ export default function UserDashPersonal() {
               </div>
               {/* skills */}
 
-              <div className="relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
-                <div className="form-control w-full">
-                  <label className="label">
-                    <span className="label-text">
+              <div className="noCursor relative z-0 w-full md:w-3/4 mb-5  group flex items-center gap-3">
+                <div className="noCursor form-control w-full">
+                  <label className="noCursor label">
+                    <span className="noCursor label-text">
                       Upload Profile Picture {"(automatically focuses on face)"}
                     </span>
                   </label>
-                  <div className="flex items-center gap-3">
+                  <div className="noCursor flex items-center gap-3">
                     <ImageUploader
                       image={formData.picture}
                       setFormData={setFormData}
@@ -429,8 +429,8 @@ export default function UserDashPersonal() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-4 pb-8">
-              <div className="flex gap-4 items-center">
+            <div className="noCursor flex flex-col gap-4 pb-8">
+              <div className="noCursor flex gap-4 items-center">
                 <FaInstagram size={40} />
                 <input
                   type="text"
@@ -438,10 +438,10 @@ export default function UserDashPersonal() {
                   value={formData.social.instagram}
                   placeholder="Instagram URL"
                   onChange={handleSocialChange}
-                  className="input input-bordered sm:w-2/6 md:w-2/5"
+                  className="noCursor input input-bordered sm:w-2/6 md:w-2/5"
                 />
               </div>
-              <div className="flex gap-4 items-center">
+              <div className="noCursor flex gap-4 items-center">
                 <FaLinkedin size={40} />
                 <input
                   type="text"
@@ -449,10 +449,10 @@ export default function UserDashPersonal() {
                   value={formData.social.linkedin}
                   placeholder="Linkedin URL"
                   onChange={handleSocialChange}
-                  className="input input-bordered sm:w-2/6 md:w-2/5"
+                  className="noCursor input input-bordered sm:w-2/6 md:w-2/5"
                 />
               </div>
-              <div className="flex gap-4 items-center">
+              <div className="noCursor flex gap-4 items-center">
                 <FaXTwitter size={40} />
                 <input
                   type="text"
@@ -460,12 +460,12 @@ export default function UserDashPersonal() {
                   value={formData.social.twitter}
                   placeholder="Twitter URL"
                   onChange={handleSocialChange}
-                  className="input input-bordered sm:w-2/6 md:w-2/5"
+                  className="noCursor input input-bordered sm:w-2/6 md:w-2/5"
                 />
               </div>
             </div>
 
-            <div className="flex w-full max-sm:justify-center md:justify-end md:pe-12">
+            <div className="noCursor flex w-full max-sm:justify-center md:justify-end md:pe-12">
               <button
                 onClick={handleSubmit}
                 disabled={isDisabled}
@@ -478,21 +478,21 @@ export default function UserDashPersonal() {
             </div>
           </div>
         </div>
-        {/* <div className="mockup-browser border bg-base-300 mt-4">
-          <div className="mockup-browser-toolbar">
-            <div className="input" style={{ marginLeft: "0" }}>
+        {/* <div className="noCursor mockup-browser border bg-base-300 mt-4">
+          <div className="noCursor mockup-browser-toolbar">
+            <div className="noCursor input" style={{ marginLeft: "0" }}>
               {"#include {digitomize} > {socials}"}
             </div>
           </div>
-          <div className="flex justify-center px-4 py-16 bg-base-200">
-            <div className="mockup-code">
+          <div className="noCursor flex justify-center px-4 py-16 bg-base-200">
+            <div className="noCursor mockup-code">
               <pre data-prefix="1">
-                <code className="text-white">npm i socials</code>
+                <code className="noCursor text-white">npm i socials</code>
               </pre>
               <pre data-prefix="2">
-                <code className="text-success">installing...</code>
+                <code className="noCursor text-success">installing...</code>
               </pre>
-              <pre data-prefix="3" className="bg-warning text-warning-content">
+              <pre data-prefix="3" className="noCursor bg-warning text-warning-content">
                 <code>coming soon!</code>
               </pre>
             </div>

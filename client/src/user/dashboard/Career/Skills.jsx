@@ -19,24 +19,24 @@ function Skills({ handleAdd, handleDelete, setNewSkill, newSkill, btnRef, skillD
 
     return (
         <>
-            <div className="flex flex-col sm:flex-row sm:space-x-20 space-y-8 sm:space-y-0 my-8">
+            <div className="noCursor flex flex-col sm:flex-row sm:space-x-20 space-y-8 sm:space-y-0 my-8">
                 <div class="flex-1 mt-8">
                     <h3 class="text-base font-semibold text-gray-200">Select your Tags</h3>
                     <p class="mt-3 font-light text-sm text-gray-500">Enter tags that represent your skills, tools, and preferred roles.</p>
                     {/* <p class="mt-3 font-light text-sm text-gray-500">Please enter one tag at a time in the input box!</p> */}
                 </div>
 
-                <div className="flex-2 rounded-lg shadow bg-dashboardColor border border-jet">
+                <div className="noCursor flex-2 rounded-lg shadow bg-dashboardColor border border-jet">
                     <div class="px-6 py-8">
-                        <div className="sm:w-9/12">
+                        <div className="noCursor sm:w-9/12">
                             <label htmlFor="phoneNumber" class="phone:ml-1 text-xs font-medium text-secondary">Please enter one tag at a time in the input box!</label>
-                            <div className="mt-2 flex items-center gap-3">
+                            <div className="noCursor mt-2 flex items-center gap-3">
                                 <input
                                     type="text"
                                     name="skills"
                                     id="skills"
                                     style={{ backgroundColor: 'RGB(17, 19, 18)' }}
-                                    className="placeholder:text-gray-600 border border-jet rounded px-3 py-[10px] w-full text-sm"
+                                    className="noCursor placeholder:text-gray-600 border border-jet rounded px-3 py-[10px] w-full text-sm"
                                     placeholder="Example: Mobile Developer, Node.js, etc."
                                     value={newSkill}
                                     maxLength={25}
@@ -45,12 +45,12 @@ function Skills({ handleAdd, handleDelete, setNewSkill, newSkill, btnRef, skillD
                                 <button onClick={handleAdd}
                                     ref={btnRef}
                                     type="submit"
-                                    className="btn btn-outline border-jet hover:bg-jet hover:text-white btn-sm"
+                                    className="noCursor btn btn-outline border-jet hover:bg-jet hover:text-white btn-sm"
                                 >
                                     Add
                                 </button>
                             </div>
-                            <div className="skillchips w-full max-sm:text-sm  max-w-3xl h-12 mt-2">
+                            <div className="noCursor skillchips w-full max-sm:text-sm  max-w-3xl h-12 mt-2">
                                 {skillData.length > 0 ? (
                                     skillData.map((data) => {
                                         let icon;
@@ -59,7 +59,7 @@ function Skills({ handleAdd, handleDelete, setNewSkill, newSkill, btnRef, skillD
                                         }
 
                                         return (
-                                            <div key={data.key} className="max-sm:text-sm my-2  inline-block">
+                                            <div key={data.key} className="noCursor max-sm:text-sm my-2  inline-block">
                                                 <Chip
                                                     variant="outlined"
                                                     color="primary"
@@ -71,7 +71,7 @@ function Skills({ handleAdd, handleDelete, setNewSkill, newSkill, btnRef, skillD
                                         );
                                     })
                                 ) : (
-                                    <p className="ml-1 text-xs font-medium text-secondary">No tag added.</p>
+                                    <p className="noCursor ml-1 text-xs font-medium text-secondary">No tag added.</p>
                                 )}
                             </div>
                         </div>

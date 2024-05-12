@@ -2,7 +2,7 @@ import React from "react";
 import "@components/css/ellipse.css";
 
 function Button({ url }) {
-  return <div className="ellipse"></div>;
+  return <div className="noCursor ellipse"></div>;
 }
 
 export default Button;
