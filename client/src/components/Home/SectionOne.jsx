@@ -11,6 +11,10 @@ import gitbook from "./svgs/GitBookLight.svg";
 import msme from "./svgs/MSME.svg";
 import digitalOcean from "./svgs/digitalOcean.svg";
 import microsoft from "./svgs/microsoft4strp.svg";
+import { cn } from "../../lib/utils";
+import AnimatedGradientText from "../../components/magicui/animated-gradient-text";
+import { ChevronRight } from "lucide-react";
+
 export default function SectionOne() {
   const { user } = useUserAuth();
   return (
@@ -26,12 +30,19 @@ export default function SectionOne() {
           delay: 0,
         }}
       >
-        <Link
-          to="https://github.com/digitomize/digitomize"
-          className="flex justify-center items-center border border-badge bg-badge text-badge-txt px-6 py-1 rounded-full text-xs"
+        <div className="z-10 flex min-h-[2.5rem] items-center justify-center">
+      <AnimatedGradientText>
+        ⭐️ <hr className="mx-2 h-4 w-[2px] shrink-0 bg-gray-300" />{" "}
+        <span
+          className={cn(
+            "inline animate-gradient bg-gradient-to-r from-[gold] via-[#B8860B] to-[gold] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent",
+          )}
         >
-          We're open source | Star Now! <Star fontSize="small" />
-        </Link>
+          We're Open Source! Star Now!
+        </span>
+        <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+      </AnimatedGradientText>
+    </div>
       </motion.div>
       <div className="w-10/12">
         <motion.h1

@@ -82,13 +82,19 @@ export default {
             background: "#191919",
           },
           "100%": {
-            background:
-              "radial-gradient(circle at top left,#8d41aa 0%,#ba356c 34.38%,#f22c30 60.94%,#f8573a 79.69%,#fcbb57 100%)",
+            background: "radial-gradient(circle at top left,#8d41aa 0%,#ba356c 34.38%,#f22c30 60.94%,#f8573a 79.69%,#fcbb57 100%)",
+          },
+        },
+        gradient: {
+          to: {
+            backgroundPosition: "var(--bg-size) 0",
           },
         },
       },
+      
       animation: {
         "bg-gradient": "gradientChange 0.15s ease-in-out forwards",
+        "gradient": "gradient 8s linear infinite",
       },
     },
     darkMode: "class",
