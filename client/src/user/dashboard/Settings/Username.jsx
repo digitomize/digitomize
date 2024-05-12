@@ -1,5 +1,5 @@
 import React from 'react'
-function Username({ username, handleInputChange, handleSubmit }) {
+function Username({ username, handleInputChange, handleSubmit, isDisabled }) {
 
     return (
         <>
@@ -30,13 +30,10 @@ function Username({ username, handleInputChange, handleSubmit }) {
             </div >
 
             <div className="flex space-x-20 mt-10">
-
                 <div className="flex-1 max-phone:hidden phone:block">
-
                 </div>
                 <div className="flex-2">
-
-                    <button type="submit" onClick={handleSubmit} className="btn btn-outline border-jet hover:bg-jet hover:text-white">Save changes</button>
+                    <button disabled={isDisabled} type="submit" onClick={handleSubmit} className="btn btn-outline border-jet hover:bg-jet hover:text-white">{isDisabled ? "Saving Changes..." : "Save Changes"}</button>
                 </div>
             </div>
         </>

@@ -578,7 +578,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/97735427?v=4",
       "profile": "https://github.com/Youssef-Elouedi",
       "contributions": [
-        "code"
+        "code",
+        "doc"
       ]
     },
     {
@@ -586,6 +587,42 @@
       "name": "Chaima-benyedder",
       "avatar_url": "https://avatars.githubusercontent.com/u/97735517?v=4",
       "profile": "https://github.com/Chaima-benyedder",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "Madhu-mac",
+      "name": "Madhu Lokesh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/99901964?v=4",
+      "profile": "https://madhulokesh.netlify.app/",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "DhruvChadha22",
+      "name": "Dhruv Chadha",
+      "avatar_url": "https://avatars.githubusercontent.com/u/153297759?v=4",
+      "profile": "https://github.com/DhruvChadha22",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "namnoum",
+      "name": "namnoum",
+      "avatar_url": "https://avatars.githubusercontent.com/u/97735329?v=4",
+      "profile": "https://github.com/namnoum",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "BhattAnsh",
+      "name": "Ansh Bhatt",
+      "avatar_url": "https://avatars.githubusercontent.com/u/97518515?v=4",
+      "profile": "https://bhattansh.github.io/Portfolio/",
       "contributions": [
         "code"
       ]

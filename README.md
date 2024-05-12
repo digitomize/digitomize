@@ -2,7 +2,7 @@
 
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-64-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-68-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Website: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9g.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
 
@@ -180,10 +180,14 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/MohitKambli"><img src="https://avatars.githubusercontent.com/u/31406633?v=4?s=100" width="100px;" alt="Mohit Kambli"/><br /><sub><b>Mohit Kambli</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=MohitKambli" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://www.roldex.xyz/"><img src="https://avatars.githubusercontent.com/u/77254818?v=4?s=100" width="100px;" alt="Roldex Stark"/><br /><sub><b>Roldex Stark</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=r0ld3x" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/SunitaSBhat"><img src="https://avatars.githubusercontent.com/u/122893898?v=4?s=100" width="100px;" alt="Sunita S"/><br /><sub><b>Sunita S</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=SunitaSBhat" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Youssef-Elouedi"><img src="https://avatars.githubusercontent.com/u/97735427?v=4?s=100" width="100px;" alt="Youssef-Elouedi"/><br /><sub><b>Youssef-Elouedi</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Youssef-Elouedi" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Youssef-Elouedi"><img src="https://avatars.githubusercontent.com/u/97735427?v=4?s=100" width="100px;" alt="Youssef-Elouedi"/><br /><sub><b>Youssef-Elouedi</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Youssef-Elouedi" title="Code">💻</a> <a href="https://github.com/digitomize/digitomize/commits?author=Youssef-Elouedi" title="Documentation">📖</a></td>
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Chaima-benyedder"><img src="https://avatars.githubusercontent.com/u/97735517?v=4?s=100" width="100px;" alt="Chaima-benyedder"/><br /><sub><b>Chaima-benyedder</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Chaima-benyedder" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://madhulokesh.netlify.app/"><img src="https://avatars.githubusercontent.com/u/99901964?v=4?s=100" width="100px;" alt="Madhu Lokesh"/><br /><sub><b>Madhu Lokesh</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/issues?q=author%3AMadhu-mac" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/DhruvChadha22"><img src="https://avatars.githubusercontent.com/u/153297759?v=4?s=100" width="100px;" alt="Dhruv Chadha"/><br /><sub><b>Dhruv Chadha</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=DhruvChadha22" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/namnoum"><img src="https://avatars.githubusercontent.com/u/97735329?v=4?s=100" width="100px;" alt="namnoum"/><br /><sub><b>namnoum</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=namnoum" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://bhattansh.github.io/Portfolio/"><img src="https://avatars.githubusercontent.com/u/97518515?v=4?s=100" width="100px;" alt="Ansh Bhatt"/><br /><sub><b>Ansh Bhatt</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=BhattAnsh" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>

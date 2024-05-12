@@ -8,7 +8,7 @@ import Username from "./Username";
 
 function Settings() {
     const { personal_data } = useLoaderData();
-
+    const [isDisabled, setIsDisabled] = useState(false);
     const [formData, setFormData] = useState({
         username: personal_data.username
     }
@@ -67,7 +67,7 @@ function Settings() {
                     </div>
                 </div>
                 <form >
-                    <Username username={formData.username} handleInputChange={handleInputChange} handleSubmit={handleSubmit} />
+                    <Username username={formData.username} handleInputChange={handleInputChange} handleSubmit={handleSubmit} isDisabled={isDisabled} />
                 </form>
 
             </div>
