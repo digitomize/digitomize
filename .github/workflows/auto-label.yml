@@ -9,11 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
+    env:
+      ISSUE_BODY: ${{ toJson(github.event.issue.body) }}  # Store the issue body securely in an environment variable
     steps:
       - name: Check if 'gssoc' in description
         id: check-gssoc
         run: |
-          if grep -q -i 'gssoc' <<< "${{ github.event.issue.body }}"; then
+          if echo "$ISSUE_BODY" | grep -q -i 'gssoc'; then
             echo "GSSOC keyword found in the description."
             echo "::set-output name=has_gssoc::true"
           else
@@ -24,7 +26,7 @@ jobs:
       - name: Check if 'swoc' in description
         id: check-swoc
         run: |
-          if grep -q -i 'swoc' <<< "${{ github.event.issue.body }}"; then
+          if echo "$ISSUE_BODY" | grep -q -i 'swoc'; then
             echo "SWOC keyword found in the description."
             echo "::set-output name=has_swoc::true"
           else
