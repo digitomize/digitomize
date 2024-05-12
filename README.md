@@ -2,7 +2,7 @@
 
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-65-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-66-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Website: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9g.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
 
@@ -185,6 +185,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Chaima-benyedder"><img src="https://avatars.githubusercontent.com/u/97735517?v=4?s=100" width="100px;" alt="Chaima-benyedder"/><br /><sub><b>Chaima-benyedder</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Chaima-benyedder" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://madhulokesh.netlify.app/"><img src="https://avatars.githubusercontent.com/u/99901964?v=4?s=100" width="100px;" alt="Madhu Lokesh"/><br /><sub><b>Madhu Lokesh</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/issues?q=author%3AMadhu-mac" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/DhruvChadha22"><img src="https://avatars.githubusercontent.com/u/153297759?v=4?s=100" width="100px;" alt="Dhruv Chadha"/><br /><sub><b>Dhruv Chadha</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=DhruvChadha22" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
