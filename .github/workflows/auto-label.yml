@@ -10,46 +10,30 @@ jobs:
     permissions:
       issues: write
     env:
-      ISSUE_BODY: ${{ toJson(github.event.issue.body) }}
+      ISSUE_BODY: ${{ toJson(github.event.issue.body) }}  # Store the issue body securely in an environment variable
     steps:
-      - name: Check if 'gssoc' in description
-        id: check-gssoc
+      - name: Check for program keywords in description
+        id: check-programs
         run: |
-          if echo "$ISSUE_BODY" | grep -q -i 'gssoc'; then
-            echo "GSSOC keyword found in the description."
-            echo "::set-output name=has_gssoc::true"
-          else
-            echo "GSSOC keyword not found in the description."
-            echo "::set-output name=has_gssoc::false"
-          fi
+          programs=("gssoc" "swoc" "tublian" "kwoc" "dwo")
+          for program in "${programs[@]}"; do
+            if echo "$ISSUE_BODY" | grep -q -i "$program"; then
+              echo "$program keyword found in the description."
+              echo "::set-output name=has_$program::true"
+            else
+              echo "$program keyword not found in the description."
+              echo "::set-output name=has_$program::false"
+            fi
+          done
 
-      - name: Check if 'swoc' in description
-        id: check-swoc
+      - name: Label issues with program keywords
         run: |
-          if echo "$ISSUE_BODY" | grep -q -i 'swoc'; then
-            echo "SWOC keyword found in the description."
-            echo "::set-output name=has_swoc::true"
-          else
-            echo "SWOC keyword not found in the description."
-            echo "::set-output name=has_swoc::false"
-          fi
-
-      - name: Label issue with 'gssoc'
-        if: steps.check-gssoc.outputs.has_gssoc == 'true'
-        run: |
-          gh issue edit "$NUMBER" --add-label "$LABELS"
+          for program in "${programs[@]}"; do
+            if [[ "${{ steps.check-programs.outputs['has_' . $program] }}" == 'true' ]]; then
+              gh issue edit "$NUMBER" --add-label "$program"
+            fi
+          done
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           NUMBER: ${{ github.event.issue.number }}
-          LABELS: gssoc
-
-      - name: Label issue with 'swoc'
-        if: steps.check-swoc.outputs.has_swoc == 'true'
-        run: |
-          gh issue edit "$NUMBER" --add-label "$LABELS"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-          NUMBER: ${{ github.event.issue.number }}
-          LABELS: swoc
