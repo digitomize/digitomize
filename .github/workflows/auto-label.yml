@@ -10,27 +10,21 @@ jobs:
     permissions:
       issues: write
     env:
-      ISSUE_BODY: ${{ toJson(github.event.issue.body) }}  # Store the issue body securely in an environment variable
+      ISSUE_BODY: ${{ toJson(github.event.issue.body) }}
+      PROGRAMS: ${{ secrets.PROGRAMS }}
     steps:
       - name: Check for program keywords in description
         id: check-programs
         run: |
-          programs=("gssoc" "swoc" "tublian" "kwoc" "dwo")
+          IFS=',' read -r -a programs <<< "$PROGRAMS"
           for program in "${programs[@]}"; do
-            if echo "$ISSUE_BODY" | grep -q -i "$program"; then
-              echo "$program keyword found in the description."
-              echo "::set-output name=has_$program::true"
+            if echo "$ISSUE_BODY" | grep -q -i "${program}"; then
+              echo "${program} keyword found in the description."
+              gh issue edit "$NUMBER" --add-label "${program}"
+              echo "{has_${program}}=true"
             else
-              echo "$program keyword not found in the description."
-              echo "::set-output name=has_$program::false"
-            fi
-          done
-
-      - name: Label issues with program keywords
-        run: |
-          for program in "${programs[@]}"; do
-            if [[ "${{ steps.check-programs.outputs['has_' . $program] }}" == 'true' ]]; then
-              gh issue edit "$NUMBER" --add-label "$program"
+              echo "${program} keyword not found in the description."
+              echo "{has_${program}}=false"
             fi
           done
         env:
