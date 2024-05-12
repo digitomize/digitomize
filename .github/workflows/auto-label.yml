@@ -10,7 +10,7 @@ jobs:
     permissions:
       issues: write
     env:
-      ISSUE_BODY: ${{ toJson(github.event.issue.body) }}  # Store the issue body securely in an environment variable
+      ISSUE_BODY: ${{ toJson(github.event.issue.body) }}
     steps:
       - name: Check if 'gssoc' in description
         id: check-gssoc
