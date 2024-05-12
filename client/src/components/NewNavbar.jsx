@@ -46,7 +46,7 @@ export default function NewNavbar({ position }) {
   const navLinksDashboard = [
     {
       title: "account",
-      path: "/u/dashboard/account",
+     path: "/u/dashboard/profile ",
     },
     {
       title: "ratings",
