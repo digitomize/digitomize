@@ -92,11 +92,11 @@ function UserCard({
       </div>
       <div className="mt-6 sm:hidden">
         {skills.length > 0 && <p className="text-[16px]">Skills</p>}
-        <div className="flex flex-row mt-3">
+        <div className="flex flex-wrap mt-3">
           {skills.map((skill, index) => (
             <div
               key={index}
-              className=" bg-[#1582ffb3] bg-opacity-80 text-[#1582FF] text-[12px] px-3 py-[2px] rounded-[12px] font-[500] mr-4"
+              className=" bg-[#1582ffb3] bg-opacity-80 text-[#1582FF] text-[12px] px-3 py-[2px] rounded-[12px] font-[500] mr-4 mb-1"
             >
               {skill}
             </div>
@@ -144,11 +144,11 @@ function UserCard({
       </div>
       <div className="mt-6 max-sm:hidden">
         {skills.length > 0 && <p className="text-[16px]">Skills</p>}
-        <div className="flex flex-row mt-3">
+        <div className="flex flex-wrap mt-3">
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="bg-custom-blue bg-opacity-80 text-black text-[12px] px-3 py-[2px] rounded-[12px] font-[500] mr-4"
+              className="bg-custom-blue bg-opacity-80 text-black text-[12px] px-3 py-[2px] rounded-[12px] font-[500] mr-4 mb-1"
             >
               {skill}
             </div>
