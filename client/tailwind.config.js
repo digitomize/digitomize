@@ -94,7 +94,7 @@ export default {
       
       animation: {
         "bg-gradient": "gradientChange 0.15s ease-in-out forwards",
-        "gradient": "gradient 8s linear infinite",
+        "gradient": "gradient 5s linear infinite",
       },
     },
     darkMode: "class",
