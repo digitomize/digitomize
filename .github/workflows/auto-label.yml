@@ -11,11 +11,13 @@ jobs:
       issues: write
     env:
       ISSUE_BODY: ${{ toJson(github.event.issue.body) }}
-      PROGRAMS: ${{ secrets.PROGRAMS }}
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Check for program keywords in description
         id: check-programs
         run: |
+          PROGRAMS=$(jq -r '.programs | join(",")' programs.json)
           IFS=',' read -r -a programs <<< "$PROGRAMS"
           for program in "${programs[@]}"; do
             if echo "$ISSUE_BODY" | grep -q -i "${program}"; then
