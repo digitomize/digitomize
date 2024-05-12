@@ -13,9 +13,11 @@ import { MetaData } from "../../components/CustomComponents";
 import ScrollToTop from "../../components/globals/ScrollToTop";
 // import { isLoggedIn, sendDeviceID } from "../../../api";
 
-
-
 export default function Homepage() {
+  const currentDate = new Date();
+  const currentMonth = currentDate.getMonth() + 1;
+
+  const shouldShowSnowfall = currentMonth >= 10 || currentMonth <= 3;
 
   // useEffect(() => {
   //   async function requestPermission() {
@@ -33,13 +35,14 @@ export default function Homepage() {
 
   // }, []);
 
-
   return (
     <>
       <MetaData path="home" />
       <div>
         <div id="home" className="antialiased">
-          <Snowfall snowflakeCount={50} speed={[0.2, 0.5]} wind={[-0.2, 0]} style={{ position: "fixed", z: -1 }} />
+          {shouldShowSnowfall && (
+            <Snowfall snowflakeCount={50} speed={[0.2, 0.5]} wind={[-0.2, 0]} style={{ position: "fixed", zIndex: -1 }} />
+          )}
 
           <SectionOne />
           <SectionTwo />
