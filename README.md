@@ -61,7 +61,7 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 
 </table>
 
-# Table of Contents
+## Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
