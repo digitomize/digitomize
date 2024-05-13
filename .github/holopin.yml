@@ -4,7 +4,19 @@ stickers:
     alias: bug-hunter
 holobytes:
   - evolvingStickerId: clw2hnpws09610fmf6c309nje
-    alias: holobyte
-
-  - alias: av
+    alias: c-av
     icon: avocado
+  - evolvingStickerId: clw2hnpws09610fmf6c309nje
+    alias: c-ch
+    icon: cherry
+  - evolvingStickerId: clw2hnpws09610fmf6c309nje
+    alias: c-st
+    icon: starfruit
+  - evolvingStickerId: clw2hnpws09610fmf6c309nje
+    alias: c-cf
+    icon: coffee
+  - evolvingStickerId: clw2hnpws09610fmf6c309nje
+    alias: c-lm
+    icon: lemon
+    in: true
+    from: true
