@@ -49,7 +49,7 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
    <tr>
       <td><img src=".github/assets/tublian.png" width="200" height="auto" loading="lazy" alt="tublian"/></td>
       <td><a href="https://www.tublian.com/internship">Tublian</a></td>
-      <td>Tublian is an open source internship program that lets software developers get real open source experience by collaborating with major open source projects.</td>
+      <td>Tublian open source internship program lets software developers get real open source experience by collaborating with major open source projects.</td>
    </tr>
    <tr>
       <td><img src=".github/assets/iwoc.png" width="200" height="auto" loading="lazy" alt="iwoc"/></td>
