@@ -3,7 +3,7 @@
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-71-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-72-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Website: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9g.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
 
@@ -234,6 +234,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/SpaciousCoder78"><img src="https://avatars.githubusercontent.com/u/88923986?v=4?s=100" width="100px;" alt="Aryan Karamtoth"/><br /><sub><b>Aryan Karamtoth</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=SpaciousCoder78" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/praveen-p09"><img src="https://avatars.githubusercontent.com/u/128630671?v=4?s=100" width="100px;" alt="Praveen Patro"/><br /><sub><b>Praveen Patro</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=praveen-p09" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
