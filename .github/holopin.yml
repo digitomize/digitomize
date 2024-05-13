@@ -6,12 +6,15 @@ holobytes:
   - evolvingStickerId: clw2hnpws09610fmf6c309nje
     alias: c-av
     icon: avocado
+    in: true
   - evolvingStickerId: clw2hnpws09610fmf6c309nje
     alias: c-ch
     icon: cherry
+    in: true
   - evolvingStickerId: clw2hnpws09610fmf6c309nje
     alias: c-st
     icon: starfruit
+    in: true
   - evolvingStickerId: clw2hnpws09610fmf6c309nje
     alias: c-cf
     icon: coffee
@@ -20,4 +23,3 @@ holobytes:
     alias: c-lm
     icon: lemon
     in: true
-    from: true
