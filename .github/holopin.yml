@@ -15,6 +15,7 @@ holobytes:
   - evolvingStickerId: clw2hnpws09610fmf6c309nje
     alias: c-cf
     icon: coffee
+    in: true
   - evolvingStickerId: clw2hnpws09610fmf6c309nje
     alias: c-lm
     icon: lemon
