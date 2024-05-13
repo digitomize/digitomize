@@ -1,6 +1,7 @@
 # Digitomize - [Website](https://digitomize.com)
 
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-70-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
@@ -20,7 +21,47 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 <img align="center" src="https://github.com/krushnarout/digitomize/assets/129386740/3f224853-cf4b-4318-ba27-8285d1c9a0fe" alt="MSME Logo" height="auto" width="180">
 <img align="center" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcROO_yLE47eeYv8eSiT3aMB1AWncngyOzGHYqptZwwckpfmH4m0" alt="MELT CD Logo" height="auto" width="180">
 
-# Table of Contents
+<!--Featured In section-->
+## Featured In
+
+<table>
+
+   <tr>
+      <th>Program Logo</th>
+      <th>Program Name</th>
+      <th>Program Description</th>
+   </tr>
+   <tr>
+      <td><img src=".github/assets/gssoc24.png" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
+      <td><a href="https://gssoc.girlscript.tech/">GirlScript Summer of Code</a></td>
+      <td>GirlScript Summer of Code is a three-month-long Open Source Program conducted every summer by GirlScript Foundation. It is an initiative to bring more beginners to Open-Source Software Development.</td>
+   </tr>
+   <tr>
+      <td><img src=".github/assets/swoc.png" width="200" height="auto" loading="lazy" alt="swoc"/></td>
+      <td><a href="https://www.socialwinterofcode.com/">Social Winter of Code</a></td>
+      <td>Social Winter Of Code is the 2 month long open source program by Social India , with the aim to introduce more and more people to the world of Open source.</td>
+   </tr>
+   <tr>
+      <td><img src=".github/assets/kwoc.png" width="200" height="auto" loading="lazy" alt="kwoc"/></td>
+      <td><a href="https://kwoc.kossiitkgp.org/">Kharagpur Winter of Code</a></td>
+      <td>Kharagpur Winter of Code is a 5-week long online program for students who are new to open source software development. The program not only helps students to get involved in open source, but also prepares them for many open source summer programs.</td>
+   </tr>
+   <tr>
+      <td><img src=".github/assets/tublian.png" width="200" height="auto" loading="lazy" alt="tublian"/></td>
+      <td><a href="https://www.tublian.com/internship">Tublian</a></td>
+      <td>Tublian open source internship program lets software developers get real open source experience by collaborating with major open source projects.</td>
+   </tr>
+   <tr>
+      <td><img src=".github/assets/iwoc.png" width="200" height="auto" loading="lazy" alt="iwoc"/></td>
+      <td><a href="https://iwoc.codes/">Innogeeks Winter of Code</a></td>
+      <td>Innogeeks Winter of Code is a month-long open-source program envisioned by the Innogeeks. It is an online initiative that introduces new contributors to open-source software development.</td>
+   </tr>
+
+   
+
+</table>
+
+## Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
