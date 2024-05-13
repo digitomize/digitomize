@@ -7,6 +7,7 @@ import {
 import { MetaData } from "@components/CustomComponents";
 import { Link } from "react-router-dom";
 import Contributors from "./Contributors";
+import Programs from "./Programs";
 import { about_us } from "./assets/assets";
 import MuiTimeline from "./Timeline";
 export default function About() {
@@ -99,6 +100,69 @@ export default function About() {
                   </div>
                 </div>
               </div>
+              <div className="stats stats-vertical lg:stats-horizontal shadow mt-14">
+                <div className="stat">
+                  <div className="stat-figure text-secondary">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      className="inline-block w-8 h-8 stroke-current"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div className="stat-title">total views</div>
+                  <div className="stat-value text-secondary">80k+</div>
+                  {/* <div className="stat-desc">21% more than last month</div> */}
+                </div>
+                <Link
+                  to={"https://www.linkedin.com/company/digitomize"}
+                  className="stat p-0"
+                >
+                  <div className="stat">
+                    <div className="stat-figure text-secondary">
+                      {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> */}
+                      <AiFillLinkedin className="w-8 h-8" />
+                    </div>
+                    <div className="stat-title">linkedin followers</div>
+                    <div className="stat-value text-secondary">1100+</div>
+                    {/* <div className="stat-desc">21% more than last month</div> */}
+                  </div>
+                </Link>
+                <Link
+                  to={"https://github.com/digitomize/digitomize/stargazers"}
+                  className="stat p-0"
+                >
+                  <div className="stat">
+                    <div className="stat-figure text-secondary">
+                      {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> */}
+                      <AiFillStar className="w-8 h-8" />
+                    </div>
+                    <div className="stat-title">Github Stars</div>
+                    <div className="stat-value text-secondary">500+</div>
+                    {/* <div className="stat-desc">21% more than last month</div> */}
+                  </div>
+                </Link>
+                <Link
+                  to={"https://github.com/digitomize/digitomize#contributors-"}
+                  className="stat p-0"
+                >
+                  <div className="stat">
+                    <div className="stat-figure text-secondary">
+                      <AiOutlineUsergroupAdd className="w-8 h-8" />
+                    </div>
+                    <div className="stat-title">contributors</div>
+                    <div className="stat-value text-secondary">65+</div>
+                    {/* <div className="stat-desc">21% more than last month</div> */}
+                  </div>
+                </Link>
+              </div>
               <div className="mt-[70px]">
                 {/* <h2 className="font-[500] text-5xl text-center mb-[75px] text-white">
                   Milestones of Digitomize
@@ -112,6 +176,9 @@ export default function About() {
                 <MuiTimeline></MuiTimeline>
               </div>
 
+              <div className="w-[80vw]">
+                <Programs />
+              </div>
 
               <div className="w-[80vw]">
                 <Contributors />
@@ -120,69 +187,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="stats stats-vertical lg:stats-horizontal shadow">
-          <div className="stat">
-            <div className="stat-figure text-secondary">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                className="inline-block w-8 h-8 stroke-current"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                ></path>
-              </svg>
-            </div>
-            <div className="stat-title">total views</div>
-            <div className="stat-value text-secondary">50k+</div>
-            {/* <div className="stat-desc">21% more than last month</div> */}
-          </div>
-          <Link
-            to={"https://www.linkedin.com/company/digitomize"}
-            className="stat p-0"
-          >
-            <div className="stat">
-              <div className="stat-figure text-secondary">
-                {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> */}
-                <AiFillLinkedin className="w-8 h-8" />
-              </div>
-              <div className="stat-title">linkedin followers</div>
-              <div className="stat-value text-secondary">900+</div>
-              {/* <div className="stat-desc">21% more than last month</div> */}
-            </div>
-          </Link>
-          <Link
-            to={"https://github.com/digitomize/digitomize/stargazers"}
-            className="stat p-0"
-          >
-            <div className="stat">
-              <div className="stat-figure text-secondary">
-                {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> */}
-                <AiFillStar className="w-8 h-8" />
-              </div>
-              <div className="stat-title">Github Stars</div>
-              <div className="stat-value text-secondary">300+</div>
-              {/* <div className="stat-desc">21% more than last month</div> */}
-            </div>
-          </Link>
-          <Link
-            to={"https://github.com/digitomize/digitomize#contributors-"}
-            className="stat p-0"
-          >
-            <div className="stat">
-              <div className="stat-figure text-secondary">
-                <AiOutlineUsergroupAdd className="w-8 h-8" />
-              </div>
-              <div className="stat-title">contributors</div>
-              <div className="stat-value text-secondary">60+</div>
-              {/* <div className="stat-desc">21% more than last month</div> */}
-            </div>
-          </Link>
-        </div>
+
         <div className="sm:w-10/12 mx-auto">
           <h1 className="w-full text-left py-2 mb-4">How to contribute</h1>
           <div className="parts flex sm:flex-row text-left max-sm:flex-col">
