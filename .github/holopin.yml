@@ -5,3 +5,6 @@ stickers:
 holobytes:
   - evolvingStickerId: clw2hnpws09610fmf6c309nje
     alias: holobyte
+
+  - alias: av
+    icon: avocado
