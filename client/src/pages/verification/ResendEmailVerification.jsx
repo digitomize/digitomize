@@ -9,6 +9,8 @@ import { redirect } from "react-router-dom";
 export async function loader() {
   const loggedIn = await isLoggedIn();
   if (loggedIn && auth.currentUser.emailVerified) {
+    return redirect("/u/dashboard");
+  }else if (!loggedIn ) {
     return redirect("/login");
   }
   return null;

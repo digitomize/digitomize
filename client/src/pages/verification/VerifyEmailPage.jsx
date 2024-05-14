@@ -29,6 +29,7 @@ const VerifyEmailPage = () => {
             progress: undefined,
             theme: "colored",
           });
+          await auth.currentUser.reload();
           setIsSuccess(true);
         }
       } catch (error) {

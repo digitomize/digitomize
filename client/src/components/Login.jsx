@@ -8,6 +8,7 @@ import loginIcon from "@assets/fingerprint-animate-blue.svg";
 import { useRef, useState } from "react";
 import { MetaData } from "./CustomComponents";
 import { useUserAuth } from "@context/UserAuthContext";
+import { auth } from "../../firebase";
 
 import { isLoggedIn } from "../../api";
 
@@ -21,8 +22,9 @@ import { Eye, EyeOff } from "lucide-react";
 export async function loader({ request }) {
   const message = new URL(request.url).searchParams.get("message");
   const loggedIn = await isLoggedIn();
+
   if (loggedIn) {
-    return redirect("/u/dashboard");
+      return redirect("/u/dashboard");
   }
 
   return message;
