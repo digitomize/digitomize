@@ -1,0 +1,32 @@
+name: Check Base Branch
+
+on:
+  pull_request:
+    types: [opened, edited, synchronise, reopened]
+  pull_request_target:
+    types: [edited]
+    branches:
+      - '*'
+
+jobs:
+  check_base_branch:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Set environment variables
+        env:
+          BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
+          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          echo "$BASE_BRANCH"
+          if [ "$BASE_BRANCH" != "main" ]; then
+            echo "Base branch is not 'main'. Exiting with non-zero status."
+            exit 1
+          fi
+          if [ "$HEAD_BRANCH" == "main" ]; then
+            echo "This pull request is from the 'main' branch of a forked repository. Exiting with non-zero status."
+            exit 1
+          fi
