@@ -13,6 +13,34 @@ import { ms_startup_new, digitalocean, gitbook } from "./assets/assets";
 import TimelineComponent from "./TimelineComponent";
 const data = [
   {
+    title: "Reached 1000+ Users Milestone",
+    date: "1 Apr, 2024",
+    description:
+      "Celebrating a milestone of 1000+ users! Thank you for your support and for being part of our community.",
+    img: "",
+  },
+  {
+    title: "Google for Startups Cloud Program",
+    date: "29 Mar, 2024",
+    description:
+      "We extend our heartfelt gratitude to Google for Startups Cloud Program for their generous sponsorship. Their support will, without a doubt, help us deliver a better service to the community.",
+    img: "",
+  },
+  {
+    title: "Netlify Sponsored Pro Plan for Open Source",
+    date: "12 Feb, 2024",
+    description:
+      "We thank Netlify for sponsoring us. Their support fuels our endeavors, enabling us to innovate and elevate our digital presence with seamless deployment and hosting solutions.",
+    img: "",
+  },
+  {
+    title: "1000+ LinkedIn followers",
+    date: "7 Feb, 2024",
+    description:
+      "We're deeply grateful for the milestone of reaching 1000+ followers on LinkedIn!",
+    img: "",
+  },
+  {
     title: "Reached 700+ Users Milestone",
     date: "28 Jan, 2024",
     description:
@@ -27,7 +55,7 @@ const data = [
     img: "",
   },
   {
-    title: "Reached 500 Users Milestone",
+    title: "Reached 500+ Users Milestone",
     date: "1 Jan, 2024",
     description:
       "We appreciate your support and remain committed to delivering the highest quality service.",
