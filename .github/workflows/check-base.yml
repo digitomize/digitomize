@@ -19,8 +19,13 @@ jobs:
       - name: Check base branch
         run: |
           base_branch=${{ github.event.pull_request.base.ref }}
+          head_branch=${{ github.event.pull_request.head.ref }}
           echo "$base_branch"
           if [ "$base_branch" != "main" ]; then
             echo "Base branch is not 'main'. Exiting with non-zero status."
+            exit 1
+          fi
+          if [ "$head_branch" == "main" ]; then
+            echo "This pull request is from the 'main' branch of a forked repository. Exiting with non-zero status."
             exit 1
           fi
