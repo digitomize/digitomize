@@ -6,7 +6,7 @@
 
 ### Fixes
 
-[Cite any related issues or bugs that this PR addresses, e.g., "Fixes #123"]
+[Cite any related issues or bugs that this PR addresses, e.g., "Fixes #issueNumber"]
 
 ### Type of PR
 
