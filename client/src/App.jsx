@@ -34,6 +34,7 @@ import {
   About,
   Footer,
   MetaData,
+  resendLoader
 } from "./components/CustomComponents";
 // import UserDashBoardAccount from "./user/dashboard/Account";
 import UserDashboard from "./user/dashboard/UserDashboard";
@@ -117,6 +118,7 @@ import { userDashboardDetails } from "../api";
 import Preferences from "./user/dashboard/Preferences/Preferences";
 import Ratings from "./user/dashboard/Ratings/Ratings";
 import Settings from "./user/dashboard/Settings/Settings";
+import ResendEmailVerification from "./pages/verification/ResendEmailVerification";
 
 function Logout() {
   const navigate = useNavigate();
@@ -177,6 +179,11 @@ const router = createBrowserRouter(
         <Route path="logout" element={<Logout />} />
         <Route path="signup" element={<Signup />} loader={signupLoader} />
         <Route path="forgot-password" element={<ForgotPassword />} loader={forgotPasswordLoader} />
+        <Route
+        path="resend-email-verification"
+        element={<ResendEmailVerification />}
+        loader={resendLoader}
+      />
         <Route element={<ContestPageLayout />}>
           <Route path="contests" element={<Filter />} />
           <Route path="challenges" element={<Challenges />} />
