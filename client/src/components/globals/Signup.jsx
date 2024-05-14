@@ -27,6 +27,9 @@ export async function loader() {
   if (loggedIn) {
     return redirect("/login");
   }
+  if (loggedIn && auth.currentUser.emailVerified) {
+    return redirect("/u/dashboard");
+  }
   return null;
 }
 
@@ -67,7 +70,17 @@ export default function Signup() {
 
           .catch((err) => setError(err.code));
       }
-      navigate("/login");
+      toast.success("Verification link sent to email", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      navigate("/login", { replace: true });
     } catch (err) {
       toast.error(err.code, {
         position: "top-right",
