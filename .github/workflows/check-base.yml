@@ -2,19 +2,25 @@ name: Check Base Branch
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, edited, synchronise, reopened]
+  pull_request_target:
+    types: [edited]
+    branches:
+      - '*'
 
 jobs:
   check_base_branch:
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
   
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    
-    - name: Check base branch
-      run: |
-      if [[ "${{ github.event.pull_request.base.ref }}" != "main" ]]; then
-        echo "Base branch is not 'main'. Exiting with non-zero status."
-        exit 1
-      fi
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Check base branch
+        run: |
+          base_branch=${{ github.event.pull_request.base.ref }}
+          echo "$base_branch"
+          if [ "$base_branch" != "main" ]; then
+            echo "Base branch is not 'main'. Exiting with non-zero status."
+            exit 1
+          fi
