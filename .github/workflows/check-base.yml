@@ -16,14 +16,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       
-      - name: Validate branch name
-        run: |
-          branch_name=${{ github.event.pull_request.head.ref }}
-          if [[ ! "$branch_name" =~ ^[a-zA-Z0-9_-]+$ ]]; then
-            echo "Invalid branch name detected. Exiting with non-zero status."
-            exit 1
-          fi
-      
       - name: Set environment variables
         env:
           BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
