@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import SignoutButton from "../../user/components/SignoutButton";
 import { toast, ToastContainer } from "react-toastify";
 import { auth } from "../../../firebase";
 import { sendEmailVerification } from "firebase/auth";

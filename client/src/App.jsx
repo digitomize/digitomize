@@ -119,6 +119,7 @@ import Preferences from "./user/dashboard/Preferences/Preferences";
 import Ratings from "./user/dashboard/Ratings/Ratings";
 import Settings from "./user/dashboard/Settings/Settings";
 import ResendEmailVerification from "./pages/verification/ResendEmailVerification";
+import VerifyEmailPage from "./pages/verification/VerifyEmailPage";
 
 function Logout() {
   const navigate = useNavigate();
@@ -184,6 +185,7 @@ const router = createBrowserRouter(
         element={<ResendEmailVerification />}
         loader={resendLoader}
       />
+       <Route path="user-email-verification" element={<VerifyEmailPage />} />
         <Route element={<ContestPageLayout />}>
           <Route path="contests" element={<Filter />} />
           <Route path="challenges" element={<Challenges />} />
