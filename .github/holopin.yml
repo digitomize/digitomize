@@ -1,0 +1,25 @@
+organization: digitomize
+stickers:
+  - id: clw2i5hwq30420fmig4xp6f34
+    alias: bug-hunter
+holobytes:
+  - evolvingStickerId: clw2hnpws09610fmf6c309nje
+    alias: c-av
+    icon: avocado
+    in: true
+  - evolvingStickerId: clw2hnpws09610fmf6c309nje
+    alias: c-ch
+    icon: cherry
+    in: true
+  - evolvingStickerId: clw2hnpws09610fmf6c309nje
+    alias: c-st
+    icon: starfruit
+    in: true
+  - evolvingStickerId: clw2hnpws09610fmf6c309nje
+    alias: c-cf
+    icon: coffee
+    in: true
+  - evolvingStickerId: clw2hnpws09610fmf6c309nje
+    alias: c-lm
+    icon: lemon
+    in: true

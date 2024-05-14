@@ -1,0 +1,35 @@
+name: Label issues
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  label_issues:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    env:
+      ISSUE_BODY: ${{ toJson(github.event.issue.body) }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Check for program keywords in description
+        id: check-programs
+        run: |
+          PROGRAMS=$(jq -r '.programs | join(",")' programs.json)
+          IFS=',' read -r -a programs <<< "$PROGRAMS"
+          for program in "${programs[@]}"; do
+            if echo "$ISSUE_BODY" | grep -q -i "${program}"; then
+              echo "${program} keyword found in the description."
+              gh issue edit "$NUMBER" --add-label "${program}"
+              echo "{has_${program}}=true"
+            else
+              echo "${program} keyword not found in the description."
+              echo "{has_${program}}=false"
+            fi
+          done
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}

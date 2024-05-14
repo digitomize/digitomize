@@ -578,7 +578,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/97735427?v=4",
       "profile": "https://github.com/Youssef-Elouedi",
       "contributions": [
-        "code"
+        "code",
+        "doc"
       ]
     },
     {
@@ -588,6 +589,78 @@
       "profile": "https://github.com/Chaima-benyedder",
       "contributions": [
         "code"
+      ]
+    },
+    {
+      "login": "Madhu-mac",
+      "name": "Madhu Lokesh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/99901964?v=4",
+      "profile": "https://madhulokesh.netlify.app/",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "DhruvChadha22",
+      "name": "Dhruv Chadha",
+      "avatar_url": "https://avatars.githubusercontent.com/u/153297759?v=4",
+      "profile": "https://github.com/DhruvChadha22",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "namnoum",
+      "name": "namnoum",
+      "avatar_url": "https://avatars.githubusercontent.com/u/97735329?v=4",
+      "profile": "https://github.com/namnoum",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "BhattAnsh",
+      "name": "Ansh Bhatt",
+      "avatar_url": "https://avatars.githubusercontent.com/u/97518515?v=4",
+      "profile": "https://bhattansh.github.io/Portfolio/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "aayushwrld",
+      "name": "Aayush",
+      "avatar_url": "https://avatars.githubusercontent.com/u/142794224?v=4",
+      "profile": "https://github.com/aayushwrld",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "girish-07",
+      "name": "Girish S",
+      "avatar_url": "https://avatars.githubusercontent.com/u/77159690?v=4",
+      "profile": "https://github.com/girish-07",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "SpaciousCoder78",
+      "name": "Aryan Karamtoth",
+      "avatar_url": "https://avatars.githubusercontent.com/u/88923986?v=4",
+      "profile": "https://github.com/SpaciousCoder78",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "praveen-p09",
+      "name": "Praveen Patro",
+      "avatar_url": "https://avatars.githubusercontent.com/u/128630671?v=4",
+      "profile": "https://github.com/praveen-p09",
+      "contributions": [
+        "doc"
       ]
     }
   ],

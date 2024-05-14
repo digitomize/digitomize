@@ -1,8 +1,9 @@
 # Digitomize - [Website](https://digitomize.com)
 
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-64-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-72-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Website: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9g.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
 
@@ -20,7 +21,47 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 <img align="center" src="https://github.com/krushnarout/digitomize/assets/129386740/3f224853-cf4b-4318-ba27-8285d1c9a0fe" alt="MSME Logo" height="auto" width="180">
 <img align="center" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcROO_yLE47eeYv8eSiT3aMB1AWncngyOzGHYqptZwwckpfmH4m0" alt="MELT CD Logo" height="auto" width="180">
 
-# Table of Contents
+<!--Featured In section-->
+## Featured In
+
+<table>
+
+   <tr>
+      <th>Program Logo</th>
+      <th>Program Name</th>
+      <th>Program Description</th>
+   </tr>
+   <tr>
+      <td><img src=".github/assets/gssoc24.png" width="200" height="auto" loading="lazy" alt="GSSoC 24"/></td>
+      <td><a href="https://gssoc.girlscript.tech/">GirlScript Summer of Code</a></td>
+      <td>GirlScript Summer of Code is a three-month-long Open Source Program conducted every summer by GirlScript Foundation. It is an initiative to bring more beginners to Open-Source Software Development.</td>
+   </tr>
+   <tr>
+      <td><img src=".github/assets/swoc.png" width="200" height="auto" loading="lazy" alt="swoc"/></td>
+      <td><a href="https://www.socialwinterofcode.com/">Social Winter of Code</a></td>
+      <td>Social Winter Of Code is the 2 month long open source program by Social India , with the aim to introduce more and more people to the world of Open source.</td>
+   </tr>
+   <tr>
+      <td><img src=".github/assets/kwoc.png" width="200" height="auto" loading="lazy" alt="kwoc"/></td>
+      <td><a href="https://kwoc.kossiitkgp.org/">Kharagpur Winter of Code</a></td>
+      <td>Kharagpur Winter of Code is a 5-week long online program for students who are new to open source software development. The program not only helps students to get involved in open source, but also prepares them for many open source summer programs.</td>
+   </tr>
+   <tr>
+      <td><img src=".github/assets/tublian.png" width="200" height="auto" loading="lazy" alt="tublian"/></td>
+      <td><a href="https://www.tublian.com/internship">Tublian</a></td>
+      <td>Tublian open source internship program lets software developers get real open source experience by collaborating with major open source projects.</td>
+   </tr>
+   <tr>
+      <td><img src=".github/assets/iwoc.png" width="200" height="auto" loading="lazy" alt="iwoc"/></td>
+      <td><a href="https://iwoc.codes/">Innogeeks Winter of Code</a></td>
+      <td>Innogeeks Winter of Code is a month-long open-source program envisioned by the Innogeeks. It is an online initiative that introduces new contributors to open-source software development.</td>
+   </tr>
+
+   
+
+</table>
+
+## Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
@@ -180,10 +221,20 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/MohitKambli"><img src="https://avatars.githubusercontent.com/u/31406633?v=4?s=100" width="100px;" alt="Mohit Kambli"/><br /><sub><b>Mohit Kambli</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=MohitKambli" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://www.roldex.xyz/"><img src="https://avatars.githubusercontent.com/u/77254818?v=4?s=100" width="100px;" alt="Roldex Stark"/><br /><sub><b>Roldex Stark</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=r0ld3x" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/SunitaSBhat"><img src="https://avatars.githubusercontent.com/u/122893898?v=4?s=100" width="100px;" alt="Sunita S"/><br /><sub><b>Sunita S</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=SunitaSBhat" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Youssef-Elouedi"><img src="https://avatars.githubusercontent.com/u/97735427?v=4?s=100" width="100px;" alt="Youssef-Elouedi"/><br /><sub><b>Youssef-Elouedi</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Youssef-Elouedi" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Youssef-Elouedi"><img src="https://avatars.githubusercontent.com/u/97735427?v=4?s=100" width="100px;" alt="Youssef-Elouedi"/><br /><sub><b>Youssef-Elouedi</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Youssef-Elouedi" title="Code">💻</a> <a href="https://github.com/digitomize/digitomize/commits?author=Youssef-Elouedi" title="Documentation">📖</a></td>
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Chaima-benyedder"><img src="https://avatars.githubusercontent.com/u/97735517?v=4?s=100" width="100px;" alt="Chaima-benyedder"/><br /><sub><b>Chaima-benyedder</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Chaima-benyedder" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://madhulokesh.netlify.app/"><img src="https://avatars.githubusercontent.com/u/99901964?v=4?s=100" width="100px;" alt="Madhu Lokesh"/><br /><sub><b>Madhu Lokesh</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/issues?q=author%3AMadhu-mac" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/DhruvChadha22"><img src="https://avatars.githubusercontent.com/u/153297759?v=4?s=100" width="100px;" alt="Dhruv Chadha"/><br /><sub><b>Dhruv Chadha</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=DhruvChadha22" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/namnoum"><img src="https://avatars.githubusercontent.com/u/97735329?v=4?s=100" width="100px;" alt="namnoum"/><br /><sub><b>namnoum</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=namnoum" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://bhattansh.github.io/Portfolio/"><img src="https://avatars.githubusercontent.com/u/97518515?v=4?s=100" width="100px;" alt="Ansh Bhatt"/><br /><sub><b>Ansh Bhatt</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=BhattAnsh" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/aayushwrld"><img src="https://avatars.githubusercontent.com/u/142794224?v=4?s=100" width="100px;" alt="Aayush"/><br /><sub><b>Aayush</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=aayushwrld" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/girish-07"><img src="https://avatars.githubusercontent.com/u/77159690?v=4?s=100" width="100px;" alt="Girish S"/><br /><sub><b>Girish S</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=girish-07" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/SpaciousCoder78"><img src="https://avatars.githubusercontent.com/u/88923986?v=4?s=100" width="100px;" alt="Aryan Karamtoth"/><br /><sub><b>Aryan Karamtoth</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=SpaciousCoder78" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/praveen-p09"><img src="https://avatars.githubusercontent.com/u/128630671?v=4?s=100" width="100px;" alt="Praveen Patro"/><br /><sub><b>Praveen Patro</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=praveen-p09" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
