@@ -27,7 +27,7 @@ export async function loader() {
   if (loggedIn) {
     return redirect("/login");
   }
-  if (loggedIn && auth.currentUser.emailVerified) {
+  if (loggedIn && auth.currentUser && auth.currentUser.emailVerified) {
     return redirect("/u/dashboard");
   }
   return null;
