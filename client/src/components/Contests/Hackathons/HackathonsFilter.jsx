@@ -40,7 +40,16 @@ function HackathonsFilter() {
             </p>
             <p className="mx-auto text-center mt-4 text-sm underline"><i>Sorted on basis of Application close time</i></p>
 
-            <Hackathons hackathons={hackathonsData} />
+            {hackathonsData.length == 0 ? (
+            <>
+              <h2 className="lg:text-3xl lg:my-16 md:text-2xl md:my-12 text-xl text-center my-10 mx-auto">No Hackathons Found</h2>
+            </>
+          ) : (
+            <>
+              <Hackathons hackathons={hackathonsData} />
+            </>
+          )}
+
           </>
         ) : (
           <div className="m-auto flex sm:flex-row flex-col items-center w-4/5 my-12 ">

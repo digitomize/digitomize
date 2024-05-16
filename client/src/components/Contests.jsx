@@ -18,9 +18,19 @@ function Contests({ contests, range }) {
           className="allContests lg:justify-evenly md:justify-evenly sm:justify-center px-4"
           style={{ display: "flex", flexWrap: "wrap" }}
         >
-          {queryData.map((contest) => (
-            <Card key={contest.vanity} contest={contest} />
-          ))}
+          {queryData.length == 0 ? (
+            <>
+              <h2 className="lg:text-3xl lg:my-16 md:text-2xl md:my-12 text-xl text-center my-10 mx-auto">
+                No Contests Found
+              </h2>
+            </>
+          ) : (
+            <>
+              {queryData.map((contest) => (
+                <Card key={contest.vanity} contest={contest} />
+              ))}
+            </>
+          )}
         </div>
       </div>
     </>

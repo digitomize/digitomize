@@ -26,17 +26,26 @@ function Contests({ contests, range }) {
       <div className="allContests scroll-smooth">
         <p className="mx-auto text-center mt-4 text-xl">
               Want challenges from more platforms?{" "} Join our <a href="https://digitomize.com/discord" target="_blank" rel="noopener noreferrer" className="text-digitomize-bg">Discord</a> or <button className="text-digitomize-bg" onClick={handleClick}>
-              click here
+            click here
             </button> and let us know!
-          </p>
+        </p>
         <div
           className="allContests lg:justify-evenly md:justify-evenly sm:justify-center px-4"
           style={{ display: "flex", flexWrap: "wrap" }}
         >
-          
-          {queryData.map((contest) => (
-            <Card key={contest.vanity} contest={contest} />
-          ))}
+          {queryData.length == 0 ? (
+            <>
+              <h2 className="lg:text-3xl lg:my-16 md:text-2xl md:my-12 text-xl text-center my-10 mx-auto">
+                No Challenges Found
+              </h2>
+            </>
+          ) : (
+            <>
+              {queryData.map((contest) => (
+                <Card key={contest.vanity} contest={contest} />
+              ))}
+            </>
+          )}
         </div>
       </div>
     </>
