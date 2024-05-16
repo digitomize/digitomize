@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import Card from "./globals/Card";
 import "./css/Contests.css";
+import comingSoonSvg from "@assets/comming_soon.svg";
 
 function Contests({ contests, range }) {
   const contentDescription =
@@ -20,9 +21,12 @@ function Contests({ contests, range }) {
         >
           {queryData.length == 0 ? (
             <>
-              <h2 className="lg:text-3xl lg:my-16 md:text-2xl md:my-12 text-xl text-center my-10 mx-auto">
-                No Contests Found
-              </h2>
+              <div className="flex flex-col items-center justify-center mt-6 mb-12">
+                <img src={comingSoonSvg} alt="not-found" className="mb-4 mx-auto w-80 md:w-60 lg:w-80" />
+                <h2 className="lg:text-3xl md:text-2xl text-xl text-center mx-auto">
+                  No Contests Found
+                </h2>
+              </div>
             </>
           ) : (
             <>

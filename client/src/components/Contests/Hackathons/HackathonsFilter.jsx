@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import formbricks from "@formbricks/js";
+import comingSoonSvg from "@assets/comming_soon.svg";
+
 
 const handleClick = () => {
   formbricks.track("test-01");
@@ -41,9 +43,12 @@ function HackathonsFilter() {
             <p className="mx-auto text-center mt-4 text-sm underline"><i>Sorted on basis of Application close time</i></p>
 
             {hackathonsData.length == 0 ? (
-            <>
-              <h2 className="lg:text-3xl lg:my-16 md:text-2xl md:my-12 text-xl text-center my-10 mx-auto">No Hackathons Found</h2>
-            </>
+              <>
+                <div className="flex flex-col items-center justify-center mt-6 mb-16">
+                  <img src={comingSoonSvg} alt="not-found" className="mb-4 mx-auto w-80 md:w-60 lg:w-80" />
+                  <h2 className="lg:text-3xl md:text-2xl text-xl text-center mx-auto">No Hackathons Found</h2>
+                </div>
+              </>
           ) : (
             <>
               <Hackathons hackathons={hackathonsData} />

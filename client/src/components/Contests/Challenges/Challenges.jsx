@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import formbricks from "@formbricks/js";
 import query from "./query.json";
 import { MetaData } from "../../CustomComponents";
+import comingSoonSvg from "@assets/comming_soon.svg";
 
 const handleClick = () => {
   formbricks.track("test-01");
@@ -35,9 +36,12 @@ function Contests({ contests, range }) {
         >
           {queryData.length == 0 ? (
             <>
-              <h2 className="lg:text-3xl lg:my-16 md:text-2xl md:my-12 text-xl text-center my-10 mx-auto">
-                No Challenges Found
-              </h2>
+              <div className="flex flex-col items-center justify-center mt-6 mb-12">
+                <img src={comingSoonSvg} alt="not-found" className="mb-4 mx-auto w-80 md:w-60 lg:w-80" />
+                <h2 className="lg:text-3xl md:text-2xl text-xl text-center mx-auto">
+                  No Challenges Found
+                </h2>
+              </div>
             </>
           ) : (
             <>
