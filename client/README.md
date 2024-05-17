@@ -9,7 +9,7 @@ Welcome to the client-side documentation for Digitomize, an open-source platform
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Configuration](#configuration)
-  - [Creating a .env from the .example.env file template](#creating-a-env-from-the-exampleenv-file-template)
+  - [Setting Up Environment Variables](#steps-to-set-up-environment-variables-recommended)
     - [Creating New firebase project and setting up .env variables](#creating-new-firebase-project-and-setting-up-env-variables)
 - [Usage](#usage)
   - [Contributing](#contributing)
@@ -110,11 +110,12 @@ npm run setup
 
 _Fill the empty fields by creating a demo firebase project._
 
-## Creating a .env from the .example.env file template
+## Steps To Set Up Environment Variables (_Recommended_).
 
-- Create a new .env file in the client directory
-- Copy the .example.env in the the client directory and paste it's contents into your created .env file
+- Move to the client directory using `cd client` on Terminal.
+- Run the `npm run setup` command.
 - Fill in the empty fields with the values from your firebase project (see below for instructions on how to create a firebase project)
+_You can use Default Values Wherever Provided_
 
 #### Creating New firebase project and setting up .env variables
 
