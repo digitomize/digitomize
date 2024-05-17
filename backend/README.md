@@ -97,7 +97,7 @@ The backend folder is organized into several directories, each serving a specifi
 
 ### Environment Variables
 
-Configure your environment variables in the `.env` file. This file should contain sensitive information and configurations that your application needs, such as database connection strings, API keys, and more.
+Configure your environment variables in the `.env` file using `npm run setup` (_Recommended_).
 
 #### Example:
 
@@ -129,7 +129,10 @@ This `.env` file must be populated with the following environment variables for 
 | NODE_ENV              | Specifies the environment in which the application is running.                                          |
 | FIREBASE_CREDENTIALS | Variable intended for storing Firebase credential in JSON format.                               |
 
-
+## Creating a `.env` from the `npm run setup`
+- Move To backend directory.
+- Run `npm run setup`
+- Fill in the details for `.env` or use Default values if Provided.
 
 ## Creating a `.env` from the `.example.env` file template
 
