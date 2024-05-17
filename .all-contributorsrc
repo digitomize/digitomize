@@ -680,6 +680,24 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "keshavsinha17",
+      "name": "Keshav Sinha",
+      "avatar_url": "https://avatars.githubusercontent.com/u/123925652?v=4",
+      "profile": "https://github.com/keshavsinha17",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "saadman-galib",
+      "name": "Saadman Galib",
+      "avatar_url": "https://avatars.githubusercontent.com/u/73209315?v=4",
+      "profile": "https://saadmangalib.netlify.app/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
