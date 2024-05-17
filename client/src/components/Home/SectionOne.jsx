@@ -7,14 +7,9 @@ import { motion } from "framer-motion";
 import { GoArrowUpRight } from "react-icons/go";
 import { MdPlayArrow } from "react-icons/md";
 import { Link } from "react-router-dom";
-import gitbook from "./svgs/GitBookLight.svg";
-import msme from "./svgs/MSME.svg";
-import digitalOcean from "./svgs/digitalOcean.svg";
-import microsoft from "./svgs/microsoft4strp.svg";
 import { cn } from "../../lib/utils";
 import AnimatedGradientText from "../../components/magicui/animated-gradient-text";
 import { ChevronRight } from "lucide-react";
-import { SocialProof } from "../SocialProof";
 
 export default function SectionOne() {
 
@@ -143,7 +138,7 @@ export default function SectionOne() {
         <span>
           <p className="text-lg text-powered">Supported By</p>
         </span>
-        {/* <span className="flex flex-row flex-wrap gap-4 items-center justify-center">
+        <span className="flex flex-row flex-wrap gap-4 items-center justify-center">
           <a href="https://m.do.co/c/db7dbc698e16">
             <img
               className="max-md:w-36 md:w-44"
@@ -184,8 +179,7 @@ export default function SectionOne() {
             alt="meltcd"
           />
         </a>
-        </span> */}
-        
+        </span>
       </motion.div>
     </div>
   );
