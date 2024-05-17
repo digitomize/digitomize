@@ -185,7 +185,7 @@ export default function SectionOne() {
           />
         </a>
         </span> */}
-        <SocialProof/>
+        
       </motion.div>
     </div>
   );
