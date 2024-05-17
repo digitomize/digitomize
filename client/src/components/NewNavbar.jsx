@@ -94,7 +94,7 @@ export default function NewNavbar({ position }) {
             {navLinks.map((navLink, index) => {
               if (navLink.title === "Blogs") {
                 return (
-                  <a
+                  <Link
                     href={navLink.path}
                     key={index}
                     className="px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition hover:bg-zinc-200"
@@ -102,7 +102,7 @@ export default function NewNavbar({ position }) {
                     rel="noopener noreferrer"
                   >
                     {navLink.title}
-                  </a>
+                  </Link>
                 );
               }
               return (
