@@ -13,7 +13,7 @@ import { motion } from "framer-motion";
 import { codechef, codeforces, leetcode } from "./AllAssets";
 import { FollowerPointerCard } from "./ui/following-pointer";
 
-export function BentoGridThirdDemo() {
+export function BentoGridThirdDemo({ ratings }) {
   console.log("BentoGridThirdDemo");
   return (
     <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
@@ -22,7 +22,7 @@ export function BentoGridThirdDemo() {
           key={i}
           title={item.title}
           description={item.description}
-          header={item.header}
+          header={item.header({ ratings })}
           className={cn("[&>p:text-lg]", item.className)}
           icon={item.icon}
         />
@@ -176,7 +176,8 @@ const SkeletonThree = () => {
     </motion.div>
   );
 };
-const SkeletonFour = () => {
+const SkeletonFour = ({ ratings }) => {
+  console.log(ratings);
   const first = {
     initial: {
       x: 20,
@@ -222,10 +223,14 @@ const SkeletonFour = () => {
             className="h-10 w-10"
           />
           <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-            Just code in Vanilla Javascript
+            {ratings.codechef.stars > 0 ?
+              <>Rated <span className="text-custom-blue">{ratings.codechef.rating}</span> after attending <span className="text-custom-blue">{ratings.codechef.stars}</span> contests</>
+              :
+              "No contest attended"
+            }
           </p>
           <p className="border border-red-500 bg-red-100 dark:bg-red-900/20 text-red-600 text-xs rounded-full px-2 py-0.5 mt-4">
-            3 Star
+            {ratings.codechef.badge ? ratings.codechef.badge : "No badge"}
           </p>
         </motion.div>
       </FollowerPointerCard>
@@ -238,10 +243,14 @@ const SkeletonFour = () => {
           className="h-10 w-10"
         />
         <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          Tailwind CSS is cool, you know
+          {ratings.codeforces.attendedContestsCount > 0 ?
+            <>Rated <span className="text-custom-blue">{ratings.codeforces.rating}</span> after attending <span className="text-custom-blue">{ratings.codeforces.attendedContestsCount}</span> contests</>
+            :
+            "No contest attended"
+          }
         </p>
         <p className="border border-green-500 bg-green-100 dark:bg-green-900/20 text-green-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Sensible
+          {ratings.codeforces.badge ? ratings.codeforces.badge : "No badge"}
         </p>
       </motion.div>
       <motion.div
@@ -256,10 +265,14 @@ const SkeletonFour = () => {
           className="h-10 w-10"
         />
         <p className="sm:text-sm text-xs text-center font-semibold text-neutral-500 mt-4">
-          I love angular, RSC, and Redux.
+          {ratings.leetcode.attendedContestsCount > 0 ?
+            <>Rated <span className="text-custom-blue">{ratings.leetcode.rating}</span> after attending <span className="text-custom-blue">{ratings.leetcode.attendedContestsCount}</span> contests</>
+            :
+            "No contest attended"
+          }
         </p>
         <p className="border border-orange-500 bg-orange-100 dark:bg-orange-900/20 text-orange-600 text-xs rounded-full px-2 py-0.5 mt-4">
-          Helpless
+          {ratings.leetcode.badge ? ratings.leetcode.badge : "No badge"}
         </p>
       </motion.div>
     </motion.div>
@@ -325,13 +338,13 @@ const SkeletonFive = () => {
 };
 const items = [
   {
-    title: "Sentiment Analysis",
+    title: "Contest Ratings",
     description: (
       <span className="text-sm">
-        Understand the sentiment of your text with AI analysis.
+        My ratings in various competitive programming platforms.
       </span>
     ),
-    header: <SkeletonFour />,
+    header: (props) => <SkeletonFour {...props} />,
     className: "md:col-span-2",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
   },
@@ -343,7 +356,7 @@ const items = [
         Summarize your lengthy documents with AI technology.
       </span>
     ),
-    header: <SkeletonFive />,
+    header: (props) => <SkeletonFive />,
     className: "md:col-span-1",
     icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
   },
@@ -354,7 +367,7 @@ const items = [
         Experience the power of AI in generating unique content.
       </span>
     ),
-    header: <SkeletonOne />,
+    header: (props) => <SkeletonOne />,
     className: "md:col-span-1",
     icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
   },
@@ -365,7 +378,7 @@ const items = [
         Let AI handle the proofreading of your documents.
       </span>
     ),
-    header: <SkeletonTwo />,
+    header: (props) => <SkeletonTwo />,
     className: "md:col-span-1",
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
   },
@@ -376,7 +389,7 @@ const items = [
         Get AI-powered suggestions based on your writing context.
       </span>
     ),
-    header: <SkeletonThree />,
+    header: (props) => <SkeletonThree />,
     className: "md:col-span-1",
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },

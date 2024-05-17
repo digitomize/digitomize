@@ -19,6 +19,7 @@ import { AvatarCard } from "./components/AvatarCard";
 
 function NewUserProfile() {
   const { personal_data, social } = useOutletContext();
+  const profileData = useOutletContext();
   const contentDescription = `${personal_data?.bio?.length > 30
     ? personal_data.bio.substring(0, 30) + "..."
     : personal_data.bio
@@ -72,7 +73,7 @@ function NewUserProfile() {
           </div> */}
 
 
-          <BentoGridThirdDemo />
+          <BentoGridThirdDemo ratings={profileData.ratings} />
 
 
         </div>
