@@ -11,11 +11,11 @@ export default function PlatformBox({formData,handleInputChangeObjData, handleSu
                 </div>
 
                 <div className="grow py-5 flex justify-between items-center gap-4 max-phone:flex-col">
-                    <div className="ml-6 md:ml-0 max-w-[350px]">
+                    <div className="max-phone:mx-3 phone:ml-6 max-w-[350px]">
                         <h3 className="text-base capitalize font-semibold text-gray-200">{platform.name}</h3>
                         <p className="mt-1 font-light text-sm text-gray-500">{platform.content}</p>
                     </div>
-                    <div className="mr-6 justify-self-end">
+                    <div className="phone:mr-6 justify-self-end">
                         <PlatformModal formData={formData} handleInputChangeObjData={handleInputChangeObjData} handleSubmit={handleSubmit} btnText={"Connect"} platform={platform} />
                     </div>
                 </div>
