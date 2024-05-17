@@ -14,6 +14,13 @@ export default function PlatformModal({ btnText = "Connect", platform, handleSub
     const handleClose = () => {
         setOpen(false);
     };
+
+    const handleModalSubmit = (e) => {
+        e.preventDefault();
+        handleClose();
+        handleSubmit();
+    };
+
     return (
         <React.Fragment>
             {
@@ -61,7 +68,7 @@ export default function PlatformModal({ btnText = "Connect", platform, handleSub
                         <button class="btn btn-ghost hover:text-white btn-sm" type="button" onClick={handleClose}>
                             Cancel
                         </button>
-                        <button class="btn btn-outline border-jet hover:bg-jet hover:text-white btn-sm" type="submit" onClick={handleSubmit}>
+                        <button class="btn btn-outline border-jet hover:bg-jet hover:text-white btn-sm" type="submit" onClick={handleModalSubmit}>
                             Save</button>
                     </div>
 
