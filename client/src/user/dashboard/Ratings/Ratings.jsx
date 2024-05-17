@@ -93,8 +93,8 @@ export default function Ratings() {
             },
         }));
     };
-    async function handleSubmit(event) {
-        event.preventDefault();
+    async function handleSubmit() {
+        // event.preventDefault();
         setIsDisabled(true);
         const res = await submitUserFormData(formData)
             .then(() => {
