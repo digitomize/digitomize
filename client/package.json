@@ -9,7 +9,7 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "lint-fix": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0 --fix",
     "preview": "vite preview",
-    "setup-env": "node setup-env.js"
+    "setup": "node setup-env.js"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",

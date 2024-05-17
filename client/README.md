@@ -103,19 +103,9 @@ npm install
 
 # Configuration
 
-Create a .env file in the client directory to configure any environment-specific variables or settings that your client application may require. For example, you may need to specify API endpoints or other configuration options.
-
+By running `npm run setup`, you can quickly and easily set up environment variables for your client and backend directory respectively without the hassle of manual configuration.Move to directory e.g backend and run as follows _(You can use Default Values wherever Provided)_:
 ```bash
-VITE_REACT_APP_BACKEND_URL=http://localhost:4001
-VITE_REACT_APP_FRONTEND_URL=http://localhost:5173
-VITE_REACT_APP_API_KEY=
-VITE_REACT_APP_AUTH_DOMAIN=
-VITE_REACT_APP_PROJECT_ID=
-VITE_REACT_APP_STORAGE_BUCKET=
-VITE_REACT_APP_MESSAGING_SENDER_ID=
-VITE_REACT_APP_APP_ID=
-VITE_REACT_APP_MEASUREMENT_ID=
-VITE_REACT_APP_FORMBRICKS_API_KEY=
+npm run setup
 ```
 
 _Fill the empty fields by creating a demo firebase project._
