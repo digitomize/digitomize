@@ -16,7 +16,7 @@ export default function PlatformBox({formData,handleInputChangeObjData, handleSu
                         <p className="mt-1 font-light text-sm text-gray-500">{platform.content}</p>
                     </div>
                     <div className="phone:mr-6 justify-self-end">
-                        <PlatformModal formData={formData} handleInputChangeObjData={handleInputChangeObjData} handleSubmit={handleSubmit} btnText={"Connect"} platform={platform} />
+                        <PlatformModal formData={formData} handleInputChangeObjData={handleInputChangeObjData} handleSubmit={handleSubmit} btnText={formData?.[platform.name]?.username.length > 1 ? "Update" : "Connect"} platform={platform} />
                     </div>
                 </div>
 
