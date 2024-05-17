@@ -10,14 +10,19 @@ import Modal from "@mui/material/Modal";
 import WarningIcon from "@mui/icons-material/Warning";
 import CustomLinkCard from "./components/CustomLinkCard";
 import ProfileCard from "./components/ProfileCard";
+import { TextGenerateEffect } from "../../components/ui/text-generate-effect";
+import { BentoGrid } from "../../components/ui/bento-grid";
+import { BentoGridThirdDemo } from "../../components/bento-grid-full";
+import { FlipWords } from "../../components/ui/flip-words";
+import { EvervaultCard, Icon } from "../../components/ui/evervault-card";
+import { AvatarCard } from "./components/AvatarCard";
 
 function NewUserProfile() {
   const { personal_data, social } = useOutletContext();
-  const contentDescription = `${
-    personal_data?.bio?.length > 30
-      ? personal_data.bio.substring(0, 30) + "..."
-      : personal_data.bio
-  }`;
+  const contentDescription = `${personal_data?.bio?.length > 30
+    ? personal_data.bio.substring(0, 30) + "..."
+    : personal_data.bio
+    }`;
   const pageTitle = `${personal_data.name} | digitomize`;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -34,14 +39,51 @@ function NewUserProfile() {
     return null;
   };
   const resumeEmbedUrl = generateEmbedUrl();
+  function truncate(str, num) {
+    return str.length > num ? str.slice(0, num) + "..." : str;
+  }
+
+  const bio = `I'm ${personal_data.name}, ${personal_data.bio ? truncate(personal_data.bio, 25) : "a passionate developer"}${personal_data.skills > 0 ? 'with a love for' + personal_data.skills?.join(", ") : ''}. Always looking for new opportunities and challenges.`;
+
+  const abc = true;
+  const words = ["better", "cute", "beautiful", "modern"];
+  if (abc) {
+    return (
+      <>
+        <div className="max-w-4xl mx-auto py-12">
+          <div className="flex flex-row py-12">
+            <div className="left w-3/5">
+              <span className="bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 font-sans font-bold">
+                Hey there!
+              </span>
+              <TextGenerateEffect words={bio} className={"text-4xl w-11/12"} />
+            </div>
+            <div className="right w-2/5">
+              <AvatarCard image={personal_data.picture} />
+            </div>
+          </div>
+
+          {/* <div className="flex justify-center items-center px-4">
+            <div className="text-4xl mx-auto font-normal text-neutral-600 dark:text-neutral-400">
+              Build
+              <FlipWords words={words} /> <br />
+              websites with Aceternity UI
+            </div>
+          </div> */}
+
+
+          <BentoGridThirdDemo />
+
+
+        </div>
+
+      </>
+    )
+  }
+
+
   return (
     <>
-      {/* <Helmet>
-        <title>{personal_data.name} | digitomize</title>
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={contentDescription} />
-        <meta name="description" content={contentDescription} />
-      </Helmet> */}
       <div className="flex mt-8 flex-col md:flex-row w-11/12 mx-auto pb-8">
         {/* First Column with 450px width */}
         <div className="flex md:w-[50%]">
