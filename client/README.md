@@ -103,26 +103,23 @@ npm install
 
 # Configuration
 
-- By running `npm run setup`, you can quickly and easily set up environment variables for your client and backend directory respectively without the hassle of manual configuration. Move to the directory, e.g., backend, and run as follows _(You can use Default Values wherever Provided)_:
-
+- By running `npm run setup`, you can quickly and easily set up environment variables for your client and backend directory respectively without the hassle of manual configuration. Move to the respective directory (e.g., backend) and run the following command _(Default values can be used where provided)_:
 ```bash
 npm run setup
 ```
-
 _Fill the empty fields by creating a demo firebase project._
 
 ## Steps To Set Up Environment Variables (_Recommended_).
-
 - Move to the client directory using `cd client` on Terminal.
 - Run the `npm run setup` command.
-- Fill in the empty fields with the values from your firebase project 
+- Fill in the empty fields with the values from your firebase project
   (See below for instructions on how to create a firebase project)
 _You can use Default Values Wherever Provided_
 
 ## Setting Up Environment Variables By Creating a .env from the .example.env file template manually.
 
 - Create a new .env file in the client directory
-- Copy the .example.env in the client directory and paste its contents into your created .env file
+- Copy the .example.env from the client directory and paste its contents into your newly created .env file
 - Fill in the empty fields with the values from your firebase project 
   (See below for instructions on how to create a firebase project)
 
