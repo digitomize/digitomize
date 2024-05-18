@@ -110,7 +110,9 @@ npm run setup
 ```
 _Fill the empty fields by creating a demo firebase project._
 
+
 ## Steps To Set Up Environment Variables (_Recommended_).
+
 - Move to the client directory using `cd client` on Terminal.
 - Run the `npm run setup` command.
 - Fill in the empty fields with the values from your firebase project
@@ -136,7 +138,7 @@ VITE_REACT_APP_FORMBRICKS_API_KEY=
 ```
 (See below for instructions on how to create a firebase project)
 
-#### Creating New firebase project and setting up .env variables
+### Creating New firebase project and setting up .env variables
 
 - Go to [Firebase](https://firebase.google.com/)
 - Create an account if you don't have one and click on get started
