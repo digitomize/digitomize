@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { TbGitFork } from "react-icons/tb";
 import { FaRegStar } from "react-icons/fa";
 const ProjectCard = ({title, fork , star , description}) => {
@@ -19,7 +19,7 @@ const ProjectCard = ({title, fork , star , description}) => {
             </div>
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default ProjectCard
+export default ProjectCard;

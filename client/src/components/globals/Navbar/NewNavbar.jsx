@@ -16,7 +16,7 @@ export default function NewNavbar({ position }) {
   const { user } = useUserAuth();
   const formbricksInit = () => {
     // const user = useUserAuth();
-    console.log("FORMBRIN", user);
+    // console.log("FORMBRIN", user);
     formbricks.init({
       environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_API_KEY,
       apiHost: "https://app.formbricks.com",
@@ -25,12 +25,12 @@ export default function NewNavbar({ position }) {
     if (user) {
       formbricks.setEmail(user.email);
     }
-  }
+  };
   if (typeof window !== "undefined") {
     formbricksInit();
   }
 
-  console.log("NAVVBAR")
+  // console.log("NAVVBAR");
   const { userDetails } = useUserDetails();
   const location = useLocation();
 
