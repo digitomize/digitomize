@@ -159,7 +159,7 @@ export default function Ratings() {
                 </div>
                 {
                     platformData.map((platform, index) => (
-                        <PlatformBox formData={formData} handleInputChangeObjData={handleInputChangeObjData} handleSubmit={handleSubmit} platform={platform} key={i}/>
+                        <PlatformBox formData={formData} handleInputChangeObjData={handleInputChangeObjData} handleSubmit={handleSubmit} platform={platform} key={index}/>
                     ))
                 }
             </div>

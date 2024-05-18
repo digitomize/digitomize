@@ -29,9 +29,6 @@ function UserDashBoardProfile() {
       data: personal_data.phoneNumber.data || "",
       showOnWebsite: personal_data.phoneNumber.showOnWebsite || true,
     },
-    gender: {
-      
-    },
   });
   const handleInputChangeObjData = (event) => {
     const { name, value } = event.target;
