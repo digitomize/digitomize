@@ -29,8 +29,8 @@ function DashNav({ toggleActive }) {
                         </div>
 
                         <button onClick={toggleActive} className="lg:hidden">
-                            <div class="flex items-center justify-center p-2 ml-2 opacity-60">
-                                <svg xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="1em" height="1em" class="inline-flex shrink-0 text-3xl">
+                            <div className="flex items-center justify-center p-2 ml-2 opacity-60">
+                                <svg xmlns="http://www.w3.org/2000/svg" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="1em" height="1em" className="inline-flex shrink-0 text-3xl">
                                     <line x1="4" y1="8" x2="20" y2="8"></line>
                                     <line x1="4" y1="16" x2="20" y2="16"></line>
                                 </svg>
@@ -71,7 +71,7 @@ function DashNav({ toggleActive }) {
 
             </header>
         </>
-    )
+    );
 }
 
-export default DashNav
+export default DashNav;

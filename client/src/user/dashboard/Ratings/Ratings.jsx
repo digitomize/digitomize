@@ -15,7 +15,7 @@ export async function loader() {
             return res.data;
         }
     } catch (err) {
-        console.log(err);
+        console.error(err);
         return null;
     }
 }
@@ -56,7 +56,7 @@ export default function Ratings() {
                     });
                 }
             } catch (err) {
-                console.log(err);
+                console.error(err);
             } finally {
                 setLoading(false);
             }
@@ -128,7 +128,7 @@ export default function Ratings() {
                         theme: "colored",
                     },
                 );
-                console.log(err);
+                console.error(err);
                 setIsDisabled(false);
             });
         // console.log(res);
@@ -151,18 +151,18 @@ export default function Ratings() {
             <MetaData path="u/dashboard/ratings" />
             <ToastContainer />
             <div className="container bg-dashboardDarkColor font-['Geist'] w-auto">
-                <div class="flex justify-between items-center min-h-[40px]">
-                    <div class="flex flex-shrink gap-2 mr-4 items-center min-w-0">
-                        <p class="truncate font-medium text-gray-200 text-3xl max-w-[600px] max-phone:hidden">Integrate your ratings</p>
-                        <p class="truncate font-medium text-gray-200 text-3xl max-w-[600px] phone:hidden">Ratings</p>
+                <div className="flex justify-between items-center min-h-[40px]">
+                    <div className="flex flex-shrink gap-2 mr-4 items-center min-w-0">
+                        <p className="truncate font-medium text-gray-200 text-3xl max-w-[600px] max-phone:hidden">Integrate your ratings</p>
+                        <p className="truncate font-medium text-gray-200 text-3xl max-w-[600px] phone:hidden">Ratings</p>
                     </div>
                 </div>
                 {
                     platformData.map((platform, index) => (
-                        <PlatformBox formData={formData} handleInputChangeObjData={handleInputChangeObjData} handleSubmit={handleSubmit} platform={platform} />
+                        <PlatformBox formData={formData} handleInputChangeObjData={handleInputChangeObjData} handleSubmit={handleSubmit} platform={platform} key={index}/>
                     ))
                 }
             </div>
         </>
-    )
-};
+    );
+}
