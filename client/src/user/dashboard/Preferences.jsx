@@ -100,7 +100,7 @@ export default function Preferences() {
       leetcode: false,
       geeksforgeeks: false,
       codingninjas: false,
-    }
+    },
   });
 
   if (loading) {
@@ -144,8 +144,8 @@ export default function Preferences() {
         pending: 'Updating preferences... 🤔',
         success: 'Preferences updated successfully! 🎉',
         error: 'Failed to update preferences! 😢',
-      }
-  )
+      },
+  );
 
     await response;
     console.log("response", response);

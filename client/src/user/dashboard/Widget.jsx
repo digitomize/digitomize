@@ -55,7 +55,7 @@ export default function Widget() {
           }
         }
       } catch (err) {
-        console.log(err);
+        console.error(err);
         navigate("u/dashboard");
       } finally {
         setLoading(false);
