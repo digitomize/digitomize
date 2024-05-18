@@ -49,7 +49,7 @@ function Settings() {
                     progress: undefined,
                     theme: "colored",
                 });
-                console.log(err);
+                console.error(err);
                 setIsDisabled(false);
             });
 

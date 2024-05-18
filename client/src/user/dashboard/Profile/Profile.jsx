@@ -31,7 +31,7 @@ function UserDashBoardProfile() {
     },
     gender: {
       
-    }
+    },
   });
   const handleInputChangeObjData = (event) => {
     const { name, value } = event.target;
@@ -78,11 +78,10 @@ function UserDashBoardProfile() {
           progress: undefined,
           theme: "colored",
         });
-        console.log(err);
+        console.error(err);
         setIsDisabled(false);
       });
-    };
-
+    }
     const dobChange = (date) => {
       setFormData((prevData) => ({
           ...prevData,
@@ -93,15 +92,15 @@ function UserDashBoardProfile() {
 
       }));
     // console.log(res);
-  }
+  };
   return (
     <>
       <MetaData path="u/dashboard/profile"/>
       <ToastContainer />
       <div className="bg-dashboardDarkColor font-['Geist']">
-        <div class="flex justify-between items-center min-h-[40px]">
-          <div class="flex flex-shrink gap-2 mr-4 items-center min-w-0">
-            <p class="truncate font-medium text-gray-200 text-3xl max-w-[600px]">Profile</p>
+        <div className="flex justify-between items-center min-h-[40px]">
+          <div className="flex flex-shrink gap-2 mr-4 items-center min-w-0">
+            <p className="truncate font-medium text-gray-200 text-3xl max-w-[600px]">Profile</p>
           </div>
         </div>
 
@@ -116,9 +115,9 @@ function UserDashBoardProfile() {
        </form>
 
         {/* <div className="mt-8 flex flex-col xl:flex-row gap-8 xl:gap-20">
-          <div class="flex-1 mt-8 ml-4 xl:ml-0">
-            <h3 class="heading">Sign in using password</h3>
-            <p class="mt-3 text-secondary">Set your password if you want to be able to sign in using password.</p>
+          <div className="flex-1 mt-8 ml-4 xl:ml-0">
+            <h3 className="heading">Sign in using password</h3>
+            <p className="mt-3 text-secondary">Set your password if you want to be able to sign in using password.</p>
           </div>
           <div className="flex-2 rounded-lg shadow bg-elevation-2 border border-neutral-60 dark:border-neutral-600">
 
@@ -294,7 +293,7 @@ function UserDashBoardProfile() {
 
       </div>
     </>
-  )
+  );
 }
 
-export default UserDashBoardProfile
+export default UserDashBoardProfile;

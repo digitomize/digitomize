@@ -95,7 +95,7 @@ export default function UserDashboard() {
 
 
 
-  const [contest, setContest] = useState([])
+  const [contest, setContest] = useState([]);
   const location = useLocation();
   const [show, setShow] = useState(false);
   const close_model = () => setShow(false);
@@ -135,11 +135,11 @@ export default function UserDashboard() {
           url += `?host=${platforms.join('&')}`;
         }
       }
-      console.log("URLL:", url);
-      console.log("userData:", userData);
-      const response = await fetch(url)
-      const data = await response.json()
-      setContest(data.results.slice(0, 3))
+      // console.log("URLL:", url);
+      // console.log("userData:", userData);
+      const response = await fetch(url);
+      const data = await response.json();
+      setContest(data.results.slice(0, 3));
     }
     getContest()
   }, [userData])
@@ -204,12 +204,12 @@ export default function UserDashboard() {
 
                     {Object.keys(profileSteps).map(step => {
                       const { text, completed, score, link } = profileSteps[step];
-                      return <div className="flex items-center gap-2 my-2">
+                      return <div className="flex items-center gap-2 my-2" key={i}>
                         {completed ? <Done htmlColor="#00FF00" /> : <PriorityHigh htmlColor="red" />}
                         <p className="text-xs">
                           <Link to={link} className="underline decoration-dotted">{text}</Link>
                           - <i> {score}% </i></p>
-                      </div>
+                      </div>;
                     })}
                   </div>
                   <div>
@@ -222,7 +222,7 @@ export default function UserDashboard() {
                             sum += score;
                           }
                         });
-                        console.log("Sum of scores:", sum);
+                        // console.log("Sum of scores:", sum);
 
                         // Render the radial progress bar here
                         return (
@@ -246,7 +246,7 @@ export default function UserDashboard() {
                           <img src={data.icon} alt={data.title} className="w-8" />
                           <p className="capitalize font-[500] sm:text-[16px] max-sm:text-[10px] text-[#EBEBEB]">{data.title}</p>
                         </div>
-                      </Link>
+                      </Link>;
                     })
                   }
                 </div>
@@ -258,7 +258,7 @@ export default function UserDashboard() {
                 <div className="flex flex-row gap-7  flex-wrap">
                   {
                     contest.map((data, index) => {
-                      return <ContestCard data={data} key={index} />
+                      return <ContestCard data={data} key={index} />;
                     })
                   }
                 </div>

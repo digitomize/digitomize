@@ -13,7 +13,7 @@ export function UserContextProvider({ children }) {
         setUserDetails(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.error(error);
       });
   }, []);
 
