@@ -28,6 +28,7 @@ export function UserAuthContextProvider({ children }) {
         const user = result.user;
         await updateProfile(user, {
           displayName: name,
+          photoURL: "https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg",
         })
           // .then(() => {
           //   console.log("Profile updated successfully.");
