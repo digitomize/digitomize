@@ -99,6 +99,17 @@ The backend folder is organized into several directories, each serving a specifi
 
 Configure your environment variables in the `.env` file using `npm run setup` (_Recommended_).
 
+## Creating a `.env` from the `npm run setup`
+- Move To backend directory.
+- Run `npm run setup`
+- Fill in the details for `.env` or use Default values if Provided.
+
+## Creating a `.env` from the `.example.env` file template
+
+- Create a new `.env` file in the backend directory
+- Copy the contents of the `.example.env` in the the backend directory and paste them into your created `.env` file
+- Fill in the `FIREBASE_CREDENTIALS=` variable in JSON with the JSON credentials generated from your created firebase project (see below for instructions on how to get these credentials)
+
 #### Example:
 
 ```bash
@@ -128,17 +139,6 @@ This `.env` file must be populated with the following environment variables for 
 | USERS                 | Controls whether the application should fetch user data.                                               |
 | NODE_ENV              | Specifies the environment in which the application is running.                                          |
 | FIREBASE_CREDENTIALS | Variable intended for storing Firebase credential in JSON format.                               |
-
-## Creating a `.env` from the `npm run setup`
-- Move To backend directory.
-- Run `npm run setup`
-- Fill in the details for `.env` or use Default values if Provided.
-
-## Creating a `.env` from the `.example.env` file template
-
-- Create a new `.env` file in the backend directory
-- Copy the contents of the `.example.env` in the the backend directory and paste them into your created `.env` file
-- Fill in the `FIREBASE_CREDENTIALS=` variable in JSON with the JSON credentials generated from your created firebase project (see below for instructions on how to get these credentials)
 
 ## Linking MongoDB
 To connect Digitomize to the database side, two options are available: MongoDB atlas or hosting a local instance. Here is a setup guide on both options.
