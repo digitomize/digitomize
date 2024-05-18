@@ -13,7 +13,7 @@ function DashNav({ toggleActive }) {
     const { user } = useUserAuth();
     return (
         <>
-            <header className="bg-dashboardDarkerColor h-16 fixed w-full z-20">
+            <header className="bg-dashboardDarkerColor h-16 fixed w-full z-50">
                 <nav className="flex justify-between items-center h-16 pr-4 md:pr-8">
                     <div className="h-full flex items-center">
                         <div className="max-lg:hidden h-full lg:flex items-center gap-1 pl-3 pr-4 lg:border-r border-jet lg:w-56 lg:bg-dashboardColor">
