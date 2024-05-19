@@ -31,7 +31,7 @@ const ShareModel = ({ close_model, copyToClipboard, contestLink, theme }) => {
     try {
       window.open(whatsappLink);
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   };
 
@@ -43,7 +43,7 @@ const ShareModel = ({ close_model, copyToClipboard, contestLink, theme }) => {
     try {
       window.open(telegramLink);
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   };
 
@@ -56,7 +56,7 @@ const ShareModel = ({ close_model, copyToClipboard, contestLink, theme }) => {
     try {
       window.open(linkedinLink);
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   };
 
@@ -68,7 +68,7 @@ const ShareModel = ({ close_model, copyToClipboard, contestLink, theme }) => {
     try {
       window.open(linkedinLink);
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
   };
 

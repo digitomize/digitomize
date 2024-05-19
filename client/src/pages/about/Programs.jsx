@@ -19,33 +19,33 @@ export default function Programs() {
     name: "Kharagpur Winter of Code",
     description: "Kharagpur Winter of Code is a 5-week long online program for students who are new to open source software development.",
     link: "https://kwoc.kossiitkgp.org/",
-    icon: kwoc
+    icon: kwoc,
   },
   {
     name: "Social Winter of Code",
     description: "Social Winter of Code is an open-source program by the Social which aims to bring students into the world of open source development.",
     link: "https://www.socialwinterofcode.com/",
-    icon: swoc
+    icon: swoc,
   },
   {
     name: "Tublian",
     description: "Part of Tublian's Open Source Internship. A unique opportunity for emerging software developers to gain real-world experience.",
     link: "https://www.tublian.com/",
-    icon: tublian
+    icon: tublian,
   },
   {
     name: "Innogeeks Winter of Code",
     description: "Innogeeks Winter of Code (IWOC) is a one-month initiative by Innogeeks which aims to empower the spirit of Open Source Contribution.",
     link: "https://iwoc.codes/",
-    icon: iwoc
+    icon: iwoc,
   },
   {
     name: "GirlScript Summer of Code",
     description: "GirlScript Summer of Code is a 3-month long OpenSource program which aims to change lives by imparting tech education.",
     link: "https://gssoc.girlscript.tech/",
-    icon: gssoc
-  }
-]
+    icon: gssoc,
+  },
+];
     return (
       <>
         <CssVarsProvider defaultMode="dark">

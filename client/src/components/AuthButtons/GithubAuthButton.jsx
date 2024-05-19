@@ -33,7 +33,7 @@ export default function GithubAuthButton() {
             },
           })
           // .then((res) => console.log(res))
-          .catch((err) => console.log(err));
+          .catch((err) => console.error(err));
         navigate("/u/dashboard/account");
       })
       .catch((error) => {

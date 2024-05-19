@@ -52,7 +52,7 @@ export default function Leaderboard() {
   const [currentUserData, setCurrentUserData] = useState(null);
   const { userDetails } = useUserDetails();
   const [top3, setTop3] = useState([]);
-  console.log(currentPage)
+  // console.log(currentPage)
   const [selectedPlatform, setSelectedPlatform] = useState(
     searchParams.get("platform") || "",
   );
@@ -151,7 +151,7 @@ export default function Leaderboard() {
       setCurrentUserData(userData?.data);
       // console.log(currentUserData);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   }
 
@@ -167,7 +167,7 @@ export default function Leaderboard() {
       // console.log(res.data.leaderboard);
       // console.log(top3[0]);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     } finally {
       setLoading(false);
     }
