@@ -133,7 +133,7 @@ export default function NewNavbar({ position }) {
 
   return (
     <>
-      
+
       <MobNav isMenuActive={isMenuActive} toggleActive={toggleActive} />
       <div
         className={`${position ? position : "sticky"
@@ -151,18 +151,33 @@ export default function NewNavbar({ position }) {
             </div>
           </Link>
           <div className="flex items-center">
-            {navLinks.map((navLink, index) => (
-              <Link
-                to={navLink.path}
-                key={index}
-                className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === navLink.path
-                  ? "bg-zinc-400 text-zinc-950"
-                  : ""
-                  } hover:bg-zinc-200`}
-              >
-                {navLink.title}
-              </Link>
-            ))}
+            {navLinks.map((navLink, index) => {
+              if (navLink.title === "Blogs") {
+                return (
+                  <Link
+                    to={navLink.path}
+                    key={index}
+                    className="px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition hover:bg-zinc-200"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {navLink.title}
+                  </Link>
+                );
+              }
+              return (
+                <Link
+                  to={navLink.path}
+                  key={index}
+                  className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === navLink.path
+                    ? "bg-zinc-400 text-zinc-950"
+                    : ""
+                    } hover:bg-zinc-200`}
+                >
+                  {navLink.title}
+                </Link>)
+            }
+            )}
             {renderAdminLink()}
           </div>
           <div className="flex justify-end">
@@ -207,7 +222,7 @@ export default function NewNavbar({ position }) {
           </div>
         </div>
         <div className="flex items-center flex-wrap">
-        {user && <Novu user={user} />}
+          {user && <Novu user={user} />}
         </div>
       </div>
     </>
