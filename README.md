@@ -3,7 +3,7 @@
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-77-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-78-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Website: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9g.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
 
@@ -240,6 +240,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/keshavsinha17"><img src="https://avatars.githubusercontent.com/u/123925652?v=4?s=100" width="100px;" alt="Keshav Sinha"/><br /><sub><b>Keshav Sinha</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=keshavsinha17" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://saadmangalib.netlify.app/"><img src="https://avatars.githubusercontent.com/u/73209315?v=4?s=100" width="100px;" alt="Saadman Galib"/><br /><sub><b>Saadman Galib</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=saadman-galib" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Latish705"><img src="https://avatars.githubusercontent.com/u/104522651?v=4?s=100" width="100px;" alt="Latish 705"/><br /><sub><b>Latish 705</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Latish705" title="Code">💻</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Vimall03"><img src="https://avatars.githubusercontent.com/u/109758195?v=4?s=100" width="100px;" alt="Vimal M"/><br /><sub><b>Vimal M</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Vimall03" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
