@@ -105,7 +105,7 @@ npm install
 
 # Configuration
 
-You can Setup Environment Variable Using One of Two Methods Stated Below:
+You can set up Environment Variable Using One of Two Methods Stated Below:
 
 ## [Script] Setting Up Environment Variables using Script (_Recommended_).
 
@@ -122,7 +122,7 @@ npm run setup
 
 - Create a new .env file in the client directory
 - Copy the .example.env from the client directory and paste its contents into your newly created .env file
-- Fill in the empty fields with the values from your firebase project 
+- Fill in the empty fields with the values from your firebase project
 ```bash
 VITE_REACT_APP_BACKEND_URL=http://localhost:4001
 VITE_REACT_APP_FRONTEND_URL=http://localhost:5173

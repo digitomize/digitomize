@@ -97,9 +97,10 @@ The backend folder is organized into several directories, each serving a specifi
 
 ### Environment Variables
 
-Configure your environment variables in the `.env` file using `npm run setup` (_Recommended_).
+ Configure your environment variables in the `.env` file using `npm run setup` (_Recommended_).
 
 ## Creating a `.env` from the `npm run setup`
+
 - Move To backend directory.
 - Run `npm run setup`
 - Fill in the details for `.env` or use Default values if Provided.
@@ -107,7 +108,7 @@ Configure your environment variables in the `.env` file using `npm run setup` (_
 ## Creating a `.env` from the `.example.env` file template
 
 - Create a new `.env` file in the backend directory
-- Copy the contents of the `.example.env` in the the backend directory and paste them into your created `.env` file
+- Copy the contents of the `.example.env` in the backend directory and paste them into your created `.env` file
 - Fill in the `FIREBASE_CREDENTIALS=` variable in JSON with the JSON credentials generated from your created firebase project (see below for instructions on how to get these credentials)
 
 #### Example:
