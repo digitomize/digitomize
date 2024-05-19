@@ -155,7 +155,7 @@ export default function NewNavbar({ position }) {
               if (navLink.title === "Blogs") {
                 return (
                   <Link
-                    href={navLink.path}
+                    to={navLink.path}
                     key={index}
                     className="px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition hover:bg-zinc-200"
                     target="_blank"
