@@ -5,19 +5,16 @@ import { auth } from "../firebase";
 
 function ProtectedRoute() {
   const { user } = useUserAuth();
-  if (user) {
-    if (auth && auth?.currentUser?.emailVerified) {
-      return <Outlet />;
-    } else if (auth && !auth?.currentUser?.emailVerified) {
-      return (
-        <Navigate to="/resend-email-verification?message=Please verify your email" />
-      );
-    } else {
-      return <Navigate to="/login?message=Please login first!" />;
-    }
-  } else {
+
+  if (!user) {
     return <Navigate to="/login?message=Please login first!" />;
   }
+
+  if (auth?.currentUser?.emailVerified) {
+    return <Outlet />;
+  }
+
+  return <Navigate to="/resend-email-verification?message=Please verify your email" />;
 }
 
 export default ProtectedRoute;
