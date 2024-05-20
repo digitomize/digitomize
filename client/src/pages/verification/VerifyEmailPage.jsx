@@ -60,7 +60,7 @@ const VerifyEmailPage = () => {
   }, []);
   if (isLoading) {
     return (
-      <div className="h-screen flex items-center justify-center z-30 relative">
+      <div className="h-screen flex items-center justify-center z-30">
         <div className="text-2xl text-green-400 font-bold gap-x-4 flex">
           <div className="text-center mt-1">Verifying User</div>
           <div className="relative">
@@ -69,14 +69,14 @@ const VerifyEmailPage = () => {
             <div className="w-10 h-10 rounded-full animate-spin absolute border-8 border-solid border-green-500 border-t-transparent shadow-md"></div>
           </div>
         </div>
-        <BackgroundBeams/>
       </div>
     );
   } else if (isSuccess) {
     return (
-      <div>
+      <>
+      <div className="relative z-30">
         <ToastContainer />
-        <main className="h-screen flex flex-col items-center justify-center w-fit ml-auto mr-auto z-30 relative">
+        <main className="h-screen flex flex-col items-center justify-center w-fit ml-auto mr-auto">
           <h1 className="text-2xl text-green-400 font-bold">
             Verification Successful , Please Login
           </h1>
@@ -87,12 +87,14 @@ const VerifyEmailPage = () => {
             Login
           </Link>
         </main>
-        <BackgroundBeams/>
       </div>
+        <BackgroundBeams/>
+      </>
     );
   } else if (isError) {
     return (
-      <div className="h-screen flex flex-col items-center justify-center w-fit ml-auto mr-auto z-30 relative">
+      <>
+      <div className="h-screen flex flex-col items-center justify-center w-fit ml-auto mr-auto z-30 relative antialiased">
         <h1 className="text-2xl text-rose-600 font-bold">
           Oops!! something went wrong , Please try again later
         </h1>
@@ -102,8 +104,9 @@ const VerifyEmailPage = () => {
         >
           Home
         </Link>
-        <BackgroundBeams/>
       </div>
+        <BackgroundBeams/>
+      </>
     );
   }
 
