@@ -31,12 +31,12 @@ export async function loader({ request }) {
 
 
 export const buttonState = atom({
-  key: 'btnState',
+  key: "btnState",
   default: false,
 });
 
 export const errorState = atom({
-  key: 'errorState',
+  key: "errorState",
   default: "",
 });
 
@@ -69,7 +69,7 @@ export default function Login() {
             </div>
             <div className="divider">OR</div>
             <div className="email-form mx-auto">
-             <LoginForm/>
+            <LoginForm/>
             </div>
           </div>
           <div className="right md:w-2/4 max-md:hidden px-12 my-auto h-full">
@@ -185,5 +185,5 @@ function LoginForm(){
       </p>
     </div>
   </div>
-</Form>
+</Form>;
 }

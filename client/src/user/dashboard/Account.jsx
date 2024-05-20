@@ -9,7 +9,7 @@ export async function loader() {
     const res = await userDashboardDetails();
     return res.data;
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return null;
   }
 }
@@ -68,7 +68,7 @@ const UserDashBoardAccount = () => {
           progress: undefined,
           theme: "colored",
         });
-        console.log(err);
+        console.error(err);
         setIsDisabled(false);
       });
 

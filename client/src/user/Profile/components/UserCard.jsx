@@ -15,7 +15,7 @@ function UserCard({
   social,
   skills = [],
 }) {
-  console.log(social);
+  // console.log(social);
   const navigate = useNavigate();
   const location = useLocation();
   const isUserProfile = location.pathname === `/u/${username}`;
@@ -96,7 +96,7 @@ function UserCard({
           {skills.map((skill, index) => (
             <div
               key={index}
-              className=" bg-[#1582ffb3] bg-opacity-80 text-[#1582FF] text-[12px] px-3 py-[2px] rounded-[12px] font-[500] mr-4 mb-1"
+              className=" bg-[#1582ffb3] bg-opacity-80 text-white text-[12px] px-3 py-[2px] rounded-[12px] font-[500] mr-4 mb-1"
             >
               {skill}
             </div>
@@ -148,7 +148,7 @@ function UserCard({
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="bg-custom-blue bg-opacity-80 text-black text-[12px] px-3 py-[2px] rounded-[12px] font-[500] mr-4 mb-1"
+              className="bg-custom-blue bg-opacity-80 text-white text-[12px] px-3 py-[2px] rounded-[12px] font-[500] mr-4 mb-1"
             >
               {skill}
             </div>

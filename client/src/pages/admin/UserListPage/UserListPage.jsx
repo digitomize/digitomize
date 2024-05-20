@@ -76,7 +76,7 @@ export default function UserListPage() {
         setUserList(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   }, []);
 
