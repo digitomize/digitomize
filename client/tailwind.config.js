@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 export default {
   content: [
     "node_modules/daisyui/dist/**/*.js",
@@ -112,6 +115,16 @@ export default {
     require("daisyui"),
     require("flowbite/plugin")({
       charts: true,
-    }),
+    }),addVariablesForColors
   ],
 };
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+ 
+  addBase({
+    ":root": newVars,
+  });
+}

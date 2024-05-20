@@ -8,7 +8,6 @@ import loginIcon from "@assets/fingerprint-animate-blue.svg";
 import { useRef, useState } from "react";
 import { MetaData } from "./CustomComponents";
 import { useUserAuth } from "@context/UserAuthContext";
-import { auth } from "../../firebase";
 
 import { isLoggedIn } from "../../api";
 

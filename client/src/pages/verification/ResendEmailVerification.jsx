@@ -4,6 +4,7 @@ import { auth } from "../../../firebase";
 import { sendEmailVerification } from "firebase/auth";
 import { isLoggedIn } from "../../../api";
 import { redirect } from "react-router-dom";
+import { BackgroundBeams } from "../../components/magicui/backgroud-beams";
 
 
 export async function loader() {
@@ -51,7 +52,9 @@ const ResendEmailVerification = () => {
   return (
     <>
       <ToastContainer />
-      <main className="h-screen flex flex-col items-center justify-center w-fit ml-auto mr-auto gap-y-1">
+        
+     
+      <main className="h-screen flex flex-col items-center justify-center w-fit ml-auto mr-auto gap-y-1 z-30 antialiased relative">
         <h2 className="self-start text-2xl font-bold">
           Please verify your email to continue
         </h2>
@@ -82,6 +85,7 @@ const ResendEmailVerification = () => {
           
         </div>
       </main>
+      <BackgroundBeams/>
     </>
   );
 };

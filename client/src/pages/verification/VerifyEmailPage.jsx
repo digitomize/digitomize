@@ -3,6 +3,7 @@ import { auth } from "../../../firebase";
 import { applyActionCode } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { BackgroundBeams } from "../../components/magicui/backgroud-beams";
 
 const VerifyEmailPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -59,7 +60,7 @@ const VerifyEmailPage = () => {
   }, []);
   if (isLoading) {
     return (
-      <div className="h-screen flex items-center justify-center">
+      <div className="h-screen flex items-center justify-center z-30 relative">
         <div className="text-2xl text-green-400 font-bold gap-x-4 flex">
           <div className="text-center mt-1">Verifying User</div>
           <div className="relative">
@@ -68,13 +69,14 @@ const VerifyEmailPage = () => {
             <div className="w-10 h-10 rounded-full animate-spin absolute border-8 border-solid border-green-500 border-t-transparent shadow-md"></div>
           </div>
         </div>
+        <BackgroundBeams/>
       </div>
     );
   } else if (isSuccess) {
     return (
       <div>
         <ToastContainer />
-        <main className="h-screen flex flex-col items-center justify-center w-fit ml-auto mr-auto">
+        <main className="h-screen flex flex-col items-center justify-center w-fit ml-auto mr-auto z-30 relative">
           <h1 className="text-2xl text-green-400 font-bold">
             Verification Successful , Please Login
           </h1>
@@ -85,11 +87,12 @@ const VerifyEmailPage = () => {
             Login
           </Link>
         </main>
+        <BackgroundBeams/>
       </div>
     );
   } else if (isError) {
     return (
-      <div className="h-screen flex flex-col items-center justify-center w-fit ml-auto mr-auto">
+      <div className="h-screen flex flex-col items-center justify-center w-fit ml-auto mr-auto z-30 relative">
         <h1 className="text-2xl text-rose-600 font-bold">
           Oops!! something went wrong , Please try again later
         </h1>
@@ -99,6 +102,7 @@ const VerifyEmailPage = () => {
         >
           Home
         </Link>
+        <BackgroundBeams/>
       </div>
     );
   }
