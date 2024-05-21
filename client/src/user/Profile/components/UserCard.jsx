@@ -96,7 +96,7 @@ function UserCard({
           {skills.map((skill, index) => (
             <div
               key={index}
-              className=" bg-[#1582ffb3] bg-opacity-80 text-white text-[12px] px-3 py-[2px] rounded-[12px] font-[500] mr-4 mb-1"
+              className=" bg-[#1582ffb3] bg-opacity-80 text-white text-[12px] px-3 py-[2px] rounded-[12px] font-[500] mr-4 mb-1 hover:bg-blue-400"
             >
               {skill}
             </div>
