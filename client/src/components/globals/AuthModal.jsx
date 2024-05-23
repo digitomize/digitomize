@@ -22,7 +22,7 @@ export const errorState = atom({
 
 const AuthModal = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("login");
+  const [activeTab, setActiveTab] = useState("signup");
   const modalRef = useRef();
 
   const toggleLogin = () => {
