@@ -53,11 +53,11 @@ const AuthModal = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isOpen]);
+  }, [isOpen,closeModal]);
 
   return (
     <div className="flex items-center justify-center">
-      <button onClick={toggleLogin} className="">
+      <button type="button" onClick={toggleLogin} className="">
         Register Now
       </button>
       {isOpen && (
@@ -68,9 +68,10 @@ const AuthModal = () => {
           <div
             className="fixed inset-0 bg-black opacity-50"
             onClick={closeModal}
-          ></div>
+          />
           <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white p-8 rounded-lg shadow-lg w-96 z-10 border-2 border-jet border-opacity-10 max-h-[90vh] overflow-auto transform transition-transform duration-300 ease-in-out scale-100">
             <button
+              type="button"
               onClick={closeModal}
               className="absolute top-2 right-4 text-xl text-white hover:text-red-500 transition duration-300"
             >
@@ -79,12 +80,14 @@ const AuthModal = () => {
             <ToastContainer />
             <div className="flex justify-center items-center mb-4">
               <button
+                type="button"
                 className={`mr-4 py-2 px-4 rounded-t-lg w-full focus:outline-none ${activeTab === "login" ? "bg-blue-600 text-white" : "bg-gray-700 text-gray-400"}`}
                 onClick={() => handleActiveTab("login")}
               >
                 Login
               </button>
               <button
+                type="button"
                 className={`py-2 px-4 rounded-t-lg w-full focus:outline-none ${activeTab === "signup" ? "bg-blue-600 text-white" : "bg-gray-700 text-gray-400"}`}
                 onClick={() => handleActiveTab("signup")}
               >
