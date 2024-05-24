@@ -202,7 +202,7 @@ export default function UserDashboard() {
                 <div className="flex flex-row gap-4">
                   <div>
 
-                    {Object.keys(profileSteps).map((step,i) => {
+                    {Object.keys(profileSteps).map((step, i) => {
                       const { text, completed, score, link } = profileSteps[step];
                       return <div className="flex items-center gap-2 my-2" key={i}>
                         {completed ? <Done htmlColor="#00FF00" /> : <PriorityHigh htmlColor="red" />}
