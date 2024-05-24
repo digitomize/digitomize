@@ -312,7 +312,7 @@ export default function About() {
                   whileInView={{ "--value": 33 }}
                   viewport={{ once: true }}
                   transition={{
-                    duration: 2,
+                    duration: 1,
                     type: "spring",
                     stiffness: 100,
                     delay: 0.5,
@@ -368,10 +368,10 @@ export default function About() {
                   whileInView={{ "--value": 66 }}
                   viewport={{ once: true }}
                   transition={{
-                    duration: 2,
+                    duration: 1,
                     type: "spring",
                     stiffness: 100,
-                    delay: 1.5,
+                    delay: 1,
                   }}
                   className="radial-progress text-digitomize-bg"
                   role="progressbar"
@@ -387,7 +387,7 @@ export default function About() {
                   duration: 1,
                   type: "spring",
                   stiffness: 100,
-                  delay: 1.5,
+                  delay: 1,
                 }}
                 className="p-2 sm:mt-4"
               >
@@ -424,10 +424,10 @@ export default function About() {
                   whileInView={{ "--value": 100 }}
                   viewport={{ once: true }}
                   transition={{
-                    duration: 2,
+                    duration: 1,
                     type: "spring",
                     stiffness: 100,
-                    delay: 2.5,
+                    delay: 1.5,
                   }}
                   className="radial-progress text-digitomize-bg"
                   role="progressbar"
@@ -443,7 +443,7 @@ export default function About() {
                   duration: 1,
                   type: "spring",
                   stiffness: 100,
-                  delay: 2.5,
+                  delay: 1.5,
                 }}
                 className="p-2 sm:mt-4"
               >
