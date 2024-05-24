@@ -115,7 +115,8 @@ export default {
     require("daisyui"),
     require("flowbite/plugin")({
       charts: true,
-    }),addVariablesForColors
+    }),
+    addVariablesForColors
   ],
 };
 function addVariablesForColors({ addBase, theme }) {
