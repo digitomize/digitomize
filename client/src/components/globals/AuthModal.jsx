@@ -56,7 +56,7 @@ const AuthModal = () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.body.classList.remove("overflow-hidden");
     };
-  }, [isOpen]);
+  }, [isOpen,closeModal]);
 
   return (
     <div className="flex items-center justify-center">
