@@ -83,14 +83,12 @@ const AuthModal = () => {
             <ToastContainer />
             <div className="flex justify-center items-center mb-4">
               <button
-                type="button"
                 className={`mr-4 py-2 px-4 rounded-t-lg w-full focus:outline-none ${activeTab === "login" ? "bg-blue-600 text-white" : "bg-gray-700 text-gray-400"}`}
                 onClick={() => handleActiveTab("login")}
               >
                 Login
               </button>
               <button
-                type="button"
                 className={`py-2 px-4 rounded-t-lg w-full focus:outline-none ${activeTab === "signup" ? "bg-blue-600 text-white" : "bg-gray-700 text-gray-400"}`}
                 onClick={() => handleActiveTab("signup")}
               >
