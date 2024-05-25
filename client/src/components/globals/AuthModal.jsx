@@ -22,7 +22,7 @@ export const errorState = atom({
 
 const AuthModal = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("signup");
+  const [activeTab, setActiveTab] = useState("login");
   const modalRef = useRef();
 
   const toggleLogin = () => {
@@ -46,18 +46,21 @@ const AuthModal = () => {
 
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
+      document.body.classList.add("overflow-hidden");
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.body.classList.remove("overflow-hidden");
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.body.classList.remove("overflow-hidden");
     };
-  }, [isOpen,closeModal]);
+  }, [isOpen]);
 
   return (
     <div className="flex items-center justify-center">
-      <button type="button" onClick={toggleLogin} className="">
+      <button onClick={toggleLogin} className="">
         Register Now
       </button>
       {isOpen && (
@@ -68,10 +71,9 @@ const AuthModal = () => {
           <div
             className="fixed inset-0 bg-black opacity-50"
             onClick={closeModal}
-          />
+          ></div>
           <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white p-8 rounded-lg shadow-lg w-96 z-10 border-2 border-jet border-opacity-10 max-h-[90vh] overflow-auto transform transition-transform duration-300 ease-in-out scale-100">
             <button
-              type="button"
               onClick={closeModal}
               className="absolute top-2 right-4 text-xl text-white hover:text-red-500 transition duration-300"
             >
@@ -80,14 +82,12 @@ const AuthModal = () => {
             <ToastContainer />
             <div className="flex justify-center items-center mb-4">
               <button
-                type="button"
                 className={`mr-4 py-2 px-4 rounded-t-lg w-full focus:outline-none ${activeTab === "login" ? "bg-blue-600 text-white" : "bg-gray-700 text-gray-400"}`}
                 onClick={() => handleActiveTab("login")}
               >
                 Login
               </button>
               <button
-                type="button"
                 className={`py-2 px-4 rounded-t-lg w-full focus:outline-none ${activeTab === "signup" ? "bg-blue-600 text-white" : "bg-gray-700 text-gray-400"}`}
                 onClick={() => handleActiveTab("signup")}
               >
@@ -109,7 +109,6 @@ const AuthModal = () => {
     </div>
   );
 };
-
 
 
 export function LoginForm() {
