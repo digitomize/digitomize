@@ -76,7 +76,7 @@ export default function Signup() {
     }
 
     if (!usernamePattern.test(inputUsername)) {
-      toast.error("Invalid username. Only letters and whitespaces are allowed.", {
+      toast.error("Invalid username. Must start with a letter and contain no spaces", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
