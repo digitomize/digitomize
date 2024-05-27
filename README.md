@@ -3,7 +3,7 @@
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-79-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-80-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Website: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9g.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
 
@@ -244,6 +244,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Vimall03"><img src="https://avatars.githubusercontent.com/u/109758195?v=4?s=100" width="100px;" alt="Vimal M"/><br /><sub><b>Vimal M</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Vimall03" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/kapilG0"><img src="https://avatars.githubusercontent.com/u/59639410?v=4?s=100" width="100px;" alt="KAPIL GUPTA"/><br /><sub><b>KAPIL GUPTA</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=kapilG0" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/yashi-15"><img src="https://avatars.githubusercontent.com/u/132138302?v=4?s=100" width="100px;" alt="yashi-15"/><br /><sub><b>yashi-15</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=yashi-15" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
