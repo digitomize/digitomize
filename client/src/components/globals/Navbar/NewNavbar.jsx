@@ -8,7 +8,7 @@ import { ROLE } from "../../../core/utils/const";
 import Novu from "../Notifs/Novu";
 
 
-import formbricks from "@formbricks/js";
+import formbricks from "@formbricks/js/website";
 
 import { navLinks, navLinksDashboard } from "./navLinks";
 
