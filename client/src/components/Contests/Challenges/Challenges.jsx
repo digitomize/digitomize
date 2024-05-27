@@ -13,7 +13,7 @@ const handleClick = () => {
 
 if (typeof window !== "undefined") {
   formbricks.init({
-    environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_API_KEY,
+    environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_ENV_ID,
     apiHost: "https://app.formbricks.com",
   });
 }

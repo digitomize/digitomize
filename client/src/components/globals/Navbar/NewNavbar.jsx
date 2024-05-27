@@ -18,7 +18,7 @@ export default function NewNavbar({ position }) {
     // const user = useUserAuth();
     // console.log("FORMBRIN", user);
     formbricks.init({
-      environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_API_KEY,
+      environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_ENV_ID,
       apiHost: "https://app.formbricks.com",
       userId: user ? user.uid : "anonymous",
     });
