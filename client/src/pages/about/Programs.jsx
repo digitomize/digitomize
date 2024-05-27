@@ -4,6 +4,7 @@ import { extendTheme, CssVarsProvider } from "@mui/joy/styles";
 import { Link } from "react-router-dom";
 import Card from "@mui/joy/Card";
 import {kwoc, swoc, tublian, iwoc, gssoc} from "./assets/assets";
+import { motion } from "framer-motion";
 
 const theme = extendTheme({
   palette: {
@@ -50,13 +51,34 @@ export default function Programs() {
       <>
         <CssVarsProvider defaultMode="dark">
           <div className="w-full p-2 flex flex-col gap-2">
-
-            <h1 className="my-4 py-4 text-white max-md:text-4xl md:text-6xl flex flex-row mx-auto justify-center">
+          <motion.h1
+          initial={{ opacity: 0, x: -150 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 1,
+            type: "spring",
+            stiffness: 100,
+            delay: 0.5,
+          }}
+          className="my-4 py-4 text-white max-md:text-4xl md:text-6xl flex flex-row mx-auto justify-center"
+        >
               <span className="block mt-1 md:mt-6">
                 <span className="bg-digitomize-bg mx-2 px-1 rounded-lg">Programs</span>
               </span>
-            </h1>
-            <h2 className="text-custom-blue text-xl">Open Source Programs that Digitomize has been a part of!</h2>
+            </motion.h1>
+            <motion.h2
+        initial={{ opacity: 0, y: 150 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 1,
+          type: "spring",
+          stiffness: 100,
+          delay: 0.7,
+        }}
+        className="text-custom-blue text-xl"
+      >Open Source Programs that Digitomize has been a part of!</motion.h2>
             
             <div className="flex flex-row mt-4">
               <Marquee
