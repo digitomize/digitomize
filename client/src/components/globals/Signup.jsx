@@ -52,14 +52,52 @@ export default function Signup() {
     e.preventDefault();
     setError("");
     setbtnState(true);
+
+    const inputFirstName = firstNameRef.current.trim();
+    const inputUsername = usernameRef.current.trim();
+
+    // Validation for name and username inputs
+    const namePattern = /^(?!\s*$)[a-zA-Z\s]+$/;
+    const usernamePattern = /^[a-zA-Z]\S*$/;
+
+    if (!namePattern.test(inputFirstName)) {
+      toast.error("Invalid name. Only letters and whitespaces are allowed.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      setbtnState(false);
+      return;
+    }
+
+    if (!usernamePattern.test(inputUsername)) {
+      toast.error("Invalid username. Only letters and whitespaces are allowed.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      setbtnState(false);
+      return;
+    }
+
     try {
       await signUp(emailRef.current, passwordRef.current, usernameRef.current, firstNameRef.current);
       const token = auth.currentUser.accessToken;
       if (token) {
         axios
           .post(`${backendUrl}/user/signup`, {
-            name: firstNameRef.current,
-            username: usernameRef.current,
+            name: inputFirstName,
+            username: inputUsername,
             headers: {
               Authorization: `Bearer ${token}`,
             },
