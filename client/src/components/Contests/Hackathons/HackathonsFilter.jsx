@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
-import formbricks from "@formbricks/js";
+import formbricks from "@formbricks/js/website";
 import comingSoonSvg from "@assets/comming_soon.svg";
 
 
 const handleClick = () => {
   formbricks.track("test-01");
 };
-
+if (typeof window !== "undefined") {
+  formbricks.init({
+    environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_API_KEY,
+    apiHost: "https://app.formbricks.com",
+  });
+}
 import { MetaData } from "../../CustomComponents";
 import {
   Skeleton,
