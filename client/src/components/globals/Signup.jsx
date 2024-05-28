@@ -5,7 +5,6 @@ import {
   Link,
 } from "react-router-dom";
 import axios from "axios";
-// import { useRef } from "react";
 import {buttonState} from "@components/Login";
 import { useState } from "react";
 import { isLoggedIn } from "../../../api";
@@ -31,10 +30,6 @@ export async function loader() {
 }
 
 export default function Signup() {
-  // const firstNameRef = useRef("");
-  // const usernameRef = useRef("");
-  // const emailRef = useRef("");
-  // const passwordRef = useRef("");
   //useRef() has been updated with useState()
   const [firstName, setFirstName] = useState("");
   const [username, setUsername] = useState("");
