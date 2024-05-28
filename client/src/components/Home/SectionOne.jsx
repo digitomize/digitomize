@@ -118,7 +118,7 @@ export default function SectionOne() {
           </Link>
         ) : (
             <div className="flex justify-center items-center gap-1  px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border">
-              <AuthModal/>
+              <AuthModal page={"signup"}/>
               <MdPlayArrow />
             </div>
         )}

@@ -20,9 +20,9 @@ export const errorState = atom({
   default: "",
 });
 
-const AuthModal = () => {
+const AuthModal = ({page}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("login");
+  const [activeTab, setActiveTab] = useState(page);
   const modalRef = useRef();
 
   const toggleLogin = () => {
@@ -62,6 +62,7 @@ const AuthModal = () => {
     <div className="flex items-center justify-center">
       <button onClick={toggleLogin} className="">
         Register Now
+
       </button>
       {isOpen && (
         <div
