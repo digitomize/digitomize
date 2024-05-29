@@ -70,7 +70,8 @@ const VerifyEmailPage = () => {
         </div>
       </div>
     );
-  } else if (isSuccess) {
+  }  
+  if (isSuccess) {
     return (
       <>
       <div className="relative z-30">
@@ -89,7 +90,8 @@ const VerifyEmailPage = () => {
       </div>
       </>
     );
-  } else if (isError) {
+  } 
+  if (isError) {
     return (
       <>
       <div className="h-screen flex flex-col items-center justify-center w-fit ml-auto mr-auto z-30 relative antialiased">
@@ -106,8 +108,6 @@ const VerifyEmailPage = () => {
       </>
     );
   }
-
-  return null;
 };
 
 export default VerifyEmailPage;
