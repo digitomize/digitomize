@@ -56,16 +56,16 @@ const VerifyEmailPage = () => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [isMounted]);
   if (isLoading) {
     return (
       <div className="h-screen flex items-center justify-center z-30">
         <div className="text-2xl text-green-400 font-bold gap-x-4 flex">
           <div className="phonesm:text-xl  md:text-4xl bg-clip-text text-transparent pb-4 bg-gradient-to-tr from-green-400 to-white font-bold font-sans text-center relative z-10">Verifying User</div>
           <div className="relative">
-            <div className="w-10 h-10 rounded-full absolute border-8 border-solid border-gray-200"></div>
+            <div className="w-10 h-10 rounded-full absolute border-8 border-solid border-gray-200"/>
 
-            <div className="w-10 h-10 rounded-full animate-spin absolute border-8 border-solid border-green-500 border-t-transparent shadow-md"></div>
+            <div className="w-10 h-10 rounded-full animate-spin absolute border-8 border-solid border-green-500 border-t-transparent shadow-md"/>
           </div>
         </div>
       </div>
