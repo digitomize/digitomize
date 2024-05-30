@@ -1,5 +1,8 @@
 # Digitomize - [Website](https://digitomize.com)
 
+![digi](https://github.com/digitomize/digitomize/assets/133582566/24ddc91f-3602-40c3-a0a0-80cb0c2de9bb)
+
+
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
@@ -14,12 +17,16 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 [![Forks on Github](https://img.shields.io/github/forks/digitomize/digitomize)](https://github.com/digitomize/digitomize/forks)
 [![Star on GitHub](https://img.shields.io/github/stars/digitomize/digitomize.svg?style=social)](https://github.com/digitomize/digitomize/stargazers)
 
+<hr>
+
 # Supported by:
 <img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" alt="Microsoft for Startups Logo" height="auto" width="180">
 <a href="https://m.do.co/c/db7dbc698e16" target="_blank"><img align="center" src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" alt="DigitalOcean Logo" height="150" width="180"></a> 
 <img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" alt="GitBook Logo" height="auto" width="180">
 <img align="center" src="https://github.com/krushnarout/digitomize/assets/129386740/3f224853-cf4b-4318-ba27-8285d1c9a0fe" alt="MSME Logo" height="auto" width="180">
 <img align="center" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcROO_yLE47eeYv8eSiT3aMB1AWncngyOzGHYqptZwwckpfmH4m0" alt="MELT CD Logo" height="auto" width="180">
+
+<hr>
 
 <!--Featured In section-->
 ## Featured In
@@ -57,9 +64,9 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
       <td>Innogeeks Winter of Code is a month-long open-source program envisioned by the Innogeeks. It is an online initiative that introduces new contributors to open-source software development.</td>
    </tr>
 
-   
-
 </table>
+
+<hr>
 
 ## Table of Contents
 
@@ -72,19 +79,24 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
   - [Contests Section](#contests-section)
   - [User Profiles](#user-profiles)
 - [Contributing](#contributing)
-- [License](#license)
-- [Discord](#discord)
-- [Contact](#contact-information)
+- [License](#-license)
+- [Contact Us](#contact-us)
+
+<hr>
 
 # Introduction
 
 **Digitomize** is designed to provide developers with a comprehensive platform for exploring coding contests and creating dynamic portfolios that showcase their coding skills and achievements.
+
+<hr>
 
 # Features
 
 - **Contests Section:** Explore upcoming coding contests from platforms like LeetCode, Codeforces, CodeChef, and more. Filter contests based on various criteria and view contest details such as remaining time, duration, and more.
 
 - **User Profiles:** Create your developer portfolio by providing user handles for different coding platforms. The platform dynamically fetches and displays your updated ratings, achievements, and coding history.
+
+<hr>
 
 # Getting Started
 **Hit the star :star:**
@@ -115,6 +127,8 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 
 4. Start the development environment: `npm run dev` (This command, defined in your project's package.json, starts both the backend server and the client using the concurrently library. It's a convenient way to run both parts of your application concurrently during development.)
 
+<hr>
+
 # Usage
 
 ### Contests Section
@@ -129,11 +143,17 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 - The platform dynamically fetches and displays your latest ratings, achievements, and contest history.
 - Customize your portfolio to display the information you want to share with others.
 
+<hr>
+
 # Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
 
-# Contributors ✨
+<hr>
+
+<div>
+  <h1><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f49e/512.webp" width="40" height="40"> Contributors</h1>
+</div>
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -254,17 +274,39 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-# License
+<hr>
 
-This project is licensed under the [MIT License](LICENSE).
+<!-- License -->
+<div>
+<h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" width="35" height="35"> License</h2>
+</div>
 
-# Discord
+This project is licensed under the [MIT License](./LICENSE).
 
-Join Our [Discord Community](https://digitomize.com/discord) for any help and troubleshooting.
+<hr>
 
-# Contact Information
+## Contact Us
 
-For more ways to get in touch, refer to our [CONTACT.md](CONTACT.md).
+<table>
+    <tr>
+        <th>Source</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><a href="https://digitomize.com/discord" target="_blank">
+            <img src="https://discord.com/assets/847541504914fd33810e70a0ea73177e.ico" alt="Discord Logo" width="50" height="50">
+        </a></td>
+        <td>Join Our Discord Community for any help and troubleshooting.</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/digitomize/digitomize/blob/main/CONTACT.md" target="_blank">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Contributing Logo" width="50" height="50">
+        </a></td>
+        <td>For more ways to get in touch, refer to our CONTACT.md file. </td>
+    </tr>
+</table>
+
+<hr>
 
 # Buy me a Coffee ☕
 
