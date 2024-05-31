@@ -229,15 +229,12 @@ if(formData.picture)
     },
   });
 
-  if (res?.status === 200 && res?.code != "ERR_BAD_REQUEST" && res?.code != "ERR_NETWORK") { // 200 is the HTTP status code for "OK"
+  if (res?.status === 200 && res?.code !== "ERR_BAD_REQUEST" && res?.code !== "ERR_NETWORK") { // 200 is the HTTP status code for "OK"
     toast.success("Profile Image updated successfully");
-  }
-  else {
-    if (res?.response?.data?.message) {
+  } else if (res?.response?.data?.message) {
       toast.error(res.response.data.message);  // Show specific error message from server
-    } else {
+  } else {
       toast.error("Profile image update failed. Please try again.");
-    }
   }
   // console.log("RESPONSE ----> ", res);
   // console.log(res.status);
