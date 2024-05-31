@@ -3,6 +3,7 @@ import { redirect } from "react-router-dom";
 import { auth } from "./firebase";
 import { updateProfile } from "firebase/auth";
 import { PlaySquare } from "lucide-react";
+import { toast } from "react-toastify";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export async function loginUser({ username, password }) {
@@ -227,6 +228,17 @@ if(formData.picture)
       Authorization: `Bearer ${accessToken}`,
     },
   });
+
+  if (res?.status === 200 && res?.code != "ERR_BAD_REQUEST" && res?.code != "ERR_NETWORK") { // 200 is the HTTP status code for "OK"
+    toast.success("Profile Image updated successfully");
+  }
+  else {
+    if (res?.response?.data?.message) {
+      toast.error(res.response.data.message);  // Show specific error message from server
+    } else {
+      toast.error("Profile image update failed. Please try again.");
+    }
+  }
   // console.log("RESPONSE ----> ", res);
   // console.log(res.status);
 }
