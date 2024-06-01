@@ -761,6 +761,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "Meetjain1",
+      "name": "Meet Jain",
+      "avatar_url": "https://avatars.githubusercontent.com/u/133582566?v=4",
+      "profile": "https://www.linkedin.com/in/meet-jain-413015265/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
