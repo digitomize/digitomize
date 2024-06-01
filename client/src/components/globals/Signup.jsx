@@ -5,7 +5,6 @@ import {
   Link,
 } from "react-router-dom";
 import axios from "axios";
-import { useRef } from "react";
 import {buttonState} from "@components/Login";
 import { useState } from "react";
 import { isLoggedIn } from "../../../api";
@@ -31,10 +30,11 @@ export async function loader() {
 }
 
 export default function Signup() {
-  const firstNameRef = useRef("");
-  const usernameRef = useRef("");
-  const emailRef = useRef("");
-  const passwordRef = useRef("");
+  //useRef() has been updated with useState()
+  const [firstName, setFirstName] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const setbtnState = useSetRecoilState(buttonState);
   const [error, setError] = useState("");
@@ -52,14 +52,52 @@ export default function Signup() {
     e.preventDefault();
     setError("");
     setbtnState(true);
+
+    const inputFirstName = firstName.trim();
+    const inputUsername = username.trim();
+
+    // Validation for name and username inputs
+    const namePattern = /^(?!\s*$)[a-zA-Z\s]+$/;
+    const usernamePattern = /^[a-zA-Z]\S*$/;
+
+    if (!namePattern.test(inputFirstName)) {
+      toast.error("Invalid name. Only letters and whitespaces are allowed.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      setbtnState(false);
+      return;
+    }
+
+    if (!usernamePattern.test(inputUsername)) {
+      toast.error("Invalid username. Must start with a letter and contain no spaces", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      setbtnState(false);
+      return;
+    }
+
     try {
-      await signUp(emailRef.current, passwordRef.current, usernameRef.current, firstNameRef.current);
+      await signUp(email, password, username, firstName);
       const token = auth.currentUser.accessToken;
       if (token) {
         axios
           .post(`${backendUrl}/user/signup`, {
-            name: firstNameRef.current,
-            username: usernameRef.current,
+            name: inputFirstName,
+            username: inputUsername,
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -129,7 +167,7 @@ export default function Signup() {
                       type="text"
                       placeholder="your name"
                       className="input input-bordered w-full bg-black border-2 border-jet"
-                      onChange={(e) => firstNameRef.current=e.target.value}
+                      onChange={(e) => setFirstName(e.target.value)}
                       pattern="^[a-zA-Z\s]*$"
                       title="Only letters and whitespaces are allowed"
                       required
@@ -148,7 +186,7 @@ export default function Signup() {
                       type="text"
                       placeholder="username"
                       className="input input-bordered w-full bg-black border-2 border-jet"
-                      onChange={(e) => usernameRef.current=e.target.value}
+                      onChange={(e) => setUsername(e.target.value)}
                       required
                       pattern="^[a-zA-Z]\S*$"
                       title="Username must start with a letter and contain no spaces (e.g., JohnDoe123)"
@@ -167,7 +205,7 @@ export default function Signup() {
                       type="email"
                       placeholder="you@mail.com"
                       className="input input-bordered w-full bg-black border-2 border-jet"
-                      onChange={(e) => emailRef.current=e.target.value}
+                      onChange={(e) => setEmail(e.target.value)}
                       required
                     />
                   </div>
@@ -184,11 +222,11 @@ export default function Signup() {
                       <input
                         type={passwordShow ? "text" : "password"}
                         className="bg-transparent border-none w-full input input-bordered"
-                        onChange={(e) => passwordRef.current=e.target.value}
+                        onChange={(e) => setPassword(e.target.value)}
                         placeholder="***************"
                         required
                       />
-                      {passwordRef.current &&
+                      {password &&
                         (passwordShow ? (
                           <EyeOff
                             onClick={passwordToggle}

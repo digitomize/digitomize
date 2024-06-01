@@ -12,7 +12,7 @@ In order to give everyone a chance to submit a pull request and contribute to th
 - [Linting and Formatting](#linting-and-formatting)
 - [Testing](#testing)
 - [Pull Request Processing](#pull-request-processing)
-  - [Only submit PRs against our `develop` branch, not the default `main` branch](#only-submit-prs-against-our-develop-branch-not-the-default-main-branch)
+  - [Only submit PRs against our `main` branch](#only-submit-prs-against-our-main-branch)
 
 <!-- tocstop -->
 

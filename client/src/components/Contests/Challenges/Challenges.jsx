@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import Card from "./Card";
 import "../../css/Contests.css";
 import { Helmet } from "react-helmet";
-import formbricks from "@formbricks/js";
+import formbricks from "@formbricks/js/website";
 import query from "./query.json";
 import { MetaData } from "../../CustomComponents";
 import comingSoonSvg from "@assets/comming_soon.svg";
@@ -11,6 +11,12 @@ const handleClick = () => {
   formbricks.track("test-01");
 };
 
+if (typeof window !== "undefined") {
+  formbricks.init({
+    environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_ENV_ID,
+    apiHost: "https://app.formbricks.com",
+  });
+}
 function Contests({ contests, range }) {
   const contentDescription =
     "Discover upcoming coding contests on Digitomize and stay in the loop with the latest challenges. Join us, take part, and put your coding skills to the test!".toLowerCase();
