@@ -1,7 +1,6 @@
 # Digitomize - [Website](https://digitomize.com)
 
-![digi](https://github.com/digitomize/digitomize/assets/133582566/24ddc91f-3602-40c3-a0a0-80cb0c2de9bb)
-
+![digi readme](https://github.com/Meetjain1/digitomize/blob/patch-1/digi%20readme.jpeg)
 
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 
@@ -25,8 +24,6 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 <img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" alt="GitBook Logo" height="auto" width="180">
 <img align="center" src="https://github.com/krushnarout/digitomize/assets/129386740/3f224853-cf4b-4318-ba27-8285d1c9a0fe" alt="MSME Logo" height="auto" width="180">
 <img align="center" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcROO_yLE47eeYv8eSiT3aMB1AWncngyOzGHYqptZwwckpfmH4m0" alt="MELT CD Logo" height="auto" width="180">
-
-<hr>
 
 <!--Featured In section-->
 ## Featured In
@@ -82,21 +79,16 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 - [License](#-license)
 - [Contact Us](#contact-us)
 
-<hr>
 
 # Introduction
 
 **Digitomize** is designed to provide developers with a comprehensive platform for exploring coding contests and creating dynamic portfolios that showcase their coding skills and achievements.
-
-<hr>
 
 # Features
 
 - **Contests Section:** Explore upcoming coding contests from platforms like LeetCode, Codeforces, CodeChef, and more. Filter contests based on various criteria and view contest details such as remaining time, duration, and more.
 
 - **User Profiles:** Create your developer portfolio by providing user handles for different coding platforms. The platform dynamically fetches and displays your updated ratings, achievements, and coding history.
-
-<hr>
 
 # Getting Started
 **Hit the star :star:**
@@ -127,8 +119,6 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 
 4. Start the development environment: `npm run dev` (This command, defined in your project's package.json, starts both the backend server and the client using the concurrently library. It's a convenient way to run both parts of your application concurrently during development.)
 
-<hr>
-
 # Usage
 
 ### Contests Section
@@ -149,7 +139,6 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
 
-<hr>
 
 <div>
   <h1><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f49e/512.webp" width="40" height="40"> Contributors</h1>
@@ -283,8 +272,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 This project is licensed under the [MIT License](./LICENSE).
 
-<hr>
-
 ## Contact Us
 
 <table>
@@ -306,7 +293,6 @@ This project is licensed under the [MIT License](./LICENSE).
     </tr>
 </table>
 
-<hr>
 
 # Buy me a Coffee ☕
 
