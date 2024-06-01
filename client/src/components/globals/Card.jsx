@@ -79,6 +79,31 @@ const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity 
 function Card({ contest }) {
   const navigate = useNavigate();
   const { name, startTimeUnix, url, duration, host, vanity } = contest;
+  //https://github.com/digitomize/digitomize/issues/822#event-13009422525
+  //the text flows out of the box if it doesn't have any spaces
+  let FormattedName = addSpaces(name);
+  function addSpaces(str) {
+    let result = "";
+    let caps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    for (let i = 0; i < str.length; i++) {
+        if ( ((str[i]).toUpperCase() === str[i] && str.charCodeAt(i - 1) <=122 && str.charCodeAt(i - 1) >=97 ) &&  i !== 0 && isNaN(str[i]) && caps.includes(str[i])) {
+            result += " ";
+        }
+        result += str[i];
+    }
+    let spacedarray = result.split("");
+    let temparray = [];
+    spacedarray.forEach(char => {
+      char.trim();
+      if(char !== ""){
+        temparray.push(char);
+      }
+    });
+    return temparray.join(" ");
+   }
+  //
+  //
+
 
   // Get the timeAndDateURL
   const timeAndDateURL = generateTimeAndDateURL(startTimeUnix);
@@ -135,7 +160,7 @@ function Card({ contest }) {
         <img src={hostToSVGMap[host]} alt={host} width="13%" />
       </div>
       <Link to={`/contests/${vanity}`} className="my-auto">
-        <h2 className="text-3xl pb-8">{name}</h2>
+        <h2 className="text-3xl pb-8">{FormattedName}</h2>
       </Link>
       <div className="flex justify-between items-end">
         <div>
