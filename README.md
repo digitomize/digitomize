@@ -1,6 +1,6 @@
 # Digitomize - [Website](https://digitomize.com)
 
-![digi readme](https://github.com/Meetjain1/digitomize/blob/main/.github/assets/digi%20readme.jpeg)
+![digi readme](.github/assets/digi%20readme.jpeg)
 
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 
