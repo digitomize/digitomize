@@ -1,5 +1,7 @@
 # Digitomize - [Website](https://digitomize.com)
 
+![digi readme](.github/assets/digi%20readme.jpeg)
+
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
@@ -13,6 +15,8 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 [![Netlify Status](https://api.netlify.com/api/v1/badges/125b14c1-ebbe-46d7-97db-c3e97674e36e/deploy-status)](https://app.netlify.com/sites/digitomize/deploys)
 [![Forks on Github](https://img.shields.io/github/forks/digitomize/digitomize)](https://github.com/digitomize/digitomize/forks)
 [![Star on GitHub](https://img.shields.io/github/stars/digitomize/digitomize.svg?style=social)](https://github.com/digitomize/digitomize/stargazers)
+
+<hr>
 
 # Supported by:
 <img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" alt="Microsoft for Startups Logo" height="auto" width="180">
@@ -57,9 +61,9 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
       <td>Innogeeks Winter of Code is a month-long open-source program envisioned by the Innogeeks. It is an online initiative that introduces new contributors to open-source software development.</td>
    </tr>
 
-   
-
 </table>
+
+<hr>
 
 ## Table of Contents
 
@@ -72,9 +76,9 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
   - [Contests Section](#contests-section)
   - [User Profiles](#user-profiles)
 - [Contributing](#contributing)
-- [License](#license)
-- [Discord](#discord)
-- [Contact](#contact-information)
+- [License](#-license)
+- [Contact Us](#contact-us)
+
 
 # Introduction
 
@@ -129,11 +133,16 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 - The platform dynamically fetches and displays your latest ratings, achievements, and contest history.
 - Customize your portfolio to display the information you want to share with others.
 
+<hr>
+
 # Contributing
 
 Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
 
-# Contributors ✨
+
+<div>
+  <h1><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f49e/512.webp" width="40" height="40"> Contributors</h1>
+</div>
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -257,17 +266,36 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-# License
+<hr>
 
-This project is licensed under the [MIT License](LICENSE).
+<!-- License -->
+<div>
+<h2><img src = "https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" alt="Page with Curl Emoji" width="35" height="35"> License</h2>
+</div>
 
-# Discord
+This project is licensed under the [MIT License](./LICENSE).
 
-Join Our [Discord Community](https://digitomize.com/discord) for any help and troubleshooting.
+## Contact Us
 
-# Contact Information
+<table>
+    <tr>
+        <th>Source</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><a href="https://digitomize.com/discord" target="_blank">
+            <img src="https://discord.com/assets/847541504914fd33810e70a0ea73177e.ico" alt="Discord Logo" width="50" height="50">
+        </a></td>
+        <td>Join Our Discord Community for any help and troubleshooting.</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/digitomize/digitomize/blob/main/CONTACT.md" target="_blank">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Contributing Logo" width="50" height="50">
+        </a></td>
+        <td>For more ways to get in touch, refer to our CONTACT.md file. </td>
+    </tr>
+</table>
 
-For more ways to get in touch, refer to our [CONTACT.md](CONTACT.md).
 
 # Buy me a Coffee ☕
 
