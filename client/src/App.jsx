@@ -253,13 +253,13 @@ const router = createBrowserRouter(
 function App() {
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+   useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
 
-    return () => clearTimeout(timer);
-  }, []); // Only run once after the initial render
+      return () => clearTimeout(timer);
+    }, []);
 
   return (
     <>
