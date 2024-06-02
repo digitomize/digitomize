@@ -48,4 +48,5 @@ fetchAllContributorsFile();
 router.get("/stats", (req, res) => {
   if (cachedContributorStats && (Date.now() - lastUpdated) < 12 * 60 * 60 * 1000) {
     return res.json(cachedContributorStats);
+  }
 });
