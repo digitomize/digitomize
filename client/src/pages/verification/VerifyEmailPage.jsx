@@ -15,7 +15,7 @@ const VerifyEmailPage = () => {
     );
     async function verifyEmail() {
       try {
-        setIsLoading(true);
+        setIsLoading((prevState)=>!prevState);
 
         if (isMounted) {
           await applyActionCode(auth, oobCode);
@@ -33,7 +33,7 @@ const VerifyEmailPage = () => {
           setIsSuccess(true);
         }
       } catch (error) {
-        if (isMounted) {
+  
           setIsError(true);
           toast.error(error.code, {
             position: "top-right",
@@ -45,7 +45,7 @@ const VerifyEmailPage = () => {
             progress: undefined,
             theme: "colored",
           });
-        }
+       
       } finally {
 
           setIsLoading(false);
@@ -57,6 +57,7 @@ const VerifyEmailPage = () => {
       isMounted = false;
     };
   }, [isMounted]);
+  console.log(isMounted);
   if (isLoading) {
     return (
       <div className="h-screen flex items-center justify-center z-30">
@@ -82,9 +83,18 @@ const VerifyEmailPage = () => {
           </h1>
           <Link
             to="/login"
-            className="text-black bg-white hover:bg-[#4285f4] phonesm:text-md  md:text-2xl hover:text-white transition py-2 px-4 rounded-md self-center"
+            className="relative inline-flex items-center justify-center px-6 py-2 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group min-w-2/5"
           >
-            Login
+             <span
+                  className={`absolute inset-0 w-full h-full mt-1 ml-1 transition-all duration-300 ease-in-out bg-[#4285f4] rounded-md group-hover:mt-0 group-hover:ml-0`}
+                />
+                <span className="absolute inset-0 w-full h-full bg-white rounded-md "/>
+                <span
+                  className={`absolute inset-0 w-full h-full transition-all duration-200 ease-in-out delay-100 bg-[#4285f4] rounded-md opacity-0 group-hover:opacity-100 `}
+                />
+                <span className="relative text-black transition-colors duration-200 ease-in-out delay-100 group-hover:text-white">
+                  Login
+                </span>
           </Link>
         </main>
       </div>
@@ -99,11 +109,20 @@ const VerifyEmailPage = () => {
           Oops!! something went wrong , Please try again later
         </h1>
         <Link
-          to="/"
-          className="text-black bg-white hover:bg-[#4285f4] hover:text-white transition py-2 px-4 phonesm:text-md  md:text-2xl rounded-md self-center"
-        >
-          Home
-        </Link>
+            to="/"
+            className="relative inline-flex items-center justify-center px-6 py-2 text-lg font-medium tracking-tighter text-white bg-gray-800 rounded-md group min-w-2/5"
+          >
+             <span
+                  className={`absolute inset-0 w-full h-full mt-1 ml-1 transition-all duration-300 ease-in-out bg-[#4285f4] rounded-md group-hover:mt-0 group-hover:ml-0`}
+                />
+                <span className="absolute inset-0 w-full h-full bg-white rounded-md "/>
+                <span
+                  className={`absolute inset-0 w-full h-full transition-all duration-200 ease-in-out delay-100 bg-[#4285f4] rounded-md opacity-0 group-hover:opacity-100 `}
+                />
+                <span className="relative text-black transition-colors duration-200 ease-in-out delay-100 group-hover:text-white">
+                  Home
+                </span>
+          </Link>
       </div>
       </>
     );
