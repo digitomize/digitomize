@@ -48,18 +48,4 @@ fetchAllContributorsFile();
 router.get("/stats", (req, res) => {
   if (cachedContributorStats && (Date.now() - lastUpdated) < 12 * 60 * 60 * 1000) {
     return res.json(cachedContributorStats);
-  } else {
-    fetchAllContributorsFile()
-      .then(() => {
-        if (cachedContributorStats) {
-          res.json(cachedContributorStats);
-        } else {
-          res.status(500).json({ message: "Error fetching contributor stats." });
-        }
-      })
-      .catch(error => {
-        console.error("Error in /stats route:", error.message);
-        res.status(500).json({ message: "Internal server error" });
-      });
-  }
 });
