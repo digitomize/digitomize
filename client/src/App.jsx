@@ -251,10 +251,9 @@ const router = createBrowserRouter(
   ),
 );
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate an async operation, e.g., fetching data or initial setup
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
