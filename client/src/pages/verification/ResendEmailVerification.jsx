@@ -10,10 +10,9 @@ export async function loader() {
   const loggedIn = await isLoggedIn();
   if (loggedIn && auth.currentUser.emailVerified) {
     return redirect("/u/dashboard");
-  }else if (!loggedIn ) {
+  }else  {
     return redirect("/login");
   }
-  return null;
 }
 
 const ResendEmailVerification = () => {
