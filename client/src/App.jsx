@@ -260,7 +260,7 @@ function App() {
     }, 2000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [user]);
 
   return (
     <>
@@ -268,7 +268,7 @@ function App() {
         <UserContextProvider>
           <ToastContainer />
           <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
-            {isLoading ? <Loader /> : <RouterProvider router={router} />}
+            {isLoading ? <Loader/> : <RouterProvider router={router} />}
           </LocalizationProvider>
         </UserContextProvider>
       </UserAuthContextProvider>
