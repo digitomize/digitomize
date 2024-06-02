@@ -61,24 +61,23 @@ async function leetcode_u (handle) {
               globalRanking: 0,
             };
           }
-          if([null,undefined].includes(userInfo.data?.matchedUser)){
+          if ([null, undefined].includes(userInfo.data?.matchedUser)) {
             userInfo.data.userContestRanking = {
               ...userInfo.data.userContestRanking,
-              totalQuestions:0,
-              easyQuestions:0,
-              mediumQuestions:0,
-              hardQuestions:0
-            }
-          }else if(Object.hasOwn(userInfo.data?.matchedUser,'submitStats')){
-            const {submitStats:{acSubmissionNum:[all,easy,medium,hard]}} = userInfo.data?.matchedUser;
+              totalQuestions: 0,
+              easyQuestions: 0,
+              mediumQuestions: 0,
+              hardQuestions: 0,
+            };
+          } else if (Object.hasOwn(userInfo.data?.matchedUser, "submitStats")) {
+            const { submitStats: { acSubmissionNum: [all, easy, medium, hard] } } = userInfo.data?.matchedUser;
             userInfo.data.userContestRanking = {
               ...userInfo.data.userContestRanking,
-              totalQuestions:all.count,
-              easyQuestions:easy.count,
-              mediumQuestions:medium.count,
-              hardQuestions:hard.count
-            }
-            
+              totalQuestions: all.count,
+              easyQuestions: easy.count,
+              mediumQuestions: medium.count,
+              hardQuestions: hard.count,
+            };
           }
           // console.log(userInfo)
           userInfo.data.userContestRanking.rank = userInfo.data.userContestRanking?.badge?.name || "none";

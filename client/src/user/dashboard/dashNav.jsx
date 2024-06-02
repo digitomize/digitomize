@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { useState } from 'react';
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa6";
 import { navLinks, accountLinks } from "./dashboardLinks";
@@ -48,7 +48,7 @@ function DashNav({ toggleActive }) {
                                         <Novu user={user} />
                                     </div>
                                     <div className="relative inline-block text-left">
-                                        <button className={`inline-flex justify-center w-full px-2 py-1 rounded transition btn btn-ghost`}>
+                                        <button className={"inline-flex justify-center w-full px-2 py-1 rounded transition btn btn-ghost"}>
                                             <div className="flex items-center space-x-2">
                                                 <div className="relative">
                                                     <img className="rounded-full shrink-0 w-7 ring-2 ring-transparent " src={user.photoURL} alt="" />
@@ -71,7 +71,7 @@ function DashNav({ toggleActive }) {
 
             </header>
         </>
-    )
+    );
 }
 
-export default DashNav
+export default DashNav;

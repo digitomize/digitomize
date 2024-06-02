@@ -26,7 +26,7 @@ const UserDashBoardAccount = () => {
   });
   const handleInputChangeObjData = (event) => {
     const { name, value } = event.target;
-    if(name==='phoneNumber')
+    if(name==="phoneNumber")
     setFormData((prevData) => ({
       ...prevData,
       [name]: {
@@ -37,7 +37,7 @@ const UserDashBoardAccount = () => {
     else
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
   async function handleSubmit(event) {
@@ -119,7 +119,7 @@ const UserDashBoardAccount = () => {
             </div>
           </div>
           <div className="flex w-full max-md:flex-col gap-4 justify-between max-md:items-center">
-          <div className="btn-div " style={{ boxShadow: `8px 8px #B55B52` }}>
+          <div className="btn-div " style={{ boxShadow: "8px 8px #B55B52" }}>
               <button
               type="submit"
                 style={{
@@ -132,7 +132,7 @@ const UserDashBoardAccount = () => {
               Delete Account
               </button>
             </div>
-            <div className="btn-div" style={{ boxShadow: `8px 8px #2E8D46` }}>
+            <div className="btn-div" style={{ boxShadow: "8px 8px #2E8D46" }}>
               <button disabled={isDisabled}
               onClick={handleSubmit}
               type="submit"

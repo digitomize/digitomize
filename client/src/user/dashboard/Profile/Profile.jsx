@@ -1,9 +1,9 @@
-import React from 'react'
-import ImageUploader from '../../../components/ImageUploader'
-import { useLoaderData } from 'react-router-dom';
-import { useState } from 'react';
-import { submitUserFormData } from '../../../../api';
-import { toast, ToastContainer } from 'react-toastify';
+import React from "react";
+import ImageUploader from "../../../components/ImageUploader";
+import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
+import { submitUserFormData } from "../../../../api";
+import { toast, ToastContainer } from "react-toastify";
 import BasicInfo from "./BasicInfo";
 import GenderAndDOB from "./GenderAndDOB";
 import SubmitBtn from "./SubmitBtn";

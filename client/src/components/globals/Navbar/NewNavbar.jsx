@@ -175,8 +175,8 @@ export default function NewNavbar({ position }) {
                     } hover:bg-zinc-200`}
                 >
                   {navLink.title}
-                </Link>)
-            }
+                </Link>);
+            },
             )}
             {renderAdminLink()}
           </div>

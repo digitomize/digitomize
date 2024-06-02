@@ -8,7 +8,7 @@ import { changeUserPreferences, submitUserFormData, userDashboardDetails } from 
 // import { useUserAuth } from '../../context/UserAuthContext'
 import { ToastContainer, toast } from "react-toastify";
 import { Skeleton } from "@mui/material";
-import { Switch, FormControlLabel } from '@mui/material';
+import { Switch, FormControlLabel } from "@mui/material";
 import NewNavbar from "../../components/globals/Navbar/NewNavbar";
 import DashboardNavbar from "../components/DashboardNavbar";
 import Footer from "../../components/globals/Footer";
@@ -141,9 +141,9 @@ export default function Preferences() {
     toast.promise(
       response,
       {
-        pending: 'Updating preferences... 🤔',
-        success: 'Preferences updated successfully! 🎉',
-        error: 'Failed to update preferences! 😢',
+        pending: "Updating preferences... 🤔",
+        success: "Preferences updated successfully! 🎉",
+        error: "Failed to update preferences! 😢",
       },
   );
 

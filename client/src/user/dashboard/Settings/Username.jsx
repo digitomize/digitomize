@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 function Username({ username, handleInputChange, handleSubmit, isDisabled }) {
 
     return (
@@ -12,7 +12,7 @@ function Username({ username, handleInputChange, handleSubmit, isDisabled }) {
                 <div className="flex-2 rounded-lg shadow bg-dashboardColor border border-jet">
                     <div className="p-6 sm:w-9/12">
                         <label className="phone:ml-1 mt-5 text-xs font-medium text-secondary" htmlFor="firstName">Username</label>
-                        <input style={{ backgroundColor: 'RGB(17, 19, 18)' }}
+                        <input style={{ backgroundColor: "RGB(17, 19, 18)" }}
                             autoComplete="off"
                             type="text"
                             name="username"

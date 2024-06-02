@@ -115,8 +115,8 @@ export default function NewNavbar({ position }) {
                     } hover:bg-zinc-200`}
                 >
                   {navLink.title}
-                </Link>)
-            }
+                </Link>);
+            },
             )}
             {userDetails && userDetails.personal_data.role === ROLE.ADMIN && (
               <Link
