@@ -270,10 +270,8 @@ export async function submitUserImage(formData) {
 
   if (
     res?.status === 200 &&
-    res?.code !== "ERR_BAD_REQUEST" &&
-    res?.code !== "ERR_NETWORK"
+    !["ERR_BAD_REQUEST", "ERR_NETWORK"].includes(res?.code)
   ) {
-    // 200 is the HTTP status code for "OK"
     toast.success("Profile Image updated successfully", {
       position: "top-left",
       autoClose: 1500,
