@@ -15,6 +15,8 @@ import { cn } from "../../lib/utils";
 import AnimatedGradientText from "../../components/magicui/animated-gradient-text";
 import { ChevronRight } from "lucide-react";
 import AuthModal from "../globals/AuthModal";
+import Marquee from "react-fast-marquee";
+
 
 export default function SectionOne() {
 
@@ -138,7 +140,8 @@ export default function SectionOne() {
         <span>
           <p className="text-lg text-powered">Supported By</p>
         </span>
-        <span className="flex flex-row flex-wrap gap-4 items-center justify-center">
+        <Marquee gradient gradientColor="#06090E" pauseOnHover className="max-w-xl md:max-w-2xl lg:max-w-3xl">
+        <span className="flex flex-row flex-wrap gap-4 px-2 items-center justify-center">
           <a href="https://m.do.co/c/db7dbc698e16">
             <img
               className="max-md:w-36 md:w-44"
@@ -180,6 +183,7 @@ export default function SectionOne() {
           />
         </a>
         </span>
+        </Marquee>
       </motion.div>
     </div>
   );
