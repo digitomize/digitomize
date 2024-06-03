@@ -1,7 +1,7 @@
 import { useUserAuth } from "../../../context/UserAuthContext";
 import { useEffect, useState } from "react";
 import React from "react";
-import { submitUserFormData } from "../../../../api";
+import { submitUserImage } from "../../../../api";
 import UploadPicture from "../../../components/UploadPicture";
 
 // import ImageUploader from "../../../components/ImageUploader";
@@ -111,7 +111,7 @@ function BasicInfo({formData,setFormData,handleInputChange,handleInputChangeObjD
     useEffect(() => {
         if (sendReqUserImage) {
             formData.picture = selectedFile;
-            submitUserFormData(formData);
+            submitUserImage(formData);
         }
     }, [sendReqUserImage]);
 
