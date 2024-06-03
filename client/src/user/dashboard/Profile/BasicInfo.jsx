@@ -133,7 +133,7 @@ function BasicInfo({formData,setFormData,handleInputChange,handleInputChangeObjD
 
                             <div className="flex-0 px-4 flex flex-col justify-center items-center h-28">
                                 <div className="relative text-center">
-                                    <img src={formData.picture} alt="profile" className="w-16 rounded-full" />
+                                    <img src={selectedFile ? URL.createObjectURL(selectedFile) : formData.picture} alt="profile" className="w-16 rounded-full" />
                                     <label className="mt-5 text-xs font-medium text-secondary text-center cursor-pointer" htmlFor="useImageInput">Upload</label>
                                     <input type="file" id="useImageInput" accept="image/*" onChange={(event) => {
                                         setSelectedFile(event.target.files[0]);

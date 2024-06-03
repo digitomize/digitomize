@@ -180,7 +180,6 @@ async function uploadPictureToCloudinary(formData, accessToken, uid) {
       const photo = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/ar_1.0,c_fill,g_face/f_auto/r_max/v${res.data.version}/users/${uid}.${res.data.format}`;
       formData.picture = photo;
       updateProfile(auth.currentUser, {
-        // photoURL: res.data.url,
         photoURL: photo,
       });
     })
