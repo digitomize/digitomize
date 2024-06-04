@@ -14,7 +14,9 @@ import microsoft from "./svgs/microsoft4strp.svg";
 import { cn } from "../../lib/utils";
 import AnimatedGradientText from "../../components/magicui/animated-gradient-text";
 import { ChevronRight } from "lucide-react";
+import AuthModal from "../globals/AuthModal";
 import Marquee from "react-fast-marquee";
+
 
 export default function SectionOne() {
 
@@ -117,15 +119,10 @@ export default function SectionOne() {
             </div>
           </Link>
         ) : (
-          <Link
-            to="/signup"
-            className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border"
-          >
-            <div className="flex justify-center items-center gap-1">
-              Register Now
+            <div className="flex justify-center items-center gap-1  px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border">
+              <AuthModal page={"signup"}/>
               <MdPlayArrow />
             </div>
-          </Link>
         )}
       </motion.div>
       <motion.div
