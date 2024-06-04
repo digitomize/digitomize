@@ -5,7 +5,7 @@
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-83-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-84-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Website: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9g.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
 
@@ -257,6 +257,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://keshavpriyam.vercel.app/"><img src="https://avatars.githubusercontent.com/u/95236968?v=4?s=100" width="100px;" alt="Keshav Priyam"/><br /><sub><b>Keshav Priyam</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=kshavp" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/RamakrushnaBiswal"><img src="https://avatars.githubusercontent.com/u/125277258?v=4?s=100" width="100px;" alt="Ramakrushna Biswal"/><br /><sub><b>Ramakrushna Biswal</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=RamakrushnaBiswal" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/RohittCodes"><img src="https://avatars.githubusercontent.com/u/104308198?v=4?s=100" width="100px;" alt="Rohith Singh"/><br /><sub><b>Rohith Singh</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=RohittCodes" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Ajen07"><img src="https://avatars.githubusercontent.com/u/112967686?v=4?s=100" width="100px;" alt="Arman Kumar Jena"/><br /><sub><b>Arman Kumar Jena</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Ajen07" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
