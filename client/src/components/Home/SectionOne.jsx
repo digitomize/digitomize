@@ -188,7 +188,7 @@ export default function SectionOne() {
             alt="meltcd"
           />
         </a>
-        <a href="https://www.netlify.com">
+        <a href="https://www.netlify.com" aria-label="Visit Netlify">
           <img
             className="max-md:w-32 md:w-40"
             src={netlify}
