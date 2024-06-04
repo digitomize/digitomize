@@ -19,11 +19,15 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 <hr>
 
 # Supported by:
-<img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" alt="Microsoft for Startups Logo" height="auto" width="180">
+<a href="https://www.microsoft.com/en-us/startups"><img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" alt="Microsoft for Startups Logo" height="auto" width="180"></a>
 <a href="https://m.do.co/c/db7dbc698e16" target="_blank"><img align="center" src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" alt="DigitalOcean Logo" height="150" width="180"></a> 
-<img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" alt="GitBook Logo" height="auto" width="180">
-<img align="center" src="https://github.com/krushnarout/digitomize/assets/129386740/3f224853-cf4b-4318-ba27-8285d1c9a0fe" alt="MSME Logo" height="auto" width="180">
-<img align="center" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcROO_yLE47eeYv8eSiT3aMB1AWncngyOzGHYqptZwwckpfmH4m0" alt="MELT CD Logo" height="auto" width="180">
+<a href="https://www.gitbook.com/"><img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" alt="GitBook Logo" height="auto" width="180"></a>
+<a href="https://msme.gov.in/"><img align="center" src="https://github.com/krushnarout/digitomize/assets/129386740/3f224853-cf4b-4318-ba27-8285d1c9a0fe" alt="MSME Logo" height="auto" width="180"></a> <br>
+<a href="https://github.com/digitomize/digitomize"><img align="center" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcROO_yLE47eeYv8eSiT3aMB1AWncngyOzGHYqptZwwckpfmH4m0" alt="MELT CD Logo" height="auto" width="180"></a>
+<a href="https://www.netlify.com"><img align="center" src="https://github.com/digitomize/digitomize/assets/125277258/b3aecf30-148b-4d73-a704-ffc5b725b056" alt="netlify Logo" height="auto" width="180"></a>
+<a href="https://cloud.google.com/startup"><img align="center" src="https://github.com/digitomize/digitomize/assets/125277258/de5be07a-c83f-4159-b325-b2d80caa80d1" alt="google cloud startup Logo" height="auto" width="180"></a>
+<a href="https://www.holopin.io/"><img align="center" src="https://github.com/RamakrushnaBiswal/digitomize/assets/125277258/e6be4a94-010f-4556-bf1c-8fe27833af44" alt="Holopin Logo" height="auto" width="180"></a>
+
 
 <!--Featured In section-->
 ## Featured In
