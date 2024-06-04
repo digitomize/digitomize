@@ -9,6 +9,7 @@ import {
   signInWithPopup,
   GithubAuthProvider,
   updateProfile,
+  sendEmailVerification,
 } from "firebase/auth";
 
 import { auth } from "../../firebase";
@@ -37,6 +38,11 @@ export function UserAuthContextProvider({ children }) {
             console.error("Error updating profile:", error);
           });
         const token = await user.getIdToken();
+        sendEmailVerification(user).then(() => {
+          /* console.log("Email verification sent."); */
+        }).catch((error) => {
+          console.error("Error sending email verification:", error);
+        });
         return { result, token };
       })
       .catch((error) => {
