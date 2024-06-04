@@ -21,8 +21,9 @@ import { Eye, EyeOff } from "lucide-react";
 export async function loader({ request }) {
   const message = new URL(request.url).searchParams.get("message");
   const loggedIn = await isLoggedIn();
+
   if (loggedIn) {
-    return redirect("/u/dashboard");
+      return redirect("/u/dashboard");
   }
 
   return message;
