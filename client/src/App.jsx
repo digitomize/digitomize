@@ -34,6 +34,7 @@ import {
   About,
   Footer,
   MetaData,
+  resendLoader
 } from "./components/CustomComponents";
 // import UserDashBoardAccount from "./user/dashboard/Account";
 import UserDashboard from "./user/dashboard/UserDashboard";
@@ -57,6 +58,9 @@ import { loader as userDashPersonalLoader } from './user/dashboard/UserDashPerso
 import UserDashBoardProfile from "./user/dashboard/Profile/Profile";
 import Leaderboard from "./user/leaderboard/Leaderboard";
 import UserDashBoardWidget from "./user/dashboard/Widget";
+
+//Loader
+import Loader from "./components/globals/Loader/Loader";
 
 import Career from "./user/dashboard/Career/Career"
 /*------------ DSA Sheets Import ------------ */
@@ -117,6 +121,8 @@ import { userDashboardDetails } from "../api";
 import Preferences from "./user/dashboard/Preferences/Preferences";
 import Ratings from "./user/dashboard/Ratings/Ratings";
 import Settings from "./user/dashboard/Settings/Settings";
+import ResendEmailVerification from "./pages/verification/ResendEmailVerification";
+import VerifyEmailPage from "./pages/verification/VerifyEmailPage";
 
 function Logout() {
   const navigate = useNavigate();
@@ -177,6 +183,12 @@ const router = createBrowserRouter(
         <Route path="logout" element={<Logout />} />
         <Route path="signup" element={<Signup />} loader={signupLoader} />
         <Route path="forgot-password" element={<ForgotPassword />} loader={forgotPasswordLoader} />
+        <Route
+        path="resend-email-verification"
+        element={<ResendEmailVerification />}
+        loader={resendLoader}
+      />
+       <Route path="user-email-verification" element={<VerifyEmailPage />} />
         <Route element={<ContestPageLayout />}>
           <Route path="contests" element={<Filter />} />
           <Route path="challenges" element={<Challenges />} />
@@ -248,13 +260,23 @@ const router = createBrowserRouter(
   ),
 );
 function App() {
+    const [isLoading, setIsLoading] = useState(true);
+
+   useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }, []);
+
   return (
     <>
       <UserAuthContextProvider>
         <UserContextProvider>
           <ToastContainer />
           <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
-            <RouterProvider router={router} />
+            {isLoading ? <Loader/> : <RouterProvider router={router} />}
           </LocalizationProvider>
         </UserContextProvider>
       </UserAuthContextProvider>

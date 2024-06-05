@@ -5,7 +5,7 @@
 **Digitomize**, part of **Microsoft for Startups Founders Hub**, is an open-source platform that combines two main sections: Contests and User Profiles. It allows users to explore upcoming coding contests and dynamically create developer portfolios. </br>
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-83-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-84-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 Website: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/zb9g.svg)](https://uptime.betterstack.com/?utm_source=status_badge)
 
@@ -19,11 +19,15 @@ V2api: [![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/mo
 <hr>
 
 # Supported by:
-<img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" alt="Microsoft for Startups Logo" height="auto" width="180">
+<a href="https://www.microsoft.com/en-us/startups"><img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/db77eeb6-2a32-4c5e-8caa-00ca6447a5f2" alt="Microsoft for Startups Logo" height="auto" width="180"></a>
 <a href="https://m.do.co/c/db7dbc698e16" target="_blank"><img align="center" src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" alt="DigitalOcean Logo" height="150" width="180"></a> 
-<img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" alt="GitBook Logo" height="auto" width="180">
-<img align="center" src="https://github.com/krushnarout/digitomize/assets/129386740/3f224853-cf4b-4318-ba27-8285d1c9a0fe" alt="MSME Logo" height="auto" width="180">
-<img align="center" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcROO_yLE47eeYv8eSiT3aMB1AWncngyOzGHYqptZwwckpfmH4m0" alt="MELT CD Logo" height="auto" width="180">
+<a href="https://www.gitbook.com/"><img align="center" src="https://github.com/digitomize/digitomize/assets/76090263/efd3da13-2571-4ae2-b399-554df138190f" alt="GitBook Logo" height="auto" width="180"></a>
+<a href="https://msme.gov.in/"><img align="center" src="https://github.com/krushnarout/digitomize/assets/129386740/3f224853-cf4b-4318-ba27-8285d1c9a0fe" alt="MSME Logo" height="auto" width="180"></a> <br>
+<a href="https://github.com/digitomize/digitomize"><img align="center" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcROO_yLE47eeYv8eSiT3aMB1AWncngyOzGHYqptZwwckpfmH4m0" alt="MELT CD Logo" height="auto" width="180"></a>
+<a href="https://www.netlify.com"><img align="center" src="https://github.com/digitomize/digitomize/assets/125277258/b3aecf30-148b-4d73-a704-ffc5b725b056" alt="netlify Logo" height="auto" width="180"></a>
+<a href="https://cloud.google.com/startup"><img align="center" src="https://github.com/digitomize/digitomize/assets/125277258/de5be07a-c83f-4159-b325-b2d80caa80d1" alt="google cloud startup Logo" height="auto" width="180"></a>
+<a href="https://www.holopin.io/"><img align="center" src="https://github.com/RamakrushnaBiswal/digitomize/assets/125277258/e6be4a94-010f-4556-bf1c-8fe27833af44" alt="Holopin Logo" height="auto" width="180"></a>
+
 
 <!--Featured In section-->
 ## Featured In
@@ -255,8 +259,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/kapilG0"><img src="https://avatars.githubusercontent.com/u/59639410?v=4?s=100" width="100px;" alt="KAPIL GUPTA"/><br /><sub><b>KAPIL GUPTA</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=kapilG0" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/yashi-15"><img src="https://avatars.githubusercontent.com/u/132138302?v=4?s=100" width="100px;" alt="yashi-15"/><br /><sub><b>yashi-15</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=yashi-15" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://keshavpriyam.vercel.app/"><img src="https://avatars.githubusercontent.com/u/95236968?v=4?s=100" width="100px;" alt="Keshav Priyam"/><br /><sub><b>Keshav Priyam</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=kshavp" title="Code">💻</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/RamakrushnaBiswal"><img src="https://avatars.githubusercontent.com/u/125277258?v=4?s=100" width="100px;" alt="Ramakrushna Biswal"/><br /><sub><b>Ramakrushna Biswal</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=RamakrushnaBiswal" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/RamakrushnaBiswal"><img src="https://avatars.githubusercontent.com/u/125277258?v=4?s=100" width="100px;" alt="Ramakrushna Biswal"/><br /><sub><b>Ramakrushna Biswal</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=RamakrushnaBiswal" title="Code">💻</a> <a href="https://github.com/digitomize/digitomize/commits?author=RamakrushnaBiswal" title="Documentation">📖</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/RohittCodes"><img src="https://avatars.githubusercontent.com/u/104308198?v=4?s=100" width="100px;" alt="Rohith Singh"/><br /><sub><b>Rohith Singh</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=RohittCodes" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Ajen07"><img src="https://avatars.githubusercontent.com/u/112967686?v=4?s=100" width="100px;" alt="Arman Kumar Jena"/><br /><sub><b>Arman Kumar Jena</b></sub></a><br /><a href="https://github.com/digitomize/digitomize/commits?author=Ajen07" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
