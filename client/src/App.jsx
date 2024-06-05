@@ -59,6 +59,9 @@ import UserDashBoardProfile from "./user/dashboard/Profile/Profile";
 import Leaderboard from "./user/leaderboard/Leaderboard";
 import UserDashBoardWidget from "./user/dashboard/Widget";
 
+//Loader
+import Loader from "./components/globals/Loader/Loader";
+
 import Career from "./user/dashboard/Career/Career"
 /*------------ DSA Sheets Import ------------ */
 import SheetLayout from "./dsaSheets/layout/SheetLayout";
@@ -257,13 +260,23 @@ const router = createBrowserRouter(
   ),
 );
 function App() {
+    const [isLoading, setIsLoading] = useState(true);
+
+   useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }, []);
+
   return (
     <>
       <UserAuthContextProvider>
         <UserContextProvider>
           <ToastContainer />
           <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
-            <RouterProvider router={router} />
+            {isLoading ? <Loader/> : <RouterProvider router={router} />}
           </LocalizationProvider>
         </UserContextProvider>
       </UserAuthContextProvider>
