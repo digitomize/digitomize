@@ -15,9 +15,9 @@ import { cn } from "../../lib/utils";
 import AnimatedGradientText from "../../components/magicui/animated-gradient-text";
 import { ChevronRight } from "lucide-react";
 import Marquee from "react-fast-marquee";
+import { FollowerPointerCard } from "../following-pointer";
 
 export default function SectionOne() {
-
   const { user } = useUserAuth();
   return (
     <div className="font-['Geist'] xl:pt-8 max-md:pt-4 items-center flex flex-col text-center phone:mt-16">
@@ -36,64 +36,68 @@ export default function SectionOne() {
           <div className="z-10 flex min-h-[2rem] items-center justify-center">
             <AnimatedGradientText>
               <span
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                "inline animate-gradient bg-gradient-to-r from-[#f0f8ff] via-[#f0f8ff] to-[#f0f8ff] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent flex justify-center items-center",
-                )}>
-                  We're Open Source 
-                  <hr className="mx-2 h-4 w-[0.5px] bg-[#f0f8ff]" />
-                  Star Now!
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "inline animate-gradient bg-gradient-to-r from-[#f0f8ff] via-[#f0f8ff] to-[#f0f8ff] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent flex justify-center items-center",
+                )}
+              >
+                We're Open Source
+                <hr className="mx-2 h-4 w-[0.5px] bg-[#f0f8ff]" />
+                Star Now!
               </span>
               &nbsp;
-              <Star fontSize="small" sx={{color:"gold"}}/>
+              <Star fontSize="small" sx={{ color: "gold" }} />
               <ChevronRight
-              className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5"
-              style={{ color: "#f0f8ff" }}
+                className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5"
+                style={{ color: "#f0f8ff" }}
               />
             </AnimatedGradientText>
           </div>
         </Link>
       </motion.div>
-      <div className="w-10/12">
-        <motion.h1
-          initial={{ opacity: 0, x: -150 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 1,
-            type: "spring",
-            stiffness: 100,
-            delay: 0.5,
-          }}
-          className="mt-2 text-white max-md:text-4xl md:text-7xl"
-        >
-          <span>One place for all your</span>
-          <span className="block mt-1 md:mt-6 relative">
-            <span className="bg-digitomize-bg px-2 relative">
-              <span className="relative z-10">
-                {/* <img src={santaHat} className="absolute -rotate-45 transform h-16 w-16 -left-2 top-[-10%]" alt="Santa Hat" /> */}
-                coding platforms
-              </span>
+      <FollowerPointerCard user={user}>
+        <div className="w-10/12">
+          <motion.h1
+            initial={{ opacity: 0, x: -150 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 1,
+              type: "spring",
+              stiffness: 100,
+              delay: 0.5,
+            }}
+            className="mt-2 text-white max-md:text-4xl md:text-7xl"
+          >
+            <span>One place for all your</span>
+            <span className="block mt-1 md:mt-6 relative">
+              <span className="bg-digitomize-bg px-2 relative">
+                <span className="relative z-10">
+                  {/* <img src={santaHat} className="absolute -rotate-45 transform h-16 w-16 -left-2 top-[-10%]" alt="Santa Hat" /> */}
+                  coding platforms
+                </span>
+              </span>{" "}
+              needs
             </span>{" "}
-            needs
-          </span>{" "}
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, x: -150 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 1,
-            type: "spring",
-            stiffness: 100,
-            delay: 1,
-          }}
-          className="text-description max-sm:text-sm sm:text-md md:text-xl mt-6"
-        >
-          Elevate your coding and development journey with digitomize
-        </motion.p>
-      </div>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, x: -150 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 1,
+              type: "spring",
+              stiffness: 100,
+              delay: 1,
+            }}
+            className="text-description max-sm:text-sm sm:text-md md:text-xl mt-6"
+          >
+            Elevate your coding and development journey with digitomize
+          </motion.p>
+        </div>
+      </FollowerPointerCard>
+
       <motion.div
         initial={{ opacity: 0, y: 150 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -143,49 +147,54 @@ export default function SectionOne() {
         <span>
           <p className="text-lg text-powered">Supported By</p>
         </span>
-        <Marquee gradient gradientColor="#06090E" pauseOnHover className="max-w-xl md:max-w-2xl lg:max-w-3xl">
-        <span className="flex flex-row flex-wrap gap-4 px-2 items-center justify-center">
-          <a href="https://m.do.co/c/db7dbc698e16">
-            <img
-              className="max-md:w-36 md:w-44"
-              src={digitalOcean}
-              draggable={false}
-              alt="microsoft"
-            />
-          </a>
-          <a href="https://www.microsoft.com/en-us/startups">
-          <img
-            className="max-md:w-32 md:w-40"
-            src={microsoft}
-            draggable={false}
-            alt="microsoft"
-          />
-        </a>
-        <a href="https://www.gitbook.com/">
-          <img
-            className="max-md:w-32 md:w-40"
-            src={gitbook}
-            draggable={false}
-            alt="gitbook"
-          />
-        </a>
-        <a href="https://msme.gov.in/">
-          <img
-            className="w-15 sm:w-25 md:w-30"
-            src={msme}
-            draggable={false}
-            alt="msme"
-          />
-        </a>
-        <a href="https://github.com/digitomize/digitomize">
-          <img
-            className="max-md:w-32 md:w-40"
-            src={meltcd}
-            draggable={false}
-            alt="meltcd"
-          />
-        </a>
-        </span>
+        <Marquee
+          gradient
+          gradientColor="#06090E"
+          pauseOnHover
+          className="max-w-xl md:max-w-2xl lg:max-w-3xl"
+        >
+          <span className="flex flex-row flex-wrap gap-4 px-2 items-center justify-center">
+            <a href="https://m.do.co/c/db7dbc698e16">
+              <img
+                className="max-md:w-36 md:w-44"
+                src={digitalOcean}
+                draggable={false}
+                alt="microsoft"
+              />
+            </a>
+            <a href="https://www.microsoft.com/en-us/startups">
+              <img
+                className="max-md:w-32 md:w-40"
+                src={microsoft}
+                draggable={false}
+                alt="microsoft"
+              />
+            </a>
+            <a href="https://www.gitbook.com/">
+              <img
+                className="max-md:w-32 md:w-40"
+                src={gitbook}
+                draggable={false}
+                alt="gitbook"
+              />
+            </a>
+            <a href="https://msme.gov.in/">
+              <img
+                className="w-15 sm:w-25 md:w-30"
+                src={msme}
+                draggable={false}
+                alt="msme"
+              />
+            </a>
+            <a href="https://github.com/digitomize/digitomize">
+              <img
+                className="max-md:w-32 md:w-40"
+                src={meltcd}
+                draggable={false}
+                alt="meltcd"
+              />
+            </a>
+          </span>
         </Marquee>
       </motion.div>
     </div>
