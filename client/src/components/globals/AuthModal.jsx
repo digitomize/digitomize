@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect,useCallback } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { Form, Link, useNavigate } from "react-router-dom";
 import SignoutButton from "../../user/components/SignoutButton";
@@ -23,46 +23,45 @@ export const errorState = atom({
 const AuthModal = ({page}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState(page);
-  const modalRef = useRef();
+  const modalRef = useRef(null);
 
-  const toggleLogin = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleLogin = useCallback(() => {
+    setIsOpen((prev) => !prev);
+  }, []);
 
-  const handleActiveTab = (tab) => {
+  const handleActiveTab = useCallback((tab) => {
     setActiveTab(tab);
-  };
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsOpen(false);
-  };
+  }, []);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
+  const handleClickOutside = useCallback(
+    (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         closeModal();
       }
-    };
+    },
+    [closeModal],
+  );
 
+  useEffect(() => {
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-      document.body.classList.add("overflow-hidden");
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.body.classList.remove("overflow-hidden");
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.body.classList.remove("overflow-hidden");
     };
-  }, [isOpen,closeModal]);
+  }, [isOpen, handleClickOutside,closeModal]);
 
   return (
     <div className="flex items-center justify-center">
       <button onClick={toggleLogin} className="">
         Register Now
-
       </button>
       {isOpen && (
         <div
@@ -73,7 +72,9 @@ const AuthModal = ({page}) => {
             className="fixed inset-0 bg-black opacity-50"
             onClick={closeModal}
           />
-          <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white p-8 rounded-lg shadow-lg w-96 z-10 border-2 border-jet border-opacity-10 max-h-[90vh] overflow-auto transform transition-transform duration-300 ease-in-out scale-100">
+          <div
+            className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white p-8 rounded-lg shadow-lg w-96 z-10 border-2 border-jet border-opacity-10 max-h-[90vh] overflow-auto transform transition-transform duration-300 ease-in-out scale-100"
+          >
             <button
               type="button"
               onClick={closeModal}
