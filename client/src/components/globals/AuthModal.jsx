@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect,useCallback } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { Form, Link, useNavigate } from "react-router-dom";
 import SignoutButton from "../../user/components/SignoutButton";
@@ -56,7 +56,7 @@ const AuthModal = ({page}) => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isOpen, handleClickOutside,closeModal]);
+  }, [isOpen, handleClickOutside]);
 
   return (
     <div className="flex items-center justify-center">
