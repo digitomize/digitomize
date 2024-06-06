@@ -46,6 +46,13 @@ router.get("/ratings/:username", generateSVG);
 
 // router.post('/isLoggedin', checkLoggedIn);
 
-router.get("/stats", fetchContributorsData);
+import rateLimit from 'express-rate-limit';
+
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100
+});
+
+router.get("/stats", apiLimiter, fetchContributorsData);
 
 export default router;
