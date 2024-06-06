@@ -27,10 +27,12 @@ export const fetchContributorsData = async () => {
       },
     });
     const contributorsData = JSON.parse(response.data);
-    fs.writeFileSync(TEMP_FILE_PATH, JSON.stringify({
-      contributors: contributorsData,
-      lastUpdated: new Date(),
-    }, null, 2));
+    if (!fs.existsSync(TEMP_FILE_PATH) || fs.readFileSync(TEMP_FILE_PATH, 'utf-8') !== JSON.stringify({contributors: contributorsData, lastUpdated: new Date()}, null, 2)) {
+      fs.writeFileSync(TEMP_FILE_PATH, JSON.stringify({
+        contributors: contributorsData,
+        lastUpdated: new Date(),
+      }, null, 2));
+    }
     console.log("Contributors data updated at:", new Date());
   } catch (error) {
     if (error.response && error.response.status === 403) {
