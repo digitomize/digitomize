@@ -8,6 +8,7 @@ import { getLeaderboard } from "../controllers/leaderboardController.js";
 import { generateSignature } from "../controllers/cloudinaryUploadController.js";
 import { generateSVG } from "../controllers/generateSVG.js";
 import { getAllTopics, TriggerContestNotifToTopic, addSubscriber, addSubscriberToTopic, createTopic, removeSubscriberFromTopic, updateDeviceID } from "../controllers/notifsController.js";
+import { fetchContributorsData } from "../controllers/contributorStats.js";
 
 const router = express.Router();
 
@@ -44,5 +45,7 @@ router.get("/ratings/:username", generateSVG);
 // router.post('/profile/:username', addUID, checkUserOwnership, handleUpdateUserProfile);
 
 // router.post('/isLoggedin', checkLoggedIn);
+
+router.get("/stats", fetchContributorsData);
 
 export default router;
