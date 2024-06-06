@@ -21,7 +21,7 @@ export default function LoadingScreen({ logout = true }) {
         {/* <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} />
                   <Skeleton variant="text" sx={{ fontSize: "3rem", bgcolor: "grey.600" }} />
                   <Skeleton variant="text" sx={{ fontSize: "1rem", bgcolor: "grey.600", width: "30%" }} /> */}
-        <div className="mockup-code w-2/4 mx-auto">
+        <div className="mockup-code w-2/4">
           <pre data-prefix="$">
             <code className="text-white">import</code>{" "}
             <code className="text-red">"{window.location.pathname}"</code>
@@ -45,7 +45,7 @@ export default function LoadingScreen({ logout = true }) {
             <code></code>
           </pre>
         </div>
-        <div className="buttons my-3 flex gap-3 mx-auto max-phone:flex-col phone:flex-row items-center">
+        <div className="buttons my-3 flex flex-wrap justify-center gap-3 mx-auto max-phone:flex-col phone:flex-row items-center">
           <button
             className="btn lowercase"
             disabled={isRefreshBtnDisabled}
