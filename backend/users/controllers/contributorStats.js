@@ -48,7 +48,14 @@ cron.schedule("0 */12 * * *", fetchContributorsData);
 fetchContributorsData();
 
 // Route to get contributors stats
-router.get("/stats", (req, res) => {
+import rateLimit from 'express-rate-limit';
+
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100
+});
+
+router.get("/stats", apiLimiter, (req, res) => {
   if (!fs.existsSync(TEMP_FILE_PATH)) {
     return res.status(503).json({ message: "Service unavailable. Please try again later." });
   }
