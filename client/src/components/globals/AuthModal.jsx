@@ -73,7 +73,7 @@ const AuthModal = ({page}) => {
             onClick={closeModal}
           />
           <div
-            className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white p-8 rounded-lg shadow-lg w-96 z-10 border-2 border-jet border-opacity-10 max-h-[90vh] overflow-auto transform transition-transform duration-300 ease-in-out scale-100"
+            className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white p-8 rounded-lg shadow-lg w-96 z-10 border-2 border-jet border-opacity-10 max-h-[90vh] overflow-auto transform transition-transform duration-300 ease-in-out scale-100 min-w-96"
           >
             <button
               type="button"
