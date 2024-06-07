@@ -60,7 +60,7 @@ const AuthModal = ({page}) => {
 
   return (
     <div className="flex items-center justify-center">
-      <button onClick={toggleLogin} className="">
+      <button type="button" onClick={toggleLogin} className="">
         Register Now
       </button>
       {isOpen && (
