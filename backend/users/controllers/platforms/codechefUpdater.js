@@ -24,18 +24,28 @@ async function codechef_u (username) {
     });
 
     const regex = /jQuery.extend\(Drupal\.settings,\s*({[^;]+})\);/;
+    const regex2 = /<h3[^>]*>Practice Problems(.*?)<\/h3>/g;
     const match = regex.exec(response);
+    const totalQuestionsMatch = regex2.exec(response);
+    let resultObj = {
+      attendedContestsCount: null,
+      handle: username,
+      rating: null,
+      rank: `none`,
+      totalQuestions:0
+    }
+    if(!match && !totalQuestionsMatch)
+      throw new Error("User info and solved totalQuestions not found on the page");
+
     if (match) {
       const jsonString = match[1].replace(/\/\/.*/g, ""); // Remove single-line comments
       const userInfo = JSON.parse(jsonString);
-
       if (
         userInfo.date_versus_rating &&
         userInfo.date_versus_rating.all &&
         userInfo.date_versus_rating.all.length > 0
       ) {
         const allContests = userInfo.date_versus_rating.all;
-        // console.log("LENGTH::", allContests.length);
         const lastContest = allContests[allContests.length - 1];
         const lastContestRating = lastContest.rating;
 
@@ -55,19 +65,23 @@ async function codechef_u (username) {
         } else if (lastContestRating >= 2500) {
           stars = 7;
         }
-
-        return {
+       resultObj =  {
+        ...resultObj,
           attendedContestsCount: allContests.length,
           handle: username,
           rating: lastContestRating,
           rank: `${stars} star`,
         };
-      } else {
-        throw new Error("User has no contest data");
+      } 
+    } 
+    if(totalQuestionsMatch && totalQuestionsMatch?.length > 1 && typeof totalQuestionsMatch[1] === 'string' && totalQuestionsMatch[1].trim().length > 0){
+        let totalQuestions = 0;
+        totalQuestions = +totalQuestionsMatch[1].replace(/[\(\):]+/g,'');
+        resultObj = {...resultObj,totalQuestions}
+      }else if(!resultObj.attendedContestsCount && !resultObj.rating){
+        throw new Error("User info and solved totalQuestions not found on the page");
       }
-    } else {
-      throw new Error("User info not found on the page");
-    }
+      return resultObj;
   } catch (error) {
     console.error("Error fetching user info:", error.message);
     return null;

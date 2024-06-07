@@ -65,10 +65,10 @@ const handleUserDataUpdate = async (user) => {
         platformData.rating = parseInt(newData.rating);
         platformData.badge = newData.rank;
         platformData.fetchTime = currentTime;
-        platformData.totalQuestions = newData.totalQuestions;
-        platformData.easyQuestions = newData.easyQuestions;
-        platformData.mediumQuestions = newData.mediumQuestions;
-        platformData.hardQuestions = newData.hardQuestions;
+        platformData.totalQuestions = newData?.totalQuestions || 0;
+        platformData.easyQuestions = newData?.easyQuestions || 0;
+        platformData.mediumQuestions = newData?.mediumQuestions || 0;
+        platformData.hardQuestions = newData?.hardQuestions || 0;
       }
     }
   }
