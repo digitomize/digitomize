@@ -1,6 +1,8 @@
 import User from "../models/User.js";
 import { sendWebhook_updateAccount } from "../../services/discord-webhook/updateAccount.js";
 import { handleUserDataUpdate } from "./userProfileController.js";
+
+import { Novu } from "@novu/node";
 const maxUpdatesPerDay = 50;
 const twitterUrlPattern = /^(?:https?:\/\/)?(?:www\.)?twitter\.com\/(?:#!\/)?[a-zA-Z0-9_]{1,15}(?:\/)?$/;
 const linkedInUrlPattern = /^(?:https?:\/\/)?(?:www\.)?linkedin\.com\/in\/[a-zA-Z0-9-]{5,30}\/?$/;
@@ -281,9 +283,6 @@ const handleUpdateUserProfile = async (req, res) => {
     });
   }
 };
-
-
-import { Novu } from "@novu/node";
 const novu = new Novu(process.env.NOVU_API_KEY);
 const handleUserPreferences = async (req, res) => {
   try {
@@ -325,17 +324,14 @@ const handleUserPreferences = async (req, res) => {
     return res.status(200).json({ message: `Preference for ${platform} updated successfully to ${preference}` });
   } catch (error) {
     console.error("Error updating user preference:", error);
-    return res.status(500).json({ message: "Internal server error", error: "Internal server error"});
+    return res.status(500).json({ message: "Internal server error", error: "Internal server error" });
   }
 };
-
-   
-
 
 export {
   updatePlatformData,
   updateDataField,
   updateUserData,
   handleUpdateUserProfile,
-  handleUserPreferences
+  handleUserPreferences,
 };

@@ -29,7 +29,7 @@ const svgWrapper = (width, height, x) => {
 };
 const svgStyle = () => {
   const frontend = process.env.FRONTEND_URL; // use this in production
-  //const frontend = "http://localhost:5173/";//use this in development
+  // const frontend = "http://localhost:5173/";//use this in development
   // console.log(frontend+"/fonts/Geist-Light.otf");
   return `<style>
   @font-face {

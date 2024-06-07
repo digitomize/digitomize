@@ -34,6 +34,7 @@
     "inquirer": "^9.2.21",
     "lucide-react": "^0.294.0",
     "moment-timezone": "^0.5.44",
+    "random-avatar-generator": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.2",
@@ -51,7 +52,8 @@
     "styled-components": "^6.1.6",
     "tailwindcss-animate": "^1.0.7",
     "tw-elements-react": "^1.0.0-alpha1",
-    "typewriter-effect": "^2.20.1"
+    "typewriter-effect": "^2.20.1",
+    "unique-names-generator": "^4.7.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -68,7 +70,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "framer-motion": "^11.1.9",
+    "framer-motion": "^11.2.10",
     "postcss": "^8.4.38",
     "postcss-nesting": "^12.0.1",
     "tailwind-merge": "^2.3.0",

@@ -58,7 +58,6 @@ const getHackathonByVanity = async (vanity) => {
   }
 };
 
-
 export default {
   getUpcomingHackathonsList,
   updateHackathons,

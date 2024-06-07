@@ -43,7 +43,7 @@ const createUserFirebase = (req, res, next) => {
 
   // Validate input fields
   if (!body || !body.email.trim() || !body.name.trim() || !body.password.trim()) {
-        return res.status(400).json({ error: "Missing required fields" });
+    return res.status(400).json({ error: "Missing required fields" });
   }
 
   // Create user in Firebase Authentication

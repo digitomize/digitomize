@@ -3,8 +3,8 @@ import mongoose from "mongoose";
 //* Contest Schema
 const hackathonSchema = new mongoose.Schema(
   {
-    host:{
-      type:String,
+    host: {
+      type: String,
       required: [true, "host is required"],
     },
     name: {
