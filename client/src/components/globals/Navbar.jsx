@@ -11,7 +11,7 @@ function Navbar() {
     try {
       await signOut(auth);
     } catch (err) {
-      console.log(err.message);
+      console.error(err.message);
     }
   };
 

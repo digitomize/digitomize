@@ -10,6 +10,7 @@ import {
 } from "@mui/lab";
 import { useState } from "react";
 import { useMediaQuery } from "@mui/material";
+import { motion } from "framer-motion";
 function TimelineComponent({ data, index }) {
   const matches = useMediaQuery("(max-width:1024px)");
   const phones = useMediaQuery("(max-width:640px)");
@@ -49,6 +50,17 @@ function TimelineComponent({ data, index }) {
           bgcolor: "#05225C",
         }}
       >
+        <motion.div
+          initial={{ opacity: 0}}
+          whileInView={{ opacity: 1}}
+          viewport={{ once: true }}
+          transition={{
+            duration: 1,
+            type: "spring",
+            stiffness: 100,
+            delay: 0.5,
+          }}
+        >
         <h2 className="lg:hidden text-[14px] mb-1 text-description">
           {data.date}
         </h2>
@@ -81,6 +93,7 @@ function TimelineComponent({ data, index }) {
             </button>
           </p>
         </div>
+      </motion.div>
       </TimelineContent>
     </TimelineItem>
   );

@@ -8,13 +8,14 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "lint-fix": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0 --fix",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "setup": "node setup-env.js"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.6",
-    "@formbricks/js": "^1.4.0",
+    "@formbricks/js": "^2.0.1",
     "@mui/icons-material": "^5.14.3",
     "@mui/joy": "^5.0.0-beta.15",
     "@mui/lab": "^5.0.0-alpha.158",
@@ -30,6 +31,7 @@
     "flowbite": "^1.8.1",
     "flowbite-react": "^0.5.0",
     "geist": "^1.2.0",
+    "inquirer": "^9.2.21",
     "lucide-react": "^0.294.0",
     "moment-timezone": "^0.5.44",
     "react": "^18.2.0",

@@ -122,6 +122,17 @@ export default function Footer() {
             >
               Join our Discord
             </a>
+
+            <a
+              href="https://blogs.digitomize.com/"
+              className="link hover:no-underline link-hover hover:text-custom-blue hover:scale-110 transition-all text-lg"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Blogs
+            </a>
+
+
           </nav>
           <nav className="flex justify-center items-center sm:!items-start flex-col gap-3 w-full sm:!w-[45%] xl:!w-fit">
             <header className="text-white font-medium text-2xl mb-2">

@@ -9,7 +9,9 @@ Welcome to the client-side documentation for Digitomize, an open-source platform
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Configuration](#configuration)
-  - [Creating a .env from the .example.env file template](#creating-a-env-from-the-exampleenv-file-template)
+  - [Setting Up Environment Variables using Script](#script-setting-up-environment-variables-using-script-recommended)
+    - [Creating New firebase project and setting up .env variables](#creating-new-firebase-project-and-setting-up-env-variables)
+  - [Setting Up Environment Variables Manually](#manual-setting-up-environment-variables-individually)
     - [Creating New firebase project and setting up .env variables](#creating-new-firebase-project-and-setting-up-env-variables)
 - [Usage](#usage)
   - [Contributing](#contributing)
@@ -103,8 +105,24 @@ npm install
 
 # Configuration
 
-Create a .env file in the client directory to configure any environment-specific variables or settings that your client application may require. For example, you may need to specify API endpoints or other configuration options.
+You can set up Environment Variable Using One of Two Methods Stated Below:
 
+## [Script] Setting Up Environment Variables using Script (_Recommended_).
+
+- Move to the client directory using `cd client` on Terminal.
+- Run the `npm run setup` command.
+- Fill in the empty fields with the values from your firebase project
+- See below for instructions on how to create a firebase project
+```bash
+npm run setup
+```
+[See below for instructions on how to create a firebase project](#creating-new-firebase-project-and-setting-up-env-variables)
+
+## [Manual] Setting Up Environment Variables individually.
+
+- Create a new .env file in the client directory
+- Copy the .example.env from the client directory and paste its contents into your newly created .env file
+- Fill in the empty fields with the values from your firebase project
 ```bash
 VITE_REACT_APP_BACKEND_URL=http://localhost:4001
 VITE_REACT_APP_FRONTEND_URL=http://localhost:5173
@@ -117,16 +135,9 @@ VITE_REACT_APP_APP_ID=
 VITE_REACT_APP_MEASUREMENT_ID=
 VITE_REACT_APP_FORMBRICKS_API_KEY=
 ```
+[See below for instructions on how to create a firebase project](#creating-new-firebase-project-and-setting-up-env-variables)
 
-_Fill the empty fields by creating a demo firebase project._
-
-## Creating a .env from the .example.env file template
-
-- Create a new .env file in the client directory
-- Copy the .example.env in the the client directory and paste it's contents into your created .env file
-- Fill in the empty fields with the values from your firebase project (see below for instructions on how to create a firebase project)
-
-#### Creating New firebase project and setting up .env variables
+### Creating New firebase project and setting up .env variables
 
 - Go to [Firebase](https://firebase.google.com/)
 - Create an account if you don't have one and click on get started
@@ -146,7 +157,6 @@ _Fill the empty fields by creating a demo firebase project._
     measurementId: "G-YTUTY89kFT",
   };
   ```
-
 - Use these values to populate your .env file
 
 # Usage

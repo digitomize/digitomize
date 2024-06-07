@@ -1,14 +1,14 @@
 import { useUserAuth } from "../../../context/UserAuthContext";
 import { useState } from "react";
-import React from 'react'
-import ImageUploader from "../../../components/ImageUploader";
-import { useLoaderData } from 'react-router-dom';
-import { submitUserFormData } from "../../../../api";
-import { toast, ToastContainer } from 'react-toastify';
-import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import dayjs from "dayjs";
+import React from "react";
 
+// import ImageUploader from "../../../components/ImageUploader";
+// import { useLoaderData } from 'react-router-dom';
+// import { submitUserFormData } from "../../../../api";
+// import { toast, ToastContainer } from 'react-toastify';
+// import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+// import dayjs from "dayjs";
 
 
 function BasicInfo({formData,setFormData,handleInputChange,handleInputChangeObjData}) {
@@ -104,10 +104,10 @@ function BasicInfo({formData,setFormData,handleInputChange,handleInputChangeObjD
     return (
         <>
             <div className="flex flex-col sm:flex-row sm:space-x-20 space-y-8 sm:space-y-0 my-8">
-                <div class="flex-1 mt-8">
-                    <h3 class="text-base font-semibold text-gray-200">Basic account information</h3>
-                    <p class="mt-3 font-light text-sm text-gray-500">Please enter your full name, or a display name you are comfortable with.</p>
-                    <p class="mt-3 font-light text-sm text-gray-500">Click on the avatar to upload a custom one from your files..</p>
+                <div className="flex-1 mt-8">
+                    <h3 className="text-base font-semibold text-gray-200">Basic account information</h3>
+                    <p className="mt-3 font-light text-sm text-gray-500">Please enter your full name, or a display name you are comfortable with.</p>
+                    <p className="mt-3 font-light text-sm text-gray-500">Click on the avatar to upload a custom one from your files..</p>
                 </div>
 
                 <div className="flex-2 rounded-lg shadow bg-dashboardColor border border-jet">
@@ -117,46 +117,46 @@ function BasicInfo({formData,setFormData,handleInputChange,handleInputChangeObjD
                             <div className="flex-0 px-4 flex flex-col justify-center items-center h-28">
                                 <div className="relative text-center">
                                     <img src={formData.picture} alt="profile" className="w-16 rounded-full" />
-                                    <label class="mt-5 text-xs font-medium text-secondary text-center">Upload</label>
+                                    <label className="mt-5 text-xs font-medium text-secondary text-center">Upload</label>
                                 </div>
                             </div>
 
 
-                            <div class="flex-1 w-full">
-                                <label class="ml-1 mt-5 text-xs font-medium text-secondary" htmlFor="firstName">Display Name</label>
-                                <input style={{ backgroundColor: 'RGB(17, 19, 18)' }} placeholder="Bill" class="border border-jet rounded px-3 py-[10px] w-full mt-2 text-sm" required="required" type="text" value={formData.name} name="name" id="name" onChange={handleInputChange} maxLength={25} />
+                            <div className="flex-1 w-full">
+                                <label className="ml-1 mt-5 text-xs font-medium text-secondary" htmlFor="firstName">Display Name</label>
+                                <input style={{ backgroundColor: "RGB(17, 19, 18)" }} placeholder="Bill" className="border border-jet rounded px-3 py-[10px] w-full mt-2 text-sm" required="required" type="text" value={formData.name} name="name" id="name" onChange={handleInputChange} maxLength={25} />
                             </div>
 
                         </div>
 
                     </div>
-                    <div class="px-6 py-8 border-b border-jet">
-                        <div class="sm:w-9/12">
-                            <label class="ml-1 mt-5 text-xs font-medium text-secondary" htmlFor="email">E-mail</label>
-                            <input readOnly style={{ backgroundColor: 'RGB(17, 19, 18)' }} placeholder="bill.gates@example.com" autocomplete="email" value={formData.email} class="placeholder:text-gray-600 border border-jet rounded px-3 py-[10px] w-full mt-2 text-sm" type="email" name="email" id="email" />
+                    <div className="px-6 py-8 border-b border-jet">
+                        <div className="sm:w-9/12">
+                            <label className="ml-1 mt-5 text-xs font-medium text-secondary" htmlFor="email">E-mail</label>
+                            <input readOnly style={{ backgroundColor: "RGB(17, 19, 18)" }} placeholder="bill.gates@example.com" autoComplete="email" value={formData.email} className="placeholder:text-gray-600 border border-jet rounded px-3 py-[10px] w-full mt-2 text-sm" type="email" name="email" id="email" />
                         </div>
-                        <div class="mt-5">
-                            <div class="sm:w-9/12">
-                                <div class="mt-5">
-                                    <label htmlFor="phoneNumber" class="ml-1 text-xs font-medium text-secondary">Phone</label>
-                                    <input required style={{ backgroundColor: 'RGB(17, 19, 18)' }} type="tel" placeholder="+32 460 23 47 50" name="phoneNumber" max={12} class="placeholder:text-gray-600 border border-jet rounded px-3 py-[10px] w-full mt-2 text-sm" id="phoneNumber" value={formData.phoneNumber.data} onChange={handleInputChangeObjData} />
+                        <div className="mt-5">
+                            <div className="sm:w-9/12">
+                                <div className="mt-5">
+                                    <label htmlFor="phoneNumber" className="ml-1 text-xs font-medium text-secondary">Phone</label>
+                                    <input required style={{ backgroundColor: "RGB(17, 19, 18)" }} type="tel" placeholder="+32 460 23 47 50" name="phoneNumber" max={12} className="placeholder:text-gray-600 border border-jet rounded px-3 py-[10px] w-full mt-2 text-sm" id="phoneNumber" value={formData.phoneNumber.data} onChange={handleInputChangeObjData} />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="px-6 py-8">
+                    <div className="px-6 py-8">
                         <div className="sm:w-9/12">
                             <div className="label">
-                                <label class="text-xs font-medium text-secondary">Brief bio</label>
-                                <label class="ml-1 text-xs font-medium text-secondary">{formData.bio?.data?.length || 0}/{BIO_LIMIT}</label>
+                                <label className="text-xs font-medium text-secondary">Brief bio</label>
+                                <label className="ml-1 text-xs font-medium text-secondary">{formData.bio?.data?.length || 0}/{BIO_LIMIT}</label>
                             </div>
-                            <textarea style={{ backgroundColor: 'RGB(17, 19, 18)' }} className="placeholder:text-gray-600 textarea textarea-bordered h-24 w-full" placeholder="Ex: Developer @ digitomize" maxLength={BIO_LIMIT} onChange={handleInputChangeObjData} value={formData.bio.data} name="bio" id="bio" />
+                            <textarea style={{ backgroundColor: "RGB(17, 19, 18)" }} className="placeholder:text-gray-600 textarea textarea-bordered h-24 w-full" placeholder="Ex: Developer @ digitomize" maxLength={BIO_LIMIT} onChange={handleInputChangeObjData} value={formData.bio.data} name="bio" id="bio" />
                         </div>
                     </div>
                 </div>
             </div>
         </>
-    )
+    );
 }
 
 export default BasicInfo;

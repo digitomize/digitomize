@@ -19,8 +19,8 @@ export const navLinks = [
 
 export const navLinksDashboard = [
     {
-        title: "account",
-        path: "/u/dashboard/account",
+        title: "profile",
+        path: "/u/dashboard/profile",
     },
     {
         title: "ratings",

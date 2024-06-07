@@ -1,9 +1,9 @@
-import React from 'react'
-import ImageUploader from '../../../components/ImageUploader'
-import { useLoaderData } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { submitUserFormData } from '../../../../api';
-import { toast, ToastContainer } from 'react-toastify';
+import React from "react";
+import ImageUploader from "../../../components/ImageUploader";
+import { useLoaderData } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { submitUserFormData } from "../../../../api";
+import { toast, ToastContainer } from "react-toastify";
 import BasicInfo from "./Selecting";
 import { changeUserPreferences, userDashboardDetails } from "../../../../api";
 
@@ -26,7 +26,7 @@ const platformsData = [
 
 function Preferences() {
   const loaderData = useLoaderData();
-  console.log(loaderData);
+  // console.log(loaderData);
   // ! CAN USE THIS BUT NO LOADING SCREEN - need to check this
 
   const [loading, setLoading] = useState(true);
@@ -35,13 +35,13 @@ function Preferences() {
     async function fetchData() {
       try {
         const res = await userDashboardDetails();
-        console.log(" res", res);
+        // console.log(" res", res);
         if (res.data) {
           setFormData({
             contest_notifs: res.data.personal_data.preferences.contest_notifs,
           });
         }
-        console.log("OKK:", formData);
+        // console.log("OKK:", formData);
       } catch (err) {
         console.error(err);
       } finally {
@@ -57,7 +57,7 @@ function Preferences() {
   });
 
   const handleToggleChange = async (event) => {
-    console.log(event);
+    // console.log(event);
     const { name } = event.target;
     const toggledValue = !formData.contest_notifs[name];
     setFormData((prevData) => ({
@@ -71,17 +71,17 @@ function Preferences() {
     try {
       const response = changeUserPreferences(name, toggledValue);
       toast.promise(response, {
-        pending: 'Updating preferences... 🤔',
+        pending: "Updating preferences... 🤔",
         success: `Preference for ${name} updated to ${toggledValue} successfully! 🎉`,
         error: {
           render({ data }) {
-            console.log(data.message);
-            return `${data.message}`
+            // console.log(data.message);
+            return `${data.message}`;
           },
           icon: "✅",
-        }
+        },
       });
-      console.log(response);
+      // console.log(response);
     } catch (err) {
       console.error(err);
       // Revert toggle state on failure
@@ -100,7 +100,7 @@ function Preferences() {
 
         <LoadingScreen />;
       </div>
-    )
+    );
   }
 
   return (
@@ -108,9 +108,9 @@ function Preferences() {
       <MetaData path="u/dashboard/preferences" />
       <ToastContainer />
       <div className="bg-dashboardDarkColor font-['Geist']">
-        <div class="flex justify-between items-center min-h-[40px]">
-          <div class="flex flex-shrink gap-2 mr-4 items-center min-w-0">
-            <p class="truncate font-medium text-gray-200 text-3xl max-w-[600px]">Preferences</p>
+        <div className="flex justify-between items-center min-h-[40px]">
+          <div className="flex flex-shrink gap-2 mr-4 items-center min-w-0">
+            <p className="truncate font-medium text-gray-200 text-3xl max-w-[600px]">Preferences</p>
           </div>
         </div>
         <form >
@@ -124,7 +124,7 @@ function Preferences() {
 
       </div>
     </>
-  )
+  );
 }
 
-export default Preferences
+export default Preferences;

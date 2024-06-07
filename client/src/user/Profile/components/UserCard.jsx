@@ -15,7 +15,7 @@ function UserCard({
   social,
   skills = [],
 }) {
-  console.log(social);
+  // console.log(social);
   const navigate = useNavigate();
   const location = useLocation();
   const isUserProfile = location.pathname === `/u/${username}`;

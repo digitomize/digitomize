@@ -9,14 +9,15 @@
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint . --ext js --report-unused-disable-directives --max-warnings 0",
-    "lint-fix": "eslint . --ext js --report-unused-disable-directives --max-warnings 0 --fix"
+    "lint-fix": "eslint . --ext js --report-unused-disable-directives --max-warnings 0 --fix",
+    "setup": "node setup-env.js"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "@getbrevo/brevo": "^1.0.1",
-    "axios": "^1.6.7",
     "@novu/node": "^0.22.0",
+    "axios": "^1.6.7",
     "cheerio": "^1.0.0-rc.12",
     "cloudinary": "^1.41.0",
     "cors": "^2.8.5",
@@ -25,6 +26,7 @@
     "express": "^4.18.2",
     "firebase-admin": "^12.1.0",
     "https": "^1.0.0",
+    "inquirer": "^9.2.22",
     "mongoose": "^7.4.1"
   },
   "devDependencies": {

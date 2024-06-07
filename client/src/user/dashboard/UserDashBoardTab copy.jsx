@@ -32,8 +32,8 @@ function UserDashBoardTab() {
   //   }
   // ];
   const handleOptionClick = (option) => {
-    setSelectedOption(option)
-  }
+    setSelectedOption(option);
+  };
   const options = [{}];
   const toggleDropdown = () => {
     setIsOpen(!isOpen);

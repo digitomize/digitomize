@@ -54,7 +54,7 @@ export default function Preferences() {
             contest_notifs: res.data.personal_data.preferences.contest_notifs,
           });
         }
-        console.log("OKK:",formData);
+        // console.log("OKK:",formData);
       } catch (err) {
         console.error(err);
       } finally {
@@ -87,13 +87,13 @@ export default function Preferences() {
         success: `Preference for ${name} updated to ${toggledValue} successfully! 🎉`,
         error: {
           render({ data }) {
-            console.log(data.message);
-            return `${data.message}`
+            // console.log(data.message);
+            return `${data.message}`;
           },
           icon: "✅",
-        }
+        },
       });
-      console.log(response);
+      // console.log(response);
     } catch (err) {
       console.error(err);
       // Revert toggle state on failure

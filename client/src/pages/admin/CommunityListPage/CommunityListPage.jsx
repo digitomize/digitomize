@@ -31,7 +31,7 @@ export default function CommunityListPage() {
         setCommunityList(response.data.communityList);
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   }, []);
   return (

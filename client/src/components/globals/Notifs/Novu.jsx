@@ -5,9 +5,9 @@ import {
 } from "@novu/notification-center";
 
 function Novu(user) {
-    console.log("NVOIIIIIUUUUU");
+    // console.log("NVOIIIIIUUUUU");
     user = user.user;
-    console.log(user);
+    // console.log(user);
     return (
         <NovuProvider
             stores={[
@@ -20,7 +20,7 @@ function Novu(user) {
                 },
                 {
                     storeId: "System",
-                    query: { feedIdentifier: "System" }
+                    query: { feedIdentifier: "System" },
                 },
             ]}
             subscriberId={user.uid}
@@ -30,7 +30,7 @@ function Novu(user) {
                 tabs={[
                     { name: "All", storeId: "default_store" },
                     { name: "Contest Alerts", storeId: "Contest Alerts" },
-                    { name: "System", storeId: "System" }
+                    { name: "System", storeId: "System" },
                 ]}
             >
                 {({ unseenCount }) => <NotificationBell unseenCount={unseenCount} />}
