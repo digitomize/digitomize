@@ -1,6 +1,8 @@
 import { useUserAuth } from "../../../context/UserAuthContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
+import { submitUserImage } from "../../../../api";
+import UploadPicture from "../../../components/UploadPicture";
 
 // import ImageUploader from "../../../components/ImageUploader";
 // import { useLoaderData } from 'react-router-dom';
@@ -99,11 +101,26 @@ function BasicInfo({formData,setFormData,handleInputChange,handleInputChangeObjD
         // console.log(res);
     // }
     // const { user } = useUserAuth();
+
+    const [isPictureModalOpen, setIsPictureModalOpen] = useState(false);
+
+    const [selectedFile, setSelectedFile] = useState(null);
+
+    const [sendReqUserImage, setSendReqUserImage] = useState(false);
+
+    useEffect(() => {
+        if (sendReqUserImage) {
+            formData.picture = selectedFile;
+            submitUserImage(formData);
+        }
+    }, [sendReqUserImage]);
+
     const BIO_LIMIT = 250;
 
     return (
         <>
             <div className="flex flex-col sm:flex-row sm:space-x-20 space-y-8 sm:space-y-0 my-8">
+                <UploadPicture isPictureModalOpen={isPictureModalOpen} setIsPictureModalOpen={setIsPictureModalOpen} selectedFile={selectedFile} setSelectedFile={setSelectedFile} setSendReqUserImage={setSendReqUserImage} />
                 <div className="flex-1 mt-8">
                     <h3 className="text-base font-semibold text-gray-200">Basic account information</h3>
                     <p className="mt-3 font-light text-sm text-gray-500">Please enter your full name, or a display name you are comfortable with.</p>
@@ -116,8 +133,12 @@ function BasicInfo({formData,setFormData,handleInputChange,handleInputChangeObjD
 
                             <div className="flex-0 px-4 flex flex-col justify-center items-center h-28">
                                 <div className="relative text-center">
-                                    <img src={formData.picture} alt="profile" className="w-16 rounded-full" />
-                                    <label className="mt-5 text-xs font-medium text-secondary text-center">Upload</label>
+                                    <img src={selectedFile ? URL.createObjectURL(selectedFile) : formData.picture} alt="profile" className="w-16 rounded-full" />
+                                    <label className="mt-5 text-xs font-medium text-secondary text-center cursor-pointer" htmlFor="useImageInput">Upload</label>
+                                    <input type="file" id="useImageInput" accept="image/*" onChange={(event) => {
+                                        setSelectedFile(event.target.files[0]);
+                                        setIsPictureModalOpen(true);
+                                    }} className="hidden" />
                                 </div>
                             </div>
 

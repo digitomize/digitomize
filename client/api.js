@@ -3,6 +3,7 @@ import { redirect } from "react-router-dom";
 import { auth } from "./firebase";
 import { updateProfile } from "firebase/auth";
 import { PlaySquare } from "lucide-react";
+import { toast } from "react-toastify";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export async function loginUser({ username, password }) {
@@ -179,9 +180,12 @@ async function uploadPictureToCloudinary(formData, accessToken, uid) {
       const photo = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload/ar_1.0,c_fill,g_face/f_auto/r_max/v${res.data.version}/users/${uid}.${res.data.format}`;
       formData.picture = photo;
       updateProfile(auth.currentUser, {
-        // photoURL: res.data.url,
         photoURL: photo,
       });
+
+      setTimeout(() =>
+        window.location.reload(), 3000,
+      );
     })
     .catch((err) => {
       console.log("failed to upload profile picture");
@@ -219,7 +223,47 @@ export async function submitUserFormData(formData) {
   // console.log(currentUser);
   const accessToken = await currentUser.getIdToken();
   // console.log(jwtToken);
-if(formData.picture)
+ 
+    // console.log(formData.picture);
+    const res = await axios.post(`${backendUrl}/user/dashboard`, formData, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+  // console.log("RESPONSE ----> ", res);
+  // console.log(res.status);
+}
+
+export async function submitUserImage(formData) {
+  // const jwtToken = Cookies.get("jwt");
+  const loggedIn = await isLoggedIn();
+  if (!loggedIn) {
+    throw redirect("/login");
+  }
+
+  /* Throw an error if the entered username is an URL. */
+  const urlPattern = new RegExp(
+    "^(https?:\\/\\/)?" + // protocol
+      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+      "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+      "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+      "(\\#[-a-z\\d_]*)?$",
+    "i",
+  ); // fragment locator
+
+  if (
+    Object.keys(formData).some((platform) =>
+      urlPattern.test(formData[platform]?.username),
+    )
+  ) {
+    throw new Error("Invalid Username. Usernames should not be URLs.");
+  }
+
+  const currentUser = auth.currentUser;
+  // console.log(currentUser);
+  const accessToken = await currentUser.getIdToken();
+  // console.log(jwtToken);
   await uploadPictureToCloudinary(formData, accessToken, currentUser.uid);
   // console.log(formData.picture);
   const res = await axios.post(`${backendUrl}/user/dashboard`, formData, {
@@ -227,6 +271,45 @@ if(formData.picture)
       Authorization: `Bearer ${accessToken}`,
     },
   });
+
+  if (
+    res?.status === 200 &&
+    !["ERR_BAD_REQUEST", "ERR_NETWORK"].includes(res?.code)
+  ) {
+    toast.success("Profile Image updated successfully", {
+      position: "top-left",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  } else if (res?.response?.data?.message) {
+    toast.error(res.response.data.message, {
+      position: "top-left",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    }); // Show specific error message from server
+  } else {
+    toast.error("Profile image update failed. Please try again.", {
+      position: "top-left",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  }
+
   // console.log("RESPONSE ----> ", res);
   // console.log(res.status);
 }
