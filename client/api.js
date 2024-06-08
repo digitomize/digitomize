@@ -182,6 +182,10 @@ async function uploadPictureToCloudinary(formData, accessToken, uid) {
       updateProfile(auth.currentUser, {
         photoURL: photo,
       });
+
+      setTimeout(() =>
+        window.location.reload(), 3000,
+      );
     })
     .catch((err) => {
       console.log("failed to upload profile picture");
