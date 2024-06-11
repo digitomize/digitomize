@@ -22,9 +22,10 @@ async function quineQuest_c () {
     };
     return formattedChallenge;
   } catch (error) {
-    console.log(error);
+    console.error("Failed to fetch data from Quine Quest:", error.response || error.message);
     return null;
   }
+}
 }
 
 export { quineQuest_c };
