@@ -132,6 +132,7 @@ async function startServersProduction() {
     await setupUserServer();
     await setupContestServer();
     await setupHackathonServer();
+    await setupChallengeServer();
 
     // Handle unhandled routes
     app.all("*", (req, res, next) => {
@@ -142,6 +143,7 @@ async function startServersProduction() {
     servers.push("User");
     servers.push("Contest");
     servers.push("Hackathon");
+    servers.push("Challenge")
 
     console.log("┌──────────────────────────────────┐");
     if (servers.length > 0) {
