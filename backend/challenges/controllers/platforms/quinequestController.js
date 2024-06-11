@@ -1,6 +1,7 @@
 import axios from "axios";
-async function fetchChallenge () {
-  // this data is needed for the PUT request it can be random
+
+async function quineQuest_c () {
+  // this data is needed for the PUT request ,it can be random
   const data = {
     user_id: "100",
     page: "1",
@@ -26,4 +27,4 @@ async function fetchChallenge () {
   }
 }
 
-fetchChallenge();
+export { quineQuest_c };
