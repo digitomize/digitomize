@@ -26,6 +26,5 @@ async function quineQuest_c () {
     return null;
   }
 }
-}
 
 export { quineQuest_c };
