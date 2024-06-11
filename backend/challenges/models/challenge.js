@@ -38,6 +38,6 @@ const challengeSchema = new mongoose.Schema(
   },
 );
 
-const AllChallenge = mongoose.model("AllChallenge",challengeSchema, "allchallenges");
+const AllChallenge = mongoose.model("AllChallenge", challengeSchema, "allchallenges");
 
 export { AllChallenge };
