@@ -18,6 +18,10 @@ import potdRoutes from "./potd/routes/potdRoutes.js";
 import hackathonAPISyncer from "./hackathons/controllers/hackathonApiSyncController.js";
 import hackathonDBSyncer from "./hackathons/controllers/hackathonDbSyncController.js";
 import hackathonRoutes from "./hackathons/routes/hackathonRoutes.js";
+import { updateChallenges } from "./challenges/controllers/challengeController.js";
+import { syncChallenges } from "./challenges/controllers/challengeDbSyncController.js";
+import challengeRoutes from "./challenges/routes/challengeRoutes.js";
+
 
 dotenv.config();
 const app = express();
@@ -107,6 +111,16 @@ async function setupHackathonServer() {
   app.use("/hackathons", hackathonRoutes);
 }
 
+async function setupChallengeServer() {
+  await updateChallenges();
+  setInterval(updateChallenges, 90 * 60 * 1000);
+
+  await syncChallenges();
+  setInterval(syncChallenges, 60 * 60 * 1000);
+
+  app.use("/challenges", challengeRoutes);
+}
+
 async function startServersProduction() {
   try {
     app.use(cors());
@@ -168,6 +182,10 @@ async function startServersDev() {
     if (process.env.HACKATHONS === "true") {
       await setupHackathonServer();
       servers.push("Hackathon");
+    }
+    if (process.env.CHALLENGES === "true") {
+      await setupChallengeServer();
+      servers.push("Challenge");
     }
 
     // Handle unhandled routes
