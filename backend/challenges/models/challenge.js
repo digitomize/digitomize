@@ -7,33 +7,33 @@ const challengeSchema = new mongoose.Schema(
     host: {
       type: String,
       lowercase: true,
-      required: [true, "Host is required."],
+      required: [true, "Please provide the host of the challenge."],
     },
     name: {
       type: String,
       unique: true,
-      required: [true, "Name is required."],
+      required: [true, "Please provide the name of the challenge."],
     },
     vanity: {
       type: String,
-      required: [true, "Vanity is required."],
+      required: [true, "Please provide the vanity of the challenge."],
       lowercase: true,
     },
     url: {
       type: String,
-      required: [true, "URL is required."],
+      required: [true, "Please provide the URL of the challenge."],
     },
     description: {
       type: String,
-      required: [true, "Description is required."],
+      required: [true, "Please provide a description of the challenge."],
     },
     startTimeUnix: {
       type: Number,
-      required: [true, "Start time is required."],
+      required: [true, "Please provide the start time of the challenge."],
     },
     endTimeUnix: {
       type: Number,
-      required: [true, "End time is required."],
+      required: [true, "Please provide the end time of the challenge."],
     },
   },
 );
