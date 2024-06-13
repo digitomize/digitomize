@@ -21,9 +21,7 @@ async function updateChallenges () {
     // Update the allChallengeList variable
     allChallengeList = fetchedChallenges;
 
-    console.log("===============================================");
-    console.log("Challenges variable updated successfully. | MongoDb to App");
-    console.log("===============================================");
+    console.info("Challenges updated: %d items", fetchedChallenges.length);
   } catch (error) {
     console.error("Error fetching challenges:", error);
   }
