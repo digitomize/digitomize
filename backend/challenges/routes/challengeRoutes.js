@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
       results: challenges,
     });
   } catch (err) {
-    console.log("Error:", err);
+    console.error("Error fetching challenges:", err.message);
     res.status(500).json({
       error: "Internal server error",
       message: "Internal server error",
