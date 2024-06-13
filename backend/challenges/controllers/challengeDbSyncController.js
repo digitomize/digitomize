@@ -42,7 +42,7 @@ async function syncChallenges () {
     await addToDB(challenges);
     console.log("└────────────────────────────────────────────────────┘");
   } catch (err) {
-    console.log("Error syncing challenges:", err);
+    console.log("Error occurred during challenge synchronization:", err);
   }
 }
 
