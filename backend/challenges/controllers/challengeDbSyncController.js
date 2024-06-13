@@ -10,7 +10,7 @@ async function clearCompletedChallenge () {
     await AllChallenge.deleteMany({ endTimeUnix: { $lt: currentTime } });
     console.log("Deleted challenges which have end time before now.");
   } catch (err) {
-    console.log("Error while deleting completed challenges:", err);
+    console.log(`Error while deleting completed challenges before ${currentTime}:`, err);
   }
 }
 
