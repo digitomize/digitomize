@@ -11,6 +11,9 @@ import gitbook from "./svgs/GitBookLight.svg";
 import msme from "./svgs/MSME.svg";
 import digitalOcean from "./svgs/digitalOcean.svg";
 import microsoft from "./svgs/microsoft4strp.svg";
+import holopin from "./svgs/holopin.svg";
+import netlify from "./svgs/netlify.svg";
+import googlecloud from "./svgs/googlecloud.svg";
 import { cn } from "../../lib/utils";
 import AnimatedGradientText from "../../components/magicui/animated-gradient-text";
 import { ChevronRight } from "lucide-react";
@@ -180,6 +183,30 @@ export default function SectionOne() {
             src={meltcd}
             draggable={false}
             alt="meltcd"
+          />
+        </a>
+        <a href="https://www.netlify.com">
+          <img
+            className="max-md:w-32 md:w-40"
+            src={netlify}
+            draggable={false}
+            alt="netlify"
+          />
+        </a>
+        <a href="https://cloud.google.com/startup">
+          <img
+            className="max-md:w-32 md:w-40"
+            src={googlecloud}
+            draggable={false}
+            alt="googlecloud"
+          />
+        </a>
+        <a href="https://www.holopin.io/">
+          <img
+            className="max-md:w-32 md:w-40"
+            src={holopin}
+            draggable={false}
+            alt="holopin"
           />
         </a>
         </span>
