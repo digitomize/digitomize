@@ -772,6 +772,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "redtrib3",
+      "name": "Anirudh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/68897241?v=4",
+      "profile": "https://redtrib3.me",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
