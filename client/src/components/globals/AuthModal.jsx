@@ -144,8 +144,9 @@ export function LoginForm() {
         progress: undefined,
         theme: "colored",
       });
-      setbtnState(false);
       setError(err.code);
+      } finally {
+      setbtnState(false);
     }
   };
 
@@ -248,8 +249,9 @@ export function SignupForm() {
         progress: undefined,
         theme: "colored",
       });
-      setbtnState(false);
       setError(err.code);
+      } finally {
+        setbtnState(false);
     }
   };
 
