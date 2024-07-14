@@ -34,7 +34,8 @@ import {
   About,
   Footer,
   MetaData,
-  resendLoader
+  resendLoader,
+  ScrollToTop,
 } from "./components/CustomComponents";
 // import UserDashBoardAccount from "./user/dashboard/Account";
 import UserDashboard from "./user/dashboard/UserDashboard";
@@ -280,6 +281,7 @@ function App() {
           </LocalizationProvider>
         </UserContextProvider>
       </UserAuthContextProvider>
+     <ScrollToTop toid={"root"} h={1}/>
       {/* <Footer /> */}
     </>
   );
