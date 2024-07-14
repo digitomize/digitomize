@@ -30,7 +30,7 @@ export default function GoogleAuthButton() {
                 },
               })
               // .then((res) => console.log(res))
-              .catch((err) => console.log(err));
+              .catch((err) => console.error(err));
           });
           navigate("/u/dashboard");
         })

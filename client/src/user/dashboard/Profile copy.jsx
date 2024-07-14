@@ -70,7 +70,7 @@ function UserDashBoardProfile() {
           progress: undefined,
           theme: "colored",
         });
-        console.log(err);
+        console.error(err);
         setIsDisabled(false);
       });
 
@@ -249,7 +249,7 @@ function UserDashBoardProfile() {
 
       </div>
     </>
-  )
+  );
 }
 
-export default UserDashBoardProfile
+export default UserDashBoardProfile;

@@ -24,7 +24,7 @@ function UserDashBoardTab({ sideTab, toggleSideTab }) {
       <div
         className={`${
           sideTab ? "bg-dashboardDarkerColor" : "bg-dashboardColor"
-        } h-full px-3 flex-col fixed left-0 lg:left-auto lg:top-auto lg:flex z-50 overflow-y-auto border-r border-solid border-jet w-56`}
+        } h-full px-3 flex-col fixed left-0 lg:left-auto lg:top-auto lg:flex z-10 overflow-auto pt-16 border-r border-solid border-jet w-56`}
       >
         <div className="h-full flex flex-col">
           <div className="pt-2 flex-grow flex flex-col dark:text-white">

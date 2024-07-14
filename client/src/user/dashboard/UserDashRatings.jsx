@@ -44,7 +44,7 @@ export async function loader() {
       return res.data;
     }
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return null;
   }
 }
@@ -83,7 +83,7 @@ export default function UserDashRatings() {
           });
         }
       } catch (err) {
-        console.log(err);
+        console.error(err);
       } finally {
         setLoading(false);
       }
@@ -174,7 +174,7 @@ export default function UserDashRatings() {
             theme: "colored",
           },
         );
-        console.log(err);
+        console.error(err);
         setIsDisabled(false);
       });
     // console.log(res);

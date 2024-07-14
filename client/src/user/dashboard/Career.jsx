@@ -6,6 +6,7 @@ import Chip from "@mui/material/Chip";
 import { FaLinkedin, FaXTwitter, FaInstagram } from "react-icons/fa6";
 import { ToastContainer, toast } from "react-toastify";
 import { submitUserFormData } from "../../../api";
+import TagFacesIcon from '@mui/icons-material/TagFaces';
 
 const socialFields = [
   { icon: <FaInstagram size={40} />, name: "instagram", placeholder: "Instagram URL" },
@@ -106,7 +107,7 @@ function UserDashBoardCarrer() {
           progress: undefined,
           theme: "colored",
         });
-        console.log(err);
+        console.error(err);
         setIsDisabled(false);
       });
 

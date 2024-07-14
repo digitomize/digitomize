@@ -11,7 +11,7 @@ export async function loader({ params }) {
 
     return defer({ profileData: profileDataPromise });
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return null;
   }
 }

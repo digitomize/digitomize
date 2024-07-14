@@ -13,12 +13,12 @@ import { ToastContainer, toast } from "react-toastify";
 import { submitUserFormData } from "../../../../api"; import Socials from "./Socials";
 import SubmitBtn from "../Profile/SubmitBtn";
 import { MetaData } from "../../../components/CustomComponents";
-;
+
 
 const socialFields = [
     { icon: <FaInstagram size={30} />, name: "instagram", placeholder: "https://instagram.com/digitomize" },
     { icon: <FaLinkedin size={30} />, name: "linkedin", placeholder: "https://linkedin.com/in/pranshu54" },
-    { icon: <FaXTwitter size={30} />, name: "twitter", placeholder: "https://twitter.com/digitomize" }
+    { icon: <FaXTwitter size={30} />, name: "twitter", placeholder: "https://twitter.com/digitomize" },
 ];
 
 
@@ -70,7 +70,7 @@ function career() {
         );
     };
     const handleAdd = (e) => {
-        console.log("handleAdd");
+        // console.log("handleAdd");
         e.preventDefault();
 
         if (newSkill.trim() !== "") {
@@ -119,7 +119,7 @@ function career() {
                     progress: undefined,
                     theme: "colored",
                 });
-                console.log(err);
+                console.error(err);
                 setIsDisabled(false);
             });
 
@@ -170,9 +170,9 @@ function career() {
             <MetaData path="u/dashboard/career" />
             <ToastContainer />
             <div className="bg-dashboardDarkColor font-['Geist']">
-                <div class="flex justify-between items-center min-h-[40px]">
-                    <div class="flex flex-shrink gap-2 mr-4 items-center min-w-0">
-                        <p class="truncate font-medium text-gray-200 text-3xl max-w-[600px]">Career</p>
+                <div className="flex justify-between items-center min-h-[40px]">
+                    <div className="flex flex-shrink gap-2 mr-4 items-center min-w-0">
+                        <p className="truncate font-medium text-gray-200 text-3xl max-w-[600px]">Career</p>
                     </div>
                 </div>
                 <form >
@@ -185,7 +185,7 @@ function career() {
 
             </div>
         </>
-    )
+    );
 }
 
-export default career
+export default career;

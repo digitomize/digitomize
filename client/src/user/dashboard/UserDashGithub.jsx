@@ -12,7 +12,7 @@ export async function loader() {
     const res = await userDashboardDetails();
     return res.data;
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return null;
   }
 }
@@ -87,7 +87,7 @@ export default function UserDashGithub() {
           progress: undefined,
           theme: "colored",
         });
-        console.log(err);
+        console.error(err);
       });
     // console.log(res);
     svgImage();

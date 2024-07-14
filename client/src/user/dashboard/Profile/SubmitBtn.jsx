@@ -12,7 +12,7 @@ function SubmitBtn({ handleSubmit }) {
                 </div>
             </div>
         </>
-    )
+    );
 }
 
-export default SubmitBtn
+export default SubmitBtn;

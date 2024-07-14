@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 export default {
   content: [
     "node_modules/daisyui/dist/**/*.js",
