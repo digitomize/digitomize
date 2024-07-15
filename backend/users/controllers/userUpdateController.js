@@ -36,7 +36,7 @@ const updatePlatformData = (platform, userData, existingData, user) => {
   }
 };
 
-function validatePhoneNumber(numer){
+function validatePhoneNumber(number){
   if(number && !phoneNumberPattern.test(number)){
     throw new Error('Invalid phone number');
   }
