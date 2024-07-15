@@ -5,6 +5,7 @@ const maxUpdatesPerDay = 50;
 const twitterUrlPattern = /^(?:https?:\/\/)?(?:www\.)?twitter\.com\/(?:#!\/)?[a-zA-Z0-9_]{1,15}(?:\/)?$/;
 const linkedInUrlPattern = /^(?:https?:\/\/)?(?:www\.)?linkedin\.com\/in\/[a-zA-Z0-9-]{5,30}\/?$/;
 const instagramUrlPattern = /^(?:https?:\/\/)?(?:www\.)?instagram\.com\/[a-zA-Z0-9_]{1,30}\/?$/;
+const phoneNumberPattern = /^((\+[1-9]{1}[0-9]{0,1}\s?)?[1-9]{1}\d{9})?$/;
 
 // Helper function to update platform-specific data
 const updatePlatformData = (platform, userData, existingData, user) => {
@@ -35,12 +36,22 @@ const updatePlatformData = (platform, userData, existingData, user) => {
   }
 };
 
+function validatePhoneNumber(number){
+  if(number && !phoneNumberPattern.test(number)){
+    throw new Error('Invalid phone number');
+  }
+  return null;
+}
+
 // Helper function to update a specific data field
 const updateDataField = (field, userData, existingData) => {
   if (
     userData[field]?.data !== undefined &&
     userData[field]?.showOnWebsite !== undefined
   ) {
+    if(field==='phoneNumber'){
+      validatePhoneNumber(userData[field]?.data);
+    }
     existingData[field] = {
       data: userData[field]?.data,
       showOnWebsite: userData[field]?.showOnWebsite,
