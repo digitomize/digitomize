@@ -92,7 +92,7 @@ const userSchema = new mongoose.Schema(
       default: { data: null, showOnWebsite: true },
     },
     phoneNumber: {
-      type: numberToggleSchema,
+      type: stringToggleSchema,
       default: { data: null, showOnWebsite: true },
     },
     solved: [
