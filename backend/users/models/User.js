@@ -92,7 +92,8 @@ const userSchema = new mongoose.Schema(
       default: { data: null, showOnWebsite: true },
     },
     phoneNumber: {
-      type: numberToggleSchema,
+      type: stringToggleSchema,
+      match:/^(\+[0-9]{1,2}\s)?[1-9][0-9]{9}$/,
       default: { data: null, showOnWebsite: true },
     },
     solved: [
