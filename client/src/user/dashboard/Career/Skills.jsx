@@ -1,18 +1,6 @@
-import { useUserAuth } from "../../../context/UserAuthContext";
-import { useState } from "react";
-import React from "react";
-import ImageUploader from "../../../components/ImageUploader";
-import { useLoaderData } from "react-router-dom";
-import { submitUserFormData } from "../../../../api";
-import { toast, ToastContainer } from "react-toastify";
-import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import dayjs from "dayjs";
-import { MenuItem, Select } from "@mui/material";
-import { Form } from "react-router-dom";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import Chip from "@mui/material/Chip";
-import SubmitBtn from "../Profile/SubmitBtn";
+import React from "react";
 
 
 function Skills({ handleAdd, handleDelete, setNewSkill, newSkill, btnRef, skillData }) {
@@ -50,7 +38,7 @@ function Skills({ handleAdd, handleDelete, setNewSkill, newSkill, btnRef, skillD
                                     Add
                                 </button>
                             </div>
-                            <div className="skillchips w-full max-sm:text-sm  max-w-3xl h-12 mt-2">
+                            <div className="skillchips w-full max-sm:text-sm  max-w-3xl min-h-12 mt-2 flex flex-wrap gap-1">
                                 {skillData.length > 0 ? (
                                     skillData.map((data) => {
                                         let icon;
