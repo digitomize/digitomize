@@ -4,10 +4,12 @@ import { createNewUser } from "@core/api/user.api";
 import { toast } from "react-toastify";
 import { useState } from "react";
 import { useUserAuth } from "@context/UserAuthContext";
+import { uniqueToast } from "../../../../core/utils/unique-toast";
 
 export default function CreateUser({ handleClose }) {
   const [pending, setPending] = useState(false);
   const { signUp } = useUserAuth();
+  const toastId = uniqueToast();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -28,11 +30,15 @@ export default function CreateUser({ handleClose }) {
       createNewUser(payload)
         .then((response) => {
           handleClose();
-          toast.success(response.data.message);
+          toast.success(response.data.message,{
+            toastId
+          });
         })
         .catch((error) => {
           // console.log(error);
-          toast.success(error.response.data.message);
+          toast.success(error.response.data.message,{
+            toastId
+          });
         })
         .finally(() => {
           setPending(false);
@@ -40,7 +46,9 @@ export default function CreateUser({ handleClose }) {
       // }
     } catch (err) {
       // console.log(err);
-      toast.error(err.code);
+      toast.error(err.code,{
+        toastId
+      });
     }
   };
 

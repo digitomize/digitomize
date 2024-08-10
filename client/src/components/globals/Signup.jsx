@@ -21,6 +21,7 @@ const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 import SignoutButton from "@user/components/SignoutButton";
 import { useSetRecoilState } from "recoil";
 import { SignupForm } from "./AuthModal";
+import { uniqueToast } from "../../core/utils/unique-toast";
 
 export async function loader() {
   const loggedIn = await isLoggedIn();
@@ -39,6 +40,7 @@ export default function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const toastId = uniqueToast();
 
   const setbtnState = useSetRecoilState(buttonState);
   const [error, setError] = useState("");
@@ -74,6 +76,7 @@ export default function Signup() {
         draggable: true,
         progress: undefined,
         theme: "colored",
+        toastId: toastId
       });
       setbtnState(false);
       return;
@@ -89,6 +92,7 @@ export default function Signup() {
         draggable: true,
         progress: undefined,
         theme: "colored",
+        toastId: toastId
       });
       setbtnState(false);
       return;
@@ -118,6 +122,7 @@ export default function Signup() {
         draggable: true,
         progress: undefined,
         theme: "colored",
+        toastId: toastId
       });
       navigate("/login", { replace: true });
     } catch (err) {
@@ -130,6 +135,7 @@ export default function Signup() {
         draggable: true,
         progress: undefined,
         theme: "colored",
+        toastId: toastId
       });
       setbtnState(false);
       setError(err.code);

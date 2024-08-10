@@ -17,6 +17,7 @@ import TagFacesIcon from "@mui/icons-material/TagFaces";
 import { styled } from "@mui/material/styles";
 import ImageUploader from "@components/ImageUploader";
 import { FaXTwitter, FaLinkedin, FaInstagram } from "react-icons/fa6";
+import { uniqueToast } from "../../core/utils/unique-toast";
 
 const ListItem = styled("li")(({ theme }) => ({
   margin: theme.spacing(0.5),
@@ -36,6 +37,7 @@ export default function UserDashPersonal() {
   const { personal_data, social } = useLoaderData();
   const [newSkill, setNewSkill] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
+  const toastId = uniqueToast();
   const [skillData, setskillData] = useState(
     personal_data.skills.map((skill, index) => ({
       key: index, // Use the index as the key
@@ -53,7 +55,9 @@ export default function UserDashPersonal() {
 
     if (newSkill.trim() !== "") {
       if (newSkill.length > 25) {
-        toast.error("Length exceeding 25 characters");
+        toast.error("Length exceeding 25 characters",{
+          toastId
+        });
         return;
       }
       setskillData((prevSkills) => [
@@ -83,6 +87,7 @@ export default function UserDashPersonal() {
         draggable: true,
         progress: undefined,
         theme: "colored",
+        toastId: toastId
       });
       skillData.pop();
       btnRef.current.disabled = true;
@@ -182,6 +187,7 @@ export default function UserDashPersonal() {
           draggable: true,
           progress: undefined,
           theme: "colored",
+          toastId: toastId
         });
         setIsDisabled(false);
       })
@@ -196,6 +202,7 @@ export default function UserDashPersonal() {
           draggable: true,
           progress: undefined,
           theme: "colored",
+          toastId: toastId
         });
         console.error(err);
       });

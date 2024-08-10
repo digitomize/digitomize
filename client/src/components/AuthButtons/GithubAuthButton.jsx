@@ -8,12 +8,14 @@ import githubIcon from "@assets/github.svg";
 import axios from "axios";
 
 import { Tooltip } from "@mui/material";
+import { uniqueToast } from "../../core/utils/unique-toast";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export default function GithubAuthButton() {
   const navigate = useNavigate();
   const [btnState,setbtnState] = useRecoilState(buttonState);
   const setError = useSetRecoilState(errorState);
+  const toastId = uniqueToast();
 
   const handleGithubSignIn = async (e) => {
     setbtnState(true);
@@ -47,6 +49,7 @@ export default function GithubAuthButton() {
           draggable: true,
           progress: undefined,
           theme: "colored",
+          toastId: toastId
         });
         setError(error.code);
         setbtnState(false);

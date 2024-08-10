@@ -5,6 +5,7 @@ import LoadingScreen from "../../../components/globals/LoadingScreen";
 import PlatformBox from "./PlatformBox";
 import platformData from "./platformData";
 import { MetaData } from "../../../components/CustomComponents";
+import { uniqueToast } from "../../../core/utils/unique-toast";
 
 export async function loader() {
     try {
@@ -25,6 +26,7 @@ export default function Ratings() {
 
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState(null);
+    const toastId = uniqueToast();
     const [isDisabled, setIsDisabled] = useState(false);
     let ratingsData = data?.ratings;
     // console.log("RATINGGSS:", ratingsData);
@@ -108,6 +110,7 @@ export default function Ratings() {
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
+                    toastId: toastId
                 });
             })
             .catch((err) => {
@@ -126,6 +129,7 @@ export default function Ratings() {
                         draggable: true,
                         progress: undefined,
                         theme: "colored",
+                        toastId: toastId
                     },
                 );
                 console.error(err);

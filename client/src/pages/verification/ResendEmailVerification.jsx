@@ -4,6 +4,7 @@ import { auth } from "../../../firebase";
 import { sendEmailVerification } from "firebase/auth";
 import { isLoggedIn } from "../../../api";
 import { redirect } from "react-router-dom";
+import { uniqueToast } from "../../core/utils/unique-toast";
 
 
 export async function loader() {
@@ -18,6 +19,7 @@ export async function loader() {
 
 const ResendEmailVerification = () => {
   const [btnState, setbtnState] = useState(false);
+  const toastId = uniqueToast();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -32,6 +34,7 @@ const ResendEmailVerification = () => {
         draggable: true,
         progress: undefined,
         theme: "colored",
+        toastId: toastId
       });
       setbtnState(false);
     } catch (err) {
@@ -45,6 +48,7 @@ const ResendEmailVerification = () => {
         draggable: true,
         progress: undefined,
         theme: "colored",
+        toastId: toastId
       });
     }
   };

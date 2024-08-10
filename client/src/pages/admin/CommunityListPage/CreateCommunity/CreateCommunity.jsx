@@ -3,9 +3,11 @@ import { CreateCommunityForm } from "./CreateCommunity.helper";
 import { createCommunity } from "@core/api/community.api";
 import { toast } from "react-toastify";
 import { useState } from "react";
+import { uniqueToast } from "../../../../core/utils/unique-toast";
 
 export default function CreateCommunity({ handleClose }) {
   const [pending, setPending] = useState(false);
+  const toastId = uniqueToast();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,10 +23,14 @@ export default function CreateCommunity({ handleClose }) {
     createCommunity(payload)
       .then((response) => {
         handleClose();
-        toast.success(response.data.message);
+        toast.success(response.data.message,{
+          toastId
+        });
       })
       .catch((error) => {
-        toast.success(error.response.data.message);
+        toast.success(error.response.data.message,{
+          toastId
+        });
       })
       .finally(() => {
         setPending(false);

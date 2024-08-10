@@ -13,6 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { submitUserFormData } from "../../../../api"; import Socials from "./Socials";
 import SubmitBtn from "../Profile/SubmitBtn";
 import { MetaData } from "../../../components/CustomComponents";
+import { uniqueToast } from "../../../core/utils/unique-toast";
 
 
 const socialFields = [
@@ -30,6 +31,7 @@ function career() {
     const { personal_data, social } = useLoaderData();
     const [newSkill, setNewSkill] = useState("");
     const [isDisabled, setIsDisabled] = useState(false);
+    const toastId = uniqueToast();
     const [skillData, setskillData] = useState(
         personal_data.skills.map((skill, index) => ({
             key: index, // Use the index as the key
@@ -75,7 +77,9 @@ function career() {
 
         if (newSkill.trim() !== "") {
             if (newSkill.length > 25) {
-                toast.error("Length exceeding 25 characters");
+                toast.error("Length exceeding 25 characters",{
+                    toastId
+                });
                 return;
             }
             setskillData((prevSkills) => [
@@ -105,6 +109,7 @@ function career() {
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
+                    toastId: toastId
                 });
                 setIsDisabled(false);
             })
@@ -118,6 +123,7 @@ function career() {
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
+                    toastId: toastId
                 });
                 console.error(err);
                 setIsDisabled(false);
@@ -139,6 +145,7 @@ function career() {
                 draggable: true,
                 progress: undefined,
                 theme: "colored",
+                toastId: toastId
             });
             skillData.pop();
             btnRef.current.disabled = true;
