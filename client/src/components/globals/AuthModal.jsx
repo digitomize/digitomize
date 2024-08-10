@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import GoogleAuthButton from "../../components/AuthButtons/GoogleAuthButton"; 
 import GithubAuthButton from "../../components/AuthButtons/GithubAuthButton"; 
+import { uniqueToast } from "../../core/utils/unique-toast";
 
 // Define your recoil states
 export const buttonState = atom({
@@ -122,6 +123,7 @@ export function LoginForm() {
   const [passwordShow, setPasswordShow] = useState(false);
   const setbtnState = useSetRecoilState(buttonState);
   const setError = useSetRecoilState(errorState);
+  const toastId = uniqueToast();
 
   const passwordToggle = () => {
     setPasswordShow(!passwordShow);
@@ -144,6 +146,7 @@ export function LoginForm() {
         draggable: true,
         progress: undefined,
         theme: "colored",
+        toastId: toastId
       });
       setError(err.code);
       } finally {
@@ -217,6 +220,7 @@ export function SignupForm() {
   const [passwordShow, setPasswordShow] = useState(false);
   const setbtnState = useSetRecoilState(buttonState);
   const setError = useSetRecoilState(errorState);
+  const toastId = uniqueToast();
 
   const passwordToggle = () => {
     setPasswordShow(!passwordShow);
@@ -249,6 +253,7 @@ export function SignupForm() {
         draggable: true,
         progress: undefined,
         theme: "colored",
+        toastId: toastId
       });
       setError(err.code);
       } finally {

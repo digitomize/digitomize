@@ -4,6 +4,7 @@ import { Form, useLoaderData } from "react-router-dom";
 import { submitUserFormData } from "../../../api";
 import { ToastContainer, toast } from "react-toastify";
 import "../../components/css/IndividualCard.css";
+import { uniqueToast } from "../../core/utils/unique-toast";
 export async function loader() {
   try {
     const res = await userDashboardDetails();
@@ -17,6 +18,7 @@ export async function loader() {
 const UserDashBoardAccount = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const { personal_data } = useLoaderData();
+  const toastId = uniqueToast();
   const [formData, setFormData] = useState({
     email: personal_data.email,
     phoneNumber: {
@@ -54,6 +56,7 @@ const UserDashBoardAccount = () => {
           draggable: true,
           progress: undefined,
           theme: "colored",
+          toastId: toastId
         });
         setIsDisabled(false);
       })
@@ -67,6 +70,7 @@ const UserDashBoardAccount = () => {
           draggable: true,
           progress: undefined,
           theme: "colored",
+          toastId: toastId
         });
         console.error(err);
         setIsDisabled(false);

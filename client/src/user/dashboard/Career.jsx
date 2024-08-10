@@ -7,6 +7,7 @@ import { FaLinkedin, FaXTwitter, FaInstagram } from "react-icons/fa6";
 import { ToastContainer, toast } from "react-toastify";
 import { submitUserFormData } from "../../../api";
 import TagFacesIcon from '@mui/icons-material/TagFaces';
+import { uniqueToast } from "../../core/utils/unique-toast";
 
 const socialFields = [
   { icon: <FaInstagram size={40} />, name: "instagram", placeholder: "Instagram URL" },
@@ -19,6 +20,7 @@ function UserDashBoardCarrer() {
   const { personal_data, social } = useLoaderData();
   const [newSkill, setNewSkill] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
+  const toastId = uniqueToast();
   const [skillData, setskillData] = useState(
     personal_data.skills.map((skill, index) => ({
       key: index, // Use the index as the key
@@ -63,7 +65,9 @@ function UserDashBoardCarrer() {
 
     if (newSkill.trim() !== "") {
       if (newSkill.length > 25) {
-        toast.error("Length exceeding 25 characters");
+        toast.error("Length exceeding 25 characters",{
+          toastId
+        });
         return;
       }
       setskillData((prevSkills) => [
@@ -93,6 +97,7 @@ function UserDashBoardCarrer() {
           draggable: true,
           progress: undefined,
           theme: "colored",
+          toastId: toastId
         });
         setIsDisabled(false);
       })
@@ -106,6 +111,7 @@ function UserDashBoardCarrer() {
           draggable: true,
           progress: undefined,
           theme: "colored",
+          toastId: toastId
         });
         console.error(err);
         setIsDisabled(false);
@@ -127,6 +133,7 @@ function UserDashBoardCarrer() {
         draggable: true,
         progress: undefined,
         theme: "colored",
+        toastId: toastId
       });
       skillData.pop();
       btnRef.current.disabled = true;

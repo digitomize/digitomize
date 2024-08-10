@@ -15,6 +15,7 @@ import SignoutButton from "@user/components/SignoutButton";
 // for forgot password
 import { auth } from "../../firebase";
 import { sendPasswordResetEmail } from "firebase/auth";
+import { uniqueToast } from "../core/utils/unique-toast";
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 
 export async function loader({ request }) {
@@ -30,6 +31,7 @@ export default function ForgotPassword() {
   const [linkSent, setLinkSent] = useState(false);
   const [error, setError] = useState("");
   const [btnState, setbtnState] = useState(false); // disable feature
+  const toastId = uniqueToast();
 
   // for forgot password
   const actionCodeSettings = {
@@ -54,6 +56,7 @@ export default function ForgotPassword() {
         draggable: true,
         progress: undefined,
         theme: "colored",
+        toastId: toastId
       });
     } catch (error) {
       toast.error(error.message, {
@@ -65,6 +68,7 @@ export default function ForgotPassword() {
         draggable: true,
         progress: undefined,
         theme: "colored",
+        toastId: toastId
       });
       setbtnState(false);
     } finally {

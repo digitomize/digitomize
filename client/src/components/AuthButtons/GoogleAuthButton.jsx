@@ -8,12 +8,14 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Tooltip } from "@mui/material";
 import { useRecoilState, useSetRecoilState } from "recoil";
+import { uniqueToast } from "../../core/utils/unique-toast";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export default function GoogleAuthButton() {
   const navigate = useNavigate();
   const [btnState,setbtnState] = useRecoilState(buttonState);
   const setError = useSetRecoilState(errorState);
+  const toastId = uniqueToast();
   // const [btnState, setbtnState] = useState(false);
   const handleGoogleSignIn = async (e) => {
     setbtnState(true);
@@ -45,6 +47,7 @@ export default function GoogleAuthButton() {
             draggable: true,
             progress: undefined,
             theme: "colored",
+            toastId: toastId
           });
         });
     } catch (err) {

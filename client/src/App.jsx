@@ -124,11 +124,13 @@ import Ratings from "./user/dashboard/Ratings/Ratings";
 import Settings from "./user/dashboard/Settings/Settings";
 import ResendEmailVerification from "./pages/verification/ResendEmailVerification";
 import VerifyEmailPage from "./pages/verification/VerifyEmailPage";
+import { uniqueToast } from "./core/utils/unique-toast";
 
 function Logout() {
   const navigate = useNavigate();
   const user = useUserAuth();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const toastId = uniqueToast();
 
   // Implement your logout logic here
   async function handleLogout() {
@@ -136,14 +138,18 @@ function Logout() {
       // Assuming you have an `auth` object for authentication
       await auth.signOut();
       // Show a success message using toast
-      toast.success("Logged out successfully");
+      toast.success("Logged out successfully",{
+        toastId
+      });
       // Redirect the user to the login page with a message
       navigate("/login?message=Logged out successfully");
     } catch (error) {
       // Handle any errors that occur during logout
       console.error("Logout error:", error);
       // Optionally show an error message using toast or other means
-      toast.error("Logout failed");
+      toast.error("Logout failed",{
+        toastId
+      });
       // Redirect to an appropriate page or handle the error as needed
       navigate("/error"); // Example: Redirect to an error page
     } finally {

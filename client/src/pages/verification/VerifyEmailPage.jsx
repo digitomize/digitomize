@@ -3,11 +3,13 @@ import { auth } from "../../../firebase";
 import { applyActionCode } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
+import { uniqueToast } from "../../core/utils/unique-toast";
 
 const VerifyEmailPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const toastId = uniqueToast();
   let isMounted = true;
   useEffect(() => {
     const { oobCode } = Object.fromEntries(
@@ -28,6 +30,7 @@ const VerifyEmailPage = () => {
             draggable: true,
             progress: undefined,
             theme: "colored",
+            toastId: toastId
           });
           await auth.currentUser.reload();
           setIsSuccess(true);
@@ -44,6 +47,7 @@ const VerifyEmailPage = () => {
             draggable: true,
             progress: undefined,
             theme: "colored",
+            toastId: toastId
           });
        
       } finally {

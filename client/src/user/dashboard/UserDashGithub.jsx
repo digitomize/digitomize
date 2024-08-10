@@ -7,6 +7,7 @@ import NewNavbar from "../../components/globals/Navbar/NewNavbar";
 import DashboardNavbar from "../components/DashboardNavbar";
 import Footer from "@components/globals/Footer";
 import { MetaData } from "@components/CustomComponents";
+import { uniqueToast } from "../../core/utils/unique-toast";
 export async function loader() {
   try {
     const res = await userDashboardDetails();
@@ -20,6 +21,7 @@ export async function loader() {
 export default function UserDashGithub() {
   const githubData = useLoaderData().github;
   const username = useLoaderData().personal_data.username;
+  const toastId = uniqueToast();
 
   const [formData, setFormData] = useState({
     username: username,
@@ -74,6 +76,7 @@ export default function UserDashGithub() {
           draggable: true,
           progress: undefined,
           theme: "colored",
+          toastId: toastId
         });
       })
       .catch((err) => {
@@ -86,6 +89,7 @@ export default function UserDashGithub() {
           draggable: true,
           progress: undefined,
           theme: "colored",
+          toastId: toastId
         });
         console.error(err);
       });

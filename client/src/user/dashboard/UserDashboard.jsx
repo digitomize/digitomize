@@ -30,11 +30,13 @@ import ProjectCard from "../components/ProjectCard.jsx";
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 import { navLinks } from "./dashboardLinks.js";
 import { Done, PriorityHigh, Warning } from "@mui/icons-material";
+import { uniqueToast } from "../../core/utils/unique-toast.js";
 
 export default function UserDashboard() {
   const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState();
   const { user } = useUserAuth();
+  const toastId = uniqueToast();
   const [selectedStatus, setSelectedStatus] = useState("Busy"); // Initialize with a default status
   // const navLinks = [
   //   {
@@ -114,7 +116,9 @@ export default function UserDashboard() {
   };
   async function handleLogout() {
     await auth.signOut();
-    toast.success("Logged out successfully");
+    toast.success("Logged out successfully",{
+      toastId
+    });
     // console.log("before");
     navigate("/login?message=Logged out successfully");
   }

@@ -5,10 +5,12 @@ import { ToastContainer, toast } from "react-toastify";
 import { submitUserFormData } from "../../../../api";
 import { MetaData } from "../../../components/CustomComponents";
 import Username from "./Username";
+import { uniqueToast } from "../../../core/utils/unique-toast";
 
 function Settings() {
     const { personal_data } = useLoaderData();
     const [isDisabled, setIsDisabled] = useState(false);
+    const toastId = uniqueToast();
     const [formData, setFormData] = useState({
         username: personal_data.username
     }
@@ -35,6 +37,7 @@ function Settings() {
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
+                    toastId: toastId
                 });
                 setIsDisabled(false);
             })
@@ -48,6 +51,7 @@ function Settings() {
                     draggable: true,
                     progress: undefined,
                     theme: "colored",
+                    toastId: toastId
                 });
                 console.error(err);
                 setIsDisabled(false);

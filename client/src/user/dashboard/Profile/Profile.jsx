@@ -9,9 +9,11 @@ import GenderAndDOB from "./GenderAndDOB";
 import SubmitBtn from "./SubmitBtn";
 import dayjs from "dayjs";
 import { MetaData } from "../../../components/CustomComponents";
+import { uniqueToast } from '../../../core/utils/unique-toast';
 function UserDashBoardProfile() {
   const { personal_data, social } = useLoaderData();
   const [isDisabled, setIsDisabled] = useState(false);
+  const toastId = uniqueToast();
   const [formData, setFormData] = useState({
     email: personal_data.email,
     username: personal_data.username,
@@ -61,6 +63,7 @@ function UserDashBoardProfile() {
           draggable: true,
           progress: undefined,
           theme: "colored",
+          toastId: toastId
         });
         setIsDisabled(false);
       })
@@ -74,6 +77,7 @@ function UserDashBoardProfile() {
           draggable: true,
           progress: undefined,
           theme: "colored",
+          toastId: toastId
         });
         console.error(err);
         setIsDisabled(false);

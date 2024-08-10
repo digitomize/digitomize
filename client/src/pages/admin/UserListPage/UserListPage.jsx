@@ -29,6 +29,7 @@ import { Footer } from "@components/CustomComponents";
 import AppDialog from "@core/components/AppModal";
 import CreateUser from "./CreateUser";
 import DeleteUser from "./DeleteUser";
+import { uniqueToast } from "../../../core/utils/unique-toast";
 
 function formatCreatedAt(createdAtString) {
   const createdAt = new Date(createdAtString);
@@ -52,6 +53,7 @@ export default function UserListPage() {
   const [userList, setUserList] = useState([]);
   const [disableInput, setDisableInput] = useState(null);
   const [selectedUser, setselectedUser] = useState(null);
+  const toastId = uniqueToast();
 
   let key;
   const [open, setOpen] = useState(false);
@@ -85,10 +87,14 @@ export default function UserListPage() {
     setDisableInput(uid);
     updateUserData({ uid, role })
       .then((response) => {
-        toast.success(response.data.message);
+        toast.success(response.data.message,{
+          toastId
+        });
       })
       .catch((error) => {
-        toast.error(error.response.data.error);
+        toast.error(error.response.data.error,{
+          toastId
+        });
       })
       .finally(() => {
         setDisableInput(null);
