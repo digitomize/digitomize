@@ -15,6 +15,10 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
       path: "/contests",
     },
     {
+      title: "Blogs",
+      path: "https://blogs.digitomize.com/",
+    },
+    {
       title: "Discord",
       path: "/discord",
     },
@@ -27,7 +31,9 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
   return (
     <>
       <header
-        className={"relative inset-x-0 top-0 z-50 py-4 md:hidden border-b border-b-white/5 bg-zinc-950"}
+        className={
+          "relative inset-x-0 top-0 z-50 py-4 md:hidden border-b border-b-white/5 bg-zinc-950"
+        }
       >
         <div className="mx-auto max-w-screen-xl px-6 md:px-10">
           <div className="flex items-center justify-between">
@@ -73,9 +79,13 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
               </div>
             </button>
             <nav
-              className={`duration-500 absolute inset-x-0 top-full z-10 mt-px flex-col p-6 pb-24 bg-zinc-950 shadow-2xl flex transition-[opacity] ${isMenuActive ? "opacity-100" : "opacity-0 pointer-events-none z-0"
-                }`}
-            ><div className="flex flex-col  divide-y divide-white/5 border-y border-y-white/5">
+              className={`duration-500 absolute inset-x-0 top-full z-10 mt-px flex-col p-6 pb-24 bg-zinc-950 shadow-2xl flex transition-[opacity] ${
+                isMenuActive
+                  ? "opacity-100"
+                  : "opacity-0 pointer-events-none z-0"
+              }`}
+            >
+              <div className="flex flex-col  divide-y divide-white/5 border-y border-y-white/5">
                 {user && (
                   <a
                     className="flex items-center gap-2 py-4 font-display text-lg font-medium"
@@ -96,7 +106,7 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
                   </a>
                 ))}
               </div>
-              <div className="py-4"></div> 
+              <div className="py-4"></div>
               <a
                 target="_self"
                 className="group/link-new inline-flex cursor-pointer items-center transition gap-1 px-5 rounded-full hover:bg-emerald-400 hover:text-emerald-950 disabled:bg-white/5 disabled:text-zinc-50 justify-center py-3 text-lg font-medium bg-custom-blue font-display text-zinc-950"
@@ -105,7 +115,6 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
                 <span>{user ? "logout" : "login"}</span>
               </a>
             </nav>
-            
           </div>
         </div>
       </header>
