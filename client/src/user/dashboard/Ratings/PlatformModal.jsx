@@ -15,10 +15,11 @@ export default function PlatformModal({ btnText = "Connect", platform, handleSub
         setOpen(false);
     };
 
-    const handleModalSubmit = (e) => {
+    const handleModalSubmit = async (e) => {
         e.preventDefault();
-        handleClose();
-        handleSubmit();
+        await handleSubmit();
+        setOpen(false); // Close the dialog directly intead of calling function
+        
     };
 
     return (
