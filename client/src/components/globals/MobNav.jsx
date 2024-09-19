@@ -22,6 +22,10 @@ const MobNav = ({ isMenuActive, toggleActive }) => {
       title: "Leaderboard",
       path: "/u/leaderboard",
     },
+    {
+      title: "Blogs",   // Add this block for Blogs
+      path: "https://blogs.digitomize.com/",   // Path to your blogs page
+    },
   ];
 
   return (
