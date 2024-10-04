@@ -27,17 +27,30 @@ const generateSVG = async (req, res) => {
     xmlns="http://www.w3.org/2000/svg">`;
     try {
       let n = 0;
-      toReturn.forEach(e => {
+      toReturn.forEach((e) => {
         let data = user[e];
-        if(data.username !== null && (data.rating !== null && data.rating !== undefined) && (data.attendedContestsCount !== null && data.attendedContestsCount !== undefined)) n+= 1;
-      })
+        if (
+          data.username !== null &&
+          data.rating !== null &&
+          data.rating !== undefined &&
+          data.attendedContestsCount !== null &&
+          data.attendedContestsCount !== undefined
+        )
+          n += 1;
+      });
       let width = 100 / n,
         height = "100%",
         x = 0;
       toReturn.forEach((e, i) => {
         let data = user[e];
         // console.log(data);
-        if (data.username !== null && (data.rating !== null && data.rating !== undefined) && (data.attendedContestsCount !== null && data.attendedContestsCount !== undefined)) {
+        if (
+          data.username !== null &&
+          data.rating !== null &&
+          data.rating !== undefined &&
+          data.attendedContestsCount !== null &&
+          data.attendedContestsCount !== undefined
+        ) {
           let card = ``;
           if (e === "leetcode") {
             card += svgCard(data, width + "%", height, x + "%", e);

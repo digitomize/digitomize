@@ -2,7 +2,7 @@ import React from "react";
 
 function Button({ url }) {
   return (
-    <a href={url} target="_blank" rel="noopener noreferrer" className="my-auto">
+    <a href={url || "https://digitomize.com/contact"} target="_blank" rel="noopener noreferrer" className="my-auto">
       <button
         style={{ background: "transparent", border: "none", cursor: "pointer" }}
       >

@@ -18,22 +18,40 @@ import moment from "moment-timezone";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
-const addToGoogleCalendar = ({ name, hackathonStartTimeUnix: startTimeUnix, duration, url, host }) => {
+const addToGoogleCalendar = ({
+  name,
+  hackathonStartTimeUnix: startTimeUnix,
+  duration,
+  url,
+  host,
+}) => {
   // Adjust the start time and duration for IST (GMT+5:30)
-  const startTimeIST = new Date((startTimeUnix +  60 * 60 - 3600) * 1000);
-  const endTimeIST = new Date((startTimeUnix + duration * 60 + 60 * 60 - 3600) * 1000);
+  const startTimeIST = new Date((startTimeUnix + 60 * 60 - 3600) * 1000);
+  const endTimeIST = new Date(
+    (startTimeUnix + duration * 60 + 60 * 60 - 3600) * 1000,
+  );
 
-  const formattedStartTime = startTimeIST.toISOString().replace(/[-:]/g, "").replace(".000", "+05:30");
-  const formattedEndTime = endTimeIST.toISOString().replace(/[-:]/g, "").replace(".000", "+05:30");
+  const formattedStartTime = startTimeIST
+    .toISOString()
+    .replace(/[-:]/g, "")
+    .replace(".000", "+05:30");
+  const formattedEndTime = endTimeIST
+    .toISOString()
+    .replace(/[-:]/g, "")
+    .replace(".000", "+05:30");
 
   const startHour = startTimeIST.getHours();
   const startMinute = startTimeIST.getMinutes();
   const ampm = startHour >= 12 ? "PM" : "AM";
-  const formattedStartTimeString = `${startHour % 12 || 12}:${startMinute < 10 ? "0" : ""}${startMinute} ${ampm}`;
+  const formattedStartTimeString = `${startHour % 12 || 12}:${
+    startMinute < 10 ? "0" : ""
+  }${startMinute} ${ampm}`;
 
   const description = `<hr>🏆<b>Hackathon</b>🏆%0A👨🏻‍💻Name: ${name}%0A🕘Start at: ${formattedStartTimeString}%0A⏱️Duration: ${duration} minutes%0A🚀Host: ${host}%0A🔗Hackathon URL: <a href='${url}'>${url}</a>%0A<hr><i>Thank you for using <a href='https://digitomize.com'>digitomize</a></i>`;
 
-  const googleCalendarUrl = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${formattedStartTime}/${formattedEndTime}&text=${encodeURIComponent(name)}&details=${description}`;
+  const googleCalendarUrl = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${formattedStartTime}/${formattedEndTime}&text=${encodeURIComponent(
+    name,
+  )}&details=${description}`;
 
   // Open the Google Calendar event creation page in a new tab
   window.open(googleCalendarUrl, "_blank");
@@ -77,7 +95,13 @@ function HackathonIndividualCard() {
     );
   }
 
-  const { host, name, url, hackathonStartTimeUnix: startTimeUnix, duration } = hackathon;
+  const {
+    host,
+    name,
+    url,
+    hackathonStartTimeUnix: startTimeUnix,
+    duration,
+  } = hackathon;
 
   const durationInMilliseconds = duration * 60 * 1000;
   const endTimeUnix = startTimeUnix + durationInMilliseconds / 1000;
@@ -164,8 +188,13 @@ function HackathonIndividualCard() {
               className="w-fit"
               icon={<Notifications className="animate-ping" />}
             >
-              <a href="https://whatsapp.com/channel/0029VaJyadwLNSa71cZCQt1A" target="_blank" rel="noreferrer">
-                <AlertTitle>DON'T miss out hackathons - get all hackathon notifications on
+              <a
+                href="https://whatsapp.com/channel/0029VaJyadwLNSa71cZCQt1A"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <AlertTitle>
+                  DON'T miss out hackathons - get all hackathon notifications on
                   <strong> Whatsapp!!</strong>
                   <span className="normal-case">
                     {" "}
@@ -392,7 +421,6 @@ function HackathonIndividualCard() {
                   {remaningTime}
                 </div>
                 <div className="ic-mv-child-fifth">
-
                   <div
                     className="mv-btn-div"
                     style={{ boxShadow: `8px 8px ${colorTheme}` }}
@@ -941,7 +969,7 @@ function HackathonIndividualCard() {
                           marginTop: "17px",
                         }}
                       >
-                        Participate <Code/>
+                        Participate <Code />
                       </button>
                     </a>
                     <CopyToClipboard

@@ -26,19 +26,19 @@ const UserDashBoardAccount = () => {
   });
   const handleInputChangeObjData = (event) => {
     const { name, value } = event.target;
-    if(name==='phoneNumber')
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: {
-        ...prevData[name],
-        data: value,
-      },
-    }));
+    if (name === "phoneNumber")
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: {
+          ...prevData[name],
+          data: value,
+        },
+      }));
     else
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
   };
   async function handleSubmit(event) {
     event.preventDefault();
@@ -119,9 +119,9 @@ const UserDashBoardAccount = () => {
             </div>
           </div>
           <div className="flex w-full max-md:flex-col gap-4 justify-between max-md:items-center">
-          <div className="btn-div " style={{ boxShadow: `8px 8px #B55B52` }}>
+            <div className="btn-div " style={{ boxShadow: `8px 8px #B55B52` }}>
               <button
-              type="submit"
+                type="submit"
                 style={{
                   color: "black",
                   fontWeight: "bold",
@@ -129,22 +129,25 @@ const UserDashBoardAccount = () => {
                   marginTop: "17px",
                 }}
               >
-              Delete Account
+                Delete Account
               </button>
             </div>
             <div className="btn-div" style={{ boxShadow: `8px 8px #2E8D46` }}>
-              <button disabled={isDisabled}
-              onClick={handleSubmit}
-              type="submit"
+              <button
+                disabled={isDisabled}
+                onClick={handleSubmit}
+                type="submit"
                 style={{
                   color: "black",
                   fontWeight: "bold",
                   fontSize: "20px",
                   marginTop: "17px",
                 }}
-                className={`${isDisabled ?"cursor-not-allowed  opacity-60":""}`}
+                className={`${
+                  isDisabled ? "cursor-not-allowed  opacity-60" : ""
+                }`}
               >
-              {isDisabled ? "Saving Changes..." : "Save Changes"}
+                {isDisabled ? "Saving Changes..." : "Save Changes"}
               </button>
             </div>
           </div>

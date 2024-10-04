@@ -10,7 +10,7 @@ export default function Layout() {
       <NewNavbar />
       <Outlet />
       {/* <NewFooter /> */}
-      <Footer/>
+      <Footer />
     </>
   );
 }

@@ -5,14 +5,15 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: "0.0.0.0",
-  },resolve: {
+  },
+  resolve: {
     alias: {
       "@components": "/src/components",
       "@assets": "/src/assets",
-      "@user" : "/src/user",
+      "@user": "/src/user",
       "@core": "/src/core",
-      "@context" : "/src/context",
-      "@pages" : "/src/pages"
+      "@context": "/src/context",
+      "@pages": "/src/pages",
       // Add other aliases as needed
     },
   },

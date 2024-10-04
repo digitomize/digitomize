@@ -6,15 +6,7 @@ import ShareModel from "@components/share_model";
 import { FaXTwitter, FaLinkedin, FaInstagram } from "react-icons/fa6";
 const frontendUrl = import.meta.env.VITE_REACT_APP_FRONTEND_URL;
 
-function UserCard({
-  username,
-  name,
-  picture,
-  bio,
-  role,
-  social,
-  skills = [],
-}) {
+function UserCard({ username, name, picture, bio, role, social, skills = [] }) {
   // console.log(social);
   const navigate = useNavigate();
   const location = useLocation();
@@ -48,11 +40,12 @@ function UserCard({
         <div className="flex w-full sm:flex-col max-sm:flex-row max-sm:justify-between">
           <div>
             <h2 className="font-500 lg:text-[32px] text-2xl ">{name}</h2>
-            <h2 className="sm:text-[16px] text-[14px] pl-1 font-normal font-['Geist']">@{username}</h2>
+            <h2 className="sm:text-[16px] text-[14px] pl-1 font-normal font-['Geist']">
+              @{username}
+            </h2>
           </div>
           <div
-            className={`sm:mt-3 flex  sm:gap-2 gap-3 ${social ? "" : "hidden"
-              }`}
+            className={`sm:mt-3 flex  sm:gap-2 gap-3 ${social ? "" : "hidden"}`}
           >
             <a
               className={social?.linkedin ? "" : "hidden"}
@@ -60,7 +53,10 @@ function UserCard({
               target="_blank"
               rel="noreferrer"
             >
-              <FaLinkedin className="lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]" color="white" />
+              <FaLinkedin
+                className="lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]"
+                color="white"
+              />
             </a>
             <a
               className={social?.instagram ? "" : "hidden"}
@@ -68,7 +64,10 @@ function UserCard({
               target="_blank"
               rel="noreferrer"
             >
-              <FaInstagram className="lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]" color="white" />
+              <FaInstagram
+                className="lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]"
+                color="white"
+              />
             </a>
             <a
               className={social?.twitter ? "" : "hidden"}
@@ -76,7 +75,10 @@ function UserCard({
               target="_blank"
               rel="noreferrer"
             >
-              <FaXTwitter className="lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]" color="white" />
+              <FaXTwitter
+                className="lg:w-[30px] lg:h-[30px] w-[24px] h-[24px]"
+                color="white"
+              />
             </a>
           </div>
         </div>
@@ -103,15 +105,20 @@ function UserCard({
           ))}
         </div>
       </div>
-      {bio && <p className="border-[0.5px] border-solid border-[#8888884a] lg:text-[14px] sm:text-[12px] rounded-[5px] px-3 py-2 mt-4 text-[#818587]">
-        {truncatedBio}
+      {bio && (
+        <p className="border-[0.5px] border-solid border-[#8888884a] lg:text-[14px] sm:text-[12px] rounded-[5px] px-3 py-2 mt-4 text-[#818587]">
+          {truncatedBio}
 
-        {bio?.length > 150 && (
-          <button onClick={toggleBio} className="text-blue-500 hover:underline">
-            {showMore ? "...show less" : "...show more"}
-          </button>
-        )}
-      </p>}
+          {bio?.length > 150 && (
+            <button
+              onClick={toggleBio}
+              className="text-blue-500 hover:underline"
+            >
+              {showMore ? "...show less" : "...show more"}
+            </button>
+          )}
+        </p>
+      )}
       <div className="flex lg:flex-row sm:flex-col max-sm:flex-row gap-y-4 w-full justify-between items-center mt-6">
         {isUserDashboard && (
           <button

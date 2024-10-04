@@ -11,10 +11,7 @@ import {
   ListItemIcon,
   Skeleton,
 } from "@mui/material";
-import {
-  tublian,
-  quine,
-} from "../../AllAssets";
+import { tublian, quine } from "../../AllAssets";
 import Contests from "../../Contests";
 import { Element } from "react-scroll";
 import CustomSlider from "../../CustomSlider";
@@ -34,14 +31,8 @@ const MenuProps = {
   },
 };
 
-const platformsIcon = [
-  tublian,  
-  quine,
-];
-const platforms = [
-  "tublian",
-  "quine",
-];
+const platformsIcon = [tublian, quine];
+const platforms = ["tublian", "quine"];
 function ChallengesFilter() {
   const [contestsData, setContestsData] = useState([]);
   const [selectedPlatforms, setSelectedPlatforms] = useState([]);
@@ -86,12 +77,16 @@ function ChallengesFilter() {
       <Element className=" flex lg:flex-row max-lg:flex-col justify-between mx-auto lg:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
         {/* //checkmarks */}
         <div
-          className={"filter-div w-fit self-center bg-cardsColor relative rounded-xl"}
+          className={
+            "filter-div w-fit self-center bg-cardsColor relative rounded-xl"
+          }
         >
           <FormControl
             variant="filled"
             sx={{ m: 1, minWidth: 300 }}
-            className={"filter bg-filter rounded-lg platform-container max-sm:justify-center"} // to make it fixed while scroll add class "fixed" on condition "isFixed"
+            className={
+              "filter bg-filter rounded-lg platform-container max-sm:justify-center"
+            } // to make it fixed while scroll add class "fixed" on condition "isFixed"
           >
             <InputLabel
               variant="filled"
@@ -113,24 +108,24 @@ function ChallengesFilter() {
                 <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                   {selected?.map((value) => (
                     <Chip
-                    key={value}
-                    label={
-                      <span style={{ display: "flex", alignItems: "center" }}>
-                        <img
-                          src={platformsIcon[platforms.indexOf(value)]}
-                          alt={value}
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            marginRight: "5%",
-                          }}
-                        />
-                        {value}
-                      </span>
-                    }
-                    onDelete={() => handleDelete(value)}
-                  />
-                ))}
+                      key={value}
+                      label={
+                        <span style={{ display: "flex", alignItems: "center" }}>
+                          <img
+                            src={platformsIcon[platforms.indexOf(value)]}
+                            alt={value}
+                            style={{
+                              width: "20px",
+                              height: "20px",
+                              marginRight: "5%",
+                            }}
+                          />
+                          {value}
+                        </span>
+                      }
+                      onDelete={() => handleDelete(value)}
+                    />
+                  ))}
                 </Box>
               )}
               MenuProps={MenuProps}
@@ -157,7 +152,10 @@ function ChallengesFilter() {
         </div>
         <CustomSlider setRange={setRange} maxValue={maxValue} />
       </Element>
-      <Element name="contests" className="container mx-auto contests-container z-[1]">
+      <Element
+        name="contests"
+        className="container mx-auto contests-container z-[1]"
+      >
         {contestsData.length ? (
           <Contests contests={contestsData} range={range} />
         ) : (

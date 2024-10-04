@@ -56,7 +56,7 @@ The client directory is organized into several main directories and components:
             │   └── /pages
             ├── /components
             ├── /dashboard
-            └── /leaderboard        
+            └── /leaderboard
 ```
 
 - `assets`: This directory contains static assets such as images, fonts, and other files used in your application's user interface.
@@ -113,9 +113,11 @@ You can set up Environment Variable Using One of Two Methods Stated Below:
 - Run the `npm run setup` command.
 - Fill in the empty fields with the values from your firebase project
 - See below for instructions on how to create a firebase project
+
 ```bash
 npm run setup
 ```
+
 [See below for instructions on how to create a firebase project](#creating-new-firebase-project-and-setting-up-env-variables)
 
 ## [Manual] Setting Up Environment Variables individually.
@@ -123,6 +125,7 @@ npm run setup
 - Create a new .env file in the client directory
 - Copy the .example.env from the client directory and paste its contents into your newly created .env file
 - Fill in the empty fields with the values from your firebase project
+
 ```bash
 VITE_REACT_APP_BACKEND_URL=http://localhost:4001
 VITE_REACT_APP_FRONTEND_URL=http://localhost:5173
@@ -135,6 +138,7 @@ VITE_REACT_APP_APP_ID=
 VITE_REACT_APP_MEASUREMENT_ID=
 VITE_REACT_APP_FORMBRICKS_API_KEY=
 ```
+
 [See below for instructions on how to create a firebase project](#creating-new-firebase-project-and-setting-up-env-variables)
 
 ### Creating New firebase project and setting up .env variables
@@ -157,6 +161,7 @@ VITE_REACT_APP_FORMBRICKS_API_KEY=
     measurementId: "G-YTUTY89kFT",
   };
   ```
+
 - Use these values to populate your .env file
 
 # Usage
@@ -174,6 +179,7 @@ This command will start the development server. You can then access and interact
 Contributions to the Digitomize project are welcome! If you would like to contribute to the client-side codebase, please refer to the [CONTRIBUTING.md](../CONTRIBUTING.md) file for details on how to contribute.
 
 ### Linting
+
 - Run `npm run lint` to check for errors using the linter.
 - Run `npm run lint-fix` to have the linter automatically fix errors where possible.
 

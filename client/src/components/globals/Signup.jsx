@@ -1,11 +1,6 @@
-import {
-  Form,
-  useNavigate,
-  redirect,
-  Link,
-} from "react-router-dom";
+import { Form, useNavigate, redirect, Link } from "react-router-dom";
 import axios from "axios";
-import {buttonState} from "@components/Login";
+import { buttonState } from "@components/Login";
 import { useState } from "react";
 import { isLoggedIn } from "../../../api";
 import { auth } from "../../../firebase";
@@ -80,16 +75,19 @@ export default function Signup() {
     }
 
     if (!usernamePattern.test(inputUsername)) {
-      toast.error("Invalid username. Must start with a letter and contain no spaces", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
+      toast.error(
+        "Invalid username. Must start with a letter and contain no spaces",
+        {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        },
+      );
       setbtnState(false);
       return;
     }
@@ -145,9 +143,7 @@ export default function Signup() {
         <div className="outer w-11/12 flex flex-row mx-auto my-auto phone:border-2 rounded-xl border-jet">
           <div className="left md:w-2/4 max-md:w-full phone:px-12">
             <div className="heading text-center">
-              <h1 className="max-phone:mt-8">
-                Create an Account
-              </h1>
+              <h1 className="max-phone:mt-8">Create an Account</h1>
               <p>
                 Sign Up for a{" "}
                 <span className="text-custom-blue">World of Coding </span>{" "}
@@ -155,14 +151,12 @@ export default function Signup() {
               </p>
             </div>
             <div className="auth-btns flex flex-row gap-2 justify-center mt-4">
-              <GoogleAuthButton
-              />
-              <GithubAuthButton
-              />
+              <GoogleAuthButton />
+              <GithubAuthButton />
             </div>
             <div className="divider mb-0">OR</div>
             <div className="email-form mx-auto my-0">
-             <SignupForm/>
+              <SignupForm />
             </div>
           </div>
           <div className="right md:w-2/4 max-md:hidden px-12 my-auto h-full">
@@ -172,6 +166,4 @@ export default function Signup() {
       </div>
     </>
   );
-
- 
 }

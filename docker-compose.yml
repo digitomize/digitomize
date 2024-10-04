@@ -1,8 +1,8 @@
-version: '3.0'
+version: "3.0"
 
 services:
   frontend:
-    build: 
+    build:
       context: .
       dockerfile: client.Dockerfile
     restart: always
@@ -24,7 +24,7 @@ services:
       - VITE_REACT_APP_FORMBRICKS_API_KEY=
 
   backend:
-    build: 
+    build:
       context: .
       dockerfile: backend.Dockerfile
     restart: always

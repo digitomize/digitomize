@@ -14,12 +14,11 @@
 - [ ] Feature enhancement
 - [ ] Documentation update
 - [ ] Refactoring
-- [ ] Other (specify): _______________
+- [ ] Other (specify): ******\_\_\_******
 
 ### Summary
 
 [Summarize the changes made in this PR.]
-
 
 ### Screenshots (if applicable)
 

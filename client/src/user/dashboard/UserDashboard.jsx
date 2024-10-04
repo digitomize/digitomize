@@ -2,10 +2,7 @@ import { useState, useEffect } from "react";
 
 import { auth } from "../../../firebase";
 
-import {
-  Link,
-  useLocation,
-} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,7 +10,14 @@ import NewLogOut from "../components/NewLogOut";
 import { useUserAuth } from "../../context/UserAuthContext";
 import NewNavbar from "../../components/globals/Navbar/NewNavbar.jsx";
 import EditIcon from "@mui/icons-material/Edit";
-import { preferences, rating, career, github, widgets, account } from "../../components/AllAssets.jsx";
+import {
+  preferences,
+  rating,
+  career,
+  github,
+  widgets,
+  account,
+} from "../../components/AllAssets.jsx";
 import { userDashboardDetails } from "../../../api";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
 import Badge from "@mui/material/Badge";
@@ -64,36 +68,41 @@ export default function UserDashboard() {
   //   }
   // ];
 
-
   const profileSteps = {
     addSkills: {
       text: "Elevate your profile with new skills.",
       completed: userData?.personal_data?.skills?.length > 0,
       score: 20,
-      link: "career"
+      link: "career",
     },
     addSocialMedia: {
       text: "Connect with your audience by adding social media links.",
-      completed: userData?.social?.linkedin?.length > 0 || userData?.social?.github?.length > 0 || userData?.social?.twitter?.length > 0 || userData?.social?.instagram?.length > 0 || userData?.social?.facebook?.length > 0,
+      completed:
+        userData?.social?.linkedin?.length > 0 ||
+        userData?.social?.github?.length > 0 ||
+        userData?.social?.twitter?.length > 0 ||
+        userData?.social?.instagram?.length > 0 ||
+        userData?.social?.facebook?.length > 0,
       score: 20,
-      link: "career"
+      link: "career",
     },
     addBio: {
       text: "Craft a compelling bio to make a lasting impression.",
       completed: userData?.personal_data?.bio?.data?.length > 0,
       score: 20,
-      link: "profile"
+      link: "profile",
     },
     addRatings: {
       text: "Add your ratings to showcase your competitive spirit.",
-      completed: userData?.ratings?.codechef?.data?.length > 0 || userData?.ratings?.codeforces?.data?.length > 0 || userData?.ratings?.leetcode?.data?.length > 0 || userData?.ratings?.geeksforgeeks?.data?.length > 0,
+      completed:
+        userData?.ratings?.codechef?.data?.length > 0 ||
+        userData?.ratings?.codeforces?.data?.length > 0 ||
+        userData?.ratings?.leetcode?.data?.length > 0 ||
+        userData?.ratings?.geeksforgeeks?.data?.length > 0,
       score: 40,
-      link: "ratings"
-    }
+      link: "ratings",
+    },
   };
-
-
-
 
   const [contest, setContest] = useState([]);
   const location = useLocation();
@@ -120,7 +129,7 @@ export default function UserDashboard() {
   }
   useEffect(() => {
     async function getContest() {
-      let url = `${backendUrl}/contests`
+      let url = `${backendUrl}/contests`;
       if (userData?.personal_data?.preferences?.contest_notifs) {
         const preferences = userData.personal_data.preferences.contest_notifs;
         const platforms = [];
@@ -132,7 +141,7 @@ export default function UserDashboard() {
         }
 
         if (platforms.length > 0) {
-          url += `?host=${platforms.join('&')}`;
+          url += `?host=${platforms.join("&")}`;
         }
       }
       // console.log("URLL:", url);
@@ -141,8 +150,8 @@ export default function UserDashboard() {
       const data = await response.json();
       setContest(data.results.slice(0, 3));
     }
-    getContest()
-  }, [userData])
+    getContest();
+  }, [userData]);
   useEffect(() => {
     async function fetchData() {
       try {
@@ -171,7 +180,6 @@ export default function UserDashboard() {
   if (!loading) {
     return (
       <>
-
         <MetaData path="u/dashboard" />
         <ToastContainer />
         <NewNavbar />
@@ -198,69 +206,108 @@ export default function UserDashboard() {
             <div className="sm:w-[60%]">
               <div className="mb-4">
                 <h1 className="my-0 text-4xl">Profile </h1>
-                <p className="text-sm my-2 text-gray-400"> <i>Enhance your profile today! See the suggestions below:</i></p>
+                <p className="text-sm my-2 text-gray-400">
+                  {" "}
+                  <i>Enhance your profile today! See the suggestions below:</i>
+                </p>
                 <div className="flex flex-row gap-4">
                   <div>
-
                     {Object.keys(profileSteps).map((step, i) => {
-                      const { text, completed, score, link } = profileSteps[step];
-                      return <div className="flex items-center gap-2 my-2" key={i}>
-                        {completed ? <Done htmlColor="#00FF00" /> : <PriorityHigh htmlColor="red" />}
-                        <p className="text-xs">
-                          <Link to={link} className="underline decoration-dotted">{text}</Link>
-                          - <i> {score}% </i></p>
-                      </div>;
+                      const { text, completed, score, link } =
+                        profileSteps[step];
+                      return (
+                        <div className="flex items-center gap-2 my-2" key={i}>
+                          {completed ? (
+                            <Done htmlColor="#00FF00" />
+                          ) : (
+                            <PriorityHigh htmlColor="red" />
+                          )}
+                          <p className="text-xs">
+                            <Link
+                              to={link}
+                              className="underline decoration-dotted"
+                            >
+                              {text}
+                            </Link>
+                            - <i> {score}% </i>
+                          </p>
+                        </div>
+                      );
                     })}
                   </div>
                   <div>
-                    {
-                      (() => {
-                        let sum = 0;
-                        Object.keys(profileSteps).forEach(step => {
-                          const { score, completed } = profileSteps[step];
-                          if (completed) {
-                            sum += score;
-                          }
-                        });
-                        // console.log("Sum of scores:", sum);
+                    {(() => {
+                      let sum = 0;
+                      Object.keys(profileSteps).forEach((step) => {
+                        const { score, completed } = profileSteps[step];
+                        if (completed) {
+                          sum += score;
+                        }
+                      });
+                      // console.log("Sum of scores:", sum);
 
-                        // Render the radial progress bar here
-                        return (
-                          <div key="radial-progress" className={`radial-progress ${sum > 70 ? 'text-[#00FF00]' : sum > 50 ? 'text-green-600' : 'bg-gray-900'}`} style={{ "--value": sum, "--size": "6rem", "--thickness": "1rem" }} role="progressbar">
-                            {sum}%
-                          </div>
-                        );
-                      })()
-                    }
+                      // Render the radial progress bar here
+                      return (
+                        <div
+                          key="radial-progress"
+                          className={`radial-progress ${
+                            sum > 70
+                              ? "text-[#00FF00]"
+                              : sum > 50
+                                ? "text-green-600"
+                                : "bg-gray-900"
+                          }`}
+                          style={{
+                            "--value": sum,
+                            "--size": "6rem",
+                            "--thickness": "1rem",
+                          }}
+                          role="progressbar"
+                        >
+                          {sum}%
+                        </div>
+                      );
+                    })()}
                   </div>
-
                 </div>
               </div>
               <div>
                 <h1 className="my-0 text-4xl">Settings</h1>
                 <div className="my-2 flex flex-row w-11/12 lg:justify-between justify-around flex-wrap gap-y-4">
-                  {
-                    navLinks.map((data, index) => {
-                      return <Link to={data.path} key={index}>
+                  {navLinks.map((data, index) => {
+                    return (
+                      <Link to={data.path} key={index}>
                         <div className="flex bg-cardsColor flex-col border border-solid sm:rounded-[12px] rounded-[5px] sm:py-3 sm:px-5 max-sm:py-2 max-sm:px-4 space-y-[5px] sm:justify-center justify-between  items-center border-[#EBEBEB]">
-                          <img src={data.icon} alt={data.title} className="w-8" />
-                          <p className="capitalize font-[500] sm:text-[16px] max-sm:text-[10px] text-[#EBEBEB]">{data.title}</p>
+                          <img
+                            src={data.icon}
+                            alt={data.title}
+                            className="w-8"
+                          />
+                          <p className="capitalize font-[500] sm:text-[16px] max-sm:text-[10px] text-[#EBEBEB]">
+                            {data.title}
+                          </p>
                         </div>
-                      </Link>;
-                    })
-                  }
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
               <div className="w-full">
                 <h1 className="mt-8 text-4xl">Contests</h1>
-                {userData?.personal_data?.preferences?.contest_notifs && <p className="text-sm my-2 text-gray-400">Displaying upcoming contests from your <Link to={"preferences"} className="underline">preferred list</Link>.</p>}
+                {userData?.personal_data?.preferences?.contest_notifs && (
+                  <p className="text-sm my-2 text-gray-400">
+                    Displaying upcoming contests from your{" "}
+                    <Link to={"preferences"} className="underline">
+                      preferred list
+                    </Link>
+                    .
+                  </p>
+                )}
 
                 <div className="flex flex-row gap-7  flex-wrap">
-                  {
-                    contest.map((data, index) => {
-                      return <ContestCard data={data} key={index} />;
-                    })
-                  }
+                  {contest.map((data, index) => {
+                    return <ContestCard data={data} key={index} />;
+                  })}
                 </div>
               </div>
               <div className="w-full">
@@ -275,10 +322,8 @@ export default function UserDashboard() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
-
       </>
     );
   }

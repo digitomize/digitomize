@@ -7,7 +7,6 @@ import { useUserDetails } from "../../../context/UserContext";
 import { ROLE } from "../../../core/utils/const";
 import Novu from "../Notifs/Novu";
 
-
 import formbricks from "@formbricks/js/website";
 
 import { navLinks, navLinksDashboard } from "./navLinks";
@@ -42,8 +41,6 @@ export default function NewNavbar({ position }) {
     transform: "translateY(0)",
     transition: "opacity 0.3s ease-out, transform 0.3s ease-out",
   });
-
-
 
   const toggleActive = () => {
     if (window.innerWidth < 768) {
@@ -89,18 +86,16 @@ export default function NewNavbar({ position }) {
   }, [isMenuActive]);
 
   const renderAdminLink = () => {
-    if (
-      userDetails &&
-      userDetails.personal_data.role === ROLE.ADMIN
-    ) {
+    if (userDetails && userDetails.personal_data.role === ROLE.ADMIN) {
       return (
         <>
           <Link
             to="/admin/user"
-            className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname.includes("/admin")
-              ? "bg-zinc-400 text-zinc-950"
-              : ""
-              } hover:bg-zinc-200`}
+            className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
+              location.pathname.includes("/admin")
+                ? "bg-zinc-400 text-zinc-950"
+                : ""
+            } hover:bg-zinc-200`}
           >
             <div className="dropdown  dropdown-bottom">
               <label tabIndex={0}>Admin</label>
@@ -133,11 +128,11 @@ export default function NewNavbar({ position }) {
 
   return (
     <>
-
       <MobNav isMenuActive={isMenuActive} toggleActive={toggleActive} />
       <div
-        className={`${position ? position : "sticky"
-          } inset-x-0 top-0 relative z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto`}
+        className={`${
+          position ? position : "sticky"
+        } inset-x-0 top-0 relative z-50 pt-10 hidden justify-center md:flex pointer-events-auto w-fit m-auto`}
         style={{ ...navbarStyle }}
       >
         <div className="flex cursor-pointer items-center gap-4 rounded-full bg-white p-2">
@@ -169,15 +164,16 @@ export default function NewNavbar({ position }) {
                 <Link
                   to={navLink.path}
                   key={index}
-                  className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${location.pathname === navLink.path
-                    ? "bg-zinc-400 text-zinc-950"
-                    : ""
-                    } hover:bg-zinc-200`}
+                  className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
+                    location.pathname === navLink.path
+                      ? "bg-zinc-400 text-zinc-950"
+                      : ""
+                  } hover:bg-zinc-200`}
                 >
                   {navLink.title}
-                </Link>)
-            }
-            )}
+                </Link>
+              );
+            })}
             {renderAdminLink()}
           </div>
           <div className="flex justify-end">

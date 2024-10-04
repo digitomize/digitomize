@@ -265,7 +265,7 @@ body {
 
 /* Media query to hide snowflakes on mobile devices */
 @media only screen and (max-width: 768px) {
-  .snowflakes{
+  .snowflakes {
     display: none !important;
   }
 }

@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import { sendErrorLog } from "./error.js";
 dotenv.config();
 
-function sendWebhook_createAccount ({
+function sendWebhook_createAccount({
   imageURL,
   title,
   description,
