@@ -21,8 +21,8 @@ const defaultDesc = "Empowering Coders and Developers Worldwide";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RecoilRoot>
-    <InstallPWAButton />
-    <App />
+      <InstallPWAButton />
+      <App />
     </RecoilRoot>
   </React.StrictMode>,
 );

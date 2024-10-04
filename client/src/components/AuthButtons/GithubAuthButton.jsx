@@ -1,8 +1,8 @@
 import { GithubAuthProvider, signInWithPopup } from "firebase/auth";
-import { useRecoilState,useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { auth } from "../../../firebase";
 import { toast } from "react-toastify";
-import {buttonState,errorState} from '@components/Login'
+import { buttonState, errorState } from "@components/Login";
 import { useNavigate } from "react-router-dom";
 import githubIcon from "@assets/github.svg";
 import axios from "axios";
@@ -12,7 +12,7 @@ const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
 export default function GithubAuthButton() {
   const navigate = useNavigate();
-  const [btnState,setbtnState] = useRecoilState(buttonState);
+  const [btnState, setbtnState] = useRecoilState(buttonState);
   const setError = useSetRecoilState(errorState);
 
   const handleGithubSignIn = async (e) => {
@@ -34,7 +34,7 @@ export default function GithubAuthButton() {
           })
           // .then((res) => console.log(res))
           .catch((err) => console.error(err));
-        await auth.currentUser.reload()
+        await auth.currentUser.reload();
         navigate("/u/dashboard");
       })
       .catch((error) => {

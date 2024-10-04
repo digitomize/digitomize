@@ -29,7 +29,8 @@ export function UserAuthContextProvider({ children }) {
         const user = result.user;
         await updateProfile(user, {
           displayName: name,
-          photoURL: "https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg",
+          photoURL:
+            "https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg",
         })
           // .then(() => {
           //   console.log("Profile updated successfully.");
@@ -38,11 +39,13 @@ export function UserAuthContextProvider({ children }) {
             console.error("Error updating profile:", error);
           });
         const token = await user.getIdToken();
-        sendEmailVerification(user).then(() => {
-          /* console.log("Email verification sent."); */
-        }).catch((error) => {
-          console.error("Error sending email verification:", error);
-        });
+        sendEmailVerification(user)
+          .then(() => {
+            /* console.log("Email verification sent."); */
+          })
+          .catch((error) => {
+            console.error("Error sending email verification:", error);
+          });
         return { result, token };
       })
       .catch((error) => {

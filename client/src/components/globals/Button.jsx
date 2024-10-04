@@ -2,7 +2,12 @@ import React from "react";
 
 function Button({ url }) {
   return (
-    <a href={url} target="_blank" rel="noopener noreferrer" className="m-auto flex items-center">
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="m-auto flex items-center"
+    >
       <button
         style={{ background: "transparent", border: "none", cursor: "pointer" }}
       >

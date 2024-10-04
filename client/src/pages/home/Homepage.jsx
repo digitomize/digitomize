@@ -41,7 +41,12 @@ export default function Homepage() {
       <div>
         <div id="home" className="antialiased">
           {shouldShowSnowfall && (
-            <Snowfall snowflakeCount={50} speed={[0.2, 0.5]} wind={[-0.2, 0]} style={{ position: "fixed", zIndex: -1 }} />
+            <Snowfall
+              snowflakeCount={50}
+              speed={[0.2, 0.5]}
+              wind={[-0.2, 0]}
+              style={{ position: "fixed", zIndex: -1 }}
+            />
           )}
 
           <SectionOne />

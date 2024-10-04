@@ -15,7 +15,8 @@ router.get("/", async (req, res) => {
     const hackathons = await hackathonController.getUpcomingHackathonsList();
 
     if (vanity) {
-      const hackathonByVanity = await hackathonController.getHackathonByVanity(vanity);
+      const hackathonByVanity =
+        await hackathonController.getHackathonByVanity(vanity);
       if (hackathonByVanity) {
         res.status(200).json({
           total: 1,

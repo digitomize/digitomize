@@ -1,10 +1,7 @@
 import { useState, useEffect, memo } from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
-import {
-  tublian,
-  quine,
-} from "../../AllAssets";
+import { tublian, quine } from "../../AllAssets";
 import ShareModel from "../../share_model";
 import { EmojiEvents } from "@mui/icons-material";
 import { Tooltip } from "@mui/material";
@@ -28,7 +25,9 @@ function Card({ contest }) {
     timeZone: "Asia/Kolkata",
   };
   const startTimeIST = startDate.toLocaleString("en-US", options);
-  const endTimeIST = new Date((startTimeUnix + duration * 60) * 1000).toLocaleString("en-US", options);
+  const endTimeIST = new Date(
+    (startTimeUnix + duration * 60) * 1000,
+  ).toLocaleString("en-US", options);
   const [remaningTime, setRemainingTime] = useState("loading...");
   const [show, setShow] = useState(false);
   const close_model = () => setShow(false);
@@ -46,8 +45,8 @@ function Card({ contest }) {
   const main_model = (
     <ShareModel
       close_model={close_model}
-      // contestLink={`${frontendUrl}/contests/${vanity}`}
-      contestLink={url}
+      // Link={`${frontendUrl}/s/${vanity}`}
+      Link={url}
       //theme={colorTheme}
       theme=""
     />
@@ -66,17 +65,22 @@ function Card({ contest }) {
           ends: {endTimeIST}
         </p>
         <Tooltip title={host} placement="bottom" arrow>
-          <img src={hostToSVGMap[host]} alt={host} width="13%"  className="object-contain"/>
-          </Tooltip>
+          <img
+            src={hostToSVGMap[host]}
+            alt={host}
+            width="13%"
+            className="object-contain"
+          />
+        </Tooltip>
       </div>
-      {/* <Link to={`/contests/${vanity}`} className="my-auto pb-6"> */}
+      {/* <Link to={`/s/${vanity}`} className="my-auto pb-6"> */}
       <Link to={url} className="my-auto pb-6" target="_blank">
         <h2 className="text-3xl pb-0">{name}</h2>
         <p className="flex flex-row items-center">
           <EmojiEvents />
           <div className="badge badge-success">
             <h3 className="max-phone:text-xs">{prize}</h3>
-            </div>
+          </div>
         </p>
       </Link>
       <div className="flex justify-between items-end">
@@ -119,7 +123,7 @@ function updateTimer(startTime, duration) {
   const timeDiff = startTime - currentTime;
 
   if (duration * 60 + startTime < currentTime) {
-    return <p>the contest has ended</p>;
+    return <p>the  has ended</p>;
   } else if (startTime <= currentTime) {
     const endTime = startTime + duration * 60;
     const timeDiff = endTime - currentTime;
