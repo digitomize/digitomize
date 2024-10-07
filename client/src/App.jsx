@@ -124,6 +124,7 @@ import Ratings from "./user/dashboard/Ratings/Ratings";
 import Settings from "./user/dashboard/Settings/Settings";
 import ResendEmailVerification from "./pages/verification/ResendEmailVerification";
 import VerifyEmailPage from "./pages/verification/VerifyEmailPage";
+import Github from "./user/dashboard/Github/Github";
 
 function Logout() {
   const navigate = useNavigate();
@@ -226,7 +227,7 @@ const router = createBrowserRouter(
           <Route element={<UserDashBoardLayout />} >
             <Route
               path="github"
-              element={<ComingSoonLoader value={"Github"} />}
+              element={<Github/>}
             />
             <Route
               path="career"

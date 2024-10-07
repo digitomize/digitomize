@@ -5,13 +5,13 @@ import { getMessaging } from "firebase/messaging";
 
 // Firebase configurations
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_REACT_APP_API_KEY,
-  authDomain: import.meta.env.VITE_REACT_APP_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_REACT_APP_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_REACT_APP_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_REACT_APP_APP_ID,
-  measurementId: import.meta.env.VITE_REACT_APP_MEASUREMENT_ID,
+  apiKey: "AIzaSyCLurJYejrMmapRTzXSJLI5QPurcoUNQNE",
+  authDomain: "digitomise-b4970.firebaseapp.com",
+  projectId: "digitomise-b4970",
+  storageBucket: "digitomise-b4970.appspot.com",
+  messagingSenderId: "977877319434",
+  appId: "1:977877319434:web:3e91a47a3a7359c1ac04f3",
+  measurementId: "G-06H0VVZQK7"
 };
 
 // Initialize Firebase
