@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import formbricks from "@formbricks/js/website";
+import { motion } from "framer-motion"; 
 
 const handleClick = () => {
   formbricks.track("test-01");
@@ -68,14 +69,15 @@ const platforms = [
   "codeforces",
   "atcoder",
 ];
+
 function Filter() {
   const [contestsData, setContestsData] = useState([]);
   const [selectedPlatforms, setSelectedPlatforms] = useState([]);
   const [open, setOpen] = useState(false);
   const [range, setRange] = useState([0, 0]);
   const [maxValue, setMaxValue] = useState(Number);
+
   useEffect(() => {
-    // Fetch data from the backend API
     const selectedPlatformsParam = selectedPlatforms.join(",");
     const url = selectedPlatformsParam
       ? `${backendUrl}/contests?host=${selectedPlatformsParam}`
@@ -85,11 +87,7 @@ function Filter() {
       .then((response) => response.json())
       .then((data) => {
         let maxDuration = data.results?.reduce((max, current) => {
-          if (current && current.duration > max) {
-            return current.duration;
-          } else {
-            return max;
-          }
+          return current && current.duration > max ? current.duration : max;
         }, data.results[0]?.duration);
         setMaxValue(maxDuration);
         setContestsData(data.results);
@@ -98,34 +96,38 @@ function Filter() {
   }, [selectedPlatforms]);
 
   const handleDelete = (value) => {
-    let newSelectedParams = selectedPlatforms.filter(
-      (platform) => platform != value,
+    const newSelectedParams = selectedPlatforms.filter(
+      (platform) => platform !== value,
     );
     setSelectedPlatforms(newSelectedParams);
   };
+
   const handleChange = (e) => {
     setSelectedPlatforms(e.target.value);
     setOpen(!open);
   };
+
   return (
     <>
       <MetaData path="contests" />
       <Element className="phone:mt-8 flex lg:flex-row max-lg:flex-col justify-between mx-auto lg:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
-        {/* //checkmarks */}
-        <div
+        <motion.div
           className={"filter-div w-fit self-center bg-cardsColor relative rounded-xl"}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <FormControl
             variant="filled"
             sx={{ m: 1, minWidth: 300 }}
-            className={"filter bg-filter rounded-lg platform-container max-sm:justify-center"} // to make it fixed while scroll add class "fixed" on condition "isFixed"
+            className={"filter bg-filter rounded-lg platform-container max-sm:justify-center"}
           >
             <InputLabel
               variant="filled"
               id="platform-select-label"
-              shrink={selectedPlatforms.length == 0 ? false : true}
+              shrink={selectedPlatforms.length === 0 ? false : true}
             >
-              {selectedPlatforms.length == 0 ? "Platform" : ""}
+              {selectedPlatforms.length === 0 ? "Platform" : ""}
             </InputLabel>
             <Select
               labelId="platform-select-label"
@@ -133,42 +135,45 @@ function Filter() {
               open={open}
               multiple
               value={selectedPlatforms}
-              onClick={!open ? () => setOpen(true) : () => setOpen(false)}
+              onClick={() => setOpen(!open)}
               onChange={handleChange}
               input={<OutlinedInput id="select-multiple-chip" label="" />}
               renderValue={(selected) => (
                 <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                   {selected?.map((value) => (
-                    <Chip
+                    <motion.div
                       key={value}
-                      label={
-                        <span style={{ display: "flex", alignItems: "center" }}>
-                          <img
-                            src={platformsIcon[platforms.indexOf(value)]}
-                            alt={value}
-                            style={{
-                              width: "20px",
-                              height: "20px",
-                              marginRight: "5%",
-                            }}
-                          />
-                          {value}
-                        </span>
-                      }
-                      onDelete={() => handleDelete(value)}
-                    />
+                      whileHover={{ scale: 1.1 }}
+                    >
+                      <Chip
+                        label={
+                          <span style={{ display: "flex", alignItems: "center" }}>
+                            <img
+                              src={platformsIcon[platforms.indexOf(value)]}
+                              alt={value}
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                marginRight: "5%",
+                              }}
+                            />
+                            {value}
+                          </span>
+                        }
+                        onDelete={() => handleDelete(value)}
+                      />
+                    </motion.div>
                   ))}
                 </Box>
               )}
               MenuProps={MenuProps}
             >
-              {/* All the platforms list is fetched here */}
               {platforms.map((platform, idx) => (
                 <MenuItem key={platform} value={platform}>
                   <ListItemIcon>
                     <img
                       src={platformsIcon[idx]}
-                      alt="a"
+                      alt={platform}
                       style={{
                         width: "20px",
                         height: "20px",
@@ -181,38 +186,50 @@ function Filter() {
               ))}
             </Select>
           </FormControl>
-        </div>
-        <CustomSlider setRange={setRange} maxValue={maxValue} />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <CustomSlider setRange={setRange} maxValue={maxValue} />
+        </motion.div>
       </Element>
+
       <Element name="contests" className="container mx-auto contests-container z-[1]">
         {contestsData.length ? (
           <>
             <p className="mx-auto text-center mt-4 text-xl">
-              Have a favorite contest platform we're missing? {" "} Join our <a href="https://digitomize.com/discord" target="_blank" rel="noopener noreferrer" className="text-digitomize-bg">Discord</a> or <button className="text-digitomize-bg" onClick={handleClick}>
-              click here
-            </button> and let us know!
+              Have a favorite contest platform we're missing? {" "}
+              Join our <a href="https://digitomize.com/discord" target="_blank" rel="noopener noreferrer" className="text-digitomize-bg">Discord</a> or 
+              <button className="text-digitomize-bg" onClick={handleClick}> click here</button> and let us know!
             </p>
             
-            <Contests contests={contestsData} range={range} />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+            >
+              <Contests contests={contestsData} range={range} />
+            </motion.div>
           </>
         ) : (
-          <div className="m-auto flex sm:flex-row flex-col items-center w-4/5 my-12 ">
-            <Skeleton
-              variant="text"
-              sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
-              className="mx-4 sm:w-80 w-full"
-            />
-            <Skeleton
-              variant="text"
-              sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
-              className="mx-4 sm:w-80 w-full"
-            />
-            <Skeleton
-              variant="text"
-              sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
-              className="mx-4 sm:w-80 w-full"
-            />
-          </div>
+          <motion.div
+            className="m-auto flex sm:flex-row flex-col items-center w-4/5 my-12"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            {[...Array(3)].map((_, i) => (
+              <Skeleton
+                key={i}
+                variant="text"
+                sx={{ fontSize: "3rem", bgcolor: "grey.600", minHeight: "250px" }}
+                className="mx-4 sm:w-80 w-full"
+              />
+            ))}
+          </motion.div>
         )}
       </Element>
     </>
