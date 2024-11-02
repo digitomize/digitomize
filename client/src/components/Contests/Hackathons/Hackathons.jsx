@@ -15,7 +15,7 @@ function Hackathons({ hackathons }) {
           style={{ display: "flex", flexWrap: "wrap" }}
         >
           {queryData.map((hackathon) => (
-            <Card hackathon={hackathon} />
+            <Card hackathon={hackathon} key={hackathon.url} />
           ))}
         </div>
       </div>
