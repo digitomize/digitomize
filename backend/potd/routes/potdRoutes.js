@@ -1,5 +1,8 @@
 import { Router } from "express";
-import { gfgController, leetcodeController } from "../controllers/potdController.js";
+import {
+  gfgController,
+  leetcodeController,
+} from "../controllers/potdController.js";
 const router = Router();
 
 // GET route for POTD

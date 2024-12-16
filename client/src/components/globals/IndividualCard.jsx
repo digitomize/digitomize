@@ -25,22 +25,41 @@ import moment from "moment-timezone";
 
 const backendUrl = import.meta.env.VITE_REACT_APP_BACKEND_URL;
 
-const addToGoogleCalendar = ({ name, startTimeUnix, duration, url, host, vanity }) => {
+const addToGoogleCalendar = ({
+  name,
+  startTimeUnix,
+  duration,
+  url,
+  host,
+  vanity,
+}) => {
   // Adjust the start time and duration for IST (GMT+5:30)
   const startTimeIST = new Date((startTimeUnix + 60 * 60 - 3600) * 1000);
-  const endTimeIST = new Date((startTimeUnix + duration * 60 + 60 * 60 - 3600) * 1000);
+  const endTimeIST = new Date(
+    (startTimeUnix + duration * 60 + 60 * 60 - 3600) * 1000,
+  );
 
-  const formattedStartTime = startTimeIST.toISOString().replace(/[-:]/g, "").replace(".000", "+05:30");
-  const formattedEndTime = endTimeIST.toISOString().replace(/[-:]/g, "").replace(".000", "+05:30");
+  const formattedStartTime = startTimeIST
+    .toISOString()
+    .replace(/[-:]/g, "")
+    .replace(".000", "+05:30");
+  const formattedEndTime = endTimeIST
+    .toISOString()
+    .replace(/[-:]/g, "")
+    .replace(".000", "+05:30");
 
   const startHour = startTimeIST.getHours();
   const startMinute = startTimeIST.getMinutes();
   const ampm = startHour >= 12 ? "PM" : "AM";
-  const formattedStartTimeString = `${startHour % 12 || 12}:${startMinute < 10 ? "0" : ""}${startMinute} ${ampm}`;
+  const formattedStartTimeString = `${startHour % 12 || 12}:${
+    startMinute < 10 ? "0" : ""
+  }${startMinute} ${ampm}`;
 
   const description = `<hr>🏆<b>Contest</b>🏆%0A👨🏻‍💻Name: ${name}%0A🕘Start at: ${formattedStartTimeString}%0A⏱️Duration: ${duration} minutes%0A🚀Host: ${host}%0A🔗Contest URL: <a href='${url}'>${url}</a>%0A<hr><i>Thank you for using <a href='https://digitomize.com'>digitomize</a></i>`;
 
-  const googleCalendarUrl = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${formattedStartTime}/${formattedEndTime}&text=${encodeURIComponent(name)}&details=${description}`;
+  const googleCalendarUrl = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${formattedStartTime}/${formattedEndTime}&text=${encodeURIComponent(
+    name,
+  )}&details=${description}`;
 
   // Open the Google Calendar event creation page in a new tab
   window.open(googleCalendarUrl, "_blank");
@@ -186,7 +205,8 @@ function IndividualCard() {
               icon={<Notifications className="animate-ping" />}
             >
               <Link to="/hackathons">
-                <AlertTitle>All
+                <AlertTitle>
+                  All
                   <strong> Hackathons</strong>
                   <span className="normal-case">
                     {" "}
@@ -426,7 +446,6 @@ function IndividualCard() {
                   {remaningTime}
                 </div>
                 <div className="ic-mv-child-fifth">
-
                   <div
                     className="mv-btn-div"
                     style={{ boxShadow: `8px 8px ${colorTheme}` }}

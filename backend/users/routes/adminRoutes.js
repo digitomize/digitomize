@@ -1,7 +1,8 @@
 import express from "express";
 import { addUID, dgmAdminCheck } from "../middlewares/authMiddleware.js";
 import {
-  getUserList, updateUser,
+  getUserList,
+  updateUser,
   createUserFirebase,
   createUserDB,
   deleteUserFirebase,

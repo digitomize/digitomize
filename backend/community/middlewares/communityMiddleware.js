@@ -3,7 +3,7 @@ import { ROLE } from "../../core/const.js";
 import User from "../../users/models/User.js";
 import CommunityMember from "../models/CommunityMember.js";
 
-const communityAdminCheck = async (request, response, next) => {
+const communityAdminCheck = async(request, response, next) => {
   const { body, decodedToken } = request;
   const userId = decodedToken.uid;
   // Check If User has admin role
@@ -36,7 +36,7 @@ const communityAdminCheck = async (request, response, next) => {
   next();
 };
 
-const communityMemberCheck = async (request, response, next) => {
+const communityMemberCheck = async(request, response, next) => {
   const { body, decodedToken } = request;
   const userId = decodedToken.uid;
   // Check If User has admin role

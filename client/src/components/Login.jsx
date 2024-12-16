@@ -1,9 +1,4 @@
-import {
-  Form,
-  redirect,
-  Link,
-  useNavigate,
-} from "react-router-dom";
+import { Form, redirect, Link, useNavigate } from "react-router-dom";
 import loginIcon from "@assets/fingerprint-animate-blue.svg";
 import { useRef, useState } from "react";
 import { MetaData } from "./CustomComponents";
@@ -13,7 +8,12 @@ import { isLoggedIn } from "../../api";
 
 import { ToastContainer, toast } from "react-toastify";
 import SignoutButton from "@user/components/SignoutButton";
-import { atom, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import {
+  atom,
+  useRecoilState,
+  useRecoilValue,
+  useSetRecoilState,
+} from "recoil";
 import GoogleAuthButton from "./AuthButtons/GoogleAuthButton";
 import GithubAuthButton from "./AuthButtons/GithubAuthButton";
 import { Eye, EyeOff } from "lucide-react";
@@ -24,12 +24,11 @@ export async function loader({ request }) {
   const loggedIn = await isLoggedIn();
 
   if (loggedIn) {
-      return redirect("/u/dashboard");
+    return redirect("/u/dashboard");
   }
 
   return message;
 }
-
 
 export const buttonState = atom({
   key: "btnState",
@@ -43,7 +42,7 @@ export const errorState = atom({
 
 export default function Login() {
   const error = useRecoilValue(errorState);
-   // disable feature
+  // disable feature
   return (
     <>
       <MetaData path={"login"} />
@@ -63,14 +62,12 @@ export default function Login() {
               </p>
             </div>
             <div className="auth-btns flex flex-row gap-2 justify-center mt-4">
-              <GoogleAuthButton
-              />
-              <GithubAuthButton
-              />
+              <GoogleAuthButton />
+              <GithubAuthButton />
             </div>
             <div className="divider">OR</div>
             <div className="email-form mx-auto">
-            <LoginForm/>
+              <LoginForm />
             </div>
           </div>
           <div className="right md:w-2/4 max-md:hidden px-12 my-auto h-full">
@@ -81,4 +78,3 @@ export default function Login() {
     </>
   );
 }
-

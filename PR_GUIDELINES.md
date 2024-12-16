@@ -42,6 +42,7 @@ npm run format:check
 ```
 
 ## Pull Request Processing
+
 These are key guidelines for the procedure:
 
 ### Only submit PRs against our `main` branch

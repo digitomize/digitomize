@@ -6,7 +6,9 @@ const CustomLinkCard = ({ to, bgColor, icon, title, textColor }) => {
   return (
     <Link to={to} className="w-full ">
       <div
-        className={"border-jet border transition ease-in-out delay-150 motion-reduce:transition-none motion-reduce:hover:transform-none shadow-2xl rounded-3xl bg-[#050127] hover:scale-[1.02] w-full h-[250px] p-8"}
+        className={
+          "border-jet border transition ease-in-out delay-150 motion-reduce:transition-none motion-reduce:hover:transform-none shadow-2xl rounded-3xl bg-[#050127] hover:scale-[1.02] w-full h-[250px] p-8"
+        }
       >
         <div className="w-full h-full flex items-end">
           <div className="w-full flex flex-col gap-4">

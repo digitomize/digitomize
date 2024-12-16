@@ -2,11 +2,11 @@
 
 import https from "https";
 
-async function codechef_c () {
+async function codechef_c() {
   const url = "https://www.codechef.com/api/list/contests/all";
 
   const promise = new Promise((resolve, reject) => {
-    https.get(url, function (response) {
+    https.get(url, function(response) {
       if (response.statusCode === 200) {
         resolve(response);
       } else {
@@ -15,44 +15,46 @@ async function codechef_c () {
     });
   });
 
-  const filteredContestsPromise = promise.then(function (response) {
-    let list = "";
+  const filteredContestsPromise = promise
+    .then(function(response) {
+      let list = "";
 
-    response.on("data", function (data) {
-      list += data;
-    });
+      response.on("data", function(data) {
+        list += data;
+      });
 
-    return new Promise((resolve) => {
-      response.on("end", function () {
-        try {
-          const contestList = JSON.parse(list.toString());
-          const futureContests = contestList.future_contests;
-          // console.log("Future Contests:", futureContests);
-          const formattedContests = futureContests.map((contest) => ({
-            host: "codechef",
-            name: contest.contest_name,
-            vanity: contest.contest_code,
-            url: "https://www.codechef.com/" + contest.contest_code,
-            // startTimeIST: formatStartTimeIST(contest.contest_start_date_iso),
-            startTimeUnix: Math.floor(
-              new Date(contest.contest_start_date_iso).getTime() / 1000,
-            ),
-            duration: contest.contest_duration,
-          }));
+      return new Promise((resolve) => {
+        response.on("end", function() {
+          try {
+            const contestList = JSON.parse(list.toString());
+            const futureContests = contestList.future_contests;
+            // console.log("Future Contests:", futureContests);
+            const formattedContests = futureContests.map((contest) => ({
+              host: "codechef",
+              name: contest.contest_name,
+              vanity: contest.contest_code,
+              url: "https://www.codechef.com/" + contest.contest_code,
+              // startTimeIST: formatStartTimeIST(contest.contest_start_date_iso),
+              startTimeUnix: Math.floor(
+                new Date(contest.contest_start_date_iso).getTime() / 1000,
+              ),
+              duration: contest.contest_duration,
+            }));
 
-          resolve(formattedContests);
-        } catch (error) {
-          console.log("Error parsing JSON:", error);
-          resolve([]);
-        }
+            resolve(formattedContests);
+          } catch (error) {
+            console.log("Error parsing JSON:", error);
+            resolve([]);
+          }
+        });
+      });
+    })
+    .catch((error) => {
+      console.error("Failed to fetch codechef contests:", error);
+      return new Promise((resolve) => {
+        resolve([]);
       });
     });
-  }).catch((error) => {
-    console.error("Failed to fetch codechef contests:", error);
-    return new Promise((resolve) => {
-      resolve([]);
-    });
-  });
 
   return filteredContestsPromise;
 }

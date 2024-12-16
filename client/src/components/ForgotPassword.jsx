@@ -1,8 +1,4 @@
-import {
-  Form,
-  redirect,
-  Link,
-} from "react-router-dom";
+import { Form, redirect, Link } from "react-router-dom";
 import loginIcon from "@assets/fingerprint-animate-blue.svg";
 import { useState } from "react";
 import { MetaData } from "./CustomComponents";

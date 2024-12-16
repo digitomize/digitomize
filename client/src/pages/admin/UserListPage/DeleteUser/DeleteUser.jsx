@@ -50,7 +50,11 @@ export default function DeleteUser({ user, handleClose }) {
         >
           {DeleteUserForm.map((item) => {
             return (
-              <div key={item.name} className="relative mb-3" data-te-input-wrapper-init>
+              <div
+                key={item.name}
+                className="relative mb-3"
+                data-te-input-wrapper-init
+              >
                 <label>{item.label}</label>
                 <input
                   required

@@ -5,7 +5,7 @@ import { ROLE } from "../../core/const.js";
 import { sendRequestLog } from "../../services/discord-webhook/routeLog.js";
 import admin from "firebase-admin";
 
-const addUID = async (request, response, next) => {
+const addUID = async(request, response, next) => {
   const authHeader =
     request?.body?.headers?.Authorization ||
     request?.body?.headers?.authorization ||
@@ -62,7 +62,7 @@ const addUID = async (request, response, next) => {
   }
 };
 
-const checkAuth = async (request, response, next) => {
+const checkAuth = async(request, response, next) => {
   const authHeader = request.headers.authorization;
   const authToken = authHeader && authHeader.split(" ")[1]; // Get the token part after 'Bearer'
 
@@ -86,7 +86,7 @@ const checkAuth = async (request, response, next) => {
   }
 };
 
-const checkUserOwnership = async (req, res, next) => {
+const checkUserOwnership = async(req, res, next) => {
   const userUIDFromToken = req.decodedToken.uid;
 
   const usernameFromRequest = req.params.username; // Make sure to adjust this based on your route
@@ -106,7 +106,7 @@ const checkUserOwnership = async (req, res, next) => {
   next();
 };
 
-const dgmAdminCheck = async (request, response, next) => {
+const dgmAdminCheck = async(request, response, next) => {
   const { decodedToken } = request;
   const userId = decodedToken.uid;
   // Check If User has admin role
@@ -129,7 +129,7 @@ const dgmAdminCheck = async (request, response, next) => {
   }
   next();
 };
-const routeLogging = async (req, response, next) => {
+const routeLogging = async(req, response, next) => {
   // const logData = {
   //   method: req.method,
   //   url: req.originalUrl,

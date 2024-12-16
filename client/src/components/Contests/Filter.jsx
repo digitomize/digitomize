@@ -80,7 +80,7 @@ function Filter() {
     const url = selectedPlatformsParam
       ? `${backendUrl}/contests?host=${selectedPlatformsParam}`
       : `${backendUrl}/contests`;
-      
+
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -113,12 +113,16 @@ function Filter() {
       <Element className="phone:mt-8 flex lg:flex-row max-lg:flex-col justify-between mx-auto lg:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
         {/* //checkmarks */}
         <div
-          className={"filter-div w-fit self-center bg-cardsColor relative rounded-xl"}
+          className={
+            "filter-div w-fit self-center bg-cardsColor relative rounded-xl"
+          }
         >
           <FormControl
             variant="filled"
             sx={{ m: 1, minWidth: 300 }}
-            className={"filter bg-filter rounded-lg platform-container max-sm:justify-center"} // to make it fixed while scroll add class "fixed" on condition "isFixed"
+            className={
+              "filter bg-filter rounded-lg platform-container max-sm:justify-center"
+            } // to make it fixed while scroll add class "fixed" on condition "isFixed"
           >
             <InputLabel
               variant="filled"
@@ -184,15 +188,29 @@ function Filter() {
         </div>
         <CustomSlider setRange={setRange} maxValue={maxValue} />
       </Element>
-      <Element name="contests" className="container mx-auto contests-container z-[1]">
+      <Element
+        name="contests"
+        className="container mx-auto contests-container z-[1]"
+      >
         {contestsData.length ? (
           <>
             <p className="mx-auto text-center mt-4 text-xl">
-              Have a favorite contest platform we're missing? {" "} Join our <a href="https://digitomize.com/discord" target="_blank" rel="noopener noreferrer" className="text-digitomize-bg">Discord</a> or <button className="text-digitomize-bg" onClick={handleClick}>
-              click here
-            </button> and let us know!
+              Have a favorite contest platform we're missing? Join our{" "}
+              <a
+                href="https://digitomize.com/discord"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-digitomize-bg"
+              >
+                Discord
+              </a>{" "}
+              or{" "}
+              <button className="text-digitomize-bg" onClick={handleClick}>
+                click here
+              </button>{" "}
+              and let us know!
             </p>
-            
+
             <Contests contests={contestsData} range={range} />
           </>
         ) : (

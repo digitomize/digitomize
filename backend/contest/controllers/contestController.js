@@ -5,7 +5,7 @@ import { UpcomingContest, AllContest } from "../models/Contest.js";
 let upcomingContestList = []; // Variable to store contests in memory
 
 //* Function to fetch contests from MongoDB and update the upcomingContestList variable
-async function updateContests () {
+async function updateContests() {
   try {
     console.log("┌──────────────────────────────────┐");
     console.log("│ Retrieving Data | MongoDB to App".padEnd(35) + "│");
@@ -31,13 +31,13 @@ async function updateContests () {
 }
 
 //* Function to return upcomingContestList
-async function getContestList () {
+async function getContestList() {
   return await upcomingContestList;
 }
 
-const getContestByVanity = async (vanity) => {
+const getContestByVanity = async(vanity) => {
   try {
-  // First, check the upcomingContestList in memory
+    // First, check the upcomingContestList in memory
     const contestInMemory = upcomingContestList.find(
       (contest) => contest.vanity === vanity,
     );
@@ -48,8 +48,8 @@ const getContestByVanity = async (vanity) => {
     // If not found in memory, query MongoDB
     const contestFromDB = await AllContest.findOne({ vanity });
     if (contestFromDB) {
-    // Add the contest to memory for future access
-    // upcomingContestList.push(contestFromDB);
+      // Add the contest to memory for future access
+      // upcomingContestList.push(contestFromDB);
       return contestFromDB;
     }
 
