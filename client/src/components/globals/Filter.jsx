@@ -100,21 +100,23 @@ function Filter() {
         name="allContests"
         className="pt-24 flex md:flex-row flex-col justify-between lg:px-20 md:px-12 "
       >
-        <h2
-          className="text-white z-10 text-center lg:text-left text-6xl py-4 capitalize"
-        >
+        <h2 className="text-white z-10 text-center lg:text-left text-6xl py-4 capitalize">
           Contests
         </h2>
       </Element>
       <Element className=" flex md:flex-row flex-col justify-between mx-auto md:bg-cardsColor py-3 px-2 w-[90%] rounded-xl items-center">
         {/* //checkmarks */}
         <div
-          className={"filter-div w-fit self-center bg-cardsColor relative rounded-xl"}
+          className={
+            "filter-div w-fit self-center bg-cardsColor relative rounded-xl"
+          }
         >
           <FormControl
             variant="filled"
             sx={{ m: 1, minWidth: 300 }}
-            className={"filter bg-filter rounded-lg platform-container max-sm:justify-center"} // to make it fixed while scroll add class "fixed" on condition "isFixed"
+            className={
+              "filter bg-filter rounded-lg platform-container max-sm:justify-center"
+            } // to make it fixed while scroll add class "fixed" on condition "isFixed"
           >
             <InputLabel
               variant="filled"
@@ -136,24 +138,24 @@ function Filter() {
                 <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                   {selected?.map((value) => (
                     <Chip
-                    key={value}
-                    label={
-                      <span style={{ display: "flex", alignItems: "center" }}>
-                        <img
-                          src={platformsIcon[platforms.indexOf(value)]}
-                          alt={value}
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            marginRight: "5%",
-                          }}
-                        />
-                        {value}
-                      </span>
-                    }
-                    onDelete={() => handleDelete(value)}
-                  />
-                ))}
+                      key={value}
+                      label={
+                        <span style={{ display: "flex", alignItems: "center" }}>
+                          <img
+                            src={platformsIcon[platforms.indexOf(value)]}
+                            alt={value}
+                            style={{
+                              width: "20px",
+                              height: "20px",
+                              marginRight: "5%",
+                            }}
+                          />
+                          {value}
+                        </span>
+                      }
+                      onDelete={() => handleDelete(value)}
+                    />
+                  ))}
                 </Box>
               )}
               MenuProps={MenuProps}

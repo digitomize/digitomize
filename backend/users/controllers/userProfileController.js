@@ -12,7 +12,7 @@ const platformUpdaters = {
   leetcode: leetcode_u, // Replace with your LeetCode updater function
 };
 
-const handleUserPlatformUpdate = async (username, platform) => {
+const handleUserPlatformUpdate = async(username, platform) => {
   const updater = platformUpdaters[platform];
   if (updater) {
     return await updater(username);
@@ -42,7 +42,7 @@ const calculateDigitomizeRating = (user) => {
 };
 
 // Updates user data in DB
-const handleUserDataUpdate = async (user) => {
+const handleUserDataUpdate = async(user) => {
   const currentTime = new Date();
 
   let changes = false;
@@ -82,7 +82,7 @@ const handleUserDataUpdate = async (user) => {
 };
 
 // Handle user profile preview route
-const handleUserProfilePreview = async (req, res) => {
+const handleUserProfilePreview = async(req, res) => {
   try {
     const username = req.params.username;
 
@@ -146,7 +146,7 @@ const handleUserProfilePreview = async (req, res) => {
   }
 };
 
-function handleCodingPlatform (targetObject, platform, platformKey) {
+function handleCodingPlatform(targetObject, platform, platformKey) {
   if (platform.showOnWebsite) {
     targetObject[platformKey] = {
       username: platform.username || null,

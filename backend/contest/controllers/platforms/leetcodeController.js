@@ -2,7 +2,7 @@
 
 import https from "https";
 
-async function leetcode_c () {
+async function leetcode_c() {
   return new Promise((resolve, reject) => {
     const postFields = JSON.stringify({
       operationName: null,

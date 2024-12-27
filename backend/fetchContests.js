@@ -1,7 +1,7 @@
 import https from "https";
 import dotenv from "dotenv";
 dotenv.config();
-async function fetchContestsData () {
+async function fetchContestsData() {
   return new Promise((resolve, reject) => {
     const options = {
       hostname: process.env.BACKEND_URL,

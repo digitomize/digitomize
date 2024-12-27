@@ -4,7 +4,7 @@ import contestController from "../controllers/contestController.js";
 const router = Router();
 
 // GET route for contests
-router.get("/", async (req, res) => {
+router.get("/", async(req, res) => {
   try {
     let host = req.query.host;
     let vanity = req.query.vanity;

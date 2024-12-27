@@ -3,7 +3,7 @@ import { sendEmail } from "../../services/email/createAccount.js";
 import { sendWebhook_createAccount } from "../../services/discord-webhook/createAccount.js";
 
 // Utility function to create default contest object
-function createDefaultContestObject (platformData) {
+function createDefaultContestObject(platformData) {
   const commonDefaults = {
     rating: null,
     badge: null,
@@ -23,7 +23,7 @@ function createDefaultContestObject (platformData) {
 }
 
 // Takes the data and creates a new User in MongoDB
-const setUser = async (userData) => {
+const setUser = async(userData) => {
   // console.log(userData);
   try {
     const {
@@ -116,7 +116,7 @@ const setUser = async (userData) => {
       const message = `User with this ${key} already exists`;
       const customError = new Error(message);
       customError.status = 200;
-      throw customError;// Throw custom error object
+      throw customError; // Throw custom error object
     }
     console.error("Error:", error);
     throw new Error("Error creating user"); // Throw custom error object

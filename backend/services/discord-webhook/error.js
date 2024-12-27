@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-function sendErrorLog (title, description) {
+function sendErrorLog(title, description) {
   const webhookClient = new WebhookClient({ url: process.env.DC_WH_ERROR });
   // const headersDescription = 'Headers:\n```json\n' + JSON.stringify(req.headers, null, 2) + '```';
 

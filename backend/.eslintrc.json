@@ -1,19 +1,24 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
-    "extends": "standard",
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "rules": {
-        "camelcase":"off",
-        "quotes": ["error", "double"],
-        "semi": ["error", "always"],
-        "comma-dangle": ["error", "always-multiline"]
-    },
-    "plugins": ["@stylistic/eslint-plugin"]
-
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": "standard",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "space-before-function-paren": ["error", "never"],
+    "camelcase": "off",
+    "object-shorthand": "off",
+    "quotes": [
+      "error",
+      "double", // Use "double" or "single" as default for consistency
+      { "allowTemplateLiterals": true } // Allow backticks as well
+    ],
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "always-multiline"]
+  },
+  "plugins": ["@stylistic/eslint-plugin"]
 }

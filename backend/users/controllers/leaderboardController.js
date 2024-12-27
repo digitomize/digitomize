@@ -1,6 +1,6 @@
 import User from "../models/User.js";
 
-const getLeaderboard = async (req, res) => {
+const getLeaderboard = async(req, res) => {
   try {
     const pageSize = 5; // Number of users per page
     let page = parseInt(req.query.page) || 1;

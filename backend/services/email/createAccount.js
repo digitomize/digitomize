@@ -8,7 +8,7 @@ apiKey.apiKey = process.env.BREVO_API;
 const contactsApi = new brevo.ContactsApi();
 const transactionalEmailsApi = new brevo.TransactionalEmailsApi();
 
-const createContact = async (email, firstName) => {
+const createContact = async(email, firstName) => {
   try {
     const createContactRequest = new brevo.CreateContact();
     createContactRequest.email = email;
@@ -30,7 +30,7 @@ const createContact = async (email, firstName) => {
   }
 };
 
-const sendEmail = async (recipientEmail, recipientName) => {
+const sendEmail = async(recipientEmail, recipientName) => {
   try {
     // Create contact before sending email
     try {

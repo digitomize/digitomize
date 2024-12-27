@@ -3,7 +3,7 @@ import admin from "firebase-admin";
 import { setUser } from "../services/setUser.js";
 import { error, success } from "../../core/api/response.api.js";
 
-const getUserList = async (req, res) => {
+const getUserList = async(req, res) => {
   try {
     const users = await User.find().select("-_id -password -updatedAt -__v");
 
@@ -15,7 +15,7 @@ const getUserList = async (req, res) => {
   }
 };
 
-const updateUser = async (req, res) => {
+const updateUser = async(req, res) => {
   try {
     const { body } = req;
     const updatedUser = await User.updateOne(
@@ -42,8 +42,13 @@ const createUserFirebase = (req, res, next) => {
   const { body } = req;
 
   // Validate input fields
-  if (!body || !body.email.trim() || !body.name.trim() || !body.password.trim()) {
-        return res.status(400).json({ error: "Missing required fields" });
+  if (
+    !body ||
+    !body.email.trim() ||
+    !body.name.trim() ||
+    !body.password.trim()
+  ) {
+    return res.status(400).json({ error: "Missing required fields" });
   }
 
   // Create user in Firebase Authentication
@@ -78,7 +83,7 @@ const createUserFirebase = (req, res, next) => {
     });
 };
 
-const createUserDB = async (req, res) => {
+const createUserDB = async(req, res) => {
   let {
     uid,
     username,
@@ -142,7 +147,7 @@ const createUserDB = async (req, res) => {
   }
 };
 
-const deleteUserFirebase = async (req, res, next) => {
+const deleteUserFirebase = async(req, res, next) => {
   const { body } = req;
   admin
     .auth()
@@ -162,7 +167,7 @@ const deleteUserFirebase = async (req, res, next) => {
     });
 };
 
-const deleteUserDB = async (request, response) => {
+const deleteUserDB = async(request, response) => {
   try {
     // console.log(request.body);
     const { uid } = request.body;

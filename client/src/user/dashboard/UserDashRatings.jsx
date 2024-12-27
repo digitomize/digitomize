@@ -499,8 +499,9 @@ export default function UserDashRatings() {
               onClick={handleSubmit}
               disabled={isDisabled}
               type="submit"
-              className={`mx-auto text-black bg-white font-medium rounded-lg text-sm w-fit px-5 py-2.5 text-center my-2 self-center ${isDisabled ? "cursor-not-allowed opacity-20" : null
-                }`}
+              className={`mx-auto text-black bg-white font-medium rounded-lg text-sm w-fit px-5 py-2.5 text-center my-2 self-center ${
+                isDisabled ? "cursor-not-allowed opacity-20" : null
+              }`}
             >
               {isDisabled ? "Updating..." : "Update"}
             </button>

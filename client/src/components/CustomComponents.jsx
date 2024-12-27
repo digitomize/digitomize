@@ -18,7 +18,7 @@ import Footer from "./globals/Footer";
 import { loader as loginLoader } from "./Login";
 import { loader as signupLoader } from "./globals/Signup";
 import { loader as forgotPasswordLoader } from "./ForgotPassword";
-import {loader as resendLoader} from "../pages/verification/ResendEmailVerification"
+import { loader as resendLoader } from "../pages/verification/ResendEmailVerification";
 import NewNavbar from "./globals/Navbar/NewNavbar";
 import ScrollToTop from "./globals/ScrollToTop";
 import Signup from "./globals/Signup";

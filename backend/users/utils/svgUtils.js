@@ -10,14 +10,14 @@ const svgData = (data) => {
     <g class="data">
         <g>
             <text transform="translate(-175,250)" x="50%" text-anchor="middle">${
-            data.rating || "0"
+              data.rating || "0"
             }</text>
         </g>
         <text transform="translate(-10,250)" x="50%" text-anchor="middle">${
-        data.badge
+          data.badge
         }</text>
         <text transform="translate(165,250)" x="50%" text-anchor="middle">${
-        data.attendedContestsCount || "0"
+          data.attendedContestsCount || "0"
         }</text>
     </g>
     `;
@@ -29,7 +29,7 @@ const svgWrapper = (width, height, x) => {
 };
 const svgStyle = () => {
   const frontend = process.env.FRONTEND_URL; // use this in production
-  //const frontend = "http://localhost:5173/";//use this in development
+  // const frontend = "http://localhost:5173/";//use this in development
   // console.log(frontend+"/fonts/Geist-Light.otf");
   return `<style>
   @font-face {

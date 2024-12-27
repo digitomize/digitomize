@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import { sendErrorLog } from "./error.js";
 dotenv.config();
 
-function sendWebhook_updateAccount ({
+function sendWebhook_updateAccount({
   oldImage,
   newImage,
   oldUsername,

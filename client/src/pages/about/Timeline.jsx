@@ -50,8 +50,7 @@ const data = [
   {
     title: "Reached 300+ Stars Milestone",
     date: "27 Jan, 2024",
-    description:
-      "Thanks for the love and support!",
+    description: "Thanks for the love and support!",
     img: "",
   },
   {
@@ -108,17 +107,32 @@ const data = [
 function MuiTimeline() {
   const matches = useMediaQuery("(max-width:1024px)");
   const phones = useMediaQuery("(max-width:640px)");
-  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   const month = monthNames[new Date().getMonth()];
   const year = new Date().getFullYear();
 
   return (
     <>
-      <div className="translate-y-1 bg-[#05225C]  rounded-[2px] text-[20px] px-[20px] py-[4px] lg:mx-auto w-fit ">{month} {year}</div>
-      <Timeline position={matches?"right":"alternate"} >
+      <div className="translate-y-1 bg-[#05225C]  rounded-[2px] text-[20px] px-[20px] py-[4px] lg:mx-auto w-fit ">
+        {month} {year}
+      </div>
+      <Timeline position={matches ? "right" : "alternate"}>
         <TimelineItem>
           <TimelineOppositeContent
-            sx={{ padding: "15px", display:`${matches ? "none" : "block"}`}} 
+            sx={{ padding: "15px", display: `${matches ? "none" : "block"}` }}
           ></TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot
@@ -130,33 +144,53 @@ function MuiTimeline() {
               }}
               variant="outlined"
             />
-            <TimelineConnector sx={{ bgcolor: "#1582FF", marginX: "15px",height:`${phones? "100px" :"190px"}` }} />
+            <TimelineConnector
+              sx={{
+                bgcolor: "#1582FF",
+                marginX: "15px",
+                height: `${phones ? "100px" : "190px"}`,
+              }}
+            />
           </TimelineSeparator>
           <TimelineContent
-            sx={{ padding: "15px", marginBottom: "30px", transform:`${phones ?"translate(0%,0%)" : "translate(0%,-50%)"}` }}
+            sx={{
+              padding: "15px",
+              marginBottom: "30px",
+              transform: `${
+                phones ? "translate(0%,0%)" : "translate(0%,-50%)"
+              }`,
+            }}
           ></TimelineContent>
         </TimelineItem>
-       {
-        data.map((data,index)=>{
-         return <TimelineComponent data={data} index={index} key={index}></TimelineComponent>;
-        })
-       }
+        {data.map((data, index) => {
+          return (
+            <TimelineComponent
+              data={data}
+              index={index}
+              key={index}
+            ></TimelineComponent>
+          );
+        })}
         <TimelineItem>
-          <TimelineOppositeContent sx={{ paddingX: "15px" , display:`${matches ? "none" : "block"}`}} ></TimelineOppositeContent>
+          <TimelineOppositeContent
+            sx={{ paddingX: "15px", display: `${matches ? "none" : "block"}` }}
+          ></TimelineOppositeContent>
           <TimelineSeparator>
             <TimelineDot
               sx={{
                 bgcolor: "#D59DFF",
                 borderColor: "white",
                 "&:hover": { bgcolor: "#0080FF" },
-                marginX:"15px",
+                marginX: "15px",
               }}
             />
           </TimelineSeparator>
           <TimelineContent></TimelineContent>
         </TimelineItem>
       </Timeline>
-      <div className="text-center -translate-y-10 bg-[#05225C] rounded-[2px] text-[20px] px-[20px] py-[4px] lg:mx-auto w-fit ">Aug 2023</div>
+      <div className="text-center -translate-y-10 bg-[#05225C] rounded-[2px] text-[20px] px-[20px] py-[4px] lg:mx-auto w-fit ">
+        Aug 2023
+      </div>
     </>
   );
 }

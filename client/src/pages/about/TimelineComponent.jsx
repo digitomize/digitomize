@@ -51,8 +51,8 @@ function TimelineComponent({ data, index }) {
         }}
       >
         <motion.div
-          initial={{ opacity: 0}}
-          whileInView={{ opacity: 1}}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{
             duration: 1,
@@ -61,39 +61,39 @@ function TimelineComponent({ data, index }) {
             delay: 0.5,
           }}
         >
-        <h2 className="lg:hidden text-[14px] mb-1 text-description">
-          {data.date}
-        </h2>
-        <h2 className="mb-[12px] text-[20px] font-outfit">{data.title}</h2>
-        <div className="flex flex-row justify-center gap-x-3 items-center">
-          <img
-            src={data.img}
-            alt=""
-            className={`w-24 ${
-              index % 2 === 0 || matches ? "" : "hidden "
-            } max-sm:hidden`}
-          />
-          <p className="text-left  text-[14px] max-sm:hidden font-outfit">
-            {data.description}
-          </p>
-          <img
-            src={data.img}
-            alt=""
-            className={`w-24 ${
-              index % 2 !== 0 && !matches ? "" : "hidden"
-            } max-sm:hidden`}
-          />
-          <p className="sm:hidden">
-            {truncatedText}{" "}
-            <button
-              onClick={toggleReadMore}
-              className="text-blue-500 cursor-pointer sm:hidden focus:outline-none"
-            >
-              {isExpanded ? "show less" : "show more"}
-            </button>
-          </p>
-        </div>
-      </motion.div>
+          <h2 className="lg:hidden text-[14px] mb-1 text-description">
+            {data.date}
+          </h2>
+          <h2 className="mb-[12px] text-[20px] font-outfit">{data.title}</h2>
+          <div className="flex flex-row justify-center gap-x-3 items-center">
+            <img
+              src={data.img}
+              alt=""
+              className={`w-24 ${
+                index % 2 === 0 || matches ? "" : "hidden "
+              } max-sm:hidden`}
+            />
+            <p className="text-left  text-[14px] max-sm:hidden font-outfit">
+              {data.description}
+            </p>
+            <img
+              src={data.img}
+              alt=""
+              className={`w-24 ${
+                index % 2 !== 0 && !matches ? "" : "hidden"
+              } max-sm:hidden`}
+            />
+            <p className="sm:hidden">
+              {truncatedText}{" "}
+              <button
+                onClick={toggleReadMore}
+                className="text-blue-500 cursor-pointer sm:hidden focus:outline-none"
+              >
+                {isExpanded ? "show less" : "show more"}
+              </button>
+            </p>
+          </div>
+        </motion.div>
       </TimelineContent>
     </TimelineItem>
   );

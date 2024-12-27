@@ -4,7 +4,10 @@ import MobileNav from "./MobileNav";
 import logo from "@assets/logo.png";
 import { useUserAuth } from "@context/UserAuthContext";
 
-import { navLinks, navLinksDashboard } from "../../components/globals/Navbar/navLinks";
+import {
+  navLinks,
+  navLinksDashboard,
+} from "../../components/globals/Navbar/navLinks";
 
 export default function DashboardNavbar() {
   const { user } = useUserAuth();

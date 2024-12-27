@@ -9,33 +9,39 @@ import unstopHackathons from "./platforms/unstopController.js";
 dotenv.config({ path: "../../.env" });
 
 //* Clear the UpcomingHackathon collection in MongoDB
-async function clearUpcoming () {
+async function clearUpcoming() {
   try {
     const currentTime = Math.floor(Date.now() / 1000);
-    await UpcomingHackathon.deleteMany({ registerationEndTimeUnix: { $lt: currentTime } });
+    await UpcomingHackathon.deleteMany({
+      registerationEndTimeUnix: { $lt: currentTime },
+    });
     console.log("Deleted the hackathons whose registerations have closed.");
   } catch (err) {
-    console.log("Error while deleting the hackathons whose registerations have closed:", err);
+    console.log(
+      "Error while deleting the hackathons whose registerations have closed:",
+      err,
+    );
   }
 }
 
 //* Add Hackathons to the DB,
-async function addToDB (hackathons, platform) {
+async function addToDB(hackathons, platform) {
   try {
     // Sorting contests
-    hackathons.sort((a, b) => a.registerationStartTimeUnix - b.registerationStartTimeUnix);
+    hackathons.sort(
+      (a, b) => a.registerationStartTimeUnix - b.registerationStartTimeUnix,
+    );
 
     try {
       // Add to UpcomingHackathon collection
       await UpcomingHackathon.insertMany(hackathons, { ordered: false });
-      console.log(
-        `│ Updated hackathons for ${platform}`.padEnd(53) + "│",
-      );
+      console.log(`│ Updated hackathons for ${platform}`.padEnd(53) + "│");
     } catch (upcomingErr) {
       if (upcomingErr.code === 11000) {
         console.log(
-          `│ Some duplicate(s) in UpcomingHackathon for ${platform}`.padEnd(53) +
-            "│",
+          `│ Some duplicate(s) in UpcomingHackathon for ${platform}`.padEnd(
+            53,
+          ) + "│",
         );
       } else {
         throw upcomingErr;
@@ -49,7 +55,8 @@ async function addToDB (hackathons, platform) {
     } catch (allErr) {
       if (allErr.code === 11000) {
         console.log(
-          `│ Some duplicate(s) in AllHackathon for ${platform}`.padEnd(53) + "│",
+          `│ Some duplicate(s) in AllHackathon for ${platform}`.padEnd(53) +
+            "│",
         );
       } else {
         throw allErr;
@@ -60,7 +67,7 @@ async function addToDB (hackathons, platform) {
   }
 }
 
-async function syncHackathons () {
+async function syncHackathons() {
   try {
     console.log("===============================================");
     console.log("Syncing Data | API to MongoDB");
