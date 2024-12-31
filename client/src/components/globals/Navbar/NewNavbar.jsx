@@ -165,7 +165,7 @@ export default function NewNavbar({ position }) {
                   to={navLink.path}
                   key={index}
                   className={`px-4 py-2 text-zinc-700 cursor-pointer rounded-full transition ${
-                    location.pathname === navLink.path
+                    location.pathname === navLink.path || (["/challenges","/hackathons","/internships","/jobs"].includes(location.pathname)&&navLink.path==="/contests")
                       ? "bg-zinc-400 text-zinc-950"
                       : ""
                   } hover:bg-zinc-200`}
