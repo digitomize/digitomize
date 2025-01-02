@@ -13,14 +13,14 @@ zerops:
       # select which files / folders to deploy
       # after the build successfully finished
       deployFiles:
-        - package.json
-        - node_modules
+        - backend/package.json
+        - backend/node_modules
 
       # *optional*: which files / folders
       # to cache for the next build run
       cache:
-        - node_modules
-        - package-lock.json
+        - backend/node_modules
+        - backend/package-lock.json
 
     # ==== how to run your application ====
     run:
