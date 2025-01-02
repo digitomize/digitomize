@@ -12,7 +12,7 @@ import { UpcomingContest, AllContest } from "../models/Contest.js";
 dotenv.config({ path: "../../.env" });
 
 //* Clear the UpcomingContest collection in MongoDB
-async function clearUpcoming() {
+async function clearUpcoming () {
   try {
     const currentTime = Math.floor(Date.now() / 1000);
     await UpcomingContest.deleteMany({ startTimeUnix: { $lt: currentTime } });
@@ -23,7 +23,7 @@ async function clearUpcoming() {
 }
 
 //* Add contest using API
-async function addToDB(mappedContests, platform) {
+async function addToDB (mappedContests, platform) {
   try {
     // Sorting contests
     mappedContests.sort((a, b) => a.startTimeUnix - b.startTimeUnix);
@@ -63,7 +63,7 @@ async function addToDB(mappedContests, platform) {
   }
 }
 
-async function syncContests() {
+async function syncContests () {
   try {
     console.log("===============================================");
     console.log("Syncing Data | API to MongoDB");

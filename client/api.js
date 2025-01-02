@@ -87,13 +87,16 @@ export async function changeUserPreferences(platform, prefer) {
 
     if (accessToken) {
       try {
-        const response = await axios.post(`${backendUrl}/user/preferences`, {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
+        const response = await axios.post(
+          `${backendUrl}/user/preferences`,
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+              platform: platform,
+              preference: prefer,
           },
-          platform: platform,
-          preference: prefer,
-        });
+        );
         // console.log("RESPONSEEEE:", response);
         return response;
       } catch (err) {
@@ -196,11 +199,11 @@ export async function submitUserFormData(formData) {
   /* Throw an error if the entered username is an URL. */
   const urlPattern = new RegExp(
     "^(https?:\\/\\/)?" + // protocol
-      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
-      "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
-      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
-      "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
-      "(\\#[-a-z\\d_]*)?$",
+    "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // domain name
+    "((\\d{1,3}\\.){3}\\d{1,3}))" + // OR ip (v4) address
+    "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // port and path
+    "(\\?[;&a-z\\d%_.~+=-]*)?" + // query string
+    "(\\#[-a-z\\d_]*)?$",
     "i",
   ); // fragment locator
 
@@ -216,8 +219,8 @@ export async function submitUserFormData(formData) {
   // console.log(currentUser);
   const accessToken = await currentUser.getIdToken();
   // console.log(jwtToken);
-  if (formData.picture)
-    await uploadPictureToCloudinary(formData, accessToken, currentUser.uid);
+if(formData.picture)
+  await uploadPictureToCloudinary(formData, accessToken, currentUser.uid);
   // console.log(formData.picture);
   const res = await axios.post(`${backendUrl}/user/dashboard`, formData, {
     headers: {

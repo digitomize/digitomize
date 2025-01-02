@@ -5,7 +5,7 @@ import { UpcomingHackathon, AllHackathon } from "../models/Hackathon.js";
 let upcomingHackathonsList = []; // Variable to store hackathons in memory
 
 //* Function to fetch hackathons from MongoDB and update the upcomingHackathonsList variable
-async function updateHackathons() {
+async function updateHackathons () {
   try {
     console.log("┌──────────────────────────────────┐");
     console.log("│ Retrieving Data | MongoDB to App".padEnd(35) + "│");
@@ -17,9 +17,7 @@ async function updateHackathons() {
     );
 
     // Sorting hackathons
-    fetchedHackathons.sort(
-      (a, b) => a.registerationEndTimeUnix - b.registerationEndTimeUnix,
-    );
+    fetchedHackathons.sort((a, b) => a.registerationEndTimeUnix - b.registerationEndTimeUnix);
 
     // Update the upcomingHackathonsList variable
     upcomingHackathonsList = fetchedHackathons;
@@ -33,11 +31,11 @@ async function updateHackathons() {
 }
 
 //* Function to return upcomingHackathon
-async function getUpcomingHackathonsList() {
+async function getUpcomingHackathonsList () {
   return upcomingHackathonsList;
 }
 
-const getHackathonByVanity = async(vanity) => {
+const getHackathonByVanity = async (vanity) => {
   try {
     // First, check the upcomingContestList in memory
     const hackathonInMemory = upcomingHackathonsList.find(
@@ -59,6 +57,7 @@ const getHackathonByVanity = async(vanity) => {
     return error;
   }
 };
+
 
 export default {
   getUpcomingHackathonsList,

@@ -6,25 +6,14 @@ import Chip from "@mui/material/Chip";
 import { FaLinkedin, FaXTwitter, FaInstagram } from "react-icons/fa6";
 import { ToastContainer, toast } from "react-toastify";
 import { submitUserFormData } from "../../../api";
-import TagFacesIcon from "@mui/icons-material/TagFaces";
+import TagFacesIcon from '@mui/icons-material/TagFaces';
 
 const socialFields = [
-  {
-    icon: <FaInstagram size={40} />,
-    name: "instagram",
-    placeholder: "Instagram URL",
-  },
-  {
-    icon: <FaLinkedin size={40} />,
-    name: "linkedin",
-    placeholder: "Linkedin URL",
-  },
-  {
-    icon: <FaXTwitter size={40} />,
-    name: "twitter",
-    placeholder: "Twitter URL",
-  },
+  { icon: <FaInstagram size={40} />, name: "instagram", placeholder: "Instagram URL" },
+  { icon: <FaLinkedin size={40} />, name: "linkedin", placeholder: "Linkedin URL" },
+  { icon: <FaXTwitter size={40} />, name: "twitter", placeholder: "Twitter URL" }
 ];
+
 
 function UserDashBoardCarrer() {
   const { personal_data, social } = useLoaderData();
@@ -156,9 +145,7 @@ function UserDashBoardCarrer() {
         <div>
           <div className="z-0 w-full md:w-3/4 group flex items-start md:mr-5 ">
             <div className="form-control  w-full ">
-              <h2 className="font-bold text-white text-4xl max-sm:text-2xl sm:mb-[30px] mb-[20px]">
-                Skills
-              </h2>
+              <h2 className='font-bold text-white text-4xl max-sm:text-2xl sm:mb-[30px] mb-[20px]'>Skills</h2>
               <div className="flex items-center gap-3">
                 <input
                   type="text"
@@ -189,10 +176,7 @@ function UserDashBoardCarrer() {
                     }
 
                     return (
-                      <div
-                        key={data.key}
-                        className="max-sm:text-sm my-2  inline-block"
-                      >
+                      <div key={data.key} className="max-sm:text-sm my-2  inline-block">
                         <Chip
                           variant="outlined"
                           color="primary"
@@ -212,9 +196,7 @@ function UserDashBoardCarrer() {
             </div>
           </div>
 
-          <h2 className="font-bold text-white text-4xl max-sm:text-2xl sm:mb-[30px] my-2">
-            Social
-          </h2>
+          <h2 className='font-bold text-white text-4xl max-sm:text-2xl sm:mb-[30px] my-2'>Social</h2>
           <div className="flex flex-col gap-4 pb-8">
             {socialFields.map((field, index) => (
               <div key={index} className="flex sm:gap-4 gap-3 items-center">
@@ -230,12 +212,12 @@ function UserDashBoardCarrer() {
               </div>
             ))}
           </div>
+
         </div>
 
         <div className="flex w-full max-sm:justify-center md:justify-end md:pe-12 max-sm:text-sm ">
           <div className="btn-div" style={{ boxShadow: `8px 8px #2E8D46` }}>
-            <button
-              disabled={isDisabled}
+            <button disabled={isDisabled}
               onClick={handleSubmit}
               type="submit"
               style={{
@@ -244,9 +226,7 @@ function UserDashBoardCarrer() {
                 fontSize: "20px",
                 marginTop: "17px",
               }}
-              className={`${
-                isDisabled ? "cursor-not-allowed  opacity-60" : ""
-              }`}
+              className={`${isDisabled ? "cursor-not-allowed  opacity-60" : ""}`}
             >
               {isDisabled ? "Updating..." : "Update"}
             </button>

@@ -2,17 +2,12 @@ import express from "express";
 import { handleUserSignup } from "../controllers/authController.js";
 import { handleUserDashboard } from "../controllers/userDashboardController.js";
 import { handleUserProfilePreview } from "../controllers/userProfileController.js";
-import {
-  handleUpdateUserProfile,
-  handleUserPreferences,
-} from "../controllers/userUpdateController.js";
+import { handleUpdateUserProfile, handleUserPreferences } from "../controllers/userUpdateController.js";
 import { addUID, dgmAdminCheck } from "../middlewares/authMiddleware.js";
 import { getLeaderboard } from "../controllers/leaderboardController.js";
 import { generateSignature } from "../controllers/cloudinaryUploadController.js";
 import { generateSVG } from "../controllers/generateSVG.js";
-import {
-  getAllTopics,
-} from "../controllers/notifsController.js";
+import { getAllTopics, TriggerContestNotifToTopic, addSubscriber, addSubscriberToTopic, createTopic, removeSubscriberFromTopic, updateDeviceID } from "../controllers/notifsController.js";
 
 const router = express.Router();
 

@@ -131,6 +131,8 @@ export default function Footer() {
             >
               Blogs
             </a>
+
+
           </nav>
           <nav className="flex justify-center items-center sm:!items-start flex-col gap-3 w-full sm:!w-[45%] xl:!w-fit">
             <header className="text-white font-medium text-2xl mb-2">

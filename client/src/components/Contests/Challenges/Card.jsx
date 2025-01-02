@@ -1,7 +1,10 @@
 import { useState, useEffect, memo } from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
-import { tublian, quine } from "../../AllAssets";
+import {
+  tublian,
+  quine,
+} from "../../AllAssets";
 import ShareModel from "../../share_model";
 import { EmojiEvents } from "@mui/icons-material";
 import { Tooltip } from "@mui/material";
@@ -25,9 +28,7 @@ function Card({ contest }) {
     timeZone: "Asia/Kolkata",
   };
   const startTimeIST = startDate.toLocaleString("en-US", options);
-  const endTimeIST = new Date(
-    (startTimeUnix + duration * 60) * 1000,
-  ).toLocaleString("en-US", options);
+  const endTimeIST = new Date((startTimeUnix + duration * 60) * 1000).toLocaleString("en-US", options);
   const [remaningTime, setRemainingTime] = useState("loading...");
   const [show, setShow] = useState(false);
   const close_model = () => setShow(false);
@@ -65,13 +66,8 @@ function Card({ contest }) {
           ends: {endTimeIST}
         </p>
         <Tooltip title={host} placement="bottom" arrow>
-          <img
-            src={hostToSVGMap[host]}
-            alt={host}
-            width="13%"
-            className="object-contain"
-          />
-        </Tooltip>
+          <img src={hostToSVGMap[host]} alt={host} width="13%"  className="object-contain"/>
+          </Tooltip>
       </div>
       {/* <Link to={`/contests/${vanity}`} className="my-auto pb-6"> */}
       <Link to={url} className="my-auto pb-6" target="_blank">
@@ -80,7 +76,7 @@ function Card({ contest }) {
           <EmojiEvents />
           <div className="badge badge-success">
             <h3 className="max-phone:text-xs">{prize}</h3>
-          </div>
+            </div>
         </p>
       </Link>
       <div className="flex justify-between items-end">

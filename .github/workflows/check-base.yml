@@ -6,16 +6,16 @@ on:
   pull_request_target:
     types: [edited]
     branches:
-      - "*"
+      - '*'
 
 jobs:
   check_base_branch:
     runs-on: ubuntu-latest
-
+  
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
+      
       - name: Set environment variables
         env:
           BASE_BRANCH: ${{ github.event.pull_request.base.ref }}

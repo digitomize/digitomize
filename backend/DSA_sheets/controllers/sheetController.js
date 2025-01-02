@@ -3,7 +3,7 @@ import SheetModel from "../models/sheetModel.js";
 import { getQuestionByQId } from "./questionController.js";
 
 // Controller function to create a new sheet
-export const createSheet = async(req, res) => {
+export const createSheet = async (req, res) => {
   try {
     // Extract sheet data from the request body
     const { name, s_id, desc, questions } = req.body;
@@ -42,7 +42,7 @@ export const createSheet = async(req, res) => {
   }
 };
 
-export const removeSheet = async(req, res) => {
+export const removeSheet = async (req, res) => {
   try {
     const { s_id } = req.body;
 
@@ -82,7 +82,7 @@ export const removeSheet = async(req, res) => {
   }
 };
 
-export const getSheets = async(req, res) => {
+export const getSheets = async (req, res) => {
   try {
     const sheets = await SheetModel.find();
 
@@ -117,7 +117,7 @@ export const getSheets = async(req, res) => {
   }
 };
 
-export const addQuestions = async(req, res) => {
+export const addQuestions = async (req, res) => {
   try {
     const { s_id, q_ids } = req.body;
 
@@ -176,7 +176,7 @@ export const addQuestions = async(req, res) => {
   }
 };
 
-export const removeQuestion = async(req, res) => {
+export const removeQuestion = async (req, res) => {
   try {
     const { s_id, q_id } = req.body;
 

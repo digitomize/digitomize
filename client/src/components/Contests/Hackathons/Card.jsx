@@ -1,6 +1,10 @@
 import { useState, useEffect, memo, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { devfolio, devpost, unstop } from "../../AllAssets";
+import {
+    devfolio,
+    devpost,
+    unstop
+} from "../../AllAssets";
 import ShareModel from "../../share_model";
 import moment from "moment-timezone";
 import { CalendarPlus, Share2, MoveRight } from "lucide-react";
@@ -16,6 +20,7 @@ const hostToSVGMap = {
 const LOCATION_ID_UTC = 1440;
 
 const generateTimeAndDateURL = (startTimeUnix) => {
+
   // Convert the Unix timestamp to a datetime in the UTC timezone
   const utcDateAndTime = moment.tz(startTimeUnix * 1000, "UTC");
 
@@ -29,9 +34,7 @@ const generateTimeAndDateURL = (startTimeUnix) => {
   const utcStartSec = utcStartTime.split(":")[2];
 
   // Form the URL to be directed to when clicked on time.
-  const timeAndDateURL = new URL(
-    "https://timeanddate.com/worldclock/fixedtime.html",
-  );
+  const timeAndDateURL = new URL("https://timeanddate.com/worldclock/fixedtime.html");
   const params = {
     day: utcStartDate,
     month: utcStartMonth,
@@ -47,56 +50,29 @@ const generateTimeAndDateURL = (startTimeUnix) => {
   return timeAndDateURL.href;
 };
 
-const addToGoogleCalendar = ({
-  name,
-  hackathonStartTimeUnix: startTimeUnix,
-  duration,
-  url,
-  host,
-}) => {
+const addToGoogleCalendar = ({ name, hackathonStartTimeUnix: startTimeUnix, duration, url, host }) => {
   // Adjust the start time and duration for IST (GMT+5:30)
   const startTimeIST = new Date((startTimeUnix + 60 * 60 - 3600) * 1000);
-  const endTimeIST = new Date(
-    (startTimeUnix + duration * 60 + 60 * 60 - 3600) * 1000,
-  );
+  const endTimeIST = new Date((startTimeUnix + duration * 60 + 60 * 60 - 3600) * 1000);
 
-  const formattedStartTime = startTimeIST
-    .toISOString()
-    .replace(/[-:]/g, "")
-    .replace(".000", "+05:30");
-  const formattedEndTime = endTimeIST
-    .toISOString()
-    .replace(/[-:]/g, "")
-    .replace(".000", "+05:30");
+  const formattedStartTime = startTimeIST.toISOString().replace(/[-:]/g, "").replace(".000", "+05:30");
+  const formattedEndTime = endTimeIST.toISOString().replace(/[-:]/g, "").replace(".000", "+05:30");
 
   const startHour = startTimeIST.getHours();
   const startMinute = startTimeIST.getMinutes();
   const ampm = startHour >= 12 ? "PM" : "AM";
-  const formattedStartTimeString = `${startHour % 12 || 12}:${
-    startMinute < 10 ? "0" : ""
-  }${startMinute} ${ampm}`;
+  const formattedStartTimeString = `${startHour % 12 || 12}:${startMinute < 10 ? "0" : ""}${startMinute} ${ampm}`;
 
   const description = `<hr>🏆<b>Hackathon</b>🏆%0A👨🏻‍💻Name: ${name}%0A🕘Start at: ${formattedStartTimeString}%0A⏱️Duration: ${duration} minutes%0A🚀Host: ${host}%0A🔗Hackathon URL: <a href='${url}'>${url}</a>%0A<hr><i>Thank you for using <a href='https://digitomize.com'>digitomize</a></i>`;
 
-  const googleCalendarUrl = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${formattedStartTime}/${formattedEndTime}&text=${encodeURIComponent(
-    name,
-  )}&details=${description}`;
+  const googleCalendarUrl = `https://calendar.google.com/calendar/u/0/r/eventedit?dates=${formattedStartTime}/${formattedEndTime}&text=${encodeURIComponent(name)}&details=${description}`;
 
   // Open the Google Calendar event creation page in a new tab
   window.open(googleCalendarUrl, "_blank");
 };
 
 function Card({ hackathon }) {
-  const {
-    host,
-    name,
-    vanity,
-    url,
-    registerationStartTimeUnix,
-    registerationEndTimeUnix,
-    hackathonStartTimeUnix: startTimeUnix,
-    duration,
-  } = hackathon;
+  const { host, name, vanity, url, registerationStartTimeUnix, registerationEndTimeUnix, hackathonStartTimeUnix: startTimeUnix, duration } = hackathon;
 
   // Get the timeAndDateURL
   const timeAndDateURL = generateTimeAndDateURL(startTimeUnix);
@@ -122,17 +98,15 @@ function Card({ hackathon }) {
       const hours = Math.floor((duration % 1440) / 60);
       const minutes = Math.floor((duration % 1440) % 60);
 
-      return `${days}d${hours > 0 ? `:${hours}h:${minutes}m` : ""}`;
+      return `${days}d${(hours > 0) ? `:${hours}h:${minutes}m` : ""}`;
     }
 
     return `${duration}min`;
-  }, [duration]);
+  },[duration]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setRemainingTime(
-        updateTimer(registerationStartTimeUnix, registerationEndTimeUnix),
-      );
+      setRemainingTime(updateTimer(registerationStartTimeUnix, registerationEndTimeUnix));
     }, 1000);
 
     return () => {
@@ -159,12 +133,7 @@ function Card({ hackathon }) {
           id="startTime"
           className="text-card-text font-light leading-tight text-lg max-md:text-sm"
         >
-          <Link
-            to={timeAndDateURL}
-            className="my-auto underline lowercase"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link to={timeAndDateURL} className="my-auto underline lowercase" target="_blank" rel="noopener noreferrer">
             {`Runs from ${startMonth} ${startDate}, ${startYear}`}
           </Link>
         </p>
@@ -187,20 +156,12 @@ function Card({ hackathon }) {
             <Share2 style={{ color: "white" }} className="w-5 h-5" />
           </button>
 
-          <button
-            id="calendarButton"
-            onClick={() => addToGoogleCalendar(hackathon)}
-            aria-label="Google Calendar Integration"
-          >
+          <button id="calendarButton" onClick={() => addToGoogleCalendar(hackathon)} aria-label="Google Calendar Integration">
             <CalendarPlus style={{ color: "white" }} className="w-5 h-5" />
           </button>
 
           {show && main_model}
-          <a
-            href={url + "?ref=digitomize&utm_source=digitomize"}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={url + "?ref=digitomize&utm_source=digitomize"} target="_blank" rel="noreferrer">
             <MoveRight style={{ color: "white" }} className="md:w-10 md:h-10" />
           </a>
 
@@ -221,14 +182,15 @@ function updateTimer(regStartTimeUnix, regEndTimeUnix) {
     startsOrCloses = "close";
     timeDiff = regEndTimeUnix - currentTime;
   }
-
+  
   const days = Math.floor(timeDiff / 86400);
   const hours = Math.floor((timeDiff % 86400) / 3600);
   const minutes = Math.floor((timeDiff % 3600) / 60);
 
   return (
-    <p>
-      Application {startsOrCloses} in {days}d:{hours}h:{minutes}m
-    </p>
+      <p>
+          Application {startsOrCloses} in {days}d:{hours}h:{minutes}m
+      </p>
   );
+
 }

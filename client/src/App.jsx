@@ -12,10 +12,10 @@ import {
 import { useState, useEffect } from "react";
 import "./App.css";
 
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 // import dayjs from 'dayjs';
-import "dayjs/locale/en-gb";
+import 'dayjs/locale/en-gb';
 
 // importing all the components ...
 import {
@@ -55,7 +55,7 @@ import ProfileLayout, {
   loader as profileLoader,
 } from "./user/Profile/pages/ProfileLayout";
 // import ProtectedRoute from "./ProtectedRoute"
-import { loader as userDashPersonalLoader } from "./user/dashboard/UserDashPersonal";
+import { loader as userDashPersonalLoader } from './user/dashboard/UserDashPersonal'
 import UserDashBoardProfile from "./user/dashboard/Profile/Profile";
 import Leaderboard from "./user/leaderboard/Leaderboard";
 import UserDashBoardWidget from "./user/dashboard/Widget";
@@ -63,13 +63,13 @@ import UserDashBoardWidget from "./user/dashboard/Widget";
 //Loader
 import Loader from "./components/globals/Loader/Loader";
 
-import Career from "./user/dashboard/Career/Career";
+import Career from "./user/dashboard/Career/Career"
 /*------------ DSA Sheets Import ------------ */
 import SheetLayout from "./dsaSheets/layout/SheetLayout";
 
 // import formbricks from "@formbricks/js";
 
-// if (typeof window !== "undefined") {
+// if (typeof window !== "undefined") { 
 //   formbricks.init({
 //     environmentId: import.meta.env.VITE_REACT_APP_FORMBRICKS_API_KEY,
 //     apiHost: "https://app.formbricks.com",
@@ -183,26 +183,19 @@ const router = createBrowserRouter(
         <Route path="login" element={<Login />} loader={loginLoader} />
         <Route path="logout" element={<Logout />} />
         <Route path="signup" element={<Signup />} loader={signupLoader} />
+        <Route path="forgot-password" element={<ForgotPassword />} loader={forgotPasswordLoader} />
         <Route
-          path="forgot-password"
-          element={<ForgotPassword />}
-          loader={forgotPasswordLoader}
-        />
-        <Route
-          path="resend-email-verification"
-          element={<ResendEmailVerification />}
-          loader={resendLoader}
-        />
-        <Route path="user-email-verification" element={<VerifyEmailPage />} />
+        path="resend-email-verification"
+        element={<ResendEmailVerification />}
+        loader={resendLoader}
+      />
+       <Route path="user-email-verification" element={<VerifyEmailPage />} />
         <Route element={<ContestPageLayout />}>
           <Route path="contests" element={<Filter />} />
           <Route path="challenges" element={<Challenges />} />
           <Route path="hackathons" element={<HackathonsFilter />} />
-          <Route
-            path="internships"
-            element={<ComingSoonLoader value="Internships" />}
-          />
-          <Route path="jobs" element={<ComingSoonLoader value="Jobs" />} />
+          <Route path="internships" element={<ComingSoonLoader value='Internships' />} />
+          <Route path="jobs" element={<ComingSoonLoader value='Jobs' />} />
         </Route>
         {/* <Route path="updates" element={<Updates />} /> */}
         <Route path="home" element={<Homepage />} />
@@ -212,10 +205,7 @@ const router = createBrowserRouter(
         <Route path="discord" element={<DiscordRedirect />} />
         <Route path="blogs" element={<BlogsRedirect />} />
         <Route path="contests/:vanity" element={<IndividualCard />} />
-        <Route
-          path="hackathons/:vanity"
-          element={<HackathonIndividualCard />}
-        />
+        <Route path="hackathons/:vanity" element={<HackathonIndividualCard />} />
         <Route path="404" element={<ErrorPage />} />
       </Route>
       <Route path="/admin" element={<AdminPanelGuard />}>
@@ -226,11 +216,14 @@ const router = createBrowserRouter(
       <Route path="/u" element={<ProtectedRoute />}>
         {/* <Route path="dashboard" element={<UserDashboard/>}> */}
         <Route path="dashboard">
-          <Route index element={<UserDashboard />} />
+          <Route
+            index
+            element={<UserDashboard />}
+          />
 
           <Route path="widgets" element={<Widget />} />
 
-          <Route element={<UserDashBoardLayout />}>
+          <Route element={<UserDashBoardLayout />} >
             <Route
               path="github"
               element={<ComingSoonLoader value={"Github"} />}
@@ -240,27 +233,12 @@ const router = createBrowserRouter(
               element={<Career />}
               loader={userDashPersonalLoader}
             />
-            <Route
-              path="profile"
-              loader={userDashPersonalLoader}
-              element={<UserDashBoardProfile />}
-            />
+            <Route path="profile" loader={userDashPersonalLoader} element={<UserDashBoardProfile />} />
             {/* <Route path="account"  loader={userDashPersonalLoader}  element={<UserDashBoardAccount/>}/> */}
-            <Route
-              path="widget"
-              element={<ComingSoonLoader value={"Widgets"} />}
-            />
+            <Route path="widget" element={<ComingSoonLoader value={"Widgets"} />} />
             <Route path="ratings" element={<Ratings />} />
-            <Route
-              path="preferences"
-              loader={userDashPersonalLoader}
-              element={<Preferences />}
-            />
-            <Route
-              path="settings"
-              loader={userDashPersonalLoader}
-              element={<Settings />}
-            />
+            <Route path="preferences" loader={userDashPersonalLoader} element={<Preferences />} />
+            <Route path="settings" loader={userDashPersonalLoader} element={<Settings />} />
           </Route>
         </Route>
       </Route>
@@ -283,30 +261,27 @@ const router = createBrowserRouter(
   ),
 );
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+   useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
 
-    return () => clearTimeout(timer);
-  }, []);
+      return () => clearTimeout(timer);
+    }, []);
 
   return (
     <>
       <UserAuthContextProvider>
         <UserContextProvider>
           <ToastContainer />
-          <LocalizationProvider
-            dateAdapter={AdapterDayjs}
-            adapterLocale="en-gb"
-          >
-            {isLoading ? <Loader /> : <RouterProvider router={router} />}
+          <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="en-gb">
+            {isLoading ? <Loader/> : <RouterProvider router={router} />}
           </LocalizationProvider>
         </UserContextProvider>
       </UserAuthContextProvider>
-      <ScrollToTop toid={"root"} h={1} />
+     <ScrollToTop toid={"root"} h={1}/>
       {/* <Footer /> */}
     </>
   );

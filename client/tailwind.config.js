@@ -20,7 +20,7 @@ export default {
     },
     extend: {
       flex: {
-        2: "2 2 0%",
+        '2': '2 2 0%'
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
@@ -48,7 +48,7 @@ export default {
         powered: "#D2D2D2",
         badge: "rgba(0, 76, 228, 0.33)",
         badgeborder: "#25478B",
-        buttonColor: "#52B55C",
+        buttonColor :"#52B55C",
         "badge-txt": "#C3E2FF",
         "custom-border": "#30363d",
         "custom-bg": "#0a0a0a",
@@ -75,10 +75,9 @@ export default {
           "linear-gradient( to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97% )",
         "grad-bg": "-webkit-linear-gradient(#eee, #333);",
       },
-      backgroundImage: {
-        "card-gradient":
-          "linear-gradient(180deg, #12274f 0%, rgba(28, 27, 64, 0.3) 100%)",
-      },
+     backgroundImage:{
+          "card-gradient":"linear-gradient(180deg, #12274f 0%, rgba(28, 27, 64, 0.3) 100%)",
+        },
       shadowBlack: " hsla(0, 0%, 0%, 0.25);",
       keyframes: {
         gradientChange: {
@@ -86,8 +85,7 @@ export default {
             background: "#191919",
           },
           "100%": {
-            background:
-              "radial-gradient(circle at top left,#8d41aa 0%,#ba356c 34.38%,#f22c30 60.94%,#f8573a 79.69%,#fcbb57 100%)",
+            background: "radial-gradient(circle at top left,#8d41aa 0%,#ba356c 34.38%,#f22c30 60.94%,#f8573a 79.69%,#fcbb57 100%)",
           },
         },
         gradient: {
@@ -96,10 +94,10 @@ export default {
           },
         },
       },
-
+      
       animation: {
         "bg-gradient": "gradientChange 0.15s ease-in-out forwards",
-        gradient: "gradient 5s linear infinite",
+        "gradient": "gradient 5s linear infinite",
       },
     },
     darkMode: "class",

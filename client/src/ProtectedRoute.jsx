@@ -14,9 +14,7 @@ function ProtectedRoute() {
     return <Outlet />;
   }
 
-  return (
-    <Navigate to="/resend-email-verification?message=Please verify your email" />
-  );
+  return <Navigate to="/resend-email-verification?message=Please verify your email" />;
 }
 
 export default ProtectedRoute;

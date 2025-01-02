@@ -20,7 +20,9 @@ import { ChevronRight } from "lucide-react";
 import AuthModal from "../globals/AuthModal";
 import Marquee from "react-fast-marquee";
 
+
 export default function SectionOne() {
+
   const { user } = useUserAuth();
   return (
     <div className="font-['Geist'] xl:pt-8 max-md:pt-4 items-center flex flex-col text-center phone:mt-16">
@@ -39,21 +41,20 @@ export default function SectionOne() {
           <div className="z-10 flex min-h-[2rem] items-center justify-center">
             <AnimatedGradientText>
               <span
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  "inline animate-gradient bg-gradient-to-r from-[#f0f8ff] via-[#f0f8ff] to-[#f0f8ff] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent flex justify-center items-center",
-                )}
-              >
-                We're Open Source
-                <hr className="mx-2 h-4 w-[0.5px] bg-[#f0f8ff]" />
-                Star Now!
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "inline animate-gradient bg-gradient-to-r from-[#f0f8ff] via-[#f0f8ff] to-[#f0f8ff] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent flex justify-center items-center",
+                )}>
+                  We're Open Source 
+                  <hr className="mx-2 h-4 w-[0.5px] bg-[#f0f8ff]" />
+                  Star Now!
               </span>
               &nbsp;
-              <Star fontSize="small" sx={{ color: "gold" }} />
+              <Star fontSize="small" sx={{color:"gold"}}/>
               <ChevronRight
-                className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5"
-                style={{ color: "#f0f8ff" }}
+              className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5"
+              style={{ color: "#f0f8ff" }}
               />
             </AnimatedGradientText>
           </div>
@@ -121,10 +122,10 @@ export default function SectionOne() {
             </div>
           </Link>
         ) : (
-          <div className="flex justify-center items-center gap-1  px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border">
-            <AuthModal page={"signup"} />
-            <MdPlayArrow />
-          </div>
+            <div className="flex justify-center items-center gap-1  px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border">
+              <AuthModal page={"signup"}/>
+              <MdPlayArrow />
+            </div>
         )}
       </motion.div>
       <motion.div
@@ -142,78 +143,73 @@ export default function SectionOne() {
         <span>
           <p className="text-lg text-powered">Supported By</p>
         </span>
-        <Marquee
-          gradient
-          gradientColor="#06090E"
-          pauseOnHover
-          className="max-w-xl md:max-w-2xl lg:max-w-3xl"
-        >
-          <span className="flex flex-row flex-wrap gap-4 px-2 items-center justify-center">
-            <a href="https://m.do.co/c/db7dbc698e16">
-              <img
-                className="max-md:w-36 md:w-44"
-                src={digitalOcean}
-                draggable={false}
-                alt="microsoft"
-              />
-            </a>
-            <a href="https://www.microsoft.com/en-us/startups">
-              <img
-                className="max-md:w-32 md:w-40"
-                src={microsoft}
-                draggable={false}
-                alt="microsoft"
-              />
-            </a>
-            <a href="https://www.gitbook.com/">
-              <img
-                className="max-md:w-32 md:w-40"
-                src={gitbook}
-                draggable={false}
-                alt="gitbook"
-              />
-            </a>
-            <a href="https://msme.gov.in/">
-              <img
-                className="w-15 sm:w-25 md:w-30"
-                src={msme}
-                draggable={false}
-                alt="msme"
-              />
-            </a>
-            <a href="https://github.com/digitomize/digitomize">
-              <img
-                className="max-md:w-32 md:w-40"
-                src={meltcd}
-                draggable={false}
-                alt="meltcd"
-              />
-            </a>
-            <a href="https://www.netlify.com">
-              <img
-                className="max-md:w-32 md:w-40"
-                src={netlify}
-                draggable={false}
-                alt="netlify"
-              />
-            </a>
-            <a href="https://cloud.google.com/startup">
-              <img
-                className="max-md:w-32 md:w-40"
-                src={googlecloud}
-                draggable={false}
-                alt="googlecloud"
-              />
-            </a>
-            <a href="https://www.holopin.io/">
-              <img
-                className="max-md:w-32 md:w-40"
-                src={holopin}
-                draggable={false}
-                alt="holopin"
-              />
-            </a>
-          </span>
+        <Marquee gradient gradientColor="#06090E" pauseOnHover className="max-w-xl md:max-w-2xl lg:max-w-3xl">
+        <span className="flex flex-row flex-wrap gap-4 px-2 items-center justify-center">
+          <a href="https://m.do.co/c/db7dbc698e16">
+            <img
+              className="max-md:w-36 md:w-44"
+              src={digitalOcean}
+              draggable={false}
+              alt="microsoft"
+            />
+          </a>
+          <a href="https://www.microsoft.com/en-us/startups">
+          <img
+            className="max-md:w-32 md:w-40"
+            src={microsoft}
+            draggable={false}
+            alt="microsoft"
+          />
+        </a>
+        <a href="https://www.gitbook.com/">
+          <img
+            className="max-md:w-32 md:w-40"
+            src={gitbook}
+            draggable={false}
+            alt="gitbook"
+          />
+        </a>
+        <a href="https://msme.gov.in/">
+          <img
+            className="w-15 sm:w-25 md:w-30"
+            src={msme}
+            draggable={false}
+            alt="msme"
+          />
+        </a>
+        <a href="https://github.com/digitomize/digitomize">
+          <img
+            className="max-md:w-32 md:w-40"
+            src={meltcd}
+            draggable={false}
+            alt="meltcd"
+          />
+        </a>
+        <a href="https://www.netlify.com">
+          <img
+            className="max-md:w-32 md:w-40"
+            src={netlify}
+            draggable={false}
+            alt="netlify"
+          />
+        </a>
+        <a href="https://cloud.google.com/startup">
+          <img
+            className="max-md:w-32 md:w-40"
+            src={googlecloud}
+            draggable={false}
+            alt="googlecloud"
+          />
+        </a>
+        <a href="https://www.holopin.io/">
+          <img
+            className="max-md:w-32 md:w-40"
+            src={holopin}
+            draggable={false}
+            alt="holopin"
+          />
+        </a>
+        </span>
         </Marquee>
       </motion.div>
     </div>

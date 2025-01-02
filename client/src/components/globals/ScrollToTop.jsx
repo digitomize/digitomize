@@ -27,11 +27,8 @@ const ScrollToTop = ({ toid, h }) => {
       }`}
     >
       <Link to={toid} smooth={true} duration={100}>
-        <div
-          className="fixed z-[200] bottom-[20px] right-[30px] h-[40px] mb-10 w-[40px] text-[50px] cursor-pointer z-10000 flex justify-center items-center rounded-full duration-300 ease bg-black hover:bg-white text-white border-2 border-white hover:text-black hover:border-black "
-          style={{ margin: "-15px", marginBottom: "-5px" }}
-        >
-          <KeyboardDoubleArrowUpOutlinedIcon className="" />
+          <div className="fixed z-[200] bottom-[20px] right-[30px] h-[40px] mb-10 w-[40px] text-[50px] cursor-pointer z-10000 flex justify-center items-center rounded-full duration-300 ease bg-black hover:bg-white text-white border-2 border-white hover:text-black hover:border-black " style={{margin:"-15px", marginBottom:"-5px"}}>
+          <KeyboardDoubleArrowUpOutlinedIcon className=""  />
         </div>
       </Link>
     </div>

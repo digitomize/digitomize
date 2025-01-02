@@ -35,12 +35,10 @@ function ProfileLayout() {
                   {/* Page Description */}
                   <meta
                     name="description"
-                    content={`${
-                      loadedProfileData.personal_data.bio?.slice(0, 200) ||
-                      loadedProfileData.personal_data.name
-                    } | Check contest ratins and connect today! - Find more about ${
-                      loadedProfileData.personal_data.name
-                    } on Digitomize`}
+                    content={
+                      `${loadedProfileData.personal_data.bio?.slice(0, 200) ||
+                      loadedProfileData.personal_data.name} | Check contest ratins and connect today! - Find more about ${loadedProfileData.personal_data.name} on Digitomize`
+                    }
                   />
 
                   {/* Robots Meta Tag */}
@@ -58,12 +56,10 @@ function ProfileLayout() {
                   />
                   <meta
                     property="og:description"
-                    content={`${
-                      loadedProfileData.personal_data.bio?.slice(0, 200) ||
-                      loadedProfileData.personal_data.name
-                    } | Check contest ratins and connect today! - Find more about ${
-                      loadedProfileData.personal_data.name
-                    } on Digitomize`}
+                    content={
+                      `${loadedProfileData.personal_data.bio?.slice(0, 200) ||
+                      loadedProfileData.personal_data.name} | Check contest ratins and connect today! - Find more about ${loadedProfileData.personal_data.name} on Digitomize`
+                    }
                   />
                   {/* <meta property="og:description" content={loadedProfileData.personal_data.bio?.slice(0, 200) ?? loadedProfileData.personal_data.name ?? ''} /> */}
 
@@ -83,12 +79,10 @@ function ProfileLayout() {
                   />
                   <meta
                     name="twitter:description"
-                    content={`${
-                      loadedProfileData.personal_data.bio?.slice(0, 200) ||
-                      loadedProfileData.personal_data.name
-                    } | Check contest ratins and connect today! - Find more about ${
-                      loadedProfileData.personal_data.name
-                    } on Digitomize`}
+                    content={
+                      `${loadedProfileData.personal_data.bio?.slice(0, 200) ||
+                      loadedProfileData.personal_data.name} | Check contest ratins and connect today! - Find more about ${loadedProfileData.personal_data.name} on Digitomize`
+                    }
                   />
                   <meta
                     name="twitter:image"

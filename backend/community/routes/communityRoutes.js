@@ -20,7 +20,7 @@ const router = express.Router();
 router.post("/", addUID, createCommunity);
 
 // READ list of community
-router.get("/", addUID, async(request, response) => {
+router.get("/", addUID, async (request, response) => {
   const communityList = await getCommunityList();
   response.status(200).json({
     communityList,

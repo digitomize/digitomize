@@ -6,8 +6,8 @@ import { useUserAuth } from "@context/UserAuthContext"; // Ensure you have this 
 import { atom, useSetRecoilState } from "recoil";
 import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
-import GoogleAuthButton from "../../components/AuthButtons/GoogleAuthButton";
-import GithubAuthButton from "../../components/AuthButtons/GithubAuthButton";
+import GoogleAuthButton from "../../components/AuthButtons/GoogleAuthButton"; 
+import GithubAuthButton from "../../components/AuthButtons/GithubAuthButton"; 
 
 // Define your recoil states
 export const buttonState = atom({
@@ -20,7 +20,7 @@ export const errorState = atom({
   default: "",
 });
 
-const AuthModal = ({ page }) => {
+const AuthModal = ({page}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState(page);
   const modalRef = useRef(null);
@@ -72,7 +72,9 @@ const AuthModal = ({ page }) => {
             className="fixed inset-0 bg-black opacity-50"
             onClick={closeModal}
           />
-          <div className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white p-8 rounded-lg shadow-lg w-96 z-10 border-2 border-jet border-opacity-10 max-h-[90vh] overflow-auto transform transition-transform duration-300 ease-in-out scale-100 min-w-96">
+          <div
+            className="relative bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white p-8 rounded-lg shadow-lg w-96 z-10 border-2 border-jet border-opacity-10 max-h-[90vh] overflow-auto transform transition-transform duration-300 ease-in-out scale-100 min-w-96"
+          >
             <button
               type="button"
               onClick={closeModal}
@@ -83,21 +85,13 @@ const AuthModal = ({ page }) => {
             <ToastContainer />
             <div className="flex justify-center items-center mb-4">
               <button
-                className={`mr-4 py-2 px-4 rounded-t-lg w-full focus:outline-none ${
-                  activeTab === "login"
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-700 text-gray-400"
-                }`}
+                className={`mr-4 py-2 px-4 rounded-t-lg w-full focus:outline-none ${activeTab === "login" ? "bg-blue-600 text-white" : "bg-gray-700 text-gray-400"}`}
                 onClick={() => handleActiveTab("login")}
               >
                 Login
               </button>
               <button
-                className={`py-2 px-4 rounded-t-lg w-full focus:outline-none ${
-                  activeTab === "signup"
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-700 text-gray-400"
-                }`}
+                className={`py-2 px-4 rounded-t-lg w-full focus:outline-none ${activeTab === "signup" ? "bg-blue-600 text-white" : "bg-gray-700 text-gray-400"}`}
                 onClick={() => handleActiveTab("signup")}
               >
                 Signup
@@ -118,6 +112,7 @@ const AuthModal = ({ page }) => {
     </div>
   );
 };
+
 
 export function LoginForm() {
   const emailRef = useRef("");
@@ -151,17 +146,13 @@ export function LoginForm() {
         theme: "colored",
       });
       setError(err.code);
-    } finally {
+      } finally {
       setbtnState(false);
     }
   };
 
   return (
-    <Form
-      onSubmit={handleSubmit}
-      className="flex flex-col w-full mt-5 mx-auto"
-      replace
-    >
+    <Form onSubmit={handleSubmit} className="flex flex-col w-full mt-5 mx-auto" replace>
       <div className="flex flex-col gap-5">
         <div className="w-full px-3">
           <label className="label">
@@ -182,9 +173,7 @@ export function LoginForm() {
           <label className="label">
             <p>
               <span className="label-text">{"import"}</span>
-              <span className="label-text text-custom-blue">
-                {' "password";'}
-              </span>
+              <span className="label-text text-custom-blue">{" \"password\";"}</span>
             </p>
           </label>
           <div className="flex flex-row justify-between p-0 items-center input relative input-bordered w-full bg-black text-white border-2 border-jet">
@@ -196,34 +185,22 @@ export function LoginForm() {
               required
             />
             {passwordShow ? (
-              <EyeOff
-                onClick={passwordToggle}
-                className="w-6 h-6 absolute z-50 left-100 right-2 text-white"
-              />
+              <EyeOff onClick={passwordToggle} className="w-6 h-6 absolute z-50 left-100 right-2 text-white" />
             ) : (
-              <Eye
-                onClick={passwordToggle}
-                className="w-6 h-6 absolute z-50 left-100 right-2 text-white"
-              />
+              <Eye onClick={passwordToggle} className="w-6 h-6 absolute z-50 left-100 right-2 text-white" />
             )}
           </div>
           <label className="label">
             <span className="label-text-alt"></span>
             <Link to="/forgot-password">
-              <span className="label-text-alt text-custom-blue">
-                forgot password?
-              </span>
+              <span className="label-text-alt text-custom-blue">forgot password?</span>
             </Link>
           </label>
         </div>
       </div>
       <div className="items-center">
         <div className="w-full">
-          <SignoutButton
-            isLoginPage={true}
-            onClickFunction={handleSubmit}
-            backgroundColor="bg-[#4285f4]"
-          />
+          <SignoutButton isLoginPage={true} onClickFunction={handleSubmit} backgroundColor="bg-[#4285f4]" />
         </div>
       </div>
     </Form>
@@ -250,12 +227,7 @@ export function SignupForm() {
     setError("");
     setbtnState(true);
     try {
-      await signUp(
-        emailRef.current.value,
-        passwordRef.current.value,
-        usernameRef.current.value,
-        firstNameRef.current.value,
-      );
+      await signUp(emailRef.current.value, passwordRef.current.value, usernameRef.current.value, firstNameRef.current.value);
       const token = auth.currentUser.accessToken;
       if (token) {
         await axios.post(`${backendUrl}/user/signup`, {
@@ -279,17 +251,13 @@ export function SignupForm() {
         theme: "colored",
       });
       setError(err.code);
-    } finally {
-      setbtnState(false);
+      } finally {
+        setbtnState(false);
     }
   };
 
   return (
-    <Form
-      onSubmit={handleSubmit}
-      className="flex flex-col w-full mt-5 mx-auto"
-      replace
-    >
+    <Form onSubmit={handleSubmit} className="flex flex-col w-full mt-5 mx-auto" replace>
       <div className="flex flex-col gap-1">
         <div className="w-full px-3">
           <label className="label">
@@ -312,9 +280,7 @@ export function SignupForm() {
           <label className="label">
             <p>
               <span className="label-text">{"#include"}</span>
-              <span className="label-text text-custom-blue">
-                {" <username>"}
-              </span>
+              <span className="label-text text-custom-blue">{" <username>"}</span>
             </p>
           </label>
           <input
@@ -346,9 +312,7 @@ export function SignupForm() {
           <label className="label">
             <p>
               <span className="label-text">{"import"}</span>
-              <span className="label-text text-custom-blue">
-                {' "password";'}
-              </span>
+              <span className="label-text text-custom-blue">{" \"password\";"}</span>
             </p>
           </label>
           <div className="flex flex-row justify-between p-0 items-center input relative input-bordered w-full bg-black text-white border-2 border-jet">
@@ -360,26 +324,16 @@ export function SignupForm() {
               required
             />
             {passwordShow ? (
-              <EyeOff
-                onClick={passwordToggle}
-                className="w-6 h-6 absolute z-50 left-100 right-2 text-white"
-              />
+              <EyeOff onClick={passwordToggle} className="w-6 h-6 absolute z-50 left-100 right-2 text-white" />
             ) : (
-              <Eye
-                onClick={passwordToggle}
-                className="w-6 h-6 absolute z-50 left-100 right-2 text-white"
-              />
+              <Eye onClick={passwordToggle} className="w-6 h-6 absolute z-50 left-100 right-2 text-white" />
             )}
           </div>
         </div>
       </div>
       <div className="items-center">
         <div className="w-full">
-          <SignoutButton
-            isLoginPage={false}
-            onClickFunction={handleSubmit}
-            backgroundColor="bg-[#4285f4]"
-          />
+          <SignoutButton isLoginPage={false} onClickFunction={handleSubmit} backgroundColor="bg-[#4285f4]" />
         </div>
       </div>
     </Form>

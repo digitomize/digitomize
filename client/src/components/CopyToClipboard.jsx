@@ -73,7 +73,7 @@ function CopyToClipboard({ msg, gradient, vanity: propVanity }) {
       >
         <button className="share-button" onClick={() => setShow(true)}>
           <p>{msg}</p>
-          <Share fontSize="small" />
+          <Share fontSize="small"/>
           {/* <span className="tooltip relative">{message}</span> */}
         </button>
       </div>

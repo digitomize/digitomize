@@ -1,15 +1,12 @@
 import { setUser } from "../services/setUser.js";
 
-const twitterUrlPattern =
-  /^(?:https?:\/\/)?(?:www\.)?twitter\.com\/(?:#!\/)?[a-zA-Z0-9_]{1,15}(?:\/)?$/;
-const linkedInUrlPattern =
-  /^(?:https?:\/\/)?(?:www\.)?linkedin\.com\/in\/[a-zA-Z0-9-]{5,30}\/?$/;
-const instagramUrlPattern =
-  /^(?:https?:\/\/)?(?:www\.)?instagram\.com\/[a-zA-Z0-9_]{1,30}\/?$/;
+const twitterUrlPattern = /^(?:https?:\/\/)?(?:www\.)?twitter\.com\/(?:#!\/)?[a-zA-Z0-9_]{1,15}(?:\/)?$/;
+const linkedInUrlPattern = /^(?:https?:\/\/)?(?:www\.)?linkedin\.com\/in\/[a-zA-Z0-9-]{5,30}\/?$/;
+const instagramUrlPattern = /^(?:https?:\/\/)?(?:www\.)?instagram\.com\/[a-zA-Z0-9_]{1,30}\/?$/;
 
 // ? returns JSON message with Status Code
 // Uses setUser to create a new user, then generates a token using generateToken, then sets the cookie using setJwtCookie.
-function validateSocialUrls(social) {
+function validateSocialUrls (social) {
   const patterns = {
     twitter: twitterUrlPattern,
     linkedin: linkedInUrlPattern,
@@ -18,16 +15,13 @@ function validateSocialUrls(social) {
 
   for (const [platform, url] of Object.entries(social)) {
     if (url && !patterns[platform].test(url)) {
-      return {
-        error: `Invalid ${platform} URL`,
-        message: `Invalid ${platform} URL`,
-      };
+      return { error: `Invalid ${platform} URL`, message: `Invalid ${platform} URL` };
     }
   }
   return null;
 }
 
-const handleUserSignup = async(req, res) => {
+const handleUserSignup = async (req, res) => {
   let {
     uid,
     username,
