@@ -1,6 +1,6 @@
 import User from "../../users/models/User.js";
 
-export const userAddCommunity = async(communityId, userId) => {
+export const userAddCommunity = async (communityId, userId) => {
   try {
     const user = await User.findOne({ uid: userId });
     const communityList = [...user.community];
@@ -19,7 +19,7 @@ export const userAddCommunity = async(communityId, userId) => {
   }
 };
 
-export const userRemoveCommunity = async(communityId, userId) => {
+export const userRemoveCommunity = async (communityId, userId) => {
   try {
     const user = await User.findOne({ uid: userId });
     const communityList = user.community.filter(

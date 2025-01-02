@@ -1,7 +1,7 @@
 import User from "../models/User.js";
 
 // Function to update user data in MongoDB
-const updateUser = async(updatedUser) => {
+const updateUser = async (updatedUser) => {
   try {
     // Find the user by ID and update the data
     // console.log(updatedUser);

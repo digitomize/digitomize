@@ -76,7 +76,7 @@ async function setupContestServer() {
 
   // Pinging the server every 13 minutes
   setInterval(
-    async() => {
+    async () => {
       try {
         await main();
         console.log("<=======Sent GET request to AWAKE");

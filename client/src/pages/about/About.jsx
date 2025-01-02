@@ -22,6 +22,7 @@ export default function About() {
               <div className="w-full flex flex-row justify-between  text-white phone:mt-[80px] max-phone:mt-4">
                 <div className="flex flex-col lg:max-w-[50%] text-left">
                   <div className="mb-[50px]">
+
                     <motion.div
                       initial={{ opacity: 0, x: -150 }}
                       whileInView={{ opacity: 1, x: 0 }}
@@ -74,6 +75,7 @@ export default function About() {
                       }}
                       className="mb-[18px] font-semibold text-5xl"
                     >
+
                       Our Mission
                     </motion.h2>
                     <motion.p
@@ -107,12 +109,7 @@ export default function About() {
                   }}
                   className="lg:w-[50%] h-full lg:flex justify-end max-lg:hidden"
                 >
-                  <img
-                    src={about_us}
-                    className="object-contain h-[525px]"
-                    alt=""
-                  />
-                </motion.div>
+                  <img src={about_us} className="object-contain h-[525px]" alt="" /></motion.div>
               </div>
               <div className="mt-[70px]">
                 <motion.h2
@@ -275,9 +272,7 @@ export default function About() {
                   className="my-4 py-4 text-white max-md:text-4xl md:text-6xl flex flex-row mx-auto justify-center"
                 >
                   <span className="block mt-1 md:mt-6">
-                    <span className="bg-digitomize-bg mx-2 px-1 rounded-lg">
-                      Milestones
-                    </span>
+                    <span className="bg-digitomize-bg mx-2 px-1 rounded-lg">Milestones</span>
                     of Digitomize
                   </span>
                 </motion.h1>
@@ -295,6 +290,7 @@ export default function About() {
           </div>
         </div>
 
+
         <div className="sm:w-10/12 mx-auto">
           <motion.h1
             initial={{ opacity: 0, x: -150 }}
@@ -307,9 +303,7 @@ export default function About() {
               delay: 0.5,
             }}
             className="w-full text-left py-2 mb-4"
-          >
-            How to contribute
-          </motion.h1>
+          >How to contribute</motion.h1>
           <div className="parts flex sm:flex-row text-left max-sm:flex-col">
             <div className="sm:w-1/3  phone:space-x-2 sm:space-x-0  flex sm:flex-col max-sm:flex-row">
               <div>
@@ -369,7 +363,7 @@ export default function About() {
             </div>
             <div className="sm:w-1/3  phone:space-x-2 sm:space-x-0  flex sm:flex-col max-sm:flex-row">
               <div>
-                <motion.div
+              <motion.div
                   initial={{ "--value": 0 }}
                   whileInView={{ "--value": 66 }}
                   viewport={{ once: true }}
@@ -425,7 +419,7 @@ export default function About() {
             </div>
             <div className="sm:w-1/3 phone:space-x-2 sm:space-x-0 flex sm:flex-col max-sm:flex-row">
               <div>
-                <motion.div
+              <motion.div
                   initial={{ "--value": 0 }}
                   whileInView={{ "--value": 100 }}
                   viewport={{ once: true }}
@@ -468,7 +462,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
       <div className="divider w-0"></div>
       {/* <Footer /> */}
     </>

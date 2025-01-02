@@ -2,24 +2,23 @@ import { getUser } from "../services/getUser.js";
 import { svgCard } from "../utils/svgCard.js";
 import { generateErrorSvg } from "../utils/generateErrorSvg.js";
 
-const generateSVG = async(req, res) => {
+const generateSVG = async (req, res) => {
   try {
     const user = await getUser(req.params.username);
 
     const queries = req.query;
     const platforms = ["leetcode", "codechef", "codeforces"];
     // console.log(queries);
-    const toReturn = [];
+    let toReturn = [];
     if (typeof queries === "object" && queries !== null) {
       const keys = Object.keys(queries);
       // console.log(keys)
       keys.forEach((e) => {
         if (platforms.includes(e)) {
-          if (typeof queries[e] === "string" && queries[e] === "1") {
+          if (typeof queries[e] === "string" && queries[e] === "1")
             toReturn.push(e);
-          } else if (typeof queries[e] === "object" && queries[e].includes("1")) {
+          else if (typeof queries[e] === "object" && queries[e].includes("1"))
             toReturn.push(e);
-          }
         }
       });
     }
@@ -28,31 +27,17 @@ const generateSVG = async(req, res) => {
     xmlns="http://www.w3.org/2000/svg">`;
     try {
       let n = 0;
-      toReturn.forEach((e) => {
-        const data = user[e];
-        if (
-          data.username !== null &&
-          data.rating !== null &&
-          data.rating !== undefined &&
-          data.attendedContestsCount !== null &&
-          data.attendedContestsCount !== undefined
-        ) {
-          n += 1;
-        }
-      });
-      const width = 100 / n;
-      const height = "100%";
-      let x = 0;
+      toReturn.forEach(e => {
+        let data = user[e];
+        if(data.username !== null && (data.rating !== null && data.rating !== undefined) && (data.attendedContestsCount !== null && data.attendedContestsCount !== undefined)) n+= 1;
+      })
+      let width = 100 / n,
+        height = "100%",
+        x = 0;
       toReturn.forEach((e, i) => {
-        const data = user[e];
+        let data = user[e];
         // console.log(data);
-        if (
-          data.username !== null &&
-          data.rating !== null &&
-          data.rating !== undefined &&
-          data.attendedContestsCount !== null &&
-          data.attendedContestsCount !== undefined
-        ) {
+        if (data.username !== null && (data.rating !== null && data.rating !== undefined) && (data.attendedContestsCount !== null && data.attendedContestsCount !== undefined)) {
           let card = ``;
           if (e === "leetcode") {
             card += svgCard(data, width + "%", height, x + "%", e);

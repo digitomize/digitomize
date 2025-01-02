@@ -5,7 +5,7 @@ import { sendErrorLog } from "./error.js";
 
 dotenv.config();
 
-function sendWebhook_updateAccount({
+function sendWebhook_updateAccount ({
   oldImage,
   newImage,
   oldUsername,
@@ -35,7 +35,7 @@ function sendWebhook_updateAccount({
   }
 }
 
-function createEmbeds(titlePrefix, username, image, data) {
+function createEmbeds (titlePrefix, username, image, data) {
   const embeds = [];
 
   const currentEmbed = new EmbedBuilder()
@@ -113,7 +113,7 @@ function createEmbeds(titlePrefix, username, image, data) {
     },
   );
 
-  function safeString(value) {
+  function safeString (value) {
     const stringValue = String(value);
     return stringValue.length > 0 ? stringValue : "Not Available";
   }
@@ -126,19 +126,19 @@ function createEmbeds(titlePrefix, username, image, data) {
   return embeds;
 }
 
-function formatCodechef(codechefData) {
+function formatCodechef (codechefData) {
   return `${codechefData?.username} - Rating: ${
     codechefData?.rating ?? "Not Available"
   } - Badge: ${codechefData?.badge ?? "Not Available"}`;
 }
 
-function formatLeetCode(leetcodeData) {
+function formatLeetCode (leetcodeData) {
   return `${leetcodeData?.username} - Rating: ${
     leetcodeData?.rating ?? "Not Available"
   } - Badge: ${leetcodeData?.badge ?? "Not Available"}`;
 }
 
-function formatCodeforces(codeforcesData) {
+function formatCodeforces (codeforcesData) {
   return `${codeforcesData?.username} - Rating: ${
     codeforcesData?.rating ?? "Not Available"
   } - Badge: ${codeforcesData?.badge ?? "Not Available"}`;

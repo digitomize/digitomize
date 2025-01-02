@@ -1,6 +1,6 @@
 import User from "../models/User.js";
 
-const getUser = async(identifier) => {
+const getUser = async (identifier) => {
   try {
     const user = await User.findOne({
       $or: [{ username: identifier }, { email: identifier }],

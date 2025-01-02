@@ -61,6 +61,5 @@ body:
       required: true
     attributes:
       label: Which program are you contributing in?
-      options:
-        ["Not applicable", "gssoc", "swoc", "kwoc", "dwoc", "tublian", "ssoc"]
+      options: ['Not applicable','gssoc', 'swoc', 'kwoc', 'dwoc', 'tublian', 'ssoc']
       multiple: true

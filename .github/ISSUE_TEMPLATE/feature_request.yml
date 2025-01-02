@@ -26,7 +26,7 @@ body:
     attributes:
       label: Describe the solution you'd like
       description: |
-        A clear and concise description of what you want to happen.
+       A clear and concise description of what you want to happen.
     validations:
       required: true
 
@@ -68,6 +68,5 @@ body:
       required: true
     attributes:
       label: Which program are you contributing in?
-      options:
-        ["Not applicable", "gssoc", "swoc", "kwoc", "dwoc", "tublian", "ssoc"]
+      options: ['Not applicable','gssoc', 'swoc', 'kwoc', 'dwoc', 'tublian', 'ssoc']
       multiple: true

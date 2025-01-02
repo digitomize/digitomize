@@ -7,14 +7,7 @@ import { toast, ToastContainer } from "react-toastify";
 import BasicInfo from "./Selecting";
 import { changeUserPreferences, userDashboardDetails } from "../../../../api";
 
-import {
-  atcoder,
-  leetcode,
-  codechef,
-  codeforces,
-  geeksforgeeks,
-  codingninjas,
-} from "../../../components/AllAssets";
+import { atcoder, leetcode, codechef, codeforces, geeksforgeeks, codingninjas } from "../../../components/AllAssets";
 
 import LoadingScreen from "../../../components/globals/LoadingScreen";
 import { MetaData } from "../../../components/CustomComponents";
@@ -27,6 +20,9 @@ const platformsData = [
   { name: "codeforces", icon: codeforces },
   { name: "atcoder", icon: atcoder },
 ];
+
+
+
 
 function Preferences() {
   const loaderData = useLoaderData();
@@ -57,9 +53,7 @@ function Preferences() {
   }, []);
 
   const [formData, setFormData] = useState({
-    contest_notifs: Object.fromEntries(
-      platformsData.map(({ name }) => [name, false]),
-    ),
+    contest_notifs: Object.fromEntries(platformsData.map(({ name }) => [name, false])),
   });
 
   const handleToggleChange = async (event) => {
@@ -103,6 +97,7 @@ function Preferences() {
   if (loading) {
     return (
       <div className="w-full">
+
         <LoadingScreen />;
       </div>
     );
@@ -115,23 +110,18 @@ function Preferences() {
       <div className="bg-dashboardDarkColor font-['Geist']">
         <div className="flex justify-between items-center min-h-[40px]">
           <div className="flex flex-shrink gap-2 mr-4 items-center min-w-0">
-            <p className="truncate font-medium text-gray-200 text-3xl max-w-[600px]">
-              Preferences
-            </p>
+            <p className="truncate font-medium text-gray-200 text-3xl max-w-[600px]">Preferences</p>
           </div>
         </div>
-        <form>
-          <BasicInfo
-            platformsData={platformsData}
-            formData={formData}
-            setFormData={setFormData}
-            handleToggleChange={handleToggleChange}
-          />
+        <form >
+
+          <BasicInfo platformsData={platformsData} formData={formData} setFormData={setFormData} handleToggleChange={handleToggleChange} />
 
           {/* <GenderAndDOB handleInputChange={handleInputChange} dobChange={dobChange} /> */}
           {/* 
           <SubmitBtn handleSubmit={handleSubmit} /> */}
         </form>
+
       </div>
     </>
   );

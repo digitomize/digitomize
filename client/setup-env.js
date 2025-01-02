@@ -30,7 +30,7 @@ const questions = [
     type: "input",
     name: "VITE_REACT_APP_API_KEY",
     message: "Enter Firebase API key:",
-    default: "AIzaSyALK7O1zL_8kftC-fG8Ke0_KF1VEb--dTw",
+    default:"AIzaSyALK7O1zL_8kftC-fG8Ke0_KF1VEb--dTw",
     validate: function (value) {
       if (value.trim()) {
         return true;
@@ -42,7 +42,7 @@ const questions = [
     type: "input",
     name: "VITE_REACT_APP_AUTH_DOMAIN",
     message: "Enter Firebase authentication domain:",
-    default: "digitomize-testers.firebaseapp.com",
+    default:"digitomize-testers.firebaseapp.com",
     validate: function (value) {
       if (value.trim()) {
         return true;
@@ -54,7 +54,7 @@ const questions = [
     type: "input",
     name: "VITE_REACT_APP_PROJECT_ID",
     message: "Enter Firebase project ID:",
-    default: "digitomize-testers",
+    default:"digitomize-testers",
     validate: function (value) {
       if (value.trim()) {
         return true;
@@ -66,7 +66,7 @@ const questions = [
     type: "input",
     name: "VITE_REACT_APP_STORAGE_BUCKET",
     message: "Enter Firebase storage bucket:",
-    default: "digitomize-testers.appspot.com",
+    default:"digitomize-testers.appspot.com",
     validate: function (value) {
       if (value.trim()) {
         return true;
@@ -78,7 +78,7 @@ const questions = [
     type: "input",
     name: "VITE_REACT_APP_MESSAGING_SENDER_ID",
     message: "Enter Firebase messaging sender ID:",
-    default: "1032745553541",
+    default:"1032745553541",
     validate: function (value) {
       if (value.trim()) {
         return true;
@@ -90,7 +90,7 @@ const questions = [
     type: "input",
     name: "VITE_REACT_APP_APP_ID",
     message: "Enter Firebase app ID:",
-    default: "1:1032745553541:web:8a4647c8754edb051123ec",
+    default:"1:1032745553541:web:8a4647c8754edb051123ec",
     validate: function (value) {
       if (value.trim()) {
         return true;
@@ -102,7 +102,7 @@ const questions = [
     type: "input",
     name: "VITE_REACT_APP_MEASUREMENT_ID",
     message: "Enter Firebase measurement ID:",
-    default: "G-XVFS5HD03Z",
+    default:"G-XVFS5HD03Z",
     validate: function (value) {
       if (value.trim()) {
         return true;

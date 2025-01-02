@@ -47,26 +47,25 @@ The backend folder is organized into several directories, each serving a specifi
     │   ├── /models        # Database models for DSA sheets and questions
     │   └── /routes        # API route definitions for DSA sheets and questions
     ├── /services/
-    │   ├── /discord-webhook
+    │   ├── /discord-webhook  
     │   └── /email
     ├── /users/
     │   ├── /controllers   # Logic for handling API requests related to users/
-    │   │   └── /platforms   # Logic for fetching user's info on different coding platforms
+    │   │   └── /platforms   # Logic for fetching user's info on different coding platforms 
     │   ├── /middlewares   # Custom middleware functions specific to users
     │   ├── /models        # Database models for users
     │   ├── /routes        # API route definitions for users
     │   └── /services      # Reusable services and utilities specific to users
     └── index.js         # Main server file
 ```
-
 - `backend`: Main folder for the backend.
-  - `community`: Controllers, middlewares, models, routes, services, and utils for community members.
-    - `controllers`: Logic for handling API requests related to Communities and it's members
-    - `middlewares`: Middleware functions for verifying admin and member status
-    - `models`: Database models for community and community members
+  - `community`: Controllers, middlewares, models, routes, services, and utils for community members. 
+     - `controllers`: Logic for handling API requests related to Communities and it's members
+     - `middlewares`: Middleware functions for verifying admin and member status
+     - `models`: Database models for community and community members
     - `routes`: API route definitions for community and community members
     - `services`: Reusable services specific to community members
-    - `utils`: Utility file defining constants for user roles
+     - `utils`: Utility file defining constants for user roles
   - `contest`: Controllers, models, and routes for contests.
     - `controllers`: Logic for handling API requests related to contests
       - `platforms`: APIs for fetching the upcoming contests on each of the coding platforms
@@ -98,7 +97,7 @@ The backend folder is organized into several directories, each serving a specifi
 
 ### Environment Variables
 
-Configure your environment variables in the `.env` file using `npm run setup` (_Recommended_).
+ Configure your environment variables in the `.env` file using `npm run setup` (_Recommended_).
 
 ## Creating a `.env` from the `npm run setup`
 
@@ -131,52 +130,44 @@ NODE_ENV=development
 
 This `.env` file must be populated with the following environment variables for digitomize to work:
 
-| Variable             | Explanation                                                            |
-| -------------------- | ---------------------------------------------------------------------- |
-| TEST                 | Marker indicating that the environment file is successfully connected. |
-| MONGODB_URL          | URL for connecting Digitomize to the MongoDB database.                 |
-| PORT                 | Port on which the application will run.                                |
-| BACKEND_URL          | URL of the backend server.                                             |
-| CONTESTS             | Controls whether the application should fetch contest data.            |
-| USERS                | Controls whether the application should fetch user data.               |
-| NODE_ENV             | Specifies the environment in which the application is running.         |
-| FIREBASE_CREDENTIALS | Variable intended for storing Firebase credential in JSON format.      |
+| Variable              | Explanation                                                                                            |
+|-----------------------|--------------------------------------------------------------------------------------------------------|
+| TEST                  | Marker indicating that the environment file is successfully connected.                                 |
+| MONGODB_URL           | URL for connecting Digitomize to the MongoDB database. |
+| PORT                  | Port on which the application will run.                                                                |
+| BACKEND_URL           | URL of the backend server.                                                                             |
+| CONTESTS              | Controls whether the application should fetch contest data.                                            |
+| USERS                 | Controls whether the application should fetch user data.                                               |
+| NODE_ENV              | Specifies the environment in which the application is running.                                          |
+| FIREBASE_CREDENTIALS | Variable intended for storing Firebase credential in JSON format.                               |
 
 ## Linking MongoDB
-
 To connect Digitomize to the database side, two options are available: MongoDB atlas or hosting a local instance. Here is a setup guide on both options.
 
 ### Setting up Atlas
-
 1. **Sign Up/Login to MongoDB Atlas**:
-
    - Go to the [MongoDB Atlas website](https://www.mongodb.com/cloud/atlas) and sign up for an account or log in if you already have one.
 
 2. **Create a New Cluster**:
-
    - Once logged in, click on the "Build a Cluster" button or navigate to the "Clusters" tab and click on "Build a New Cluster".
    - Choose the provider and region for your cluster. For example, you can select a cloud provider (AWS, Azure, or Google Cloud) and a region closest to your location.
    - Select the desired cluster tier (e.g., M0 Sandbox is the free tier).
    - Click "Create Cluster" to provision your new cluster.
 
 3. **Configure Cluster Settings**:
-
    - MongoDB Atlas will guide you through the process of setting up your cluster. You can keep the default settings or customize them based on your requirements.
    - Choose the cluster name, project name, and other settings as needed.
 
 4. **Whitelist Your IP Address**:
-
    - In the MongoDB Atlas dashboard, navigate to the "Network Access" tab.
    - Click on the "Add IP Address" button and add your current IP address to the whitelist. This allows your application to connect to the cluster.
 
 5. **Get Connection String**:
-
    - Once your cluster is created, click on the "Connect" button.
    - Choose "Connect Your Application" and select your driver and version.
    - Copy the connection string provided.
 
 6. **Create a `.env` File**:
-
    - Paste the following content into your `.env` file:
 
      ```plaintext
@@ -187,20 +178,17 @@ To connect Digitomize to the database side, two options are available: MongoDB a
 
 7. **Save the `.env` File**:
    - Save the changes to the `.env` file.
-
+  
 ### Setting up Locally
-
 To use MongoDB locally, you need to first download MongoDB locally and then update the `.env` file.
 
 ### How to download MongoDB
 
 1. **Download MongoDB**:
-
    - Visit the [official MongoDB download page](https://www.mongodb.com/try/download/community) and select the appropriate version for your operating system.
    - Follow the installation instructions provided for your operating system.
 
 2. **Install MongoDB**:
-
    - For Windows:
      - Run the downloaded installer (.msi file) and follow the setup wizard.
      - Choose the Complete installation type and proceed with the installation.
@@ -210,7 +198,6 @@ To use MongoDB locally, you need to first download MongoDB locally and then upda
      - Follow the installation instructions specific to your Linux distribution provided on the MongoDB download page.
 
 3. **Start MongoDB Server**:
-
    - Open a command-line interface (CLI) and navigate to the MongoDB bin directory.
    - Start the MongoDB server by running the `mongod` command:
      ```
@@ -222,11 +209,9 @@ To use MongoDB locally, you need to first download MongoDB locally and then upda
    - Open a new CLI window and navigate to the MongoDB bin directory.
    - Run the `mongo` command to open the MongoDB shell.
    - If MongoDB is running properly, you should see a prompt indicating that you've connected to the MongoDB server.
-
 ### Update the `.env`:
-
       MONGODB_URL=mongodb://127.0.0.1:27017/digitomize
-
+    
 ## Firebase Credentials
 
 To get credentials you should first have a firebase project. If you don't know how to make one, please check [Frontend Documentation](/client/README.md).
@@ -259,7 +244,6 @@ To get credentials you should first have a firebase project. If you don't know h
 Start the server: `npm start`
 
 ### Linting
-
 - Run `npm run lint` to check for errors using the linter.
 - Run `npm run lint-fix` to have the linter automatically fix errors where possible.
 

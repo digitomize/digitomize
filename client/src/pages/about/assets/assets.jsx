@@ -11,13 +11,13 @@ import swoc from "@assets/swoc.png";
 import gssoc from "@assets/gssoc.svg";
 
 export {
-  gitbook,
-  about_us,
-  ms_startup_new,
-  digitalocean,
-  kwoc,
-  iwoc,
-  tublian,
-  swoc,
-  gssoc,
+    gitbook,
+    about_us,
+    ms_startup_new,
+    digitalocean,
+    kwoc,
+    iwoc,
+    tublian,
+    swoc,
+    gssoc,
 };

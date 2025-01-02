@@ -1,5 +1,5 @@
 const generateErrorSvg = () => {
-  return `
+    return `
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="612" height="612">
     <path
         d="M0 0 C201.96 0 403.92 0 612 0 C612 201.96 612 403.92 612 612 C410.04 612 208.08 612 0 612 C0 410.04 0 208.08 0 0 Z "
@@ -800,7 +800,7 @@ const generateErrorSvg = () => {
         d="M0 0 C1.98 0.495 1.98 0.495 4 1 C3.67 2.32 3.34 3.64 3 5 C1.68 4.67 0.36 4.34 -1 4 C-0.34 3.67 0.32 3.34 1 3 C0.67 2.01 0.34 1.02 0 0 Z "
         fill="#242424" transform="translate(284,182)" />
   </svg>
-    `;
-};
+    `
+  }
 
-export { generateErrorSvg };
+export { generateErrorSvg }

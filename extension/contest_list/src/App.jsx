@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Contests from "./components/Contests";
 import Footer from "./components/Footer";
@@ -21,6 +22,7 @@ import Potd from "./components/Potd";
 
 // export default App;
 
+
 // const router = createBrowserRouter(
 //   createRoutesFromElements(
 //     // <Route errorElement={<ErrorPage />}>
@@ -32,6 +34,7 @@ import Potd from "./components/Potd";
 //     // </Route>
 //   ),
 // );
+
 
 function ComingSoon() {
   return (
@@ -45,7 +48,8 @@ function ComingSoon() {
 }
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("contests");
+
+  const [currentPage, setCurrentPage] = useState('contests');
 
   const navigateToPage = (page) => {
     setCurrentPage(page);
@@ -53,14 +57,15 @@ function App() {
 
   const renderPage = () => {
     switch (currentPage) {
-      case "contests":
+      case 'contests':
         return <Contests />;
-      case "potd":
+      case 'potd':
         return <ComingSoon />;
       default:
         return null;
     }
   };
+
 
   return (
     <>

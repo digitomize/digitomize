@@ -1,14 +1,10 @@
 import User from "../models/User.js";
 import { sendWebhook_updateAccount } from "../../services/discord-webhook/updateAccount.js";
 import { handleUserDataUpdate } from "./userProfileController.js";
-// import { Novu } from "@novu/node";
 const maxUpdatesPerDay = 50;
-const twitterUrlPattern =
-  /^(?:https?:\/\/)?(?:www\.)?twitter\.com\/(?:#!\/)?[a-zA-Z0-9_]{1,15}(?:\/)?$/;
-const linkedInUrlPattern =
-  /^(?:https?:\/\/)?(?:www\.)?linkedin\.com\/in\/[a-zA-Z0-9-]{5,30}\/?$/;
-const instagramUrlPattern =
-  /^(?:https?:\/\/)?(?:www\.)?instagram\.com\/[a-zA-Z0-9_]{1,30}\/?$/;
+const twitterUrlPattern = /^(?:https?:\/\/)?(?:www\.)?twitter\.com\/(?:#!\/)?[a-zA-Z0-9_]{1,15}(?:\/)?$/;
+const linkedInUrlPattern = /^(?:https?:\/\/)?(?:www\.)?linkedin\.com\/in\/[a-zA-Z0-9-]{5,30}\/?$/;
+const instagramUrlPattern = /^(?:https?:\/\/)?(?:www\.)?instagram\.com\/[a-zA-Z0-9_]{1,30}\/?$/;
 
 // Helper function to update platform-specific data
 const updatePlatformData = (platform, userData, existingData, user) => {
@@ -56,7 +52,7 @@ const updateDataField = (field, userData, existingData) => {
   }
 };
 
-function validateSocialUrls(social) {
+function validateSocialUrls (social) {
   const patterns = {
     twitter: twitterUrlPattern,
     linkedin: linkedInUrlPattern,
@@ -65,17 +61,14 @@ function validateSocialUrls(social) {
 
   for (const [platform, url] of Object.entries(social)) {
     if (url && !patterns[platform].test(url)) {
-      return {
-        error: `Invalid ${platform} URL`,
-        message: `Invalid ${platform} URL`,
-      };
+      return { error: `Invalid ${platform} URL`, message: `Invalid ${platform} URL` };
     }
   }
   return null;
 }
 
 // Helper function to update user data, including platform-specific data
-const updateUserData = async(userData, existingData) => {
+const updateUserData = async (userData, existingData) => {
   // Update general user data (firstName, lastName, etc.)
   const generalFields = ["username", "picture", "resume", "name", "email_show"];
   generalFields.forEach((field) => {
@@ -93,12 +86,7 @@ const updateUserData = async(userData, existingData) => {
   // Update platform-specific data for CodeChef, LeetCode, and CodeForces
   const platforms = ["codechef", "leetcode", "codeforces"];
   platforms.forEach((platform) => {
-    updatePlatformData(
-      platform,
-      userData,
-      existingData[platform],
-      existingData,
-    );
+    updatePlatformData(platform, userData, existingData[platform], existingData);
   });
 
   if (userData.social) {
@@ -126,24 +114,20 @@ const updateUserData = async(userData, existingData) => {
   // You can similarly update other general properties as needed
 };
 
-function normalizeValue(value) {
+function normalizeValue (value) {
   // Treat null and '' as equal
   return value === null ? "" : value;
 }
 
-function compareUserProfile(oldPlatformData, newPlatformData) {
+function compareUserProfile (oldPlatformData, newPlatformData) {
   // console.log("Old Platform Data:", oldPlatformData);
   // console.log("New Platform Data:", newPlatformData);
 
   if (oldPlatformData && newPlatformData) {
     // Check direct fields (username, name, resume, picture)
     const directFields = ["username", "name", "resume", "picture"];
-    const notEqualDirectFields = directFields.filter(
-      (field) =>
-        newPlatformData[field] !== undefined &&
-        String(normalizeValue(oldPlatformData[field])) !==
-          String(normalizeValue(newPlatformData[field])),
-    );
+    const notEqualDirectFields = directFields
+      .filter(field => newPlatformData[field] !== undefined && String(normalizeValue(oldPlatformData[field])) !== String(normalizeValue(newPlatformData[field])));
 
     if (notEqualDirectFields.length > 0) {
       // console.log(`Direct fields "${notEqualDirectFields.join(', ')}" not equal`);
@@ -152,12 +136,8 @@ function compareUserProfile(oldPlatformData, newPlatformData) {
 
     // Check fields with nested data (phoneNumber, bio, dateOfBirth)
     const nestedFields = ["phoneNumber", "bio", "dateOfBirth"];
-    const notEqualNestedFields = nestedFields.filter(
-      (field) =>
-        newPlatformData[field] !== undefined &&
-        String(normalizeValue(oldPlatformData[field]?.data)) !==
-          String(normalizeValue(newPlatformData[field]?.data)),
-    );
+    const notEqualNestedFields = nestedFields
+      .filter(field => newPlatformData[field] !== undefined && String(normalizeValue(oldPlatformData[field]?.data)) !== String(normalizeValue(newPlatformData[field]?.data)));
 
     if (notEqualNestedFields.length > 0) {
       // console.log(`Nested fields "${notEqualNestedFields.join(', ')}" not equal`);
@@ -167,12 +147,8 @@ function compareUserProfile(oldPlatformData, newPlatformData) {
 
     // Check social fields (linkedin, twitter, instagram)
     const socialFields = ["linkedin", "twitter", "instagram"];
-    const notEqualSocialFields = socialFields.filter(
-      (field) =>
-        newPlatformData?.social !== undefined &&
-        String(normalizeValue(oldPlatformData?.social[field])) !==
-          String(normalizeValue(newPlatformData?.social[field])),
-    );
+    const notEqualSocialFields = socialFields
+      .filter(field => newPlatformData?.social !== undefined && String(normalizeValue(oldPlatformData?.social[field])) !== String(normalizeValue(newPlatformData?.social[field])));
 
     if (notEqualSocialFields.length > 0) {
       // console.log(`Social fields "${notEqualSocialFields.join(', ')}" not equal`);
@@ -181,12 +157,8 @@ function compareUserProfile(oldPlatformData, newPlatformData) {
 
     // Check contest platforms (codeforces, codechef, leetcode) for username
     const contestFields = ["codeforces", "codechef", "leetcode"];
-    const notEqualContestFields = contestFields.filter(
-      (field) =>
-        newPlatformData[field] &&
-        String(normalizeValue(oldPlatformData[field]?.username)) !==
-          String(normalizeValue(newPlatformData[field]?.username)),
-    );
+    const notEqualContestFields = contestFields
+      .filter(field => newPlatformData[field] && String(normalizeValue(oldPlatformData[field]?.username)) !== String(normalizeValue(newPlatformData[field]?.username)));
 
     if (notEqualContestFields.length > 0) {
       // console.log(`Contest fields "${notEqualContestFields.join(', ')}" not equal`);
@@ -194,11 +166,7 @@ function compareUserProfile(oldPlatformData, newPlatformData) {
     }
 
     // Check skills
-    if (
-      newPlatformData.skills &&
-      JSON.stringify(oldPlatformData.skills) !==
-        JSON.stringify(newPlatformData.skills)
-    ) {
+    if (newPlatformData.skills && JSON.stringify(oldPlatformData.skills) !== JSON.stringify(newPlatformData.skills)) {
       // console.log("Skills not equal");
       return false;
     }
@@ -211,7 +179,7 @@ function compareUserProfile(oldPlatformData, newPlatformData) {
   return true;
 }
 
-const handleUpdateUserProfile = async(req, res) => {
+const handleUpdateUserProfile = async (req, res) => {
   try {
     // const { userId } = req;
     const userId = req.decodedToken.uid;
@@ -314,8 +282,10 @@ const handleUpdateUserProfile = async(req, res) => {
   }
 };
 
-// const novu = new Novu(process.env.NOVU_API_KEY);
-const handleUserPreferences = async(req, res) => {
+
+import { Novu } from "@novu/node";
+const novu = new Novu(process.env.NOVU_API_KEY);
+const handleUserPreferences = async (req, res) => {
   try {
     const { uid } = req.decodedToken;
     const { platform, preference } = req.body;
@@ -339,39 +309,33 @@ const handleUserPreferences = async(req, res) => {
     await user.save();
 
     // Handle adding/removing user from novu service based on preference
-    // if (preference) {
-    //   const topicKey = `${platform}-notifs`;
-    //   // const response = await novu.topics.addSubscribers(topicKey, {
-    //   //   subscribers: [uid],
-    //   // });
-    // } else {
-    //   const topicKey = `${platform}-notifs`;
-    //   // const response = await novu.topics.removeSubscribers(topicKey, {
-    //   //   subscribers: [uid],
-    //   // });
-    //   // console.log(response);
-    // }
-
-    return res
-      .status(200)
-      .json({
-        message: `Preference for ${platform} updated successfully to ${preference}`,
+    if (preference) {
+      const topicKey = `${platform}-notifs`;
+      const response = await novu.topics.addSubscribers(topicKey, {
+        subscribers: [uid],
       });
+    } else {
+      const topicKey = `${platform}-notifs`;
+      const response = await novu.topics.removeSubscribers(topicKey, {
+        subscribers: [uid],
+      });
+      // console.log(response);
+    }
+
+    return res.status(200).json({ message: `Preference for ${platform} updated successfully to ${preference}` });
   } catch (error) {
     console.error("Error updating user preference:", error);
-    return res
-      .status(500)
-      .json({
-        message: "Internal server error",
-        error: "Internal server error",
-      });
+    return res.status(500).json({ message: "Internal server error", error: "Internal server error"});
   }
 };
+
+   
+
 
 export {
   updatePlatformData,
   updateDataField,
   updateUserData,
   handleUpdateUserProfile,
-  handleUserPreferences,
+  handleUserPreferences
 };

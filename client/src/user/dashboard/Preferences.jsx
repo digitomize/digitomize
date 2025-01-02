@@ -4,15 +4,11 @@ import { Form, Link } from "react-router-dom";
 
 import Checkbox from "../components/Checkbox";
 import UserDashboard from "./UserDashboard";
-import {
-  changeUserPreferences,
-  submitUserFormData,
-  userDashboardDetails,
-} from "../../../api";
+import { changeUserPreferences, submitUserFormData, userDashboardDetails } from "../../../api";
 // import { useUserAuth } from '../../context/UserAuthContext'
 import { ToastContainer, toast } from "react-toastify";
 import { Skeleton } from "@mui/material";
-import { Switch, FormControlLabel } from "@mui/material";
+import { Switch, FormControlLabel } from '@mui/material';
 import NewNavbar from "../../components/globals/Navbar/NewNavbar";
 import DashboardNavbar from "../components/DashboardNavbar";
 import Footer from "../../components/globals/Footer";
@@ -66,14 +62,14 @@ export default function Preferences() {
   const [preferences, setPreferences] = useState(null);
   const [isDisabled, setIsDisabled] = useState(false);
 
+
   useEffect(() => {
     async function fetchData() {
       try {
         const res = await userDashboardDetails();
         if (res.data) {
           setPreferences(res.data.personal_data.preferences);
-          const contestPreference =
-            res.data.personal_data.preferences?.contest_notifs;
+          const contestPreference = res.data.personal_data.preferences?.contest_notifs;
           console.log("HM", contestPreference);
           setFormData({
             contest_notifs: {
@@ -128,11 +124,9 @@ export default function Preferences() {
       },
     }));
 
-    const response = changeUserPreferences(
-      name,
-      !formData.contest_notifs[name],
-    ).catch((err) => {
-      // setting old data back
+    const response = changeUserPreferences(name, !formData.contest_notifs[name])
+      .catch((err) => {
+        // setting old data back
       setFormData((prevData) => ({
         ...prevData,
         contest_notifs: {
@@ -143,26 +137,28 @@ export default function Preferences() {
       setIsDisabled(false);
     });
 
-    toast.promise(response, {
-      pending: "Updating preferences... 🤔",
-      success: "Preferences updated successfully! 🎉",
-      error: "Failed to update preferences! 😢",
-    });
+
+    toast.promise(
+      response,
+      {
+        pending: 'Updating preferences... 🤔',
+        success: 'Preferences updated successfully! 🎉',
+        error: 'Failed to update preferences! 😢',
+      },
+  );
 
     await response;
     console.log("response", response);
+
+
   };
 
   if (preferences) {
     return (
       <>
         <ThemeProvider theme={theme}>
-          <Switch
-            checked={formData.contest_notifs.atcoder}
-            onChange={handleToggleChangeObjData}
-            name="atcoder"
-          />
-          {/* <Switch checked={formData.contest_notifs.atcoder} onChange={handleToggleChangeObjData} name="atcoder" />
+        <Switch checked={formData.contest_notifs.atcoder} onChange={handleToggleChangeObjData} name="atcoder" />
+        {/* <Switch checked={formData.contest_notifs.atcoder} onChange={handleToggleChangeObjData} name="atcoder" />
           <FormControlLabel control={<Switch checked={formData.contest_notifs.atcoder} onChange={handleToggleChangeObjData} name="atcoder" />} label="Disabled" /> */}
         </ThemeProvider>
       </>

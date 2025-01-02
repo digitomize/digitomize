@@ -10,9 +10,7 @@ const MobileNav = ({ isMenuActive, toggleActive }) => {
 
   return (
     <header
-      className={
-        "fixed inset-x-0 top-0 z-50 py-4 md:hidden border-b border-b-white/5 bg-zinc-950"
-      }
+      className={"fixed inset-x-0 top-0 z-50 py-4 md:hidden border-b border-b-white/5 bg-zinc-950"}
     >
       <div className="mx-auto max-w-screen-xl px-6 md:px-10">
         <div className="flex items-center justify-between">
@@ -63,9 +61,8 @@ const MobileNav = ({ isMenuActive, toggleActive }) => {
             </div>
           </button>
           <nav
-            className={`duration-500 absolute inset-x-0 top-full z-10 mt-px flex-col p-6 pb-24 bg-zinc-950 shadow-2xl flex transition-[opacity] ${
-              isMenuActive ? "opacity-100" : "opacity-0 pointer-events-none z-0"
-            }`}
+            className={`duration-500 absolute inset-x-0 top-full z-10 mt-px flex-col p-6 pb-24 bg-zinc-950 shadow-2xl flex transition-[opacity] ${isMenuActive ? "opacity-100" : "opacity-0 pointer-events-none z-0"
+              }`}
           >
             {user ? (
               <a

@@ -5,6 +5,7 @@
 We respect your privacy and are committed to protecting any information you provide while using our extension. We may collect and use the following types of information for the purposes outlined below:
 
 - **Active Tab Permission**: We request access to your active tab to display upcoming coding contests directly within the extension.
+  
 - **Storage Permission**: We request access to storage to efficiently cache data, enhancing the speed and performance of the extension.
 
 ## Data Security

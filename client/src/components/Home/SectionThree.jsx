@@ -52,15 +52,18 @@ export default function SectionThree() {
               }}
               className="flex justify-center m-8"
             >
-              <a
-                href="/contests"
-                className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border"
-              >
-                <div className="flex justify-center items-center gap-1">
-                  Explore Contests
-                  <MdManageSearch />
-                </div>
-              </a>
+             <a
+
+href="/contests"
+
+className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border"
+>
+<div  className='flex justify-center items-center gap-1'>
+Explore Contests
+<MdManageSearch />
+</div>
+
+</a>
             </motion.div>
           </div>
           <div className="w-screen">

@@ -3,7 +3,7 @@ import QuestionModel from "../models/questionModel.js";
 
 // Controller function to create a new question
 
-export const createQuestions = async(req, res) => {
+export const createQuestions = async (req, res) => {
   try {
     const questionsData = req.body;
 
@@ -50,7 +50,7 @@ export const createQuestions = async(req, res) => {
 };
 
 // Controller function to get a question by q_id
-export const getQuestionByQId = async(req, res) => {
+export const getQuestionByQId = async (req, res) => {
   try {
     const { q_id } = req.body;
 
@@ -85,7 +85,7 @@ export const getQuestionByQId = async(req, res) => {
 };
 
 // Controller function to delete a question by q_id
-export const deleteQuestionByQId = async(req, res) => {
+export const deleteQuestionByQId = async (req, res) => {
   try {
     const { q_id } = req.body;
 

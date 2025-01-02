@@ -1,9 +1,9 @@
-import React from "react";
-import ImageUploader from "../../../components/ImageUploader";
-import { useLoaderData } from "react-router-dom";
-import { useState } from "react";
-import { submitUserFormData } from "../../../../api";
-import { toast, ToastContainer } from "react-toastify";
+import React from 'react'
+import ImageUploader from '../../../components/ImageUploader'
+import { useLoaderData } from 'react-router-dom';
+import { useState } from 'react';
+import { submitUserFormData } from '../../../../api';
+import { toast, ToastContainer } from 'react-toastify';
 import BasicInfo from "./BasicInfo";
 import GenderAndDOB from "./GenderAndDOB";
 import SubmitBtn from "./SubmitBtn";
@@ -78,46 +78,38 @@ function UserDashBoardProfile() {
         console.error(err);
         setIsDisabled(false);
       });
-  }
-  const dobChange = (date) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      dateOfBirth: {
-        ...prevData.dateOfBirth,
-        data: dayjs(date),
-      },
-    }));
+    }
+    const dobChange = (date) => {
+      setFormData((prevData) => ({
+          ...prevData,
+          dateOfBirth: {
+              ...prevData.dateOfBirth,
+              data: dayjs(date),
+          },
+
+      }));
     // console.log(res);
   };
   return (
     <>
-      <MetaData path="u/dashboard/profile" />
+      <MetaData path="u/dashboard/profile"/>
       <ToastContainer />
       <div className="bg-dashboardDarkColor font-['Geist']">
         <div className="flex justify-between items-center min-h-[40px]">
           <div className="flex flex-shrink gap-2 mr-4 items-center min-w-0">
-            <p className="truncate font-medium text-gray-200 text-3xl max-w-[600px]">
-              Profile
-            </p>
+            <p className="truncate font-medium text-gray-200 text-3xl max-w-[600px]">Profile</p>
           </div>
         </div>
 
-        <form>
-          <BasicInfo
-            formData={formData}
-            setFormData={setFormData}
-            handleInputChange={handleInputChange}
-            handleInputChangeObjData={handleInputChangeObjData}
-          />
 
-          <GenderAndDOB
-            formData={formData}
-            handleInputChange={handleInputChangeObjData}
-            dobChange={dobChange}
-          />
-
-          <SubmitBtn handleSubmit={handleSubmit} />
-        </form>
+       
+       <form >
+       <BasicInfo formData={formData} setFormData={setFormData} handleInputChange={handleInputChange} handleInputChangeObjData={handleInputChangeObjData}  />
+        
+        <GenderAndDOB formData={formData}  handleInputChange={handleInputChangeObjData} dobChange={dobChange}/>
+        
+        <SubmitBtn handleSubmit={handleSubmit}/>
+       </form>
 
         {/* <div className="mt-8 flex flex-col xl:flex-row gap-8 xl:gap-20">
           <div className="flex-1 mt-8 ml-4 xl:ml-0">
@@ -295,6 +287,7 @@ function UserDashBoardProfile() {
             </div>
           </div>
         </div> */}
+
       </div>
     </>
   );

@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import { sendErrorLog } from "./error.js";
 dotenv.config();
 
-function sendRequestLog(req) {
+function sendRequestLog (req) {
   const webhookClient = new WebhookClient({ url: process.env.DC_WH_ROUTE });
   const headersDescription =
     "Headers:\n```json\n" + JSON.stringify(req.headers, null, 2) + "```";

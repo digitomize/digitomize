@@ -1,7 +1,7 @@
 import { v2 as cloudinary } from "cloudinary";
 
 // generating signature to sign the image before uploading
-async function generateSignature(req, res) {
+async function generateSignature (req, res) {
   try {
     const public_id = req.decodedToken.uid;
     // Get the existing user profile

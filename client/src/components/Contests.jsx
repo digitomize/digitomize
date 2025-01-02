@@ -22,11 +22,7 @@ function Contests({ contests, range }) {
           {queryData.length == 0 ? (
             <>
               <div className="flex flex-col items-center justify-center mt-6 mb-12">
-                <img
-                  src={comingSoonSvg}
-                  alt="not-found"
-                  className="mb-4 mx-auto w-80 md:w-60 lg:w-80"
-                />
+                <img src={comingSoonSvg} alt="not-found" className="mb-4 mx-auto w-80 md:w-60 lg:w-80" />
                 <h2 className="lg:text-3xl md:text-2xl text-xl text-center mx-auto">
                   No Contests Found
                 </h2>

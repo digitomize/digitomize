@@ -6,11 +6,11 @@ const userContext = createContext();
 
 export function UserContextProvider({ children }) {
   const [userDetails, setUserDetails] = useState(null);
-  const { user } = useUserAuth();
+  const {user} = useUserAuth();
 
   useEffect(() => {
     // clear user details on logout
-    if (!user?.uid) {
+    if(!user?.uid) {
       setUserDetails(null);
       return;
     }
