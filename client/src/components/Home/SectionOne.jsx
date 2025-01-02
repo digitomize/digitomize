@@ -11,9 +11,15 @@ import gitbook from "./svgs/GitBookLight.svg";
 import msme from "./svgs/MSME.svg";
 import digitalOcean from "./svgs/digitalOcean.svg";
 import microsoft from "./svgs/microsoft4strp.svg";
+import holopin from "./svgs/holopin.svg";
+import netlify from "./svgs/netlify.svg";
+import googlecloud from "./svgs/googlecloud.svg";
 import { cn } from "../../lib/utils";
 import AnimatedGradientText from "../../components/magicui/animated-gradient-text";
 import { ChevronRight } from "lucide-react";
+import AuthModal from "../globals/AuthModal";
+import Marquee from "react-fast-marquee";
+
 
 export default function SectionOne() {
 
@@ -116,15 +122,10 @@ export default function SectionOne() {
             </div>
           </Link>
         ) : (
-          <Link
-            to="/signup"
-            className="btn px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border"
-          >
-            <div className="flex justify-center items-center gap-1">
-              Register Now
+            <div className="flex justify-center items-center gap-1  px-5 py-2 bg-button-primary border-button-primary-helper hover:bg-button-primary-hover text-lg text-white font-medium duration-75 rounded-2xl border">
+              <AuthModal page={"signup"}/>
               <MdPlayArrow />
             </div>
-          </Link>
         )}
       </motion.div>
       <motion.div
@@ -142,7 +143,8 @@ export default function SectionOne() {
         <span>
           <p className="text-lg text-powered">Supported By</p>
         </span>
-        <span className="flex flex-row flex-wrap gap-4 items-center justify-center">
+        <Marquee gradient gradientColor="#06090E" pauseOnHover className="max-w-xl md:max-w-2xl lg:max-w-3xl">
+        <span className="flex flex-row flex-wrap gap-4 px-2 items-center justify-center">
           <a href="https://m.do.co/c/db7dbc698e16">
             <img
               className="max-md:w-36 md:w-44"
@@ -183,7 +185,32 @@ export default function SectionOne() {
             alt="meltcd"
           />
         </a>
+        <a href="https://www.netlify.com">
+          <img
+            className="max-md:w-32 md:w-40"
+            src={netlify}
+            draggable={false}
+            alt="netlify"
+          />
+        </a>
+        <a href="https://cloud.google.com/startup">
+          <img
+            className="max-md:w-32 md:w-40"
+            src={googlecloud}
+            draggable={false}
+            alt="googlecloud"
+          />
+        </a>
+        <a href="https://www.holopin.io/">
+          <img
+            className="max-md:w-32 md:w-40"
+            src={holopin}
+            draggable={false}
+            alt="holopin"
+          />
+        </a>
         </span>
+        </Marquee>
       </motion.div>
     </div>
   );
