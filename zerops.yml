@@ -9,6 +9,6 @@ zerops:
     run:
       base: nodejs@22
       ports:
-        - port: 3000
+        - port: 4001
           httpSupport: true
       start: npm start
